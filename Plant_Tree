@@ -1,0 +1,131 @@
+package 入门题;
+
+import java.util.Scanner;
+
+public class Main01 {
+    public static void main(String[] args) {
+        //x>=90为一档，90>x>=80为二档，80>x>=70为三档，70>x>=60为四档，60分以下为五档
+//        第一行为一个数n，表示同学个数（n<=100）
+//
+//
+//        接下来n个数，表示同学的成绩xi（0<=xi<=100）
+//
+//
+//        接下来一个数x，表示档次（1<=x<=5）
+//        地图上有若干个导电矩形，长度大小不一（矩形四个角的坐标x，y<=10000）
+//        而且电工觉得，反正矩形很标准，边都平行于坐标轴，所以矩形随便给两个对角的点就够了……这电工觉得你够聪明。
+//
+//        在某个位置有一个电针，而且放出了一股电流，只有包含（包括在边界上）了电针的矩形才有可能将这电流导流，
+//        而最终面积最大的矩形是导流的矩形。
+//
+//        求这个矩形是输入数据中给出的第几个矩形?
+
+//        第一行是一个数字n，表示矩形个数
+//
+//        接下来n行，
+//
+//        每行4个整数，x1,y1,x2,y2，表示第i号矩形对角的坐标
+//
+//        接下来1行，两个整数x，y，表示电针的坐标
+        String str = "";
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr [] = new int[n];
+        for (int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        for (int i=0;i<n;i++){
+            if (arr[i]==0) continue;
+            else {
+                if (i==n-1){
+                    str = str+"+"+arr[i]+"x+";
+                    break;
+                }
+                if (arr[i]<0){
+                    str =  str.substring(0,str.length()-1);
+                    str = str+"-"+Math.abs(arr[i])+"x^"+(n-i);
+                    continue;
+                }
+                str = str +arr[i]+"x^"+(n-i)+"+";
+            }
+
+        }
+        if (arr[0]==1){
+            System.out.println(str.substring(1,str.length()-1));
+            return;
+        }
+        System.out.println(str.substring(0,str.length()-1));
+/*        int A=0,B=0,C=0,D=0,E=0;
+        int arr [] = new int[n];
+        for (int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+            if (arr[i]>=90){
+                A++;
+            }
+            else if (arr[i]>=80 && arr[i]<90){
+                B++;
+            }
+            else if (arr[i]>=70 && arr[i]<80){
+                C++;
+            }
+            else if (arr[i]>=60 && arr[i]<70){
+                D++;
+            }
+            else E++;
+        }
+        int dic = sc.nextInt();
+        switch (dic){
+            case 1:
+                System.out.println(A);
+                return;
+            case 2:
+                System.out.println(B);
+                return;
+            case 3:
+                System.out.println(C);
+                return;
+            case 4:
+                System.out.println(D);
+                return;
+            case 5:
+                System.out.println(E);
+                return;
+        }
+
+     /*   int arr[][] = new int[n][4];
+        //构造一个输入数组格式
+        for (int i=0;i<n;i++){
+            for (int j =0;j<4;j++){
+                arr[i][j] = sc.nextInt();
+                //键盘录入x1,y1;x2,y2
+            }
+        }
+        int x = sc.nextInt(),y = sc.nextInt();
+        //（x，y）为导电场坐标
+        int temporary = 0;   //导电场在内的最大面积值
+        int index = 0;     //导电场最大面积时选取的尝试编号
+        for (int i=0;i<n;i++){
+            int maxx = Math.max(arr[i][0],arr[i][2]),minx = Math.min(arr[i][0],arr[i][2]);
+            int maxy =  Math.max(arr[i][1],arr[i][3]),miny = Math.min(arr[i][1],arr[i][3]);
+            //计算每一个矩形的面积
+            int area = (maxx-minx)*(maxy-miny);
+            //判断（x,y是否在矩形内部）
+            if ((x>=minx&&x<=maxx&&y>=miny&&y<=maxy)){
+                //如果在矩形内部
+                if (temporary<area){
+                    //如果已知的矩形的值小于当前area值
+                    temporary = area;
+                    index = i;
+                }
+            }
+        }
+        System.out.println(index+1);*/
+        sc.close();
+/*
+6
+1 0 3 4 -2 2
+//x^6+3x^4+4x^3-2x^2+2x
+ */
+
+    }
+}
