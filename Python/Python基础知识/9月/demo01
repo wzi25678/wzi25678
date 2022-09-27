@@ -1,0 +1,29 @@
+# 学习作者： Wzi
+# 开发时间： 2022/7/20 14：05
+# 学好Python，搞定大数据
+# outcome  = 12 + 6/3
+# income = 8+12*2-4
+# print(type(income))
+# print(type(outcome))
+# print(outcome)
+# print(int(outcome))
+#print('one',end='')
+
+import turtle
+#
+# for number in range(1,11) :
+#     square = number**2        #Python中^ 为按位异或运算符
+#     print(f'{number} \t 七彩阳光 {square}')
+#####################################################################################
+# my_tuple = ()
+# mt = 41,   #这会认为是里面有一个值为41的元组
+# tuple = 'a','b'
+# print(type(tuple))
+# print('tuple元组里面的数值不可改变。')
+#####################################################################################
+my_tuple = 10,20,30,40
+
+
+
+
+
