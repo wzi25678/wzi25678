@@ -1,0 +1,46 @@
+
+1.abstract 能修饰哪些结构？ 修饰以后，有什么特点？
+类、方法。
+
+类不能实例化，提供子类 
+抽象方法，只定义了一种功能的标准。具体的执行，需要子类去实现。
+
+
+2.接口是否能继承接口? 抽象类是否能实现(implements)接口? 抽象类是否能继承非抽象的类? 
+能，能，能
+3. 声明抽象类，并包含抽象方法。测试类中创建一个继承抽象类的匿名子类的对象
+abstract AA{
+public abstract void m();
+}
+main(){
+	AA a = new AA(){
+		public void m(){
+	
+}
+};
+a.m();
+
+}
+
+
+class Person{
+  String name;
+	public void eat(){}
+}
+
+main(){
+	Person p = new Person(){
+		public void eat(){}
+};
+	p.eat();
+}
+
+4. 抽象类和接口有哪些共同点和区别？ 
+相同点：不能实例化，都可以被继承
+不同点：抽象类：有构造器。 接口：不能声明构造器
+多继承vs 单继承 
+5. 如何创建静态成员内部类和非静态成员内部类的对象？
+Person  static Dog   Bird
+Person.Dog dog = new Person.Dog();
+Person p = new Person();
+Person.Bird bird = p.new Bird();
