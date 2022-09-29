@@ -119,6 +119,7 @@ public class Main01 {
                 }
             }
         }
+        
         System.out.println(index+1);*/
         sc.close();
 /*
