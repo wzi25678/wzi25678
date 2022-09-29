@@ -1,0 +1,66 @@
+package 编程专用函数;
+
+import java.util.Scanner;
+//题目 2016: 新生的入队仪式
+/*
+第一行是两个数n,m，表示有n(n<100000)个同学，新生身高为m(m<10^9)
+
+接下来1行，一共n个数，表示目前合唱队的队员从左至右的身高。
+
+接下来一个数字（1或者2）表示老师希望他站在哪一侧。
+ */
+public class Main {
+
+   public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt() ,m = sc.nextInt();
+        int arr[] = new int[n];
+        int max = 0 ,index = 0;
+        for (int i = 0;i<n;i++){
+            arr[i] = sc.nextInt();
+            if (arr[i]>max){
+                index = i;
+                max = arr[i];
+            }
+        }
+
+        int dirction = sc.nextInt();
+        if (m >max){
+           System.out.println(index+2);
+           sc.close();
+           return;
+       }
+        if (dirction == 1){
+            for (int i = 0;i<n;i++){
+                if (m>arr[i]){
+                    continue;
+                }else {
+                    System.out.println(i+1);
+                    sc.close();
+                    return;
+                }
+            }
+
+        }
+        if (dirction == 2){
+            for (int i = n-1;i>0;i--){
+                if (arr[i]>arr[i-1]) {
+                     if (m<arr[i]){
+                        System.out.println(i+1);
+                        return;
+                     }
+                }
+                if (m>arr[i]){
+                    continue;
+                }else {
+                    System.out.println(i+2);
+                    sc.close();
+                    return;
+                }
+            }
+
+        }
+   }
+
+
+}
