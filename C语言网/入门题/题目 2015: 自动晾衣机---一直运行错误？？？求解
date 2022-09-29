@@ -1,0 +1,30 @@
+package 编程专用函数;
+
+import java.util.Scanner;
+
+public class Main {
+
+   public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+       //arr表示衣架的长度
+       while(sc.hasNext()) {
+           int arr [] = new int[n+5];
+           int index = 0;
+           int number = sc.nextInt();   //第一个输入的数字表示衣服的数量
+           for (int i=0;i<number;i++){
+                    //用于记录当前所在位置
+                int Current_Clother_Length = sc.nextInt();  //当前衣服的长度
+                for (int j=0;j<Current_Clother_Length;j++){
+                    arr[index+j] = 1;
+                }
+                arr[index+Current_Clother_Length] = 2;
+                index +=(Current_Clother_Length+1);
+           }
+           int Find = sc.nextInt();
+           System.out.println(arr[Find-1]);
+       }
+       sc.close();
+
+   }
+}
