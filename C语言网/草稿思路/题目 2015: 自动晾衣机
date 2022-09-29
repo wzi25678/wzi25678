@@ -1,0 +1,81 @@
+package 编程专用函数;
+
+import java.util.Scanner;
+
+public class Main {
+   /*
+   有一个环形可以晾衣服的衣架，有若干个夹子组成，
+   它可以晾不同长度的衣服（占用多个夹子），
+   并且【每两件衣服中间要有一个空夹子作为空位，】
+   下面需要依次晾干几件长度不一的衣服，请你给出某个夹子的使用情况
+
+   第一行一个数n，表示晾衣架的长度。(n<100000)
+接下来有若干条数据，每条数据第一行若干个数（数据保证不会占满n），表示衣服的长度
+第二行一个数 i，表示要查询 i 位置的使用情况
+    */
+   public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+//       int loop = sc.nextInt(); //晾衣杆的长度
+//       while (sc.hasNext()){    //无限制输入
+//           //构造一个辅助数组，对每个格子附上相应的标号
+//           int Helper[] = new int[100000];
+//            int clothers = sc.nextInt();    //表示晒了几件衣服
+       Scanner in =new Scanner(System.in);
+       int n=in.nextInt();   //晾衣架的长度,与n无关……
+       while(in.hasNext()) {
+           int flag [] = new int [100005],index=0;
+           int m=in.nextInt();  //表示有几件衣服
+           for( int i=0;i<m;i++) {
+               int len=in.nextInt(); //每件衣服的长度
+               if(i==0) {   //第一件衣服
+                   for(int k=0;k<len;k++) {    //第一件衣服所占的格子数目
+                       flag[index+k]=1;
+                   }
+//                  flag[n-1]=2;    环形是个啥？没作用……
+                   flag[index+len]=2;  //间隔格子
+                   index=0+len+1;    //置为1，并移动到下次开始的位置,0表示起点，i表示长度，1表示单个间隔格子
+               }
+               else {
+                   for(int k=0;k<len;k++){    //第i件衣服
+                       flag[index+k]=1;
+                   }
+                   flag[index+len]=2;
+                   index=index+len+1;
+               }
+
+           }
+           int q=in.nextInt()-1;  //需要查询的位置
+           if(q<0)
+               return ;
+           System.out.println(flag[q]);
+       }
+       in.close();
+
+
+
+          //String NumberArray = sc.next();
+//          sc.nextLine();
+//          int sure = sc.nextInt();
+//          String str [] = NumberArray.split(" ");
+//          int arr [] = new int[str.length];
+//
+//          for (int i = 0;i<arr.length;i++){
+//              arr[i] = Integer.parseInt(str[i]);
+//          }
+//          int count = arr[0];
+//          for (int i = 1;i<arr.length;i++){
+//              if (sure==(count-1)){
+//                  System.out.println(2);
+//              }
+//              else if (sure < (count-1)){
+//                  System.out.println(1);
+//              }
+//              else count+=arr[i];
+//              if (i==arr.length-1){
+//                  System.out.println(0);
+//              }
+//          }
+//
+  //    }
+   }
+}
