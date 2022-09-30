@@ -1,0 +1,60 @@
+# 学习作者： Wzi
+# 开发时间： 2022/7/20 14：05
+# 学好Python，搞定大数据
+# names = ['Bob','Tom','alice','Jerry','Wendy','Smith']
+# #new_names = [name.upper()for name in names if len(name)>3]
+# new_names = [name.upper()for name in names if len(name)>3]
+# print(new_names)
+# #['ALICE', 'JERRY', 'WENDY', 'SMITH']
+# listdemo = ['Google','Runoob', 'Taobao']
+# # 将列表中各字符串值为键，各字符串的长度为值，组成键值对
+# newdict = {key:len(key) for key in listdemo}
+# #键是key，值是key的len，即len(key)
+# print(newdict)
+# #{'Google': 6, 'Runoob': 6, 'Taobao': 6}
+# a = (x<10 for x in range(1,10) if x>5)
+# print(a)   #<generator object <genexpr> at 0x0000016A73FC0580>
+#
+# tuple(a)
+# print(a)
+#
+# print(tuple(a))
+# <generator object <genexpr> at 0x7faf6ee20a50>  # 返回的是生成器对象
+#
+#        # 使用 tuple() 函数，可以直接将生成器对象转换成元组
+# (1, 2, 3, 4, 5, 6, 7, 8, 9)
+# $ python3
+#python3
+# Python 3.4.0 (default, Apr 11 2014, 13:05:11)
+# [GCC 4.8.2] on linux
+# Type "help", "copyright", "credits" or "license" for more information.
+# a = 10
+# if (n := len(a)) > 10:
+#     print(f"List is too long ({n} elements, expected <= 10)")
+# !/usr/bin/python3
+
+# 可写函数说明
+# def printinfo(arg1, *vartuple):
+#     "打印任何传入的参数"
+#     print("输出: ")
+#     print(arg1)
+#     for var in vartuple:
+#         print(var)
+#     return
+#
+#
+# # 调用printinfo 函数
+# printinfo(10)
+# printinfo(70, 60, 50)
+def f(a,b,*,c):
+    print(a)     #1
+    print(b)     #2
+   # print(*)
+    print(c)     #3
+    return a+b+c
+#f(1,2,3)   # 报错
+# Traceback (most recent call last):
+#   File "<stdin>", line 1, in <module>
+# TypeError: f() takes 2 positional arguments but 3 were given
+print(f(1,2,c=3)) # 正常
+#6
