@@ -1,0 +1,16 @@
+# 学习作者： Wzi
+# 开发时间： 2022/7/20 14：05
+# 学好Python，搞定大数据
+def main():
+    num_days = input('For how mang days do' +
+                     'you have sales?\n' )
+    sales_file = open('sales.txt','w')
+    for count in range (1,num_days+1): 
+        #TypeError: can only concatenate str (not "int") to str
+        sales = float(input(f'Enter the sales for day #{count:} '))
+        sales_file.write(f'{sales}\n')
+    sales_file.close()
+    print('Data!')
+
+if __name__ == '__main__':
+     main()
