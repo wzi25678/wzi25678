@@ -1,0 +1,36 @@
+package JavaSenior.day02.java1;
+
+public class BankTest {
+
+}
+class Bank{
+
+    private Bank(){}
+
+    private static Bank instance = null;
+                //进程同步块
+    public static synchronized Bank getInstance(){
+        //方式一：效率稍差
+        //先同步，在判断是否为空
+//        synchronized (Bank.class) {
+//            if(instance == null){
+//                instance = new Bank();
+//            }
+//            return instance;
+//        }
+
+        //方式二：效率更高
+        if(instance == null){
+
+            synchronized (Bank.class) {
+                if(instance == null){
+
+                    instance = new Bank();
+                }
+
+            }
+        }
+        return instance;
+    }
+
+}
