@@ -1,0 +1,26 @@
+# 学习作者： Wzi
+# 开发时间： 2022/7/20 14：05
+# 学好Python，搞定大数据
+def main():
+    found = False
+    search = input('Enter a description to search for: \n')
+    coffee_file = open('coffee.txt','r')
+    descr = coffee_file.readline()
+    while descr != '':
+        qty = float(coffee_file.readline())
+        descr = descr.rstrip('\n')
+       # descr = descr.rstrip('\n')
+        if descr == search:
+            print(f'Description:{descr}')
+            print(f'Quantity:{qty}')
+            print()
+            found = True
+        descr = coffee_file.close()
+
+    coffee_file.close()
+
+    if not found:
+        print('That item was not found in this file.')
+
+if __name__ == '__main__':
+     main()
