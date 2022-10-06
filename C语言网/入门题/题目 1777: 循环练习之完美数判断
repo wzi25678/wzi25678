@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main()
+{
+    int a,i;
+    int sum=0;
+    scanf("%d",&a);
+    for( i=1;i<a;i++)
+    {
+        if(a%i==0)//判断是否是数字N的因数
+        {
+        sum+=i;//是的话  加到sum中去
+        //printf("%d ",i);
+        }
+    }
+    if(sum==a) printf("YES");   //判断
+    else printf("NO");
+    return 0;
+}
