@@ -1,0 +1,15 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+ 
+Scanner sc = new Scanner(System.in);
+int n = sc.nextInt();
+int m = sc.nextInt();
+Integer a[] = new Integer [n];
+for (int i=0;i<n;i++){
+    a[i]=sc.nextInt();
+}
+Arrays.sort(a, Collections.reverseOrder());  //降序排序
+for (int i=0;i<m;i++){
+    System.out.print(a[i]+" ");
+}
