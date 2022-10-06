@@ -1,0 +1,22 @@
+#include<stdio.h>
+ 
+int main()
+{
+    int n, m, a, b;
+    while(scanf("%d%d", &n, &m) != EOF){
+        if(n < 0 || m < 0){
+            printf("No answer\n");
+        }
+        else{
+            b = (m - 2 * n) / 2;
+            a = (4 * n - m) / 2;
+            if(a + b != n || a < 0 || b < 0){ 
+                printf("No answer\n");
+            }
+            else{ 
+                printf("%d %d\n", a, b);
+            }
+        }
+    }
+    return 0;
+}
