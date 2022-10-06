@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main()
+{
+     int swap(int *a,int *b);
+     int a,b;
+     scanf("%d%d",&a,&b);
+     int *p1=&a;
+     int *p2=&b;
+     swap(p1,p2);
+     printf("%d %d",a,b);
+     return 0;
+}
+int swap(int *a,int *b)
+{
+    int tmp;
+    tmp=*a;
+    *a=*b;
+    *b=tmp;
+    return 0;
+}
