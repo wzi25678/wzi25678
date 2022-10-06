@@ -1,0 +1,27 @@
+#include<stdio.h>
+
+ 
+
+int main()
+
+{
+
+int a=0;//定义变量，表示计算总和
+
+int b=1;//表示每个数字
+
+while(b<=1000)
+
+{
+
+a=a+b;//进行累加
+
+b++;//增加数字
+
+}
+
+printf("%d",a);//将结果输出
+
+return 0;
+
+}
