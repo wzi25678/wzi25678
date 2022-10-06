@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int i,n,sum,diff;                             //i是求斜行数，sum是求前几项和，diff是sum与n的差
+    while (cin>>n){                               //循环输入n值
+        i=1;  sum=0;                              //对每一个n处理时要初始化i，sum的值
+        while (sum<=n){                           //循环直到sum大于n
+            sum+=i;
+            i++;                                  //要注意不同情况i与n所在斜行数的关系
+        }
+        diff=sum-n;                
+        if ((sum-i+1)==n){                        //第一种情况：n恰好等于前几项的和，斜行数是i-2
+            if ((i-2)%2==0)                       //判断斜行数为偶数
+                cout<<i-2<<"/1"<<endl;            //可以从图表中找到规律
+            else
+                cout<<"1/"<<i-2<<endl;
+        }
+        else {                                    //第二种情况，斜行数是i-1
+            if ((i-1)%2!=0)                       //判断奇偶
+                cout<<1+diff<<"/"<<i-1-diff<<endl;//分别是行数和列数
+            else
+                cout<<i-1-diff<<"/"<<1+diff<<endl;
+        }
+    }
+    return 0;
+}
