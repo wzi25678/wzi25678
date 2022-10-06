@@ -1,0 +1,28 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<string.h>
+#include<string>
+#include<algorithm>
+#include<functional>
+#include<map>
+#include<iomanip>
+using namespace std;
+int main(){
+                int need2[4] = { 0, 5, 3, 1 };
+                int a, b, c, d, e, f;
+                while (cin >> a >> b >> c >> d >> e >> f){
+                                if (a + b + c + d + e + f == 0)break;
+                                int need2num = 0;
+                                int need1num = 0;
+                                int box = 0;
+                                box = f + e + d + (c + 3) / 4;//6*6至到3*3首先要用了多少个box箱子
+                                need2num = d * 5 + need2[c % 4];//到目前为止填满d和c一共需要的2*2的箱子数
+                                if (need2num >= b){ box += 0; } //2*2的箱子刚好符合或者小于需要的，就不需要在开辟box箱子了
+                                else box += ((b - need2num) + 8) / 9; //这里是多出来的2*2的情况，需要加box箱子，加box箱子的数目需要看多出来几个，每多出9个就多加一个box箱子
+                                need1num = box * 36 - (f * 36 + e * 25 + d * 16 + c * 9 + b * 4);
+                                if (need1num >= a){ box += 0; }
+                                else box += ((a - need1num) + 35) / 36;
+                                cout << box << endl;
+                }
+                return 0;
+}
