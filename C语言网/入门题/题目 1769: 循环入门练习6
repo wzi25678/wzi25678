@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main()
+
+{
+
+    int i,j,N;
+
+    scanf("%d",&N);
+
+    for( i = 1; i <=N; i ++)
+
+    {
+
+        printf("%d ",i);
+
+        for(j=1;j<i;j++)
+
+          {
+
+              if(i%j==0)
+
+            printf("%d ",j);
+
+          }
+
+          printf("\n");
+
+    }//在这里返回，判断下个条件是否成立
+
+    return 0;
+
+}
+
