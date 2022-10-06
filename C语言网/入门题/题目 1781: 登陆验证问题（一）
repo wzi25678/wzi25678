@@ -1,0 +1,44 @@
+#include<stdio.h>
+
+#include<string.h>
+
+   int main ()
+
+      {
+
+        char account[100],pass[100],account1[100],pass1[100];
+
+        //printf("请输入账号\n");
+
+        scanf("%20s",account);
+
+      //  printf("请输入密码\n");
+
+        scanf("%20s",pass);
+
+        strcpy(account1,"dotcpp");
+
+        strcpy(pass1,"123456");
+
+        if(strcmp(account1,account)==0&&strcmp(pass1,pass)==0)
+
+             {
+
+                 printf("Login Successfull!");
+
+             }
+
+        else
+
+             {
+
+                 printf("Login Fails!");
+
+             }
+
+        return 0;
+
+      }
+
+
+
