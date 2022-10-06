@@ -1,0 +1,30 @@
+#include<stdio.h>
+
+int main()
+
+{
+
+    int a,b,N;
+
+    a=0;
+
+    b=0;
+
+    scanf("%d",&N);
+
+    while(b<=N)
+
+    {
+
+        a=a+b;
+
+        b++;
+
+    }
+
+    printf("%d\n",a);
+
+    return 0;
+
+}
+
