@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n,max_chr;
+int chr[26];
+char str[10005];
+ 
+int main(){
+    scanf("%d",&n);
+    getchar();
+    while(n--){
+        memset(str,0,sizeof(str));
+        memset(chr,0,sizeof(chr));
+        max_chr=0;
+        gets(str);
+        for(int i=0;i<strlen(str);i++){
+            chr[str[i]-'a']++;
+        }
+        for(int i=0;i<=26;i++){
+            if(chr[max_chr]<chr[i]){
+                max_chr=i;
+            }
+        }
+        printf("%c %d\n",max_chr+'a',chr[max_chr]);
+    }
+}
