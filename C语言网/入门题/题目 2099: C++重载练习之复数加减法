@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+class Complex{
+private:
+    int a;
+    int b;
+public:
+    Complex(){}
+    Complex(int a,int b){
+        this->a=a;
+        this->b=b;
+    }
+    void set(){
+        cin>>this->a>>this->b;
+    }
+    Complex operator +(Complex t){
+        return Complex(a+t.a,b+t.b);
+    }
+    Complex operator -(Complex t){
+        return Complex(a-t.a,b-t.b);
+    }
+    void print(){
+        if(this->b>0)
+            cout<<this->a<<"+"<<this->b<<"i"<<endl;
+        else if(this->b==0)
+            cout<<this->a<<endl;
+        else if(this->a==0)
+            cout<<this->b<<"i"<<endl;
+        else cout<<this->a<<this->b<<"i"<<endl;
+    }
+};
+int main()
+{
+    char plus;
+    Complex A;
+    Complex B;
+    Complex C;
+    A.set();
+    cin>>plus;
+    B.set();
+    if(plus=='+')
+        C=A+B;
+    else
+        C=A-B;
+    C.print();
+    return 0;
+}
