@@ -1,0 +1,63 @@
+Module  java.base 
+软件包  java.lang.annotation 
+Interface Annotation
+
+所有已知实现类： 
+Action ， Addressing ， BeanProperty ， BindingType ， ConstructorParameters ， ConstructorProperties ， DefaultProperty ， 已过时的 ， DescriptorKey ， Documented ， FaultAction ， FunctionalInterface ， FXML ， Generated ， Generated ， HandlerChain ， Inherited ， InitParam ， JavaBean ， MTOM ， MXBean ， NamedArg ， Native ， Oneway ， Override ， PostConstruct ， PreDestroy ， Repeatable ， RequestWrapper ， Resource ， Resources ， RespectBinding ， ResponseWrapper ， Retention ， SafeVarargs ， ServiceMode ， SOAPBinding ， SOAPMessageHandler ， SOAPMessageHandlers ， SupportedAnnotationTypes ， SupportedOptions ， SupportedSourceVersion ， SuppressWarnings ， SwingContainer ， Target ， Transient ， WebEndpoint ， WebFault ， WebMethod ， WebParam ， WebResult ， WebService ， WebServiceClient ， WebServiceFeatureAnnotation ， WebServiceProvider ， WebServiceRef WebServiceRef ， WebServiceRefs ， XmlAccessorOrder ， XmlAccessorType ， XmlAnyAttribute ， XmlAnyElement ， XmlAttachmentRef ， XmlAttribute ， XmlElement ， XmlElementDecl ， XmlElementRef ， XmlElementRefs ， XmlElements ， XmlElementWrapper ， XmlEnum ， XmlEnumValue ， XmlID ， XmlIDREF ， XmlInlineBinaryData ， XmlJavaTypeAdapter ， XmlJavaTypeAdapters ， XmlList ， XmlMimeType ， XmlMixed ， XmlNs ， XmlRegistry ， XmlRootElement ， XmlSchema ， XmlSchemaType ， XmlSchemaTypes ， XmlSeeAlso ， XmlTransient ， XmlType ， XmlValue 
+
+--------------------------------------------------------------------------------
+
+
+public interface Annotation所有注释类型扩展的公共接口。 注意，手动扩展这个接口不限定注释类型。 还要注意，此接口本身并不定义注释类型。 有关注释类型的更多信息，请参见第The Java™ Language Specification的 9.6 节 。 AnnotatedElement接口讨论了将注释类型从不可重复性转变为可重复时的兼容性问题。 
+从以下版本开始： 
+1.5 
+
+方法摘要
+所有方法 接口方法  抽象方法   Modifier and Type 方法 描述 
+Class<? extends Annotation> annotationType​() 返回此注释的注释类型。  
+boolean equals​(Object obj) 如果指定的对象表示在逻辑上等同于该注释的注释，则返回true。  
+int hashCode​() 返回此注释的哈希码，定义如下：  
+String toString​() 返回此注释的字符串表示形式。  
+
+
+方法详细信息
+equals
+boolean equals​(Object obj)如果指定的对象表示在逻辑上等同于该注释的注释，则返回true。 换句话说，如果指定的对象是与该实例相同的注释类型的实例，则返回true，所有这些实例的所有成员都等于此注释的相应成员，定义如下： 
+两个相应的原语类型的成员的值是x和y被视为相等如果x == y ，除非它们的类型是float或double 。 
+两个对应float成员，其值是x和y被认为是如果相等Float.valueOf(x).equals(Float.valueOf(y)) 。 （与==运算符不同，NaN被认为等于自身，而0.0f不等于-0.0f ） 
+两个对应double成员，其值是x和y被认为是如果相等Double.valueOf(x).equals(Double.valueOf(y)) 。 （与==运算符不同，NaN被认为等于自身，而0.0不等于-0.0 ） 
+两个相应的String ， Class ，enum或annotation类型的成员的值是x和y被认为是相等如果x.equals(y) 。 （请注意，此定义对于注释类型的成员是递归的。） 
+两个对应的数组类型的成员x和y被认为是相等的，如果是Arrays.equals(x, y) ，为适当的超载Arrays.equals(long[], long[]) 。 
+重写： 
+equals在 Object 
+参数 
+obj - 与之比较的参考对象。 
+结果 
+如果指定的对象表示逻辑上等同于该注释的注释，则为true，否则为false 
+另请参见： 
+Object.hashCode() ， HashMap 
+hashCode
+int hashCode​()返回此注释的哈希码，定义如下： 
+注释的哈希码是其成员的哈希码（包括具有默认值的哈希码）的和，如下所定义：注释成员的哈希码是（127位的成员名称的哈希码，由String.hashCode() ）XOR是成员值的哈希码，如下定义： 
+
+成员值的哈希码取决于其类型： 
+
+原始值的哈希码v等于WrapperType.valueOf(v).hashCode() ，其中WrapperType是相应于原语类型的包装类型v （ Byte ， Character ， Double ， Float ， Integer ， Long ， Short ，或Boolean ）。 
+字符串，枚举，类或注释成员值I v的哈希码通过调用v.hashCode()计算。 （在注释成员值的情况下，这是递归定义。） 
+数组成员值的哈希码是通过调用的适当重载计算Arrays.hashCode上的值。 （每个基本类型有一个重载，一个用于对象引用类型）。 
+重写： 
+hashCode在 Object 
+结果 
+该注释的哈希码 
+另请参见： 
+Object.equals(java.lang.Object) ， System.identityHashCode(java.lang.Object) 
+toString
+String toString​()返回此注释的字符串表示形式。 表示的细节依赖于实现，但以下可能被认为是典型的： 
+  @com.acme.util.Name(first=Alfred, middle=E., last=Neuman) 重写： 
+toString在 Object 
+结果 
+此注释的字符串表示形式 
+annotationType
+Class<? extends Annotation> annotationType​()返回此注释的注释类型。 
+结果 
+此注释的注释类型 
