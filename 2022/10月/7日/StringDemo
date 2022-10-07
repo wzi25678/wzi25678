@@ -1,0 +1,68 @@
+package JavaSenior.day04_Copy.exer;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+public class StringDemo {
+     /*
+    将一个字符串进行反转。将字符串中指定部分进行反转。比如“abcdefg”反转为”abfedcg”
+    方式一：转换为char[]
+     */
+     public static void main(String[] args) {
+         String str = "abcdefg";    //abfedcg
+                        //abfedcg
+        StringDemo sd = new StringDemo();
+         String reverse = sd.reverse1(str,2,5);
+         System.out.println(reverse);
+
+     }
+
+    public String reverse1(String str,int startIndex,int endIndex){
+        if(str != null){
+            //第1部分
+            String reverseStr = str.substring(0,startIndex);
+            //第2部分
+            for(int i = endIndex;i >= startIndex;i--){
+                reverseStr += str.charAt(i);
+            }
+            //第3部分
+            reverseStr += str.substring(endIndex,str.length());
+            //reverseStr += str.substring(endIndex + 1);
+
+            return reverseStr;
+
+        }
+        return null;
+    }
+
+
+     public String reverse(String str,int index,int end){
+         if (str!=null){
+             char arr[] = str.toCharArray();   //String转Char型数组
+             for (int x = index,y = end;x<y;x++,y--){
+//                 char temp = arr[x];
+//                 arr[x] = arr[y];
+//                 arr[y] = temp;
+                 Swap(arr,x,y);
+             }
+             //你的本意是return当前的arr，但是arr是char类型
+             return new String(arr);
+         }else {
+             return null;
+         }
+     }
+
+    private void Swap(char arr [], int x, int y) {
+         if (arr!=null){
+                 char temp = arr[x];
+                 arr[x] = arr[y];
+                 arr[y] = temp;
+
+         }
+         else{
+             System.out.println("当前字符串为空！");
+             return;
+         }
+    }
+}
