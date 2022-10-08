@@ -1,0 +1,61 @@
+1）作用不同：
+     throw用于程序员自行产生并抛出异常；
+     throws用于声明在该方法内抛出了异常
+   2） 使用的位置不同：
+     throw位于方法体内部，可以作为单独语句使用；
+     throws必须跟在方法参数列表的后面，不能单独使用。
+   3）内容不同：
+     throw抛出一个异常对象，且只能是一个；
+     throws后面跟异常类，而且可以有多个。
+     
+     
+     一、说明：
+1、throw 在方法体内使用，throws 在方法声明上使用；
+2、throw 后面接的是异常对象，只能接一个。throws 后面接的是异常类型，可以接多个，多个异常类型用逗号隔开；
+3、throw 是在方法中出现不正确情况时，手动来抛出异常，结束方法的，执行了 throw 语句一定会出现异常。而 throws 是用来声明当前方法有可能会出现某种异常的，如果出现了相应的异常，将由调用者来处理，声明了异常不一定会出现异常。
+二、相关解析
+throw 和 throws 都是用来进行 Java 异常处理的。
+
+1、其中，throw 是用在某个方法的方法体内的，当我们认定某种情况不合理时，就可以创建异常对象，封装好异常信息，然后通过 throw 来抛出异常并终止该方法。
+public class CustomerLevel {
+    // 性别
+    private String level;
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        if (!("会员".equals(level) || "普通用户".equals(level))) {
+            //throw用在setLevel(String level)方法的方法体内
+            throw new IllegalArgumentException("非法用户：" + level);
+        }
+        this.level = level;
+    }
+}
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+2、而 throws 是用在某个方法的方法声明上的，表示当前方法如果抛出了某些异常，将由调用者来进行异常处理。这种方式也可以让调用者知晓该对哪些异常进行处理。throws 声明的异常不一定会出现，只是一种可能。
+public class FileInputStream extends InputStream {
+    //throws用在FileInputStream(String namwe)方法的方法声明上的
+    public FileInputStream(String name) throws FileNotFoundException {
+        this(name != null ? new File(name) : null);
+    }
+}
+————————————————
+版权声明：本文为CSDN博主「我不是你不是我」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_46511008/article/details/118770337
