@@ -1,0 +1,287 @@
+Skip navigation links 概述 Module 软件包 Class 使用 树 已过时的 索引 帮助 Java SE 9 & JDK 9 上一个 下一个 框架 无框架 所有类 SEARCH:    概要：  嵌套 |  字段 |  构造方法 |  方法 详细信息：  字段 |  构造方法 |  方法   
+Module  java.base 
+软件包  java.util 
+Interface Collection<E>
+
+参数类型 
+E - 此集合中元素的类型 
+All Superinterfaces: 
+Iterable<E> 
+All Known Subinterfaces: 
+BeanContext ， BeanContextServices ， BlockingDeque<E> ， BlockingQueue<E> ， Deque<E> ， EventSet ， List<E> ， NavigableSet<E> ， ObservableList<E> ， ObservableListValue<E> ， ObservableSet<E> ， ObservableSetValue<E> ， Queue<E> ， Set<E> ， SortedSet<E> ， TransferQueue<E> ， WritableListValue<E> ， WritableSetValue<E> 
+所有已知实现类： 
+AbstractCollection ， AbstractList ， AbstractQueue ， AbstractSequentialList ， AbstractSet ， ArrayBlockingQueue ， ArrayDeque ， ArrayList ， AttributeList ， BeanContextServicesSupport ， BeanContextSupport ， ConcurrentHashMap.KeySetView ， ConcurrentLinkedDeque ， ConcurrentLinkedQueue ， ConcurrentSkipListSet ， CopyOnWriteArrayList ， CopyOnWriteArraySet ， DelayQueue ， EnumSet ， FilteredList ， HashSet ， JobStateReasons ， LinkedBlockingDeque ， LinkedBlockingQueue ， LinkedHashSet ， LinkedList ， LinkedTransferQueue ， ListBinding ， ListExpression ， ListProperty ， ListPropertyBase ， ModifiableObservableListBase ， ObservableListBase ， PriorityBlockingQueue ， PriorityQueue ， ReadOnlyListProperty ， ReadOnlyListPropertyBase ， ReadOnlyListWrapper ， ReadOnlySetProperty ， ReadOnlySetPropertyBase ， ReadOnlySetWrapper ， RoleList ， RoleUnresolvedList ， SetBinding ， SetExpression ， SetProperty ， SetPropertyBase ， SimpleListProperty ， SimpleSetProperty ， SortedList ， Stack ， SynchronousQueue ， TransformationList ， TreeSet ， Vector 
+
+--------------------------------------------------------------------------------
+
+
+public interface Collection<E>
+extends Iterable<E>集合层次结构中的根界面。 集合表示一组被称为其元素的对象。 一些集合允许重复元素，而其他集合不允许。 有些被命令和其他无序。 JDK不提供此接口的任何直接实现：它提供了更具体的子接口的实现，如Set和List 。 该界面通常用于传递集合，并在需要最大的通用性的情况下对其进行操作。 
+包或多重集 （可能包含重复元素的无序集合）应直接实现此接口。 
+
+所有通用的Collection实现类（通常通过其子接口间接实现Collection ）应该提供两个“标准”构造函数：一个void（无参数）构造函数，它创建一个空集合，以及一个具有单个参数类型的构造函数Collection ，它创建一个与其参数相同的元素的新集合。 实际上，后一个构造函数允许用户复制任何集合，生成所需实现类型的等效集合。 没有办法强制执行这个约定（因为接口不能包含构造函数），而是Java平台库中的所有通用的Collection实现。 
+
+如果此集合不支持该操作，则此接口中包含的“破坏性”方法（即修改其操作的集合的方法）将被指定为抛出UnsupportedOperationException 。 如果是这种情况，如果调用对集合没有影响，这些方法可能会但不是必须抛出一个UnsupportedOperationException 。 例如，如果要添加的集合为空，则可以在不可修改的集合上调用addAll(Collection)方法，但不是必须抛出异常。 
+
+Some collection implementations have restrictions on the elements that they may contain.例如，一些实现禁止空元素，一些实现方式对其元素的类型有限制。 尝试添加不合格元素会引发未经检查的异常，通常为NullPointerException或ClassCastException 。 尝试查询不合格元素的存在可能会引发异常，或者可能只是返回false; 一些实现将展现出前者的行为，一些实现将展现出后者。 更一般来说，尝试对不符合条件的元素进行操作时，其完成不会导致将不合格元素插入到集合中，可能会导致异常，或者可能会成功执行该选项。 此异常在此接口的规范中标记为“可选”。 
+
+每个集合决定自己的同步策略。 在没有实现的更强保证的情况下，未定义的行为可能是由于对由另一个线程进行突变的集合的任何方法的调用而导致的; 这包括直接调用，将集合传递给可能执行调用的方法，并使用现有的迭代器来检查集合。 
+
+Collections Framework接口中的许多方法都是按照equals方法进行定义的。 例如，对于在本说明书contains(Object o)方法表示：“返回true当且仅当这个集合包含至少一个元素e使得(o==null ? e==null : o.equals(e)) ”。 该规范不应该被解释为意味着调用Collection.contains与非空参数o会导致o.equals(e)被调用任何元素e 。 实现可以自由地实现优化，从而避免equals调用，例如，首先比较两个元素的哈希码。 （ Object.hashCode()规范保证具有不等的哈希码的两个对象不能相等。）更一般地说，各种Collections框架接口的实现可以随意利用底层的Object方法的指定行为，无论执行者认为是合适的。 
+
+执行递归遍历集合的一些集合操作可能会失败，而自引用实例的异常会导致集合直接或间接包含其自身。 这包括clone() ， equals() ， hashCode()和toString()方法。 实现可以可选地处理自引用场景，然而大多数当前实现不这样做。 
+
+此接口是Java Collections Framework的成员。 
+
+实现要求： 
+默认方法实现（继承或其他）不应用任何同步协议。 如果一个Collection实现具有特定的同步协议，则它必须覆盖默认实现以应用该协议。 
+从以下版本开始： 
+1.2 
+另请参见： 
+Set ， List ， Map ， SortedSet ， SortedMap ， HashSet ， TreeSet ， ArrayList ， LinkedList ， Vector ， Collections ， Arrays ， AbstractCollection 
+
+方法摘要
+所有方法 接口方法  抽象方法  Default Methods   Modifier and Type 方法 描述 
+boolean add​(E e) 确保此集合包含指定的元素（可选操作）。  
+boolean addAll​(Collection<? extends E> c) 将指定集合中的所有元素添加到此集合（可选操作）。  
+void clear​() 从此集合中删除所有元素（可选操作）。  
+boolean contains​(Object o) 如果此集合包含指定的元素，则返回 true 。  
+boolean containsAll​(Collection<?> c) 如果此集合包含指定集合中的所有元素，则返回 true 。  
+boolean equals​(Object o) 将指定的对象与此集合进行比较以获得相等性。  
+int hashCode​() 返回此集合的哈希码值。  
+boolean isEmpty​() 如果此集合不包含元素，则返回 true 。  
+Iterator<E> iterator​() 返回此集合中元素的迭代器。  
+default Stream<E> parallelStream​() 返回可能并行的 Stream与此集合作为其来源。  
+boolean remove​(Object o) 从该集合中删除指定元素的单个实例（如果存在）（可选操作）。  
+boolean removeAll​(Collection<?> c) 删除指定集合中包含的所有此集合的元素（可选操作）。  
+default boolean removeIf​(Predicate<? super E> filter) 删除满足给定谓词的此集合的所有元素。  
+boolean retainAll​(Collection<?> c) 仅保留此集合中包含在指定集合中的元素（可选操作）。  
+int size​() 返回此集合中的元素数。  
+default Spliterator<E> spliterator​() 在此集合中的元素上创建一个Spliterator 。  
+default Stream<E> stream​() 返回一个序列 Stream与此集合作为其来源。  
+Object[] toArray​() 返回一个包含此集合中所有元素的数组。  
+<T> T[] toArray​(T[] a) 返回一个包含此集合中所有元素的数组; 返回的数组的运行时类型是指定数组的运行时类型。  
+
+Methods inherited from interface java.lang.Iterable
+forEach 
+
+方法详细信息
+size
+int size​()返回此集合中的元素数。 如果此集合包含Integer.MAX_VALUE元素，则返回Integer.MAX_VALUE 。 
+结果 
+此集合中的元素数 
+isEmpty
+boolean isEmpty​()如果此集合不包含元素，则返回 true 。 
+结果 
+true如果此集合不包含元素 
+contains
+boolean contains​(Object o)如果此集合包含指定的元素，则返回true 。 更正式地说，返回true当且仅当这个集合包含至少一个元素e这样Objects.equals(o, e) 。 
+参数 
+o - 要在此集合中存在的元素要进行测试 
+结果 
+true如果此集合包含指定的元素 
+异常 
+ClassCastException - 如果指定元素的类型与此集合不兼容（ optional ） 
+NullPointerException - 如果指定的元素为空，并且此集合不允许空元素（ optional ） 
+iterator
+Iterator<E> iterator​()返回此集合中元素的迭代器。 没有关于元素返回顺序的保证（除非这个集合是提供保证的某个类的实例）。 
+Specified by: 
+iterator接口 Iterable<E> 
+结果 
+一个 Iterator在这个集合中的元素 
+toArray
+Object[] toArray​()返回一个包含此集合中所有元素的数组。 如果此集合对其迭代器返回的元素的顺序做出任何保证，则此方法必须以相同的顺序返回元素。 
+返回的数组将是“安全的”，因为该集合不保留对它的引用。 （换句话说，这个方法必须分配一个新的数组，即使这个集合是由数组支持的）。 因此，调用者可以自由地修改返回的数组。 
+
+此方法充当基于阵列和基于集合的API之间的桥梁。 
+
+结果 
+一个包含此集合中所有元素的数组 
+toArray
+<T> T[] toArray​(T[] a)返回一个包含此集合中所有元素的数组; 返回的数组的运行时类型是指定数组的运行时类型。 如果集合适合指定的数组，则返回其中。 否则，将为指定数组的运行时类型和此集合的大小分配一个新数组。 
+如果此集合适合指定的数组，具有空余空间（即，数组具有比此集合更多的元素），则紧跟在集合结束后的数组中的元素将设置为null 。 （ 仅当调用者知道此集合不包含任何null元素时，这仅用于确定此集合的长度。） 
+
+如果此集合对其迭代器返回的元素的顺序做出任何保证，则此方法必须以相同的顺序返回元素。 
+
+像toArray()方法一样，此方法充当基于数组和基于集合的API之间的桥梁。 此外，该方法允许精确地控制输出阵列的运行时类型，并且在某些情况下可以用于节省分配成本。 
+
+假设x是一个已知只包含字符串的集合。 以下代码可用于将集合转储到新分配的String数组中： 
+
+  String[] y = x.toArray(new String[0]); 请注意， toArray(new Object[0])功能与toArray()相同。 
+参数类型 
+T - 包含集合的数组的运行时类型 
+参数 
+a - 要存储此集合的元素的数组，如果它足够大; 否则，为此目的分配相同运行时类型的新数组。 
+结果 
+一个包含此集合中所有元素的数组 
+异常 
+ArrayStoreException - 如果指定数组的运行时类型不是此集合中每个元素的运行时类型的超类型 
+NullPointerException - 如果指定的数组为空 
+add
+boolean add​(E e)确保此集合包含指定的元素（可选操作）。 如果此集合由于调用而更改，则返回true 。 （如果此集合不允许重复且已包含指定的元素，则返回false ） 
+支持此操作的集合可能会限制可能添加到此集合的元素。 特别是一些集合将拒绝添加null元素，其他集合将对可能添加的元素的类型施加限制。 收集类应在其文档中明确说明可能添加哪些元素的限制。 
+
+如果某个集合拒绝添加特定元素，除了它已经包含该元素之外，它必须引发异常（而不是返回false ）。 这保留了一个集合在此调用返回后始终包含指定元素的不变量。 
+
+参数 
+e - 要确保在此集合中的存在的元素 
+结果 
+true如果此集合由于调用而更改 
+异常 
+UnsupportedOperationException - 如果此集合不支持 add操作 
+ClassCastException - 如果指定元素的类阻止将其添加到此集合 
+NullPointerException - 如果指定的元素为空，并且该集合不允许空元素 
+IllegalArgumentException - 如果元素的某些属性阻止将其添加到此集合 
+IllegalStateException - 如果由于插入限制，此时无法添加该元素 
+remove
+boolean remove​(Object o)从该集合中删除指定元素的单个实例（如果存在）（可选操作）。 更正式地，删除元素e使得Objects.equals(o, e)如果该集合包含一个或多个这样的元素。 如果此集合包含指定的元素（或等效地，如果此集合由于调用而更改），则返回true 。 
+参数 
+o - 要从此集合中删除的元素（如果存在） 
+结果 
+true如果一个元素被删除作为这个调用的结果 
+异常 
+ClassCastException - 如果指定元素的类型与此集合不兼容（ optional ） 
+NullPointerException - 如果指定的元素为空，并且该集合不允许空元素（ optional ） 
+UnsupportedOperationException - 如果此集合不支持 remove操作 
+containsAll
+boolean containsAll​(Collection<?> c)如果此集合包含指定集合中的所有元素，则返回 true 。 
+参数 
+c - 要在此集合中检查遏制的集合 
+结果 
+true如果此集合包含指定集合中的所有元素 
+异常 
+ClassCastException - 如果指定集合中的一个或多个元素的类型与此集合不兼容（ optional ） 
+NullPointerException - 如果指定的集合包含一个或多个空元素，并且此集合不允许空元素（ optional ）或指定的集合为空。 
+另请参见： 
+contains(Object) 
+addAll
+boolean addAll​(Collection<? extends E> c)将指定集合中的所有元素添加到此集合（可选操作）。 如果在操作进行中修改了指定的集合，则此操作的行为是未定义的。 （这意味着如果指定的集合是此集合，此调用的行为是未定义的，并且此集合是非空的。） 
+参数 
+c - 包含要添加到此集合的元素的集合 
+结果 
+true如果此集合由于调用而更改 
+异常 
+UnsupportedOperationException - 如果此集合不支持 addAll操作 
+ClassCastException - 如果指定集合的元素的类阻止将其添加到此集合 
+NullPointerException - 如果指定的集合包含一个空元素，并且此集合不允许空元素，或者如果指定的集合为空 
+IllegalArgumentException - 如果指定集合的元素的某些属性阻止将其添加到此集合 
+IllegalStateException - 如果不是，由于插入限制，此时可以添加所有元素 
+另请参见： 
+add(Object) 
+removeAll
+boolean removeAll​(Collection<?> c)删除指定集合中包含的所有此集合的元素（可选操作）。 此调用返回后，此集合将不包含与指定集合相同的元素。 
+参数 
+c - 包含要从此集合中删除的元素的集合 
+结果 
+true如果该收集因呼叫而更改 
+异常 
+UnsupportedOperationException - 如果此集合不支持 removeAll方法 
+ClassCastException - 如果此集合中的一个或多个元素的类型与指定集合不兼容（ optional ） 
+NullPointerException - 如果此集合包含一个或多个空元素，并且指定的集合不支持空元素（ optional ），或者如果指定的集合为空 
+另请参见： 
+remove(Object) ， contains(Object) 
+removeIf
+default boolean removeIf​(Predicate<? super E> filter)删除满足给定谓词的此集合的所有元素。 在迭代或谓词中抛出的错误或运行时异常被转发给调用者。 
+实现要求： 
+默认实现使用其iterator()遍历集合的所有元素。 使用Iterator.remove()删除每个匹配元素。 如果集合的迭代器不支持删除，则第一个匹配元素将抛出UnsupportedOperationException 。 
+参数 
+filter - 一个谓词，为要删除的元素返回 true 
+结果 
+true如果有任何元素被删除 
+异常 
+NullPointerException - 如果指定的过滤器为空 
+UnsupportedOperationException - 如果元素无法从此集合中删除。 如果不能删除匹配的元素，或者一般来说，不支持删除，则实现可能会抛出此异常。 
+从以下版本开始： 
+1.8 
+retainAll
+boolean retainAll​(Collection<?> c)仅保留此集合中包含在指定集合中的元素（可选操作）。 换句话说，从该集合中删除所有不包含在指定集合中的元素。 
+参数 
+c - 包含要保留在此集合中的元素的集合 
+结果 
+true如果此收集因呼叫而更改 
+异常 
+UnsupportedOperationException - 如果此集合不支持 retainAll操作 
+ClassCastException - 如果此集合中的一个或多个元素的类型与指定集合不兼容（ optional ） 
+NullPointerException - 如果此集合包含一个或多个空元素，并且指定的集合不允许空元素（ optional ），或者如果指定的集合为空 
+另请参见： 
+remove(Object) ， contains(Object) 
+clear
+void clear​()从此集合中删除所有元素（可选操作）。 此方法返回后，集合将为空。 
+异常 
+UnsupportedOperationException - 如果此集合不支持 clear操作 
+equals
+boolean equals​(Object o)将指定的对象与此集合进行比较以获得相等性。 
+虽然Collection接口不会增加规定向工程总承包为Object.equals ，谁落实程序员Collection接口“直接”（换句话说，创建一个类，是Collection ，但不是Set或者List ），如果必须小心谨慎，他们选择覆盖Object.equals 。 没有必要这样做，最简单的做法是依靠Object的实现，但实施者可能希望实现“价值比较”来代替默认的“参考比较”。 （ List和Set接口要求这样的价值比较。） 
+
+Object.equals方法的通用合同规定，等于必须是对称的（换句话说， a.equals(b)如果且仅当b.equals(a) ）。 List.equals和Set.equals的合同规定，列表仅等于其他列表，并设置为其他集合。 因此，当将此集合与任何列表或集合进行比较时，用于既不实现List也不实现Set接口的集合类的自定义equals方法必须返回false 。 （通过相同的逻辑，不可能编写正确实现Set和List接口的类。） 
+
+重写： 
+equals在 Object 
+参数 
+o - 要与此集合相等的对象进行比较 
+结果 
+true如果指定的对象等于此集合 
+另请参见： 
+Object.equals(Object) ， Set.equals(Object) ， List.equals(Object) 
+hashCode
+int hashCode​()返回此集合的哈希码值。 虽然Collection接口不会增加规定为一般合同Object.hashCode方法，程序员应该注意，覆盖任何类Object.equals方法也必须重写Object.hashCode方法，以满足为一般合同Object.hashCode方法。 特别是c1.equals(c2)意味着c1.hashCode()==c2.hashCode() 。 
+重写： 
+hashCode在 Object 
+结果 
+该集合的哈希码值 
+另请参见： 
+Object.hashCode() ， Object.equals(Object) 
+spliterator
+default Spliterator<E> spliterator​()在此集合中的元素上创建一个Spliterator 。 实现应该记录分配器报告的特征值。 如果分配器报告Spliterator.SIZED并且该集合不包含元素，则不需要报告这些特征值。 
+应该通过可以返回更高效的拼接器的子类覆盖默认实现。 为了保持stream()和parallelStream()方法的预期懒惰行为，拼接器应具有IMMUTABLE或CONCURRENT的特征，或late-binding 。 如果这些都不实际，那么首要的类应该是描述绑定器的绑定和结构性干扰策略，并且应该覆盖stream()和parallelStream()方法以使用Supplier的拼接器创建流，如下所示： 
+
+   Stream<E> s = StreamSupport.stream(() -> spliterator(), spliteratorCharacteristics)  这些要求确保由stream()和parallelStream()方法生成的流将反映起始终端流操作时收集的内容。 
+
+Specified by: 
+spliterator在接口 Iterable<E> 
+实现要求： 
+默认实现从集合的Iterator创建一个late-binding拼接Iterator 。 分割器继承集合的迭代器的故障快速属性。 
+创建Spliterator报告Spliterator.SIZED 。 
+
+Implementation Note: 
+创建的Spliterator另外报告Spliterator.SUBSIZED 。 
+如果拼接器不覆盖任何元素，那么除了SIZED和SUBSIZED以外的其他特征值的报告不能帮助客户控制，专门化或简化计算。 但是，这样做可以使空集合能够共享使用不可变的空分配器实例（参见Spliterators.emptySpliterator() ），并使客户端能够确定这样的分割器是否不覆盖元素。 
+
+结果 
+一个 Spliterator在这个集合中的元素 
+从以下版本开始： 
+1.8 
+stream
+default Stream<E> stream​()返回一个序列Stream与此集合作为其来源。 
+当此方法应该重写spliterator()方法不能返回spliterator是IMMUTABLE ， CONCURRENT ，或后期绑定 。 （详情请见spliterator() ） 
+
+实现要求： 
+默认的实现创建顺序 Stream从收集的 Spliterator 。 
+结果 
+在这个集合中的元素的顺序 Stream 
+从以下版本开始： 
+1.8 
+parallelStream
+default Stream<E> parallelStream​()返回可能并行的Stream与此集合作为其来源。 该方法允许返回顺序流。 
+当此方法应该重写spliterator()方法不能返回spliterator是IMMUTABLE ， CONCURRENT ，或后期绑定 。 （详情请见spliterator() ） 
+
+实现要求： 
+默认的实现创建了一个平行 Stream从收集的 Spliterator 。 
+结果 
+这个集合中的元素可能并行 Stream 
+从以下版本开始： 
+1.8 
+Skip navigation links 概述 Module 软件包 Class 使用 树 已过时的 索引 帮助 Java SE 9 & JDK 9 上一个 下一个 框架 无框架 所有类 概要：  嵌套 |  字段 |  构造方法 |  方法 详细信息：  字段 |  构造方法 |  方法 Report a bug or suggest an enhancement
+For further API reference and developer documentation see the Java SE Documentation, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples.
+Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.
+Copyright © 1993, 2017, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.
+All rights reserved. Use is subject to license terms and the documentation redistribution policy. 
+
+本帮助文档是使用 《谷歌翻译》翻译，请与英文版配合使用 by--QQ:654638585 
+
+关注公众号获取最新文档
+网站地址1 网站地址2 
+阿里云-服务器优惠
+腾讯云-服务器优惠
+
+
