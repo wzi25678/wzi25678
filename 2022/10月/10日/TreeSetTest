@@ -1,0 +1,94 @@
+package JavaSenior.day06.java1;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+import org.junit.Test;
+
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.TreeSet;
+
+
+public class TreeSetTest {
+
+    /*
+    1.向TreeSet中添加的数据，要求是相同类型的对象。
+                              //当然也支持用户自定义类型
+    2.两种排序方式：自然排序（实现Comparable接口） 和 定制排序（Comparator）
+
+
+    3.自然排序中，比较两个对象是否相同的标准为：compareTo()返回0.不再是equals().
+    4.定制排序中，比较两个对象是否相同的标准为：compare()返回0.不再是equals().
+     */
+    @Test
+    public void test1(){
+        TreeSet set = new TreeSet();
+
+        //失败：不能添加不同类的对象
+//        set.add(123);
+//        set.add(456);
+//        set.add("AA");
+//        set.add(new User("Tom",12));
+
+        //举例一：
+//        set.add(34);
+//        set.add(-34);
+//        set.add(43);
+//        set.add(11);
+//        //貌似底层是红黑树？？？默认按小顶堆排序
+//        set.add(8);
+
+        //举例二：
+        set.add(new User("Tom",12));
+        set.add(new User("Jerry",32));
+        set.add(new User("Jim",2));
+        set.add(new User("Mike",65));
+        set.add(new User("Jack",33));
+        set.add(new User("Jack",56));
+
+        //因为User类继承了Comparable接口()，所以它创建的对象，会按照默认的Comparable接口()来进行排序，当然你也可以自己重构排序方法。
+        Iterator iterator = set.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+
+    }
+
+    @Test
+    public void test2(){
+        Comparator com = new Comparator() {
+            //按照年龄从小到大排列
+            @Override
+            public int compare(Object o1, Object o2) {
+                if(o1 instanceof User && o2 instanceof User){
+                //判别o1，o2是否满足User类型标准
+                    User u1 = (User)o1;
+                    User u2 = (User)o2;
+                    return Integer.compare(u1.getAge(),u2.getAge());
+                }else{
+                    throw new RuntimeException("输入的数据类型不匹配");
+                }
+            }
+        };
+
+        TreeSet set = new TreeSet(com);
+        set.add(new User("Tom",12));
+        set.add(new User("Jerry",32));
+        set.add(new User("Jim",2));
+        set.add(new User("Mike",65));
+
+        //红黑树，按某一标准进行排序时，当前使用的标准，每一个变量只可以对应一个具体的对象。
+        set.add(new User("Mary",33));
+        set.add(new User("Jack",33));
+        set.add(new User("Jack",56));
+
+
+        Iterator iterator = set.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+    }
+
+}
+
