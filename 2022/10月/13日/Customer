@@ -1,0 +1,12 @@
+package JavaSenior.day08.java1;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+
+/**
+ */
+public class Customer { //此类对应数据库中的customers表
+}
+
