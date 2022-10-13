@@ -1,0 +1,10 @@
+package JavaSenior.day08.java1;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+/**
+ */
+public class CustomerDAO extends DAO<Customer>{//只能操作某一个表的DAO
+}
