@@ -1,0 +1,30 @@
+package Week_01;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+public class 唯一成对的数 {
+    public static void main(String[] args) {
+        int N = 11;
+        int x1 = 0;
+        int arr[] = {9,10,8,6,7,5,4,2,1,3,7} ;
+        /*
+    此题依据一个特殊性质，A^A = 0 ，A^0 = A
+    故解题思路为：
+    先构造1-1000的异或^ 合集，不要考虑其结果，看做是一个累乘表达式
+    再与整个1001个数值去进行异或，
+    依据特殊性质，原式就变成了1-1000其他的数均有两次重复，该重复数则有三次出现
+    故答案为   该重复值
+         */
+        for (int i = 1;i<=N-1;i++){
+            x1 = (x1^i);
+            System.out.println(x1+"\t"+"第"+i+"次");
+        }
+        for (int i = 0;i<N;i++){
+            x1 = x1^arr[i];
+            System.out.println(x1+"\t"+"第"+i+"次");
+        }
+        System.out.println(x1);
+    }
+}
