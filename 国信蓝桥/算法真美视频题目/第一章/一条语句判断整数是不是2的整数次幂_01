@@ -1,0 +1,42 @@
+package 第一章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Scanner;
+
+public class _1_5_判断是不是2的整数倍 {
+//    public static void main(String[] args) {
+//        // TODO Auto-generated method stub
+//        Scanner sc =new Scanner(System.in);
+//        int N=sc.nextInt();
+//        //Integer.toString(int par1,int par2),par1表示要转成字符串的数字，par2表示要转成的进制表示
+//        System.out.println(Integer.toString(N, 2));
+//        if(((N-1)&N)==0)
+//        {
+//            System.out.println("yes");
+//        }
+//        else
+//            System.out.println("no");
+//    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n==0){
+            System.out.println("Not2的整数次幂。");
+            return;
+        }
+        IntegerPowerOfTwo(n);
+    }
+
+    private static void IntegerPowerOfTwo(int n) {
+        //1.转换该数的二进制形式
+          Integer.toString(n,2);
+          //包装类，n自动装成包装类形式的Integer类型的n
+        if ((n&(n-1)) == 0){
+            System.out.println("是2的整数次幂。");
+        }
+        else System.out.println("Not2的整数次幂。");
+    }
+}
