@@ -1,0 +1,27 @@
+package 第一章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Scanner;
+
+public class _1_5_判断是不是2的整数倍 {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Scanner sc =new Scanner(System.in);
+        int N=sc.nextInt();
+        //Integer.toString(int par1,int par2),par1表示要转成字符串的数字，par2表示要转成的进制表示
+        System.out.println(Integer.toString(N, 2));
+        if(((N-1)&N)==0)
+        {
+            System.out.println("yes");
+        }
+        else
+            System.out.println("no");
+    }
+
+
+
+}
