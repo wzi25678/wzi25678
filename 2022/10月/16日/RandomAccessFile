@@ -1,0 +1,73 @@
+Module  java.base 
+软件包  java.io 
+Class RandomAccessFile
+java.lang.Object 
+java.io.RandomAccessFile 
+
+All Implemented Interfaces: 
+Closeable ， DataInput ， DataOutput ， AutoCloseable 
+
+
+
+
+public class RandomAccessFile
+extends Object
+implements DataOutput, DataInput, Closeable该类的实例支持读取和写入随机访问文件。 随机访问文件的行为类似于存储在文件系统中的大量字节。 有一种游标，或索引到隐含的数组，称为文件指针 ; 输入操作读取从文件指针开始的字节，并使文件指针超过读取的字节。 如果在读/写模式下创建随机访问文件，则输出操作也可用; 输出操作从文件指针开始写入字节，并将文件指针提前到写入的字节。 写入隐式数组的当前端的输出操作会导致扩展数组。 文件指针可以通过读取getFilePointer方法和由设置seek方法。 
+这个类中的所有读取例程通常是这样的，如果在读取所需的字节数之前到达文件结尾，则抛出一个EOFException （这是一种IOException ）。 如果任何字节由于除文件末尾之外的任何原因而无法读取，则抛出IOException以外的EOFException 。 特别地，如果流已经关闭，则可以抛出IOException 。 
+
+从以下版本开始： 
+1.0 
+
+
+
+
+
+构造方法摘要
+构造方法    Constructor 描述 
+RandomAccessFile​(File file, String mode) 创建一个随机访问文件流，从File参数指定的文件读取，并可选地写入。  
+RandomAccessFile​(String name, String mode) 创建随机访问文件流，以从中指定名称的文件读取，并可选择写入文件。  
+
+方法摘要
+所有方法 接口方法  具体的方法   Modifier and Type 方法 描述 
+void close​() 关闭此随机访问文件流并释放与流相关联的任何系统资源。  
+FileChannel getChannel​() 返回与此文件关联的唯一的FileChannel对象。  
+FileDescriptor getFD​() 返回与此流关联的不透明文件描述符对象。  
+long getFilePointer​() 返回此文件中的当前偏移量。  
+long length​() 返回此文件的长度。  
+int read​() 从该文件读取一个字节的数据。  
+int read​(byte[] b) 从该文件读取最多 b.length个字节的数据到一个字节数组。  
+int read​(byte[] b, int off, int len) 从该文件读取最多 len个字节的数据为字节数组。  
+boolean readBoolean​() 从此文件读取一个 boolean 。  
+byte readByte​() 从此文件中读取一个带符号的八位值。  
+char readChar​() 从此文件中读取一个字符。  
+double readDouble​() 从此文件读取一个 double 。  
+float readFloat​() 从这个文件读取一个 float 。  
+void readFully​(byte[] b) 从该文件读取 b.length个字节到字节数组，从当前文件指针开始。  
+void readFully​(byte[] b, int off, int len) 从该文件读取完全 len个字节到字节数组，从当前文件指针开始。  
+int readInt​() 从该文件读取一个带符号的32位整数。  
+String readLine​() 从此文件中读取下一行文本。  
+long readLong​() 从该文件中读取一个带符号的64位整数。  
+short readShort​() 从此文件中读取一个已签名的16位数字。  
+int readUnsignedByte​() 从此文件中读取一个无符号的八位数字。  
+int readUnsignedShort​() 从该文件中读取一个无符号的16位数字。  
+String readUTF​() 从该文件读取字符串。  
+void seek​(long pos) 设置文件指针偏移，从该文件的开头测量，发生下一次读取或写入。  
+void setLength​(long newLength) 设置此文件的长度。  
+int skipBytes​(int n) 尝试跳过超过 n个字节的输入丢弃跳过的字节。  
+void write​(byte[] b) 从指定的字节数组写入 b.length个字节到该文件，从当前文件指针开始。  
+void write​(byte[] b, int off, int len) 从指定的字节数组写入 len个字节，从偏移量 off开始写入此文件。  
+void write​(int b) 将指定的字节写入此文件。  
+void writeBoolean​(boolean v) 将 boolean写入文件作为一个字节值。  
+void writeByte​(int v) 将 byte写入文件作为一个字节的值。  
+void writeBytes​(String s) 将字符串作为字节序列写入文件。  
+void writeChar​(int v) 写入一个 char作为一个双字节的值，高字节的第一个文件。  
+void writeChars​(String s) 将一个字符串作为字符序列写入文件。  
+void writeDouble​(double v) 使用 long中的 doubleToLongBits方法将双参数转换为 Double ，然后 long值作为八字节数量，高字节优先写入该文件。  
+void writeFloat​(float v) 使用 int中的 floatToIntBits方法将float参数转换为 Float ，然后 int值作为四字节数量（高字节优先）写入文件。  
+void writeInt​(int v) 将 int写入文件为四个字节，高字节为首。  
+void writeLong​(long v) 将 long写入文件为8个字节，高字节为第一个字节。  
+void writeShort​(int v) 将 short写入文件作为两个字节，高字节优先。  
+void writeUTF​(String str) 使用机器无关的方式使用 modified UTF-8编码将字符串写入文件。  
+
+Methods inherited from class java.lang.Object
+clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait 
