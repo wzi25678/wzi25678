@@ -1,0 +1,89 @@
+1.对象流： 
+ObjectInputStream 和 ObjectOutputStream
+2.作用：
+ObjectOutputStream:内存中的对象--->存储中的文件、通过网络传输出去：序列化过程
+ObjectInputStream:存储中的文件、通过网络接收过来 --->内存中的对象：反序列化过程
+3.对象的序列化机制：
+对象序列化机制允许把内存中的Java对象转换成平台无关的二进制流，从而允许把这种二进制流持久地保存在磁盘
+上，或通过网络将这种二进制流传输到另一个网络节点。//当其它程序获取了这种二进制流，就可以恢复成原来的
+Java对象
+4.
+序列化代码实现：
+@Test
+public void testObjectOutputStream(){
+    ObjectOutputStream oos = null;
+
+    try {
+        //1.
+        oos = new ObjectOutputStream(new FileOutputStream("object.dat"));
+        //2.
+        oos.writeObject(new String("我爱北京天安门"));
+        oos.flush();//刷新操作
+
+         oos.writeObject(new Person("王铭",23));
+        oos.flush();
+
+        oos.writeObject(new Person("张学良",23,1001,new Account(5000)));
+        oos.flush();
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    } finally {
+        if(oos != null){
+            //3.
+            try {
+                oos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+}
+5.
+反序列化代码实现：
+@Test
+public void testObjectInputStream(){
+    ObjectInputStream ois = null;
+    try {
+        ois = new ObjectInputStream(new FileInputStream("object.dat"));
+
+        Object obj = ois.readObject();
+        String str = (String) obj;
+
+        Person p = (Person) ois.readObject();
+        Person p1 = (Person) ois.readObject();
+
+        System.out.println(str);
+        System.out.println(p);
+        System.out.println(p1);
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    } finally {
+        if(ois != null){
+            try {
+                ois.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+
+
+}
+
+6.实现序列化的对象所属的类需要满足：
+  1.需要实现接口：Serializable
+* 2.当前类提供一个全局常量：serialVersionUID
+* 3.除了当前Person类需要实现Serializable接口之外，还必须保证其内部所属性
+*   也必须是可序列化的。（默认情况下，基本数据类型可序列化）
+*
+*
+* 补充：ObjectOutputStream和ObjectInputStream不能序列化static和transient修饰的成员变量
+*
