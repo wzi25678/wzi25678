@@ -1,0 +1,31 @@
+package 第二章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+import java.util.Scanner;
+public class 巧用递推公式解最大公因数 {
+    /*
+    最小公倍数，不用管
+    因为→
+    m*n = 其（最小公倍数*最大公约数）
+     */
+        public static void main(String[] args) {
+            // TODO Auto-generated method stub
+            Scanner in =new Scanner(System.in);
+            int m=in.nextInt();
+            int n=in.nextInt();
+            System.out.println(gcd(m,n));
+        }
+
+        //m和n不必要比较大小
+        //下面这段代码最好记下来
+        static int gcd(int m,int n) {
+            if(n==0){
+                return m;
+            }
+            return gcd(n,m%n);
+        }
+
+    }
+
