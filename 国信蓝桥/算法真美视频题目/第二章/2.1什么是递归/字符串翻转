@@ -1,0 +1,37 @@
+package 第二章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Arrays;
+
+public class 字符串翻转 {
+    public static void main(String[] args) {
+        String str = "abcdefghijklmnopqrstuvwxyz";
+
+                // TODO Auto-generated method stub
+                System.out.println(reverse("abcd",3));
+            }
+
+            static String reverse(String src,int end) {
+                if(end==0) {
+                    return ""+src.charAt(0);
+                }
+                return src.charAt(end)+reverse(src,end-1);
+            }
+
+
+        //StringReverse(str);
+
+    private static void StringReverse(String str) {
+        char  chars [] = new char[str.length()];
+        int lens = str.length()-1;
+        int num = 0;
+        for (int i=str.length()-1;i>=0;i--){
+            chars[num] = str.charAt(i);
+            num++;
+        }
+        System.out.println(Arrays.toString(chars));
+    }
+}
