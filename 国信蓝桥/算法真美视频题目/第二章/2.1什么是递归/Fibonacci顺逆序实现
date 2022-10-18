@@ -1,0 +1,36 @@
+package 第二章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+public class Fibonacci {
+    public static void main(String[] args) {
+        Fibonacci顺序推导(3000);
+       // Fibonacci递归推导(30);
+    }
+
+    private static long Fibonacci顺序推导(int i) {
+     long arr[] = new long[i];
+     arr[0] = 0;
+     arr[1] = 1;
+     for (int j=2;j<i;j++){
+         arr[j] = arr[j-1]+arr[j-2];        //会出现溢出，需要考虑使用大数BigInteger，再次就不演示
+         System.out.println(j+":"+"的斐波那锲数列值为："+arr[j]);
+     }
+     System.out.println(i+"的斐波那锲数列值为："+arr[i-1]);
+     return arr[i-1];
+    }
+
+    private static int Fibonacci递归推导(int i) {
+        if (i==0){
+            return 0;
+        }
+        if (i==1){
+            return 1;
+        }
+        //System.out.println(i);
+        return Fibonacci递归推导(i-1)+Fibonacci递归推导(i-2);
+    }
+
+}
