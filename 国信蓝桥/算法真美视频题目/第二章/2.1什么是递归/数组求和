@@ -1,0 +1,22 @@
+public class 数组求和 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int res=f3(new int[] {1,2,3,4,5},0);
+		System.out.println(res);
+	}
+	
+	/*
+	 * 对arr的所有元素求和
+	 * 找重复
+	 * 找变化：变化的量应该作为参数，这题很好的体现出来了
+	 * 找边界：出口
+	 */
+	static int f3(int []arr,int begin) {
+		if(begin==arr.length-1) {
+			return arr[begin];
+		}
+		return arr[begin]+f3(arr,begin+1);
+	}
+
+}
