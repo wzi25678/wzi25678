@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class 打印i到j {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in =new Scanner(System.in);
+		int i=in.nextInt();
+		int j=in.nextInt();
+		f2(i,j);
+	}
+	
+	/*
+	 * 找重复：
+	 * 找变化：变化的量应该作为参数
+	 * 找边界：出口
+	 */
+	static void f2(int i,int j) {
+		if(i>j) {
+			return;//出口
+		}
+		System.out.println(i);
+		f2(i+1,j);
+	}
+}
