@@ -1,0 +1,33 @@
+package 第二章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+public class _2_8思维更重要_希尔排序 {
+    public static void main(String[] args) {
+        int [] arr= {8,7,6,5,4,3,2,2};
+        shellSort(arr);
+    }
+
+    private static void shellSort(int[] arr) {
+        for (int interval = arr.length/2;interval>0;interval/=2){
+            //外层归并排序，建立增量距
+            //第二层进行插入排序  ->->-> 注意插入排序本身也是两重for循环来寻找最佳插入位置。
+            for (int i = interval;i<arr.length;i++){
+                int index = i;
+                int temp = arr[index];
+                //前Interival个元素默认为其对应插入排序的哨位结点
+
+                //插入排序的底层，实际上就是记录当前节点元素值，同时排序时，将已排好序的元素进行向后覆盖。
+                if (arr[index] < arr[index - interval]){
+                    while (index - interval> 0 && temp < arr[index-interval]){
+                        arr[interval] = arr[index-interval];
+                        index-=interval;
+                    }
+                    arr[index] = temp;
+                }
+            }
+        }
+    }
+}
