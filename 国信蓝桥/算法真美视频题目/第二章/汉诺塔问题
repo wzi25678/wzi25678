@@ -1,0 +1,43 @@
+package 第二章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Scanner;
+
+public class 递归形式进行插入排序 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n  = sc.nextInt();
+       // printHanoTower(5,"A","B","C");
+       PrintHanio(n,"1","2","3");
+        //n为汉诺塔高度   ，
+        //A定为起始位置     B定为辅助helper   C定为目的地
+    }
+
+    private static void PrintHanio(int n, String From, String helper, String Destination ) {
+        /*
+        牢记以下几点：
+        1.一次汉诺塔包含两个步骤
+        2.递归本身就很适用于抽象概念，不要去深究为什么它能识别的过来，原因是因为递归本身就是高负载压栈下的计算
+         */
+        if (n==1){
+            System.out.println("Move "+n+" from "+From+" to "+Destination);
+            return;
+        }
+        PrintHanio(n-1,From,Destination,helper);
+        //显示对第n个数的移动
+        System.out.println("Move "+n+" from "+From+" to "+Destination);
+        PrintHanio(n-1,helper,From,Destination);
+    }
+    public static void printHanoTower(int N,String from,String to,String help) {
+        if(N==1) {
+            System.out.println("Move "+N+" from "+from+" to "+to);
+            return;
+        }
+        printHanoTower(N-1,from,help,to);//先把前N-1个盘子挪到辅助空间上去
+        System.out.println("move "+N+" form "+from+" to "+to);//N可以顺利到达
+        printHanoTower(N-1,help,to,from);//让N-1从辅助空间回到源空间上去
+    }
+}
