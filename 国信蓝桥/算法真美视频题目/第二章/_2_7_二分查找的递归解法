@@ -1,0 +1,33 @@
+package 第二章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class _2_7_二分查找的递归解法 {
+    public static void main(String[] args) {
+        int [] arr= {24,56,50,68,70,99,1,77,94,98};
+        Arrays.sort(arr);
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        BinarySearch(n,arr,0,arr.length-1);
+
+    }
+
+    private static void BinarySearch(int find, int[] arr, int begin, int end) {
+        if (arr[begin+(end-begin)/2] == find){
+            System.out.println("找到了该元素，位于第"+(begin+(end-begin)/2+1)+"个。");
+            return;
+        }
+        else if (arr[begin+(end-begin)/2] > find){
+            BinarySearch(find,arr,begin,begin+(end-begin)/2-1);
+        }
+        else BinarySearch(find,arr,begin+(end-begin)/2+1,end);
+
+    }
+
+
+}
