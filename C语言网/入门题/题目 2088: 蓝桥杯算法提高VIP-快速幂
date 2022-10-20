@@ -1,0 +1,29 @@
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Scanner;
+/*
+输入共一行。
+第一行有三个数，N, M, P。
+输出格式
+输出共一行，表示所求。
+
+给定A, B, P，求(A^B) mod P。
+
+共10组数据
+对100%的数据，A, B为long long范围内的非负整数，P为int内的非负整数。
+ */
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        BigInteger sum = new BigInteger("1");
+        BigInteger A = sc.nextBigInteger();
+        BigInteger B = sc.nextBigInteger();
+        BigInteger P = sc.nextBigInteger();
+        sum = A.modPow(B,P);
+        System.out.println(sum);
+
+
+    }
+
+
+}
