@@ -1,0 +1,50 @@
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int [] x =new int [10000*10000];
+		for(int i=0;i<x.length;i++) {
+			x[i]=i+1;
+		}
+		int target=10000*9999;
+		
+		long now=System.currentTimeMillis();
+		int index=binarySearch(x,0,x.length-1,target);
+		System.out.println("二分查找执行时间："+(System.currentTimeMillis()-now)+"ms");
+		System.out.println(target+"所在位置为："+index);
+		
+		now =System.currentTimeMillis();
+		index=search(x,target);
+		System.out.println("顺序查找执行时间："+(System.currentTimeMillis()-now)+"ms");
+		System.out.println(target+"所在位置为："+index);
+		}
+	
+	//顺序查找
+	private static int search(int[] arr,int key) {
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i]==key) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	//二分查找
+	private static int binarySearch(int []arr,int low,int high,int key) {
+		if(low>high) {
+			return -1;
+		}
+		int mid=(low+high)/2;
+		if(arr[mid]<key) {
+			return binarySearch(arr,mid+1,high,key);
+		}
+		else if(arr[mid]>key) {
+			return binarySearch(arr,low,mid-1,key);
+		}
+		else {
+			return mid;
+		}
+			
+	}
+
+}
