@@ -1,0 +1,24 @@
+package 第二章;
+/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Scanner;
+
+public class 小明上楼梯_递归设计 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(JumpStairs(n));
+    }
+
+    private static int JumpStairs(int n) {
+        if (n==0) return 1;
+        if (n==1) return 1;
+        if (n==2) return 2;
+        return JumpStairs(n-1)+JumpStairs(n-2);
+    }
+
+}
