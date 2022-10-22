@@ -1,0 +1,68 @@
+package 第三章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Scanner;
+
+public class 快速排序算法_双向扫描分区法 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for (int i =0;i<arr.length;i++){
+            arr[i] = sc.nextInt();
+        }
+        QuickSort(arr,0,arr.length-1);
+        for (int i =0;i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
+    }
+
+    private static void QuickSort(int[] arr, int begin , int end) {
+       if (begin<end){
+           int q = parition(arr,begin,end);
+           QuickSort(arr,begin,q-1);
+           QuickSort(arr,q+1,end);
+       }
+
+    }
+    /*
+    三个位置记住就行：
+    1.全部都得判断left<=right
+    2.比较的时候，pivot只能选择属于一遍，要么左/要么右
+    3.进行left/right位置交换时，要判断是否left<right（因为上方退出循环时，可能会越界）
+     */
+    private static int parition(int[] arr, int begin, int end) {
+        int pivot = arr[begin];
+        //值的大小由索引号来确定，问题的关键在于理解下标
+        int left = begin+1;
+        int right = end;
+        while (left <= right){
+            //从右边找第一个小于pivot的元素
+            //那么正常递推下去，就是右边的数>pivot
+            while (left<=right && arr[left]<=pivot){
+                left++;
+            }
+            while (left<=right && arr[right]>pivot){
+                right--;
+            }
+
+            //此时找到了左边第一个比pivot大的，右边第一个比pivot小的元素
+            if (left<right){
+                int temp=arr[left];
+                arr[left]=arr[right];
+                arr[right]=temp;
+            }
+
+        }
+        //此时递归出来了，说明一轮排序已经结束
+        //进行收尾工作，即重新定一下pivot的位置
+        //即把pivot位置上的元素放到right位置上，同时返回一个新的pivot元素位置right
+        int temp = arr[begin];
+        arr[begin] = arr[right];
+        arr[right] = temp;
+        return right;
+    }
+}
