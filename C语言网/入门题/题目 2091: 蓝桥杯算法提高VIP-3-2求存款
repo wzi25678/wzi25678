@@ -1,0 +1,26 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Scanner;
+/*
+，一个是用户一年期定期存款金额，一个是按照百分比格式表示的利率
+
+(1) 存款金额以人民币元为单位，精确到分
+(3) 按照国家法律，存储利息所得需缴纳5%的所得税，计算结果时应当扣除所得税。
+ */
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        float capital = sc.nextFloat();
+        float interest = sc.nextFloat();
+        interest/=100;
+        float Account = (float) ((capital*interest)*0.95 +capital);
+        //此处会丢失精度，故显示报错
+        //Exception in thread "main" java.util.MissingFormatWidthException: %0.2f
+        System.out.printf(String.format("%.2f",Account));
+    }
+
+}
