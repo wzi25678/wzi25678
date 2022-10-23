@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long LL;
+typedef pair<int,int> Pall;
+namespace IO{
+    inline LL read(){
+        LL o=0,f=1;char c=getchar();
+        while(c<'0'||c>'9'){if(c=='-')f=-1;c=getchar();}
+        while(c>='0'&&c<='9'){o=o*10+c-'0';c=getchar();}
+        return o*f;
+    }
+}using namespace IO;
+const int N=1e5+7,INF=0x3f3f3f3f;
+int a[N];
+void merge_sort(int l,int r){
+    if(l>=r)return ;//如果区间中只有一个元素时，就返回
+    int mid=l+r>>1;//确定中间点（区间分界点）
+    merge_sort(l,mid),merge_sort(mid+1,r);//左边递归处理，右边递归处理
+    int i=l,j=mid+1,temp[r-l+1],cnt=0;//i指针指向左区间的最左边的元素，j指针指向右区间最右边的元素，temp是临时数组
+    while(i<=mid&&j<=r){//如果左区间还有元素并且右区间还有元素，就需要进行比较
+        if(a[i]<=a[j])temp[cnt++]=a[i++];//如果i指向的元素比j指向的元素小或相等，就把i指向的元素放入临时数组，并且移动i到下一个元素
+        else temp[cnt++]=a[j++];//如果j指向的元素比j指向的元素大，就把j指向的元素放入临时数组，并且移动j到下一个元素
+    }
+    while(i<=mid)temp[cnt++]=a[i++];//如果左区间还有元素，就把剩下的元素放入临时数组。如果没有就不会执行
+    while(j<=r)temp[cnt++]=a[j++];//如果右区间还有元素，就把剩下的元素放入临时数组。如果没有就不会执行
+    for(i=l,j=0;i<=r;i++,j++)a[i]=temp[j];//最后i指向的是这个大区间的最左边（左区间+右区间），j指向的是temp的首元素。
+    //把temp中的排好的的元素赋值到a数组中（l,r）这个区间，因为这个递归层就是处理（l,r）区间的排序。
+}
+int main(){
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    merge_sort(0,n-1);//归并排序
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+    return 0;
+}
