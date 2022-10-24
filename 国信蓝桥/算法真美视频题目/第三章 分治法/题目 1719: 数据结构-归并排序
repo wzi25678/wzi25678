@@ -1,0 +1,59 @@
+package 第三章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class 归并排序 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for (int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        MergeSort(arr,0,arr.length-1);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    private static void MergeSort(int[] arr,int left,int right) {
+        //如果数组元素为空，或者输入的数组长度为1，那就不用排序
+        if (left >= right) return;
+        int mid = (left + right) / 2;
+        //mid值同时有相当与每次的排序序列长度
+        //两端进行mergeSort，即一直划分，将所有元素划分成独立的小序列
+        //这不是pivot枢纽，即mid同时也得去选择属于一个排序序列中
+        MergeSort(arr, left, mid);
+        MergeSort(arr, mid + 1, right);
+        //合并：
+        merge(arr, left, mid, right);
+    }
+
+    private static void merge(int[] arr, int left,int mid ,int right) {
+        int s1 = left ; //首素左边界
+        int s2 = mid +1;   //第二个数组的左边界
+        int helper[] = new int[right-left+1];//单次辅助数组的长度
+        int iCount=0;    //i即记录整个数组的标记
+        while (s1<=mid && s2<=right){
+            //因为两个序列均是有序的，所以如果当前s1>s2元素，那么就插s2
+            //下一次插哪个元素又再次比较即可。
+            if (arr[s1]<=arr[s2]){
+                helper[iCount++] = arr[s1++];
+            }else helper[iCount++] = arr[s2++];
+        }
+        //有多则直接插入即可。
+        while (s1<=mid){
+            helper[iCount++] = arr[s1++];
+        }
+        while (s2<=right){
+            helper[iCount++] = arr[s2++];
+        }
+        for (int i=0;i<helper.length;i++){
+            arr[i+left]  =helper[i];
+        }
+        }
+
+}
