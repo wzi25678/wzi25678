@@ -1,0 +1,62 @@
+package 第三章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Scanner;
+/*
+样例输入
+10
+2 8 4 6 1 10 7 3 5 9
+样例输出
+1 2 3 4 5 6 7 8 9 10
+ */
+public class 归并排序_MyTest {
+    public static void main(String[] args) {
+        Scanner sc  = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        MergeSort(arr,0,arr.length-1);
+        for(int i=0;i<n;i++){
+            System.out.print(arr[i]+" ");
+        }
+    }
+
+    private static void MergeSort(int[] arr, int left, int right) {
+        if (left>=right) return;
+        int mid = left+(right-left)/2;
+        MergeSort(arr,left,mid);
+        MergeSort(arr,mid+1,right);
+        Merge(arr,left,mid,right);
+    }
+
+    private static void Merge(int[] arr, int left, int mid, int right) {
+        //mid为增量距，每一次归并排序都是一组与其右边那组进行归并
+        int s1 = left;
+        int s2 = mid+1;
+        int helper[] = new int[right-left+1];
+        int index = 0;
+        while (s1<=mid && s2<=right){
+            if (arr[s1]<=arr[s2]){
+                helper[index++]  = arr[s1++];
+            }
+            else helper[index++] = arr[s2++];
+        }
+        //清除未处理完的，即可能一遍用光了，另一边却没执行完
+        while (s1<=mid){
+            helper[index++]  = arr[s1++];
+        }
+        while (s2<=right){
+            helper[index++] = arr[s2++];
+        }
+        //再把当前排序好的辅助数组元素，去覆盖原数组中的对应元素
+        for (int i=0;i<helper.length;i++){
+            arr[i+left] = helper[i];
+        }
+    }
+
+}
