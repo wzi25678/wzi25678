@@ -1,0 +1,27 @@
+package 第三章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Arrays;
+
+public class 奇数在左_偶数在右 {
+    public static void main(String[] args) {
+        int arr[] = {1,6,2,5,3,4,9,8,7,10};
+        int helper[] = new int[arr.length];
+        int i = 0;
+        int j = arr.length-1;
+        for (int k=0;k<arr.length;k++){
+            if (arr[k] % 2 ==0){
+                helper[j] = arr[k];
+                j--;
+            }
+            else {
+                helper[i] = arr[k];
+                i++;
+            }
+        }
+        System.out.println(Arrays.toString(helper));
+    }
+}
