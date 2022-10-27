@@ -1,0 +1,15 @@
+#include<stdio.h>
+ 
+int main()
+{
+ long double N,sum=0;
+ scanf("%LF",&N);
+ 
+   for(long double i=1;i<=N;i++)
+     {
+        if(i/2!=(int)(i/2))
+         sum+=i;
+     }
+   printf("%.0LF",sum);
+   return 0;
+}
