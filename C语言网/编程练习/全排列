@@ -1,0 +1,41 @@
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.Stack;
+/*
+所有排列
+
+ */
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int arr[] = new int[4];
+        for (int i=0;i<arr.length;i++){
+            arr[i] = sc.nextInt();
+        }
+        AllPermutation(arr,new Stack<>());
+    }
+    public static void AllPermutation(int[] array, Stack<Integer> stack) {
+        if(array.length <= 0) {
+            //进入了叶子节点，输出栈中内容
+            System.out.println(stack);
+        } else {
+            for (int i = 0; i < array.length; i++) {
+                //tmepArray是一个临时数组，用于就是Ri
+                //eg：1，2，3的全排列，先取出1，那么这时tempArray中就是2，3
+                int[] tempArray = new int[array.length-1];
+                System.arraycopy(array,0,tempArray,0,i);
+                System.arraycopy(array,i+1,tempArray,i,array.length-i-1);
+                stack.push(array[i]);
+                AllPermutation(tempArray,stack);
+                stack.pop();
+            }
+        }
+    }
+}
+
