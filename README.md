@@ -4,6 +4,9 @@
 
 截至2021年11月，学校设有39个学院（书院），另设有体育部、继续教育学院、深圳研究院等；开设本科专业83个；有博士后流动站21个，一级学科博士学位授权点22个，一级学科硕士学位授权点37个；拥有8个国家重点一级学科，8个国家重点二级学科；图书馆收藏纸质图书436.7余万册；专任教师1951人；全日制在校生28501人，其中本科生11354人，硕士生11149人，博士生4792人，留学生1206人。 
 ![image](https://user-images.githubusercontent.com/84449746/195793175-14064d2c-9704-461d-8d80-67984c04db13.png)
+![learning pyrimid (1)](https://user-images.githubusercontent.com/84449746/198280214-4d6c6536-1e24-4478-9aca-805ca6cff322.jpg)
+![learning pyrimid (1)](https://user-images.githubusercontent.com/84449746/198280221-73ddc067-22a7-46bd-ae3d-a0a28dfd801b.jpg)
+![learning pyrimid (1)](https://user-images.githubusercontent.com/84449746/198280222-a9965954-b8fa-4f92-aca6-b863a8e9bc13.jpg)
 
 
 ![image](https://user-images.githubusercontent.com/84449746/195792894-c0673bcf-7401-44d1-b79c-ce1918db26b6.png)
