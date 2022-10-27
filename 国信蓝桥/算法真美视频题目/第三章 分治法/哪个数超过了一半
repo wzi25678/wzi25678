@@ -1,0 +1,28 @@
+package 第三章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+public class 哪个数超过了一半 {
+    public static void main(String[] args) {
+        int arr[] = {2,3,4,5,6,7,8,9,1,1,1,1,1,1,1,1,1};
+        int length = arr.length-1;
+        int estimate = arr[0];    //estimate是用来比较的数，初始定第一个数为需要对比的元素
+        int count = 1;
+        int i = 1;
+        while(length-- >0) {
+            if (arr[i]==estimate){
+                count++;
+            }
+            else {
+                if (count==0){
+                    estimate = arr[i];
+                }
+                else count--;
+            }
+            i++;
+        }
+        System.out.println(estimate);
+    }
+}
