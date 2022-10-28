@@ -1,0 +1,68 @@
+public class 小顶堆输出 {
+	/* 小顶堆分两大步：1堆化2排序
+	 *堆化： 最重要的分为三段
+	 * 1。考虑边界问题；
+	 * 2、比较左右孩子更小的；
+	 * 3、找到了换还是不换的问题。
+	 */
+public static void main(String[] args) {
+	int arr[]={78,56,34,43,4,1,15,2,23};
+	sort(arr);
+	for(int i=0;i<arr.length;i++) {
+		System.out.print(arr[i]+" ");
+	}
+}
+private static void MinHeap(int[] arr) {
+	// TODO Auto-generated method stub
+	int n=arr.length;
+	for(int i=n/2-1;i>=0;i--) {//保证每个节点作为根节点的时候，都是小顶堆
+		FixDown(arr,i,n); //把i做为根节点
+	}
+}
+private static void FixDown(int[] arr, int i, int n) {
+	// TODO Auto-generated method stub
+	//找到左右孩子                                      1.设边界
+	int left=2*i+1;
+	int right=2*i+2;
+	//如果左孩子越界，I就是叶子节点
+	if(left>=n) {
+		return;
+	}
+	int min=left;
+	//如果右孩子越界，I就是叶子节点
+	if(right>=n) {
+		min=left;
+	}else {      //走到这，左右孩子都没有越界。                 
+		if(arr[right]<arr[left]) {//2.比较左右孩子
+			min=right;
+		}
+	}
+	//如果A[i]比两个孩子都要小，不用调整         3.考虑要不要换
+	if(arr[i]<=arr[min]) {
+		return;
+	}
+	//否则，找到两个孩子中较小的，和i交换        4.换
+	int temp=arr[i];//拷贝最小的值
+	arr[i]=arr[min];
+	arr[min]=temp;
+	//小孩子的那个位置的值发生了变化,I变得更为小那个位置
+	FixDown(arr,min,n); 
+}
+private static void sort(int arr[]) {
+	//先堆化
+	MinHeap(arr);
+	//把堆顶，0号元素和最后一个元素交换
+	for(int x=arr.length-1;x>=0;x--) {
+        swap(arr, 0, x);
+		FixDown(arr,0,x);
+	}
+	//缩小堆的范围，对堆顶元素进行向下调整	
+}
+public static int[]  swap(int arr[],int sp,int bigger) {
+	/*数组两个元素位置互换*/
+       int temp=arr[sp];
+       arr[sp]=arr[bigger];
+       arr[bigger]=temp;
+	return arr;	   //将数组返回—    
+}
+}
