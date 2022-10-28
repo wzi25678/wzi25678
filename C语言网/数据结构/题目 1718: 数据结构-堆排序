@@ -1,0 +1,69 @@
+package 重要算法;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Scanner;
+
+public class 堆排序 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        HeapSort(arr);
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    private static void HeapSort(int[] arr) {
+        for (int i = arr.length / 2 - 1; i >= 0; i--) {
+            //定义首元素，从一半的位置开始排序
+            adjustHeap(arr, i, arr.length);
+            //第一次只对后一半的元素进行堆排序，进而实现初始化大顶堆
+        }
+        int temp = 0;
+        for (int j = arr.length - 1; j > 0; j--) {
+            //逆推，从最后一个到第一个
+            temp = arr[j];
+            arr[j] = arr[0];
+            arr[0] = temp;
+            //每一次都将顶上的元素，和逆着最后一个元素开始进行交换，然后进行堆排序
+            //第二次，则是对从起始位置到指定位置进行的排序
+            adjustHeap(arr, 0, j);
+        }
+    }
+
+        private static void adjustHeap(int[] arr, int begin, int end) {
+        //推排序方法，每次只管一个数应该具体放在哪里
+         int temp = arr[begin];
+         //堆排序都是当前结点与其父节点进行的比较操作
+         for (int k = begin * 2 + 1; k < end; k = 2 * k + 1) {
+            if (k + 1 < end && arr[k] < arr[k + 1]) {
+                //右节点存在且右节点>左节点，则大顶堆取其右节点
+                k++;
+            }
+            //让取出来的大节点和初始相对父节点作比较
+
+             //如果能交换：
+             //交换之后，遍历一下其子节点情况
+            if (arr[k] > temp) {
+                arr[begin] = arr[k];
+                begin = k;
+            }
+
+            //如果不能交换，则说明目前已经没有比temp更大的元素了
+             else {
+                break;
+            }
+            }
+         //最后把temp放回到begin位置上。
+            arr[begin] = temp;
+
+        }
+
+    }
