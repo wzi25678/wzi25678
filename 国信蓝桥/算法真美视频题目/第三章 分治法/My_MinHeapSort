@@ -1,0 +1,48 @@
+package 重要算法;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Arrays;
+
+public class My_MinHeapSort {
+    public static void main(String[] args) {
+        int arr[] = {1,7,8,9,10,2,3,6,5,4};
+        HelpSort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    private static void HelpSort(int[] arr) {
+        for (int i = arr.length/2-1;i>=0;i--){
+            MinHeapSort(arr,i,arr.length-1);
+        }
+        int temp = 0;
+        for (int i=arr.length-1;i>=0;i--){
+            Swap(arr,0,i);
+            MinHeapSort(arr,0,i);
+        }
+    }
+
+    private static void Swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    private static void MinHeapSort(int[] arr, int begin, int end ) {
+        int temp = arr[begin];
+        //首先就要从左子节点开始进行比较
+        for (int i = begin*2+1;i<end;i = 2*i+1){
+            if (arr[i+1]<arr[i] && (i+1) < end){
+                i++;
+            }
+            if (arr[i]<temp){
+                arr[begin] = arr[i];
+                begin = i;
+            }
+            else break;
+        }
+        arr[begin] = temp;
+    }
+}
