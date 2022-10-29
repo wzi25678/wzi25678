@@ -1,0 +1,48 @@
+package 重要算法;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+public class 堆排序_My小顶堆 {
+    public static void main(String[] args) {
+        int arr[] = {6,5,4,3,8,7,1,2,9,10};
+        HeapSort(arr);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    private static void HeapSort(int[] arr) {
+        for (int i=arr.length/2-1;i>=0;i--){
+            adjustHeap(arr, i, arr.length);
+        }
+        int temp = 0;
+        for (int j = arr.length - 1; j >= 0; j--){
+            temp = arr[j];
+            arr[j] = arr[0];
+            arr[0] = temp;
+            //每一次都将顶上的元素，和逆着最后一个元素开始进行交换，然后进行堆排序
+            //第二次，则是对从起始位置到指定位置进行的排序
+            adjustHeap(arr, 0, j);
+        }
+    }
+
+    private static void adjustHeap(int[] arr, int begin, int end) {
+        int temp = arr[begin];
+        for (int k = begin * 2 + 1; k < end; k = 2 * k + 1){
+            if (k + 1 < end && arr[k] > arr[k + 1]){
+                k++;
+            }
+            if (arr[k]<temp){
+                arr[begin] = arr[k];
+                begin = k;
+                //即K结点这个位置的值上去了
+            }
+            else {
+                break;
+            }
+        }
+        arr[begin] = temp;
+    }
+}
