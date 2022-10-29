@@ -1,0 +1,71 @@
+package 重要算法;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Arrays;
+
+/*
+简单解释：
+首先说一下，我发现好多人写的基数排序只能排序正整数，其实只要处理下就可以排序含有负数的了，就是我们排序前先把所有的数整体变大（就是减上最小的负数，也就是加了），都变成正数，然后排序好之后，在减下来（加上最小的负数，也就减了）就好了。
+基数排序就是按数位排序可分为LSD（从最低位[也就是个位]开始排序）和MSD（从最高位开始排序），下面写的事LSD基数排序。
+基数排序就是把数按位考虑，让后我们一位数只能是[0，9]，就是我们在考虑某位（个位、百位· · ·）的时候就只看这个位的数，放到在[0，9]相应的位置，然后顺序取出，最后再按其它位这样操作（上面说了要不从低位开始到高位，要不就是从高位到低位）
+ */
+public class 基数排序 {
+    public static void main(String[] args) {
+        int arr [] = {9, 3, 5, 4, 9, 1, 2, 7, 8,1,3, 6, 5, 3, 4, 0, 10, 9, 7, 9};
+        RadixSort(arr,true);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    private static void RadixSort(int[] arr, boolean ascending) {
+        int max = Integer.MAX_VALUE;
+        int min = Integer.MAX_VALUE;
+        for(int i=0;i<arr.length;i++){
+            max = Math.max(arr[i],max);
+            min = Math.min(arr[i],min);
+        }
+        if (min<0){
+            //如果最小值小于0，那么把每个数都减去最小值，这样可以保证最小的数是0
+            for (int i=0;i<arr.length;i++){
+                arr[i] = min;
+            }
+            max -=min;  //最小值能为0
+        }
+        int maxlength = (max+"").length();
+        int bucket[][] = new int[10][arr.length];//一个二维数组，一维代表0到9，二维存放符合数
+        int bucketElementCount[] = new int[10]; // 用于记录0到9某位存在数字的个数
+        for (int i=0,n=1;i<maxlength;i++,n*=10){    //记录其对应的个十百千这样的数值大小
+            int value = arr[i]/n%10;
+            bucket[value][bucketElementCount[value]] = arr[i];
+            bucketElementCount[value]++;
+        }
+        //升序
+        if(ascending) {
+            int index = 0;
+            //从左到右，从下到上取出每个数
+            for (int j = 0; j < bucketElementCount.length; j++) {
+                if (bucketElementCount[j] != 0) {
+                    for (int k = 0; k < bucketElementCount[j]; k++) {
+                        arr[index] = bucket[j][k];
+                        index++;
+                    }
+                }
+                bucketElementCount[j] = 0;
+            }
+        }else { // 降序
+            int index=0;
+            //从右到左，从下到上取出每个数
+            for (int j = bucketElementCount.length-1; j >=0; j--) {
+                if (bucketElementCount[j] != 0) {
+                    for (int k = 0; k <bucketElementCount[j]; k++) {
+                        arr[index] = bucket[j][k];
+                        index++;
+                    }
+                }
+                bucketElementCount[j] = 0;
+            }
+        }
+    }
+}
