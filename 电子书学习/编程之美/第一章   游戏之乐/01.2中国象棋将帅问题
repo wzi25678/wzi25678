@@ -1,0 +1,25 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+/*
+
+ */
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int A[] = {1,2,3,4,5,6,7,8,9};
+        int B[] = {1,2,3,4,5,6,7,8,9};
+        byte i = 81;
+        while (i-->0){
+            /*
+            1.通过观看可以看出，只要%3 ！= 那么就不冲突
+            2.用i/9   与  i%9  lai 模拟所有可能的取值
+             */
+            //解法一：
+            if (i/9 %3 ==i%9%3) continue;
+            System.out.println("A = "+(i/9+1)+" , B = "+(i%9+1));
+        }
+    }
+}
+
