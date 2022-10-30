@@ -1,0 +1,36 @@
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Scanner;
+/*
+
+ */
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for (int i=0;i<arr.length;i++){
+            arr[i] = sc.nextInt();
+        }
+        for (int i=0;i<arr.length;i++){
+            int index = i;
+            for (int j=i;j<arr.length;j++){
+                int min = arr[i];
+                if (min>arr[j]){
+                    min = arr[j];
+                    index = j;
+                }
+
+            }
+            int temp = arr[index];
+            arr[index] = arr[i];
+            arr[i] = temp;
+        }
+
+
+        System.out.println(Arrays.toString(arr));
+    }
+}
+
