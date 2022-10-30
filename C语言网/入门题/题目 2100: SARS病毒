@@ -1,0 +1,41 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+/*
+你需要统计所有满足下列条件的长度为 n 的字符串的个数:
+    1、字符串仅由 A、T、C、G 组成
+    2、A 出现偶数次(也可以不出现)
+    3、C 出现偶数次(也可以不出现)
+
+    当 n=2 时，所有满足条件的字符串有如下 6 个:
+
+TT，TG，GT，GG，AA，CC。
+
+注： 由于这个数可能非常庞大，你只需给出对 10^9 + 7 取模的结果即可。
+
+对于输入文件中的每一个 n，输出满足条件的字符串的个数对 10^9 + 7 取模的结果。
+ */
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+       // System.out.println(mod);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            if (n==0) return;
+            System.out.println(SRAR(n));
+        }
+
+    }
+
+    private static BigInteger SRAR(int n) {
+        BigInteger one = new BigInteger("1");
+        BigInteger Mymod = new BigInteger("1000000007");
+        BigInteger two = new BigInteger("2");
+        BigInteger Count;
+        Count = two.pow(n-1).multiply(((two.pow(n-1))).add(one));
+        return Count.mod(Mymod);
+    }
+}
+
