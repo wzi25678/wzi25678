@@ -1,0 +1,35 @@
+public class 确定数据类型精度 {
+   public final static int a = 10;
+    public static void main(String[] args) {
+//        System.out.println("int取值范围："+Integer.MIN_VALUE+"至"+Integer.MAX_VALUE);
+//        System.out.println("short取值范围："+Short.MIN_VALUE+"至"+Short.MAX_VALUE);
+//        System.out.println("long取值范围："+Long.MIN_VALUE+"至"+Long.MAX_VALUE);
+//        System.out.println("byte取值范围："+Byte.MIN_VALUE+"至"+Byte.MAX_VALUE);
+//        System.out.println("以上是四种整型的取值范围!\n");
+//        System.out.println("float取值范围："+Float.MIN_VALUE+"至"+Float.MAX_VALUE);
+//        System.out.println("double取值范围："+Double.MIN_VALUE+"至"+Double.MAX_VALUE);
+//        System.out.println("以上是两种浮点类型的取值范围!\n");
+//        System.out.println("char取值范围："+Character.MIN_VALUE+"至"+Character.MAX_VALUE);
+//        System.out.println("以上是字符类型的取值范围!\n");
+        //System.out.println("char取值范围："+Boolean.MIN_VALUE+"至"+Boolean.MAX_VALUE);
+        //byte b  = -128;
+       // System.out.println(Byte.toUnsignedInt(b));
+//        String a = "nihao";
+//        String b = "你好！";
+//        double c = 1.0;
+//        long d = 1;
+//        if (Double.isNaN(a)){
+//
+//        }
+        //a = 1;
+        System.out.println(a);
+        System.out.println(Character.isJavaIdentifierStart(1));
+       System.out.println(Character.isJavaIdentifierPart(1));
+       // boolean b = a;
+        //System.out.println(String.format("%.1f",(2.0-1.1)));
+        var hello = "Hello";
+        var a = 10;
+        System.out.println(hello.getClass());
+
+    }
+}
