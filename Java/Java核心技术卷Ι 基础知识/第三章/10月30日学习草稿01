@@ -1,0 +1,26 @@
+import java.util.Date;
+
+public class StudyJavaByMyself {
+    public static strictfp void main(String[] args) {
+        //System.out.println("\u03c0");
+//        System.out.println(Math.pow(1000000000,3));
+//        System.out.println(StrictMath.pow(1000000000,3));
+//        System.out.println(Math.round(9.4999999999999999));     //round 10
+//        System.out.println("double取值范围："+Double.MIN_VALUE+"至"+Double.MAX_VALUE);
+        //double取值范围：4.9E-324至1.7976931348623157E308
+//        int a = 300;
+//        System.out.println((byte)a);
+//        System.out.println(1>>2);
+//        System.out.println("\u2122");   //™
+//        String all = String.join("/","s","m","g");
+        //Integer.toHexString(obj.hashCode()
+        //char arr[] = "Hello";
+//        String a = "hello   ";
+//        int cpCount = a.codePointCount(0,a.length());
+//        System.out.println(cpCount);
+            //int a =10;
+        System.out.printf("%tT",new Date());
+
+
+    }
+}
