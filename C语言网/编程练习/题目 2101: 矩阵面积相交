@@ -1,0 +1,49 @@
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        while(n-->=0){
+            int m = sc.nextInt();
+            int arr[][] = new int[m][4];
+            for (int i=0;i<m;i++){
+                for (int j=0;j<4;j++){
+                    arr[i][j] = sc.nextInt();
+                }
+            }
+            //用一个二维数组构造出m个x1,y1,x2,y2
+            //构造完之后开始进行比较
+            for (int i = 0;i<m;i++){
+                int interact = 0; //相交次数
+                int count = 0;  //count即为相交面积数
+                for (int j=0;j<m;j++){
+                    if (i!=j){
+                       int  Max_A_x = Math.max(arr[i][0],arr[i][2]);
+                       int  Max_B_x = Math.max(arr[j][0],arr[j][2]);
+                       int  Min_A_x = Math.min(arr[i][0],arr[i][2]);
+                       int  Min_B_x = Math.min(arr[j][0],arr[j][2]);
+                       int  Max_A_y = Math.max(arr[i][1],arr[i][3]);
+                       int  Max_B_y = Math.max(arr[j][1],arr[j][3]);
+                       int  Min_A_y = Math.min(arr[i][1],arr[i][3]);
+                       int  Min_B_y = Math.min(arr[j][1],arr[j][3]);
+                            int rectright = Math.min(Max_A_x, Max_B_x);    // 求得相交面积的右边x
+                            int rectleft = Math.max(Min_A_x, Min_B_x);    // 求得相交面积的左边x
+                            int rectup = Math.min(Max_A_y,Max_B_y);    // 求得相交面积的上边y
+                            int rectdown = Math.max(Min_A_y, Min_B_y);    // 求得相交面积的下边y
+                        if (rectright-rectleft>0 || rectup-rectdown>0){
+                            //这种情况说明有交点
+                            interact++;
+                            count = count +(rectright-rectleft)*(rectup-rectdown);
+                        }
+                    }
+                }
+                System.out.println(interact+" "+count);
+            }
+        }
+    }
+}
+
