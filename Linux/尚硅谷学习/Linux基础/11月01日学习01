@@ -1,0 +1,426 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'Hadoop100' resolved to 192.168.73.100.
+Connecting to 192.168.73.100:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Mon Oct 31 19:26:07 2022
+[root@hadoop100 ~]# cat /etc/
+Display all 292 possibilities? (y or n)
+[root@hadoop100 ~]# cat /etc/s
+samba/              security/           setuptool.d/        skel/               ssl/                subgid-             sudoers.d/          systemd/
+sane.d/             selinux/            sgml/               smartmontools/      sssd/               subuid              sudo-ldap.conf      system-release
+sasl2/              services            shadow              sos.conf            statetab            subuid-             sysconfig/          system-release-cpe
+scl/                sestatus.conf       shadow-             speech-dispatcher/  statetab.d/         sudo.conf           sysctl.conf         
+securetty           setroubleshoot/     shells              ssh/                subgid              sudoers             sysctl.d/           
+[root@hadoop100 ~]# cat /etc/shells 
+/bin/sh
+/bin/bash
+/usr/bin/sh
+/usr/bin/bash
+/bin/tcsh
+/bin/csh
+[root@hadoop100 ~]# ls -l /bin/ |grep shell
+-rwxr-xr-x. 1 root root      20544 10月  3 2020 gnome-shell
+-rwxr-xr-x. 1 root root    2153840 10月  3 2020 gnome-shell-extension-prefs
+-rwxr-xr-x. 1 root root       7331 10月  3 2020 gnome-shell-extension-tool
+-rwxr-xr-x. 1 root root      11686 10月  3 2020 gnome-shell-perf-tool
+-rwxr-xr-x. 1 root root       7712 10月  1 2020 ksshell
+-rwxr-xr-x. 1 root root      41872 10月 14 2020 regshell
+[root@hadoop100 ~]# ls -l /bin/ |grep sh
+-rwxr-xr-x. 1 root root       2668 6月  10 2014 amuFormat.sh
+-rwxr-xr-x. 1 root root     964536 4月   1 2020 bash
+lrwxrwxrwx. 1 root root         10 10月 25 17:33 bashbug -> bashbug-64
+-rwxr-xr-x. 1 root root       6964 4月   1 2020 bashbug-64
+-rwxr-xr-x. 1 root root      19792 8月   9 2019 cgsnapshot
+-rws--x--x. 1 root root      23880 10月  1 2020 chsh
+-rwxr-xr-x. 1 root root    7565536 9月  30 2020 crash
+lrwxrwxrwx. 1 root root          4 10月 25 17:39 csh -> tcsh
+-rwxr-xr-x. 1 root root      11576 8月   2 2017 fipshmac
+-rwxr-xr-x. 1 root root      15472 10月  1 2020 gdm-screenshot
+-rwxr-xr-x. 1 root root       4629 4月   1 2020 gettext.sh
+-rwxr-xr-x. 1 root root      85568 11月  2 2018 gnome-screenshot
+-rwxr-xr-x. 1 root root      20544 10月  3 2020 gnome-shell
+-rwxr-xr-x. 1 root root    2153840 10月  3 2020 gnome-shell-extension-prefs
+-rwxr-xr-x. 1 root root       7331 10月  3 2020 gnome-shell-extension-tool
+-rwxr-xr-x. 1 root root      11686 10月  3 2020 gnome-shell-perf-tool
+lrwxrwxrwx. 1 root root         58 10月 25 17:39 gnome-weather -> /usr/share/org.gnome.Weather/org.gnome.Weather.Application
+-rwxr-xr-x. 1 root root        277 10月  1 2020 gvfs-trash
+-rwxr-xr-x. 1 root root       7712 10月  1 2020 ksshell
+-rwxr-xr-x. 1 root root      15864 4月  13 2018 lchsh
+-rwxr-xr-x. 1 root root      11416 11月  6 2016 ldns-nsec3-hash
+-rwxr-xr-x. 1 root root       2291 7月  31 2015 lesspipe.sh
+-rwxr-xr-x. 1 root root       5470 10月  1 2020 lprsetup.sh
+lrwxrwxrwx. 1 root root          6 10月 25 17:34 mshortname -> mtools
+lrwxrwxrwx. 1 root root          6 10月 25 17:34 mshowfat -> mtools
+-rwxr-xr-x. 1 root root      11592 11月  6 2016 nettle-hash
+-rwxr-xr-x. 1 root root      15424 4月  13 2018 pax11publish
+-rwxr-xr-x. 1 root root      41872 10月 14 2020 regshell
+-rwxr-xr-x. 1 root root      34620 4月   1 2020 rescan-scsi-bus.sh
+lrwxrwxrwx. 1 root root         18 10月 25 17:39 scsi-rescan -> rescan-scsi-bus.sh
+lrwxrwxrwx. 1 root root         19 10月 31 20:53 setup-nsssysinit -> setup-nsssysinit.sh
+-rwxr-xr-x. 1 root root       1539 9月  28 03:10 setup-nsssysinit.sh
+lrwxrwxrwx. 1 root root          4 10月 25 17:33 sh -> bash
+-rwxr-xr-x. 1 root root      37448 8月  20 2019 sha1sum
+-rwxr-xr-x. 1 root root      41608 8月  20 2019 sha224sum
+-rwxr-xr-x. 1 root root      41608 8月  20 2019 sha256sum
+-rwxr-xr-x. 1 root root      41624 8月  20 2019 sha384sum
+-rwxr-xr-x. 1 root root      41624 8月  20 2019 sha512sum
+-rwxr-xr-x. 1 root root      35928 10月 14 2020 sharesec
+-rwxr-xr-x. 1 root root      10371 5月  13 2020 show-changed-rco
+-rwxr-xr-x. 1 root root      15912 10月 31 2018 showconsolefont
+-rwxr-xr-x. 1 root root      16572 5月  13 2020 show-installed
+-rwxr-xr-x. 1 root root      15680 10月 31 2018 showkey
+-rwxr-xr-x. 1 root root       7248 8月  12 2017 showrgb
+-rwxr-xr-x. 1 root root      54208 8月  20 2019 shred
+-rwxr-xr-x. 1 root root      50312 8月  20 2019 shuf
+lrwxrwxrwx. 1 root root          5 10月 25 17:37 slogin -> ./ssh
+-rwxr-xr-x. 1 root root     774568 8月   9 2019 ssh
+-rwxr-xr-x. 1 root root     360920 8月   9 2019 ssh-add
+---x--s--x. 1 root nobody   382216 8月   9 2019 ssh-agent
+-rwxr-xr-x. 1 root root      10469 8月   9 2019 ssh-copy-id
+-rwxr-xr-x. 1 root root     419208 8月   9 2019 ssh-keygen
+-rwxr-xr-x. 1 root root     441024 8月   9 2019 ssh-keyscan
+-rwxr-xr-x. 1 root root      23920 10月 16 2020 sss_ssh_authorizedkeys
+-rwxr-xr-x. 1 root root      28016 10月 16 2020 sss_ssh_knownhostsproxy
+-rwxr-xr-x. 1 root root      23736 10月 14 2020 stapsh
+-rwxr-xr-x. 1 root root        546 10月 31 2018 sushi
+-rwxr-xr-x. 1 root root     404640 10月  1 2020 tcsh
+-rwxr-xr-x. 1 root root       4165 10月  1 2020 unix-lpr.sh
+-rwxr-xr-x. 1 root root      15824 10月  1 2020 unshare
+-rwxr-xr-x. 1 root root      11424 8月  12 2017 xrefresh
+[root@hadoop100 ~]# echo $SHELL
+/bin/bash
+[root@hadoop100 ~]# echo $shell
+
+[root@hadoop100 ~]# less /bin/unix-lpr.sh 
+[root@hadoop100 ~]# ls
+anaconda-ks.cfg  initial-setup-ks.cfg  公共  恋爱情侣100件事清单.xlsx  模板  视频  图片  文档  下载  学习金字塔.jpg  音乐  桌面
+[root@hadoop100 ~]# mkdir scripts
+[root@hadoop100 ~]# cd scripts/
+[root@hadoop100 scripts]# touch hello.sh
+[root@hadoop100 scripts]# vim hello.sh 
+[root@hadoop100 scripts]# ls
+hello.sh
+[root@hadoop100 scripts]# bash
+[root@hadoop100 scripts]# bash hello.sh 
+hello world
+[root@hadoop100 scripts]# cd 
+[root@hadoop100 ~]# bash /
+bin/   boot/  dev/   etc/   home/  lib/   lib64/ media/ mnt/   opt/   proc/  root/  run/   sbin/  srv/   sys/   tmp/   usr/   var/   
+[root@hadoop100 ~]# bash /root/scripts/hello.sh 
+hello world
+[root@hadoop100 ~]# sh scripts/hello.sh 
+hello world
+[root@hadoop100 ~]# chmod +x scripts/hello.sh 
+[root@hadoop100 ~]# ls
+anaconda-ks.cfg  initial-setup-ks.cfg  scripts  公共  恋爱情侣100件事清单.xlsx  模板  视频  图片  文档  下载  学习金字塔.jpg  音乐  桌面
+[root@hadoop100 ~]#  ll 
+anaconda-ks.cfg           .cache/                   .ICEauthority             scripts/                  恋爱情侣100件事清单.xlsx  下载/
+.bash_history             .config/                  initial-setup-ks.cfg      .tcshrc                   模板/                     学习金字塔.jpg
+.bash_logout              .cshrc                    .lesshst                  .viminfo                  视频/                     音乐/
+.bash_profile             .dbus/                    .local/                   .Xauthority               图片/                     桌面/
+.bashrc                   .esd_auth                 .mozilla/                 公共/                     文档/                     
+[root@hadoop100 ~]#  ll 
+anaconda-ks.cfg           .cache/                   .ICEauthority             scripts/                  恋爱情侣100件事清单.xlsx  下载/
+.bash_history             .config/                  initial-setup-ks.cfg      .tcshrc                   模板/                     学习金字塔.jpg
+.bash_logout              .cshrc                    .lesshst                  .viminfo                  视频/                     音乐/
+.bash_profile             .dbus/                    .local/                   .Xauthority               图片/                     桌面/
+.bashrc                   .esd_auth                 .mozilla/                 公共/                     文档/                     
+[root@hadoop100 ~]#  cd scripts/
+[root@hadoop100 scripts]# ll
+总用量 4
+-rwxr-xr-x. 1 root root 31 11月  1 15:08 hello.sh
+[root@hadoop100 scripts]# ls
+hello.sh
+[root@hadoop100 scripts]# ll
+总用量 4
+-rwxr-xr-x. 1 root root 31 11月  1 15:08 hello.sh
+[root@hadoop100 scripts]# he
+head     help     hesinfo  hex2hcd  hexdump  
+[root@hadoop100 scripts]# ll
+总用量 4
+-rwxr-xr-x. 1 root root 31 11月  1 15:08 hello.sh
+[root@hadoop100 scripts]# /
+bin/   boot/  dev/   etc/   home/  lib/   lib64/ media/ mnt/   opt/   proc/  root/  run/   sbin/  srv/   sys/   tmp/   usr/   var/   
+[root@hadoop100 scripts]# /
+bin/   boot/  dev/   etc/   home/  lib/   lib64/ media/ mnt/   opt/   proc/  root/  run/   sbin/  srv/   sys/   tmp/   usr/   var/   
+[root@hadoop100 scripts]# /root/scripts/hello.sh 
+hello world
+[root@hadoop100 scripts]# ll
+总用量 4
+-rwxr-xr-x. 1 root root 31 11月  1 15:08 hello.sh
+[root@hadoop100 scripts]# ls
+hello.sh
+[root@hadoop100 scripts]# ./hello.sh 
+hello world
+[root@hadoop100 scripts]# source hello.sh 
+hello world
+[root@hadoop100 scripts]# s
+Display all 309 possibilities? (y or n)
+[root@hadoop100 scripts]# source 
+bash: source: 需要文件名参数
+source: 用法:source 文件名 [参数]
+[root@hadoop100 scripts]# type source 
+Display all 2572 possibilities? (y or n)
+[root@hadoop100 scripts]# type source 
+source 是 shell 内嵌
+[root@hadoop100 scripts]# bash
+[root@hadoop100 scripts]# ps -f
+UID         PID   PPID  C STIME TTY          TIME CMD
+root       1606   1380  0 14:54 pts/0    00:00:00 -bash
+root       3045   1606  0 15:08 pts/0    00:00:00 bash
+root       3646   3045  1 15:22 pts/0    00:00:00 bash
+root       3687   3646  0 15:22 pts/0    00:00:00 ps -f
+[root@hadoop100 scripts]# bash
+[root@hadoop100 scripts]# ps -f
+UID         PID   PPID  C STIME TTY          TIME CMD
+root       1606   1380  0 14:54 pts/0    00:00:00 -bash
+root       3045   1606  0 15:08 pts/0    00:00:00 bash
+root       3646   3045  0 15:22 pts/0    00:00:00 bash
+root       3688   3646  0 15:22 pts/0    00:00:00 bash
+root       3716   3688  0 15:22 pts/0    00:00:00 ps -f
+[root@hadoop100 scripts]# exit
+exit
+[root@hadoop100 scripts]# ps -f
+UID         PID   PPID  C STIME TTY          TIME CMD
+root       1606   1380  0 14:54 pts/0    00:00:00 -bash
+root       3045   1606  0 15:08 pts/0    00:00:00 bash
+root       3646   3045  0 15:22 pts/0    00:00:00 bash
+root       3727   3646  0 15:23 pts/0    00:00:00 ps -f
+[root@hadoop100 scripts]# exit
+exit
+[root@hadoop100 scripts]# ps -f
+UID         PID   PPID  C STIME TTY          TIME CMD
+root       1606   1380  0 14:54 pts/0    00:00:00 -bash
+root       3045   1606  0 15:08 pts/0    00:00:00 bash
+root       3728   3045  0 15:23 pts/0    00:00:00 ps -f
+[root@hadoop100 scripts]# $HOME
+bash: /root: 是一个目录
+[root@hadoop100 scripts]# $PWD
+bash: /root/scripts: 是一个目录
+[root@hadoop100 scripts]# env
+XDG_SESSION_ID=1
+HOSTNAME=hadoop100
+SELINUX_ROLE_REQUESTED=
+SHELL=/bin/bash
+TERM=xterm
+HISTSIZE=1000
+SSH_CLIENT=192.168.73.1 50222 22
+SELINUX_USE_CURRENT_RANGE=
+SSH_TTY=/dev/pts/0
+USER=root
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+MAIL=/var/spool/mail/root
+PWD=/root/scripts
+LANG=zh_CN.UTF-8
+SELINUX_LEVEL_REQUESTED=
+HISTCONTROL=ignoredups
+HOME=/root
+SHLVL=2
+LOGNAME=root
+SSH_CONNECTION=192.168.73.1 50222 192.168.73.100 22
+XDG_DATA_DIRS=/root/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+DISPLAY=localhost:10.0
+XDG_RUNTIME_DIR=/run/user/0
+_=/usr/bin/env
+OLDPWD=/root
+[root@hadoop100 scripts]# env less
+Missing filename ("less --help" for help)
+[root@hadoop100 scripts]# env |less
+[root@hadoop100 scripts]# echo $USER
+root
+[root@hadoop100 scripts]# print
+printafm  printenv  printf    
+[root@hadoop100 scripts]# printenv USER
+root
+[root@hadoop100 scripts]# bash
+[root@hadoop100 scripts]# ls
+hello.sh
+[root@hadoop100 scripts]# ll
+总用量 4
+-rwxr-xr-x. 1 root root 31 11月  1 15:08 hello.sh
+[root@hadoop100 scripts]# ps -f
+UID         PID   PPID  C STIME TTY          TIME CMD
+root       1606   1380  0 14:54 pts/0    00:00:00 -bash
+root       3045   1606  0 15:08 pts/0    00:00:00 bash
+root       3815   3045  0 15:31 pts/0    00:00:00 bash
+root       3858   3815  0 15:31 pts/0    00:00:00 ps -f
+[root@hadoop100 scripts]# echo $HOME
+/root
+[root@hadoop100 scripts]# exit
+exit
+[root@hadoop100 scripts]# exit
+exit
+[root@hadoop100 scripts]# ps -f
+UID         PID   PPID  C STIME TTY          TIME CMD
+root       1606   1380  0 14:54 pts/0    00:00:00 -bash
+root       3859   1606  0 15:32 pts/0    00:00:00 ps -f
+[root@hadoop100 scripts]# exit
+登出
+
+Connection closed.
+
+Disconnected from remote host(Hadoop100) at 15:32:11.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'Hadoop100' resolved to 192.168.73.100.
+Connecting to 192.168.73.100:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Tue Nov  1 14:58:06 2022
+[root@hadoop100 ~]# ps -f
+UID         PID   PPID  C STIME TTY          TIME CMD
+root       3886   3882  0 15:32 pts/0    00:00:00 -bash
+root       3929   3886  0 15:32 pts/0    00:00:00 ps -f
+[root@hadoop100 ~]# set |less
+[root@hadoop100 ~]# a = 2
+bash: a: 未找到命令...
+[root@hadoop100 ~]# a=2
+[root@hadoop100 ~]# echo $a
+2
+[root@hadoop100 ~]# echo $my_var
+
+[root@hadoop100 ~]# my_var=hello
+[root@hadoop100 ~]# echo $my_var
+hello
+[root@hadoop100 ~]# ps -f
+UID         PID   PPID  C STIME TTY          TIME CMD
+root       3886   3882  0 15:32 pts/0    00:00:00 -bash
+root       3992   3886  0 15:38 pts/0    00:00:00 ps -f
+[root@hadoop100 ~]# bash
+[root@hadoop100 ~]# ps -f
+UID         PID   PPID  C STIME TTY          TIME CMD
+root       3886   3882  0 15:32 pts/0    00:00:00 -bash
+root       3993   3886  0 15:38 pts/0    00:00:00 bash
+root       4026   3993  0 15:38 pts/0    00:00:00 ps -f
+[root@hadoop100 ~]# env |grep my_var
+[root@hadoop100 ~]# set |grep my_var
+[root@hadoop100 ~]# echo my_var
+my_var
+[root@hadoop100 ~]# my_var="hello,world 1"
+[root@hadoop100 ~]# echo my_var
+my_var
+[root@hadoop100 ~]# exit
+exit
+[root@hadoop100 ~]# echo $my_var
+hello
+[root@hadoop100 ~]# export
+declare -x DISPLAY="localhost:10.0"
+declare -x HISTCONTROL="ignoredups"
+declare -x HISTSIZE="1000"
+declare -x HOME="/root"
+declare -x HOSTNAME="hadoop100"
+declare -x LANG="zh_CN.UTF-8"
+declare -x LESSOPEN="||/usr/bin/lesspipe.sh %s"
+declare -x LOGNAME="root"
+declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:"
+declare -x MAIL="/var/spool/mail/root"
+declare -x OLDPWD
+declare -x PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin"
+declare -x PWD="/root"
+declare -x SELINUX_LEVEL_REQUESTED=""
+declare -x SELINUX_ROLE_REQUESTED=""
+declare -x SELINUX_USE_CURRENT_RANGE=""
+declare -x SHELL="/bin/bash"
+declare -x SHLVL="1"
+declare -x SSH_CLIENT="192.168.73.1 51858 22"
+declare -x SSH_CONNECTION="192.168.73.1 51858 192.168.73.100 22"
+declare -x SSH_TTY="/dev/pts/0"
+declare -x TERM="xterm"
+declare -x USER="root"
+declare -x XDG_DATA_DIRS="/root/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
+declare -x XDG_RUNTIME_DIR="/run/user/0"
+declare -x XDG_SESSION_ID="8"
+[root@hadoop100 ~]# export my_var
+[root@hadoop100 ~]# echo $my_var
+hello
+[root@hadoop100 ~]# vim hello.sh
+[root@hadoop100 ~]# ./hello.sh
+-bash: ./hello.sh: 没有那个文件或目录
+[root@hadoop100 ~]# cd /root/scripts
+[root@hadoop100 scripts]# ll
+总用量 4
+-rwxr-xr-x. 1 root root 31 11月  1 15:08 hello.sh
+[root@hadoop100 scripts]# ls
+hello.sh
+[root@hadoop100 scripts]# . hello.sh
+hello world
+[root@hadoop100 scripts]# vim hello.sh 
+[root@hadoop100 scripts]# ./hello.sh 
+hello world
+hello
+
+[root@hadoop100 scripts]# set | less
+[root@hadoop100 scripts]# unset a
+[root@hadoop100 scripts]# ls
+hello.sh
+[root@hadoop100 scripts]# hello.sh
+bash: hello.sh: 未找到命令...
+[root@hadoop100 scripts]# cp hello.sh 
+cp: 在"hello.sh" 后缺少了要操作的目标文件
+Try 'cp --help' for more information.
+[root@hadoop100 scripts]# cp hello.sh /bin/script
+cp：是否覆盖"/bin/script"？ n
+[root@hadoop100 scripts]# cp hello.sh /bin
+[root@hadoop100 scripts]# cp hello.sh /bin/
+cp：是否覆盖"/bin/hello.sh"？ m^Hn
+[root@hadoop100 scripts]# echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+[root@hadoop100 scripts]# echo ${10}
+
+[root@hadoop100 scripts]# echo $?
+0
+[root@hadoop100 scripts]# parameter.sh
+bash: parameter.sh: 未找到命令...
+[root@hadoop100 scripts]# echo $?
+127
+[root@hadoop100 scripts]# a=1+2
+[root@hadoop100 scripts]# echo a
+a
+[root@hadoop100 scripts]# echo $a
+1+2
+[root@hadoop100 scripts]# ex
+ex        exec      exempi    exit      expand    export    exportfs  expr      
+[root@hadoop100 scripts]# expr 1 + 2
+3
+[root@hadoop100 scripts]# expr 5 \* 2
+10
+[root@hadoop100 scripts]# $[5 * 2]
+bash: 10: 未找到命令...
+[root@hadoop100 scripts]# echo $[5 * 2]
+10
+[root@hadoop100 scripts]# a =hello
+bash: a: 未找到命令...
+[root@hadoop100 scripts]# a=hello
+[root@hadoop100 scripts]# $?
+bash: 0: 未找到命令...
+[root@hadoop100 scripts]# echo $a
+hello
+[root@hadoop100 scripts]# test $a=hello
+[root@hadoop100 scripts]# echo $?
+0
+[root@hadoop100 scripts]# [$a = hello]
+bash: [hello: 未找到命令...
+[root@hadoop100 scripts]# [$a = hello ]
+bash: [hello: 未找到命令...
+[root@hadoop100 scripts]# 
+[root@hadoop100 scripts]# [ $a = Hello ]
+[root@hadoop100 scripts]# echo $?
+1
+[root@hadoop100 scripts]# [ $a ！ = Hello ]
+-bash: [: 参数太多
+[root@hadoop100 scripts]# [ $a != Hello ]
+[root@hadoop100 scripts]#echo $?
+0
+[root@hadoop100 scripts]# 
