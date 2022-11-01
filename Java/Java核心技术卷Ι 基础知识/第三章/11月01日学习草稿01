@@ -1,0 +1,40 @@
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Date;
+
+public class StudyJavaByMyself {
+    public static strictfp void main(String[] args) {
+        //BigInteger.ONE;BigInteger.TWO;BigInteger.TEN;BigInteger.ZERO;
+        BigInteger a = BigInteger.valueOf(100);
+        BigInteger a1 = new BigInteger("100");
+        int arr [] = {10,9,8,7,6,5,4,1,2,3,0,5,5};
+        int array[][] = {{1,2,3},{4,5,6},{7,8,9}};
+        double a2 = 12345.67890;
+        System.out.printf("%9.3f%%",a2);
+        // _12345.68
+        //12345.679
+       /// System.out.println(Arrays.deepToString(array));
+/*        for (int i[]:array
+             ) {
+            for (int j:i
+                 ) {
+                System.out.print(array[j][i]+" ");
+            }
+            System.out.println();
+        }*/
+/*        for (int i:arr) {
+            System.out.println(arr[i]);
+            //foreach的使用，也称泛型for循环
+        }*/
+        int arr_copy01[] = Arrays.copyOf(arr,5);
+   /*     for (int i:arr_copy01
+             ) {
+            System.out.println(arr_copy01[i]);
+        }*/
+      //  arr = Arrays.copyOf(arr,2*arr.length);
+        //将数组扩大一倍
+       // Arrays.sort(arr);
+        //System.out.println(Arrays.binarySearch(arr,0,arr.length,5));
+        //是用二分查找，从0-arr.length中寻找首个为5的元素
+    }
+}
