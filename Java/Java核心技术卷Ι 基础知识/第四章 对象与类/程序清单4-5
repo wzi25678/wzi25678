@@ -1,0 +1,53 @@
+import java.math.BigInteger;
+import java.text.NumberFormat;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Random;
+
+public class StudyJavaByMyself {
+    private static int nextId = 1;  //静态初始化
+    public static strictfp void main(String[] args) {
+        var staff = new Employee[3];
+        
+    }
+    static class Employee {
+        private static int nextId;
+        private int id;
+        private String name = "";
+        private double salary;
+
+        static{
+            var generator = new Random();
+            nextId = generator.nextInt();
+        }
+        
+        {
+            id  = nextId;
+            nextId++;
+        }
+        
+        public Employee(String aname,double asalary){
+            name = aname;
+            salary = asalary;
+        }
+        
+        public Employee(double s){
+            this("Employee #" +nextId,s);
+        }
+
+        public Employee() {
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public double getSalary() {
+            return salary;
+        }
+    }
+}
