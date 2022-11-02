@@ -1,0 +1,22 @@
+import java.math.BigInteger;
+import java.text.NumberFormat;
+import java.util.Arrays;
+import java.util.Date;
+
+public class StudyJavaByMyself {
+    public static strictfp void main(String[] args) {
+        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
+        NumberFormat percentInstance = NumberFormat.getPercentInstance();
+        double x = 0.1;
+        System.out.println(currencyFormatter);
+        System.out.println(percentInstance);
+        System.out.println(currencyFormatter.format(x));
+        System.out.println(percentInstance.format(x));
+        /*
+        java.text.DecimalFormat@774c1
+        java.text.DecimalFormat@674dc
+        ￥0.10
+        10%
+         */
+    }
+}
