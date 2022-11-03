@@ -1,0 +1,32 @@
+import java.math.BigInteger;
+import java.text.NumberFormat;
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Random;
+
+public class StudyJavaByMyself {
+    public static void main(String[] args) {
+        int arr[] = {77,99,44,55,2288,11,0,66,33};
+        SelectSort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    private static void SelectSort(int[] arr) {
+        for (int i=0;i<arr.length;i++){
+            int Minimum = arr[i];
+            int index = i;  //指示是哪个元素替换了arr[i]
+            for (int j=i;j<arr.length;j++){
+                if (arr[j]<Minimum){
+                    Minimum = arr[j];
+                    index = j;
+                }
+            }
+            int temp = arr[index];
+            arr[index] = arr[i];    //把arr[i]放过去
+            arr[i] = temp;
+        }
+    }
+
+
+}
