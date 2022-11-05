@@ -1,0 +1,68 @@
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        int arr[][] = {
+                {1,2,3,4,5},
+                {6,7,8,9,10},
+                {11,12,13,14,15},
+                {16,17,18,19,20}
+        };
+        ArrayList<Integer> list = new ArrayList();
+        int up = 0;
+        int down = arr.length-1;
+        int left = 0;
+        int right = arr[0].length-1;
+        while (true){
+            for (int i=left;i<=right;i++){
+                list.add(arr[up][i]);
+            }
+            up++;
+            for (int i=up;i<=down;i++){
+                list.add(arr[i][right]);
+            }
+            right--;
+            if (up>down && left>right) break;
+            for (int i=right;i>=left;i--){
+                list.add(arr[down][i]);
+            }
+            down--;
+            for (int i=down;i>=up;i--){
+                list.add(arr[i][left]);
+            }
+            left++;
+        }
+        System.out.println(list);
+       // System.out.println(Arrays.toString(arr));
+
+       // System.out.println(arr.length); //arr.length反应二维数组的行数
+       // OrderPrint(arr);
+    }
+
+    /*private static void OrderPrint(int[][] arr) {
+
+       你只需要知道以下几点信息：
+       左上角的行  leftuprow   左上角的列  leftupcol
+       右下角的行  rightdownrow  右下角的列   rightdowncol
+
+        int leftuprow = 0,leftupcol=0;
+        int rightdownrow = arr.length; //右下角的行，反应的是有多少行，即总行数
+        int rightdowncol = arr[0].length; //右下角的列，反应的是一行有多少个元素，即总列数
+        System.out.println(leftuprow +" "+leftupcol);
+        System.out.println(rightdownrow+ " "+rightdowncol);
+        while (leftuprow<=rightdownrow){
+            for (int i=leftupcol;i<=rightdowncol;i++){
+                System.out.print(arr[leftuprow][i]);
+            }
+            while (leftupcol<=rightdowncol){
+                for (int i=leftuprow;i<=rightdownrow;i++){
+                    System.out.println(arr[i][rightdowncol]);
+                }
+            }
+        }
+
+    }*/
+}
+
