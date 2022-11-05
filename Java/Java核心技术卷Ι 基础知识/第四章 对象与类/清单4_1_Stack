@@ -1,0 +1,58 @@
+package 第四章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+public class 清单4_1_Stack {
+    static class Stackx{
+        private int maxSize;
+        private long [] stackArray;
+        private int top;
+        //-----------------------------------------------------------------------
+        public Stackx(int s){
+            maxSize = s;
+            stackArray = new long[maxSize];
+            top = -1;
+        }
+        //-----------------------------------------------------------------------
+        public void push(long j){
+            stackArray[++top] = j;
+        }
+        //-----------------------------------------------------------------------
+        public long pop(){
+            return stackArray[top--];
+        }
+        //-----------------------------------------------------------------------
+        public long peck(){
+            return stackArray[top];
+        }
+        //-----------------------------------------------------------------------
+        public boolean isEmpty(){
+            return (top == -1);
+        }
+        //-----------------------------------------------------------------------
+        public boolean isFull(){
+            return (top == maxSize-1);
+        }
+    }//end Stackx
+    ////////////////////////////////////////////////////////////////////////////////////
+    static class StackApp{
+        public static void main(String[] args) {
+           Stackx theStack  =new Stackx(10);
+           theStack.push(20);
+           theStack.push(40);
+           theStack.push(60);
+           theStack.pop();
+           theStack.push(80);
+
+           while (!theStack.isEmpty()){
+               long value = theStack.peck();
+               System.out.println(value);
+               System.out.println("");
+           }
+            System.out.println("");
+        }
+    }//end StackApp
+}
+
