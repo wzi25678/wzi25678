@@ -1,0 +1,48 @@
+package 第四章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+public class 边界为1的最大子方阵__解法一 {
+    static int solve(int A[][]){
+        int N = A.length;
+        int n = N;
+
+        while (n>0){
+            for (int i=0;i<N;i++){
+                if (i+n>N)break;
+                l3 : for (int j=0;j<N;j++){
+                    if (j+n>N) break ;
+                    //检查四个边
+                    int r = i;
+                    int c = j;
+                    while (c <j+n){
+                        if (A[r][c++]==0) continue l3;
+                    }
+                    c--;
+                    while (r<i+n){
+                        if (A[r++][c] == 0) continue l3;
+                    }
+                    r++;
+                    return n;
+                }
+            }
+            n--;
+        }//end while
+        return 0;
+    } //end solve
+
+    public static void main(String[] args) {
+        int A [][]  = {
+                {0,1,1,1,1},
+                {1,1,0,1,1},
+                {1,1,1,1,1},
+                {1,1,1,1,1},
+                {1,1,1,1,1}
+        };
+        int res = solve(A);
+        System.out.println(res);
+    }//end main
+
+}
