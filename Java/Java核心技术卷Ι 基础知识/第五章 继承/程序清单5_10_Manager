@@ -1,0 +1,47 @@
+package 程序清单;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.time.LocalDate;
+import java.util.Objects;
+
+public class 程序清单5_10_Manager extends 程序清单5_9_Employee{
+    private double bonus;
+    public 程序清单5_10_Manager(String name, double salary, int year, int month, int day) {
+        super(name, salary, year, month, day);
+        bonus = 0;
+    }
+
+    public double getSalary(){
+        double baseSalary = super.getSalary();
+        return baseSalary+bonus;
+    }
+
+    public void setBonus(double bonus) {
+        this.bonus = bonus;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        程序清单5_10_Manager that = (程序清单5_10_Manager) o;
+        return Double.compare(that.bonus, bonus) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), bonus);
+    }
+
+    @Override
+    public String toString() {
+        return "程序清单5_10_Manager{" +
+                super.toString()+
+                "bonus=" + bonus +
+                '}';
+    }
+}
