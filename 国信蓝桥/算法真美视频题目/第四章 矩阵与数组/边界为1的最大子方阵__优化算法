@@ -1,0 +1,95 @@
+package com.DJL.ArraysMatrix;
+
+public class Practice_边界为一的最大子方阵优化 {
+    static int[][][] rec;
+    static int solve(int[][] A) {
+        int N = A.length;
+        int n = N;//动态变化的阶数
+
+        while (n > 0) {
+            for (int i = 0; i < N; i++) {
+                if (i + n > N) break;
+                l3:
+                for (int j = 0; j < N; j++) {
+                    if (j + n > N) break;
+                     if(check(i,j,n)){
+                         return n;
+                     }
+                }
+            }
+            n--;
+        }
+        return 0;
+    }
+
+    private static boolean check(int i, int j, int n) {
+       //左上角那个点往右数的1的数目要≥n
+       //左上角那个点往下数的1的数目要≥n
+       //右上角那个点往下数的1的数目要≥n
+       //左下角那个点往右数的1的数目要≥n
+        if(rec[i][j][0]>=n&&rec[i][j+n-1][1]>=n&&rec[i][j][1]>=n&&rec[i+n-1][j][0]>=n){
+            return true;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int[][] A = {
+                {0,1,1,1,0},
+                {1,1,0,1,1},
+                {1,1,1,1,1},
+                {1,1,1,1,1},
+                {1,1,1,1,1}
+        };
+        rec = new int[A.length][A.length][2];
+        help(A);
+        printArr(rec,A.length);
+        int res = solve(A);
+        System.out.println(res);
+
+    }
+
+    private static void help(int[][] A) {
+        int N = A.length;
+        int row = N-1;
+        //初始化最后一行
+        for(int i=N-1;i>=0;i--){
+            int value = A[row][i];
+            if(value==1){
+                if(i==N-1){
+                    rec[row][i][0]=1;
+                }else{
+                    rec[row][i][0]=rec[row][i+1][0]+1;
+                }
+                rec[row][i][1]=1;
+            }
+        }
+        row--;
+        for(int i=row;i>=0;i--){
+            for(int j=N-1;j>=0;j--){
+                int value = A[i][j];
+                if(value==1){
+                    if(j==N-1){
+                        rec[i][j][0]=1;
+                    }else{
+                        rec[i][j][0]=rec[i][j+1][0]+1;
+                    }
+                    rec[i][j][1]=rec[i+1][j][1]+1;
+                }
+            }
+        }
+    }
+    //0表示右边1的个数包含自身
+    //1表示下边1的个数包含自身
+    static void printArr(int[][][] A,int N){
+        for(int i=0;i<N;i++){
+            for(int j=0;j<N;j++){
+                System.out.print("(" + A[i][j][0] +" " + A[i][j][1]+")");
+            }
+            System.out.println();
+        }
+    }
+
+
+}
+
