@@ -1,0 +1,18 @@
+package day11_8;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+public class CloneTest {
+    public static void main(String[] args) throws CloneNotSupportedException{
+        var orginal = new Employee("John Q.public",5000);
+        orginal.setHireDay(2000,1,1);
+        Employee copy = orginal.clone();
+        //copy默认继承原有复制过来的属性
+        copy.raiseSalary(10);
+        copy.setHireDay(2002,12,31);
+        System.out.println("original= "+orginal);
+        System.out.println("copy= "+copy);
+    }
+}
