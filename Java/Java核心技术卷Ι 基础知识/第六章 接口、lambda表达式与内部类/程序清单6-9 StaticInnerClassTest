@@ -1,0 +1,60 @@
+package day11_9;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+public class StaticInnerClassTest {
+    public static void main(String[] args) {
+        
+    }//end main
+}
+class ArrayAlg{
+    private double first;
+    private double second;
+
+/*    public ArrayAlg(double first, double second) {
+        this.first = first;
+        this.second = second;
+    }*/
+    public Pair(double f,double s){
+        first  = f;
+        second = s;
+    }
+
+    public double getFirst() {
+        return first;
+    }
+
+    public double getSecond() {
+        return second;
+    }
+}//end class-ArrayAlg
+
+public static Pair minmax(double [] values){
+    double min = Double.POSITIVE_INFINITY;
+    System.out.println(min);
+    double max = Double.NEGATIVE_INFINITY;
+    System.out.println(max);
+      /**
+     * A constant holding the positive infinity of type
+     * {@code double}. It is equal to the value returned by
+     * {@code Double.longBitsToDouble(0x7ff0000000000000L)}.
+  
+       
+       *  public static final double POSITIVE_INFINITY = 1.0 / 0.0;
+     */
+    /**
+     * A constant holding the negative infinity of type
+     * {@code double}. It is equal to the value returned by
+     * {@code Double.longBitsToDouble(0xfff0000000000000L)}.
+
+     
+     *  public static final double NEGATIVE_INFINITY = -1.0 / 0.0;
+     */
+    for (double v :values){
+        if (min > v) min = v;
+        if (max < v) max = v;
+    }
+    return new Pair(min,max);
+}
