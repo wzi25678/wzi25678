@@ -1,0 +1,33 @@
+package day11_9;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.Instant;
+
+public class AnonymousInnerClassTest {
+    public static void main(String[] args) {
+        var clock = new TalkingClock();
+        clock.start(1000,true);
+        JOptionPane.showMessageDialog(null,"Quit program?");
+        System.exit(0);
+    }//end main
+}
+class TalkingClock{
+    public void start(int interval,boolean beep){
+        var listener = new ActionListener(){
+            public void actionPerformed(ActionEvent event){
+                System.out.println("At the tone, the time is "+
+                        Instant.ofEpochMilli(event.getWhen()));
+                if (beep) Toolkit.getDefaultToolkit().beep();
+            }
+        };
+        var timer = new Timer(interval,listener);
+        timer.start();
+    }//end satrt
+}
