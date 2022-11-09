@@ -1,0 +1,94 @@
+
+package 第5章_链表;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+class Link{
+    public int iDate;   //date item(key)
+    public double dDate; //date item
+    public Link next;
+
+    public Link(int id, double dd) {
+        this.iDate = id;
+        this.dDate = dd;
+    }
+
+    public void displayLink(){
+        System.out.println("{" + iDate+" ,"+dDate+"}");
+    }
+}//end class-Link
+class LinkList{
+    private Link first;
+
+    public LinkList() {
+        first = null;
+    }
+
+    public void insetFirst(int id,double dd){
+        Link newLink = new Link(id,dd);
+        newLink.next = first;
+        first = newLink;
+    }
+
+    public Link find(int key){
+        Link current = first;
+        while (current.iDate != key){
+            if (current.next == null)
+                return null;
+            else   current = current.next;
+        }
+        return current;
+    }
+
+    public Link delete(int key){
+        Link current = first;
+        Link previous = first;
+        while (current.iDate != key){
+            if (current.next == null) return null;
+            else {
+                previous = current;
+                current = current.next;
+            }
+        }
+        if (current == first) first = first.next;
+        else previous.next = current.next;
+        return current;
+    }
+
+    public void displayList(){
+        System.out.println("List(first --> last): ");
+        Link current = first;
+        while (current != null){
+            current.displayLink();
+            current = current.next;
+        }
+        System.out.println(" ");
+    }
+}//end class-LinkList
+public class LinkList2 {
+    public static void main(String[] args) {
+        LinkList theList = new LinkList();
+        theList.insetFirst(22,2.99);
+        theList.insetFirst(44,4.99);
+        theList.insetFirst(66,6.99);
+        theList.insetFirst(88,8.99);
+
+        theList.displayList();
+
+        Link f = theList.find(44);
+        if (f!=null){
+            System.out.println("Found link with key "+f.iDate);
+        }
+        else System.out.println("Can't find link");
+
+        Link d = theList.delete(66);
+        if (d!=null){
+            System.out.println("Deleted link with key "+d.iDate);
+        }
+        else{
+            System.out.println("Can't delete link.");
+        }
+        theList.displayList();
+    }//end main
+}//end -class LinkList2
