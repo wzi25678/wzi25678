@@ -1,0 +1,28 @@
+package day11_10;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Scanner;
+
+public class 程序清单7_1_StackTraceTest {
+    public static int factorial(int n){
+        System.out.println("factorial("+n+") :");
+        var walker = StackWalker.getInstance();
+        walker.forEach(System.out::println);
+        int r;
+        if (n <= 1) r=1;
+        else r = n * factorial(n-1);
+        System.out.println("return "+r);
+        return r;
+    }//end factorial
+
+    public static void main(String[] args){
+        try (var in = new Scanner(System.in)){
+            System.out.println("Enter n: ");
+            int n = in.nextInt();
+            factorial(n);
+            }
+        }
+}//end class-StackTraceTest
