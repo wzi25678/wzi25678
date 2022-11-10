@@ -1,0 +1,48 @@
+package 第四章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+public class 编程返回子数组最大的累加和 {
+    public static void main(String[] args) {
+        //单向扫描法
+        int arr[] = {1, -2, 3, 5, -2, 6, -1};
+        maxsumofSubarray(arr);
+
+/**
+ int arr[] = {1,-2,3,5,-2,6,-1};
+ int max = 0;
+ int length = 0;
+ int temp = 0;
+ for (int i=0;i< arr.length;i++){
+ if (arr[i]+max>0){
+ if (temp+arr[i]>max){
+ max = (temp+arr[i]);
+ length++;
+ }
+ else {  //加一个负数
+ temp = max+arr[i];
+ length++;
+ }
+ }else {
+ max = 0;
+ length = 0;
+ }
+ }
+ System.out.println(max);
+ System.out.println(length);*/
+    }
+
+    public static int maxsumofSubarray(int[] arr) {
+        if (arr.length == 0) return 0;
+        /*方法一：数组保存最大累加和*/
+        int max = Math.max(0, arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            arr[i] = Math.max(arr[i], arr[i - 1] + arr[i]);
+            max = Math.max(max, arr[i]);
+        }
+        System.out.println(max);
+        return max;
+    }
+}
