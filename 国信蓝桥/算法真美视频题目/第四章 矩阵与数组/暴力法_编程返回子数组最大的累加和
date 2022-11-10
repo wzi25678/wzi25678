@@ -1,0 +1,45 @@
+package 第四章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Arrays;
+
+public class 暴力法_编程返回子数组最大的累加和 {
+    public static void main(String[] args) {
+        int arr[] = {1,-2,3,5,-2,6,-1};
+        int maxarr[] = new int[arr.length];
+        int length[] = new int[arr.length];
+        for (int i = 0;i<arr.length;i++){
+            int max = arr[i];
+            int count = max;
+            int ilength = 1;
+            for (int j=i+1;j<arr.length;j++){
+                if ((arr[j]+count) >max){
+                    max = (arr[j]+count);
+                    count = max;
+                    ilength = (j-i+1);
+                }
+                else count = (arr[j]+count);
+            }
+            maxarr[i] = max;
+            length[i] = ilength;
+        }
+        System.out.println(Arrays.toString(maxarr));
+        System.out.println(Arrays.toString(length));
+        int index = 0 ;
+        int max = maxarr[0];
+        for (int i=0;i<arr.length;i++){
+            if (maxarr[i]>max){
+                max = maxarr[i];
+                index = i;
+            }
+        }
+        System.out.println(max);
+        System.out.println(index);
+        for (int i=0;i<length[index];i++){
+            System.out.print(arr[index+i]+", ");
+        }
+    }
+}
