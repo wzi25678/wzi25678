@@ -1,0 +1,23 @@
+package 第四章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+public class 子数组最大累加和 {
+    public static void main(String[] args) {
+        int arr[] = {1, -2, 3, 5, -2, 6, -1};
+        maxSubArray(arr);
+    }
+
+    private static int maxSubArray(int[] arr) {
+        int result = arr[0];
+        for (int i=1;i<arr.length;i++){
+            arr[i] = arr[i] +Integer.max(arr[i-1],0);   
+            //保证原取值count恒正   //把所有累积和传递给arr[i]
+            result = Integer.max(result,arr[i]);
+            //比较arr[i]和之前的最大值result
+        }
+        return result;
+    }
+}
