@@ -1,0 +1,39 @@
+package 入门题;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/** 题目 2129: 信息学奥赛一本通T1265- 最长公共子序列
+ *
+ 例如，序列Z=<B,C,D,B>是序列X=<A,B,C,B,D,A,B>的子序列,相应的递增下标序列为<2,3,5,7>。
+
+ 【输出格式】
+ 第一行为一个非负整数。表示所求得的最长公共子序列的长度。若不存在公共子序列．则输出文件仅有一行输出一个整数0。
+
+ 样例输入
+ ABCBDAB
+ BDCABA
+ 样例输出
+ 4
+ */
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();   //第一行输入
+        sc.nextLine();      /掉回车Enter
+        String t = sc.next();   //第二行输入
+        int n = s.length()+1,m = t.length()+1;
+        int dp[][] = new int[n][m]; //记录情况
+        for (int i=1;i<n;i++){
+            for (int j = 1;j<m;j++){
+                if (s.charAt(i-1) != t.charAt(j-1)){
+                    dp[i][j] = Math.max(dp[i][j-1],dp[i-1][j]);
+                }
+                else {
+                    dp[i][j] = dp[i-1][j-1] +1;
+                }
+            }
+        }
+        System.out.println(dp[n-1][m-1]);
+    }
+}
