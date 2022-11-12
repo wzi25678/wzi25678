@@ -1,0 +1,39 @@
+package 第四章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+public class 矩阵乘法 {
+    public static void main(String[] args) {
+        int arr1 [][] = {
+                {1,2,3},
+                {4,5,6},
+                {7,8,9,}
+        };
+        int arr2[][] = {
+                {10,11,12},
+                {13,14,15},
+                {16,17,18}
+        };
+        System.out.println(MatrixMultiply(arr1, arr2));
+    }
+
+    private static long[][] MatrixMultiply(int[][] m1, int[][] m2) {
+        int m1_row = m1.length;
+        int m1_col = m1[0].length;
+        int m2_row = m2.length;
+        int m2_col = m2[0].length;
+        long[][] result = new long[m1_row][m2_col];
+        for (int i=0;i<m1_row;i++){
+            for (int j=0;j<m2_col;j++){
+                for (int k=0;k<m1_col;k++){
+                    result[i][j]+=m1[i][k]*m2[k][j];
+                }
+            }
+        }
+        System.out.println(result);
+        return result;
+    }
+
+}
