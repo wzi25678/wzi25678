@@ -1,0 +1,75 @@
+package 入门题;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/** 题目 2170: 信息学奥赛一本通T1247-河中跳房子
+ *
+ * 使得从起点到终点的过程中，最短的跳跃距离最长。他可以移走除起点和终点外的至多M (0 ≤ M ≤ N) 个岩石。
+ *
+ * 请帮助约翰确定移走这些岩石后，最长可能的最短跳跃距离是多少？
+ */
+public class Main {
+    static int len;
+    static int N;
+    static int M;
+    static int arr[];
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        len = sc.nextInt();
+        N = sc.nextInt();
+        M = sc.nextInt();
+        arr = new int[N+2];     //用于记录接下来的输入元素
+        arr[0] = 0; //相当于记录出沿途所有的截断点
+        for (int i = 1;i<N;i++){
+             arr[i] = sc.nextInt();
+        }
+        arr[N+1] = len;     //相当于记录出沿途所有的截断点
+        search();
+        sc.close();
+    }
+
+    private static void search() {
+        int l=0,r=len;
+        int mid;
+        while (l < r-1){
+            mid = (l +r)/2;
+            if (check(mid)){
+                l=mid;
+            }
+            else  r= mid;
+        }//end while
+
+        if (check(r)){
+            System.out.print(r);
+        }
+        else System.out.print(l);
+    }
+
+    private static boolean check(int v) {
+        int sum = 0;
+        int prev = 0;
+        for (int i=1;i<=N+1;i++){
+            if (arr[i] -prev <v){
+                sum++;
+            }else prev = arr[i];
+        }//end for
+        if (sum > M){
+            return  false;
+        }
+        return true;
+    }
+
+/**    private static boolean check(int[] num, int k) {
+        boolean re = false;
+        for (int i = 0;i<num.length;i++){
+            for (int j = 0;j<num.length;j++){
+                if (i==j)continue;
+                if (num[i] +num[j] == k) re  = true;
+            }
+        }
+        return  re;
+    }*/
+}
