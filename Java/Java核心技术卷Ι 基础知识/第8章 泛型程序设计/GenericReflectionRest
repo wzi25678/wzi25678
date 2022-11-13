@@ -1,0 +1,138 @@
+package day11_13;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.lang.reflect.*;
+import java.util.Arrays;
+import java.util.Scanner;
+
+import static jdk.jshell.TreeDissector.printType;
+
+public class GenericReflectionRest {
+    public static void main(String[] args) {
+        String name;
+        if (args.length>0) name = args[0];
+        else {
+            try (var in  = new Scanner(System.in)){
+                System.out.println("Enter class name (e.g., java.util.collections): ");
+
+            }
+        }//else
+
+        try{
+            Class<?> cl = Class.forName(name);
+            printClass(cl);
+            for (Method m : cl.getDeclaredMethod()){
+                printMethod(m);
+            }
+        }//try
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }//main
+
+    private static void printMethod(Method m) {
+        String name = m.getName;
+        System.out.println(Modifier.toString(m.getModifiers));
+        System.out.println();
+        printTypes(m.getTypeParameters(),"<",",",">",true);
+
+        printType(m.getGenericParameterType(),false);
+    }
+
+    private static void printClass(Class<?> cl) {
+        System.out.println(cl);
+        printTypes(cl.getTypeParameters(),"<",",",">",true);
+        Type sc = cl.getGenericSuperclass();
+        if (sc!=null){
+            System.out.println("extends ");
+            printTypes(sc,false);
+        }
+        printTypes((TypeVariable<? extends Class<?>>[]) cl.getGenericInterfaces(),"implements",",",",",false);
+        System.out.println();
+    }
+
+//    private static void printType(Type type, boolean isDefinition) {
+//        if (type instanceof Class){
+//            var t = (Class<?>) type;
+//            System.out.println(t.getName());
+//        }
+//        else if (type instanceof TypeVariable){
+//            var t = (TypeVariable<?>) type;
+//            System.out.println(t.getName());
+//            if (isDefinition)
+//                printTypes(t.getBounds(),"extends","&","",false);
+//        }
+//        else if (type instanceof WildcardType){
+//            var t = (WildcardType)type;
+//            System.out.println("?");
+//            printTypes(t.getUpperBounds()," extends ","&","",false);
+//            printTypes(t.getLowerBounds()," supper",",","",false);
+//        }
+//        else if (type instanceof ParameterizedType){
+//            var t = (ParameterizedType) type;
+//            Type owner = t.getOwnerType();
+//            if (owner != null){
+//                printType(owner,false);
+//                System.out.println(".");
+//            }
+//            printType(t.getRawType(),false);
+//            printTypes(t.getActualTypeArguments(),"<",",","",false);
+//        }
+//        else if (type instanceof GenericArrayType){
+//            var t = (GenericArrayType) type;
+//            System.out.println("");
+//            printType(t.getGenericComponentType(),isDefinition);
+//            System.out.println("[]");
+//        }
+//
+//    }
+
+    private static void printTypes(Type[] types, String pre, String sep, String suf, boolean isDefinition) {
+        if (pre.equals(" extends ") && Arrays.equals(types,new Type[]{Object.class})) return;
+        if (types.length > 0) System.out.println(pre);
+        for (int i=0;i<types.length;i++){
+            if (i>0) System.out.println(sep);
+            printType(types[i],isDefinition);
+        }
+        if (types.length > 0) System.out.println(suf);
+    }
+
+    public static void printType(Type type,boolean isDefinition){
+        if (type instanceof Class){
+            var t = (Class<?>) type;
+            System.out.println(t.getName());
+        }
+        else if (type instanceof TypeVariable){
+            var t = (TypeVariable<?>) type;
+            System.out.println(t.getName());
+            if (isDefinition){
+                printTypes(t.getBounds()," extends","&","",false);
+            }
+        }
+        else if (type instanceof WildcardType){
+            var t = (WildcardType) type;
+            System.out.println("?");
+            printTypes(t.getUpperBounds()," extends","&","",false);
+            printTypes(t.getLowerBounds()," supper", " &" ," ",false);
+        }
+        else if (type instanceof ParameterizedType){
+            var t = (ParameterizedType)type;
+            Type owner = t.getOwnerType();
+            if (owner != null){
+                printType(owner,false);
+                System.out.println(".");
+            }
+            printType(t.getRawType(),false);
+            printTypes(t.getActualTypeArguments(),"<",",",">",false);
+        }
+        else if (type instanceof GenericArrayType){
+            var t = (GenericArrayType) type;
+            System.out.println();
+            printType(t.getGenericComponentType(),isDefinition);
+            System.out.println();
+        }
+    }
+}
