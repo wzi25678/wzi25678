@@ -1,0 +1,41 @@
+package 入门题;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/** 题目 2098: 两数之和
+ *
+
+ */
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n = sc.nextInt();   //多少组数，同时每组多少元素
+        int k = sc.nextInt();   //期望达到的数
+        int sum = 0;        //compare
+        int num [] = new int[n];
+        for (int i=0;i<n;i++){
+            //获取每一组数的数值
+            for (int j=0;j<num.length;j++){
+                num[j] = sc.nextInt();
+            }
+            
+            //进行检查比较
+            if (check(num,k)) sum++;
+        }
+        System.out.println(sum);
+    }
+
+    private static boolean check(int[] num, int k) {
+        boolean re = false;
+        for (int i = 0;i<num.length;i++){
+            for (int j = 0;j<num.length;j++){
+                if (i==j)continue;
+                if (num[i] +num[j] == k) re  = true;
+            }
+        }
+        return  re;
+    }
+}
