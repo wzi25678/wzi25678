@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main(){
+     float a,b,x,y;
+     scanf("%f%f%f%f",&x,&a,&y,&b);
+     float p;
+     p=(x*a-y*b)/(a-b);
+     printf("%.2f",p);
+    return 0;
+} 
