@@ -1,0 +1,44 @@
+package 入门题;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/** 题目 2181: 信息学奥赛一本通T1005-地球人口承载力估计
+ *
+ * 假设地球上的新生资源按恒定速度增长。照此测算，地球上现有资源加上新生资源可供x亿人生活a年，     或供y亿人生活b年。
+ *
+ * 为了能够实现可持续发展，避免资源枯竭，地球最多能够养活多少亿人？
+ *
+ 输入只有一行，包括四个正整数x，a，y，b，两个整数之间用单个空格隔开。x>y，a<b，ax<by，各整数均不大于10000。
+
+ 一个实数z，表示地球最多养活z亿人，舍入到小数点后两位
+ */
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        float x = sc.nextFloat();
+        float a = sc.nextFloat();
+        float y = sc.nextFloat();
+        float b = sc.nextFloat();
+//        double a = sc.nextDouble();
+//        double y = sc.nextDouble();
+//        double b = sc.nextDouble();
+        double p;
+        p = (x*a - y*b)/(a-b);
+        System.out.print(String.format("%.2f",p));
+        sc.close();
+    }
+
+    private static boolean check(int[] num, int k) {
+        boolean re = false;
+        for (int i = 0;i<num.length;i++){
+            for (int j = 0;j<num.length;j++){
+                if (i==j)continue;
+                if (num[i] +num[j] == k) re  = true;
+            }
+        }
+        return  re;
+    }
+}
