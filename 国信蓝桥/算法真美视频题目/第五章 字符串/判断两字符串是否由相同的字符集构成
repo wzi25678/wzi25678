@@ -1,0 +1,39 @@
+package 第五章;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 询问两个串是否由相同的字符集生成
+ */
+
+public class 判断两字符串的字符集是否相等 {
+    public static void main(String[] args) {
+        boolean res = check("abcde","deabccabdabc");
+        System.out.println(res);
+    }
+
+     private static boolean check(String s1, String s2) {
+         Map<Character,Integer> map = new HashMap<>();
+         for (int i=0;i<s1.length();i++){
+             char c = s1.charAt(i);
+             if (map.get(c) == null){
+                 map.put(c,1);
+             }
+         }
+
+         for (int i=0;i<s2.length();i++){
+             char c = s2.charAt(i);
+             if (map.get(c) == null){
+                 return false;
+             }
+         }
+
+         return true;
+
+     }
+ }
