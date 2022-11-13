@@ -1,0 +1,21 @@
+package 入门题;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/** 题目 1984: 蓝桥杯算法提高VIP-求圆面积表面积体积
+ *
+
+ */
+public class Main {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        double r=in.nextDouble();
+        double pi=3.1415926536;
+        System.out.printf("%-20.10f",pi*r*r);
+        System.out.printf("%-20.10f",4*pi*r*r);
+        System.out.printf("%-20.10f",pi*r*r*r*4/3);
+    }
+}
