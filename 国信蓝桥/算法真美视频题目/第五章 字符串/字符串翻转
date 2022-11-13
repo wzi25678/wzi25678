@@ -1,0 +1,13 @@
+// 方式一
+public static String reverseString(String s){
+    int len=s.length();
+    char[] out=new char[len];
+    for (int i = 0; i < len; i++) {
+        out[len-i-1]=s.charAt(i);
+    }
+    return new String(out);
+}
+// 方式二
+public static String reverseString1(String s) {
+    return new StringBuilder(s).reverse().toString();
+}
