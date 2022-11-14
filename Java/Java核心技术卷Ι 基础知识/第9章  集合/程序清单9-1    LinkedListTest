@@ -1,0 +1,54 @@
+package day11_14;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+
+public class LinkedListTest {
+    public static void main(String[] args) {
+        var a = new LinkedList<String>();
+        a.add("Amy");
+        a.add("Carl");
+        a.add("Erica");
+
+        var b = new LinkedList<String>();
+        b.add("Bob");
+        b.add("Doug");
+        b.add("Frances");
+        b.add("Gloria");
+
+        ListIterator<String> aIter = a.listIterator();
+        Iterator<String> bIter = b.iterator();
+
+        while (bIter.hasNext()){
+            if (aIter.hasNext())    aIter.next();
+            aIter.add(bIter.next());
+            System.out.println("此时的aIter: "+aIter);
+            System.out.println("此时的a: "+a);
+            System.out.println("此时的bIter: "+bIter);
+            System.out.println("此时的b: "+b);
+            System.out.println("==========================================================");
+        }
+        //
+        bIter = b.iterator();   //bIter只是b的一个寄存器
+        System.out.println(b);
+        while (bIter.hasNext()){
+            bIter.next();
+            System.out.println(b);
+            if (bIter.hasNext()){
+                //一直删除，保留一个元素即可。
+                bIter.remove();
+            }
+        }
+        System.out.println(b);
+
+        a.removeAll(b);
+        System.out.println(a);
+
+    }
+}
