@@ -1,0 +1,198 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop106' resolved to 192.168.73.106.
+Connecting to 192.168.73.106:22...
+Could not connect to 'hadoop106' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop106' resolved to 192.168.73.106.
+Connecting to 192.168.73.106:22...
+Connection established.
+To escape to local shell, press Ctrl+Alt+].
+
+Last login: Sun Nov 13 17:37:38 2022 from 192.168.73.1
+[root@hadoop106 ~]# clean
+bash: clean: 未找到命令...
+[root@hadoop106 ~]# clear
+[root@hadoop106 ~]# echo $variable
+
+[root@hadoop106 ~]# e
+e2freefrag             ebtables-restore       else                   eog                    ether-wake             eu-objdump             evince-previewer
+e2fsck                 ebtables-save          empathy                eps2eps                ethtool                eu-ranlib              evince-thumbnailer
+e2image                echo                   empathy-accounts       eqn                    eu-addr2line           eu-readelf             ex
+e2label                ed                     empathy-debugger       era_check              eu-ar                  eu-size                exec
+e2undo                 edid-decode            enable                 era_dump               eu-elfcmp              eu-stack               exempi
+e4defrag               edquota                enchant                era_invalidate         eu-elfcompress         eu-strings             exit
+eapol_test             egrep                  enchant-lsmod          era_restore            eu-elflint             eu-strip               expand
+easy_install           eject                  enscript               esac                   eu-findtextrel         eu-unstrip             export
+easy_install-2.7       elfedit                env                    escputil               eu-make-debug-archive  eval                   exportfs
+ebtables               elif                   envsubst               espeak                 eu-nm                  evince                 expr
+[root@hadoop106 ~]# echo $PATH 
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+[root@hadoop106 ~]# echo ${PATH} 
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+[root@hadoop106 ~]# echo ${HO} 
+${HOME}      ${HOSTNAME}  ${HOSTTYPE}  
+[root@hadoop106 ~]# echo ${HOME}} 
+/root}
+[root@hadoop106 ~]# echo ${HOME} 
+/root
+[root@hadoop106 ~]# echo ${MALL} 
+
+[root@hadoop106 ~]# MALL = "I want to go shopping in the supermarket。"
+bash: MALL: 未找到命令...
+[root@hadoop106 ~]# MALL="I want to go shopping in the supermarket。"
+[root@hadoop106 ~]# echo ${MALL} 
+I want to go shopping in the supermarket。
+[root@hadoop106 ~]# myname=VBbird\tTsai
+[root@hadoop106 ~]# echo ${myname} 
+VBbirdtTsai
+[root@hadoop106 ~]# myname=VBbird\ sai
+[root@hadoop106 ~]# echo ${myname} 
+VBbird sai
+[root@hadoop106 ~]# 
+[root@hadoop106 ~]# myname=VBbird sai
+bash: sai: 未找到命令...
+[root@hadoop106 ~]# vision=$(uname -r)
+[root@hadoop106 ~]# echo $
+Display all 113 possibilities? (y or n)
+[root@hadoop106 ~]# echo $vision 
+3.10.0-1160.el7.x86_64
+[root@hadoop106 ~]# echo $P
+$PATH            $PIPESTATUS      $PPID            $PROMPT_COMMAND  $PS1             $PS2             $PS4             $PWD             
+[root@hadoop106 ~]# echo $P
+$PATH            $PIPESTATUS      $PPID            $PROMPT_COMMAND  $PS1             $PS2             $PS4             $PWD             
+[root@hadoop106 ~]# echo $PATH 
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+[root@hadoop106 ~]# PATH=${PATH}:/home/bin
+[root@hadoop106 ~]# echo $PATH 
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/bin
+[root@hadoop106 ~]# export t PATH
+[root@hadoop106 ~]# echo t
+t
+[root@hadoop106 ~]# ex
+ex        exec      exempi    exit      expand    export    exportfs  expr      
+[root@hadoop106 ~]# ex
+ex        exec      exempi    exit      expand    export    exportfs  expr      
+[root@hadoop106 ~]# export PATH
+[root@hadoop106 ~]# unset 
+_                                   GLUSTER_BARRIER_OPTIONS             LANG                                SECONDS
+ABRT_DEBUG_LOG                      GLUSTER_COMMAND_TREE                LESSOPEN                            SELINUX_LEVEL_REQUESTED
+_backup_glob                        GLUSTER_FINAL_LIST                  LINENO                              SELINUX_ROLE_REQUESTED
+BASH                                GLUSTER_GEO_REPLICATION_OPTIONS     LINES                               SELINUX_USE_CURRENT_RANGE
+BASH_ALIASES                        GLUSTER_GEO_REPLICATION_SUBOPTIONS  LOGNAME                             SHELL
+BASH_ARGC                           GLUSTER_LIST                        LPATHDIR                            SHELLOPTS
+BASH_ARGV                           GLUSTER_PROFILE_OPTIONS             LS_COLORS                           SHLVL
+BASH_CMDS                           GLUSTER_QUOTA_OPTIONS               MACHTYPE                            SINCE
+BASH_COMMAND                        GLUSTER_TOP                         MAIL                                SINCEFILE
+BASH_COMPLETION_COMPAT_DIR          GLUSTER_TOP_OPTIONS                 MAILCHECK                           SSH_CLIENT
+BASH_LINENO                         GLUSTER_TOP_SUBOPTIONS1             MALL                                SSH_CONNECTION
+BASHOPTS                            GLUSTER_TOP_SUBOPTIONS2             myname                              SSH_TTY
+BASHPID                             GLUSTER_VOLUME_OPTIONS              OPTERR                              TERM
+BASH_REMATCH                        GROUPS                              OPTIND                              TMPPATH
+BASH_SOURCE                         HISTCMD                             OSTYPE                              UID
+BASH_SUBSHELL                       HISTCONTROL                         PATH                                USER
+BASH_VERSINFO                       HISTFILE                            PIPESTATUS                          vision
+BASH_VERSION                        HISTFILESIZE                        PPID                                XDG_DATA_DIRS
+colors                              HISTSIZE                            PROMPT_COMMAND                      XDG_RUNTIME_DIR
+COLUMNS                             HOME                                PS1                                 XDG_SESSION_ID
+COMP_WORDBREAKS                     HOSTNAME                            PS2                                 _xspecs
+DIRSTACK                            HOSTTYPE                            PS4                                 
+DISPLAY                             ID                                  PWD                                 
+EUID                                IFS                                 RANDOM                              
+[root@hadoop106 ~]# unset MA
+MACHTYPE   MAIL       MAILCHECK  MALL       
+[root@hadoop106 ~]# unset MA
+MACHTYPE   MAIL       MAILCHECK  MALL       
+[root@hadoop106 ~]# unset MALL 
+[root@hadoop106 ~]# unset myname 
+[root@hadoop106 ~]# name=VBbird
+[root@hadoop106 ~]# echo name
+name
+[root@hadoop106 ~]# echo $name 
+VBbird
+[root@hadoop106 ~]# name=VBbird's name
+> 
+> ^C
+[root@hadoop106 ~]# echo $name 
+VBbird
+[root@hadoop106 ~]# name=VBbird's\ name
+
+> 
+> ^C
+[root@hadoop106 ~]# echo $name 
+VBbird
+[root@hadoop106 ~]# name="VBbird's name"
+
+
+[root@hadoop106 ~]# echo $name 
+VBbird's name
+[root@hadoop106 ~]# name=$nameyes
+[root@hadoop106 ~]# echo $name 
+
+[root@hadoop106 ~]# name=${name}yes
+[root@hadoop106 ~]# echo $name 
+yes
+[root@hadoop106 ~]# name="name"
+[root@hadoop106 ~]# echo $name 
+name
+[root@hadoop106 ~]# name=${name}yes
+[root@hadoop106 ~]# echo $name 
+nameyes
+[root@hadoop106 ~]# name=VBbird
+[root@hadoop106 ~]# bash
+[root@hadoop106 ~]# pwd
+/root
+[root@hadoop106 ~]# echo $name
+
+[root@hadoop106 ~]# exit
+exit
+[root@hadoop106 ~]# export name
+[root@hadoop106 ~]# bash
+[root@hadoop106 ~]# echo $name
+VBbird
+[root@hadoop106 ~]# ex
+ex        exec      exempi    exit      expand    export    exportfs  expr      
+[root@hadoop106 ~]# ex
+ex        exec      exempi    exit      expand    export    exportfs  expr      
+[root@hadoop106 ~]# exit
+exit
+[root@hadoop106 ~]# cd /lib
+lib/   lib64/ 
+[root@hadoop106 ~]# cd /lib
+lib/   lib64/ 
+[root@hadoop106 ~]# cd /lib
+lib/   lib64/ 
+[root@hadoop106 ~]# cd /lib
+lib/   lib64/ 
+[root@hadoop106 ~]# cd /lib/mod
+modprobe.d/     modules/        modules-load.d/ 
+[root@hadoop106 ~]# cd /lib/mod
+modprobe.d/     modules/        modules-load.d/ 
+[root@hadoop106 ~]# cd /lib/modules
+modules/        modules-load.d/ 
+[root@hadoop106 ~]# cd /lib/modules
+modules/        modules-load.d/ 
+[root@hadoop106 ~]# cd /lib/modules/3.10.0-1160.el7.x86_64/
+extra/        kernel/       updates/      vdso/         weak-updates/ 
+[root@hadoop106 ~]# cd /lib/modules/3.10.0-1160.el7.x86_64/
+extra/        kernel/       updates/      vdso/         weak-updates/ 
+[root@hadoop106 ~]# cd /lib/modules/3.10.0-1160.el7.x86_64/
+extra/        kernel/       updates/      vdso/         weak-updates/ 
+[root@hadoop106 ~]# cd /lib/modules/3.10.0-1160.el7.x86_64/kernel/
+[root@hadoop106 kernel]# uname -r
+3.10.0-1160.el7.x86_64
+[root@hadoop106 kernel]# cd
+[root@hadoop106 ~]# unset name
+[root@hadoop106 ~]# ls -ld ${PATH}
+ls: 无法访问/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/bin: 没有那个文件或目录
+[root@hadoop106 ~]# cd /usr/local/sbin
+[root@hadoop106 sbin]# ls -ld ${PATH}
+ls: 无法访问/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/bin: 没有那个文件或目录
+[root@hadoop106 sbin]# 
