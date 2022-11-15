@@ -1,0 +1,15 @@
+public static  String reverseWords(String s) {
+    String t=new StringBuilder(s).reverse().toString();
+    String[] words=t.split("\\s");
+    StringBuilder sb=new StringBuilder();
+    for (String word:words) {
+        if(word.length()!=0){//前后有空串的情况要去掉
+            sb.append(new StringBuilder(word).reverse().toString()+" ");
+        }
+    }
+    if(sb.length()==0){//sb为空再执行下面的-1会报错
+        return "";
+    }else {
+        return sb.deleteCharAt(sb.length() - 1).toString();//删除最后一次加的空格，再返回
+    }
+}
