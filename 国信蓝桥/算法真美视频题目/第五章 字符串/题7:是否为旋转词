@@ -1,0 +1,60 @@
+/**     题7:是否为旋转词
+ *给定两个字符串s1和s2,
+ * 要求判定s2是否能够被通过s1作循环移位( rotate)得到的字符串包含。
+ * 例如，给定s1= AABCD和s2=CDAA,返回true;给定s1= ABCD和S2= ACBD，返回false。
+ */
+//Z型二维数组打印
+public class 题7 {
+	public static void main(String[] args) {
+		System.out.println(checkRotate("AABCD","CDAA"));
+		System.out.println(checkRotate("ABCD","CDAB"));
+		System.out.println(checkRotate("ABCD","CDBA"));
+	}
+
+	public static boolean checkRotate(String s1,String s2){
+		//它的本质其实就是评议，所以使用追加一遍，反而能更快的显示出所有的情况
+		return new StringBuilder(s1).append(s1).toString().contains(s2);
+	}
+
+
+}
+/**
+ private static void print(int[][] matrix) {
+ int r=0,m=matrix.length;
+ int c=0,n=matrix[0].length;
+ boolean l2r=true;
+ while(r<m&&c<n){
+ //从左下往右上的路线
+ if(l2r){
+ System.out.print(matrix[r][c]+" ");
+ //现在在第一行，行来到边界，只能向右走
+ if(r==0&&c<n-1){
+ l2r=!l2r;//方向切换
+ c++;
+ continue;
+ }else if(r>0&&c==n-1){//现在在最后一步只能向下走
+ l2r=!l2r;//切换方向
+ r++;
+ }else{//继续走上坡
+ r--;
+ c++;
+ }
+ }else{//反，走下坡
+ System.out.print(matrix[r][c]);
+ if(r<m-1&&c==0){//走到第一列，只能往下走
+ l2r=!l2r;
+ r++;
+ continue;
+ }else if(r==m-1){
+ l2r=!l2r;
+ c++;
+ continue;
+ }else{
+ r++;
+ c--;
+ }
+ }
+ }
+
+ }
+ */
