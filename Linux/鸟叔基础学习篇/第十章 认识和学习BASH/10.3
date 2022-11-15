@@ -1,0 +1,1129 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop106' resolved to 192.168.73.106.
+Connecting to 192.168.73.106:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Mon Nov 14 18:20:46 2022 from 192.168.73.1
+[root@hadoop106 ~]# ls -al |more
+总用量 64
+dr-xr-x---. 14 root root 4096 11月 15 14:47 .
+dr-xr-xr-x. 18 root root  239 11月 12 16:33 ..
+-rw-------.  1 root root 1989 11月  4 19:49 anaconda-ks.cfg
+-rw-------.  1 root root 4571 11月 14 21:54 .bash_history
+-rw-r--r--.  1 root root   18 12月 29 2013 .bash_logout
+-rw-r--r--.  1 root root  176 12月 29 2013 .bash_profile
+-rw-r--r--.  1 root root  176 12月 29 2013 .bashrc
+drwx------. 13 root root  277 11月  4 19:58 .cache
+drwxr-xr-x. 14 root root  261 11月  4 19:58 .config
+-rw-r--r--.  1 root root  100 12月 29 2013 .cshrc
+drwx------.  3 root root   25 11月  4 19:56 .dbus
+-rw-------.  1 root root   16 11月  4 19:56 .esd_auth
+-rw-------.  1 root root 2480 11月 13 15:28 .ICEauthority
+-rw-r--r--.  1 root root 2037 11月  4 19:56 initial-setup-ks.cfg
+drwx------.  3 root root   19 11月  4 19:56 .local
+-rw-r--r--.  1 root root  129 12月 29 2013 .tcshrc
+-rw-------.  1 root root 4169 11月 13 16:36 .viminfo
+-rw-r--r--.  1 root root  681 11月 13 15:34 welcome.txt
+-rw-------.  1 root root   55 11月 15 14:47 .Xauthority
+drwxr-xr-x.  2 root root    6 11月  4 19:56 公共
+drwxr-xr-x.  2 root root    6 11月  4 19:56 模板
+drwxr-xr-x.  2 root root    6 11月  4 19:56 视频
+drwxr-xr-x.  2 root root    6 11月  4 19:56 图片
+drwxr-xr-x.  2 root root    6 11月  4 19:56 文档
+drwxr-xr-x.  2 root root    6 11月  4 19:56 下载
+drwxr-xr-x.  2 root root    6 11月  4 19:56 音乐
+drwxr-xr-x.  2 root root    6 11月  4 19:56 桌面
+[root@hadoop106 ~]# alias
+alias cp='cp -i'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias mv='mv -i'
+alias rm='rm -i'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+[root@hadoop106 ~]# history 
+    1  ping www.baidu.com
+    2  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+    3  service network restart 
+    4  ping www.baidu.com
+    5  poweroff
+    6  ping www.baidu.com
+    7  vi /etc/hostname hadoop105
+    8  hostname
+    9  vim /etc/hostname
+   10  vim /etc/hosts
+   11  vi /etc/hostname 
+   12  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+   13  network service restart
+   14   service network restart
+   15  ifconfig
+   16  reboot
+   17  ls -ldsr /etc/*
+   18  cd /tmp
+   19  cd /etc/services
+   20  cd 
+   21  cd /etc/services
+   22  cp /etc/services .
+   23  gzip -v services 
+   24  ll /etc/services /tmp/services*
+   25  zcat services.gz 
+   26  gzip -d services.gz 
+   27  gzip gzip -9 -c services > services.gz 
+   28  zgrep -n 'http' services.gz
+   29  bzip2 -v services
+   30  ls -l service*
+   31  bzcat services.bz2 
+   32  bzip -d services.bz2 
+   33  bzip2 -d services.bz2 
+   34  bzip2 -9 -c service>services.bz2 
+   35  bzip2 -9 -c service > services.bz2 
+   36  xz -v services
+   37  ls -l services*\
+   38  ls -l services*
+   39  xz -l services.xz 
+   40  xzcat services.xz 
+   41  xz -d services.xz 
+   42  xz -k services.xz 
+   43  xz -d services.xz 
+   44  xz -k services.xz 
+   45  pwd
+   46  ls -ll
+   47  xz -k services.xz 
+   48  xz -d services.xz 
+   49  xz -v services
+   50  ls -ll
+   51  xz -d services.xz 
+   52  xz -k services.xz 
+   53  ls -al
+   54  clean
+   55  cd
+   56  clear
+   57  time tar -zpcv -f /root/etc.tar.gz /etc
+   58  time tar -jpcv -f /root/etc.tar.bz2 /etc
+   59  time tar -Jpcv -f /root/etc.tar.xz /etc
+   60  ll /root/etc*
+   61  ls -al
+   62  du -sm /etc
+   63  tar -jtv -f /root/etc.tar.bz2 
+   64  tar -jt -f /root/etc.tar.bz2 
+   65  tar -jpPcv -f /root/etc.tar.bz2 /etc
+   66  tar -jtf  /root/etc.and.root.tar.bz2
+   67  tar -jtf  /root/etc and /root/tar.bz2
+   68  tar -jxv -f /root/etc.tar.bz2 
+   69  ll
+   70  ls -al
+   71  tar -jxv -f /root/etc.tar.bz2 -C /tmp
+   72  ll -ls /tmp/
+   73  ll -al /tmp
+   74  ll tmp
+   75  ll /tmp
+   76  rm -rf /root/etc /tmp/etc/
+   77  tar -jtv -f /root/etc.tar.bz2 |grep 'shadow'
+   78  tar -jtv -f /root/etc.tar.bz2 /etc/shadow
+   79  ll /etc
+   80  ll etc
+   81  pwd
+   82  ll -al
+   83  cd /root/etc
+   84  rm -rf /root/etc.tar.xz
+   85  rm -rf /root/etc.tar.gz
+   86  rm -rf /root/etc.tar.bz2 
+   87  ls -al
+   88  find /etc -newer /etc/passwd
+   89  ll /etc/passwd
+   90  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2015/06/17" /etc/*
+   91  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2022/11/04" /etc/*
+   92  cd /tmp
+   93  tar -cvf - /etc |tar -xvf -
+   94  mkdir /backups
+   95  ll 
+   96  ll -al
+   97  cd
+   98  mkdir /backups
+   99  ls -al
+  100  mkdir /backups
+  101  ls -al
+  102  mkdir /backups
+  103  ll -al |grup backups
+  104  ll -al |grep backups
+  105  ls -al |grup backups
+  106  ls -al |grep backups
+  107  ls -al
+  108  chmod 700 /backups
+  109  cd /
+  110  ll -al
+  111  cd 
+  112  ll -d /backups
+  113  tar -jcv -f /backups/bachup-system-20221104.tar.bz2--exclude=/root/*.bz2 --exclude=/root/*.gz --exclude=/home/loop*/etc /home /var/spool/mail/ /var/spool/cron/ /root/
+  114  ll -h /backups/
+  115  xfsdump -I
+  116  df -h /boot
+  117  xfsdump -l 0 -L boot_all -M boot_all -f /srv/boot.dump /boot
+  118  ll /srv/boot.dump
+  119  ll /var/lib/xfsdump/inventory
+  120  xfsdump -I
+  121  dd if=/dev/zero of=/boot/testing.ing bs=1M count=10
+  122  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot/
+  123  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot
+  124  ll /srv/boot*
+  125  xfsdump -I
+  126  xfsrestore -I
+  127  xfsrestore -f /srv/boot.dump -L boot_all /boot/
+  128  mkdir /tmp/boot
+  129  xfsrestore -f /srv/boot.dump  -L boot_all /tmp/boot/
+  130  mkdir /tmp/boot/
+  131  xfsrestore -f /srv/boot.dump -L boot_all /tmp/boot/
+  132  du -sm /boot /tmp/boot/
+  133  diff -r /boot/ /tmp/boot/
+  134  clear
+  135  df -h /mt
+  136  /bin/vi welcome.txt
+  137  ls -l
+  138  pwd
+  139  vi welcome.txt 
+  140  vi --help
+  141  q
+  142  man vi
+  143  vi welcome.txt 
+  144  clean
+  145  clear
+  146  cd /tmp/vitest
+  147  mkdir /tmp/vitest
+  148  cd /tmp/vitest
+  149  vim man_db.conf
+  150  ls -al
+  151  kill -9 %
+  152  kill -9 %1
+  153  ls -al .man_db.conf.swp
+  154  vim man_db.conf
+  155  alisa
+  156  alias
+  157  vim /etc/services 
+  158  cd /tmp/vitest
+  159  vim man_db.conf
+  160  vim ~/.vimrc
+  161  /etc/shells
+  162  cd /
+  163  /etc/shells
+  164  cat /etc/shells
+  165  cat /etc/passwd
+  166  ~/.bash_history
+  167  cat ~/.bash_history
+  168  type ls
+  169  type -t ls
+  170  type cd
+  171  ll
+  172  vi initial-setup-ks.cfg 
+  173  su atguigu
+  174  pwd
+  175  echo $name
+  176  exit
+  177  echo $name
+  178  exit
+  179  clean
+  180  clear
+  181  echo $variable
+  182  echo $PATH 
+  183  echo ${PATH} 
+  184  echo ${HOME}} 
+  185  echo ${HOME} 
+  186  echo ${MALL} 
+  187  MALL = "I want to go shopping in the supermarket。"
+  188  MALL="I want to go shopping in the supermarket。"
+  189  echo ${MALL} 
+  190  myname=VBbird\tTsai
+  191  echo ${myname} 
+  192  myname=VBbird\ sai
+  193  echo ${myname} 
+  194  myname=VBbird sai
+  195  vision=$(uname -r)
+  196  echo $vision 
+  197  echo $PATH 
+  198  PATH=${PATH}:/home/bin
+  199  echo $PATH 
+  200  export t PATH
+  201  echo t
+  202  export PATH
+  203  unset MALL 
+  204  unset myname 
+  205  name=VBbird
+  206  echo name
+  207  echo $name 
+  208  name=VBbird's name
+  209  echo $name 
+  210  name=VBbird's\ name
+  211  echo $name 
+  212  name="VBbird's name"
+  213  echo $name 
+  214  name=$nameyes
+  215  echo $name 
+  216  name=${name}yes
+  217  echo $name 
+  218  name="name"
+  219  echo $name 
+  220  name=${name}yes
+  221  echo $name 
+  222  name=VBbird
+  223  bash
+  224  export name
+  225  bash
+  226  cd /lib/modules/3.10.0-1160.el7.x86_64/kernel/
+  227  uname -r
+  228  cd
+  229  unset name
+  230  ls -ld ${PATH}
+  231  cd /usr/local/sbin
+  232  ls -ld ${PATH}
+  233  clear
+  234  env
+  235  declare -i number=$RANDOM*10/32768 ; echo $number
+  236  env
+  237  declare -i number=$RANDOM*10/32768 ; echo $number
+  238  set
+  239  man bash
+  240  echo $$
+  241  echo $SHELL
+  242  echo $?
+  243  12name=VBbird
+  244  echo $?
+  245  clear
+  246  locale -e
+  247  locale -a
+  248  locale
+  249  man locale
+  250  cat /etc/local.conf
+  251  cat /etc/local
+  252  su atguigu
+  253  ls -al |more
+  254  alias
+  255  history 
+[root@hadoop106 ~]# history 10
+  247  locale -a
+  248  locale
+  249  man locale
+  250  cat /etc/local.conf
+  251  cat /etc/local
+  252  su atguigu
+  253  ls -al |more
+  254  alias
+  255  history 
+  256  history 10
+[root@hadoop106 ~]# history 10 -w
+-bash: history: 参数太多
+[root@hadoop106 ~]# history -w 10 
+[root@hadoop106 ~]# echo ${H
+${HISTCMD}       ${HISTCONTROL}   ${HISTFILE}      ${HISTFILESIZE}  ${HISTSIZE}      ${HOME}          ${HOSTNAME}      ${HOSTTYPE}      
+[root@hadoop106 ~]# echo ${H
+${HISTCMD}       ${HISTCONTROL}   ${HISTFILE}      ${HISTFILESIZE}  ${HISTSIZE}      ${HOME}          ${HOSTNAME}      ${HOSTTYPE}      
+[root@hadoop106 ~]# echo ${HIST
+${HISTCMD}       ${HISTCONTROL}   ${HISTFILE}      ${HISTFILESIZE}  ${HISTSIZE}      
+[root@hadoop106 ~]# echo ${HIST
+${HISTCMD}       ${HISTCONTROL}   ${HISTFILE}      ${HISTFILESIZE}  ${HISTSIZE}      
+[root@hadoop106 ~]# echo ${HISTSIZE} 
+1000
+[root@hadoop106 ~]# echo ${HISTFILE} 
+${HISTFILE}      ${HISTFILESIZE}  
+[root@hadoop106 ~]# echo ${HISTFILE} 
+${HISTFILE}      ${HISTFILESIZE}  
+[root@hadoop106 ~]# echo ${HISTFILESIZE}} 
+1000}
+[root@hadoop106 ~]# !number
+-bash: !number: event not found
+[root@hadoop106 ~]# history 
+    1  ping www.baidu.com
+    2  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+    3  service network restart 
+    4  ping www.baidu.com
+    5  poweroff
+    6  ping www.baidu.com
+    7  vi /etc/hostname hadoop105
+    8  hostname
+    9  vim /etc/hostname
+   10  vim /etc/hosts
+   11  vi /etc/hostname 
+   12  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+   13  network service restart
+   14   service network restart
+   15  ifconfig
+   16  reboot
+   17  ls -ldsr /etc/*
+   18  cd /tmp
+   19  cd /etc/services
+   20  cd 
+   21  cd /etc/services
+   22  cp /etc/services .
+   23  gzip -v services 
+   24  ll /etc/services /tmp/services*
+   25  zcat services.gz 
+   26  gzip -d services.gz 
+   27  gzip gzip -9 -c services > services.gz 
+   28  zgrep -n 'http' services.gz
+   29  bzip2 -v services
+   30  ls -l service*
+   31  bzcat services.bz2 
+   32  bzip -d services.bz2 
+   33  bzip2 -d services.bz2 
+   34  bzip2 -9 -c service>services.bz2 
+   35  bzip2 -9 -c service > services.bz2 
+   36  xz -v services
+   37  ls -l services*\
+   38  ls -l services*
+   39  xz -l services.xz 
+   40  xzcat services.xz 
+   41  xz -d services.xz 
+   42  xz -k services.xz 
+   43  xz -d services.xz 
+   44  xz -k services.xz 
+   45  pwd
+   46  ls -ll
+   47  xz -k services.xz 
+   48  xz -d services.xz 
+   49  xz -v services
+   50  ls -ll
+   51  xz -d services.xz 
+   52  xz -k services.xz 
+   53  ls -al
+   54  clean
+   55  cd
+   56  clear
+   57  time tar -zpcv -f /root/etc.tar.gz /etc
+   58  time tar -jpcv -f /root/etc.tar.bz2 /etc
+   59  time tar -Jpcv -f /root/etc.tar.xz /etc
+   60  ll /root/etc*
+   61  ls -al
+   62  du -sm /etc
+   63  tar -jtv -f /root/etc.tar.bz2 
+   64  tar -jt -f /root/etc.tar.bz2 
+   65  tar -jpPcv -f /root/etc.tar.bz2 /etc
+   66  tar -jtf  /root/etc.and.root.tar.bz2
+   67  tar -jtf  /root/etc and /root/tar.bz2
+   68  tar -jxv -f /root/etc.tar.bz2 
+   69  ll
+   70  ls -al
+   71  tar -jxv -f /root/etc.tar.bz2 -C /tmp
+   72  ll -ls /tmp/
+   73  ll -al /tmp
+   74  ll tmp
+   75  ll /tmp
+   76  rm -rf /root/etc /tmp/etc/
+   77  tar -jtv -f /root/etc.tar.bz2 |grep 'shadow'
+   78  tar -jtv -f /root/etc.tar.bz2 /etc/shadow
+   79  ll /etc
+   80  ll etc
+   81  pwd
+   82  ll -al
+   83  cd /root/etc
+   84  rm -rf /root/etc.tar.xz
+   85  rm -rf /root/etc.tar.gz
+   86  rm -rf /root/etc.tar.bz2 
+   87  ls -al
+   88  find /etc -newer /etc/passwd
+   89  ll /etc/passwd
+   90  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2015/06/17" /etc/*
+   91  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2022/11/04" /etc/*
+   92  cd /tmp
+   93  tar -cvf - /etc |tar -xvf -
+   94  mkdir /backups
+   95  ll 
+   96  ll -al
+   97  cd
+   98  mkdir /backups
+   99  ls -al
+  100  mkdir /backups
+  101  ls -al
+  102  mkdir /backups
+  103  ll -al |grup backups
+  104  ll -al |grep backups
+  105  ls -al |grup backups
+  106  ls -al |grep backups
+  107  ls -al
+  108  chmod 700 /backups
+  109  cd /
+  110  ll -al
+  111  cd 
+  112  ll -d /backups
+  113  tar -jcv -f /backups/bachup-system-20221104.tar.bz2--exclude=/root/*.bz2 --exclude=/root/*.gz --exclude=/home/loop*/etc /home /var/spool/mail/ /var/spool/cron/ /root/
+  114  ll -h /backups/
+  115  xfsdump -I
+  116  df -h /boot
+  117  xfsdump -l 0 -L boot_all -M boot_all -f /srv/boot.dump /boot
+  118  ll /srv/boot.dump
+  119  ll /var/lib/xfsdump/inventory
+  120  xfsdump -I
+  121  dd if=/dev/zero of=/boot/testing.ing bs=1M count=10
+  122  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot/
+  123  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot
+  124  ll /srv/boot*
+  125  xfsdump -I
+  126  xfsrestore -I
+  127  xfsrestore -f /srv/boot.dump -L boot_all /boot/
+  128  mkdir /tmp/boot
+  129  xfsrestore -f /srv/boot.dump  -L boot_all /tmp/boot/
+  130  mkdir /tmp/boot/
+  131  xfsrestore -f /srv/boot.dump -L boot_all /tmp/boot/
+  132  du -sm /boot /tmp/boot/
+  133  diff -r /boot/ /tmp/boot/
+  134  clear
+  135  df -h /mt
+  136  /bin/vi welcome.txt
+  137  ls -l
+  138  pwd
+  139  vi welcome.txt 
+  140  vi --help
+  141  q
+  142  man vi
+  143  vi welcome.txt 
+  144  clean
+  145  clear
+  146  cd /tmp/vitest
+  147  mkdir /tmp/vitest
+  148  cd /tmp/vitest
+  149  vim man_db.conf
+  150  ls -al
+  151  kill -9 %
+  152  kill -9 %1
+  153  ls -al .man_db.conf.swp
+  154  vim man_db.conf
+  155  alisa
+  156  alias
+  157  vim /etc/services 
+  158  cd /tmp/vitest
+  159  vim man_db.conf
+  160  vim ~/.vimrc
+  161  /etc/shells
+  162  cd /
+  163  /etc/shells
+  164  cat /etc/shells
+  165  cat /etc/passwd
+  166  ~/.bash_history
+  167  cat ~/.bash_history
+  168  type ls
+  169  type -t ls
+  170  type cd
+  171  ll
+  172  vi initial-setup-ks.cfg 
+  173  su atguigu
+  174  pwd
+  175  echo $name
+  176  exit
+  177  echo $name
+  178  exit
+  179  clean
+  180  clear
+  181  echo $variable
+  182  echo $PATH 
+  183  echo ${PATH} 
+  184  echo ${HOME}} 
+  185  echo ${HOME} 
+  186  echo ${MALL} 
+  187  MALL = "I want to go shopping in the supermarket。"
+  188  MALL="I want to go shopping in the supermarket。"
+  189  echo ${MALL} 
+  190  myname=VBbird\tTsai
+  191  echo ${myname} 
+  192  myname=VBbird\ sai
+  193  echo ${myname} 
+  194  myname=VBbird sai
+  195  vision=$(uname -r)
+  196  echo $vision 
+  197  echo $PATH 
+  198  PATH=${PATH}:/home/bin
+  199  echo $PATH 
+  200  export t PATH
+  201  echo t
+  202  export PATH
+  203  unset MALL 
+  204  unset myname 
+  205  name=VBbird
+  206  echo name
+  207  echo $name 
+  208  name=VBbird's name
+  209  echo $name 
+  210  name=VBbird's\ name
+  211  echo $name 
+  212  name="VBbird's name"
+  213  echo $name 
+  214  name=$nameyes
+  215  echo $name 
+  216  name=${name}yes
+  217  echo $name 
+  218  name="name"
+  219  echo $name 
+  220  name=${name}yes
+  221  echo $name 
+  222  name=VBbird
+  223  bash
+  224  export name
+  225  bash
+  226  cd /lib/modules/3.10.0-1160.el7.x86_64/kernel/
+  227  uname -r
+  228  cd
+  229  unset name
+  230  ls -ld ${PATH}
+  231  cd /usr/local/sbin
+  232  ls -ld ${PATH}
+  233  clear
+  234  env
+  235  declare -i number=$RANDOM*10/32768 ; echo $number
+  236  env
+  237  declare -i number=$RANDOM*10/32768 ; echo $number
+  238  set
+  239  man bash
+  240  echo $$
+  241  echo $SHELL
+  242  echo $?
+  243  12name=VBbird
+  244  echo $?
+  245  clear
+  246  locale -e
+  247  locale -a
+  248  locale
+  249  man locale
+  250  cat /etc/local.conf
+  251  cat /etc/local
+  252  su atguigu
+  253  ls -al |more
+  254  alias
+  255  history 
+  256  history 10
+  257  history 10 -w
+  258  history -w 10 
+  259  echo ${HISTSIZE} 
+  260  echo ${HISTFILESIZE}} 
+  261  history 
+[root@hadoop106 ~]# !261
+history 
+    1  ping www.baidu.com
+    2  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+    3  service network restart 
+    4  ping www.baidu.com
+    5  poweroff
+    6  ping www.baidu.com
+    7  vi /etc/hostname hadoop105
+    8  hostname
+    9  vim /etc/hostname
+   10  vim /etc/hosts
+   11  vi /etc/hostname 
+   12  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+   13  network service restart
+   14   service network restart
+   15  ifconfig
+   16  reboot
+   17  ls -ldsr /etc/*
+   18  cd /tmp
+   19  cd /etc/services
+   20  cd 
+   21  cd /etc/services
+   22  cp /etc/services .
+   23  gzip -v services 
+   24  ll /etc/services /tmp/services*
+   25  zcat services.gz 
+   26  gzip -d services.gz 
+   27  gzip gzip -9 -c services > services.gz 
+   28  zgrep -n 'http' services.gz
+   29  bzip2 -v services
+   30  ls -l service*
+   31  bzcat services.bz2 
+   32  bzip -d services.bz2 
+   33  bzip2 -d services.bz2 
+   34  bzip2 -9 -c service>services.bz2 
+   35  bzip2 -9 -c service > services.bz2 
+   36  xz -v services
+   37  ls -l services*\
+   38  ls -l services*
+   39  xz -l services.xz 
+   40  xzcat services.xz 
+   41  xz -d services.xz 
+   42  xz -k services.xz 
+   43  xz -d services.xz 
+   44  xz -k services.xz 
+   45  pwd
+   46  ls -ll
+   47  xz -k services.xz 
+   48  xz -d services.xz 
+   49  xz -v services
+   50  ls -ll
+   51  xz -d services.xz 
+   52  xz -k services.xz 
+   53  ls -al
+   54  clean
+   55  cd
+   56  clear
+   57  time tar -zpcv -f /root/etc.tar.gz /etc
+   58  time tar -jpcv -f /root/etc.tar.bz2 /etc
+   59  time tar -Jpcv -f /root/etc.tar.xz /etc
+   60  ll /root/etc*
+   61  ls -al
+   62  du -sm /etc
+   63  tar -jtv -f /root/etc.tar.bz2 
+   64  tar -jt -f /root/etc.tar.bz2 
+   65  tar -jpPcv -f /root/etc.tar.bz2 /etc
+   66  tar -jtf  /root/etc.and.root.tar.bz2
+   67  tar -jtf  /root/etc and /root/tar.bz2
+   68  tar -jxv -f /root/etc.tar.bz2 
+   69  ll
+   70  ls -al
+   71  tar -jxv -f /root/etc.tar.bz2 -C /tmp
+   72  ll -ls /tmp/
+   73  ll -al /tmp
+   74  ll tmp
+   75  ll /tmp
+   76  rm -rf /root/etc /tmp/etc/
+   77  tar -jtv -f /root/etc.tar.bz2 |grep 'shadow'
+   78  tar -jtv -f /root/etc.tar.bz2 /etc/shadow
+   79  ll /etc
+   80  ll etc
+   81  pwd
+   82  ll -al
+   83  cd /root/etc
+   84  rm -rf /root/etc.tar.xz
+   85  rm -rf /root/etc.tar.gz
+   86  rm -rf /root/etc.tar.bz2 
+   87  ls -al
+   88  find /etc -newer /etc/passwd
+   89  ll /etc/passwd
+   90  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2015/06/17" /etc/*
+   91  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2022/11/04" /etc/*
+   92  cd /tmp
+   93  tar -cvf - /etc |tar -xvf -
+   94  mkdir /backups
+   95  ll 
+   96  ll -al
+   97  cd
+   98  mkdir /backups
+   99  ls -al
+  100  mkdir /backups
+  101  ls -al
+  102  mkdir /backups
+  103  ll -al |grup backups
+  104  ll -al |grep backups
+  105  ls -al |grup backups
+  106  ls -al |grep backups
+  107  ls -al
+  108  chmod 700 /backups
+  109  cd /
+  110  ll -al
+  111  cd 
+  112  ll -d /backups
+  113  tar -jcv -f /backups/bachup-system-20221104.tar.bz2--exclude=/root/*.bz2 --exclude=/root/*.gz --exclude=/home/loop*/etc /home /var/spool/mail/ /var/spool/cron/ /root/
+  114  ll -h /backups/
+  115  xfsdump -I
+  116  df -h /boot
+  117  xfsdump -l 0 -L boot_all -M boot_all -f /srv/boot.dump /boot
+  118  ll /srv/boot.dump
+  119  ll /var/lib/xfsdump/inventory
+  120  xfsdump -I
+  121  dd if=/dev/zero of=/boot/testing.ing bs=1M count=10
+  122  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot/
+  123  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot
+  124  ll /srv/boot*
+  125  xfsdump -I
+  126  xfsrestore -I
+  127  xfsrestore -f /srv/boot.dump -L boot_all /boot/
+  128  mkdir /tmp/boot
+  129  xfsrestore -f /srv/boot.dump  -L boot_all /tmp/boot/
+  130  mkdir /tmp/boot/
+  131  xfsrestore -f /srv/boot.dump -L boot_all /tmp/boot/
+  132  du -sm /boot /tmp/boot/
+  133  diff -r /boot/ /tmp/boot/
+  134  clear
+  135  df -h /mt
+  136  /bin/vi welcome.txt
+  137  ls -l
+  138  pwd
+  139  vi welcome.txt 
+  140  vi --help
+  141  q
+  142  man vi
+  143  vi welcome.txt 
+  144  clean
+  145  clear
+  146  cd /tmp/vitest
+  147  mkdir /tmp/vitest
+  148  cd /tmp/vitest
+  149  vim man_db.conf
+  150  ls -al
+  151  kill -9 %
+  152  kill -9 %1
+  153  ls -al .man_db.conf.swp
+  154  vim man_db.conf
+  155  alisa
+  156  alias
+  157  vim /etc/services 
+  158  cd /tmp/vitest
+  159  vim man_db.conf
+  160  vim ~/.vimrc
+  161  /etc/shells
+  162  cd /
+  163  /etc/shells
+  164  cat /etc/shells
+  165  cat /etc/passwd
+  166  ~/.bash_history
+  167  cat ~/.bash_history
+  168  type ls
+  169  type -t ls
+  170  type cd
+  171  ll
+  172  vi initial-setup-ks.cfg 
+  173  su atguigu
+  174  pwd
+  175  echo $name
+  176  exit
+  177  echo $name
+  178  exit
+  179  clean
+  180  clear
+  181  echo $variable
+  182  echo $PATH 
+  183  echo ${PATH} 
+  184  echo ${HOME}} 
+  185  echo ${HOME} 
+  186  echo ${MALL} 
+  187  MALL = "I want to go shopping in the supermarket。"
+  188  MALL="I want to go shopping in the supermarket。"
+  189  echo ${MALL} 
+  190  myname=VBbird\tTsai
+  191  echo ${myname} 
+  192  myname=VBbird\ sai
+  193  echo ${myname} 
+  194  myname=VBbird sai
+  195  vision=$(uname -r)
+  196  echo $vision 
+  197  echo $PATH 
+  198  PATH=${PATH}:/home/bin
+  199  echo $PATH 
+  200  export t PATH
+  201  echo t
+  202  export PATH
+  203  unset MALL 
+  204  unset myname 
+  205  name=VBbird
+  206  echo name
+  207  echo $name 
+  208  name=VBbird's name
+  209  echo $name 
+  210  name=VBbird's\ name
+  211  echo $name 
+  212  name="VBbird's name"
+  213  echo $name 
+  214  name=$nameyes
+  215  echo $name 
+  216  name=${name}yes
+  217  echo $name 
+  218  name="name"
+  219  echo $name 
+  220  name=${name}yes
+  221  echo $name 
+  222  name=VBbird
+  223  bash
+  224  export name
+  225  bash
+  226  cd /lib/modules/3.10.0-1160.el7.x86_64/kernel/
+  227  uname -r
+  228  cd
+  229  unset name
+  230  ls -ld ${PATH}
+  231  cd /usr/local/sbin
+  232  ls -ld ${PATH}
+  233  clear
+  234  env
+  235  declare -i number=$RANDOM*10/32768 ; echo $number
+  236  env
+  237  declare -i number=$RANDOM*10/32768 ; echo $number
+  238  set
+  239  man bash
+  240  echo $$
+  241  echo $SHELL
+  242  echo $?
+  243  12name=VBbird
+  244  echo $?
+  245  clear
+  246  locale -e
+  247  locale -a
+  248  locale
+  249  man locale
+  250  cat /etc/local.conf
+  251  cat /etc/local
+  252  su atguigu
+  253  ls -al |more
+  254  alias
+  255  history 
+  256  history 10
+  257  history 10 -w
+  258  history -w 10 
+  259  echo ${HISTSIZE} 
+  260  echo ${HISTFILESIZE}} 
+  261  history 
+[root@hadoop106 ~]# !!
+history 
+    1  ping www.baidu.com
+    2  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+    3  service network restart 
+    4  ping www.baidu.com
+    5  poweroff
+    6  ping www.baidu.com
+    7  vi /etc/hostname hadoop105
+    8  hostname
+    9  vim /etc/hostname
+   10  vim /etc/hosts
+   11  vi /etc/hostname 
+   12  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+   13  network service restart
+   14   service network restart
+   15  ifconfig
+   16  reboot
+   17  ls -ldsr /etc/*
+   18  cd /tmp
+   19  cd /etc/services
+   20  cd 
+   21  cd /etc/services
+   22  cp /etc/services .
+   23  gzip -v services 
+   24  ll /etc/services /tmp/services*
+   25  zcat services.gz 
+   26  gzip -d services.gz 
+   27  gzip gzip -9 -c services > services.gz 
+   28  zgrep -n 'http' services.gz
+   29  bzip2 -v services
+   30  ls -l service*
+   31  bzcat services.bz2 
+   32  bzip -d services.bz2 
+   33  bzip2 -d services.bz2 
+   34  bzip2 -9 -c service>services.bz2 
+   35  bzip2 -9 -c service > services.bz2 
+   36  xz -v services
+   37  ls -l services*\
+   38  ls -l services*
+   39  xz -l services.xz 
+   40  xzcat services.xz 
+   41  xz -d services.xz 
+   42  xz -k services.xz 
+   43  xz -d services.xz 
+   44  xz -k services.xz 
+   45  pwd
+   46  ls -ll
+   47  xz -k services.xz 
+   48  xz -d services.xz 
+   49  xz -v services
+   50  ls -ll
+   51  xz -d services.xz 
+   52  xz -k services.xz 
+   53  ls -al
+   54  clean
+   55  cd
+   56  clear
+   57  time tar -zpcv -f /root/etc.tar.gz /etc
+   58  time tar -jpcv -f /root/etc.tar.bz2 /etc
+   59  time tar -Jpcv -f /root/etc.tar.xz /etc
+   60  ll /root/etc*
+   61  ls -al
+   62  du -sm /etc
+   63  tar -jtv -f /root/etc.tar.bz2 
+   64  tar -jt -f /root/etc.tar.bz2 
+   65  tar -jpPcv -f /root/etc.tar.bz2 /etc
+   66  tar -jtf  /root/etc.and.root.tar.bz2
+   67  tar -jtf  /root/etc and /root/tar.bz2
+   68  tar -jxv -f /root/etc.tar.bz2 
+   69  ll
+   70  ls -al
+   71  tar -jxv -f /root/etc.tar.bz2 -C /tmp
+   72  ll -ls /tmp/
+   73  ll -al /tmp
+   74  ll tmp
+   75  ll /tmp
+   76  rm -rf /root/etc /tmp/etc/
+   77  tar -jtv -f /root/etc.tar.bz2 |grep 'shadow'
+   78  tar -jtv -f /root/etc.tar.bz2 /etc/shadow
+   79  ll /etc
+   80  ll etc
+   81  pwd
+   82  ll -al
+   83  cd /root/etc
+   84  rm -rf /root/etc.tar.xz
+   85  rm -rf /root/etc.tar.gz
+   86  rm -rf /root/etc.tar.bz2 
+   87  ls -al
+   88  find /etc -newer /etc/passwd
+   89  ll /etc/passwd
+   90  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2015/06/17" /etc/*
+   91  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2022/11/04" /etc/*
+   92  cd /tmp
+   93  tar -cvf - /etc |tar -xvf -
+   94  mkdir /backups
+   95  ll 
+   96  ll -al
+   97  cd
+   98  mkdir /backups
+   99  ls -al
+  100  mkdir /backups
+  101  ls -al
+  102  mkdir /backups
+  103  ll -al |grup backups
+  104  ll -al |grep backups
+  105  ls -al |grup backups
+  106  ls -al |grep backups
+  107  ls -al
+  108  chmod 700 /backups
+  109  cd /
+  110  ll -al
+  111  cd 
+  112  ll -d /backups
+  113  tar -jcv -f /backups/bachup-system-20221104.tar.bz2--exclude=/root/*.bz2 --exclude=/root/*.gz --exclude=/home/loop*/etc /home /var/spool/mail/ /var/spool/cron/ /root/
+  114  ll -h /backups/
+  115  xfsdump -I
+  116  df -h /boot
+  117  xfsdump -l 0 -L boot_all -M boot_all -f /srv/boot.dump /boot
+  118  ll /srv/boot.dump
+  119  ll /var/lib/xfsdump/inventory
+  120  xfsdump -I
+  121  dd if=/dev/zero of=/boot/testing.ing bs=1M count=10
+  122  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot/
+  123  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot
+  124  ll /srv/boot*
+  125  xfsdump -I
+  126  xfsrestore -I
+  127  xfsrestore -f /srv/boot.dump -L boot_all /boot/
+  128  mkdir /tmp/boot
+  129  xfsrestore -f /srv/boot.dump  -L boot_all /tmp/boot/
+  130  mkdir /tmp/boot/
+  131  xfsrestore -f /srv/boot.dump -L boot_all /tmp/boot/
+  132  du -sm /boot /tmp/boot/
+  133  diff -r /boot/ /tmp/boot/
+  134  clear
+  135  df -h /mt
+  136  /bin/vi welcome.txt
+  137  ls -l
+  138  pwd
+  139  vi welcome.txt 
+  140  vi --help
+  141  q
+  142  man vi
+  143  vi welcome.txt 
+  144  clean
+  145  clear
+  146  cd /tmp/vitest
+  147  mkdir /tmp/vitest
+  148  cd /tmp/vitest
+  149  vim man_db.conf
+  150  ls -al
+  151  kill -9 %
+  152  kill -9 %1
+  153  ls -al .man_db.conf.swp
+  154  vim man_db.conf
+  155  alisa
+  156  alias
+  157  vim /etc/services 
+  158  cd /tmp/vitest
+  159  vim man_db.conf
+  160  vim ~/.vimrc
+  161  /etc/shells
+  162  cd /
+  163  /etc/shells
+  164  cat /etc/shells
+  165  cat /etc/passwd
+  166  ~/.bash_history
+  167  cat ~/.bash_history
+  168  type ls
+  169  type -t ls
+  170  type cd
+  171  ll
+  172  vi initial-setup-ks.cfg 
+  173  su atguigu
+  174  pwd
+  175  echo $name
+  176  exit
+  177  echo $name
+  178  exit
+  179  clean
+  180  clear
+  181  echo $variable
+  182  echo $PATH 
+  183  echo ${PATH} 
+  184  echo ${HOME}} 
+  185  echo ${HOME} 
+  186  echo ${MALL} 
+  187  MALL = "I want to go shopping in the supermarket。"
+  188  MALL="I want to go shopping in the supermarket。"
+  189  echo ${MALL} 
+  190  myname=VBbird\tTsai
+  191  echo ${myname} 
+  192  myname=VBbird\ sai
+  193  echo ${myname} 
+  194  myname=VBbird sai
+  195  vision=$(uname -r)
+  196  echo $vision 
+  197  echo $PATH 
+  198  PATH=${PATH}:/home/bin
+  199  echo $PATH 
+  200  export t PATH
+  201  echo t
+  202  export PATH
+  203  unset MALL 
+  204  unset myname 
+  205  name=VBbird
+  206  echo name
+  207  echo $name 
+  208  name=VBbird's name
+  209  echo $name 
+  210  name=VBbird's\ name
+  211  echo $name 
+  212  name="VBbird's name"
+  213  echo $name 
+  214  name=$nameyes
+  215  echo $name 
+  216  name=${name}yes
+  217  echo $name 
+  218  name="name"
+  219  echo $name 
+  220  name=${name}yes
+  221  echo $name 
+  222  name=VBbird
+  223  bash
+  224  export name
+  225  bash
+  226  cd /lib/modules/3.10.0-1160.el7.x86_64/kernel/
+  227  uname -r
+  228  cd
+  229  unset name
+  230  ls -ld ${PATH}
+  231  cd /usr/local/sbin
+  232  ls -ld ${PATH}
+  233  clear
+  234  env
+  235  declare -i number=$RANDOM*10/32768 ; echo $number
+  236  env
+  237  declare -i number=$RANDOM*10/32768 ; echo $number
+  238  set
+  239  man bash
+  240  echo $$
+  241  echo $SHELL
+  242  echo $?
+  243  12name=VBbird
+  244  echo $?
+  245  clear
+  246  locale -e
+  247  locale -a
+  248  locale
+  249  man locale
+  250  cat /etc/local.conf
+  251  cat /etc/local
+  252  su atguigu
+  253  ls -al |more
+  254  alias
+  255  history 
+  256  history 10
+  257  history 10 -w
+  258  history -w 10 
+  259  echo ${HISTSIZE} 
+  260  echo ${HISTFILESIZE}} 
+  261  history 
+[root@hadoop106 ~]# 
