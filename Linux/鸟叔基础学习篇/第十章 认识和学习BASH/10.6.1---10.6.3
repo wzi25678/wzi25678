@@ -1,0 +1,2333 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop106' resolved to 192.168.73.106.
+Connecting to 192.168.73.106:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Mon Nov 14 18:20:46 2022 from 192.168.73.1
+[root@hadoop106 ~]# ls -al |more
+总用量 64
+dr-xr-x---. 14 root root 4096 11月 15 14:47 .
+dr-xr-xr-x. 18 root root  239 11月 12 16:33 ..
+-rw-------.  1 root root 1989 11月  4 19:49 anaconda-ks.cfg
+-rw-------.  1 root root 4571 11月 14 21:54 .bash_history
+-rw-r--r--.  1 root root   18 12月 29 2013 .bash_logout
+-rw-r--r--.  1 root root  176 12月 29 2013 .bash_profile
+-rw-r--r--.  1 root root  176 12月 29 2013 .bashrc
+drwx------. 13 root root  277 11月  4 19:58 .cache
+drwxr-xr-x. 14 root root  261 11月  4 19:58 .config
+-rw-r--r--.  1 root root  100 12月 29 2013 .cshrc
+drwx------.  3 root root   25 11月  4 19:56 .dbus
+-rw-------.  1 root root   16 11月  4 19:56 .esd_auth
+-rw-------.  1 root root 2480 11月 13 15:28 .ICEauthority
+-rw-r--r--.  1 root root 2037 11月  4 19:56 initial-setup-ks.cfg
+drwx------.  3 root root   19 11月  4 19:56 .local
+-rw-r--r--.  1 root root  129 12月 29 2013 .tcshrc
+-rw-------.  1 root root 4169 11月 13 16:36 .viminfo
+-rw-r--r--.  1 root root  681 11月 13 15:34 welcome.txt
+-rw-------.  1 root root   55 11月 15 14:47 .Xauthority
+drwxr-xr-x.  2 root root    6 11月  4 19:56 公共
+drwxr-xr-x.  2 root root    6 11月  4 19:56 模板
+drwxr-xr-x.  2 root root    6 11月  4 19:56 视频
+drwxr-xr-x.  2 root root    6 11月  4 19:56 图片
+drwxr-xr-x.  2 root root    6 11月  4 19:56 文档
+drwxr-xr-x.  2 root root    6 11月  4 19:56 下载
+drwxr-xr-x.  2 root root    6 11月  4 19:56 音乐
+drwxr-xr-x.  2 root root    6 11月  4 19:56 桌面
+[root@hadoop106 ~]# alias
+alias cp='cp -i'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias mv='mv -i'
+alias rm='rm -i'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+[root@hadoop106 ~]# history 
+    1  ping www.baidu.com
+    2  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+    3  service network restart 
+    4  ping www.baidu.com
+    5  poweroff
+    6  ping www.baidu.com
+    7  vi /etc/hostname hadoop105
+    8  hostname
+    9  vim /etc/hostname
+   10  vim /etc/hosts
+   11  vi /etc/hostname 
+   12  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+   13  network service restart
+   14   service network restart
+   15  ifconfig
+   16  reboot
+   17  ls -ldsr /etc/*
+   18  cd /tmp
+   19  cd /etc/services
+   20  cd 
+   21  cd /etc/services
+   22  cp /etc/services .
+   23  gzip -v services 
+   24  ll /etc/services /tmp/services*
+   25  zcat services.gz 
+   26  gzip -d services.gz 
+   27  gzip gzip -9 -c services > services.gz 
+   28  zgrep -n 'http' services.gz
+   29  bzip2 -v services
+   30  ls -l service*
+   31  bzcat services.bz2 
+   32  bzip -d services.bz2 
+   33  bzip2 -d services.bz2 
+   34  bzip2 -9 -c service>services.bz2 
+   35  bzip2 -9 -c service > services.bz2 
+   36  xz -v services
+   37  ls -l services*\
+   38  ls -l services*
+   39  xz -l services.xz 
+   40  xzcat services.xz 
+   41  xz -d services.xz 
+   42  xz -k services.xz 
+   43  xz -d services.xz 
+   44  xz -k services.xz 
+   45  pwd
+   46  ls -ll
+   47  xz -k services.xz 
+   48  xz -d services.xz 
+   49  xz -v services
+   50  ls -ll
+   51  xz -d services.xz 
+   52  xz -k services.xz 
+   53  ls -al
+   54  clean
+   55  cd
+   56  clear
+   57  time tar -zpcv -f /root/etc.tar.gz /etc
+   58  time tar -jpcv -f /root/etc.tar.bz2 /etc
+   59  time tar -Jpcv -f /root/etc.tar.xz /etc
+   60  ll /root/etc*
+   61  ls -al
+   62  du -sm /etc
+   63  tar -jtv -f /root/etc.tar.bz2 
+   64  tar -jt -f /root/etc.tar.bz2 
+   65  tar -jpPcv -f /root/etc.tar.bz2 /etc
+   66  tar -jtf  /root/etc.and.root.tar.bz2
+   67  tar -jtf  /root/etc and /root/tar.bz2
+   68  tar -jxv -f /root/etc.tar.bz2 
+   69  ll
+   70  ls -al
+   71  tar -jxv -f /root/etc.tar.bz2 -C /tmp
+   72  ll -ls /tmp/
+   73  ll -al /tmp
+   74  ll tmp
+   75  ll /tmp
+   76  rm -rf /root/etc /tmp/etc/
+   77  tar -jtv -f /root/etc.tar.bz2 |grep 'shadow'
+   78  tar -jtv -f /root/etc.tar.bz2 /etc/shadow
+   79  ll /etc
+   80  ll etc
+   81  pwd
+   82  ll -al
+   83  cd /root/etc
+   84  rm -rf /root/etc.tar.xz
+   85  rm -rf /root/etc.tar.gz
+   86  rm -rf /root/etc.tar.bz2 
+   87  ls -al
+   88  find /etc -newer /etc/passwd
+   89  ll /etc/passwd
+   90  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2015/06/17" /etc/*
+   91  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2022/11/04" /etc/*
+   92  cd /tmp
+   93  tar -cvf - /etc |tar -xvf -
+   94  mkdir /backups
+   95  ll 
+   96  ll -al
+   97  cd
+   98  mkdir /backups
+   99  ls -al
+  100  mkdir /backups
+  101  ls -al
+  102  mkdir /backups
+  103  ll -al |grup backups
+  104  ll -al |grep backups
+  105  ls -al |grup backups
+  106  ls -al |grep backups
+  107  ls -al
+  108  chmod 700 /backups
+  109  cd /
+  110  ll -al
+  111  cd 
+  112  ll -d /backups
+  113  tar -jcv -f /backups/bachup-system-20221104.tar.bz2--exclude=/root/*.bz2 --exclude=/root/*.gz --exclude=/home/loop*/etc /home /var/spool/mail/ /var/spool/cron/ /root/
+  114  ll -h /backups/
+  115  xfsdump -I
+  116  df -h /boot
+  117  xfsdump -l 0 -L boot_all -M boot_all -f /srv/boot.dump /boot
+  118  ll /srv/boot.dump
+  119  ll /var/lib/xfsdump/inventory
+  120  xfsdump -I
+  121  dd if=/dev/zero of=/boot/testing.ing bs=1M count=10
+  122  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot/
+  123  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot
+  124  ll /srv/boot*
+  125  xfsdump -I
+  126  xfsrestore -I
+  127  xfsrestore -f /srv/boot.dump -L boot_all /boot/
+  128  mkdir /tmp/boot
+  129  xfsrestore -f /srv/boot.dump  -L boot_all /tmp/boot/
+  130  mkdir /tmp/boot/
+  131  xfsrestore -f /srv/boot.dump -L boot_all /tmp/boot/
+  132  du -sm /boot /tmp/boot/
+  133  diff -r /boot/ /tmp/boot/
+  134  clear
+  135  df -h /mt
+  136  /bin/vi welcome.txt
+  137  ls -l
+  138  pwd
+  139  vi welcome.txt 
+  140  vi --help
+  141  q
+  142  man vi
+  143  vi welcome.txt 
+  144  clean
+  145  clear
+  146  cd /tmp/vitest
+  147  mkdir /tmp/vitest
+  148  cd /tmp/vitest
+  149  vim man_db.conf
+  150  ls -al
+  151  kill -9 %
+  152  kill -9 %1
+  153  ls -al .man_db.conf.swp
+  154  vim man_db.conf
+  155  alisa
+  156  alias
+  157  vim /etc/services 
+  158  cd /tmp/vitest
+  159  vim man_db.conf
+  160  vim ~/.vimrc
+  161  /etc/shells
+  162  cd /
+  163  /etc/shells
+  164  cat /etc/shells
+  165  cat /etc/passwd
+  166  ~/.bash_history
+  167  cat ~/.bash_history
+  168  type ls
+  169  type -t ls
+  170  type cd
+  171  ll
+  172  vi initial-setup-ks.cfg 
+  173  su atguigu
+  174  pwd
+  175  echo $name
+  176  exit
+  177  echo $name
+  178  exit
+  179  clean
+  180  clear
+  181  echo $variable
+  182  echo $PATH 
+  183  echo ${PATH} 
+  184  echo ${HOME}} 
+  185  echo ${HOME} 
+  186  echo ${MALL} 
+  187  MALL = "I want to go shopping in the supermarket。"
+  188  MALL="I want to go shopping in the supermarket。"
+  189  echo ${MALL} 
+  190  myname=VBbird\tTsai
+  191  echo ${myname} 
+  192  myname=VBbird\ sai
+  193  echo ${myname} 
+  194  myname=VBbird sai
+  195  vision=$(uname -r)
+  196  echo $vision 
+  197  echo $PATH 
+  198  PATH=${PATH}:/home/bin
+  199  echo $PATH 
+  200  export t PATH
+  201  echo t
+  202  export PATH
+  203  unset MALL 
+  204  unset myname 
+  205  name=VBbird
+  206  echo name
+  207  echo $name 
+  208  name=VBbird's name
+  209  echo $name 
+  210  name=VBbird's\ name
+  211  echo $name 
+  212  name="VBbird's name"
+  213  echo $name 
+  214  name=$nameyes
+  215  echo $name 
+  216  name=${name}yes
+  217  echo $name 
+  218  name="name"
+  219  echo $name 
+  220  name=${name}yes
+  221  echo $name 
+  222  name=VBbird
+  223  bash
+  224  export name
+  225  bash
+  226  cd /lib/modules/3.10.0-1160.el7.x86_64/kernel/
+  227  uname -r
+  228  cd
+  229  unset name
+  230  ls -ld ${PATH}
+  231  cd /usr/local/sbin
+  232  ls -ld ${PATH}
+  233  clear
+  234  env
+  235  declare -i number=$RANDOM*10/32768 ; echo $number
+  236  env
+  237  declare -i number=$RANDOM*10/32768 ; echo $number
+  238  set
+  239  man bash
+  240  echo $$
+  241  echo $SHELL
+  242  echo $?
+  243  12name=VBbird
+  244  echo $?
+  245  clear
+  246  locale -e
+  247  locale -a
+  248  locale
+  249  man locale
+  250  cat /etc/local.conf
+  251  cat /etc/local
+  252  su atguigu
+  253  ls -al |more
+  254  alias
+  255  history 
+[root@hadoop106 ~]# history 10
+  247  locale -a
+  248  locale
+  249  man locale
+  250  cat /etc/local.conf
+  251  cat /etc/local
+  252  su atguigu
+  253  ls -al |more
+  254  alias
+  255  history 
+  256  history 10
+[root@hadoop106 ~]# history 10 -w
+-bash: history: 参数太多
+[root@hadoop106 ~]# history -w 10 
+[root@hadoop106 ~]# echo ${H
+${HISTCMD}       ${HISTCONTROL}   ${HISTFILE}      ${HISTFILESIZE}  ${HISTSIZE}      ${HOME}          ${HOSTNAME}      ${HOSTTYPE}      
+[root@hadoop106 ~]# echo ${H
+${HISTCMD}       ${HISTCONTROL}   ${HISTFILE}      ${HISTFILESIZE}  ${HISTSIZE}      ${HOME}          ${HOSTNAME}      ${HOSTTYPE}      
+[root@hadoop106 ~]# echo ${HIST
+${HISTCMD}       ${HISTCONTROL}   ${HISTFILE}      ${HISTFILESIZE}  ${HISTSIZE}      
+[root@hadoop106 ~]# echo ${HIST
+${HISTCMD}       ${HISTCONTROL}   ${HISTFILE}      ${HISTFILESIZE}  ${HISTSIZE}      
+[root@hadoop106 ~]# echo ${HISTSIZE} 
+1000
+[root@hadoop106 ~]# echo ${HISTFILE} 
+${HISTFILE}      ${HISTFILESIZE}  
+[root@hadoop106 ~]# echo ${HISTFILE} 
+${HISTFILE}      ${HISTFILESIZE}  
+[root@hadoop106 ~]# echo ${HISTFILESIZE}} 
+1000}
+[root@hadoop106 ~]# !number
+-bash: !number: event not found
+[root@hadoop106 ~]# history 
+    1  ping www.baidu.com
+    2  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+    3  service network restart 
+    4  ping www.baidu.com
+    5  poweroff
+    6  ping www.baidu.com
+    7  vi /etc/hostname hadoop105
+    8  hostname
+    9  vim /etc/hostname
+   10  vim /etc/hosts
+   11  vi /etc/hostname 
+   12  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+   13  network service restart
+   14   service network restart
+   15  ifconfig
+   16  reboot
+   17  ls -ldsr /etc/*
+   18  cd /tmp
+   19  cd /etc/services
+   20  cd 
+   21  cd /etc/services
+   22  cp /etc/services .
+   23  gzip -v services 
+   24  ll /etc/services /tmp/services*
+   25  zcat services.gz 
+   26  gzip -d services.gz 
+   27  gzip gzip -9 -c services > services.gz 
+   28  zgrep -n 'http' services.gz
+   29  bzip2 -v services
+   30  ls -l service*
+   31  bzcat services.bz2 
+   32  bzip -d services.bz2 
+   33  bzip2 -d services.bz2 
+   34  bzip2 -9 -c service>services.bz2 
+   35  bzip2 -9 -c service > services.bz2 
+   36  xz -v services
+   37  ls -l services*\
+   38  ls -l services*
+   39  xz -l services.xz 
+   40  xzcat services.xz 
+   41  xz -d services.xz 
+   42  xz -k services.xz 
+   43  xz -d services.xz 
+   44  xz -k services.xz 
+   45  pwd
+   46  ls -ll
+   47  xz -k services.xz 
+   48  xz -d services.xz 
+   49  xz -v services
+   50  ls -ll
+   51  xz -d services.xz 
+   52  xz -k services.xz 
+   53  ls -al
+   54  clean
+   55  cd
+   56  clear
+   57  time tar -zpcv -f /root/etc.tar.gz /etc
+   58  time tar -jpcv -f /root/etc.tar.bz2 /etc
+   59  time tar -Jpcv -f /root/etc.tar.xz /etc
+   60  ll /root/etc*
+   61  ls -al
+   62  du -sm /etc
+   63  tar -jtv -f /root/etc.tar.bz2 
+   64  tar -jt -f /root/etc.tar.bz2 
+   65  tar -jpPcv -f /root/etc.tar.bz2 /etc
+   66  tar -jtf  /root/etc.and.root.tar.bz2
+   67  tar -jtf  /root/etc and /root/tar.bz2
+   68  tar -jxv -f /root/etc.tar.bz2 
+   69  ll
+   70  ls -al
+   71  tar -jxv -f /root/etc.tar.bz2 -C /tmp
+   72  ll -ls /tmp/
+   73  ll -al /tmp
+   74  ll tmp
+   75  ll /tmp
+   76  rm -rf /root/etc /tmp/etc/
+   77  tar -jtv -f /root/etc.tar.bz2 |grep 'shadow'
+   78  tar -jtv -f /root/etc.tar.bz2 /etc/shadow
+   79  ll /etc
+   80  ll etc
+   81  pwd
+   82  ll -al
+   83  cd /root/etc
+   84  rm -rf /root/etc.tar.xz
+   85  rm -rf /root/etc.tar.gz
+   86  rm -rf /root/etc.tar.bz2 
+   87  ls -al
+   88  find /etc -newer /etc/passwd
+   89  ll /etc/passwd
+   90  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2015/06/17" /etc/*
+   91  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2022/11/04" /etc/*
+   92  cd /tmp
+   93  tar -cvf - /etc |tar -xvf -
+   94  mkdir /backups
+   95  ll 
+   96  ll -al
+   97  cd
+   98  mkdir /backups
+   99  ls -al
+  100  mkdir /backups
+  101  ls -al
+  102  mkdir /backups
+  103  ll -al |grup backups
+  104  ll -al |grep backups
+  105  ls -al |grup backups
+  106  ls -al |grep backups
+  107  ls -al
+  108  chmod 700 /backups
+  109  cd /
+  110  ll -al
+  111  cd 
+  112  ll -d /backups
+  113  tar -jcv -f /backups/bachup-system-20221104.tar.bz2--exclude=/root/*.bz2 --exclude=/root/*.gz --exclude=/home/loop*/etc /home /var/spool/mail/ /var/spool/cron/ /root/
+  114  ll -h /backups/
+  115  xfsdump -I
+  116  df -h /boot
+  117  xfsdump -l 0 -L boot_all -M boot_all -f /srv/boot.dump /boot
+  118  ll /srv/boot.dump
+  119  ll /var/lib/xfsdump/inventory
+  120  xfsdump -I
+  121  dd if=/dev/zero of=/boot/testing.ing bs=1M count=10
+  122  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot/
+  123  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot
+  124  ll /srv/boot*
+  125  xfsdump -I
+  126  xfsrestore -I
+  127  xfsrestore -f /srv/boot.dump -L boot_all /boot/
+  128  mkdir /tmp/boot
+  129  xfsrestore -f /srv/boot.dump  -L boot_all /tmp/boot/
+  130  mkdir /tmp/boot/
+  131  xfsrestore -f /srv/boot.dump -L boot_all /tmp/boot/
+  132  du -sm /boot /tmp/boot/
+  133  diff -r /boot/ /tmp/boot/
+  134  clear
+  135  df -h /mt
+  136  /bin/vi welcome.txt
+  137  ls -l
+  138  pwd
+  139  vi welcome.txt 
+  140  vi --help
+  141  q
+  142  man vi
+  143  vi welcome.txt 
+  144  clean
+  145  clear
+  146  cd /tmp/vitest
+  147  mkdir /tmp/vitest
+  148  cd /tmp/vitest
+  149  vim man_db.conf
+  150  ls -al
+  151  kill -9 %
+  152  kill -9 %1
+  153  ls -al .man_db.conf.swp
+  154  vim man_db.conf
+  155  alisa
+  156  alias
+  157  vim /etc/services 
+  158  cd /tmp/vitest
+  159  vim man_db.conf
+  160  vim ~/.vimrc
+  161  /etc/shells
+  162  cd /
+  163  /etc/shells
+  164  cat /etc/shells
+  165  cat /etc/passwd
+  166  ~/.bash_history
+  167  cat ~/.bash_history
+  168  type ls
+  169  type -t ls
+  170  type cd
+  171  ll
+  172  vi initial-setup-ks.cfg 
+  173  su atguigu
+  174  pwd
+  175  echo $name
+  176  exit
+  177  echo $name
+  178  exit
+  179  clean
+  180  clear
+  181  echo $variable
+  182  echo $PATH 
+  183  echo ${PATH} 
+  184  echo ${HOME}} 
+  185  echo ${HOME} 
+  186  echo ${MALL} 
+  187  MALL = "I want to go shopping in the supermarket。"
+  188  MALL="I want to go shopping in the supermarket。"
+  189  echo ${MALL} 
+  190  myname=VBbird\tTsai
+  191  echo ${myname} 
+  192  myname=VBbird\ sai
+  193  echo ${myname} 
+  194  myname=VBbird sai
+  195  vision=$(uname -r)
+  196  echo $vision 
+  197  echo $PATH 
+  198  PATH=${PATH}:/home/bin
+  199  echo $PATH 
+  200  export t PATH
+  201  echo t
+  202  export PATH
+  203  unset MALL 
+  204  unset myname 
+  205  name=VBbird
+  206  echo name
+  207  echo $name 
+  208  name=VBbird's name
+  209  echo $name 
+  210  name=VBbird's\ name
+  211  echo $name 
+  212  name="VBbird's name"
+  213  echo $name 
+  214  name=$nameyes
+  215  echo $name 
+  216  name=${name}yes
+  217  echo $name 
+  218  name="name"
+  219  echo $name 
+  220  name=${name}yes
+  221  echo $name 
+  222  name=VBbird
+  223  bash
+  224  export name
+  225  bash
+  226  cd /lib/modules/3.10.0-1160.el7.x86_64/kernel/
+  227  uname -r
+  228  cd
+  229  unset name
+  230  ls -ld ${PATH}
+  231  cd /usr/local/sbin
+  232  ls -ld ${PATH}
+  233  clear
+  234  env
+  235  declare -i number=$RANDOM*10/32768 ; echo $number
+  236  env
+  237  declare -i number=$RANDOM*10/32768 ; echo $number
+  238  set
+  239  man bash
+  240  echo $$
+  241  echo $SHELL
+  242  echo $?
+  243  12name=VBbird
+  244  echo $?
+  245  clear
+  246  locale -e
+  247  locale -a
+  248  locale
+  249  man locale
+  250  cat /etc/local.conf
+  251  cat /etc/local
+  252  su atguigu
+  253  ls -al |more
+  254  alias
+  255  history 
+  256  history 10
+  257  history 10 -w
+  258  history -w 10 
+  259  echo ${HISTSIZE} 
+  260  echo ${HISTFILESIZE}} 
+  261  history 
+[root@hadoop106 ~]# !261
+history 
+    1  ping www.baidu.com
+    2  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+    3  service network restart 
+    4  ping www.baidu.com
+    5  poweroff
+    6  ping www.baidu.com
+    7  vi /etc/hostname hadoop105
+    8  hostname
+    9  vim /etc/hostname
+   10  vim /etc/hosts
+   11  vi /etc/hostname 
+   12  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+   13  network service restart
+   14   service network restart
+   15  ifconfig
+   16  reboot
+   17  ls -ldsr /etc/*
+   18  cd /tmp
+   19  cd /etc/services
+   20  cd 
+   21  cd /etc/services
+   22  cp /etc/services .
+   23  gzip -v services 
+   24  ll /etc/services /tmp/services*
+   25  zcat services.gz 
+   26  gzip -d services.gz 
+   27  gzip gzip -9 -c services > services.gz 
+   28  zgrep -n 'http' services.gz
+   29  bzip2 -v services
+   30  ls -l service*
+   31  bzcat services.bz2 
+   32  bzip -d services.bz2 
+   33  bzip2 -d services.bz2 
+   34  bzip2 -9 -c service>services.bz2 
+   35  bzip2 -9 -c service > services.bz2 
+   36  xz -v services
+   37  ls -l services*\
+   38  ls -l services*
+   39  xz -l services.xz 
+   40  xzcat services.xz 
+   41  xz -d services.xz 
+   42  xz -k services.xz 
+   43  xz -d services.xz 
+   44  xz -k services.xz 
+   45  pwd
+   46  ls -ll
+   47  xz -k services.xz 
+   48  xz -d services.xz 
+   49  xz -v services
+   50  ls -ll
+   51  xz -d services.xz 
+   52  xz -k services.xz 
+   53  ls -al
+   54  clean
+   55  cd
+   56  clear
+   57  time tar -zpcv -f /root/etc.tar.gz /etc
+   58  time tar -jpcv -f /root/etc.tar.bz2 /etc
+   59  time tar -Jpcv -f /root/etc.tar.xz /etc
+   60  ll /root/etc*
+   61  ls -al
+   62  du -sm /etc
+   63  tar -jtv -f /root/etc.tar.bz2 
+   64  tar -jt -f /root/etc.tar.bz2 
+   65  tar -jpPcv -f /root/etc.tar.bz2 /etc
+   66  tar -jtf  /root/etc.and.root.tar.bz2
+   67  tar -jtf  /root/etc and /root/tar.bz2
+   68  tar -jxv -f /root/etc.tar.bz2 
+   69  ll
+   70  ls -al
+   71  tar -jxv -f /root/etc.tar.bz2 -C /tmp
+   72  ll -ls /tmp/
+   73  ll -al /tmp
+   74  ll tmp
+   75  ll /tmp
+   76  rm -rf /root/etc /tmp/etc/
+   77  tar -jtv -f /root/etc.tar.bz2 |grep 'shadow'
+   78  tar -jtv -f /root/etc.tar.bz2 /etc/shadow
+   79  ll /etc
+   80  ll etc
+   81  pwd
+   82  ll -al
+   83  cd /root/etc
+   84  rm -rf /root/etc.tar.xz
+   85  rm -rf /root/etc.tar.gz
+   86  rm -rf /root/etc.tar.bz2 
+   87  ls -al
+   88  find /etc -newer /etc/passwd
+   89  ll /etc/passwd
+   90  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2015/06/17" /etc/*
+   91  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2022/11/04" /etc/*
+   92  cd /tmp
+   93  tar -cvf - /etc |tar -xvf -
+   94  mkdir /backups
+   95  ll 
+   96  ll -al
+   97  cd
+   98  mkdir /backups
+   99  ls -al
+  100  mkdir /backups
+  101  ls -al
+  102  mkdir /backups
+  103  ll -al |grup backups
+  104  ll -al |grep backups
+  105  ls -al |grup backups
+  106  ls -al |grep backups
+  107  ls -al
+  108  chmod 700 /backups
+  109  cd /
+  110  ll -al
+  111  cd 
+  112  ll -d /backups
+  113  tar -jcv -f /backups/bachup-system-20221104.tar.bz2--exclude=/root/*.bz2 --exclude=/root/*.gz --exclude=/home/loop*/etc /home /var/spool/mail/ /var/spool/cron/ /root/
+  114  ll -h /backups/
+  115  xfsdump -I
+  116  df -h /boot
+  117  xfsdump -l 0 -L boot_all -M boot_all -f /srv/boot.dump /boot
+  118  ll /srv/boot.dump
+  119  ll /var/lib/xfsdump/inventory
+  120  xfsdump -I
+  121  dd if=/dev/zero of=/boot/testing.ing bs=1M count=10
+  122  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot/
+  123  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot
+  124  ll /srv/boot*
+  125  xfsdump -I
+  126  xfsrestore -I
+  127  xfsrestore -f /srv/boot.dump -L boot_all /boot/
+  128  mkdir /tmp/boot
+  129  xfsrestore -f /srv/boot.dump  -L boot_all /tmp/boot/
+  130  mkdir /tmp/boot/
+  131  xfsrestore -f /srv/boot.dump -L boot_all /tmp/boot/
+  132  du -sm /boot /tmp/boot/
+  133  diff -r /boot/ /tmp/boot/
+  134  clear
+  135  df -h /mt
+  136  /bin/vi welcome.txt
+  137  ls -l
+  138  pwd
+  139  vi welcome.txt 
+  140  vi --help
+  141  q
+  142  man vi
+  143  vi welcome.txt 
+  144  clean
+  145  clear
+  146  cd /tmp/vitest
+  147  mkdir /tmp/vitest
+  148  cd /tmp/vitest
+  149  vim man_db.conf
+  150  ls -al
+  151  kill -9 %
+  152  kill -9 %1
+  153  ls -al .man_db.conf.swp
+  154  vim man_db.conf
+  155  alisa
+  156  alias
+  157  vim /etc/services 
+  158  cd /tmp/vitest
+  159  vim man_db.conf
+  160  vim ~/.vimrc
+  161  /etc/shells
+  162  cd /
+  163  /etc/shells
+  164  cat /etc/shells
+  165  cat /etc/passwd
+  166  ~/.bash_history
+  167  cat ~/.bash_history
+  168  type ls
+  169  type -t ls
+  170  type cd
+  171  ll
+  172  vi initial-setup-ks.cfg 
+  173  su atguigu
+  174  pwd
+  175  echo $name
+  176  exit
+  177  echo $name
+  178  exit
+  179  clean
+  180  clear
+  181  echo $variable
+  182  echo $PATH 
+  183  echo ${PATH} 
+  184  echo ${HOME}} 
+  185  echo ${HOME} 
+  186  echo ${MALL} 
+  187  MALL = "I want to go shopping in the supermarket。"
+  188  MALL="I want to go shopping in the supermarket。"
+  189  echo ${MALL} 
+  190  myname=VBbird\tTsai
+  191  echo ${myname} 
+  192  myname=VBbird\ sai
+  193  echo ${myname} 
+  194  myname=VBbird sai
+  195  vision=$(uname -r)
+  196  echo $vision 
+  197  echo $PATH 
+  198  PATH=${PATH}:/home/bin
+  199  echo $PATH 
+  200  export t PATH
+  201  echo t
+  202  export PATH
+  203  unset MALL 
+  204  unset myname 
+  205  name=VBbird
+  206  echo name
+  207  echo $name 
+  208  name=VBbird's name
+  209  echo $name 
+  210  name=VBbird's\ name
+  211  echo $name 
+  212  name="VBbird's name"
+  213  echo $name 
+  214  name=$nameyes
+  215  echo $name 
+  216  name=${name}yes
+  217  echo $name 
+  218  name="name"
+  219  echo $name 
+  220  name=${name}yes
+  221  echo $name 
+  222  name=VBbird
+  223  bash
+  224  export name
+  225  bash
+  226  cd /lib/modules/3.10.0-1160.el7.x86_64/kernel/
+  227  uname -r
+  228  cd
+  229  unset name
+  230  ls -ld ${PATH}
+  231  cd /usr/local/sbin
+  232  ls -ld ${PATH}
+  233  clear
+  234  env
+  235  declare -i number=$RANDOM*10/32768 ; echo $number
+  236  env
+  237  declare -i number=$RANDOM*10/32768 ; echo $number
+  238  set
+  239  man bash
+  240  echo $$
+  241  echo $SHELL
+  242  echo $?
+  243  12name=VBbird
+  244  echo $?
+  245  clear
+  246  locale -e
+  247  locale -a
+  248  locale
+  249  man locale
+  250  cat /etc/local.conf
+  251  cat /etc/local
+  252  su atguigu
+  253  ls -al |more
+  254  alias
+  255  history 
+  256  history 10
+  257  history 10 -w
+  258  history -w 10 
+  259  echo ${HISTSIZE} 
+  260  echo ${HISTFILESIZE}} 
+  261  history 
+[root@hadoop106 ~]# !!
+history 
+    1  ping www.baidu.com
+    2  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+    3  service network restart 
+    4  ping www.baidu.com
+    5  poweroff
+    6  ping www.baidu.com
+    7  vi /etc/hostname hadoop105
+    8  hostname
+    9  vim /etc/hostname
+   10  vim /etc/hosts
+   11  vi /etc/hostname 
+   12  vim /etc/sysconfig/network-scripts/ifcfg-ens33 
+   13  network service restart
+   14   service network restart
+   15  ifconfig
+   16  reboot
+   17  ls -ldsr /etc/*
+   18  cd /tmp
+   19  cd /etc/services
+   20  cd 
+   21  cd /etc/services
+   22  cp /etc/services .
+   23  gzip -v services 
+   24  ll /etc/services /tmp/services*
+   25  zcat services.gz 
+   26  gzip -d services.gz 
+   27  gzip gzip -9 -c services > services.gz 
+   28  zgrep -n 'http' services.gz
+   29  bzip2 -v services
+   30  ls -l service*
+   31  bzcat services.bz2 
+   32  bzip -d services.bz2 
+   33  bzip2 -d services.bz2 
+   34  bzip2 -9 -c service>services.bz2 
+   35  bzip2 -9 -c service > services.bz2 
+   36  xz -v services
+   37  ls -l services*\
+   38  ls -l services*
+   39  xz -l services.xz 
+   40  xzcat services.xz 
+   41  xz -d services.xz 
+   42  xz -k services.xz 
+   43  xz -d services.xz 
+   44  xz -k services.xz 
+   45  pwd
+   46  ls -ll
+   47  xz -k services.xz 
+   48  xz -d services.xz 
+   49  xz -v services
+   50  ls -ll
+   51  xz -d services.xz 
+   52  xz -k services.xz 
+   53  ls -al
+   54  clean
+   55  cd
+   56  clear
+   57  time tar -zpcv -f /root/etc.tar.gz /etc
+   58  time tar -jpcv -f /root/etc.tar.bz2 /etc
+   59  time tar -Jpcv -f /root/etc.tar.xz /etc
+   60  ll /root/etc*
+   61  ls -al
+   62  du -sm /etc
+   63  tar -jtv -f /root/etc.tar.bz2 
+   64  tar -jt -f /root/etc.tar.bz2 
+   65  tar -jpPcv -f /root/etc.tar.bz2 /etc
+   66  tar -jtf  /root/etc.and.root.tar.bz2
+   67  tar -jtf  /root/etc and /root/tar.bz2
+   68  tar -jxv -f /root/etc.tar.bz2 
+   69  ll
+   70  ls -al
+   71  tar -jxv -f /root/etc.tar.bz2 -C /tmp
+   72  ll -ls /tmp/
+   73  ll -al /tmp
+   74  ll tmp
+   75  ll /tmp
+   76  rm -rf /root/etc /tmp/etc/
+   77  tar -jtv -f /root/etc.tar.bz2 |grep 'shadow'
+   78  tar -jtv -f /root/etc.tar.bz2 /etc/shadow
+   79  ll /etc
+   80  ll etc
+   81  pwd
+   82  ll -al
+   83  cd /root/etc
+   84  rm -rf /root/etc.tar.xz
+   85  rm -rf /root/etc.tar.gz
+   86  rm -rf /root/etc.tar.bz2 
+   87  ls -al
+   88  find /etc -newer /etc/passwd
+   89  ll /etc/passwd
+   90  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2015/06/17" /etc/*
+   91  tar -jcv -f /root/etc.newer.then.passwd.tar.bz2 --new-mtime="2022/11/04" /etc/*
+   92  cd /tmp
+   93  tar -cvf - /etc |tar -xvf -
+   94  mkdir /backups
+   95  ll 
+   96  ll -al
+   97  cd
+   98  mkdir /backups
+   99  ls -al
+  100  mkdir /backups
+  101  ls -al
+  102  mkdir /backups
+  103  ll -al |grup backups
+  104  ll -al |grep backups
+  105  ls -al |grup backups
+  106  ls -al |grep backups
+  107  ls -al
+  108  chmod 700 /backups
+  109  cd /
+  110  ll -al
+  111  cd 
+  112  ll -d /backups
+  113  tar -jcv -f /backups/bachup-system-20221104.tar.bz2--exclude=/root/*.bz2 --exclude=/root/*.gz --exclude=/home/loop*/etc /home /var/spool/mail/ /var/spool/cron/ /root/
+  114  ll -h /backups/
+  115  xfsdump -I
+  116  df -h /boot
+  117  xfsdump -l 0 -L boot_all -M boot_all -f /srv/boot.dump /boot
+  118  ll /srv/boot.dump
+  119  ll /var/lib/xfsdump/inventory
+  120  xfsdump -I
+  121  dd if=/dev/zero of=/boot/testing.ing bs=1M count=10
+  122  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot/
+  123  xfsdump -l 1 -L boot_2 -M boot_2 -f /srv/boot.dump /boot
+  124  ll /srv/boot*
+  125  xfsdump -I
+  126  xfsrestore -I
+  127  xfsrestore -f /srv/boot.dump -L boot_all /boot/
+  128  mkdir /tmp/boot
+  129  xfsrestore -f /srv/boot.dump  -L boot_all /tmp/boot/
+  130  mkdir /tmp/boot/
+  131  xfsrestore -f /srv/boot.dump -L boot_all /tmp/boot/
+  132  du -sm /boot /tmp/boot/
+  133  diff -r /boot/ /tmp/boot/
+  134  clear
+  135  df -h /mt
+  136  /bin/vi welcome.txt
+  137  ls -l
+  138  pwd
+  139  vi welcome.txt 
+  140  vi --help
+  141  q
+  142  man vi
+  143  vi welcome.txt 
+  144  clean
+  145  clear
+  146  cd /tmp/vitest
+  147  mkdir /tmp/vitest
+  148  cd /tmp/vitest
+  149  vim man_db.conf
+  150  ls -al
+  151  kill -9 %
+  152  kill -9 %1
+  153  ls -al .man_db.conf.swp
+  154  vim man_db.conf
+  155  alisa
+  156  alias
+  157  vim /etc/services 
+  158  cd /tmp/vitest
+  159  vim man_db.conf
+  160  vim ~/.vimrc
+  161  /etc/shells
+  162  cd /
+  163  /etc/shells
+  164  cat /etc/shells
+  165  cat /etc/passwd
+  166  ~/.bash_history
+  167  cat ~/.bash_history
+  168  type ls
+  169  type -t ls
+  170  type cd
+  171  ll
+  172  vi initial-setup-ks.cfg 
+  173  su atguigu
+  174  pwd
+  175  echo $name
+  176  exit
+  177  echo $name
+  178  exit
+  179  clean
+  180  clear
+  181  echo $variable
+  182  echo $PATH 
+  183  echo ${PATH} 
+  184  echo ${HOME}} 
+  185  echo ${HOME} 
+  186  echo ${MALL} 
+  187  MALL = "I want to go shopping in the supermarket。"
+  188  MALL="I want to go shopping in the supermarket。"
+  189  echo ${MALL} 
+  190  myname=VBbird\tTsai
+  191  echo ${myname} 
+  192  myname=VBbird\ sai
+  193  echo ${myname} 
+  194  myname=VBbird sai
+  195  vision=$(uname -r)
+  196  echo $vision 
+  197  echo $PATH 
+  198  PATH=${PATH}:/home/bin
+  199  echo $PATH 
+  200  export t PATH
+  201  echo t
+  202  export PATH
+  203  unset MALL 
+  204  unset myname 
+  205  name=VBbird
+  206  echo name
+  207  echo $name 
+  208  name=VBbird's name
+  209  echo $name 
+  210  name=VBbird's\ name
+  211  echo $name 
+  212  name="VBbird's name"
+  213  echo $name 
+  214  name=$nameyes
+  215  echo $name 
+  216  name=${name}yes
+  217  echo $name 
+  218  name="name"
+  219  echo $name 
+  220  name=${name}yes
+  221  echo $name 
+  222  name=VBbird
+  223  bash
+  224  export name
+  225  bash
+  226  cd /lib/modules/3.10.0-1160.el7.x86_64/kernel/
+  227  uname -r
+  228  cd
+  229  unset name
+  230  ls -ld ${PATH}
+  231  cd /usr/local/sbin
+  232  ls -ld ${PATH}
+  233  clear
+  234  env
+  235  declare -i number=$RANDOM*10/32768 ; echo $number
+  236  env
+  237  declare -i number=$RANDOM*10/32768 ; echo $number
+  238  set
+  239  man bash
+  240  echo $$
+  241  echo $SHELL
+  242  echo $?
+  243  12name=VBbird
+  244  echo $?
+  245  clear
+  246  locale -e
+  247  locale -a
+  248  locale
+  249  man locale
+  250  cat /etc/local.conf
+  251  cat /etc/local
+  252  su atguigu
+  253  ls -al |more
+  254  alias
+  255  history 
+  256  history 10
+  257  history 10 -w
+  258  history -w 10 
+  259  echo ${HISTSIZE} 
+  260  echo ${HISTFILESIZE}} 
+  261  history 
+[root@hadoop106 ~]# !cle
+clear
+[root@hadoop106 ~]# cat ~/.bash_logout
+# ~/.bash_logout
+
+[root@hadoop106 ~]# history --help
+-bash: history: --: 无效选项
+history: 用法:history [-c] [-d 偏移量] [n] 或 history -anrw [文件名] 或 history -ps 参数 [参数...]
+[root@hadoop106 ~]# man history
+[root@hadoop106 ~]# alias echo='echo -n'
+[root@hadoop106 ~]# type -a echo
+echo 是 `echo -n' 的别名
+echo 是 shell 内嵌
+echo 是 /usr/bin/echo
+[root@hadoop106 ~]# cat /etc/is
+iscsi/     issue      issue.net  
+[root@hadoop106 ~]# cat /etc/issue
+\S
+Kernel \r on an \m
+
+[root@hadoop106 ~]# su atguigu
+[atguigu@hadoop106 root]$ cat ~/.
+./             .bash_history  .bash_profile  .cache/        .dbus/         .ICEauthority  .mozilla/      
+../            .bash_logout   .bashrc        .config/       .esd_auth      .local/        .viminfo       
+[atguigu@hadoop106 root]$ cat ~/.bash_
+.bash_history  .bash_logout   .bash_profile  
+[atguigu@hadoop106 root]$ cat ~/.bash_profile 
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
+export PATH
+[atguigu@hadoop106 root]$ so
+soelim        sort          sosreport     sotruss       sound_dump    soundstretch  source        sox           soxi          
+[atguigu@hadoop106 root]$ source ~
+~abrt/                ~daemon/              ~gnome-initial-setup  ~ntp/                 ~root/                ~shutdown/            ~unbound/
+~adm/                 ~dbus/                ~halt/                ~operator/            ~rpc/                 ~sshd/                ~usbmuxd/
+~atguigu/             ~ftp                  ~libstoragemgmt/      ~polkitd/             ~rpcuser/             ~sssd/                
+~avahi/               ~games/               ~lp/                  ~postfix/             ~rtkit/               ~sync/                
+~bin/                 ~gdm/                 ~mail/                ~pulse                ~saned/               ~systemd-network/     
+~chrony/              ~geoclue/             ~nfsnobody/           ~qemu/                ~saslauth             ~tcpdump/             
+~colord/              ~gluster              ~nobody/              ~radvd/               ~setroubleshoot/      ~tss                  
+[atguigu@hadoop106 root]$ source ~
+~abrt/                ~daemon/              ~gnome-initial-setup  ~ntp/                 ~root/                ~shutdown/            ~unbound/
+~adm/                 ~dbus/                ~halt/                ~operator/            ~rpc/                 ~sshd/                ~usbmuxd/
+~atguigu/             ~ftp                  ~libstoragemgmt/      ~polkitd/             ~rpcuser/             ~sssd/                
+~avahi/               ~games/               ~lp/                  ~postfix/             ~rtkit/               ~sync/                
+~bin/                 ~gdm/                 ~mail/                ~pulse                ~saned/               ~systemd-network/     
+~chrony/              ~geoclue/             ~nfsnobody/           ~qemu/                ~saslauth             ~tcpdump/             
+~colord/              ~gluster              ~nobody/              ~radvd/               ~setroubleshoot/      ~tss                  
+[atguigu@hadoop106 root]$ source ~/.
+./             .bash_history  .bash_profile  .cache/        .dbus/         .ICEauthority  .mozilla/      
+../            .bash_logout   .bashrc        .config/       .esd_auth      .local/        .viminfo       
+[atguigu@hadoop106 root]$ source ~/.
+./             .bash_history  .bash_profile  .cache/        .dbus/         .ICEauthority  .mozilla/      
+../            .bash_logout   .bashrc        .config/       .esd_auth      .local/        .viminfo       
+[atguigu@hadoop106 root]$ source ~/.bash
+.bash_history  .bash_logout   .bash_profile  .bashrc        
+[atguigu@hadoop106 root]$ source ~/.bashrc 
+[atguigu@hadoop106 root]$ cat ~/.
+./             .bash_history  .bash_profile  .cache/        .dbus/         .ICEauthority  .mozilla/      
+../            .bash_logout   .bashrc        .config/       .esd_auth      .local/        .viminfo       
+[atguigu@hadoop106 root]$ cat ~/.bash
+.bash_history  .bash_logout   .bash_profile  .bashrc        
+[atguigu@hadoop106 root]$ cat ~/.bashrc 
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+[atguigu@hadoop106 root]$ cat /etc/bash
+bash_completion.d/ bashrc             
+[atguigu@hadoop106 root]$ cat /etc/bashrc 
+# /etc/bashrc
+
+# System wide functions and aliases
+# Environment stuff goes in /etc/profile
+
+# It's NOT a good idea to change this file unless you know what you
+# are doing. It's much better to create a custom.sh shell script in
+# /etc/profile.d/ to make custom changes to your environment, as this
+# will prevent the need for merging in future updates.
+
+# are we an interactive shell?
+if [ "$PS1" ]; then
+  if [ -z "$PROMPT_COMMAND" ]; then
+    case $TERM in
+    xterm*|vte*)
+      if [ -e /etc/sysconfig/bash-prompt-xterm ]; then
+          PROMPT_COMMAND=/etc/sysconfig/bash-prompt-xterm
+      elif [ "${VTE_VERSION:-0}" -ge 3405 ]; then
+          PROMPT_COMMAND="__vte_prompt_command"
+      else
+          PROMPT_COMMAND='printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+      fi
+      ;;
+    screen*)
+      if [ -e /etc/sysconfig/bash-prompt-screen ]; then
+          PROMPT_COMMAND=/etc/sysconfig/bash-prompt-screen
+      else
+          PROMPT_COMMAND='printf "\033k%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+      fi
+      ;;
+    *)
+      [ -e /etc/sysconfig/bash-prompt-default ] && PROMPT_COMMAND=/etc/sysconfig/bash-prompt-default
+      ;;
+    esac
+  fi
+  # Turn on parallel history
+  shopt -s histappend
+  history -a
+  # Turn on checkwinsize
+  shopt -s checkwinsize
+  [ "$PS1" = "\\s-\\v\\\$ " ] && PS1="[\u@\h \W]\\$ "
+  # You might want to have e.g. tty in prompt (e.g. more virtual machines)
+  # and console windows
+  # If you want to do so, just add e.g.
+  # if [ "$PS1" ]; then
+  #   PS1="[\u@\h:\l \W]\\$ "
+  # fi
+  # to your custom modification shell script in /etc/profile.d/ directory
+fi
+
+if ! shopt -q login_shell ; then # We're not a login shell
+    # Need to redefine pathmunge, it get's undefined at the end of /etc/profile
+    pathmunge () {
+        case ":${PATH}:" in
+            *:"$1":*)
+                ;;
+            *)
+                if [ "$2" = "after" ] ; then
+                    PATH=$PATH:$1
+                else
+                    PATH=$1:$PATH
+                fi
+        esac
+    }
+
+    # By default, we want umask to get set. This sets it for non-login shell.
+    # Current threshold for system reserved uid/gids is 200
+    # You could check uidgid reservation validity in
+    # /usr/share/doc/setup-*/uidgid file
+    if [ $UID -gt 199 ] && [ "`/usr/bin/id -gn`" = "`/usr/bin/id -un`" ]; then
+       umask 002
+    else
+       umask 022
+    fi
+
+    SHELL=/bin/bash
+    # Only display echos from profile.d scripts if we are no login shell
+    # and interactive - otherwise just process them to set envvars
+    for i in /etc/profile.d/*.sh; do
+        if [ -r "$i" ]; then
+            if [ "$PS1" ]; then
+                . "$i"
+            else
+                . "$i" >/dev/null
+            fi
+        fi
+    done
+
+    unset i
+    unset -f pathmunge
+fi
+# vim:ts=4:sw=4
+[atguigu@hadoop106 root]$ cat /etc/man_db.conf 
+# 
+#
+# This file is used by the man-db package to configure the man and cat paths.
+# It is also used to provide a manpath for those without one by examining
+# their PATH environment variable. For details see the manpath(5) man page.
+#
+# Lines beginning with `#' are comments and are ignored. Any combination of
+# tabs or spaces may be used as `whitespace' separators.
+#
+# There are three mappings allowed in this file:
+# --------------------------------------------------------
+# MANDATORY_MANPATH			manpath_element
+# MANPATH_MAP		path_element	manpath_element
+# MANDB_MAP		global_manpath	[relative_catpath]
+#---------------------------------------------------------
+# every automatically generated MANPATH includes these fields
+#
+#MANDATORY_MANPATH 			/usr/src/pvm3/man
+#
+MANDATORY_MANPATH			/usr/man
+MANDATORY_MANPATH			/usr/share/man
+MANDATORY_MANPATH			/usr/local/share/man
+#---------------------------------------------------------
+# set up PATH to MANPATH mapping
+# ie. what man tree holds man pages for what binary directory.
+#
+#		*PATH*        ->	*MANPATH*
+#
+MANPATH_MAP	/bin			/usr/share/man
+MANPATH_MAP	/usr/bin		/usr/share/man
+MANPATH_MAP	/sbin			/usr/share/man
+MANPATH_MAP	/usr/sbin		/usr/share/man
+MANPATH_MAP	/usr/local/bin		/usr/local/man
+MANPATH_MAP	/usr/local/bin		/usr/local/share/man
+MANPATH_MAP	/usr/local/sbin		/usr/local/man
+MANPATH_MAP	/usr/local/sbin		/usr/local/share/man
+MANPATH_MAP	/usr/X11R6/bin		/usr/X11R6/man
+MANPATH_MAP	/usr/bin/X11		/usr/X11R6/man
+MANPATH_MAP	/usr/games		/usr/share/man
+MANPATH_MAP	/opt/bin		/opt/man
+MANPATH_MAP	/opt/sbin		/opt/man
+#---------------------------------------------------------
+# For a manpath element to be treated as a system manpath (as most of those
+# above should normally be), it must be mentioned below. Each line may have
+# an optional extra string indicating the catpath associated with the
+# manpath. If no catpath string is used, the catpath will default to the
+# given manpath.
+#
+# You *must* provide all system manpaths, including manpaths for alternate
+# operating systems, locale specific manpaths, and combinations of both, if
+# they exist, otherwise the permissions of the user running man/mandb will
+# be used to manipulate the manual pages. Also, mandb will not initialise
+# the database cache for any manpaths not mentioned below unless explicitly
+# requested to do so.
+#
+# In a per-user configuration file, this directive only controls the
+# location of catpaths and the creation of database caches; it has no effect
+# on privileges.
+#
+# Any manpaths that are subdirectories of other manpaths must be mentioned
+# *before* the containing manpath. E.g. /usr/man/preformat must be listed
+# before /usr/man.
+#
+#		*MANPATH*     ->	*CATPATH*
+#
+MANDB_MAP	/usr/man		/var/cache/man/fsstnd
+MANDB_MAP	/usr/share/man		/var/cache/man
+MANDB_MAP	/usr/local/man		/var/cache/man/oldlocal
+MANDB_MAP	/usr/local/share/man	/var/cache/man/local
+MANDB_MAP	/usr/X11R6/man		/var/cache/man/X11R6
+MANDB_MAP	/opt/man		/var/cache/man/opt
+#
+#---------------------------------------------------------
+# Program definitions.  These are commented out by default as the value
+# of the definition is already the default.  To change: uncomment a
+# definition and modify it.
+#
+#DEFINE 	pager	less -s
+#DEFINE 	cat	cat
+#DEFINE 	tr	tr '\255\267\264\327' '\055\157\047\170'
+#DEFINE		grep	grep
+#DEFINE 	troff 	groff -mandoc
+#DEFINE 	nroff 	nroff -mandoc -c
+#DEFINE 	eqn 	eqn
+#DEFINE 	neqn	neqn
+#DEFINE 	tbl 	tbl
+#DEFINE 	col 	col
+#DEFINE 	vgrind 	
+#DEFINE 	refer 	refer
+#DEFINE 	grap 	
+#DEFINE 	pic 	pic -S
+#
+#DEFINE		compressor	gzip -c7
+#---------------------------------------------------------
+# Misc definitions: same as program definitions above.
+#
+#DEFINE		whatis_grep_flags		-i
+#DEFINE		apropos_grep_flags		-iEw
+#DEFINE		apropos_regex_grep_flags	-iE
+#---------------------------------------------------------
+# Section names. Manual sections will be searched in the order listed here;
+# the default is 1, n, l, 8, 3, 0, 2, 5, 4, 9, 6, 7. Multiple SECTION
+# directives may be given for clarity, and will be concatenated together in
+# the expected way.
+# If a particular extension is not in this list (say, 1mh), it will be
+# displayed with the rest of the section it belongs to. The effect of this
+# is that you only need to explicitly list extensions if you want to force a
+# particular order. Sections with extensions should usually be adjacent to
+# their main section (e.g. "1 1mh 8 ...").
+#
+SECTION		1 1p 8 2 3 3p 4 5 6 7 9 0p n l p o 1x 2x 3x 4x 5x 6x 7x 8x
+#
+#---------------------------------------------------------
+# Range of terminal widths permitted when displaying cat pages. If the
+# terminal falls outside this range, cat pages will not be created (if
+# missing) or displayed.
+#
+#MINCATWIDTH	80
+#MAXCATWIDTH	80
+#
+# If CATWIDTH is set to a non-zero number, cat pages will always be
+# formatted for a terminal of the given width, regardless of the width of
+# the terminal actually being used. This should generally be within the
+# range set by MINCATWIDTH and MAXCATWIDTH.
+#
+#CATWIDTH	0
+#
+#---------------------------------------------------------
+# Flags.
+# NOCACHE keeps man from creating cat pages.
+#NOCACHE
+[atguigu@hadoop106 root]$ cat ~/.bash
+.bash_history  .bash_logout   .bash_profile  .bashrc        
+[atguigu@hadoop106 root]$ cat ~/.bash_logout 
+# ~/.bash_logout
+
+[atguigu@hadoop106 root]$  ~/.bash_logout 
+bash: /home/atguigu/.bash_logout: 权限不够
+[atguigu@hadoop106 root]$ vi ~/.bash_logout 
+[atguigu@hadoop106 root]$ stty -a
+speed 38400 baud; rows 36; columns 170; line = 0;
+intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>; eol2 = <undef>; swtch = <undef>; start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R; werase = ^W;
+lnext = ^V; flush = ^O; min = 1; time = 0;
+-parenb -parodd -cmspar cs8 -hupcl -cstopb cread -clocal -crtscts
+-ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr icrnl ixon -ixoff -iuclc -ixany -imaxbel -iutf8
+opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
+isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echoctl echoke
+[atguigu@hadoop106 root]$ echo $-
+himBH
+[atguigu@hadoop106 root]$ set -u
+[atguigu@hadoop106 root]$ echo $vbbisdkj
+bash: vbbisdkj: 为绑定变量
+[atguigu@hadoop106 root]$ set -x
+++ printf '\033]0;%s@%s:%s\007' atguigu hadoop106 /root
+[atguigu@hadoop106 root]$ echo ${H+ local compfile=./completions
++ [[ /usr/share/bash-completion/bash_completion == */* ]]
++ compfile=/usr/share/bash-completion/completions
++ compfile+=/echo
++ [[ -f /usr/share/bash-completion/completions/echo ]]
++ complete -F _minimal echo
++ return 124
++ local cur prev words cword split
++ _init_completion -s
++ local exclude= flag outx errx inx OPTIND=1
++ getopts n:e:o:i:s flag -s
++ case $flag in
++ split=false
++ exclude+==
++ getopts n:e:o:i:s flag -s
++ COMPREPLY=()
++ local 'redir=@(?([0-9])<|?([0-9&])>?(>)|>&)'
++ _get_comp_words_by_ref -n '=<>&' cur prev words cword
++ local exclude flag i OPTIND=1
++ words=()
++ local cur cword words
++ upargs=()
++ upvars=()
++ local upargs upvars vcur vcword vprev vwords
++ getopts c:i:n:p:w: flag -n '=<>&' cur prev words cword
++ case $flag in
++ exclude='=<>&'
++ getopts c:i:n:p:w: flag -n '=<>&' cur prev words cword
++ [[ 6 -ge 3 ]]
++ case ${!OPTIND} in
++ vcur=cur
++ let 'OPTIND += 1'
++ [[ 6 -ge 4 ]]
++ case ${!OPTIND} in
++ vprev=prev
++ let 'OPTIND += 1'
++ [[ 6 -ge 5 ]]
++ case ${!OPTIND} in
++ vwords=words
++ let 'OPTIND += 1'
++ [[ 6 -ge 6 ]]
++ case ${!OPTIND} in
++ vcword=cword
++ let 'OPTIND += 1'
++ [[ 6 -ge 7 ]]
++ __get_cword_at_cursor_by_ref '=<>&' words cword cur
++ words=()
++ local cword words
++ __reassemble_comp_words_by_ref '=<>&' words cword
++ local exclude i j line ref
++ [[ -n =<>& ]]
++ exclude='=<>&'
++ eval cword=1
+++ cword=1
++ [[ -n =<>& ]]
++ line='echo ${H}'
++ (( i=0, j=0 ))
++ (( i < 2 ))
++ [[ 0 -gt 0 ]]
++ ref='words[0]'
++ eval 'words[0]=${!ref}${COMP_WORDS[i]}'
+bash: !ref: 为绑定变量
++ line=' ${H}'
++ [[ 0 == 1 ]]
++ (( i++, j++ ))
++ (( i < 2 ))
++ [[ 1 -gt 0 ]]
++ [[ ${H} == +([=<>&]) ]]
++ ref='words[1]'
++ eval 'words[1]=${!ref}${COMP_WORDS[i]}'
+bash: !ref: 为绑定变量
++ line=
++ [[ 1 == 1 ]]
++ eval cword=1
+++ cword=1
++ (( i++, j++ ))
++ (( i < 2 ))
++ [[ 2 == 1 ]]
++ local i cur index=8 'lead=echo ${H'
++ [[ 8 -gt 0 ]]
++ [[ -n echo ${H ]]
++ [[ -n echo${H ]]
++ cur='echo ${H}'
++ (( i = 0 ))
++ (( i <= cword ))
++ [[ 9 -ge 0 ]]
+bash: words[i]: 为绑定变量
+++ printf '\033]0;%s@%s:%s\007' atguigu hadoop106 /root
+[atguigu@hadoop106 root]$ + local compfile=./completions
++ [[ /usr/share/bash-completion/bash_completion == */* ]]
++ compfile=/usr/share/bash-completion/completions
++ compfile+=/
++ [[ -f /usr/share/bash-completion/completions/ ]]
++ complete -F _minimal ''
++ return 124
++ local compfile=./completions
++ [[ /usr/share/bash-completion/bash_completion == */* ]]
++ compfile=/usr/share/bash-completion/completions
++ compfile+=/
++ [[ -f /usr/share/bash-completion/completions/ ]]
++ complete -F _minimal ''
++ return 124
++ local compfile=./completions
++ [[ /usr/share/bash-completion/bash_completion == */* ]]
++ compfile=/usr/share/bash-completion/completions
++ compfile+=/
++ [[ -f /usr/share/bash-completion/completions/ ]]
++ complete -F _minimal ''
++ return 124
++ local compfile=./completions
++ [[ /usr/share/bash-completion/bash_completion == */* ]]
++ compfile=/usr/share/bash-completion/completions
++ compfile+=/
++ [[ -f /usr/share/bash-completion/completions/ ]]
++ complete -F _minimal ''
++ return 124
+
+++ printf '\033]0;%s@%s:%s\007' atguigu hadoop106 /root
+[atguigu@hadoop106 root]$ echo ${H+ local cur prev words cword split
++ _init_completion -s
++ local exclude= flag outx errx inx OPTIND=1
++ getopts n:e:o:i:s flag -s
++ case $flag in
++ split=false
++ exclude+==
++ getopts n:e:o:i:s flag -s
++ COMPREPLY=()
++ local 'redir=@(?([0-9])<|?([0-9&])>?(>)|>&)'
++ _get_comp_words_by_ref -n '=<>&' cur prev words cword
++ local exclude flag i OPTIND=1
++ words=()
++ local cur cword words
++ upargs=()
++ upvars=()
++ local upargs upvars vcur vcword vprev vwords
++ getopts c:i:n:p:w: flag -n '=<>&' cur prev words cword
++ case $flag in
++ exclude='=<>&'
++ getopts c:i:n:p:w: flag -n '=<>&' cur prev words cword
++ [[ 6 -ge 3 ]]
++ case ${!OPTIND} in
++ vcur=cur
++ let 'OPTIND += 1'
++ [[ 6 -ge 4 ]]
++ case ${!OPTIND} in
++ vprev=prev
++ let 'OPTIND += 1'
++ [[ 6 -ge 5 ]]
++ case ${!OPTIND} in
++ vwords=words
++ let 'OPTIND += 1'
++ [[ 6 -ge 6 ]]
++ case ${!OPTIND} in
++ vcword=cword
++ let 'OPTIND += 1'
++ [[ 6 -ge 7 ]]
++ __get_cword_at_cursor_by_ref '=<>&' words cword cur
++ words=()
++ local cword words
++ __reassemble_comp_words_by_ref '=<>&' words cword
++ local exclude i j line ref
++ [[ -n =<>& ]]
++ exclude='=<>&'
++ eval cword=1
+++ cword=1
++ [[ -n =<>& ]]
++ line='echo ${H'
++ (( i=0, j=0 ))
++ (( i < 2 ))
++ [[ 0 -gt 0 ]]
++ ref='words[0]'
++ eval 'words[0]=${!ref}${COMP_WORDS[i]}'
+bash: !ref: 为绑定变量
++ line=' ${H'
++ [[ 0 == 1 ]]
++ (( i++, j++ ))
++ (( i < 2 ))
++ [[ 1 -gt 0 ]]
++ [[ ${H == +([=<>&]) ]]
++ ref='words[1]'
++ eval 'words[1]=${!ref}${COMP_WORDS[i]}'
+bash: !ref: 为绑定变量
++ line=
++ [[ 1 == 1 ]]
++ eval cword=1
+++ cword=1
++ (( i++, j++ ))
++ (( i < 2 ))
++ [[ 2 == 1 ]]
++ local i cur index=8 'lead=echo ${H'
++ [[ 8 -gt 0 ]]
++ [[ -n echo ${H ]]
++ [[ -n echo${H ]]
++ cur='echo ${H'
++ (( i = 0 ))
++ (( i <= cword ))
++ [[ 8 -ge 0 ]]
+bash: words[i]: 为绑定变量
+++ printf '\033]0;%s@%s:%s\007' atguigu hadoop106 /root
+[atguigu@hadoop106 root]$ LANG=C
++ LANG=C
+++ printf '\033]0;%s@%s:%s\007' atguigu hadoop106 /root
+[atguigu@hadoop106 root]$ + local compfile=./completions
++ [[ /usr/share/bash-completion/bash_completion == */* ]]
++ compfile=/usr/share/bash-completion/completions
++ compfile+=/
++ [[ -f /usr/share/bash-completion/completions/ ]]
++ complete -F _minimal ''
++ return 124
++ local compfile=./completions
++ [[ /usr/share/bash-completion/bash_completion == */* ]]
++ compfile=/usr/share/bash-completion/completions
++ compfile+=/
++ [[ -f /usr/share/bash-completion/completions/ ]]
++ complete -F _minimal ''
++ return 124
++ local compfile=./completions
++ [[ /usr/share/bash-completion/bash_completion == */* ]]
++ compfile=/usr/share/bash-completion/completions
++ compfile+=/
++ [[ -f /usr/share/bash-completion/completions/ ]]
++ complete -F _minimal ''
++ return 124
+set +x
++ set +x
+[atguigu@hadoop106 root]$ /    
+backups/ boot/    etc/     lib/     media/   opt/     root/    sbin/    sys/     usr/     
+bin/     dev/     home/    lib64/   mnt/     proc/    run/     srv/     tmp/     var/     
+[atguigu@hadoop106 root]$ LANG=C
+[atguigu@hadoop106 root]$ ll -ld /bash: !ref: unbound variable
+bash: !ref: unbound variable
+bash: !ref: unbound variable
+bash: words[i]: unbound variable
+[atguigu@hadoop106 root]$ ll -d /ebash: !ref: unbound variable
+bash: !ref: unbound variable
+bash: !ref: unbound variable
+bash: words[i]: unbound variable
+[atguigu@hadoop106 root]$ ll -d /ebash: !ref: unbound variable
+bash: !ref: unbound variable
+bash: !ref: unbound variable
+bash: words[i]: unbound variable
+[atguigu@hadoop106 root]$ reoot
+bash: reoot: command not found...
+[atguigu@hadoop106 root]$ reb  
+reboot                  rebuild-jar-repository  
+[atguigu@hadoop106 root]$ reb
+reboot                  rebuild-jar-repository  
+[atguigu@hadoop106 root]$ reboot bash: !ref: unbound variable
+bash: !ref: unbound variable
+bash: words[i]: unbound variable
+[atguigu@hadoop106 root]$ reboot
+User root is logged in on seat0.
+User root is logged in on seat0.
+User root is logged in on sshd.
+Please retry operation after closing inhibitors and logging out other users.
+Alternatively, ignore inhibitors and users with 'systemctl reboot -i'.
+[atguigu@hadoop106 root]$ exit
+exit
+[root@hadoop106 ~]# exit
+登出
+
+Connection closed.
+
+Disconnected from remote host(hadoop106) at 16:09:06.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop106' resolved to 192.168.73.106.
+Connecting to 192.168.73.106:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Tue Nov 15 16:05:53 2022
+[root@hadoop106 ~]# ll -d 
+10                    .bash_profile         .cshrc                Downloads/            .local/               .tcshrc               welcome.txt
+anaconda-ks.cfg       .bashrc               .dbus/                .esd_auth             Music/                Templates/            .Xauthority
+.bash_history         .cache/               Desktop/              .ICEauthority         Pictures/             Videos/               
+.bash_logout          .config/              Documents/            initial-setup-ks.cfg  Public/               .viminfo              
+[root@hadoop106 ~]# ll -d 
+10                    .bash_profile         .cshrc                Downloads/            .local/               .tcshrc               welcome.txt
+anaconda-ks.cfg       .bashrc               .dbus/                .esd_auth             Music/                Templates/            .Xauthority
+.bash_history         .cache/               Desktop/              .ICEauthority         Pictures/             Videos/               
+.bash_logout          .config/              Documents/            initial-setup-ks.cfg  Public/               .viminfo              
+[root@hadoop106 ~]# ll -d /etc/
+Display all 290 possibilities? (y or n)
+[root@hadoop106 ~]# ll -d /etc/
+Display all 290 possibilities? (y or n)
+[root@hadoop106 ~]# ll -d /etc/c
+centos-release             cgconfig.d/                chrony.conf                cron.daily/                crontab                    csh.login
+centos-release-upstream    cgrules.conf               chrony.keys                cron.deny                  cron.weekly/               cups/
+certmonger/                cgsnapshot_blacklist.conf  cifs-utils/                cron.hourly/               crypttab                   cupshelpers/
+cgconfig.conf              chkconfig.d/               cron.d/                    cron.monthly/              csh.cshrc                  
+[root@hadoop106 ~]# ll -d /etc/c
+centos-release             cgconfig.d/                chrony.conf                cron.daily/                crontab                    csh.login
+centos-release-upstream    cgrules.conf               chrony.keys                cron.deny                  cron.weekly/               cups/
+certmonger/                cgsnapshot_blacklist.conf  cifs-utils/                cron.hourly/               crypttab                   cupshelpers/
+cgconfig.conf              chkconfig.d/               cron.d/                    cron.monthly/              csh.cshrc                  
+[root@hadoop106 ~]# ll -d /etc/cr
+cron.d/       cron.daily/   cron.deny     cron.hourly/  cron.monthly/ crontab       cron.weekly/  crypttab      
+[root@hadoop106 ~]# ll -d /etc/cr
+cron.d/       cron.daily/   cron.deny     cron.hourly/  cron.monthly/ crontab       cron.weekly/  crypttab      
+[root@hadoop106 ~]# ll -d /etc/cr
+cron.d/       cron.daily/   cron.deny     cron.hourly/  cron.monthly/ crontab       cron.weekly/  crypttab      
+[root@hadoop106 ~]# ll -d /etc/cron*
+drwxr-xr-x. 2 root root  54 Nov  4 19:45 /etc/cron.d
+drwxr-xr-x. 2 root root  57 Nov  4 19:45 /etc/cron.daily
+-rw-------. 1 root root   0 Aug  9  2019 /etc/cron.deny
+drwxr-xr-x. 2 root root  22 Jun 10  2014 /etc/cron.hourly
+drwxr-xr-x. 2 root root   6 Jun 10  2014 /etc/cron.monthly
+-rw-r--r--. 1 root root 451 Jun 10  2014 /etc/crontab
+drwxr-xr-x. 2 root root   6 Jun 10  2014 /etc/cron.weekly
+[root@hadoop106 ~]# 11 /
+bash: 11: command not found...
+[root@hadoop106 ~]# ll /
+total 32
+drwx------.   2 root root    6 Nov 12 16:33 backups
+lrwxrwxrwx.   1 root root    7 Nov  4 19:42 bin -> usr/bin
+dr-xr-xr-x.   5 root root 4096 Nov 12 17:02 boot
+drwxr-xr-x.  20 root root 3300 Nov 14 18:20 dev
+drwxr-xr-x. 144 root root 8192 Nov 15 16:05 etc
+drwxr-xr-x.   3 root root   21 Nov  4 19:48 home
+lrwxrwxrwx.   1 root root    7 Nov  4 19:42 lib -> usr/lib
+lrwxrwxrwx.   1 root root    9 Nov  4 19:42 lib64 -> usr/lib64
+drwxr-xr-x.   2 root root    6 Apr 11  2018 media
+drwxr-xr-x.   2 root root    6 Apr 11  2018 mnt
+drwxr-xr-x.   3 root root   16 Nov  4 19:45 opt
+dr-xr-xr-x. 263 root root    0 Nov 14 18:19 proc
+dr-xr-x---.  14 root root 4096 Nov 15 16:09 root
+drwxr-xr-x.  43 root root 1260 Nov 15 16:06 run
+lrwxrwxrwx.   1 root root    8 Nov  4 19:42 sbin -> usr/sbin
+drwxr-xr-x.   2 root root   23 Nov 12 16:54 srv
+dr-xr-xr-x.  13 root root    0 Nov 14 18:20 sys
+drwxrwxrwt.  50 root root 4096 Nov 15 16:09 tmp
+drwxr-xr-x.  13 root root  155 Nov  4 19:42 usr
+drwxr-xr-x.  21 root root 4096 Nov  4 19:56 var
+[root@hadoop106 ~]# ll / >~/
+10                    .bash_profile         .cshrc                Downloads/            .local/               .tcshrc               welcome.txt
+anaconda-ks.cfg       .bashrc               .dbus/                .esd_auth             Music/                Templates/            .Xauthority
+.bash_history         .cache/               Desktop/              .ICEauthority         Pictures/             Videos/               
+.bash_logout          .config/              Documents/            initial-setup-ks.cfg  Public/               .viminfo              
+[root@hadoop106 ~]# ll / >~/
+10                    .bash_profile         .cshrc                Downloads/            .local/               .tcshrc               welcome.txt
+anaconda-ks.cfg       .bashrc               .dbus/                .esd_auth             Music/                Templates/            .Xauthority
+.bash_history         .cache/               Desktop/              .ICEauthority         Pictures/             Videos/               
+.bash_logout          .config/              Documents/            initial-setup-ks.cfg  Public/               .viminfo              
+[root@hadoop106 ~]# ll / >~/rootfile
+[root@hadoop106 ~]# ll / ~/rootfile
+-rw-r--r--.  1 root root 1029 Nov 15 16:19 /root/rootfile
+
+/:
+total 32
+drwx------.   2 root root    6 Nov 12 16:33 backups
+lrwxrwxrwx.   1 root root    7 Nov  4 19:42 bin -> usr/bin
+dr-xr-xr-x.   5 root root 4096 Nov 12 17:02 boot
+drwxr-xr-x.  20 root root 3300 Nov 14 18:20 dev
+drwxr-xr-x. 144 root root 8192 Nov 15 16:05 etc
+drwxr-xr-x.   3 root root   21 Nov  4 19:48 home
+lrwxrwxrwx.   1 root root    7 Nov  4 19:42 lib -> usr/lib
+lrwxrwxrwx.   1 root root    9 Nov  4 19:42 lib64 -> usr/lib64
+drwxr-xr-x.   2 root root    6 Apr 11  2018 media
+drwxr-xr-x.   2 root root    6 Apr 11  2018 mnt
+drwxr-xr-x.   3 root root   16 Nov  4 19:45 opt
+dr-xr-xr-x. 263 root root    0 Nov 14 18:19 proc
+dr-xr-x---.  14 root root 4096 Nov 15 16:19 root
+drwxr-xr-x.  43 root root 1260 Nov 15 16:06 run
+lrwxrwxrwx.   1 root root    8 Nov  4 19:42 sbin -> usr/sbin
+drwxr-xr-x.   2 root root   23 Nov 12 16:54 srv
+dr-xr-xr-x.  13 root root    0 Nov 14 18:20 sys
+drwxrwxrwt.  50 root root 4096 Nov 15 16:19 tmp
+drwxr-xr-x.  13 root root  155 Nov  4 19:42 usr
+drwxr-xr-x.  21 root root 4096 Nov  4 19:56 var
+[root@hadoop106 ~]# ll  ~/rootfile
+-rw-r--r--. 1 root root 1029 Nov 15 16:19 /root/rootfile
+[root@hadoop106 ~]# cat ~/
+10                    .bash_profile         .cshrc                Downloads/            .local/               rootfile              .viminfo
+anaconda-ks.cfg       .bashrc               .dbus/                .esd_auth             Music/                .tcshrc               welcome.txt
+.bash_history         .cache/               Desktop/              .ICEauthority         Pictures/             Templates/            .Xauthority
+.bash_logout          .config/              Documents/            initial-setup-ks.cfg  Public/               Videos/               
+[root@hadoop106 ~]# cat ~/
+10                    .bash_profile         .cshrc                Downloads/            .local/               rootfile              .viminfo
+anaconda-ks.cfg       .bashrc               .dbus/                .esd_auth             Music/                .tcshrc               welcome.txt
+.bash_history         .cache/               Desktop/              .ICEauthority         Pictures/             Templates/            .Xauthority
+.bash_logout          .config/              Documents/            initial-setup-ks.cfg  Public/               Videos/               
+[root@hadoop106 ~]# cat ~/rootfile 
+total 32
+drwx------.   2 root root    6 Nov 12 16:33 backups
+lrwxrwxrwx.   1 root root    7 Nov  4 19:42 bin -> usr/bin
+dr-xr-xr-x.   5 root root 4096 Nov 12 17:02 boot
+drwxr-xr-x.  20 root root 3300 Nov 14 18:20 dev
+drwxr-xr-x. 144 root root 8192 Nov 15 16:05 etc
+drwxr-xr-x.   3 root root   21 Nov  4 19:48 home
+lrwxrwxrwx.   1 root root    7 Nov  4 19:42 lib -> usr/lib
+lrwxrwxrwx.   1 root root    9 Nov  4 19:42 lib64 -> usr/lib64
+drwxr-xr-x.   2 root root    6 Apr 11  2018 media
+drwxr-xr-x.   2 root root    6 Apr 11  2018 mnt
+drwxr-xr-x.   3 root root   16 Nov  4 19:45 opt
+dr-xr-xr-x. 263 root root    0 Nov 14 18:19 proc
+dr-xr-x---.  14 root root 4096 Nov 15 16:19 root
+drwxr-xr-x.  43 root root 1260 Nov 15 16:06 run
+lrwxrwxrwx.   1 root root    8 Nov  4 19:42 sbin -> usr/sbin
+drwxr-xr-x.   2 root root   23 Nov 12 16:54 srv
+dr-xr-xr-x.  13 root root    0 Nov 14 18:20 sys
+drwxrwxrwt.  50 root root 4096 Nov 15 16:19 tmp
+drwxr-xr-x.  13 root root  155 Nov  4 19:42 usr
+drwxr-xr-x.  21 root root 4096 Nov  4 19:56 var
+[root@hadoop106 ~]# ll
+total 24
+-rw-------. 1 root root 4636 Nov 15 14:59 10
+-rw-------. 1 root root 1989 Nov  4 19:49 anaconda-ks.cfg
+drwxr-xr-x. 2 root root    6 Nov 15 16:06 Desktop
+drwxr-xr-x. 2 root root    6 Nov 15 16:06 Documents
+drwxr-xr-x. 2 root root    6 Nov 15 16:06 Downloads
+-rw-r--r--. 1 root root 2037 Nov  4 19:56 initial-setup-ks.cfg
+drwxr-xr-x. 2 root root    6 Nov 15 16:06 Music
+drwxr-xr-x. 2 root root    6 Nov 15 16:06 Pictures
+drwxr-xr-x. 2 root root    6 Nov 15 16:06 Public
+-rw-r--r--. 1 root root 1029 Nov 15 16:19 rootfile
+drwxr-xr-x. 2 root root    6 Nov 15 16:06 Templates
+drwxr-xr-x. 2 root root    6 Nov 15 16:06 Videos
+-rw-r--r--. 1 root root  681 Nov 13 15:34 welcome.txt
+[root@hadoop106 ~]# ll /
+total 32
+drwx------.   2 root root    6 Nov 12 16:33 backups
+lrwxrwxrwx.   1 root root    7 Nov  4 19:42 bin -> usr/bin
+dr-xr-xr-x.   5 root root 4096 Nov 12 17:02 boot
+drwxr-xr-x.  20 root root 3300 Nov 14 18:20 dev
+drwxr-xr-x. 144 root root 8192 Nov 15 16:05 etc
+drwxr-xr-x.   3 root root   21 Nov  4 19:48 home
+lrwxrwxrwx.   1 root root    7 Nov  4 19:42 lib -> usr/lib
+lrwxrwxrwx.   1 root root    9 Nov  4 19:42 lib64 -> usr/lib64
+drwxr-xr-x.   2 root root    6 Apr 11  2018 media
+drwxr-xr-x.   2 root root    6 Apr 11  2018 mnt
+drwxr-xr-x.   3 root root   16 Nov  4 19:45 opt
+dr-xr-xr-x. 263 root root    0 Nov 14 18:19 proc
+dr-xr-x---.  14 root root 4096 Nov 15 16:19 root
+drwxr-xr-x.  43 root root 1260 Nov 15 16:06 run
+lrwxrwxrwx.   1 root root    8 Nov  4 19:42 sbin -> usr/sbin
+drwxr-xr-x.   2 root root   23 Nov 12 16:54 srv
+dr-xr-xr-x.  13 root root    0 Nov 14 18:20 sys
+drwxrwxrwt.  50 root root 4096 Nov 15 16:20 tmp
+drwxr-xr-x.  13 root root  155 Nov  4 19:42 usr
+drwxr-xr-x.  21 root root 4096 Nov  4 19:56 var
+[root@hadoop106 ~]# ll /home >~/
+10                    .bash_profile         .cshrc                Downloads/            .local/               rootfile              .viminfo
+anaconda-ks.cfg       .bashrc               .dbus/                .esd_auth             Music/                .tcshrc               welcome.txt
+.bash_history         .cache/               Desktop/              .ICEauthority         Pictures/             Templates/            .Xauthority
+.bash_logout          .config/              Documents/            initial-setup-ks.cfg  Public/               Videos/               
+[root@hadoop106 ~]# ll /home >~/rootfile 
+[root@hadoop106 ~]# ll /home
+total 4
+drwx------. 15 atguigu atguigu 4096 Nov 15 15:55 atguigu
+[root@hadoop106 ~]# ll /
+total 32
+drwx------.   2 root root    6 Nov 12 16:33 backups
+lrwxrwxrwx.   1 root root    7 Nov  4 19:42 bin -> usr/bin
+dr-xr-xr-x.   5 root root 4096 Nov 12 17:02 boot
+drwxr-xr-x.  20 root root 3300 Nov 14 18:20 dev
+drwxr-xr-x. 144 root root 8192 Nov 15 16:05 etc
+drwxr-xr-x.   3 root root   21 Nov  4 19:48 home
+lrwxrwxrwx.   1 root root    7 Nov  4 19:42 lib -> usr/lib
+lrwxrwxrwx.   1 root root    9 Nov  4 19:42 lib64 -> usr/lib64
+drwxr-xr-x.   2 root root    6 Apr 11  2018 media
+drwxr-xr-x.   2 root root    6 Apr 11  2018 mnt
+drwxr-xr-x.   3 root root   16 Nov  4 19:45 opt
+dr-xr-xr-x. 263 root root    0 Nov 14 18:19 proc
+dr-xr-x---.  14 root root 4096 Nov 15 16:19 root
+drwxr-xr-x.  43 root root 1260 Nov 15 16:06 run
+lrwxrwxrwx.   1 root root    8 Nov  4 19:42 sbin -> usr/sbin
+drwxr-xr-x.   2 root root   23 Nov 12 16:54 srv
+dr-xr-xr-x.  13 root root    0 Nov 14 18:20 sys
+drwxrwxrwt.  50 root root 4096 Nov 15 16:21 tmp
+drwxr-xr-x.  13 root root  155 Nov  4 19:42 usr
+drwxr-xr-x.  21 root root 4096 Nov  4 19:56 var
+[root@hadoop106 ~]# find / -name testing
+[root@hadoop106 ~]# find /home -name .bash
+.bash_history  .bash_logout   .bash_profile  .bashrc        
+[root@hadoop106 ~]# find /home -name .bashrc
+/home/atguigu/.bashrc
+[root@hadoop106 ~]# find /home -name .bashrc>list
+[root@hadoop106 ~]# find /home -name .bashrc>list_right 2>list_error
+[root@hadoop106 ~]# cat > catfile
+testing
+cat file es^H^H^H^[[3~dd^[dd^H
+[root@hadoop106 ~]# cat > catfile
+testing
+cat file test
+[root@hadoop106 ~]# cat catfile
+testing
+cat file test
+[root@hadoop106 ~]# echo ${PATH}
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+[root@hadoop106 ~]# echo ${PATH} | cut -d ':' -f 5
+/root/bin
+[root@hadoop106 ~]# export
+declare -x DISPLAY="localhost:10.0"
+declare -x HISTCONTROL="ignoredups"
+declare -x HISTSIZE="1000"
+declare -x HOME="/root"
+declare -x HOSTNAME="hadoop106"
+declare -x LANG="en_US.UTF-8"
+declare -x LESSOPEN="||/usr/bin/lesspipe.sh %s"
+declare -x LOGNAME="root"
+declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:"
+declare -x MAIL="/var/spool/mail/root"
+declare -x OLDPWD
+declare -x PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin"
+declare -x PWD="/root"
+declare -x SELINUX_LEVEL_REQUESTED=""
+declare -x SELINUX_ROLE_REQUESTED=""
+declare -x SELINUX_USE_CURRENT_RANGE=""
+declare -x SHELL="/bin/bash"
+declare -x SHLVL="1"
+declare -x SSH_CLIENT="192.168.73.1 56398 22"
+declare -x SSH_CONNECTION="192.168.73.1 56398 192.168.73.106 22"
+declare -x SSH_TTY="/dev/pts/0"
+declare -x TERM="xterm"
+declare -x USER="root"
+declare -x XDG_DATA_DIRS="/root/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
+declare -x XDG_RUNTIME_DIR="/run/user/0"
+declare -x XDG_SESSION_ID="66"
+[root@hadoop106 ~]# export | cut -c 12-
+DISPLAY="localhost:10.0"
+HISTCONTROL="ignoredups"
+HISTSIZE="1000"
+HOME="/root"
+HOSTNAME="hadoop106"
+LANG="en_US.UTF-8"
+LESSOPEN="||/usr/bin/lesspipe.sh %s"
+LOGNAME="root"
+LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:"
+MAIL="/var/spool/mail/root"
+OLDPWD
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin"
+PWD="/root"
+SELINUX_LEVEL_REQUESTED=""
+SELINUX_ROLE_REQUESTED=""
+SELINUX_USE_CURRENT_RANGE=""
+SHELL="/bin/bash"
+SHLVL="1"
+SSH_CLIENT="192.168.73.1 56398 22"
+SSH_CONNECTION="192.168.73.1 56398 192.168.73.106 22"
+SSH_TTY="/dev/pts/0"
+TERM="xterm"
+USER="root"
+XDG_DATA_DIRS="/root/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
+XDG_RUNTIME_DIR="/run/user/0"
+XDG_SESSION_ID="66"
+[root@hadoop106 ~]# last
+root     pts/0        192.168.73.1     Tue Nov 15 16:09   still logged in   
+root     :0           :0               Tue Nov 15 16:06   still logged in   
+root     :0           :0               Tue Nov 15 16:02 - 16:05  (00:03)    
+root     pts/0        192.168.73.1     Tue Nov 15 14:47 - 16:09  (01:21)    
+root     pts/0        192.168.73.1     Mon Nov 14 18:20 - 21:54  (03:34)    
+reboot   system boot  3.10.0-1160.el7. Mon Nov 14 18:20 - 19:41 (1+01:21)   
+root     pts/0        192.168.73.1     Sun Nov 13 17:37 - 18:11  (00:33)    
+root     :0           :0               Sun Nov 13 15:28 - down   (02:42)    
+root     pts/0        192.168.73.1     Sun Nov 13 15:07 - 17:10  (02:02)    
+reboot   system boot  3.10.0-1160.el7. Sun Nov 13 15:06 - 18:11  (03:05)    
+root     pts/0        192.168.73.1     Sat Nov 12 15:13 - 17:26  (02:12)    
+reboot   system boot  3.10.0-1160.el7. Sat Nov 12 15:12 - 18:11 (1+02:58)   
+reboot   system boot  3.10.0-1160.el7. Sat Nov 12 15:06 - 15:06  (00:00)    
+reboot   system boot  3.10.0-1160.el7. Sat Nov  5 20:11 - 15:06 (6+18:55)   
+reboot   system boot  3.10.0-1160.el7. Sat Nov  5 20:08 - 15:06 (6+18:58)   
+root     :0           :0               Sat Nov  5 19:54 - down   (00:08)    
+reboot   system boot  3.10.0-1160.el7. Sat Nov  5 19:53 - 20:02  (00:09)    
+root     pts/0        192.168.73.1     Sat Nov  5 16:16 - 17:50  (01:34)    
+root     :0           :0               Sat Nov  5 15:37 - crash  (04:15)    
+reboot   system boot  3.10.0-1160.el7. Sat Nov  5 15:36 - 20:02  (04:26)    
+root     pts/1        :0               Sat Nov  5 15:36 - 15:36  (00:00)    
+root     pts/2        :0               Sat Nov  5 15:36 - 15:36  (00:00)    
+root     pts/1        :0               Sat Nov  5 15:33 - 15:36  (00:02)    
+root     pts/0        :0               Sat Nov  5 15:20 - 15:36  (00:15)    
+root     :0           :0               Sat Nov  5 15:18 - down   (00:17)    
+reboot   system boot  3.10.0-1160.el7. Sat Nov  5 15:16 - 15:36  (00:19)    
+root     pts/0        :0               Sat Nov  5 15:03 - 15:05  (00:02)    
+root     :0           :0               Sat Nov  5 15:03 - down   (00:07)    
+atguigu  pts/0        :0               Sat Nov  5 15:02 - 15:02  (00:00)    
+atguigu  pts/0        :0               Sat Nov  5 15:01 - 15:02  (00:00)    
+atguigu  pts/0        :0               Sat Nov  5 14:58 - 15:01  (00:03)    
+atguigu  pts/0        :0               Sat Nov  5 14:56 - 14:58  (00:01)    
+atguigu  pts/0        :0               Sat Nov  5 14:48 - 14:56  (00:08)    
+atguigu  pts/0        :0               Sat Nov  5 14:47 - 14:48  (00:01)    
+atguigu  :0           :0               Sat Nov  5 14:38 - 15:02  (00:24)    
+reboot   system boot  3.10.0-1160.el7. Sat Nov  5 14:35 - 15:11  (00:35)    
+root     pts/0        :0               Fri Nov  4 23:37 - 23:37  (00:00)    
+root     pts/0        :0               Fri Nov  4 23:32 - 23:37  (00:05)    
+root     :0           :0               Fri Nov  4 23:32 - down   (00:05)    
+reboot   system boot  3.10.0-1160.el7. Fri Nov  4 23:30 - 23:37  (00:07)    
+root     :0           :0               Fri Nov  4 23:17 - down   (00:10)    
+reboot   system boot  3.10.0-1160.el7. Fri Nov  4 23:17 - 23:28  (00:11)    
+root     :0           :0               Fri Nov  4 19:56 - down   (00:01)    
+reboot   system boot  3.10.0-1160.el7. Fri Nov  4 19:55 - 19:58  (00:02)    
+
+wtmp begins Fri Nov  4 19:55:56 2022
+[root@hadoop106 ~]# last
+root     pts/0        192.168.73.1     Tue Nov 15 16:09   still logged in   
+root     :0           :0               Tue Nov 15 16:06   still logged in   
+root     :0           :0               Tue Nov 15 16:02 - 16:05  (00:03)    
+root     pts/0        192.168.73.1     Tue Nov 15 14:47 - 16:09  (01:21)    
+root     pts/0        192.168.73.1     Mon Nov 14 18:20 - 21:54  (03:34)    
+reboot   system boot  3.10.0-1160.el7. Mon Nov 14 18:20 - 19:49 (1+01:29)   
+root     pts/0        192.168.73.1     Sun Nov 13 17:37 - 18:11  (00:33)    
+root     :0           :0               Sun Nov 13 15:28 - down   (02:42)    
+root     pts/0        192.168.73.1     Sun Nov 13 15:07 - 17:10  (02:02)    
+reboot   system boot  3.10.0-1160.el7. Sun Nov 13 15:06 - 18:11  (03:05)    
+root     pts/0        192.168.73.1     Sat Nov 12 15:13 - 17:26  (02:12)    
+reboot   system boot  3.10.0-1160.el7. Sat Nov 12 15:12 - 18:11 (1+02:58)   
+reboot   system boot  3.10.0-1160.el7. Sat Nov 12 15:06 - 15:06  (00:00)    
+reboot   system boot  3.10.0-1160.el7. Sat Nov  5 20:11 - 15:06 (6+18:55)   
+reboot   system boot  3.10.0-1160.el7. Sat Nov  5 20:08 - 15:06 (6+18:58)   
+root     :0           :0               Sat Nov  5 19:54 - down   (00:08)    
+reboot   system boot  3.10.0-1160.el7. Sat Nov  5 19:53 - 20:02  (00:09)    
+root     pts/0        192.168.73.1     Sat Nov  5 16:16 - 17:50  (01:34)    
+root     :0           :0               Sat Nov  5 15:37 - crash  (04:15)    
+reboot   system boot  3.10.0-1160.el7. Sat Nov  5 15:36 - 20:02  (04:26)    
+root     pts/1        :0               Sat Nov  5 15:36 - 15:36  (00:00)    
+root     pts/2        :0               Sat Nov  5 15:36 - 15:36  (00:00)    
+root     pts/1        :0               Sat Nov  5 15:33 - 15:36  (00:02)    
+root     pts/0        :0               Sat Nov  5 15:20 - 15:36  (00:15)    
+root     :0           :0               Sat Nov  5 15:18 - down   (00:17)    
+reboot   system boot  3.10.0-1160.el7. Sat Nov  5 15:16 - 15:36  (00:19)    
+root     pts/0        :0               Sat Nov  5 15:03 - 15:05  (00:02)    
+root     :0           :0               Sat Nov  5 15:03 - down   (00:07)    
+atguigu  pts/0        :0               Sat Nov  5 15:02 - 15:02  (00:00)    
+atguigu  pts/0        :0               Sat Nov  5 15:01 - 15:02  (00:00)    
+atguigu  pts/0        :0               Sat Nov  5 14:58 - 15:01  (00:03)    
+atguigu  pts/0        :0               Sat Nov  5 14:56 - 14:58  (00:01)    
+atguigu  pts/0        :0               Sat Nov  5 14:48 - 14:56  (00:08)    
+atguigu  pts/0        :0               Sat Nov  5 14:47 - 14:48  (00:01)    
+atguigu  :0           :0               Sat Nov  5 14:38 - 15:02  (00:24)    
+reboot   system boot  3.10.0-1160.el7. Sat Nov  5 14:35 - 15:11  (00:35)    
+root     pts/0        :0               Fri Nov  4 23:37 - 23:37  (00:00)    
+root     pts/0        :0               Fri Nov  4 23:32 - 23:37  (00:05)    
+root     :0           :0               Fri Nov  4 23:32 - down   (00:05)    
+reboot   system boot  3.10.0-1160.el7. Fri Nov  4 23:30 - 23:37  (00:07)    
+root     :0           :0               Fri Nov  4 23:17 - down   (00:10)    
+reboot   system boot  3.10.0-1160.el7. Fri Nov  4 23:17 - 23:28  (00:11)    
+root     :0           :0               Fri Nov  4 19:56 - down   (00:01)    
+reboot   system boot  3.10.0-1160.el7. Fri Nov  4 19:55 - 19:58  (00:02)    
+
+wtmp begins Fri Nov  4 19:55:56 2022
+[root@hadoop106 ~]# cat /etc/passwd | sort
+abrt:x:173:173::/etc/abrt:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+atguigu:x:1000:1000:atguigu:/home/atguigu:/bin/bash
+avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+bin:x:1:1:bin:/bin:/sbin/nologin
+chrony:x:992:987::/var/lib/chrony:/sbin/nologin
+colord:x:997:994:User for colord:/var/lib/colord:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+geoclue:x:989:983:User for geoclue:/var/lib/geoclue:/sbin/nologin
+gluster:x:995:992:GlusterFS daemons:/run/gluster:/sbin/nologin
+gnome-initial-setup:x:988:982::/run/gnome-initial-setup/:/sbin/nologin
+halt:x:7:0:halt:/sbin:/sbin/halt
+libstoragemgmt:x:998:995:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+qemu:x:107:107:qemu user:/:/sbin/nologin
+radvd:x:75:75:radvd user:/:/sbin/nologin
+root:x:0:0:root:/root:/bin/bash
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+saned:x:996:993:SANE scanner daemon user:/usr/share/sane:/sbin/nologin
+saslauth:x:994:76:Saslauthd user:/run/saslauthd:/sbin/nologin
+setroubleshoot:x:993:990::/var/lib/setroubleshoot:/sbin/nologin
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+sssd:x:990:984:User for sssd:/:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin
+unbound:x:991:986:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+[root@hadoop106 ~]# last |cut -d ' ' -f1 | sort
+
+atguigu
+atguigu
+atguigu
+atguigu
+atguigu
+atguigu
+atguigu
+reboot
+reboot
+reboot
+reboot
+reboot
+reboot
+reboot
+reboot
+reboot
+reboot
+reboot
+reboot
+reboot
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+root
+wtmp
+[root@hadoop106 ~]# last |cut -d ' ' -f1 | sort |uniq
+
+atguigu
+reboot
+root
+wtmp
+[root@hadoop106 ~]# last |cut -d ' ' -f1 | sort |uniq -c
+      1 
+      7 atguigu
+     13 reboot
+     24 root
+      1 wtmp
+[root@hadoop106 ~]# cat /etc/
+Display all 290 possibilities? (y or n)
+[root@hadoop106 ~]# cat /etc/man_db.conf  |wc
+    131     723    5171
+[root@hadoop106 ~]# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+libstoragemgmt:x:998:995:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+colord:x:997:994:User for colord:/var/lib/colord:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+saned:x:996:993:SANE scanner daemon user:/usr/share/sane:/sbin/nologin
+gluster:x:995:992:GlusterFS daemons:/run/gluster:/sbin/nologin
+saslauth:x:994:76:Saslauthd user:/run/saslauthd:/sbin/nologin
+abrt:x:173:173::/etc/abrt:/sbin/nologin
+setroubleshoot:x:993:990::/var/lib/setroubleshoot:/sbin/nologin
+rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+radvd:x:75:75:radvd user:/:/sbin/nologin
+chrony:x:992:987::/var/lib/chrony:/sbin/nologin
+unbound:x:991:986:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+qemu:x:107:107:qemu user:/:/sbin/nologin
+tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin
+sssd:x:990:984:User for sssd:/:/sbin/nologin
+usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+geoclue:x:989:983:User for geoclue:/var/lib/geoclue:/sbin/nologin
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+gnome-initial-setup:x:988:982::/run/gnome-initial-setup/:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+atguigu:x:1000:1000:atguigu:/home/atguigu:/bin/bash
+[root@hadoop106 ~]# cat /etc/passwd |wc -l
+44
+[root@hadoop106 ~]# cat /etc/passwd |wc -m
+2313
+[root@hadoop106 ~]# last |tee last.list |cut -d " " -f1
+root
+root
+root
+root
+root
+reboot
+root
+root
+root
+reboot
+root
+reboot
+reboot
+reboot
+reboot
+root
+reboot
+root
+root
+reboot
+root
+root
+root
+root
+root
+reboot
+root
+root
+atguigu
+atguigu
+atguigu
+atguigu
+atguigu
+atguigu
+atguigu
+reboot
+root
+root
+root
+reboot
+root
+reboot
+root
+reboot
+
+wtmp
+[root@hadoop106 ~]# ls -l /home |tee ~/homefile |more
+total 4
+drwx------. 15 atguigu atguigu 4096 Nov 15 15:55 atguigu
+[root@hadoop106 ~]# ls -l / |tee -a ~/homefile |more
+total 32
+drwx------.   2 root root    6 Nov 12 16:33 backups
+lrwxrwxrwx.   1 root root    7 Nov  4 19:42 bin -> usr/bin
+dr-xr-xr-x.   5 root root 4096 Nov 12 17:02 boot
+drwxr-xr-x.  20 root root 3300 Nov 14 18:20 dev
+drwxr-xr-x. 144 root root 8192 Nov 15 16:05 etc
+drwxr-xr-x.   3 root root   21 Nov  4 19:48 home
+lrwxrwxrwx.   1 root root    7 Nov  4 19:42 lib -> usr/lib
+lrwxrwxrwx.   1 root root    9 Nov  4 19:42 lib64 -> usr/lib64
+drwxr-xr-x.   2 root root    6 Apr 11  2018 media
+drwxr-xr-x.   2 root root    6 Apr 11  2018 mnt
+drwxr-xr-x.   3 root root   16 Nov  4 19:45 opt
+dr-xr-xr-x. 265 root root    0 Nov 14 18:19 proc
+dr-xr-x---.  14 root root 4096 Nov 15 20:04 root
+drwxr-xr-x.  43 root root 1260 Nov 15 16:06 run
+lrwxrwxrwx.   1 root root    8 Nov  4 19:42 sbin -> usr/sbin
+drwxr-xr-x.   2 root root   23 Nov 12 16:54 srv
+dr-xr-xr-x.  13 root root    0 Nov 14 18:20 sys
+drwxrwxrwt.  50 root root 4096 Nov 15 20:04 tmp
+drwxr-xr-x.  13 root root  155 Nov  4 19:42 usr
+drwxr-xr-x.  21 root root 4096 Nov  4 19:56 var
+[root@hadoop106 ~]# 
