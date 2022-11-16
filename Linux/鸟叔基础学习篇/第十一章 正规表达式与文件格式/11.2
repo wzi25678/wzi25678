@@ -1,0 +1,315 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop106' resolved to 192.168.73.106.
+Connecting to 192.168.73.106:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Tue Nov 15 21:01:43 2022 from 192.168.73.1
+[root@hadoop106 ~]# dmesg |grep 'qxl'
+[root@hadoop106 ~]# dmesg | grep -n --color=auto 'qxl'
+[root@hadoop106 ~]# dmesg | grep -n --color=auto 'root'
+5:[    0.000000] Command line: BOOT_IMAGE=/vmlinuz-3.10.0-1160.el7.x86_64 root=/dev/mapper/centos-root ro spectre_v2=retpoline rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet LANG=zh_CN.UTF-8
+539:[    0.000000] Kernel command line: BOOT_IMAGE=/vmlinuz-3.10.0-1160.el7.x86_64 root=/dev/mapper/centos-root ro spectre_v2=retpoline rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet LANG=zh_CN.UTF-8
+661:[    1.796048] pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000bffff window]
+662:[    1.796050] pci_bus 0000:00: root bus resource [mem 0x000cc000-0x000cffff window]
+663:[    1.796051] pci_bus 0000:00: root bus resource [mem 0x000d0000-0x000d3fff window]
+664:[    1.796052] pci_bus 0000:00: root bus resource [mem 0x000d4000-0x000d7fff window]
+665:[    1.796054] pci_bus 0000:00: root bus resource [mem 0x000d8000-0x000dbfff window]
+666:[    1.796055] pci_bus 0000:00: root bus resource [mem 0xc0000000-0xfebfffff window]
+667:[    1.796057] pci_bus 0000:00: root bus resource [io  0x0000-0x0cf7 window]
+668:[    1.796059] pci_bus 0000:00: root bus resource [io  0x0d00-0xfeff window]
+669:[    1.796061] pci_bus 0000:00: root bus resource [bus 00-7f]
+[root@hadoop106 ~]# nl /etc/pa
+pam.d/     papersize  passwd     passwd-    
+[root@hadoop106 ~]# nl /etc/passwd
+     1	root:x:0:0:root:/root:/bin/bash
+     2	bin:x:1:1:bin:/bin:/sbin/nologin
+     3	daemon:x:2:2:daemon:/sbin:/sbin/nologin
+     4	adm:x:3:4:adm:/var/adm:/sbin/nologin
+     5	lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+     6	sync:x:5:0:sync:/sbin:/bin/sync
+     7	shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+     8	halt:x:7:0:halt:/sbin:/sbin/halt
+     9	mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+    10	operator:x:11:0:operator:/root:/sbin/nologin
+    11	games:x:12:100:games:/usr/games:/sbin/nologin
+    12	ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+    13	nobody:x:99:99:Nobody:/:/sbin/nologin
+    14	systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
+    15	dbus:x:81:81:System message bus:/:/sbin/nologin
+    16	polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+    17	libstoragemgmt:x:998:995:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+    18	colord:x:997:994:User for colord:/var/lib/colord:/sbin/nologin
+    19	rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+    20	saned:x:996:993:SANE scanner daemon user:/usr/share/sane:/sbin/nologin
+    21	gluster:x:995:992:GlusterFS daemons:/run/gluster:/sbin/nologin
+    22	saslauth:x:994:76:Saslauthd user:/run/saslauthd:/sbin/nologin
+    23	abrt:x:173:173::/etc/abrt:/sbin/nologin
+    24	setroubleshoot:x:993:990::/var/lib/setroubleshoot:/sbin/nologin
+    25	rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+    26	pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+    27	radvd:x:75:75:radvd user:/:/sbin/nologin
+    28	chrony:x:992:987::/var/lib/chrony:/sbin/nologin
+    29	unbound:x:991:986:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+    30	qemu:x:107:107:qemu user:/:/sbin/nologin
+    31	tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin
+    32	sssd:x:990:984:User for sssd:/:/sbin/nologin
+    33	usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+    34	geoclue:x:989:983:User for geoclue:/var/lib/geoclue:/sbin/nologin
+    35	ntp:x:38:38::/etc/ntp:/sbin/nologin
+    36	gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+    37	rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+    38	nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+    39	gnome-initial-setup:x:988:982::/run/gnome-initial-setup/:/sbin/nologin
+    40	sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+    41	avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+    42	postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+    43	tcpdump:x:72:72::/:/sbin/nologin
+    44	atguigu:x:1000:1000:atguigu:/home/atguigu:/bin/bash
+[root@hadoop106 ~]# nl /etc/passwd |sed '2,5d'
+     1	root:x:0:0:root:/root:/bin/bash
+     6	sync:x:5:0:sync:/sbin:/bin/sync
+     7	shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+     8	halt:x:7:0:halt:/sbin:/sbin/halt
+     9	mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+    10	operator:x:11:0:operator:/root:/sbin/nologin
+    11	games:x:12:100:games:/usr/games:/sbin/nologin
+    12	ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+    13	nobody:x:99:99:Nobody:/:/sbin/nologin
+    14	systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
+    15	dbus:x:81:81:System message bus:/:/sbin/nologin
+    16	polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+    17	libstoragemgmt:x:998:995:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+    18	colord:x:997:994:User for colord:/var/lib/colord:/sbin/nologin
+    19	rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+    20	saned:x:996:993:SANE scanner daemon user:/usr/share/sane:/sbin/nologin
+    21	gluster:x:995:992:GlusterFS daemons:/run/gluster:/sbin/nologin
+    22	saslauth:x:994:76:Saslauthd user:/run/saslauthd:/sbin/nologin
+    23	abrt:x:173:173::/etc/abrt:/sbin/nologin
+    24	setroubleshoot:x:993:990::/var/lib/setroubleshoot:/sbin/nologin
+    25	rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+    26	pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+    27	radvd:x:75:75:radvd user:/:/sbin/nologin
+    28	chrony:x:992:987::/var/lib/chrony:/sbin/nologin
+    29	unbound:x:991:986:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+    30	qemu:x:107:107:qemu user:/:/sbin/nologin
+    31	tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin
+    32	sssd:x:990:984:User for sssd:/:/sbin/nologin
+    33	usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+    34	geoclue:x:989:983:User for geoclue:/var/lib/geoclue:/sbin/nologin
+    35	ntp:x:38:38::/etc/ntp:/sbin/nologin
+    36	gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+    37	rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+    38	nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+    39	gnome-initial-setup:x:988:982::/run/gnome-initial-setup/:/sbin/nologin
+    40	sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+    41	avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+    42	postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+    43	tcpdump:x:72:72::/:/sbin/nologin
+    44	atguigu:x:1000:1000:atguigu:/home/atguigu:/bin/bash
+[root@hadoop106 ~]# ll /etc/passwd
+-rw-r--r--. 1 root root 2313 Nov  4 19:48 /etc/passwd
+[root@hadoop106 ~]# ll -al /etc/passwd
+-rw-r--r--. 1 root root 2313 Nov  4 19:48 /etc/passwd
+[root@hadoop106 ~]# nl /etc/passwd
+     1	root:x:0:0:root:/root:/bin/bash
+     2	bin:x:1:1:bin:/bin:/sbin/nologin
+     3	daemon:x:2:2:daemon:/sbin:/sbin/nologin
+     4	adm:x:3:4:adm:/var/adm:/sbin/nologin
+     5	lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+     6	sync:x:5:0:sync:/sbin:/bin/sync
+     7	shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+     8	halt:x:7:0:halt:/sbin:/sbin/halt
+     9	mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+    10	operator:x:11:0:operator:/root:/sbin/nologin
+    11	games:x:12:100:games:/usr/games:/sbin/nologin
+    12	ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+    13	nobody:x:99:99:Nobody:/:/sbin/nologin
+    14	systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
+    15	dbus:x:81:81:System message bus:/:/sbin/nologin
+    16	polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+    17	libstoragemgmt:x:998:995:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+    18	colord:x:997:994:User for colord:/var/lib/colord:/sbin/nologin
+    19	rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+    20	saned:x:996:993:SANE scanner daemon user:/usr/share/sane:/sbin/nologin
+    21	gluster:x:995:992:GlusterFS daemons:/run/gluster:/sbin/nologin
+    22	saslauth:x:994:76:Saslauthd user:/run/saslauthd:/sbin/nologin
+    23	abrt:x:173:173::/etc/abrt:/sbin/nologin
+    24	setroubleshoot:x:993:990::/var/lib/setroubleshoot:/sbin/nologin
+    25	rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+    26	pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+    27	radvd:x:75:75:radvd user:/:/sbin/nologin
+    28	chrony:x:992:987::/var/lib/chrony:/sbin/nologin
+    29	unbound:x:991:986:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+    30	qemu:x:107:107:qemu user:/:/sbin/nologin
+    31	tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin
+    32	sssd:x:990:984:User for sssd:/:/sbin/nologin
+    33	usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+    34	geoclue:x:989:983:User for geoclue:/var/lib/geoclue:/sbin/nologin
+    35	ntp:x:38:38::/etc/ntp:/sbin/nologin
+    36	gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+    37	rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+    38	nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+    39	gnome-initial-setup:x:988:982::/run/gnome-initial-setup/:/sbin/nologin
+    40	sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+    41	avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+    42	postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+    43	tcpdump:x:72:72::/:/sbin/nologin
+    44	atguigu:x:1000:1000:atguigu:/home/atguigu:/bin/bash
+[root@hadoop106 ~]# cat /etc/pa
+pam.d/     papersize  passwd     passwd-    
+[root@hadoop106 ~]# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+libstoragemgmt:x:998:995:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+colord:x:997:994:User for colord:/var/lib/colord:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+saned:x:996:993:SANE scanner daemon user:/usr/share/sane:/sbin/nologin
+gluster:x:995:992:GlusterFS daemons:/run/gluster:/sbin/nologin
+saslauth:x:994:76:Saslauthd user:/run/saslauthd:/sbin/nologin
+abrt:x:173:173::/etc/abrt:/sbin/nologin
+setroubleshoot:x:993:990::/var/lib/setroubleshoot:/sbin/nologin
+rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+radvd:x:75:75:radvd user:/:/sbin/nologin
+chrony:x:992:987::/var/lib/chrony:/sbin/nologin
+unbound:x:991:986:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+qemu:x:107:107:qemu user:/:/sbin/nologin
+tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin
+sssd:x:990:984:User for sssd:/:/sbin/nologin
+usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+geoclue:x:989:983:User for geoclue:/var/lib/geoclue:/sbin/nologin
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+gnome-initial-setup:x:988:982::/run/gnome-initial-setup/:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+atguigu:x:1000:1000:atguigu:/home/atguigu:/bin/bash
+[root@hadoop106 ~]# nl /etc/passwd |sed -n '5,7p'
+     5	lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+     6	sync:x:5:0:sync:/sbin:/bin/sync
+     7	shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+[root@hadoop106 ~]# nl /etc/passwd |sed  '5,7p'
+     1	root:x:0:0:root:/root:/bin/bash
+     2	bin:x:1:1:bin:/bin:/sbin/nologin
+     3	daemon:x:2:2:daemon:/sbin:/sbin/nologin
+     4	adm:x:3:4:adm:/var/adm:/sbin/nologin
+     5	lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+     5	lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+     6	sync:x:5:0:sync:/sbin:/bin/sync
+     6	sync:x:5:0:sync:/sbin:/bin/sync
+     7	shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+     7	shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+     8	halt:x:7:0:halt:/sbin:/sbin/halt
+     9	mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+    10	operator:x:11:0:operator:/root:/sbin/nologin
+    11	games:x:12:100:games:/usr/games:/sbin/nologin
+    12	ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+    13	nobody:x:99:99:Nobody:/:/sbin/nologin
+    14	systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
+    15	dbus:x:81:81:System message bus:/:/sbin/nologin
+    16	polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+    17	libstoragemgmt:x:998:995:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+    18	colord:x:997:994:User for colord:/var/lib/colord:/sbin/nologin
+    19	rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+    20	saned:x:996:993:SANE scanner daemon user:/usr/share/sane:/sbin/nologin
+    21	gluster:x:995:992:GlusterFS daemons:/run/gluster:/sbin/nologin
+    22	saslauth:x:994:76:Saslauthd user:/run/saslauthd:/sbin/nologin
+    23	abrt:x:173:173::/etc/abrt:/sbin/nologin
+    24	setroubleshoot:x:993:990::/var/lib/setroubleshoot:/sbin/nologin
+    25	rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+    26	pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+    27	radvd:x:75:75:radvd user:/:/sbin/nologin
+    28	chrony:x:992:987::/var/lib/chrony:/sbin/nologin
+    29	unbound:x:991:986:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+    30	qemu:x:107:107:qemu user:/:/sbin/nologin
+    31	tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin
+    32	sssd:x:990:984:User for sssd:/:/sbin/nologin
+    33	usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+    34	geoclue:x:989:983:User for geoclue:/var/lib/geoclue:/sbin/nologin
+    35	ntp:x:38:38::/etc/ntp:/sbin/nologin
+    36	gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+    37	rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+    38	nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+    39	gnome-initial-setup:x:988:982::/run/gnome-initial-setup/:/sbin/nologin
+    40	sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+    41	avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+    42	postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+    43	tcpdump:x:72:72::/:/sbin/nologin
+    44	atguigu:x:1000:1000:atguigu:/home/atguigu:/bin/bash
+[root@hadoop106 ~]# nl /etc/passwd |sed '5,7p'
+     1	root:x:0:0:root:/root:/bin/bash
+     2	bin:x:1:1:bin:/bin:/sbin/nologin
+     3	daemon:x:2:2:daemon:/sbin:/sbin/nologin
+     4	adm:x:3:4:adm:/var/adm:/sbin/nologin
+     5	lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+     5	lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+     6	sync:x:5:0:sync:/sbin:/bin/sync
+     6	sync:x:5:0:sync:/sbin:/bin/sync
+     7	shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+     7	shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+     8	halt:x:7:0:halt:/sbin:/sbin/halt
+     9	mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+    10	operator:x:11:0:operator:/root:/sbin/nologin
+    11	games:x:12:100:games:/usr/games:/sbin/nologin
+    12	ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+    13	nobody:x:99:99:Nobody:/:/sbin/nologin
+    14	systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
+    15	dbus:x:81:81:System message bus:/:/sbin/nologin
+    16	polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+    17	libstoragemgmt:x:998:995:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+    18	colord:x:997:994:User for colord:/var/lib/colord:/sbin/nologin
+    19	rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+    20	saned:x:996:993:SANE scanner daemon user:/usr/share/sane:/sbin/nologin
+    21	gluster:x:995:992:GlusterFS daemons:/run/gluster:/sbin/nologin
+    22	saslauth:x:994:76:Saslauthd user:/run/saslauthd:/sbin/nologin
+    23	abrt:x:173:173::/etc/abrt:/sbin/nologin
+    24	setroubleshoot:x:993:990::/var/lib/setroubleshoot:/sbin/nologin
+    25	rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+    26	pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+    27	radvd:x:75:75:radvd user:/:/sbin/nologin
+    28	chrony:x:992:987::/var/lib/chrony:/sbin/nologin
+    29	unbound:x:991:986:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+    30	qemu:x:107:107:qemu user:/:/sbin/nologin
+    31	tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin
+    32	sssd:x:990:984:User for sssd:/:/sbin/nologin
+    33	usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+    34	geoclue:x:989:983:User for geoclue:/var/lib/geoclue:/sbin/nologin
+    35	ntp:x:38:38::/etc/ntp:/sbin/nologin
+    36	gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+    37	rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+    38	nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+    39	gnome-initial-setup:x:988:982::/run/gnome-initial-setup/:/sbin/nologin
+    40	sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+    41	avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+    42	postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+    43	tcpdump:x:72:72::/:/sbin/nologin
+    44	atguigu:x:1000:1000:atguigu:/home/atguigu:/bin/bash
+[root@hadoop106 ~]# nl /etc/passwd |sed -n '5,7p'
+     5	lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+     6	sync:x:5:0:sync:/sbin:/bin/sync
+     7	shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+[root@hadoop106 ~]# 
