@@ -1,0 +1,818 @@
+wzi@wzi-virtual-machine:~/Downloads/libosip2-5.3.1$ ./
+autogen.sh  configure   help/       include/    platform/   scripts/    src/        
+wzi@wzi-virtual-machine:~/Downloads/libosip2-5.3.1$ ./configure 
+configure: libosip2                The GNU Open SIP library.
+configure: Copyright (C) 2001-2022 Aymeric MOIZARD - <amoizard@antisip.com>
+Configuring  
+Building Package on linux
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc... gcc3
+checking how to run the C preprocessor... gcc -E
+checking for a sed that does not truncate output... /usr/bin/sed
+checking how to print strings... printf
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking if compiler needs -Werror to reject unknown flags... no
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking semaphore.h usability... yes
+checking semaphore.h presence... yes
+checking for semaphore.h... yes
+checking sys/sem.h usability... yes
+checking sys/sem.h presence... yes
+checking for sys/sem.h... yes
+checking for sem_open in -lposix4... no
+checking for nis_add in -lnsl... yes
+checking for sendto in -lsocket... no
+checking for lrand48 in -lc... yes
+checking for clock_gettime in -lrt... yes
+checking for localtime... yes
+checking whether -Wall works... yes
+checking whether -Wcast-align works... yes
+checking whether -Wchar-subscripts works... yes
+checking whether -Wformat works... yes
+checking whether -Winline works... yes
+checking whether -Wmissing-declarations works... yes
+checking whether -Wmissing-prototypes works... yes
+checking whether -Wnested-externs works... yes
+checking whether -Wpointer-arith works... yes
+checking for ANSI C header files... (cached) yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking sys/unistd.h usability... yes
+checking sys/unistd.h presence... yes
+checking for sys/unistd.h... yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking varargs.h usability... no
+checking varargs.h presence... no
+checking for varargs.h... no
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking for assert.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking sys/signal.h usability... yes
+checking sys/signal.h presence... yes
+checking for sys/signal.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking for struct timeval... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating libosip2.pc
+config.status: creating Makefile
+config.status: creating scripts/Makefile
+config.status: creating src/Makefile
+config.status: creating src/osipparser2/Makefile
+config.status: creating src/osip2/Makefile
+config.status: creating src/test/Makefile
+config.status: creating include/Makefile
+config.status: creating include/osip2/Makefile
+config.status: creating include/osipparser2/Makefile
+config.status: creating include/osipparser2/headers/Makefile
+config.status: creating help/Makefile
+config.status: creating help/man/Makefile
+config.status: creating help/doxygen/Makefile
+config.status: creating platform/Makefile
+config.status: creating platform/rpm/Makefile
+config.status: creating platform/vsnet/Makefile
+config.status: creating include/osip2/doxygen.dox
+config.status: creating osip-config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+wzi@wzi-virtual-machine:~/Downloads/libosip2-5.3.1$ make -j8
+make  all-recursive
+make[1]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1'
+Making all in include
+make[2]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/include'
+Making all in osipparser2
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2'
+Making all in headers
+make[4]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2/headers'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2/headers'
+make[4]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2'
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2'
+Making all in osip2
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/include/osip2'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/include/osip2'
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/include'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/include'
+make[2]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/include'
+Making all in src
+make[2]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/src'
+Making all in osipparser2
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/src/osipparser2'
+  CC       osip_proxy_authorization.lo
+  CC       osip_cseq.lo
+  CC       osip_record_route.lo
+  CC       osip_route.lo
+  CC       osip_to.lo
+  CC       osip_from.lo
+  CC       osip_uri.lo
+  CC       osip_authorization.lo
+  CC       osip_header.lo
+  CC       osip_www_authenticate.lo
+  CC       osip_via.lo
+  CC       osip_body.lo
+  CC       osip_md5c.lo
+  CC       osip_message.lo
+  CC       osip_list.lo
+  CC       osip_call_id.lo
+  CC       osip_message_parse.lo
+  CC       osip_contact.lo
+  CC       osip_message_to_str.lo
+  CC       osip_content_length.lo
+  CC       osip_parser_cfg.lo
+  CC       osip_content_type.lo
+  CC       osip_proxy_authenticate.lo
+  CC       osip_mime_version.lo
+  CC       osip_port.lo
+  CC       osip_call_info.lo
+osip_port.c: In function ‘osip_build_random_number’:
+osip_port.c:203:9: warning: ignoring return value of ‘read’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  203 |         read(fd, &r, sizeof(r));
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+  CC       osip_content_disposition.lo
+  CC       osip_accept_encoding.lo
+  CC       osip_content_encoding.lo
+  CC       osip_authentication_info.lo
+  CC       osip_proxy_authentication_info.lo
+  CC       osip_accept_language.lo
+  CC       osip_accept.lo
+  CC       osip_alert_info.lo
+  CC       osip_error_info.lo
+  CC       osip_allow.lo
+  CC       sdp_accessor.lo
+  CC       sdp_message.lo
+  CCLD     libosipparser2.la
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/src/osipparser2'
+Making all in osip2
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/src/osip2'
+  CC       ict_fsm.lo
+  CC       ist_fsm.lo
+  CC       nict_fsm.lo
+  CC       nist_fsm.lo
+  CC       ict.lo
+  CC       ist.lo
+  CC       nict.lo
+  CC       nist.lo
+  CC       fsm_misc.lo
+  CC       osip.lo
+  CC       osip_transaction.lo
+  CC       osip_event.lo
+  CC       port_fifo.lo
+  CC       osip_dialog.lo
+  CC       osip_time.lo
+  CC       port_sema.lo
+osip_time.c:129:12: warning: ‘_osip_gettimeofday_realtime’ defined but not used [-Wunused-function]
+  129 | static int _osip_gettimeofday_realtime(struct timeval *tp, void *tz) {
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC       port_thread.lo
+  CC       port_condv.lo
+  CCLD     libosip2.la
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/src/osip2'
+Making all in test
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/src/test'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/src/test'
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/src'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/src'
+make[2]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/src'
+Making all in scripts
+make[2]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/scripts'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/scripts'
+Making all in help
+make[2]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/help'
+Making all in man
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/help/man'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/help/man'
+Making all in doxygen
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/help/doxygen'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/help/doxygen'
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/help'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/help'
+make[2]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/help'
+Making all in platform
+make[2]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/platform'
+Making all in rpm
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/platform/rpm'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/platform/rpm'
+Making all in vsnet
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/platform/vsnet'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/platform/vsnet'
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/platform'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/platform'
+make[2]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/platform'
+make[2]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1'
+make[2]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1'
+make[1]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1'
+wzi@wzi-virtual-machine:~/Downloads/libosip2-5.3.1$ make install
+Making install in include
+make[1]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/include'
+Making install in osipparser2
+make[2]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2'
+Making install in headers
+make[3]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2/headers'
+make[4]: Entering directory '/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2/headers'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/usr/local/include/osipparser2/headers'
+/usr/bin/mkdir: cannot create directory ‘/usr/local/include/osipparser2’: Permission denied
+make[4]: *** [Makefile:360: install-osipparser2_headers_includeHEADERS] Error 1
+make[4]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2/headers'
+make[3]: *** [Makefile:478: install-am] Error 2
+make[3]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2/headers'
+make[2]: *** [Makefile:424: install-recursive] Error 1
+make[2]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2'
+make[1]: *** [Makefile:365: install-recursive] Error 1
+make[1]: Leaving directory '/home/wzi/Downloads/libosip2-5.3.1/include'
+make: *** [Makefile:474: install-recursive] Error 1
+wzi@wzi-virtual-machine:~/Downloads/libosip2-5.3.1$ sudo su root
+[sudo] password for wzi: 
+root@wzi-virtual-machine:/home/wzi/Downloads/libosip2-5.3.1# ./configure
+configure: libosip2                The GNU Open SIP library.
+configure: Copyright (C) 2001-2022 Aymeric MOIZARD - <amoizard@antisip.com>
+Configuring  
+Building Package on linux
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc... gcc3
+checking how to run the C preprocessor... gcc -E
+checking for a sed that does not truncate output... /usr/bin/sed
+checking how to print strings... printf
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking if compiler needs -Werror to reject unknown flags... no
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking semaphore.h usability... yes
+checking semaphore.h presence... yes
+checking for semaphore.h... yes
+checking sys/sem.h usability... yes
+checking sys/sem.h presence... yes
+checking for sys/sem.h... yes
+checking for sem_open in -lposix4... no
+checking for nis_add in -lnsl... yes
+checking for sendto in -lsocket... no
+checking for lrand48 in -lc... yes
+checking for clock_gettime in -lrt... yes
+checking for localtime... yes
+checking whether -Wall works... yes
+checking whether -Wcast-align works... yes
+checking whether -Wchar-subscripts works... yes
+checking whether -Wformat works... yes
+checking whether -Winline works... yes
+checking whether -Wmissing-declarations works... yes
+checking whether -Wmissing-prototypes works... yes
+checking whether -Wnested-externs works... yes
+checking whether -Wpointer-arith works... yes
+checking for ANSI C header files... (cached) yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking sys/unistd.h usability... yes
+checking sys/unistd.h presence... yes
+checking for sys/unistd.h... yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking varargs.h usability... no
+checking varargs.h presence... no
+checking for varargs.h... no
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking for assert.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking sys/signal.h usability... yes
+checking sys/signal.h presence... yes
+checking for sys/signal.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking for struct timeval... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating libosip2.pc
+config.status: creating Makefile
+config.status: creating scripts/Makefile
+config.status: creating src/Makefile
+config.status: creating src/osipparser2/Makefile
+config.status: creating src/osip2/Makefile
+config.status: creating src/test/Makefile
+config.status: creating include/Makefile
+config.status: creating include/osip2/Makefile
+config.status: creating include/osipparser2/Makefile
+config.status: creating include/osipparser2/headers/Makefile
+config.status: creating help/Makefile
+config.status: creating help/man/Makefile
+config.status: creating help/doxygen/Makefile
+config.status: creating platform/Makefile
+config.status: creating platform/rpm/Makefile
+config.status: creating platform/vsnet/Makefile
+config.status: creating include/osip2/doxygen.dox
+config.status: creating osip-config.h
+config.status: osip-config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+root@wzi-virtual-machine:/home/wzi/Downloads/libosip2-5.3.1# make -j8
+make  all-recursive
+make[1]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1”
+Making all in include
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include”
+Making all in osipparser2
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2”
+Making all in headers
+make[4]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2/headers”
+make[4]: 对“all”无需做任何事。
+make[4]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2/headers”
+make[4]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2”
+make[4]: 对“all-am”无需做任何事。
+make[4]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2”
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2”
+Making all in osip2
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include/osip2”
+make[3]: 对“all”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include/osip2”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include”
+make[3]: 对“all-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include”
+Making all in src
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src”
+Making all in osipparser2
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src/osipparser2”
+make[3]: 对“all”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src/osipparser2”
+Making all in osip2
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src/osip2”
+make[3]: 对“all”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src/osip2”
+Making all in test
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src/test”
+make[3]: 对“all”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src/test”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src”
+make[3]: 对“all-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src”
+Making all in scripts
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/scripts”
+make[2]: 对“all”无需做任何事。
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/scripts”
+Making all in help
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/help”
+Making all in man
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/help/man”
+make[3]: 对“all”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/help/man”
+Making all in doxygen
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/help/doxygen”
+make[3]: 对“all”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/help/doxygen”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/help”
+make[3]: 对“all-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/help”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/help”
+Making all in platform
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/platform”
+Making all in rpm
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/platform/rpm”
+make[3]: 对“all”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/platform/rpm”
+Making all in vsnet
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/platform/vsnet”
+make[3]: 对“all”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/platform/vsnet”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/platform”
+make[3]: 对“all-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/platform”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/platform”
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1”
+make[1]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1”
+root@wzi-virtual-machine:/home/wzi/Downloads/libosip2-5.3.1# make install
+Making install in include
+make[1]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include”
+Making install in osipparser2
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2”
+Making install in headers
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2/headers”
+make[4]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2/headers”
+make[4]: 对“install-exec-am”无需做任何事。
+ /usr/bin/mkdir -p '/usr/local/include/osipparser2/headers'
+ /usr/bin/install -c -m 644 osip_accept.h osip_contact.h osip_mime_version.h osip_accept_encoding.h osip_content_disposition.h osip_proxy_authenticate.h osip_accept_language.h osip_content_encoding.h osip_proxy_authorization.h osip_alert_info.h osip_content_length.h osip_record_route.h osip_allow.h osip_content_type.h osip_route.h osip_authorization.h osip_cseq.h osip_to.h osip_call_info.h osip_error_info.h osip_via.h osip_call_id.h osip_from.h osip_www_authenticate.h osip_header.h osip_authentication_info.h osip_proxy_authentication_info.h '/usr/local/include/osipparser2/headers'
+make[4]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2/headers”
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2/headers”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2”
+make[4]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2”
+make[4]: 对“install-exec-am”无需做任何事。
+ /usr/bin/mkdir -p '/usr/local/include/osipparser2'
+ /usr/bin/install -c -m 644 osip_const.h osip_md5.h osip_parser.h osip_uri.h osip_list.h osip_message.h osip_port.h sdp_message.h osip_headers.h osip_body.h '/usr/local/include/osipparser2'
+make[4]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2”
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include/osipparser2”
+Making install in osip2
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include/osip2”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include/osip2”
+make[3]: 对“install-exec-am”无需做任何事。
+ /usr/bin/mkdir -p '/usr/local/include/osip2'
+ /usr/bin/install -c -m 644 osip.h osip_dialog.h osip_mt.h osip_fifo.h osip_condv.h osip_time.h '/usr/local/include/osip2'
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include/osip2”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include/osip2”
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/include”
+make[3]: 对“install-exec-am”无需做任何事。
+make[3]: 对“install-data-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include”
+make[1]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/include”
+Making install in src
+make[1]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src”
+Making install in osipparser2
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src/osipparser2”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src/osipparser2”
+ /usr/bin/mkdir -p '/usr/local/lib'
+ /bin/bash ../../libtool   --mode=install /usr/bin/install -c   libosipparser2.la '/usr/local/lib'
+libtool: install: /usr/bin/install -c .libs/libosipparser2.so.15.0.1 /usr/local/lib/libosipparser2.so.15.0.1
+libtool: install: (cd /usr/local/lib && { ln -s -f libosipparser2.so.15.0.1 libosipparser2.so.15 || { rm -f libosipparser2.so.15 && ln -s libosipparser2.so.15.0.1 libosipparser2.so.15; }; })
+libtool: install: (cd /usr/local/lib && { ln -s -f libosipparser2.so.15.0.1 libosipparser2.so || { rm -f libosipparser2.so && ln -s libosipparser2.so.15.0.1 libosipparser2.so; }; })
+libtool: install: /usr/bin/install -c .libs/libosipparser2.lai /usr/local/lib/libosipparser2.la
+libtool: install: /usr/bin/install -c .libs/libosipparser2.a /usr/local/lib/libosipparser2.a
+libtool: install: chmod 644 /usr/local/lib/libosipparser2.a
+libtool: install: ranlib /usr/local/lib/libosipparser2.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/sbin" ldconfig -n /usr/local/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/local/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[3]: 对“install-data-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src/osipparser2”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src/osipparser2”
+Making install in osip2
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src/osip2”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src/osip2”
+ /usr/bin/mkdir -p '/usr/local/lib'
+ /bin/bash ../../libtool   --mode=install /usr/bin/install -c   libosip2.la '/usr/local/lib'
+libtool: warning: relinking 'libosip2.la'
+libtool: install: (cd /home/wzi/Downloads/libosip2-5.3.1/src/osip2; /bin/bash "/home/wzi/Downloads/libosip2-5.3.1/libtool"  --silent --tag CC --mode=relink gcc -DENABLE_TRACE -g -O2 -version-info 15:1:0 ../osipparser2/libosipparser2.la -lnsl -lrt -no-undefined -o libosip2.la -rpath /usr/local/lib ict_fsm.lo ist_fsm.lo nict_fsm.lo nist_fsm.lo ict.lo ist.lo nict.lo nist.lo fsm_misc.lo osip.lo osip_transaction.lo osip_event.lo port_fifo.lo osip_dialog.lo osip_time.lo port_sema.lo port_thread.lo port_condv.lo )
+libtool: install: /usr/bin/install -c .libs/libosip2.so.15.0.1T /usr/local/lib/libosip2.so.15.0.1
+libtool: install: (cd /usr/local/lib && { ln -s -f libosip2.so.15.0.1 libosip2.so.15 || { rm -f libosip2.so.15 && ln -s libosip2.so.15.0.1 libosip2.so.15; }; })
+libtool: install: (cd /usr/local/lib && { ln -s -f libosip2.so.15.0.1 libosip2.so || { rm -f libosip2.so && ln -s libosip2.so.15.0.1 libosip2.so; }; })
+libtool: install: /usr/bin/install -c .libs/libosip2.lai /usr/local/lib/libosip2.la
+libtool: install: /usr/bin/install -c .libs/libosip2.a /usr/local/lib/libosip2.a
+libtool: install: chmod 644 /usr/local/lib/libosip2.a
+libtool: install: ranlib /usr/local/lib/libosip2.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/sbin" ldconfig -n /usr/local/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/local/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[3]: 对“install-data-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src/osip2”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src/osip2”
+Making install in test
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src/test”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src/test”
+make[3]: 对“install-exec-am”无需做任何事。
+make[3]: 对“install-data-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src/test”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src/test”
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/src”
+make[3]: 对“install-exec-am”无需做任何事。
+make[3]: 对“install-data-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src”
+make[1]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/src”
+Making install in scripts
+make[1]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/scripts”
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/scripts”
+make[2]: 对“install-exec-am”无需做任何事。
+make[2]: 对“install-data-am”无需做任何事。
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/scripts”
+make[1]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/scripts”
+Making install in help
+make[1]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/help”
+Making install in man
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/help/man”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/help/man”
+make[3]: 对“install-exec-am”无需做任何事。
+ /usr/bin/mkdir -p '/usr/local/share/man/man1'
+ /usr/bin/install -c -m 644 osip.1 '/usr/local/share/man/man1'
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/help/man”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/help/man”
+Making install in doxygen
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/help/doxygen”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/help/doxygen”
+make[3]: 对“install-exec-am”无需做任何事。
+make[3]: 对“install-data-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/help/doxygen”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/help/doxygen”
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/help”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/help”
+make[3]: 对“install-exec-am”无需做任何事。
+make[3]: 对“install-data-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/help”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/help”
+make[1]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/help”
+Making install in platform
+make[1]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/platform”
+Making install in rpm
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/platform/rpm”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/platform/rpm”
+make[3]: 对“install-exec-am”无需做任何事。
+make[3]: 对“install-data-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/platform/rpm”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/platform/rpm”
+Making install in vsnet
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/platform/vsnet”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/platform/vsnet”
+make[3]: 对“install-exec-am”无需做任何事。
+make[3]: 对“install-data-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/platform/vsnet”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/platform/vsnet”
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/platform”
+make[3]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1/platform”
+make[3]: 对“install-exec-am”无需做任何事。
+make[3]: 对“install-data-am”无需做任何事。
+make[3]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/platform”
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/platform”
+make[1]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1/platform”
+make[1]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1”
+make[2]: 进入目录“/home/wzi/Downloads/libosip2-5.3.1”
+make[2]: 对“install-exec-am”无需做任何事。
+ /usr/bin/mkdir -p '/usr/local/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libosip2.pc '/usr/local/lib/pkgconfig'
+make[2]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1”
+make[1]: 离开目录“/home/wzi/Downloads/libosip2-5.3.1”
+root@wzi-virtual-machine:/home/wzi/Downloads/libosip2-5.3.1# cd ..
+root@wzi-virtual-machine:/home/wzi/Downloads# cd libexosip2-5.3.0
+root@wzi-virtual-machine:/home/wzi/Downloads/libexosip2-5.3.0# cd ..
+root@wzi-virtual-machine:/home/wzi/Downloads# gcc uac.c -o uac -losip2 -leXosip2 -lpthread
+cc1: fatal error: uac.c: 没有那个文件或目录
+compilation terminated.
+root@wzi-virtual-machine:/home/wzi/Downloads# dmesg |grep | 'qxl'
+用法: grep [选项]... 模式 [文件]...
+尝试使用 'grep --help' 来获得更多信息。
+找不到命令“qxl”，您的意思是：
+  command 'qdl' from snap qdl (1.0-46-g13681fc)
+  command 'cxl' from deb ndctl (72.1-1)
+  command 'axl' from deb afnix (3.5.0-3)
+  command 'qxw' from deb qxw (20140331-1.1)
+  command 'qml' from deb qtchooser (66-2build1)
+  command 'xl' from deb xen-utils-common (4.16.0-1~ubuntu2)
+See 'snap info <snapname>' for additional versions.
+root@wzi-virtual-machine:/home/wzi/Downloads# cd /
+root@wzi-virtual-machine:/# dmesg |grep | 'qxl'
+用法: grep [选项]... 模式 [文件]...
+尝试使用 'grep --help' 来获得更多信息。
+找不到命令“qxl”，您的意思是：
+  command 'qdl' from snap qdl (1.0-46-g13681fc)
+  command 'qxw' from deb qxw (20140331-1.1)
+  command 'qml' from deb qtchooser (66-2build1)
+  command 'cxl' from deb ndctl (72.1-1)
+  command 'xl' from deb xen-utils-common (4.16.0-1~ubuntu2)
+  command 'axl' from deb afnix (3.5.0-3)
+See 'snap info <snapname>' for additional versions.
+root@wzi-virtual-machine:/# dmesg |grep 'qxl'
+root@wzi-virtual-machine:/# 
