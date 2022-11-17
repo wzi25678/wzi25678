@@ -1,0 +1,16 @@
+请实现一个算法，翻转一个给定的字符串.
+测试样例：
+“This is nowcoder”
+返回：“redocwon si sihT”
+
+public static String reverseString(String s){
+    int len=s.length();
+    char[] out=new char[len];
+    for (int i = 0; i < len; i++) {
+        out[len-i-1]=s.charAt(i);
+    }
+    return new String(out);
+}
+public static String reverseString1(String s) {
+    return new StringBuilder(s).reverse().toString();
+}
