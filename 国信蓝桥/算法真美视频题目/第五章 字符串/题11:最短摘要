@@ -1,0 +1,74 @@
+给定一段产品的英文描述，包含M个英文字母，每个英文单词以空格分隔，无其他标点符号；再给定N个英文单词关键字，请说明思路并编程实现方法String extractSummary(String description,String[] key words)
+
+目标是找出此产品描述中包含N个关键字（每个关键词至少出现一次）的长度最短的子串，作为产品简介输出。
+
+将问题可以划分成包含关键字那段，最后一个，先确定一个最小的包含最后一个的，对应pEnd++，然后固定pEnd，pBegin在满足isAllExisted不断右移，更新最小长度。pBegin右移到不满足isAllExisted时，pEnd右移，当满足isAllExisted时停下，pBegin在满足isAllExisted不断右移，更新最小长度
+
+
+
+import java.util.*;
+
+public class _最短摘要 {
+    public static boolean isAllExisted(Map<String, Integer> keywordCount) {
+        for (Integer i:keywordCount.values()) {
+            if(i==0)
+                return false;
+        }
+        return  true;
+    }
+    public  static String extractSummary(String description,String[] keywords){
+        String[] words=description.split(" ");
+        List<String> descriptions=new ArrayList<String>();
+        for (int i = 0; i <words.length ; i++) {//去处空格，放到descriptions中
+            if(words[i].length()!=0){
+                descriptions.add(words[i]);
+            }
+        }
+        Map<String,Integer> keywordCount=new HashMap<String, Integer>();
+        for (String s:keywords) {
+            keywordCount.put(s,0);
+        }
+        int N=descriptions.size();
+        int nTargetLen = N + 1;
+        int pBegin=0;
+        int pEnd=0;
+        int nAbstractBegin=0;
+        int nAbstractEnd=0;
+        while (true){
+            while (!isAllExisted(keywordCount)&&pEnd<N){
+                if(keywordCount.get(descriptions.get(pEnd))!=null){//pEnd如果是关键词就计数+1
+                    int a=keywordCount.get(descriptions.get(pEnd));
+                    a++;
+                    keywordCount.put(descriptions.get(pEnd),a);
+                }
+                pEnd++;
+            }
+            while (isAllExisted(keywordCount)){
+                if(pEnd-pBegin<nTargetLen){//发现距离小的更新
+                    nTargetLen=pEnd-pBegin;
+                    nAbstractBegin=pBegin;
+                    nAbstractEnd=pEnd-1;//由于上次循环多加了pEnd，忘记-1
+                }
+                if(keywordCount.get(descriptions.get(pBegin))!=null){//pBegin如果是关键词就计数-1
+                    int a=keywordCount.get(descriptions.get(pBegin));
+                    a--;
+                    keywordCount.put(descriptions.get(pBegin),a);
+                }
+                pBegin++;
+            }
+            if(pEnd>=N){
+                break;
+            }
+        }
+        String summary=new String();//nAbstractBegin到nAbstractEnd返回
+        for (int i = nAbstractBegin; i <=nAbstractEnd ; i++) {
+            summary=summary+descriptions.get(i)+" ";
+        }
+        return summary;
+    }
+    public static void main(String[] args) {
+        String description="   hello  software   hello test  world spring sun flower  hello";
+        String[] keywords = {"hello","world"};
+        System.out.println(extractSummary(description,keywords));
+    }
+}
