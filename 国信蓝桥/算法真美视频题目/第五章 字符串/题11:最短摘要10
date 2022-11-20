@@ -1,0 +1,66 @@
+import java.util.*;
+
+public class _最短摘要 {
+    public static boolean isAllExisted(Map<String, Integer> keywordCount) {
+        for (Integer i:keywordCount.values()) {
+            if(i==0)
+                return false;
+        }
+        return  true;
+    }
+    public  static String extractSummary(String description,String[] keywords){
+        String[] words=description.split(" ");
+        List<String> descriptions=new ArrayList<String>();
+        for (int i = 0; i <words.length ; i++) {//去处空格，放到descriptions中
+            if(words[i].length()!=0){
+                descriptions.add(words[i]);
+            }
+        }
+        Map<String,Integer> keywordCount=new HashMap<String, Integer>();
+        for (String s:keywords) {
+            keywordCount.put(s,0);
+        }
+        int N=descriptions.size();
+        int nTargetLen = N + 1;
+        int pBegin=0;
+        int pEnd=0;
+        int nAbstractBegin=0;
+        int nAbstractEnd=0;
+        while (true){
+            while (!isAllExisted(keywordCount)&&pEnd<N){
+                if(keywordCount.get(descriptions.get(pEnd))!=null){//pEnd如果是关键词就计数+1
+                    int a=keywordCount.get(descriptions.get(pEnd));
+                    a++;
+                    keywordCount.put(descriptions.get(pEnd),a);
+                }
+                pEnd++;
+            }
+            while (isAllExisted(keywordCount)){
+                if(pEnd-pBegin<nTargetLen){//发现距离小的更新
+                    nTargetLen=pEnd-pBegin;
+                    nAbstractBegin=pBegin;
+                    nAbstractEnd=pEnd-1;//由于上次循环多加了pEnd，忘记-1
+                }
+                if(keywordCount.get(descriptions.get(pBegin))!=null){//pBegin如果是关键词就计数-1
+                    int a=keywordCount.get(descriptions.get(pBegin));
+                    a--;
+                    keywordCount.put(descriptions.get(pBegin),a);
+                }
+                pBegin++;
+            }
+            if(pEnd>=N){
+                break;
+            }
+        }
+        String summary=new String();//nAbstractBegin到nAbstractEnd返回
+        for (int i = nAbstractBegin; i <=nAbstractEnd ; i++) {
+            summary=summary+descriptions.get(i)+" ";
+        }
+        return summary;
+    }
+    public static void main(String[] args) {
+        String description="   hello  software   hello test  world spring sun flower  hello";
+        String[] keywords = {"hello","world"};
+        System.out.println(extractSummary(description,keywords));
+    }
+}
