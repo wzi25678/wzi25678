@@ -1,0 +1,19 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.137.174:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Sun Nov 20 10:23:37 2022 from typora-wzi.mshome.net
+[atguigu@hadoop100 ~]$ Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(hadoop100) at 16:53:07.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
