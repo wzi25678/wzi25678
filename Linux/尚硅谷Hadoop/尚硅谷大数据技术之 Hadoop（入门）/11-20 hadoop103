@@ -1,0 +1,252 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.137.225:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Sun Nov 20 15:32:18 2022 from typora-wzi.mshome.net
+[root@hadoop103 ~]# ssh 192.168.137.35
+The authenticity of host '192.168.137.35 (192.168.137.35)' can't be established.
+ECDSA key fingerprint is SHA256:QyoOncmBWLuF2KcOhGGdgVhx22M9H7ixDRLIUfMla3c.
+ECDSA key fingerprint is MD5:8a:a1:7c:20:7c:b8:7d:8f:ba:fa:85:27:e1:18:b7:17.
+Are you sure you want to continue connecting (yes/no)? n
+Please type 'yes' or 'no': n
+Please type 'yes' or 'no': n
+Please type 'yes' or 'no': n
+Please type 'yes' or 'no': 
+Host key verification failed.
+[root@hadoop103 ~]# cat 
+anaconda-ks.cfg       .bashrc               .dbus/                .local/               .viminfo              视频/                 音乐/                 
+.bash_history         .cache/               .esd_auth             .mozilla/             .Xauthority           图片/                 桌面/                 
+.bash_logout          .config/              .ICEauthority         .ssh/                 公共/                 文档/                 
+.bash_profile         .cshrc                initial-setup-ks.cfg  .tcshrc               模板/                 下载/                 
+[root@hadoop103 ~]# cat 
+anaconda-ks.cfg       .bashrc               .dbus/                .local/               .viminfo              视频/                 音乐/                 
+.bash_history         .cache/               .esd_auth             .mozilla/             .Xauthority           图片/                 桌面/                 
+.bash_logout          .config/              .ICEauthority         .ssh/                 公共/                 文档/                 
+.bash_profile         .cshrc                initial-setup-ks.cfg  .tcshrc               模板/                 下载/                 
+[root@hadoop103 ~]# cd .ssh
+[root@hadoop103 .ssh]# ll
+总用量 0
+[root@hadoop103 .ssh]# ll -al
+总用量 4
+drwx------.  2 root root    6 11月 20 16:37 .
+dr-xr-x---. 16 root root 4096 11月 20 16:37 ..
+[root@hadoop103 .ssh]# ll -al
+总用量 4
+drwx------.  2 root root    6 11月 20 16:37 .
+dr-xr-x---. 16 root root 4096 11月 20 16:37 ..
+[root@hadoop103 .ssh]# ll -al
+总用量 4
+drwx------.  2 root root    6 11月 20 16:37 .
+dr-xr-x---. 16 root root 4096 11月 20 16:37 ..
+[root@hadoop103 .ssh]# ssh-key
+ssh-keygen   ssh-keyscan  
+[root@hadoop103 .ssh]# ssh-key
+ssh-keygen   ssh-keyscan  
+[root@hadoop103 .ssh]# ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa): 123^H^H^H
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in .23
+Your public key has been saved in .pub.
+The key fingerprint is:
+SHA256:m/yfBER2RT43+QN7yUylQFND0LAwpy2+C7IkPKV3Y/U root@hadoop103
+The key's randomart image is:
++---[RSA 2048]----+
+|          =.OO* .|
+|         o B =.oo|
+|          + o.++.|
+|         o .  *o+|
+|      . S +  . *.|
+|   . o . + +  . .|
+|    = + O . E    |
+|     = = + o .   |
+|      .   o.o    |
++----[SHA256]-----+
+[root@hadoop103 .ssh]# ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:drL/qusOsmjB8CCHRm1H9jxsCQUZzniKh7gP99J04AQ root@hadoop103
+The key's randomart image is:
++---[RSA 2048]----+
+|  . .*=.         |
+| .Eo=o= .        |
+|...o.+ B         |
+|*.+ = . .        |
+|+O = .  S .      |
+| .= o .. +       |
+|o .+... .        |
+| +oo.o . .       |
+| .o.o  o=ooo.    |
++----[SHA256]-----+
+[root@hadoop103 .ssh]# ssh-copy-id 192.168.137.35
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/root/.ssh/id_rsa.pub"
+The authenticity of host '192.168.137.35 (192.168.137.35)' can't be established.
+ECDSA key fingerprint is SHA256:QyoOncmBWLuF2KcOhGGdgVhx22M9H7ixDRLIUfMla3c.
+ECDSA key fingerprint is MD5:8a:a1:7c:20:7c:b8:7d:8f:ba:fa:85:27:e1:18:b7:17.
+Are you sure you want to continue connecting (yes/no)? 12^H^Hq^C
+[root@hadoop103 .ssh]# ssh-copy-id 192.168.137.35
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/root/.ssh/id_rsa.pub"
+The authenticity of host '192.168.137.35 (192.168.137.35)' can't be established.
+ECDSA key fingerprint is SHA256:QyoOncmBWLuF2KcOhGGdgVhx22M9H7ixDRLIUfMla3c.
+ECDSA key fingerprint is MD5:8a:a1:7c:20:7c:b8:7d:8f:ba:fa:85:27:e1:18:b7:17.
+Are you sure you want to continue connecting (yes/no)? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+root@192.168.137.35's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh '192.168.137.35'"
+and check to make sure that only the key(s) you wanted were added.
+
+[root@hadoop103 .ssh]# ssh-copy-id 192.168.137.225
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/root/.ssh/id_rsa.pub"
+The authenticity of host '192.168.137.225 (192.168.137.225)' can't be established.
+ECDSA key fingerprint is SHA256:QyoOncmBWLuF2KcOhGGdgVhx22M9H7ixDRLIUfMla3c.
+ECDSA key fingerprint is MD5:8a:a1:7c:20:7c:b8:7d:8f:ba:fa:85:27:e1:18:b7:17.
+Are you sure you want to continue connecting (yes/no)? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+root@192.168.137.225's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh '192.168.137.225'"
+and check to make sure that only the key(s) you wanted were added.
+
+[root@hadoop103 .ssh]# ssh-copy-id 192.168.137.69
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/root/.ssh/id_rsa.pub"
+The authenticity of host '192.168.137.69 (192.168.137.69)' can't be established.
+ECDSA key fingerprint is SHA256:QyoOncmBWLuF2KcOhGGdgVhx22M9H7ixDRLIUfMla3c.
+ECDSA key fingerprint is MD5:8a:a1:7c:20:7c:b8:7d:8f:ba:fa:85:27:e1:18:b7:17.
+Are you sure you want to continue connecting (yes/no)? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+root@192.168.137.69's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh '192.168.137.69'"
+and check to make sure that only the key(s) you wanted were added.
+
+[root@hadoop103 .ssh]# ll -al
+总用量 28
+drwx------.  2 root root  112 11月 20 16:45 .
+dr-xr-x---. 16 root root 4096 11月 20 16:37 ..
+-rw-------.  1 root root 1675 11月 20 16:44 123???
+-rw-r--r--.  1 root root  396 11月 20 16:44 123???.pub
+-rw-------.  1 root root  792 11月 20 16:49 authorized_keys
+-rw-------.  1 root root 1675 11月 20 16:44 id_rsa
+-rw-r--r--.  1 root root  396 11月 20 16:44 id_rsa.pub
+-rw-r--r--.  1 root root  529 11月 20 16:45 known_hosts
+[root@hadoop103 .ssh]# cd
+[root@hadoop103 ~]# ll -al
+总用量 56
+dr-xr-x---. 16 root root 4096 11月 20 16:37 .
+dr-xr-xr-x. 17 root root  224 11月  4 19:48 ..
+-rw-------.  1 root root 1989 11月  4 19:49 anaconda-ks.cfg
+-rw-------.  1 root root  798 11月 20 16:48 .bash_history
+-rw-r--r--.  1 root root   18 12月 29 2013 .bash_logout
+-rw-r--r--.  1 root root  176 12月 29 2013 .bash_profile
+-rw-r--r--.  1 root root  176 12月 29 2013 .bashrc
+drwx------. 15 root root 4096 11月  5 17:51 .cache
+drwxr-xr-x. 14 root root  261 11月  4 19:58 .config
+-rw-r--r--.  1 root root  100 12月 29 2013 .cshrc
+drwx------.  3 root root   25 11月  4 19:56 .dbus
+-rw-------.  1 root root   16 11月  4 19:56 .esd_auth
+-rw-------.  1 root root 2480 11月 20 11:01 .ICEauthority
+-rw-r--r--.  1 root root 2037 11月  4 19:56 initial-setup-ks.cfg
+drwx------.  3 root root   19 11月  4 19:56 .local
+drwx------.  5 root root   66 11月  5 15:32 .mozilla
+drwx------.  2 root root  112 11月 20 16:45 .ssh
+-rw-r--r--.  1 root root  129 12月 29 2013 .tcshrc
+-rw-------.  1 root root 4032 11月 20 11:01 .viminfo
+-rw-------.  1 root root  220 11月 20 16:34 .Xauthority
+drwxr-xr-x.  2 root root    6 11月  4 19:56 公共
+drwxr-xr-x.  2 root root    6 11月  4 19:56 模板
+drwxr-xr-x.  2 root root    6 11月  4 19:56 视频
+drwxr-xr-x.  2 root root    6 11月  4 19:56 图片
+drwxr-xr-x.  2 root root    6 11月  4 19:56 文档
+drwxr-xr-x.  2 root root    6 11月  4 19:56 下载
+drwxr-xr-x.  2 root root    6 11月  4 19:56 音乐
+drwxr-xr-x.  2 root root    6 11月  4 19:56 桌面
+[root@hadoop103 ~]# ll -al
+总用量 56
+dr-xr-x---. 16 root root 4096 11月 20 16:37 .
+dr-xr-xr-x. 17 root root  224 11月  4 19:48 ..
+-rw-------.  1 root root 1989 11月  4 19:49 anaconda-ks.cfg
+-rw-------.  1 root root  798 11月 20 16:48 .bash_history
+-rw-r--r--.  1 root root   18 12月 29 2013 .bash_logout
+-rw-r--r--.  1 root root  176 12月 29 2013 .bash_profile
+-rw-r--r--.  1 root root  176 12月 29 2013 .bashrc
+drwx------. 15 root root 4096 11月  5 17:51 .cache
+drwxr-xr-x. 14 root root  261 11月  4 19:58 .config
+-rw-r--r--.  1 root root  100 12月 29 2013 .cshrc
+drwx------.  3 root root   25 11月  4 19:56 .dbus
+-rw-------.  1 root root   16 11月  4 19:56 .esd_auth
+-rw-------.  1 root root 2480 11月 20 11:01 .ICEauthority
+-rw-r--r--.  1 root root 2037 11月  4 19:56 initial-setup-ks.cfg
+drwx------.  3 root root   19 11月  4 19:56 .local
+drwx------.  5 root root   66 11月  5 15:32 .mozilla
+drwx------.  2 root root  112 11月 20 16:45 .ssh
+-rw-r--r--.  1 root root  129 12月 29 2013 .tcshrc
+-rw-------.  1 root root 4032 11月 20 11:01 .viminfo
+-rw-------.  1 root root  220 11月 20 16:34 .Xauthority
+drwxr-xr-x.  2 root root    6 11月  4 19:56 公共
+drwxr-xr-x.  2 root root    6 11月  4 19:56 模板
+drwxr-xr-x.  2 root root    6 11月  4 19:56 视频
+drwxr-xr-x.  2 root root    6 11月  4 19:56 图片
+drwxr-xr-x.  2 root root    6 11月  4 19:56 文档
+drwxr-xr-x.  2 root root    6 11月  4 19:56 下载
+drwxr-xr-x.  2 root root    6 11月  4 19:56 音乐
+drwxr-xr-x.  2 root root    6 11月  4 19:56 桌面
+[root@hadoop103 ~]# cd /home/atguigu/
+[root@hadoop103 atguigu]# ll -al
+总用量 48
+drwx------. 17 atguigu atguigu 4096 11月 20 16:49 .
+drwxr-xr-x.  3 root    root      21 11月  4 19:48 ..
+-rw-rw-r--.  1 atguigu atguigu  435 11月  5 14:56 1
+drwxrwxr-x.  2 atguigu atguigu    6 11月 20 15:32 103
+-rw-rw-r--.  1 atguigu atguigu   19 11月 20 15:20 a.txt
+-rw-------.  1 atguigu atguigu  693 11月 20 16:36 .bash_history
+-rw-r--r--.  1 atguigu atguigu   18 4月   1 2020 .bash_logout
+-rw-r--r--.  1 atguigu atguigu  193 4月   1 2020 .bash_profile
+-rw-r--r--.  1 atguigu atguigu  231 4月   1 2020 .bashrc
+drwx------. 15 atguigu atguigu 4096 11月 20 10:13 .cache
+drwxr-xr-x. 14 atguigu atguigu  261 11月  5 14:39 .config
+drwx------.  3 atguigu atguigu   25 11月  5 14:38 .dbus
+-rw-------.  1 atguigu atguigu   16 11月  5 14:38 .esd_auth
+-rw-------.  1 atguigu atguigu  620 11月 20 10:13 .ICEauthority
+drwx------.  3 atguigu atguigu   19 11月  5 14:38 .local
+drwxr-xr-x.  4 atguigu atguigu   39 11月  4 19:42 .mozilla
+drwx------.  2 atguigu atguigu   48 11月 20 16:40 .ssh
+-rw-------.  1 atguigu atguigu 1223 11月 20 10:19 .viminfo
+-rw-------.  1 atguigu atguigu   55 11月 20 10:23 .Xauthority
+drwxr-xr-x.  2 atguigu atguigu    6 11月  5 14:38 公共
+drwxr-xr-x.  2 atguigu atguigu    6 11月  5 14:38 模板
+drwxr-xr-x.  2 atguigu atguigu    6 11月  5 14:38 视频
+drwxr-xr-x.  2 atguigu atguigu    6 11月  5 14:38 图片
+drwxr-xr-x.  2 atguigu atguigu    6 11月  5 14:38 文档
+drwxr-xr-x.  2 atguigu atguigu    6 11月  5 14:38 下载
+drwxr-xr-x.  2 atguigu atguigu    6 11月  5 14:38 音乐
+drwxr-xr-x.  2 atguigu atguigu    6 11月  5 14:38 桌面
+[root@hadoop103 atguigu]# shutdown -h nowConnection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(hadoop103（192.168.137.225）) at 16:52:48.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
