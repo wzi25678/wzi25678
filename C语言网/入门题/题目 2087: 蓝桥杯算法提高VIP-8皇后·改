@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Main {
+    static int n=8;
+    static int max=Integer.MIN_VALUE;
+    static int ans;
+    static int sum=0;
+    static int[][] a=new int[3][20];
+    static int[][] b=new int[10][10];
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        for(int i=0;i<8;i++)
+            for(int j=0;j<8;j++)
+                b[i][j]=sc.nextInt();
+        next(0);
+        System.out.print(max);
+    }
+    static void next(int cur){
+        if(cur==8)    {
+            if(max<sum)    max=sum;
+            //ans++;
+        }
+        else
+            for(int i=0;i<8;i++){  
+                if(a[0][i]==0 && a[1][cur-i+n]==0 && a[2][cur+i]==0){
+                    a[0][i]=a[1][cur-i+n]=a[2][cur+i]=1;
+                    sum+=b[cur][i];
+                    next(cur+1);
+                    a[0][i]=a[1][cur-i+n]=a[2][cur+i]=0;
+                    sum-=b[cur][i];
+                }
+            }
+    }
+}
