@@ -1,0 +1,40 @@
+package 入门题;
+
+import java.util.Scanner;
+
+/**题目 2268: 蓝桥杯2016年第七届真题-密码脱落
+ * X星球的考古学家发现了一批古代留下来的密码。
+ * 这些密码是由A、B、C、D 四种植物的种子串成的序列。
+ * 仔细分析发现，这些密码串当初应该是前后对称的（也就是我们说的镜像串）。
+ * 由于年代久远，其中许多种子脱落了，因而可能会失去镜像的特征。
+ * 你的任务是：
+ * 给定一个现在看到的密码串，计算一下从当初的状态，它要至少脱落多少个种子，才可能会变成现在的样子
+ *
+ *
+ * 输入格式
+ * 输入一行，表示现在看到的密码串（长度不大于1000）
+ * 输出格式
+ * 要求输出一个正整数，表示至少脱落了多少个种子。
+ *
+ */
+public class Main {
+    static int dp[][] = new int[1000][1000];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s  = sc.next();
+        char ch[] = s.toCharArray();
+        int n = s.length();
+        for (int i=0;i<n;i++){
+            for (int j=0;j<n;j++){
+                if (ch[i]==ch[n-j-1]){
+                    dp[i+1][j+1] = dp[i][j] + 1;
+                }
+                else {
+                    dp[i+1][j+1] = Math.max(dp[i+1][j],dp[i][j+1]);
+                }
+            }//end for
+        }//end for
+        System.out.println(n-dp[n][n]);
+    }
+}
