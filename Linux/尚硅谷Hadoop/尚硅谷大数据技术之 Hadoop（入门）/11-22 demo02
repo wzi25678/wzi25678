@@ -1,0 +1,242 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.137.225:22...
+Could not connect to '192.168.137.225' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.137.225:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Mon Nov 21 19:07:24 2022
+[root@hadoop103 ~]# vim /etc/hosts
+[root@hadoop103 ~]# start-yarn.sh
+Starting resourcemanager
+ERROR: Attempting to operate on yarn resourcemanager as root
+ERROR: but there is no YARN_RESOURCEMANAGER_USER defined. Aborting operation.
+Starting nodemanagers
+ERROR: Attempting to operate on yarn nodemanager as root
+ERROR: but there is no YARN_NODEMANAGER_USER defined. Aborting operation.
+[root@hadoop103 ~]# su atguigu
+[atguigu@hadoop103 root]$ cd
+[atguigu@hadoop103 ~]$ start-yarn.sh
+Starting resourcemanager
+Starting nodemanagers
+192.168.137.35: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.69: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.225: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+[atguigu@hadoop103 ~]$ sbin/start-yarn.sh 
+bash: sbin/start-yarn.sh: 没有那个文件或目录
+[atguigu@hadoop103 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop103 hadoop-3.1.3]$ sbin
+sbin
+[atguigu@hadoop103 hadoop-3.1.3]$ sbin/
+distribute-exclude.sh    httpfs.sh                start-all.cmd            start-dfs.sh             stop-all.cmd             stop-dfs.sh              workers.sh
+FederationStateStore/    kms.sh                   start-all.sh             start-secure-dns.sh      stop-all.sh              stop-secure-dns.sh       yarn-daemon.sh
+hadoop-daemon.sh         mr-jobhistory-daemon.sh  start-balancer.sh        start-yarn.cmd           stop-balancer.sh         stop-yarn.cmd            yarn-daemons.sh
+hadoop-daemons.sh        refresh-namenodes.sh     start-dfs.cmd            start-yarn.sh            stop-dfs.cmd             stop-yarn.sh             
+[atguigu@hadoop103 hadoop-3.1.3]$ sbin/start-yarn.sh
+Starting resourcemanager
+resourcemanager is running as process 2518.  Stop it first.
+Starting nodemanagers
+192.168.137.225: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.69: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.35: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+[atguigu@hadoop103 hadoop-3.1.3]$ sbin/st
+start-all.cmd        start-balancer.sh    start-dfs.sh         start-yarn.cmd       stop-all.cmd         stop-balancer.sh     stop-dfs.sh          stop-yarn.cmd
+start-all.sh         start-dfs.cmd        start-secure-dns.sh  start-yarn.sh        stop-all.sh          stop-dfs.cmd         stop-secure-dns.sh   stop-yarn.sh
+[atguigu@hadoop103 hadoop-3.1.3]$ sbin/stop-yarn.sh
+Stopping nodemanagers
+192.168.137.35: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.225: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.69: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+Stopping resourcemanager
+[atguigu@hadoop103 hadoop-3.1.3]$ mapred --daemen stop hostpryserver
+ERROR: --daemen is not COMMAND nor fully qualified CLASSNAME.
+Usage: mapred [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+ or    mapred [OPTIONS] CLASSNAME [CLASSNAME OPTIONS]
+  where CLASSNAME is a user-provided Java class
+
+  OPTIONS is none or any of:
+
+--config dir   Hadoop config directory
+--debug        turn on shell script debug mode
+--help         usage information
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+frameworkuploader   mapreduce framework upload
+hsadmin             job history server admin interface
+
+    Client Commands:
+
+archive             create a Hadoop archive
+archive-logs        combine aggregated logs into hadoop archives
+classpath           prints the class path needed for running mapreduce subcommands
+distcp              copy file or directories recursively
+envvars             display computed Hadoop environment variables
+job                 manipulate MapReduce jobs
+minicluster         CLI MiniCluster
+pipes               run a Pipes job
+queue               get information regarding JobQueues
+sampler             sampler
+streaming           launch a mapreduce streaming job
+version             print the version
+
+    Daemon Commands:
+
+historyserver       run job history servers as a standalone daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[atguigu@hadoop103 hadoop-3.1.3]$ cd
+[atguigu@hadoop103 ~]$ start
+start-all.cmd         start-balancer.sh     start-dfs.sh          start-secure-dns.sh   startx                start-yarn.sh         
+start-all.sh          start-dfs.cmd         start-pulseaudio-x11  start-statd           start-yarn.cmd        
+[atguigu@hadoop103 ~]$ start
+start-all.cmd         start-balancer.sh     start-dfs.sh          start-secure-dns.sh   startx                start-yarn.sh         
+start-all.sh          start-dfs.cmd         start-pulseaudio-x11  start-statd           start-yarn.cmd        
+[atguigu@hadoop103 ~]$ start-yarn.sh
+Starting resourcemanager
+Starting nodemanagers
+192.168.137.69: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.35: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.225: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+[atguigu@hadoop103 ~]$ start-dfs.sh;start-yarn.sh
+Starting namenodes on [hadoop102]
+hadoop102: Warning: Permanently added 'hadoop102' (ECDSA) to the list of known hosts.
+hadoop102: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+Starting datanodes
+192.168.137.35: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.69: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.225: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+Starting secondary namenodes [hadoop104]
+hadoop104: Warning: Permanently added 'hadoop104' (ECDSA) to the list of known hosts.
+hadoop104: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+Starting resourcemanager
+resourcemanager is running as process 3969.  Stop it first.
+Starting nodemanagers
+192.168.137.69: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.35: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.225: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+[atguigu@hadoop103 ~]$ sudo systemctl stop ntpd
+[atguigu@hadoop103 ~]$ sudo systemctl disable ntpd
+[atguigu@hadoop103 ~]$ sudo cr
+cracklib-check        cracklib-packer       crash                 create-cracklib-dict  crlutil               crontab               
+cracklib-format       cracklib-unpacker     crda                  createrepo            crond                 cryptsetup            
+[atguigu@hadoop103 ~]$ sudo crontab -e
+no crontab for root - using an empty one
+crontab: no changes made to crontab
+[atguigu@hadoop103 ~]$ cd /opt/
+module/   software/ 
+[atguigu@hadoop103 ~]$ cd /opt/
+module/   software/ 
+[atguigu@hadoop103 ~]$ cd /opt/
+module/   software/ 
+[atguigu@hadoop103 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop103 hadoop-3.1.3]$ sbin/start-yarn.sh 
+Starting resourcemanager
+resourcemanager is running as process 3969.  Stop it first.
+Starting nodemanagers
+192.168.137.225: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.69: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+192.168.137.35: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+[atguigu@hadoop103 hadoop-3.1.3]$ jps
+3969 ResourceManager
+8074 Jps
+3084 NodeManager
+[atguigu@hadoop103 hadoop-3.1.3]$ sudo  ~/ssh/authorized_keys
+sudo: /home/atguigu/ssh/authorized_keys：找不到命令
+[atguigu@hadoop103 hadoop-3.1.3]$ cd /home/atguigu/.ssh/
+[atguigu@hadoop103 .ssh]$ ssh-key
+ssh-keygen   ssh-keyscan  
+[atguigu@hadoop103 .ssh]$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/atguigu/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/atguigu/.ssh/id_rsa.
+Your public key has been saved in /home/atguigu/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:UkJ3I1EeG4L6XvWlH1ydQo6uchonNNtP/nORbIeQmTQ atguigu@hadoop103
+The key's randomart image is:
++---[RSA 2048]----+
+|      ..=o*      |
+|     ... = =E.   |
+|     .. . o.+=  o|
+|    .  o  ..=o..o|
+|     ..oS... =oo.|
+|      o.=  .o +=.|
+|     . = o.. ...o|
+|      ..+o+  ... |
+|       .+  o..o  |
++----[SHA256]-----+
+[atguigu@hadoop103 .ssh]$ ssh-copy-id hadoop104
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/atguigu/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+atguigu@hadoop104's password: 
+Permission denied, please try again.
+atguigu@hadoop104's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'hadoop104'"
+and check to make sure that only the key(s) you wanted were added.
+
+[atguigu@hadoop103 .ssh]$ ssh-copy-id hadoop103
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/atguigu/.ssh/id_rsa.pub"
+The authenticity of host 'hadoop103 (192.168.137.225)' can't be established.
+ECDSA key fingerprint is SHA256:QyoOncmBWLuF2KcOhGGdgVhx22M9H7ixDRLIUfMla3c.
+ECDSA key fingerprint is MD5:8a:a1:7c:20:7c:b8:7d:8f:ba:fa:85:27:e1:18:b7:17.
+Are you sure you want to continue connecting (yes/no)? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+atguigu@hadoop103's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'hadoop103'"
+and check to make sure that only the key(s) you wanted were added.
+
+[atguigu@hadoop103 .ssh]$ ssh-copy-id hadoop102
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/atguigu/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+atguigu@hadoop102's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'hadoop102'"
+and check to make sure that only the key(s) you wanted were added.
+
+[atguigu@hadoop103 .ssh]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop103 hadoop-3.1.3]$ sbin
+sbin
+[atguigu@hadoop103 hadoop-3.1.3]$ sbin
+sbin
+[atguigu@hadoop103 hadoop-3.1.3]$ sbin/
+distribute-exclude.sh    httpfs.sh                start-all.cmd            start-dfs.sh             stop-all.cmd             stop-dfs.sh              workers.sh
+FederationStateStore/    kms.sh                   start-all.sh             start-secure-dns.sh      stop-all.sh              stop-secure-dns.sh       yarn-daemon.sh
+hadoop-daemon.sh         mr-jobhistory-daemon.sh  start-balancer.sh        start-yarn.cmd           stop-balancer.sh         stop-yarn.cmd            yarn-daemons.sh
+hadoop-daemons.sh        refresh-namenodes.sh     start-dfs.cmd            start-yarn.sh            stop-dfs.cmd             stop-yarn.sh             
+[atguigu@hadoop103 hadoop-3.1.3]$ sbin/start-yarn.sh 
+Starting resourcemanager
+resourcemanager is running as process 3969.  Stop it first.
+Starting nodemanagers
+192.168.137.69: nodemanager is running as process 2723.  Stop it first.
+192.168.137.225: nodemanager is running as process 3084.  Stop it first.
+192.168.137.35: nodemanager is running as process 3607.  Stop it first.
+[atguigu@hadoop103 hadoop-3.1.3]$ jps
+3969 ResourceManager
+8785 Jps
+3084 NodeManager
+[atguigu@hadoop103 hadoop-3.1.3]$ 
