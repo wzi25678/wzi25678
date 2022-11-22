@@ -1,0 +1,43 @@
+#include<stdio.h>
+int main()
+{
+    int n,a,i,j,k,path[201][201]={0},number[201]={0},count=0;
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)//输入数据，并生成初始地图 
+    {
+        while(1)
+        {
+            scanf("%d",&a);
+            if(a==0)
+            break;
+            else
+            path[i][a]=1;//储存联系 
+        }
+    }
+    for(i=1;i<=n;i++)//程序核心，弗洛伊德算法，用来升级关系图 
+    {
+        for(j=1;j<=n;j++)
+        {
+            for(k=1;k<=n;k++)
+            {
+                if((path[i][k]==1)&&(path[k][j]==1))
+                path[i][j]=1;
+            }
+        }
+    }
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=n;j++)
+        {
+            if(i!=j&&(path[i][j]==1)&&(number[i]!=1))//如果number[i]==1，在之前地图一定会更新到其他的位置。 
+            number[j]=1; //为1表示这个人可以通过其他人被教会，无关紧要 
+        }
+    } 
+    for(i=1;i<=n;i++)
+    {
+        if(number[i]==0)
+        count++;
+    }
+    printf("%d\n",count);
+    return 0;
+}
