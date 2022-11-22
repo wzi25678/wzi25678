@@ -1,0 +1,14 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.137.69:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last failed login: Tue Nov 22 14:51:37 CST 2022 from hadoop103 on ssh:notty
+There was 1 failed login attempt since the last successful login.
+Last login: Tue Nov 22 10:30:22 2022 from typora-wzi.mshome.net
+[atguigu@hadoop104 ~]$ 
