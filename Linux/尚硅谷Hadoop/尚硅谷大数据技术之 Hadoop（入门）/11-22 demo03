@@ -1,0 +1,1256 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.137.69:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Mon Nov 21 17:37:45 2022 from typora-wzi.mshome.net
+[atguigu@hadoop104 ~]$ vim /etc/hosts
+[atguigu@hadoop104 ~]$ sudo vim /etc/hosts
+[atguigu@hadoop104 ~]$ cd /opt/software/
+[atguigu@hadoop104 software]$ start-yarn.sh;sta
+stapbpf               stap-report           start-all.sh          start-dfs.sh          start-statd           start-yarn.sh         
+stapdyn               stapsh                start-balancer.sh     start-pulseaudio-x11  startx                stat                  
+stap-merge            start-all.cmd         start-dfs.cmd         start-secure-dns.sh   start-yarn.cmd        states                
+[atguigu@hadoop104 software]$ start-yarn.sh;start-dfs.sh
+Starting resourcemanager
+Starting nodemanagers
+192.168.137.69: nodemanager is running as process 2723.  Stop it first.
+192.168.137.35: nodemanager is running as process 3607.  Stop it first.
+192.168.137.225: nodemanager is running as process 3084.  Stop it first.
+Starting namenodes on [hadoop102]
+hadoop102: Warning: Permanently added 'hadoop102' (ECDSA) to the list of known hosts.
+hadoop102: namenode is running as process 2934.  Stop it first.
+Starting datanodes
+Starting secondary namenodes [hadoop104]
+hadoop104: Warning: Permanently added 'hadoop104' (ECDSA) to the list of known hosts.
+hadoop104: secondarynamenode is running as process 2564.  Stop it first.
+[atguigu@hadoop104 software]$ sudo systemctl stop ntpd;sudo systemctl disable ntpd
+[atguigu@hadoop104 software]$ Xshell 7 (Build 0113)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+-bash: 未预期的符号 `c' 附近有语法错误
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ Type `help' to learn how to use Xshell prompt.
+> [C:\~]$ 
+> 
+> Connecting to 192.168.137.35:22...
+> Could not connect to '192.168.137.35' (port 22): Connection failed.
+> 
+> Type `help' to learn how to use Xshell prompt.
+> [C:\~]$ 
+> 
+> Connecting to 192.168.137.35:22...
+> Could not connect to '192.168.137.35' (port 22): Connection failed.
+> 
+> Type `help' to learn how to use Xshell prompt.
+-bash: command substitution:行5: 寻找匹配的 `'' 是遇到了未预期的文件结束符
+-bash: command substitution:行8: 语法错误: 未预期的文件结尾
+ established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Mon Nov 21 19:32:33 2022
+[root@hadoop102 ~]# vim /etc/hosts
+[root@hadoop102 ~]# su atguigu
+[atguigu@hadoop102 root]$ cd
+[atguigu@hadoop102 ~]$ mapred --daemon start histotyserver
+ERROR: histotyserver is not COMMAND nor fully qualified CLASSNAME.
+Usage: mapred [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+ or    mapred [OPTIONS] CLASSNAME [CLASSNAME OPTIONS]
+  where CLASSNAME is a user-provided Java class
+
+  OPTIONS is none or any of:
+
+--config dir   Hadoop config directory
+--debug        turn on shell script debug mode
+--help         usage information
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+frameworkuploader   mapreduce framework upload
+hsadmin             job history server admin interface
+
+    Client Commands:
+
+archive             create a Hadoop archive
+archive-logs        combine aggregated logs into hadoop archives
+classpath           prints the class path needed for running mapreduce subcommands
+distcp              copy file or directories recursively
+envvars             display computed Hadoop environment variables
+job                 manipulate MapReduce jobs
+minicluster         CLI MiniCluster
+pipes               run a Pipes job
+queue               get information regarding JobQueues
+sampler             sampler
+streaming           launch a mapreduce streaming job
+version             print the version
+
+    Daemon Commands:
+
+historyserver       run job history servers as a standalone daemon
+
+SUBCOMMAND may print help when invokebash: Type: 未找到命令...
+d w/o parameters or with -h.
+[atguigu@hadoop102 ~]$ ping www.baudu.com
+PING www.baudu.com (170.106.62.189) 56(84) bytes of data.
+64 bytes from 170.106.62.189 (170.106.62.189): icmp_seq=1 ttl=46 time=245 ms
+^C
+--- www.baudu.com ping statistics ---
+2 packets[atguigu@hadoop104 software]$ [C:\~]$ 
+bash: [C:~]$: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ Connecting to 192.168.137.35:22...
+bash: Connecting: 未找到命令...
+ transmitted, 1 received, 50% packet loss, time 1335ms
+rtt min/avg/max/mdev = 245.143/245.143/245.143/0.000 ms
+[atguigu@hadoop102 ~]$ ping hadoop103
+PING hadoop103 (192.168.137.225) 56(84) bytes of data.
+64 bytes from hadoop103 (192.168.137.225): icmp_seq=[atguigu@hadoop104 software]$ Connection established.
+bash: Connection: 未找到命令...
+[atguigu@hadoop104 software]$ To escape to local shell, press 'Ctrl+Alt+]'.
+1 ttl=64 time=0.985 ms
+64 bytes from hadoop103 (192.168.137.225): icmp_seq=2 ttl=64 time=1.07 ms
+64 bytes from hadoop103 (192.168.137.225): icmp_seq=3 ttl=64 time=1.07 ms
+^C
+--- hadoop103 ping statistics ---
+3 packets transmitted, 3 received, 0% packet losbash: To: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ Last login: Mon Nov 21 19:32:33 2022
+bash: Last: 未找到命令...
+相似命令是： 'last'
+[atguigu@hadoop104 software]$ [root@hadoop102 ~]# vim /etc/hosts
+s, time 2022ms
+rtt min/avg/max/mdev = 0.985/1.045/1.076/0.056 ms
+[atguigu@hadoop102 ~]$ mapred --daemon start histotyserver
+ERROR: histotyserver is not COMMAND nor fully qualified CLASSNAME.
+Usage: mapred [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+ or    mabash: [root@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ [root@hadoop102 ~]# su atguigu
+bash: [root@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 root]$ cd
+pred [OPTIONS] CLASSNAME [CLASSNAME OPTIONS]
+  where CLASSNAME is a user-provided Java class
+
+  OPTIONS is none or any of:
+
+--config dir   Hadoop config directory
+--debug        turn on shell script debug mode
+--help         usage information
+
+  SUBCOMMANDbash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 ~]$ mapred --daemon start histotyserver
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ ERROR: histotyserver is not COMMAND nor fully qualified CLASSNAME.
+ is one of:
+
+
+    Admin Commands:
+
+frameworkuploader   mapreduce framework upload
+hsadmin             job history server admin interface
+
+    Client Commands:
+
+archive             create a Hadoop archive
+archive-logs        combine aggregated logs into hadbash: ERROR:: 未找到命令...
+[atguigu@hadoop104 software]$ Usage: mapred [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+oop archives
+classpath           prints the class path needed for running mapreduce subcommands
+distcp              copy file or directories recursively
+envvars             display computed Hadoop environment variables
+job                 manipulate MapRedbash: Usage:: 未找到命令...
+[atguigu@hadoop104 software]$  or    mapred [OPTIONS] CLASSNAME [CLASSNAME OPTIONS]
+bash: or: 未找到命令...
+uce jobs
+minicluster         CLI MiniCluster
+pipes               run a Pipes job
+queue               get information regarding JobQueues
+sampler             sampler
+streaming           launch a mapreduce streaming job
+version             print the version
+[atguigu@hadoop104 software]$   where CLASSNAME is a user-provided Java class
+bash: where: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$   OPTIONS is none or any of:
+
+    Daemon Commands:
+
+historyserver       run job history servers as a standalone daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[atguigu@hadoop102 ~]$ jps
+2596 Jps
+[atguigu@hadoop102 ~]$ hdfs namenode -format
+2022-11-22 10:41:0bash: OPTIONS: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ --config dir   Hadoop config directory
+bash: --config: 未找到命令...
+[atguigu@hadoop104 software]$ --debug        turn on shell script debug mode
+4,376 INFO namenode.NameNode: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting NameNode
+STARTUP_MSG:   host = hadoop102/192.168.137.35
+STARTUP_MSG:   args = [-format]
+STARTUP_MSG:   version = 3.1.3
+STARTUP_Mbash: --debug: 未找到命令...
+[atguigu@hadoop104 software]$ --help         usage information
+bash: --help: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$   SUBCOMMAND is one of:
+SG:   classpath = /opt/module/hadoop-3.1.3/etc/hadoop:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/accessors-smart-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/animal-sniffer-annotations-1.17.jar:/opt/module/hadoop-3.1.3/share/hadoop/commonbash: SUBCOMMAND: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$     Admin Commands:
+bash: Admin: 未找到命令...
+/lib/asm-5.0.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/audience-annotations-0.5.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/avro-1.7.7.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/checker-qual-2.5.2.jar:/opt/module/hadoop-3.[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ frameworkuploader   mapreduce framework upload
+bash: frameworkuploader: 未找到命令...
+[atguigu@hadoop104 software]$ hsadmin             job history server admin interface
+1.3/share/hadoop/common/lib/commons-beanutils-1.9.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-cli-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-codec-1.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-cobash: hsadmin: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$     Client Commands:
+bash: Client: 未找到命令...
+llections-3.2.2.jar:/opt/modul[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ archive             create a Hadoop archive
+bash: archive: 未找到命令...
+/hadoop-3.1.3/share/hadoop/common/lib/commons[atguigu@hadoop104 software]$ archive-logs        combine aggregated logs into hadoop archives
+bash: archive-logs: 未找到命令...
+[atguigu@hadoop104 software]$ classpath           prints the class path needed for running mapreduce subcommands
+mmons-math3-3.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-net-3.6.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/curator-bash: classpath: 未找到命令...
+[atguigu@hadoop104 software]$ distcp              copy file or directories recursively
+bash: distcp: 未找到命令...
+hadoop-3.1.3/share/hadoop/common/lib/curator-recipes-2.13[atguigu@hadoop104 software]$ envvars             display computed Hadoop environment variables
+bash: envvars: 未找到命令...
+[atguigu@hadoop104 software]$ job                 manipulate MapReduce jobs
+common/lib/gson-2.2.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/guava-27.0-jre.jar:/opt/module/hadoopbash: job: 未找到命令...
+[atguigu@hadoop104 software]$ minicluster         CLI MiniCluster
+bash: minicluster: 未找到命令...
+adoop-3.1.3/share/hadoop/common/lib/[atguigu@hadoop104 software]$ pipes               run a Pipes job
+bash: pipes: 未找到命令...
+[atguigu@hadoop104 software]$ queue               get information regarding JobQueues
+bash: queue: 未找到命令...
+/j2objc-annotations-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-annotat[atguigu@hadoop104 software]$ sampler             sampler
+bash: sampler: 未找到命令...
+[atguigu@hadoop104 software]$ streaming           launch a mapreduce streaming job
+/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-databind-2.7.8.jar:/opt/bash: streaming: 未找到命令...
+[atguigu@hadoop104 software]$ version             print the version
+bash: version: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$     Daemon Commands:
+are/hadoop/common/lib/jackson-xc-1.9.13.jar:/opt/module/hadobash: Daemon: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ historyserver       run job history servers as a standalone daemon
+bash: historyserver: 未找到命令...
+.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jcip-annotatio[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ SUBCOMMAND may print help when invoked w/o parameters or with -h.
+bash: SUBCOMMAND: 未找到命令...
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 ~]$ ping www.baudu.com
+bash: [atguigu@hadoop102: 未找到命令...
+op/common/lib/jersey-server-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jersey-servlet-1.19.jar[atguigu@hadoop104 software]$ PING www.baudu.com (170.106.62.189) 56(84) bytes of data.
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ 64 bytes from 170.106.62.189 (170.106.62.189): icmp_seq=1 ttl=46 time=245 ms
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ ^C
+-bash: :s^C: substitution failed
+[atguigu@hadoop104 software]$ --- www.baudu.com ping statistics ---
+bash: ---: 未找到命令...
+:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-io-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-security-9.3.24.v20180605.jar:/opt/module[atguigu@hadoop104 software]$ 2 packets transmitted, 1 received, 50% packet loss, time 1335ms
+bash: 2: 未找到命令...
+[atguigu@hadoop104 software]$ rtt min/avg/max/mdev = 245.143/245.143/245.143/0.000 ms
+bash: rtt: 未找到命令...
+ule/hadoop-3.1.3/share/hadoop/common/lib/jetty-servlet-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common[atguigu@hadoop104 software]$ [atguigu@hadoop102 ~]$ ping hadoop103
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ PING hadoop103 (192.168.137.225) 56(84) bytes of data.
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ 64 bytes from hadoop103 (192.168.137.225): icmp_seq=1 ttl=64 time=0.985 ms
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ 64 bytes from hadoop103 (192.168.137.225): icmp_seq=2 ttl=64 time=1.07 ms
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ 64 bytes from hadoop103 (192.168.137.225): icmp_seq=3 ttl=64 time=1.07 ms
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ ^C
+-bash: :s^C: substitution failed
+[atguigu@hadoop104 software]$ --- hadoop103 ping statistics ---
+op-3.1.3/share/hadoop/common/lib/jetty-xml-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsch-0.1.54.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/json-smart-2.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsp-api-2.bash: ---: 未找到命令...
+[atguigu@hadoop104 software]$ 3 packets transmitted, 3 received, 0% packet loss, time 2022ms
+bash: 3: 未找到命令...
+[atguigu@hadoop104 software]$ rtt min/avg/max/mdev = 0.985/1.045/1.076/0.056 ms
+bash: rtt: 未找到命令...
+1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsr305-3.0.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsr311-api-1.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-admin-1.0.1.ja[atguigu@hadoop104 software]$ [atguigu@hadoop102 ~]$ mapred --daemon start histotyserver
+bash: [atguigu@hadoop102: 未找到命令...
+/lib/kerb-client-1.0.1.jar:/opt/module/hadoop-3.1.3/share/h[atguigu@hadoop104 software]$ ERROR: histotyserver is not COMMAND nor fully qualified CLASSNAME.
+bash: ERROR:: 未找到命令...
+[atguigu@hadoop104 software]$ Usage: mapred [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+bash: Usage:: 未找到命令...
+-3.1.3/share/hadoop/common/lib/kerb-identity-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-server-1.0.1.j[atguigu@hadoop104 software]$  or    mapred [OPTIONS] CLASSNAME [CLASSNAME OPTIONS]
+bash: or: 未找到命令...
+[atguigu@hadoop104 software]$   where CLASSNAME is a user-provided Java class
+bash: where: 未找到命令...
+il-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerby-asn1-1.0.1.jar:/opt/module/hadoop-[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$   OPTIONS is none or any of:
+bash: OPTIONS: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ --config dir   Hadoop config directory
+hadoop/common/lib/kerby-util-1.0.1.jar:/opt/module/hadoop-3.1.3/share/bash: --config: 未找到命令...
+[atguigu@hadoop104 software]$ --debug        turn on shell script debug mode
+bash: --debug: 未找到命令...
+p/common/lib/log4j-1.2.17.jar:/opt/module/hadoo[atguigu@hadoop104 software]$ --help         usage information
+bash: --help: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$   SUBCOMMAND is one of:
+bash: SUBCOMMAND: 未找到命令...
+/hadoop-3.1.3/share/hadoop/common/lib/protobuf-java-2.5.0.[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$     Admin Commands:
+bash: Admin: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ frameworkuploader   mapreduce framework upload
+-1.7.25.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/snappy-jabash: frameworkuploader: 未找到命令...
+[atguigu@hadoop104 software]$ hsadmin             job history server admin interface
+/hadoop/common/lib/woodstox-core-5.0.3.jar:/opt/module/bash: hsadmin: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$     Client Commands:
+bash: Client: 未找到命令...
+r:/opt/module/hadoop-3[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ archive             create a Hadoop archive
+bash: archive: 未找到命令...
+[atguigu@hadoop104 software]$ archive-logs        combine aggregated logs into hadoop archives
+bash: archive-logs: 未找到命令...
+[atguigu@hadoop104 software]$ classpath           prints the class path needed for running mapreduce subcommands
+/hadoop-kms-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-daemon-1.0.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-utbash: classpath: 未找到命令...
+[atguigu@hadoop104 software]$ distcp              copy file or directories recursively
+oop/hdfs/lib/leveldbjni-all-1.8.jar:/opt/module/hadoop-3.bash: distcp: 未找到命令...
+[atguigu@hadoop104 software]$ envvars             display computed Hadoop environment variables
+bash: envvars: 未找到命令...
+.1.3/share/hadoop/hdfs/lib/jersey-servlet-1.19.jar:/opt/module/had[atguigu@hadoop104 software]$ job                 manipulate MapReduce jobs
+bash: job: 未找到命令...
+[atguigu@hadoop104 software]$ minicluster         CLI MiniCluster
+r:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/log4j-1.2.17.jar:/opt/module/hadobash: minicluster: 未找到命令...
+[atguigu@hadoop104 software]$ pipes               run a Pipes job
+bash: pipes: 未找到命令...
+ogging-1.1.3.jar:/opt/module/hadoop-[atguigu@hadoop104 software]$ queue               get information regarding JobQueues
+bash: queue: 未找到命令...
+[atguigu@hadoop104 software]$ sampler             sampler
+bash: sampler: 未找到命令...
+share/hadoop/hdfs/lib/accessors-smart-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/[atguigu@hadoop104 software]$ streaming           launch a mapreduce streaming job
+bash: streaming: 未找到命令...
+[atguigu@hadoop104 software]$ version             print the version
+t/module/hadoop-3.1.3/share/hadoop/hdfs/lib/netty-3.10.5.Final.jar:/opt/module/hadoop-3.1.3bash: version: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$     Daemon Commands:
+bash: Daemon: 未找到命令...
+fs/lib/guava-27.0-jre.[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ historyserver       run job history servers as a standalone daemon
+bash: historyserver: 未找到命令...
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ SUBCOMMAND may print help when invoked w/o parameters or with -h.
+05-3.0.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/checker-qual-2.5.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/errorbash: SUBCOMMAND: 未找到命令...
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 ~]$ jps
+bash: [atguigu@hadoop102: 未找到命令...
+-3.1.3/share/hadoop/hdfs/li[atguigu@hadoop104 software]$ 2596 Jps
+bash: 2596: 未找到命令...
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 ~]$ hdfs namenode -format
+by-config-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadbash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:04,376 INFO namenode.NameNode: STARTUP_MSG: 
+bash: 2022-11-22: 未找到命令...
+doop/hdfs/lib/kerby-util-1.0.1.jar:/opt/module/hadoop-3.1.3/sh[atguigu@hadoop104 software]$ /************************************************************
+-bash: /bin: 是一个目录
+[atguigu@hadoop104 software]$ STARTUP_MSG: Starting NameNode
+bash: STARTUP_MSG:: 未找到命令...
+[atguigu@hadoop104 software]$ STARTUP_MSG:   host = hadoop102/192.168.137.35
+p-3.1.3/share/hadoop/hdfs/lib/kerb-util-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/token-provider-1.0.1.jar:/opt/module/hadoopbash: STARTUP_MSG:: 未找到命令...
+[atguigu@hadoop104 software]$ STARTUP_MSG:   args = [-format]
+bash: STARTUP_MSG:: 未找到命令...
+ar:/opt/module/hadoop-3.1.3/shar[atguigu@hadoop104 software]$ STARTUP_MSG:   version = 3.1.3
+bash: STARTUP_MSG:: 未找到命令...
+[atguigu@hadoop104 software]$ STARTUP_MSG:   classpath = /opt/module/hadoop-3.1.3/etc/hadoop:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/accessors-smart-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/animal-sniffer-annotations-1.17.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/asm-5.0.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/audience-annotations-0.5.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/avro-1.7.7.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/checker-qual-2.5.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-beanutils-1.9.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-cli-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-codec-1.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-collections-3.2.2.jar:/opt/modul/hadoop-3.1.3/share/hadoop/common/lib/commonsmmons-math3-3.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-net-3.6.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/curator-hadoop-3.1.3/share/hadoop/common/lib/curator-recipes-2.13common/lib/gson-2.2.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/guava-27.0-jre.jar:/opt/module/hadoopadoop-3.1.3/share/hadoop/common/lib//j2objc-annotations-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-annotat/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-databind-2.7.8.jar:/opt/are/hadoop/common/lib/jackson-xc-1.9.13.jar:/opt/module/hado.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jcip-annotatioop/common/lib/jersey-server-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jersey-servlet-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-io-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-security-9.3.24.v20180605.jar:/opt/moduleule/hadoop-3.1.3/share/hadoop/common/lib/jetty-servlet-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/commonop-3.1.3/share/hadoop/common/lib/jetty-xml-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsch-0.1.54.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/json-smart-2.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsp-api-2.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsr305-3.0.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsr311-api-1.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-admin-1.0.1.ja/lib/kerb-client-1.0.1.jar:/opt/module/hadoop-3.1.3/share/h-3.1.3/share/hadoop/common/lib/kerb-identity-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-server-1.0.1.jil-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerby-asn1-1.0.1.jar:/opt/module/hadoop-hadoop/common/lib/kerby-util-1.0.1.jar:/opt/module/hadoop-3.1.3/share/p/common/lib/log4j-1.2.17.jar:/opt/module/hadoo/hadoop-3.1.3/share/hadoop/common/lib/protobuf-java-2.5.0.-1.7.25.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/snappy-ja/hadoop/common/lib/woodstox-core-5.0.3.jar:/opt/module/r:/opt/module/hadoop-3/hadoop-kms-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-daemon-1.0.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-utoop/hdfs/lib/leveldbjni-all-1.8.jar:/opt/module/hadoop-3..1.3/share/hadoop/hdfs/lib/jersey-servlet-1.19.jar:/opt/module/hadr:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/log4j-1.2.17.jar:/opt/module/hadoogging-1.1.3.jar:/opt/module/hadoop-share/hadoop/hdfs/lib/accessors-smart-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/t/module/hadoop-3.1.3/share/hadoop/hdfs/lib/netty-3.10.5.Final.jar:/opt/module/hadoop-3.1.3fs/lib/guava-27.0-jre.05-3.0.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/checker-qual-2.5.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/error-3.1.3/share/hadoop/hdfs/liby-config-1.0.1.jar:/opt/module/hadoop-3.1.3/share/haddoop/hdfs/lib/kerby-util-1.0.1.jar:/opt/module/hadoop-3.1.3/shp-3.1.3/share/hadoop/hdfs/lib/kerb-util-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/token-provider-1.0.1.jar:/opt/module/hadoopar:/opt/module/hadoop-3.1.3/sharjsr311-api-1.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jersey-server-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/javax.servlet-api-3.1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/json-simple-1.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-server-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-http-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-util-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-io-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-webapp-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-xml-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-servlet-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-security-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/hadoop-annotations-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-cli-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-math3-3.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-net-3.6.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-collections-3.2.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jettison-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jaxb-impl-2.2.3-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jaxb-api-2.2.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-core-asl-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-mapper-asl-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-jaxrs-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-xc-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-lang-2.6.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-beanutils-1.9.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-configuration2-2.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-lang3-3.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/avro-1.7.7.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/paranamer-2.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/snappy-java-1.0.5.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-compress-1.18.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/re2j-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/protobuf-java-2.5.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/gson-2.2.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jsch-0.1.54.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/curator-recipes-2.13.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/htrace-core4-4.1.0-incubating.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-databind-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-annotations-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-core-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/stax2-api-3.1.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/woodstox-core-5.0.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-nfs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-client-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-client-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-native-client-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-native-client-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-rbf-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-rbf-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-httpfs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/lib/hamcrest-core-1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/lib/junit-4.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-app-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-common-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-plugins-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-nativetask-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-shuffle-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-uploader-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/HikariCP-java7-2.4.12.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/aopalliance-1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/dnsjava-2.1.7.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/ehcache-3.3.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/fst-2.50.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/geronimo-jcache_1.0_spec-1.0-alpha-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/guice-4.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/guice-servlet-4.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jackson-jaxrs-base-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jackson-jaxrs-json-provider-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jackson-module-jaxb-annotations-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/java-util-1.9.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/javax.inject-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jersey-client-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jersey-guice-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/json-io-2.5.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/metrics-core-3.2.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/mssql-jdbc-6.2.1.jre7.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/objenesis-1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/snakeyaml-1.16.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/swagger-annotations-1.5.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-api-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-applications-distributedshell-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-applications-unmanaged-am-launcher-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-client-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-common-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-registry-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-applicationhistoryservice-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-common-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-nodemanager-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-resourcemanager-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-router-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-sharedcachemanager-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-tests-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-timeline-pluginstorage-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-web-proxy-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-services-api-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-services-core-3.1.3.jar
+t
+bash: STARTUP_MSG:: 未找到命令...
+[atguigu@hadoop104 software]$ STARTUP_MSG:   build = https://gitbox.apache.org/repos/asf/hadoop.git -r ba631c436b806728f8ec2f54ab1e289526c90579; compiled by 'ztang' on 2019-09-12T02:47Z
+s
+bash: STARTUP_MSG:: 未找到命令...
+bash: compiled: 未找到命令...
+[atguigu@hadoop104 software]$ STARTUP_MSG:   java = 1.8.0_212
+t
+bash: STARTUP_MSG:: 未找到命令...
+[atguigu@hadoop104 software]$ ************************************************************/
+ 
+-bash: ************************************************************/: 没有那个文件或目录
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:04,394 INFO namenode.NameNode: registered UNIX signal handlers for [TERM, HUP, INT]
+3
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:04,658 INFO namenode.NameNode: createNameNode [-format]
+d
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ Formatting using clusterid: CID-7e2a6955-bdda-45fb-ae48-6efa709d1c74
+m
+bash: Formatting: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:05,973 INFO namenode.FSEditLog: Edit logging is async:true
+e
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,005 INFO namenode.FSNamesystem: KeyProvider: null
+ 
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,005 INFO namenode.FSNamesystem: fsLock is fair: true
+N
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,006 INFO namenode.FSNamesystem: Detailed lock hold time metrics enabled: false
+G
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,049 INFO namenode.FSNamesystem: fsOwner             = atguigu (auth:SIMPLE)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,049 INFO namenode.FSNamesystem: supergroup          = supergroup
+ 
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,049 INFO namenode.FSNamesystem: isPermissionEnabled = true
+a
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,049 INFO namenode.FSNamesystem: HA Enabled: false
+x
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,110 INFO common.Util: dfs.datanode.fileio.profiling.sampling.percentage set to 0. Disabling file IO profiling
+T
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,118 INFO blockmanagement.DatanodeManager: dfs.block.invalidate.limit: configured=1000, counted=60, effected=10002
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,118 INFO blockmanagement.DatanodeManager: dfs.namenode.datanode.registration.ip-hostname-check=true
+*
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,121 INFO blockmanagement.BlockManager: dfs.namenode.startup.delay.block.deletion.sec is set to 000:00:00:00.000
+o
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,121 INFO blockmanagement.BlockManager: The block deletion will start around 2022 十一月 22 10:41:06
+-
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,122 INFO util.GSet: Computing capacity for map BlocksMap
+6
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,122 INFO util.GSet: VM type       = 64-bit
+*
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,136 INFO util.GSet: 2.0% max memory 875 MB = 17.5 MB
+h
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,136 INFO util.GSet: capacity      = 2^21 = 2097152 entries
+a
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,163 INFO blockmanagement.BlockManager: dfs.block.access.token.enable = false
+,
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,168 INFO Configuration.deprecation: No unit for dfs.namenode.safemode.extension(30000) assuming MILLISECONDS
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,168 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.threshold-pct = 0.9990000128746033
+g
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,168 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.min.datanodes = 0
+6
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,168 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.extension = 30000
+.
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,168 INFO blockmanagement.BlockManager: defaultReplication         = 3
+:
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,168 INFO blockmanagement.BlockManager: maxReplication             = 512
+r
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,168 INFO blockmanagement.BlockManager: minReplication             = 1
+o
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,169 INFO blockmanagement.BlockManager: maxReplicationStreams      = 2
+ 
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,169 INFO blockmanagement.BlockManager: redundancyRecheckInterval  = 3000ms
+:
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,169 INFO blockmanagement.BlockManager: encryptDataTransfer        = false
+,
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,169 INFO blockmanagement.BlockManager: maxNumBlocksToLog          = 1000
+f
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,209 INFO namenode.FSDirectory: GLOBAL serial map: bits=24 maxEntries=16777215
+i
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,220 INFO util.GSet: Computing capacity for map INodeMap
+e
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,220 INFO util.GSet: VM type       = 64-bit
+M
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,220 INFO util.GSet: 1.0% max memory 875 MB = 8.8 MB
+.
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,220 INFO util.GSet: capacity      = 2^20 = 1048576 entries
+ 
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,221 INFO namenode.FSDirectory: ACLs enabled? false
+t
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,221 INFO namenode.FSDirectory: POSIX ACL inheritance enabled? true
+ 
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,221 INFO namenode.FSDirectory: XAttrs enabled? true
+i
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,221 INFO namenode.NameNode: Caching file names occurring more than 10 times
+
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,224 INFO snapshot.SnapshotManager: Loaded config captureOpenFiles: false, skipCapt
+2
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,226 INFO snapshot.SnapshotManager: SkipList is disabled
+=
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,229 INFO util.GSet: Computing capacity for map cachedBlocks
+2
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,229 INFO ut
+t
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,229 INFO util.GSet: 0.25% max memory 875 
+ 
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,229 INFO util.GSet: capacity      = 2^18 = 262144 entries
+1
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,23
+5
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,235 INFO metrics.TopMetrics: NNTop conf: dfs.namenod
+r
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,235 INFO metrics.TopMetrics: NNTop conf: dfs.nam
+g
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,238 INFO namenode.FSNamesystem: Retry cache on namenode
+d
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,238 INFO namenode.FSNamesystem: Retry cache will 
+a
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,239 INFO util.GSet: Computing capacity for map NameN
+2
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,239 INFO util.GSet: VM type       = 64-bit
+=
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,239 INFO util.G
+c
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:06,239 INFO util.GSet: capacity      = 2^15 = 32768 entries
+o
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ Re-format filesystem in Storage Directory root= /opt/module/hadoop-3.1.3/data/dfs/name; location= null 
+
+bash: Re-format: 未找到命令...
+bash: null: 未找到命令...
+[atguigu@hadoop104 software]$ Format aborted in Storage Directory root= /opt/module/hadoop-3.1.3/data/dfs/na
+ 
+bash: Format: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:16,826 INFO util.ExitUtil: Exiting with status 1: Ex
+ 
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:16,829 INFO namenode.NameNode: SHUTDOWN_MSG: 
+r
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ /************************************************************
+i
+-bash: /bin: 是一个目录
+[atguigu@hadoop104 software]$ SHUT
+2
+bash: SHUT: 未找到命令...
+[atguigu@hadoop104 software]$ ************************************************************/
+ 
+-bash: ************************************************************/: 没有那个文件或目录
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/
+p
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ [atguigu@hadoop102
+3
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,170 INFO namenode.NameNode: STARTUP_MSG: 
+e
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ /********************************************************
+e
+-bash: /bin: 是一个目录
+[atguigu@hadoop104 software]$ STARTUP_MSG: Starting NameNode
+n
+bash: STARTUP_MSG:: 未找到命令...
+[atguigu@hadoop104 software]$ STARTUP_MSG:   host = hadoop102/192.168.137.35
+F
+bash: STARTUP_MSG:: 未找到命令...
+[atguigu@hadoop104 software]$ STARTUP_MSG:   args = [-format]
+a
+bash: STARTUP_MSG:: 未找到命令...
+[atguigu@hadoop104 software]$ STARTUP_MSG:   versio
+5
+bash: STARTUP_MSG:: 未找到命令...
+[atguigu@hadoop104 software]$ STARTUP_MSG:   classpath = /opt/module/hadoop-3.1.3/etc/hadoop:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/accessors-
+*
+bash: STARTUP_MSG:: 未找到命令...
+[atguigu@hadoop104 software]$ STARTUP_MSG:   build = https://gitbox.apache.org/repos/asf/hadoop.git -r ba6
+*
+bash: STARTUP_MSG:: 未找到命令...
+[atguigu@hadoop104 software]$ STARTUP_MSG:   java = 1.8.0_212
+3
+bash: STARTUP_MSG:: 未找到命令...
+[atguigu@hadoop104 software]$ ******************************
+1
+bash: ******************************: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,180 INFO namenode.NameNode: registered UNIX signal h
+f
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,244 INFO namenode.NameNode: createNameNode [-format]
+W
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ Forma
+u
+bash: Forma: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,632 INFO namenode.FSEditLog: Edit logging is async:true
+s
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,
+e
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,642 INFO namenode.FSNamesystem: fsLock is fair: true
+ 
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,642 INFO namenode.FSNamesystem: Detailed lock hold time metrics enabled: false
+ 
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,646 INFO namenode.FSNamesystem: fsOwner             = atguig
+-
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,646 INFO namenode.FSNamesystem: supergroup          = supergroup
+
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,6
+d
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,647 INFO namenode.FSNamesystem: HA Enabled: false
+b
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,678 INFO common.
+o
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,686 INFO blockmanagement.DatanodeManager: dfs.block.invalidate.limit:
+u
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,686 INFO blockmanagement.DatanodeManager: dfs.namenode.datanode.registr
+p
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,689 INFO blockmanagement.BlockManager: dfs.namenode.startup.delay.blo
+c
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,689 INFO blockmanagement.BlockManager: The block deletion will start 
+r
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,690 INFO util.GSet: Computing capacity for map BlocksMap
+F
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:
+a
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,692 INFO util.GSet: 2.0% max memory 875 MB = 17.5 MB
+r
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,
+o
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,701 INFO blockmanagement.BlockManager: dfs.block.access.token.enable = f
+e
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,706 INFO Configuration.deprecation: No unit for dfs.namenode.safemode.extensi
+l
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,706 INFO blockmanagement.BlockManagerSafeMode: dfs.name
+u
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,706 INFO blockmanagement.BlockManagerSafeM
+g
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,706 INFO blockmanagement.BlockManagerSafeMode: dfs.
+g
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,706 INFO blockmanagement.BlockManager: defaultReplication 
+.
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,706 INFO blockmanagement.BlockManager: maxReplicat
+c
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,706 INFO blockmanagement.BlockManager: minReplication             
+)
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,706 INFO blockmanagement.BlockManager: maxReplicati
+o
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,706 INFO blockmanagement.BlockManager: redundancyRecheckInterval  = 3000ms
+c
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,706 INFO blockmanagement.BlockManager: encryptDataTransfer        = false
+t
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-2
+a
+bash: 2022-11-2: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,742 INFO namenode.FSDirectory: GLOBAL serial map: bits=
+t
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,753 INFO util.GSet: Computing capacity for map INodeMap
+o
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 202
+t
+bash: 202: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,754 INFO ut
+.
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,754 INFO util.GSet: capacity      = 2^20 
+a
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,754 INFO namenode.FSDirectory: ACLs enabled? false
+a
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-1
+r
+bash: 2022-1: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,75
+.
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,754 INFO namenode.NameNode: Caching file names occur
+1
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,757 INFO snapshot.SnapshotManager: Loaded config
+ 
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,759 INFO snapshot.SnapshotManager: SkipList is disabled
+ 
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,762 INFO util.GSet: Computing capacity for map ca
+ 
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,762 INFO util.GSet: VM type       = 64-bit
+1
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-2
+ 
+bash: 2022-11-2: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,762 INFO util.GSet: capacity      = 2^18 =
+s
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,766 INFO metric
+p
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,766 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.to
+.
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,767 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.windows.minutes = 1,5,25
+ 
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,769 INFO namenode.FSNamesystem: Retry cache on namenode is 
+
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,769 INFO namenode.FSNamesystem: Retry cache will 
+t
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,770 INFO util.GSet: Computing capacity for
+o
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,770 INFO util.GSet: VM type       = 64-bi
+e
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022
+2
+bash: 2022: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:36,771 INFO util.GSet: capacity      = 2^15 
+F
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ Re-format filesystem in Storage Directory root= /op
+B
+bash: Re-format: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:3
+d
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:38,362 INFO common.Storage: Will remove file
+d
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:38,384 INFO common.Storage: Storage dire
+r
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:38,402 INFO n
+o
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:38,534 INFO namenode.FSImageF
+e
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:38,540 INFO na
+o
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:38,5
+p
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:41:38,555 INFO namenode.NameNode: SHUTDOWN_MSG: 
+)
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ /**********************************************************
+2
+-bash: /bin: 是一个目录
+[atguigu@hadoop104 software]$ SHUTDOWN_MSG: Shutting down NameNode at hadoop102/192.168.137.35
+	
+bash: SHUTDOWN_MSG:: 未找到命令...
+[atguigu@hadoop104 software]$ ***********
+a
+bash: ***********: 未找到命令...
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 hadoop-3.1.3
+e
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ Starting namenodes on [hadoop1
+i
+bash: Starting: 未找到命令...
+[atguigu@hadoop104 software]$ hadoop102: Warning: Permanently added 'hadoop102' (ECDSA) to the list of
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ Starting datanodes
+a
+bash: Starting: 未找到命令...
+[atguigu@hadoop104 software]$ Starting secondary namenodes [hadoop104]
+g
+bash: Starting: 未找到命令...
+[atguigu@hadoop104 software]$ hadoop104: W
+c
+bash: hadoop104:: 未找到命令...
+[atguigu@hadoop104 software]$ [atgu
+c
+bash: [atgu: 未找到命令...
+[atguigu@hadoop104 software]$ sbin
+ 
+bash: sbin: 未找到命令...
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 hadoop-3.1.3]$ sbin/
+p
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ distribute-exclude.sh    kms.s
+c
+Error: exclude file [kms.s] does not exist.
+[atguigu@hadoop104 software]$ FederationStateStore
+e
+bash: FederationStateStore: 未找到命令...
+[atguigu@hadoop104 software]$ hadoop-daemon.sh         refresh-namenodes.sh     start-dfs.sh          
+o
+WARNING: Use of this script to refresh-namenodes.sh HDFS daemons is deprecated.
+WARNING: Attempting to execute replacement "hdfs --daemon refresh-namenodes.sh" instead.
+ERROR: --daemon must be followed by either "start", "stop", or "status".
+Usage: hdfs [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+
+  OPTIONS is none or any of:
+
+--buildpaths                       attempt to add class files from build tree
+--config dir                       Hadoop config directory
+--daemon (start|status|stop)       operate on a daemon
+--debug                            turn on shell script debug mode
+--help                             usage information
+--hostnames list[,of,host,names]   hosts to use in worker mode
+--hosts filename                   list of hosts to use in worker mode
+--loglevel level                   set the log4j level for this command
+--workers                          turn on worker mode
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+cacheadmin           configure the HDFS cache
+crypto               configure HDFS encryption zones
+debug                run a Debug Admin to execute HDFS debug commands
+dfsadmin             run a DFS admin client
+dfsrouteradmin       manage Router-based federation
+ec                   run a HDFS ErasureCoding CLI
+fsck                 run a DFS filesystem checking utility
+haadmin              run a DFS HA admin client
+jmxget               get JMX exported values from NameNode or DataNode.
+oev                  apply the offline edits viewer to an edits file
+oiv                  apply the offline fsimage viewer to an fsimage
+oiv_legacy           apply the offline fsimage viewer to a legacy fsimage
+storagepolicies      list/get/set block storage policies
+
+    Client Commands:
+
+classpath            prints the class path needed to get the hadoop jar and the required libraries
+dfs                  run a filesystem command on the file system
+envvars              display computed Hadoop environment variables
+fetchdt              fetch a delegation token from the NameNode
+getconf              get config values from configuration
+groups               get the groups which users belong to
+lsSnapshottableDir   list all snapshottable dirs owned by the current user
+snapshotDiff         diff two snapshots of a directory or diff the current directory contents with a snapshot
+version              print the version
+
+    Daemon Commands:
+
+balancer             run a cluster balancing utility
+datanode             run a DFS datanode
+dfsrouter            run the DFS router
+diskbalancer         Distributes data evenly among disks on a given node
+journalnode          run the DFS journalnode
+mover                run a utility to move block replicas across storage types
+namenode             run the DFS namenode
+nfs3                 run an NFS version 3 gateway
+portmap              run a portmap service
+secondarynamenode    run the DFS secondary namenode
+zkfc                 run the ZK Failover Controller daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[atguigu@hadoop104 software]$ hadoop-daemons.sh        start-all.cmd            start-secure-dns.sh      stop-balancer.sh       
+v
+WARNING: Use of this script to start-all.cmd HDFS daemons is deprecated.
+WARNING: Attempting to execute replacement "hdfs --workers --daemon start-all.cmd" instead.
+ERROR: --daemon must be followed by either "start", "stop", or "status".
+Usage: hdfs [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+
+  OPTIONS is none or any of:
+
+--buildpaths                       attempt to add class files from build tree
+--config dir                       Hadoop config directory
+--daemon (start|status|stop)       operate on a daemon
+--debug                            turn on shell script debug mode
+--help                             usage information
+--hostnames list[,of,host,names]   hosts to use in worker mode
+--hosts filename                   list of hosts to use in worker mode
+--loglevel level                   set the log4j level for this command
+--workers                          turn on worker mode
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+cacheadmin           configure the HDFS cache
+crypto               configure HDFS encryption zones
+debug                run a Debug Admin to execute HDFS debug commands
+dfsadmin             run a DFS admin client
+dfsrouteradmin       manage Router-based federation
+ec                   run a HDFS ErasureCoding CLI
+fsck                 run a DFS filesystem checking utility
+haadmin              run a DFS HA admin client
+jmxget               get JMX exported values from NameNode or DataNode.
+oev                  apply the offline edits viewer to an edits file
+oiv                  apply the offline fsimage viewer to an fsimage
+oiv_legacy           apply the offline fsimage viewer to a legacy fsimage
+storagepolicies      list/get/set block storage policies
+
+    Client Commands:
+
+classpath            prints the class path needed to get the hadoop jar and the required libraries
+dfs                  run a filesystem command on the file system
+envvars              display computed Hadoop environment variables
+fetchdt              fetch a delegation token from the NameNode
+getconf              get config values from configuration
+groups               get the groups which users belong to
+lsSnapshottableDir   list all snapshottable dirs owned by the current user
+snapshotDiff         diff two snapshots of a directory or diff the current directory contents with a snapshot
+version              print the version
+
+    Daemon Commands:
+
+balancer             run a cluster balancing utility
+datanode             run a DFS datanode
+dfsrouter            run the DFS router
+diskbalancer         Distributes data evenly among disks on a given node
+journalnode          run the DFS journalnode
+mover                run a utility to move block replicas across storage types
+namenode             run the DFS namenode
+nfs3                 run an NFS version 3 gateway
+portmap              run a portmap service
+secondarynamenode    run the DFS secondary namenode
+zkfc                 run the ZK Failover Controller daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[atguigu@hadoop104 software]$ httpfs.sh                start-all.sh             start-yarn.cmd           stop-
+o
+WARNING: httpfs.sh is deprecated, please use 'hdfs [--daemon start|status|stop] httpfs'.
+Unknown sub-command "start-all.sh".
+Usage: httpfs.sh run|start|status|stop
+commands:
+  run     Run HttpFS server, the HDFS HTTP Gateway
+  start   Start HttpFS server as a daemon
+  status  Return the status of the HttpFS server daemon
+  stop    Stop the HttpFS server daemon
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 hadoop-3.1.3]$ sbin/start-yarn.
+d
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ start-yarn.cmd  start-yarn.sh   
+R
+/opt/module/hadoop-3.1.3/sbin/start-yarn.cmd:行1: @echo: 未找到命令
+/opt/module/hadoop-3.1.3/sbin/start-yarn.cmd:行2: 未预期的符号 `(' 附近有语法错误
+'opt/module/hadoop-3.1.3/sbin/start-yarn.cmd:行2: `@rem Licensed to the Apache Software Foundation (ASF) under one or more
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 had
+o
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ start-yarn.cmd  start-yarn.sh   
+u
+/opt/module/hadoop-3.1.3/sbin/start-yarn.cmd:行1: @echo: 未找到命令
+/opt/module/hadoop-3.1.3/sbin/start-yarn.cmd:行2: 未预期的符号 `(' 附近有语法错误
+'opt/module/hadoop-3.1.3/sbin/start-yarn.cmd:行2: `@rem Licensed to the Apache Software Foundation (ASF) under one or more
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 hadoop-3.1.3]$ sb
+a
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ Starting resourcemanager
+d
+bash: Starting: 未找到命令...
+[atguigu@hadoop104 software]$ Starting no
+a
+bash: Starting: 未找到命令...
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 hadoop-3.1.3]$ cd
+_
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 ~]$ hadoop fs -mkdir /input
+f
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ [atgu
+-
+bash: [atgu: 未找到命令...
+[atguigu@hadoop104 software]$ 2022-11-22 10:45:20,193 WARN hdfs.DataStreamer: DataStreamer Exception
+-
+bash: 2022-11-22: 未找到命令...
+[atguigu@hadoop104 software]$ org.apache.hadoop.ip
+o
+bash: org.apache.hadoop.ip: 未找到命令...
+[atguigu@hadoop104 software]$ at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(Bloc
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDir
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(F
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at org.apache.ha
+d
+syntax error. Last token seen: o
+Garbled time
+[atguigu@hadoop104 software]$ at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTr
+r
+syntax error. Last token seen: o
+Garbled time
+[atguigu@hadoop104 software]$ at org.apache.hadoo
+o
+syntax error. Last token seen: o
+Garbled time
+[atguigu@hadoop104 software]$ at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1036)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at org.apache.hadoop.ipc.Server$RpcCall
+v
+syntax error. Last token seen: o
+Garbled time
+[atguigu@hadoop104 software]$ at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:928)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at java.secu
+u
+syntax error. Last token seen: j
+Garbled time
+[atguigu@hadoop104 software]$ at javax.security.auth.Subject.doAs(Subject.java:422)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at org
+g
+syntax error. Last token seen: o
+Garbled time
+[atguigu@hadoop104 software]$ at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2916)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ 
+[atguigu@hadoop104 software]$ at org
+g
+syntax error. Last token seen: o
+Garbled time
+[atguigu@hadoop104 software]$ at org.apache.hadoop.ipc.Client.call(Client.java:1491)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at org.apache.hadoop.
+.
+syntax error. Last token seen: o
+Garbled time
+[atguigu@hadoop104 software]$ at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpc
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:118)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at com.sun.proxy.$Proxy9.addBlock(Unknown Source)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at org.apache.hadoo
+ 
+syntax error. Last token seen: o
+Garbled time
+[atguigu@hadoop104 software]$ at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at sun.reflect.NativeMethodAc
+c
+syntax error. Last token seen: .
+Garbled time
+[atguigu@hadoop104 software]$ at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at
+t
+Garbled time
+[atguigu@hadoop104 software]$ at org.a
+a
+syntax error. Last token seen: o
+Garbled time
+[atguigu@hadoop104 software]$ at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeMethod(Ret
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invoke(RetryInvo
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at
+d
+Garbled time
+[atguigu@hadoop104 software]$ at org.apache.hadoop.io.retry.
+.
+syntax error. Last token seen: o
+Garbled time
+[atguigu@hadoop104 software]$ at com.sun.proxy.$Proxy10.addBlock(Unknown Source)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at org.a
+(
+syntax error. Last token seen: o
+Garbled time
+[atguigu@hadoop104 software]$ at org.apache.hadoop.hdfs.DataStreamer.locateFollowingBlock(DataStrea
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop104 software]$ at or
+f
+syntax error. Last token seen: o
+Garbled time
+[atguigu@hadoop104 software]$ at org.apache.hadoop.
+.
+syntax error. Last token seen: o
+Garbled time
+[atguigu@hadoop104 software]$ put: File /input/hello.txt._COPYING_ could only be written to 0 of the 1
+m
+bash: put:: 未找到命令...
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 ~]$ hadoop fs -put \$HADOOP_HOME/wcinput 
+v
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ 1      
+i
+-bash: /home/atguigu/bin/1: 权限不够
+[atguigu@hadoop104 software]$ a.txt          .bash_profile  .cache/        .esd_auth      .mozilla/      
+$
+bash: a.txt: 未找到命令...
+[atguigu@hadoop104 software]$ .bash_history  .bashrc        .config/       .ICEauthority  .ssh/    
+a
+bash: .bash_history: 未找到命令...
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 ~]$ hadoop fs -put \$HADOOP_HOME/wcinput 
+g
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ 1
+h
+-bash: /home/atguigu/bin/1: 权限不够
+[atguigu@hadoop104 software]$ a.txt    
+@
+bash: a.txt: 未找到命令...
+[atguigu@hadoop104 software]$ .bash_history  .bashrc        .config/       .ICEauthority  .s
+o
+bash: .bash_history: 未找到命令...
+[atguigu@hadoop104 software]$ [atguigu@hadoop102 ~]$ hadoop fs -p
+1
+bash: [atguigu@hadoop102: 未找到命令...
+[atguigu@hadoop104 software]$ 1              .bash_logout   bin/           .dbus/         .local/        .
+a
+-bash: /home/atguigu/bin/1: 权限不够
+[atguigu@hadoop104 software]$ a.txt          .bash_profile  .cache/        .esd_auth      .mozilla/      .Xauthority    视频/     
+.
+bash: a.txt: 未找到命令...
+[atguigu@hadoop104 software]$ .bash_history  .bashrc        .config/       .ICEauthority  .ssh/          公
+7
+bash: .bash_history: 未找到命令...
+[atguigu@hadoop104 software]$ 䚡tgu^C
+[atguigu@hadoop104 software]$ ssh-copy-id hadoop103
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/atguigu/.ssh/id_rsa.pub"
+The authenticity of host 'hadoop103 (192.168.137.225)' can't be established.
+ECDSA key fingerprint is SHA256:QyoOncmBWLuF2KcOhGGdgVhx22M9H7ixDRLIUfMla3c.
+ECDSA key fingerprint is MD5:8a:a1:7c:20:7c:b8:7d:8f:ba:fa:85:27:e1:18:b7:17.
+Are you sure you want to continue connecting (yes/no)? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+
+/usr/bin/ssh-copy-id: WARNING: All keys were skipped because they already exist on the remote system.
+		(if you think this is a mistake, you may want to use -f option)
+
+[atguigu@hadoop104 software]$ ssh-copy-id hadoop102
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/atguigu/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+
+/usr/bin/ssh-copy-id: WARNING: All keys were skipped because they already exist on the remote system.
+		(if you think this is a mistake, you may want to use -f option)
+
+[atguigu@hadoop104 software]$ cd /home/atguigu/.ssh
+[atguigu@hadoop104 .ssh]$ ssh-key
+ssh-keygen   ssh-keyscan  
+[atguigu@hadoop104 .ssh]$ ssh-key
+ssh-keygen   ssh-keyscan  
+[atguigu@hadoop104 .ssh]$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/atguigu/.ssh/id_rsa): 
+/home/atguigu/.ssh/id_rsa already exists.
+Overwrite (y/n)? yes
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/atguigu/.ssh/id_rsa.
+Your public key has been saved in /home/atguigu/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:T+ysf+zqwJt9B1rMYQGfbVXPf+FQIopFbbQ3BkMozXM atguigu@hadoop104
+The key's randomart image is:
++---[RSA 2048]----+
+|        +o*B . .+|
+|       .o=.E*ooo.|
+|       ...+.o*o.o|
+|         .  =.+ o|
+|        S o+ . .o|
+|       . =  =   .|
+|        o ++ .   |
+|         *. + .  |
+|        +o==..   |
++----[SHA256]-----+
+[atguigu@hadoop104 .ssh]$ ssh-copy-id hadoop102
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/atguigu/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+atguigu@hadoop102's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'hadoop102'"
+and check to make sure that only the key(s) you wanted were added.
+
+[atguigu@hadoop104 .ssh]$ ssh-copy-id hadoop103
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/atguigu/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+atguigu@hadoop103's password: 
+Permission denied, please try again.
+atguigu@hadoop103's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'hadoop103'"
+and check to make sure that only the key(s) you wanted were added.
+
+[atguigu@hadoop104 .ssh]$ ssh-copy-id hadoop104
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/atguigu/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+atguigu@hadoop104's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'hadoop104'"
+and check to make sure that only the key(s) you wanted were added.
+
+[atguigu@hadoop104 .ssh]$ cd /opt/
+module/   software/ 
+[atguigu@hadoop104 .ssh]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop104 hadoop-3.1.3]$ jps
+2723 NodeManager
+2564 SecondaryNameNode
+9931 Jps
+[atguigu@hadoop104 hadoop-3.1.3]$ 
