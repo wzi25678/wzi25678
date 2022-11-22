@@ -1,0 +1,54 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.137.225:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last failed login: Tue Nov 22 14:54:04 CST 2022 from hadoop104 on ssh:notty
+There was 1 failed login attempt since the last successful login.
+Last login: Tue Nov 22 14:48:12 2022 from hadoop102
+[atguigu@hadoop103 ~]$ cat /opt/module/hadoop-3.1.3/etc/hadoop/core-site.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+<!-- 指定 NameNode 的地址 -->
+ <property>
+ <name>fs.defaultFS</name>
+ <value>hdfs://192.168.137.35:8020</value>
+ </property>
+ <!-- 指定 hadoop 数据的存储目录 -->
+ <property>
+ <name>hadoop.tmp.dir</name>
+ <value>/opt/module/hadoop-3.1.3/data</value>
+ </property>
+	  <!-- 配置HDFS网页登录使用的静态用户为atguigu -->
+    <property>
+        <name>hadoop.http.staticuser.user</name>
+        <value>atguigu</value>
+    </property>
+</configuration>
+[atguigu@hadoop103 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop103 hadoop-3.1.3]$  sbin/start-yarn.sh
+Starting resourcemanager
+Starting nodemanagers
+[atguigu@hadoop103 hadoop-3.1.3]$ 
