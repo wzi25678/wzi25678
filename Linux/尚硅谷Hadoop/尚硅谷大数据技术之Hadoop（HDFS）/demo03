@@ -1,0 +1,91 @@
+package com.atguigu.hdfs;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Arrays;
+
+public class HdfsClient {
+    private  static FileSystem fs;
+    @Before
+    public void init() throws IOException, InterruptedException, URISyntaxException {
+        //连接的集群nn地址
+        URI uri = new URI("hdfs://hadoop102:8020");
+
+        //创建一个配置文件
+        Configuration configuration = new Configuration();
+
+        String user = "atguigu";
+        //1.获取到了客户端对象
+       fs = FileSystem.get(uri,configuration,user);
+    }
+
+    @After
+    public void close() throws IOException {
+        //3.关闭资源
+        fs.close();
+    }
+
+    @Test
+    public void testmkdir() throws URISyntaxException, IOException, InterruptedException {
+        //2.创建一个文件夹
+        fs.mkdirs(new Path("/xiyou001/huaguoshan"));
+
+    }
+    @Test   //本地文件上传hadoop
+    public void testput() throws IOException {      //文件复制
+        fs.copyFromLocalFile(false,true,new Path("D:\\DevelopmengtTools\\DraftTxt\\sunwukong.txt"), new Path("/xiyou000"));
+    }
+
+    @Test   //文件下载
+    public void testGet() throws IOException {
+            fs.copyToLocalFile(false,new Path("hdfs://hadoop102/xiyou000"),new Path("D:\\DevelopmengtTools\\DraftTxt\\demo01.txt"),false);
+    }
+
+    @Test   //文件删除
+    public void testRm()  throws IOException{
+        fs.delete(new Path("/xiyou"),true);
+    }
+
+    @Test   //文件更名与移动
+    public void testmv() throws IOException {
+        fs.rename(new Path("/xiyou001/huaguoshan"),new Path("/xiyou001/secondshan"));
+    }
+
+    @Test
+    public void fileDatail() throws IOException {
+
+        //获取所有文件信息
+        RemoteIterator<LocatedFileStatus> listFiles = fs.listFiles(new Path("/"),true);
+
+        while (listFiles.hasNext()){
+            LocatedFileStatus fileStatus = listFiles.next();
+
+            System.out.println("================"+fileStatus.getPath()+ "=================");
+            System.out.println(fileStatus.getPath());   //+get方法，获取对应的块中数据的各种信息。
+
+
+
+
+
+            //获取块信息
+            BlockLocation[] blockLocations = fileStatus.getBlockLocations();
+            System.out.println(blockLocations); //这样只会打印出地址
+            System.out.println(Arrays.toString(blockLocations));
+        }
+
+    }
+
+
+}
