@@ -1,0 +1,557 @@
+Microsoft Windows [版本 10.0.22621.819]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Wzi>mvn -version
+Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63)
+Maven home: D:\DevelopmengtTools\Maven\apache-maven-3.8.6-bin\apache-maven-3.8.6
+Java version: 11.0.10, vendor: Oracle Corporation, runtime: D:\Java\jdk-11.0.10
+Default locale: zh_CN, platform encoding: GBK
+OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
+
+C:\Users\Wzi>mvn help:system
+[INFO] Scanning for projects...
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/22/maven-plugins-22.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/22/maven-plugins-22.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/21/maven-parent-21.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/21/maven-parent-21.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/10/apache-10.pomDownloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/10/apache-10.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/23/maven-plugins-23.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/23/maven-plugins-23.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/22/maven-parent-22.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/22/maven-parent-22.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/11/apache-11.pomDownloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/11/apache-11.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/24/maven-plugins-24.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/24/maven-plugins-24.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/23/maven-parent-23.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/23/maven-parent-23.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/13/apache-13.pomDownloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/13/apache-13.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/12/maven-plugins-12.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/12/maven-plugins-12.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/9/maven-parent-9.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/9/maven-parent-9.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/4/apache-4.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/4/apache-4.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-assembly-plugin/2.2-beta-5/maven-assembly-plugin-2.2-beta-5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-assembly-plugin/2.2-beta-5/maven-assembly-plugin-2.2-beta-5.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/16/maven-plugins-16.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/16/maven-plugins-16.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/15/maven-parent-15.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/15/maven-parent-15.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/6/apache-6.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/6/apache-6.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-assembly-plugin/2.2-beta-5/maven-assembly-plugin-2.2-beta-5.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-assembly-plugin/2.2-beta-5/maven-assembly-plugin-2.2-beta-5.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-release-plugin/2.5.3/maven-release-plugin-2.5.3.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-release-plugin/2.5.3/maven-release-plugin-2.5.3.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/release/maven-release/2.5.3/maven-release-2.5.3.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/release/maven-release/2.5.3/maven-release-2.5.3.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/27/maven-parent-27.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/27/maven-parent-27.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/17/apache-17.pomDownloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/17/apache-17.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-release-plugin/2.5.3/maven-release-plugin-2.5.3.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-release-plugin/2.5.3/maven-release-plugin-2.5.3.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-metadata.xml
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/mojo/maven-metadata.xml
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-metadata.xml (14 kB at 29 kB/s)
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/mojo/maven-metadata.xml (21 kB at 27 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-help-plugin/maven-metadata.xml
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-help-plugin/maven-metadata.xml (684 B at 2.1 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-help-plugin/3.3.0/maven-help-plugin-3.3.0.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-help-plugin/3.3.0/maven-help-plugin-3.3.0.pom (11 kB at 30 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/37/maven-plugins-37.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/37/maven-plugins-37.pom (9.9 kB at 29 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/37/maven-parent-37.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/37/maven-parent-37.pom (46 kB at 95 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/27/apache-27.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/27/apache-27.pom (20 kB at 53 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-help-plugin/3.3.0/maven-help-plugin-3.3.0.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-help-plugin/3.3.0/maven-help-plugin-3.3.0.jar (84 kB at 134 kB/s)
+[INFO]
+[INFO] ------------------< org.apache.maven:standalone-pom >-------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- maven-help-plugin:3.3.0:system (default-cli) @ standalone-pom ---
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugin-tools/maven-plugin-tools-generators/3.6.4/maven-plugin-tools-generators-3.6.4.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugin-tools/maven-plugin-tools-generators/3.6.4/maven-plugin-tools-generators-3.6.4.pom (4.1 kB at 14 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugin-tools/maven-plugin-tools/3.6.4/maven-plugin-tools-3.6.4.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugin-tools/maven-plugin-tools/3.6.4/maven-plugin-tools-3.6.4.pom (15 kB at 31 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/34/maven-parent-34.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/34/maven-parent-34.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/23/apache-23.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/23/apache-23.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugin-tools/maven-plugin-tools-api/3.6.4/maven-plugin-tools-api-3.6.4.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugin-tools/maven-plugin-tools-api/3.6.4/maven-plugin-tools-api-3.6.4.pom (3.0 kB at 10 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-core/3.2.5/maven-core-3.2.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-core/3.2.5/maven-core-3.2.5.pom (8.1 kB at 20 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven/3.2.5/maven-3.2.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven/3.2.5/maven-3.2.5.pom (22 kB at 48 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/25/maven-parent-25.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/25/maven-parent-25.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/15/apache-15.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/15/apache-15.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-model/3.2.5/maven-model-3.2.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-model/3.2.5/maven-model-3.2.5.pom (4.2 kB at 10 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/5.1/plexus-5.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/5.1/plexus-5.1.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings/3.2.5/maven-settings-3.2.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings/3.2.5/maven-settings-3.2.5.pom (2.2 kB at 5.4 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings-builder/3.2.5/maven-settings-builder-3.2.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings-builder/3.2.5/maven-settings-builder-3.2.5.pom (2.6 kB at 6.6 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-components/1.3.1/plexus-components-1.3.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-components/1.3.1/plexus-components-1.3.1.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/3.3.1/plexus-3.3.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/3.3.1/plexus-3.3.1.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/spice/spice-parent/17/spice-parent-17.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/spice/spice-parent/17/spice-parent-17.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/forge/forge-parent/10/forge-parent-10.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/forge/forge-parent/10/forge-parent-10.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-component-annotations/2.1.1/plexus-component-annotations-2.1.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-component-annotations/2.1.1/plexus-component-annotations-2.1.1.pom (770 B at 2.6 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-containers/2.1.1/plexus-containers-2.1.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-containers/2.1.1/plexus-containers-2.1.1.pom (6.0 kB at 15 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/6.5/plexus-6.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/6.5/plexus-6.5.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/spice/spice-parent/12/spice-parent-12.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/spice/spice-parent/12/spice-parent-12.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/forge/forge-parent/4/forge-parent-4.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/forge/forge-parent/4/forge-parent-4.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-repository-metadata/3.2.5/maven-repository-metadata-3.2.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-repository-metadata/3.2.5/maven-repository-metadata-3.2.5.pom (2.2 kB at 5.9 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-artifact/3.2.5/maven-artifact-3.2.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-artifact/3.2.5/maven-artifact-3.2.5.pom (2.3 kB at 8.2 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-plugin-api/3.2.5/maven-plugin-api-3.2.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-plugin-api/3.2.5/maven-plugin-api-3.2.5.pom (3.0 kB at 7.7 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.5/org.eclipse.sisu.plexus-0.3.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.5/org.eclipse.sisu.plexus-0.3.5.pom (4.3 kB at 11 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/sisu/sisu-plexus/0.3.5/sisu-plexus-0.3.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/sisu/sisu-plexus/0.3.5/sisu-plexus-0.3.5.pom (14 kB at 41 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/oss/oss-parent/9/oss-parent-9.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/oss/oss-parent/9/oss-parent-9.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.pom (13 kB at 32 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/net/java/jvnet-parent/3/jvnet-parent-3.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/net/java/jvnet-parent/3/jvnet-parent-3.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/javax/enterprise/cdi-api/1.2/cdi-api-1.2.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/javax/enterprise/cdi-api/1.2/cdi-api-1.2.pom (6.3 kB at 13 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/jboss/weld/weld-parent/26/weld-parent-26.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/jboss/weld/weld-parent/26/weld-parent-26.pom (32 kB at 68 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/javax/inject/javax.inject/1/javax.inject-1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/javax/inject/javax.inject/1/javax.inject-1.pom (612 B at 1.7 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.5/org.eclipse.sisu.inject-0.3.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.5/org.eclipse.sisu.inject-0.3.5.pom (2.6 kB at 6.0 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/sisu/sisu-inject/0.3.5/sisu-inject-0.3.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/sisu/sisu-inject/0.3.5/sisu-inject-0.3.5.pom (14 kB at 35 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.pom (7.3 kB at 23 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-model-builder/3.2.5/maven-model-builder-3.2.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-model-builder/3.2.5/maven-model-builder-3.2.5.pom (3.0 kB at 8.1 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-aether-provider/3.2.5/maven-aether-provider-3.2.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-aether-provider/3.2.5/maven-aether-provider-3.2.5.pom (4.2 kB at 10 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-api/1.0.0.v20140518/aether-api-1.0.0.v20140518.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-api/1.0.0.v20140518/aether-api-1.0.0.v20140518.pom (1.9 kB at 6.5 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether/1.0.0.v20140518/aether-1.0.0.v20140518.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether/1.0.0.v20140518/aether-1.0.0.v20140518.pom (30 kB at 66 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-spi/1.0.0.v20140518/aether-spi-1.0.0.v20140518.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-spi/1.0.0.v20140518/aether-spi-1.0.0.v20140518.pom (2.1 kB at 5.0 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.pom (2.2 kB at 4.5 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-impl/1.0.0.v20140518/aether-impl-1.0.0.v20140518.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-impl/1.0.0.v20140518/aether-impl-1.0.0.v20140518.pom (3.5 kB at 8.6 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/sisu/sisu-guice/3.2.3/sisu-guice-3.2.3.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/sisu/sisu-guice/3.2.3/sisu-guice-3.2.3.pom (11 kB at 33 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/sisu/inject/guice-parent/3.2.3/guice-parent-3.2.3.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/sisu/inject/guice-parent/3.2.3/guice-parent-3.2.3.pom (13 kB at 39 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/forge/forge-parent/38/forge-parent-38.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/forge/forge-parent/38/forge-parent-38.pom (19 kB at 61 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/aopalliance/aopalliance/1.0/aopalliance-1.0.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/aopalliance/aopalliance/1.0/aopalliance-1.0.pom (363 B at 1.2 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/com/google/guava/guava/16.0.1/guava-16.0.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/com/google/guava/guava/16.0.1/guava-16.0.1.pom (6.1 kB at 20 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/com/google/guava/guava-parent/16.0.1/guava-parent-16.0.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/com/google/guava/guava-parent/16.0.1/guava-parent-16.0.1.pom (7.3 kB at 18 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/oss/oss-parent/7/oss-parent-7.pom (4.8 kB at 16 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-api/3.0/maven-reporting-api-3.0.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-api/3.0/maven-reporting-api-3.0.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-components/15/maven-shared-components-15.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-components/15/maven-shared-components-15.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/16/maven-parent-16.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/16/maven-parent-16.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/7/apache-7.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/7/apache-7.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.0/doxia-sink-api-1.0.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.0/doxia-sink-api-1.0.pom (1.4 kB at 3.4 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia/1.0/doxia-1.0.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia/1.0/doxia-1.0.pom (9.6 kB at 19 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/10/maven-parent-10.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/10/maven-parent-10.pom (32 kB at 78 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-velocity/1.2/plexus-velocity-1.2.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-velocity/1.2/plexus-velocity-1.2.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-components/4.0/plexus-components-4.0.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-components/4.0/plexus-components-4.0.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/4.0/plexus-4.0.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/4.0/plexus-4.0.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/3.1/commons-collections-3.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/3.1/commons-collections-3.1.pom (6.1 kB at 20 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity/1.7/velocity-1.7.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity/1.7/velocity-1.7.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.pom (13 kB at 40 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-parent/9/commons-parent-9.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-parent/9/commons-parent-9.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-lang/commons-lang/2.4/commons-lang-2.4.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-lang/commons-lang/2.4/commons-lang-2.4.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm/9.2/asm-9.2.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm/9.2/asm-9.2.pom (2.4 kB at 7.6 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/ow2/1.5/ow2-1.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/ow2/1.5/ow2-1.5.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-commons/9.2/asm-commons-9.2.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-commons/9.2/asm-commons-9.2.pom (3.0 kB at 9.5 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-tree/9.2/asm-tree-9.2.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-tree/9.2/asm-tree-9.2.pom (2.6 kB at 8.3 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-analysis/9.2/asm-analysis-9.2.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-analysis/9.2/asm-analysis-9.2.pom (2.6 kB at 6.7 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/net/sf/jtidy/jtidy/r938/jtidy-r938.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/net/sf/jtidy/jtidy/r938/jtidy-r938.pom (9.2 kB at 29 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm/9.3/asm-9.3.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm/9.3/asm-9.3.pom (2.4 kB at 6.1 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-commons/9.3/asm-commons-9.3.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-commons/9.3/asm-commons-9.3.pom (3.0 kB at 9.5 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-tree/9.3/asm-tree-9.3.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-tree/9.3/asm-tree-9.3.pom (2.6 kB at 6.4 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-analysis/9.3/asm-analysis-9.3.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-analysis/9.3/asm-analysis-9.3.pom (2.6 kB at 6.5 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-utils/3.3.4/maven-shared-utils-3.3.4.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-utils/3.3.4/maven-shared-utils-3.3.4.pom (5.8 kB at 15 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-components/34/maven-shared-components-34.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-components/34/maven-shared-components-34.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-io/commons-io/2.6/commons-io-2.6.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-io/commons-io/2.6/commons-io-2.6.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-parent/42/commons-parent-42.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-parent/42/commons-parent-42.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/18/apache-18.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/18/apache-18.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-api/3.1.1/maven-reporting-api-3.1.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-api/3.1.1/maven-reporting-api-3.1.1.pom (3.8 kB at 12 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.11.1/doxia-sink-api-1.11.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.11.1/doxia-sink-api-1.11.1.pom (1.6 kB at 4.9 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia/1.11.1/doxia-1.11.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia/1.11.1/doxia-1.11.1.pom (18 kB at 52 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-logging-api/1.11.1/doxia-logging-api-1.11.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-logging-api/1.11.1/doxia-logging-api-1.11.1.pom (1.6 kB at 5.2 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-exec/1.6.0/maven-reporting-exec-1.6.0.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-exec/1.6.0/maven-reporting-exec-1.6.0.pom (14 kB at 46 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-api/3.1.0/maven-reporting-api-3.1.0.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-api/3.1.0/maven-reporting-api-3.1.0.pom (3.8 kB at 12 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-interactivity-api/1.1/plexus-interactivity-api-1.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-interactivity-api/1.1/plexus-interactivity-api-1.1.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-interactivity/1.1/plexus-interactivity-1.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-interactivity/1.1/plexus-interactivity-1.1.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-components/6.5/plexus-components-6.5.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-components/6.5/plexus-components-6.5.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.4.2/plexus-utils-3.4.2.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.4.2/plexus-utils-3.4.2.pom (8.2 kB at 15 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/8/plexus-8.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/8/plexus-8.pom (25 kB at 56 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/jdom/jdom2/2.0.6.1/jdom2-2.0.6.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/jdom/jdom2/2.0.6.1/jdom2-2.0.6.1.pom (4.6 kB at 15 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/com/thoughtworks/xstream/xstream/1.4.19/xstream-1.4.19.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/com/thoughtworks/xstream/xstream/1.4.19/xstream-1.4.19.pom (24 kB at 74 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/com/thoughtworks/xstream/xstream-parent/1.4.19/xstream-parent-1.4.19.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/com/thoughtworks/xstream/xstream-parent/1.4.19/xstream-parent-1.4.19.pom (43 kB at 132 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/io/github/x-stream/mxparser/1.2.2/mxparser-1.2.2.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/io/github/x-stream/mxparser/1.2.2/mxparser-1.2.2.pom (24 kB at 57 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-parent/47/commons-parent-47.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-parent/47/commons-parent-47.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/19/apache-19.pom
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/19/apache-19.pom (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugin-tools/maven-plugin-tools-generators/3.6.4/maven-plugin-tools-generators-3.6.4.jar
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-model/3.2.5/maven-model-3.2.5.jar
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugin-tools/maven-plugin-tools-api/3.6.4/maven-plugin-tools-api-3.6.4.jar
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-velocity/1.2/plexus-velocity-1.2.jar
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/3.1/commons-collections-3.1.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-velocity/1.2/plexus-velocity-1.2.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity/1.7/velocity-1.7.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity/1.7/velocity-1.7.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-lang/commons-lang/2.4/commons-lang-2.4.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-lang/commons-lang/2.4/commons-lang-2.4.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/net/sf/jtidy/jtidy/r938/jtidy-r938.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugin-tools/maven-plugin-tools-generators/3.6.4/maven-plugin-tools-generators-3.6.4.jar (49 kB at 76 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm/9.3/asm-9.3.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-model/3.2.5/maven-model-3.2.5.jar (161 kB at 239 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-commons/9.3/asm-commons-9.3.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugin-tools/maven-plugin-tools-api/3.6.4/maven-plugin-tools-api-3.6.4.jar (24 kB at 34 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-tree/9.3/asm-tree-9.3.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/3.1/commons-collections-3.1.jar (559 kB at 641 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-analysis/9.3/asm-analysis-9.3.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm/9.3/asm-9.3.jar (122 kB at 123 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-utils/3.3.4/maven-shared-utils-3.3.4.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/net/sf/jtidy/jtidy/r938/jtidy-r938.jar (250 kB at 250 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-io/commons-io/2.6/commons-io-2.6.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-tree/9.3/asm-tree-9.3.jar (53 kB at 53 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-api/3.1.1/maven-reporting-api-3.1.1.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/commons-io/commons-io/2.6/commons-io-2.6.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.11.1/doxia-sink-api-1.11.1.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-commons/9.3/asm-commons-9.3.jar (73 kB at 65 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-logging-api/1.11.1/doxia-logging-api-1.11.1.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-analysis/9.3/asm-analysis-9.3.jar (34 kB at 29 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-exec/1.6.0/maven-reporting-exec-1.6.0.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-api/3.1.1/maven-reporting-api-3.1.1.jar (11 kB at 8.1 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-artifact/3.2.5/maven-artifact-3.2.5.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-utils/3.3.4/maven-shared-utils-3.3.4.jar (153 kB at 116 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-core/3.2.5/maven-core-3.2.5.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.11.1/doxia-sink-api-1.11.1.jar (12 kB at 8.3 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-repository-metadata/3.2.5/maven-repository-metadata-3.2.5.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-logging-api/1.11.1/doxia-logging-api-1.11.1.jar (12 kB at 8.2 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-model-builder/3.2.5/maven-model-builder-3.2.5.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-exec/1.6.0/maven-reporting-exec-1.6.0.jar (31 kB at 19 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-aether-provider/3.2.5/maven-aether-provider-3.2.5.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-core/3.2.5/maven-core-3.2.5.jar (608 kB at 360 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-spi/1.0.0.v20140518/aether-spi-1.0.0.v20140518.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-artifact/3.2.5/maven-artifact-3.2.5.jar (55 kB at 32 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-impl/1.0.0.v20140518/aether-impl-1.0.0.v20140518.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-model-builder/3.2.5/maven-model-builder-3.2.5.jar (170 kB at 98 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-api/1.0.0.v20140518/aether-api-1.0.0.v20140518.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-repository-metadata/3.2.5/maven-repository-metadata-3.2.5.jar (26 kB at 13 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.5/org.eclipse.sisu.plexus-0.3.5.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-impl/1.0.0.v20140518/aether-impl-1.0.0.v20140518.jar (172 kB at 84 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-api/1.0.0.v20140518/aether-api-1.0.0.v20140518.jar (136 kB at 66 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/javax/enterprise/cdi-api/1.2/cdi-api-1.2.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-aether-provider/3.2.5/maven-aether-provider-3.2.5.jar (66 kB at 30 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.5/org.eclipse.sisu.inject-0.3.5.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-spi/1.0.0.v20140518/aether-spi-1.0.0.v20140518.jar (31 kB at 14 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/sisu/sisu-guice/3.2.3/sisu-guice-3.2.3-no_aop.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.5/org.eclipse.sisu.plexus-0.3.5.jar (205 kB at 91 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/javax/inject/javax.inject/1/javax.inject-1.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar (26 kB at 11 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/aopalliance/aopalliance/1.0/aopalliance-1.0.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/javax/enterprise/cdi-api/1.2/cdi-api-1.2.jar (71 kB at 29 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/com/google/guava/guava/16.0.1/guava-16.0.1.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.5/org.eclipse.sisu.inject-0.3.5.jar (379 kB at 152 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/javax/inject/javax.inject/1/javax.inject-1.jar (2.5 kB at 972 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/aopalliance/aopalliance/1.0/aopalliance-1.0.jar (4.5 kB at 1.6 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-component-annotations/2.1.1/plexus-component-annotations-2.1.1.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.jar (62 kB at 21 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.jar (53 kB at 18 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-component-annotations/2.1.1/plexus-component-annotations-2.1.1.jar (4.1 kB at 1.4 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-plugin-api/3.2.5/maven-plugin-api-3.2.5.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings/3.2.5/maven-settings-3.2.5.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-plugin-api/3.2.5/maven-plugin-api-3.2.5.jar (46 kB at 14 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-interactivity-api/1.1/plexus-interactivity-api-1.1.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-interactivity-api/1.1/plexus-interactivity-api-1.1.jar (0 B at 0 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.4.2/plexus-utils-3.4.2.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings/3.2.5/maven-settings-3.2.5.jar (43 kB at 12 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/jdom/jdom2/2.0.6.1/jdom2-2.0.6.1.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.jar (146 kB at 41 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/com/thoughtworks/xstream/xstream/1.4.19/xstream-1.4.19.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/sisu/sisu-guice/3.2.3/sisu-guice-3.2.3-no_aop.jar (398 kB at 105 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/io/github/x-stream/mxparser/1.2.2/mxparser-1.2.2.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.4.2/plexus-utils-3.4.2.jar (267 kB at 70 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/jdom/jdom2/2.0.6.1/jdom2-2.0.6.1.jar (328 kB at 84 kB/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar (0 B at 0 B/s)
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/com/thoughtworks/xstream/xstream/1.4.19/xstream-1.4.19.jar (633 kB at 156 kB/s)
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar (0 B at 0 B/s)
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/io/github/x-stream/mxparser/1.2.2/mxparser-1.2.2.jar (30 kB at 7.2 kB/s)
+Downloaded from alimaven: http://maven.aliyun.com/nexus/content/repositories/central/com/google/guava/guava/16.0.1/guava-16.0.1.jar (2.2 MB at 468 kB/s)
+[INFO]
+===============================================================================
+========================= Platform Properties Details =========================
+===============================================================================
+
+===============================================================================
+System Properties
+===============================================================================
+
+sun.desktop=windows
+awt.toolkit=sun.awt.windows.WToolkit
+java.specification.version=11
+sun.cpu.isalist=amd64
+sun.jnu.encoding=GBK
+java.class.path=D:\DevelopmengtTools\Maven\apache-maven-3.8.6-bin\apache-maven-3.8.6\boot\plexus-classworlds-2.6.0.jar
+java.vm.vendor=Oracle Corporation
+sun.arch.data.model=64
+user.variant=
+java.vendor.url=https://openjdk.java.net/
+user.timezone=Asia/Shanghai
+maven.conf=D:\DevelopmengtTools\Maven\apache-maven-3.8.6-bin\apache-maven-3.8.6/conf
+os.name=Windows 10
+java.vm.specification.version=11
+sun.java.launcher=SUN_STANDARD
+user.country=CN
+sun.boot.library.path=D:\Java\jdk-11.0.10\bin
+sun.java.command=org.codehaus.plexus.classworlds.launcher.Launcher help:system
+jdk.debug=release
+maven.home=D:\DevelopmengtTools\Maven\apache-maven-3.8.6-bin\apache-maven-3.8.6
+sun.cpu.endian=little
+user.home=C:\Users\Wzi
+user.language=zh
+sun.stderr.encoding=ms936
+java.specification.vendor=Oracle Corporation
+java.version.date=2021-01-19
+java.home=D:\Java\jdk-11.0.10
+file.separator=\
+java.vm.compressedOopsMode=32-bit
+line.separator=
+
+sun.stdout.encoding=ms936
+java.specification.name=Java Platform API Specification
+java.vm.specification.vendor=Oracle Corporation
+java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment
+user.script=
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+java.runtime.version=11.0.10+8-LTS-162
+user.name=Wzi
+path.separator=;
+os.version=10.0
+java.runtime.name=Java(TM) SE Runtime Environment
+file.encoding=GBK
+guice.disable.misplaced.annotation.check=true
+java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+java.vendor.version=18.9
+java.vendor.url.bug=https://bugreport.java.com/bugreport/
+java.io.tmpdir=C:\Users\Wzi\AppData\Local\Temp\
+java.version=11.0.10
+user.dir=C:\Users\Wzi
+os.arch=amd64
+maven.multiModuleProjectDirectory=C:\Users\Wzi
+java.vm.specification.name=Java Virtual Machine Specification
+java.awt.printerjob=sun.awt.windows.WPrinterJob
+sun.os.patch.level=
+java.library.path=D:\Java\jdk-11.0.10\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;D:\Java\jdk-11.0.10\bin;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files (x86)\Autodesk\Backburner\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;D:\SQL\100\Tools\Binn\;D:\SQL\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;D:\VIPpython;D:\DevelopmengtTools\Maven\apache-maven-3.8.6-bin\apache-maven-3.8.6\bin;D:\DevelopmengtTools\Linux\远程登录工具\;D:\;itHub\Git\cmd;D:\DevelopmengtTools\Hadoop\software\hadoop-3.1.0\hadoop-3.1.0;D:\Python\Surronding\Scripts\;D:\Python\Surronding\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Scripts\;D:\;C:\Users\Wzi\AppData\Local\Microsoft\WindowsApps;C:\Users\Wzi\.dotnet\tools;D:\BaiduNetdisk\Microsoft VS Code\bin;C:\Program Files (x86)\Tencent\QQGameTempest\Hall.57734\;D:\BaiduNetdisk\WebStorm 2021.1\bin;;D:\JetBrains\CLion 2021.1\bin;;D:\JetBrains\PyCharm 2021.1\bin;;D:\Android\PhpStorm 2021.1\bin;;D:\Ideaa2021版\IntelliJ IDEA 2021.1\bin;;D:\GO\GoLand 2021.1\bin;;.
+java.vendor=Oracle Corporation
+java.vm.info=mixed mode
+java.vm.version=11.0.10+8-LTS-162
+classworlds.conf=D:\DevelopmengtTools\Maven\apache-maven-3.8.6-bin\apache-maven-3.8.6\bin\m2.conf
+sun.io.unicode.encoding=UnicodeLittle
+library.jansi.path=D:\DevelopmengtTools\Maven\apache-maven-3.8.6-bin\apache-maven-3.8.6\lib\jansi-native
+java.class.version=55.0
+
+===============================================================================
+Environment Variables
+===============================================================================
+
+USERDOMAIN_ROAMINGPROFILE=TYPORA-WZI
+PATH=D:\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;D:\Java\jdk-11.0.10\bin;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files (x86)\Autodesk\Backburner\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;D:\SQL\100\Tools\Binn\;D:\SQL\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;D:\VIPpython;D:\DevelopmengtTools\Maven\apache-maven-3.8.6-bin\apache-maven-3.8.6\bin;D:\DevelopmengtTools\Linux\远程登录工具\;D:\;itHub\Git\cmd;D:\DevelopmengtTools\Hadoop\software\hadoop-3.1.0\hadoop-3.1.0;D:\Python\Surronding\Scripts\;D:\Python\Surronding\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Scripts\;D:\;C:\Users\Wzi\AppData\Local\Microsoft\WindowsApps;C:\Users\Wzi\.dotnet\tools;D:\BaiduNetdisk\Microsoft VS Code\bin;C:\Program Files (x86)\Tencent\QQGameTempest\Hall.57734\;D:\BaiduNetdisk\WebStorm 2021.1\bin;;D:\JetBrains\CLion 2021.1\bin;;D:\JetBrains\PyCharm 2021.1\bin;;D:\Android\PhpStorm 2021.1\bin;;D:\Ideaa2021版\IntelliJ IDEA 2021.1\bin;;D:\GO\GoLand 2021.1\bin;
+SYSTEMDRIVE=C:
+PROCESSOR_LEVEL=6
+SESSIONNAME=Console
+ALLUSERSPROFILE=C:\ProgramData
+PROCESSOR_ARCHITECTURE=AMD64
+CLION=D:\JetBrains\CLion 2021.1\bin;
+DRIVERDATA=C:\Windows\System32\Drivers\DriverData
+MAVEN_HOME=D:\DevelopmengtTools\Maven\apache-maven-3.8.6-bin\apache-maven-3.8.6
+PROGRAMFILES=C:\Program Files
+PSMODULEPATH=C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\PowerShell\Modules\
+VS150ENTCOMNTOOLS=D:\VS\Common7\Tools\
+PROGRAMDATA=C:\ProgramData
+USERNAME=Wzi
+WDIR=C:\
+ONEDRIVE=C:\Users\Wzi\OneDrive
+CONFIGSETROOT=C:\WINDOWS\ConfigSetRoot
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+CLASSWORLDS_JAR="D:\DevelopmengtTools\Maven\apache-maven-3.8.6-bin\apache-maven-3.8.6\boot\plexus-classworlds-2.6.0.jar"
+PHPSTORM=D:\Android\PhpStorm 2021.1\bin;
+WINDIR=C:\WINDOWS
+HOMEPATH=\Users\Wzi
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+HADOOP_HOME=D:\DevelopmengtTools\Hadoop\software\hadoop-3.1.0\hadoop-3.1.0
+PUBLIC=C:\Users\Public
+=EXITCODE=00000000
+=::=::\
+LOCALAPPDATA=C:\Users\Wzi\AppData\Local
+MSMPI_BIN=C:\Program Files\Microsoft MPI\Bin\
+COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files
+USERDOMAIN=TYPORA-WZI
+ILMDIR=C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\
+LOGONSERVER=\\TYPORA-WZI
+JAVA_HOME=D:\Java\jdk-11.0.10
+PROMPT=$P$G
+PROGRAMFILES(X86)=C:\Program Files (x86)
+ERROR_CODE=0
+EXEC_DIR=C:\Users\Wzi
+INTELLIJ IDEA=D:\Ideaa2021版\IntelliJ IDEA 2021.1\bin;
+ILBDIR=C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\
+ADSK_3DSMAX_X64_2014=D:\BaiduNetdiskDownload\3ds Max 2014\
+=C:=C:\Users\Wzi
+APPDATA=C:\Users\Wzi\AppData\Roaming
+PROGRAMW6432=C:\Program Files
+SYSTEMROOT=C:\WINDOWS
+MAVEN_CMD_LINE_ARGS=help:system
+OS=Windows_NT
+COMPUTERNAME=TYPORA-WZI
+COMMONPROGRAMW6432=C:\Program Files\Common Files
+COMMONPROGRAMFILES=C:\Program Files\Common Files
+COMSPEC=C:\WINDOWS\system32\cmd.exe
+JAVACMD=D:\Java\jdk-11.0.10\bin\java.exe
+MAVEN_PROJECTBASEDIR=C:\Users\Wzi
+PROCESSOR_REVISION=9e0a
+PYCHARM=D:\JetBrains\PyCharm 2021.1\bin;
+CLASSPATH=.;D:\Java\jdk-11.0.10\lib\dt.jar;D:\Java\jdk-11.0.10\lib\tools.jar
+CLASSWORLDS_LAUNCHER=org.codehaus.plexus.classworlds.launcher.Launcher
+WXDRIVE_START_ARGS=--wxdrive-setting=0 --disable-gpu --disable-software-rasterizer --enable-features=NetworkServiceInProcess
+=D:=D:\
+TEMP=C:\Users\Wzi\AppData\Local\Temp
+HOMEDRIVE=C:
+PT6HOME=D:\Zongyuan\江西理工\Cisco Packet Tracer 6.2sv
+USERPROFILE=C:\Users\Wzi
+TMP=C:\Users\Wzi\AppData\Local\Temp
+GOLAND=D:\GO\GoLand 2021.1\bin;
+WEBSTORM=D:\BaiduNetdisk\WebStorm 2021.1\bin;
+NUMBER_OF_PROCESSORS=12
+JVMCONFIG=\.mvn\jvm.config
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  46.509 s
+[INFO] Finished at: 2022-11-24T11:14:23+08:00
+[INFO] ------------------------------------------------------------------------
+
+C:\Users\Wzi>
