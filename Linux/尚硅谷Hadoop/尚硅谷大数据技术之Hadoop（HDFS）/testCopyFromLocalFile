@@ -1,0 +1,15 @@
+1）编写源代码
+@Test
+public void testCopyFromLocalFile() throws IOException, InterruptedException, URISyntaxException {
+
+    // 1 获取文件系统
+    Configuration configuration = new Configuration();
+    configuration.set("dfs.replication", "2");
+    FileSystem fs = FileSystem.get(new URI("hdfs://hadoop102:8020"), configuration, "atguigu");
+
+    // 2 上传文件
+    fs.copyFromLocalFile(new Path("d:/sunwukong.txt"), new Path("/xiyou/huaguoshan"));
+
+    // 3 关闭资源
+    fs.close();
+｝
