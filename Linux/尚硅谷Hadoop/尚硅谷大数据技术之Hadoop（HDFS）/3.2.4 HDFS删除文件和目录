@@ -1,0 +1,13 @@
+@Test
+public void testDelete() throws IOException, InterruptedException, URISyntaxException{
+
+	// 1 获取文件系统
+	Configuration configuration = new Configuration();
+	FileSystem fs = FileSystem.get(new URI("hdfs://hadoop102:8020"), configuration, "atguigu");
+		
+	// 2 执行删除
+	fs.delete(new Path("/xiyou"), true);
+		
+	// 3 关闭资源
+	fs.close();
+}
