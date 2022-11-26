@@ -1,0 +1,182 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.137.35:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Fri Nov 25 18:21:00 2022 from typora-wzi.mshome.net
+[atguigu@hadoop102 ~]$ cat seen_txid
+cat: seen_txid: 没有那个文件或目录
+[atguigu@hadoop102 ~]$ cd /opt/
+module/   software/ 
+[atguigu@hadoop102 ~]$ cd /opt/
+module/   software/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/
+hadoop-3.1.3/ jdk1.8.0_212/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/
+bin/     data/    etc/     include/ lib/     libexec/ logs/    sbin/    share/   wcinput/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/etc/hadoop/
+output/         shellprofile.d/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/etc/hadoop/
+output/         shellprofile.d/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/etc/hadoop/
+output/         shellprofile.d/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/etc/hadoop/
+output/         shellprofile.d/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/etc/hadoop/
+output/         shellprofile.d/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/s
+sbin/  share/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/s
+sbin/  share/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/s
+sbin/  share/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/sbin/FederationStateStore/
+MySQL/     SQLServer/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/sbin/FederationStateStore/
+MySQL/     SQLServer/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/sbin/FederationStateStore/
+MySQL/     SQLServer/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/sbin/FederationStateStore/
+MySQL/     SQLServer/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/sbin/FederationStateStore/
+MySQL/     SQLServer/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/
+data/ name/ 
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/
+data/ name/ 
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/name/current/
+[atguigu@hadoop102 current]$ cat seen_txid 
+Display all 537 possibilities? (y or n)
+[atguigu@hadoop102 current]$ cat seen_txid 
+1137
+[atguigu@hadoop102 current]$ hdfs
+Usage: hdfs [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+
+  OPTIONS is none or any of:
+
+--buildpaths                       attempt to add class files from build tree
+--config dir                       Hadoop config directory
+--daemon (start|status|stop)       operate on a daemon
+--debug                            turn on shell script debug mode
+--help                             usage information
+--hostnames list[,of,host,names]   hosts to use in worker mode
+--hosts filename                   list of hosts to use in worker mode
+--loglevel level                   set the log4j level for this command
+--workers                          turn on worker mode
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+cacheadmin           configure the HDFS cache
+crypto               configure HDFS encryption zones
+debug                run a Debug Admin to execute HDFS debug commands
+dfsadmin             run a DFS admin client
+dfsrouteradmin       manage Router-based federation
+ec                   run a HDFS ErasureCoding CLI
+fsck                 run a DFS filesystem checking utility
+haadmin              run a DFS HA admin client
+jmxget               get JMX exported values from NameNode or DataNode.
+oev                  apply the offline edits viewer to an edits file
+oiv                  apply the offline fsimage viewer to an fsimage
+oiv_legacy           apply the offline fsimage viewer to a legacy fsimage
+storagepolicies      list/get/set block storage policies
+
+    Client Commands:
+
+classpath            prints the class path needed to get the hadoop jar and the required libraries
+dfs                  run a filesystem command on the file system
+envvars              display computed Hadoop environment variables
+fetchdt              fetch a delegation token from the NameNode
+getconf              get config values from configuration
+groups               get the groups which users belong to
+lsSnapshottableDir   list all snapshottable dirs owned by the current user
+snapshotDiff         diff two snapshots of a directory or diff the current directory contents with a snapshot
+version              print the version
+
+    Daemon Commands:
+
+balancer             run a cluster balancing utility
+datanode             run a DFS datanode
+dfsrouter            run the DFS router
+diskbalancer         Distributes data evenly among disks on a given node
+httpfs               run HttpFS server, the HDFS HTTP Gateway
+journalnode          run the DFS journalnode
+mover                run a utility to move block replicas across storage types
+namenode             run the DFS namenode
+nfs3                 run an NFS version 3 gateway
+portmap              run a portmap service
+secondarynamenode    run the DFS secondary namenode
+zkfc                 run the ZK Failover Controller daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[atguigu@hadoop102 current]$ hdfs
+Usage: hdfs [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+
+  OPTIONS is none or any of:
+
+--buildpaths                       attempt to add class files from build tree
+--config dir                       Hadoop config directory
+--daemon (start|status|stop)       operate on a daemon
+--debug                            turn on shell script debug mode
+--help                             usage information
+--hostnames list[,of,host,names]   hosts to use in worker mode
+--hosts filename                   list of hosts to use in worker mode
+--loglevel level                   set the log4j level for this command
+--workers                          turn on worker mode
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+cacheadmin           configure the HDFS cache
+crypto               configure HDFS encryption zones
+debug                run a Debug Admin to execute HDFS debug commands
+dfsadmin             run a DFS admin client
+dfsrouteradmin       manage Router-based federation
+ec                   run a HDFS ErasureCoding CLI
+fsck                 run a DFS filesystem checking utility
+haadmin              run a DFS HA admin client
+jmxget               get JMX exported values from NameNode or DataNode.
+oev                  apply the offline edits viewer to an edits file
+oiv                  apply the offline fsimage viewer to an fsimage
+oiv_legacy           apply the offline fsimage viewer to a legacy fsimage
+storagepolicies      list/get/set block storage policies
+
+    Client Commands:
+
+classpath            prints the class path needed to get the hadoop jar and the required libraries
+dfs                  run a filesystem command on the file system
+envvars              display computed Hadoop environment variables
+fetchdt              fetch a delegation token from the NameNode
+getconf              get config values from configuration
+groups               get the groups which users belong to
+lsSnapshottableDir   list all snapshottable dirs owned by the current user
+snapshotDiff         diff two snapshots of a directory or diff the current directory contents with a snapshot
+version              print the version
+
+    Daemon Commands:
+
+balancer             run a cluster balancing utility
+datanode             run a DFS datanode
+dfsrouter            run the DFS router
+diskbalancer         Distributes data evenly among disks on a given node
+httpfs               run HttpFS server, the HDFS HTTP Gateway
+journalnode          run the DFS journalnode
+mover                run a utility to move block replicas across storage types
+namenode             run the DFS namenode
+nfs3                 run an NFS version 3 gateway
+portmap              run a portmap service
+secondarynamenode    run the DFS secondary namenode
+zkfc                 run the ZK Failover Controller daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[atguigu@hadoop102 current]$ 
