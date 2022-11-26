@@ -1,0 +1,722 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.137.35:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Fri Nov 25 18:21:00 2022 from typora-wzi.mshome.net
+[atguigu@hadoop102 ~]$ cat seen_txid
+cat: seen_txid: 没有那个文件或目录
+[atguigu@hadoop102 ~]$ cd /opt/
+module/   software/ 
+[atguigu@hadoop102 ~]$ cd /opt/
+module/   software/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/
+hadoop-3.1.3/ jdk1.8.0_212/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/
+bin/     data/    etc/     include/ lib/     libexec/ logs/    sbin/    share/   wcinput/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/etc/hadoop/
+output/         shellprofile.d/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/etc/hadoop/
+output/         shellprofile.d/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/etc/hadoop/
+output/         shellprofile.d/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/etc/hadoop/
+output/         shellprofile.d/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/etc/hadoop/
+output/         shellprofile.d/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/s
+sbin/  share/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/s
+sbin/  share/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/s
+sbin/  share/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/sbin/FederationStateStore/
+MySQL/     SQLServer/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/sbin/FederationStateStore/
+MySQL/     SQLServer/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/sbin/FederationStateStore/
+MySQL/     SQLServer/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/sbin/FederationStateStore/
+MySQL/     SQLServer/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/sbin/FederationStateStore/
+MySQL/     SQLServer/ 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/
+data/ name/ 
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/
+data/ name/ 
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/name/current/
+[atguigu@hadoop102 current]$ cat seen_txid 
+Display all 537 possibilities? (y or n)
+[atguigu@hadoop102 current]$ cat seen_txid 
+1137
+[atguigu@hadoop102 current]$ hdfs
+Usage: hdfs [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+
+  OPTIONS is none or any of:
+
+--buildpaths                       attempt to add class files from build tree
+--config dir                       Hadoop config directory
+--daemon (start|status|stop)       operate on a daemon
+--debug                            turn on shell script debug mode
+--help                             usage information
+--hostnames list[,of,host,names]   hosts to use in worker mode
+--hosts filename                   list of hosts to use in worker mode
+--loglevel level                   set the log4j level for this command
+--workers                          turn on worker mode
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+cacheadmin           configure the HDFS cache
+crypto               configure HDFS encryption zones
+debug                run a Debug Admin to execute HDFS debug commands
+dfsadmin             run a DFS admin client
+dfsrouteradmin       manage Router-based federation
+ec                   run a HDFS ErasureCoding CLI
+fsck                 run a DFS filesystem checking utility
+haadmin              run a DFS HA admin client
+jmxget               get JMX exported values from NameNode or DataNode.
+oev                  apply the offline edits viewer to an edits file
+oiv                  apply the offline fsimage viewer to an fsimage
+oiv_legacy           apply the offline fsimage viewer to a legacy fsimage
+storagepolicies      list/get/set block storage policies
+
+    Client Commands:
+
+classpath            prints the class path needed to get the hadoop jar and the required libraries
+dfs                  run a filesystem command on the file system
+envvars              display computed Hadoop environment variables
+fetchdt              fetch a delegation token from the NameNode
+getconf              get config values from configuration
+groups               get the groups which users belong to
+lsSnapshottableDir   list all snapshottable dirs owned by the current user
+snapshotDiff         diff two snapshots of a directory or diff the current directory contents with a snapshot
+version              print the version
+
+    Daemon Commands:
+
+balancer             run a cluster balancing utility
+datanode             run a DFS datanode
+dfsrouter            run the DFS router
+diskbalancer         Distributes data evenly among disks on a given node
+httpfs               run HttpFS server, the HDFS HTTP Gateway
+journalnode          run the DFS journalnode
+mover                run a utility to move block replicas across storage types
+namenode             run the DFS namenode
+nfs3                 run an NFS version 3 gateway
+portmap              run a portmap service
+secondarynamenode    run the DFS secondary namenode
+zkfc                 run the ZK Failover Controller daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[atguigu@hadoop102 current]$ hdfs
+Usage: hdfs [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+
+  OPTIONS is none or any of:
+
+--buildpaths                       attempt to add class files from build tree
+--config dir                       Hadoop config directory
+--daemon (start|status|stop)       operate on a daemon
+--debug                            turn on shell script debug mode
+--help                             usage information
+--hostnames list[,of,host,names]   hosts to use in worker mode
+--hosts filename                   list of hosts to use in worker mode
+--loglevel level                   set the log4j level for this command
+--workers                          turn on worker mode
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+cacheadmin           configure the HDFS cache
+crypto               configure HDFS encryption zones
+debug                run a Debug Admin to execute HDFS debug commands
+dfsadmin             run a DFS admin client
+dfsrouteradmin       manage Router-based federation
+ec                   run a HDFS ErasureCoding CLI
+fsck                 run a DFS filesystem checking utility
+haadmin              run a DFS HA admin client
+jmxget               get JMX exported values from NameNode or DataNode.
+oev                  apply the offline edits viewer to an edits file
+oiv                  apply the offline fsimage viewer to an fsimage
+oiv_legacy           apply the offline fsimage viewer to a legacy fsimage
+storagepolicies      list/get/set block storage policies
+
+    Client Commands:
+
+classpath            prints the class path needed to get the hadoop jar and the required libraries
+dfs                  run a filesystem command on the file system
+envvars              display computed Hadoop environment variables
+fetchdt              fetch a delegation token from the NameNode
+getconf              get config values from configuration
+groups               get the groups which users belong to
+lsSnapshottableDir   list all snapshottable dirs owned by the current user
+snapshotDiff         diff two snapshots of a directory or diff the current directory contents with a snapshot
+version              print the version
+
+    Daemon Commands:
+
+balancer             run a cluster balancing utility
+datanode             run a DFS datanode
+dfsrouter            run the DFS router
+diskbalancer         Distributes data evenly among disks on a given node
+httpfs               run HttpFS server, the HDFS HTTP Gateway
+journalnode          run the DFS journalnode
+mover                run a utility to move block replicas across storage types
+namenode             run the DFS namenode
+nfs3                 run an NFS version 3 gateway
+portmap              run a portmap service
+secondarynamenode    run the DFS secondary namenode
+zkfc                 run the ZK Failover Controller daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[atguigu@hadoop102 current]$ clear
+[atguigu@hadoop102 current]$ ll
+总用量 4188
+-rw-rw-r--. 1 atguigu atguigu 1048576 11月 23 21:44 edits_0000000000000000001-0000000000000000007
+-rw-rw-r--. 1 atguigu atguigu    2311 11月 24 10:56 edits_0000000000000000008-0000000000000000037
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 10:57 edits_0000000000000000038-0000000000000000039
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 10:58 edits_0000000000000000040-0000000000000000041
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 10:59 edits_0000000000000000042-0000000000000000043
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:00 edits_0000000000000000044-0000000000000000045
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:01 edits_0000000000000000046-0000000000000000047
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:02 edits_0000000000000000048-0000000000000000049
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:03 edits_0000000000000000050-0000000000000000051
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:04 edits_0000000000000000052-0000000000000000053
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:05 edits_0000000000000000054-0000000000000000055
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:06 edits_0000000000000000056-0000000000000000057
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:07 edits_0000000000000000058-0000000000000000059
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:08 edits_0000000000000000060-0000000000000000061
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:09 edits_0000000000000000062-0000000000000000063
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:10 edits_0000000000000000064-0000000000000000065
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:11 edits_0000000000000000066-0000000000000000067
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:12 edits_0000000000000000068-0000000000000000069
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:13 edits_0000000000000000070-0000000000000000071
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:14 edits_0000000000000000072-0000000000000000073
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:15 edits_0000000000000000074-0000000000000000075
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:16 edits_0000000000000000076-0000000000000000077
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:17 edits_0000000000000000078-0000000000000000079
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:18 edits_0000000000000000080-0000000000000000081
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:19 edits_0000000000000000082-0000000000000000083
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:20 edits_0000000000000000084-0000000000000000085
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:21 edits_0000000000000000086-0000000000000000087
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:22 edits_0000000000000000088-0000000000000000089
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:23 edits_0000000000000000090-0000000000000000091
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:24 edits_0000000000000000092-0000000000000000093
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:25 edits_0000000000000000094-0000000000000000095
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:26 edits_0000000000000000096-0000000000000000097
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:27 edits_0000000000000000098-0000000000000000099
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:28 edits_0000000000000000100-0000000000000000101
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:29 edits_0000000000000000102-0000000000000000103
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:30 edits_0000000000000000104-0000000000000000105
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:31 edits_0000000000000000106-0000000000000000107
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:32 edits_0000000000000000108-0000000000000000109
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:33 edits_0000000000000000110-0000000000000000111
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:34 edits_0000000000000000112-0000000000000000113
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:35 edits_0000000000000000114-0000000000000000115
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:36 edits_0000000000000000116-0000000000000000117
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:37 edits_0000000000000000118-0000000000000000119
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:38 edits_0000000000000000120-0000000000000000121
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:39 edits_0000000000000000122-0000000000000000123
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:40 edits_0000000000000000124-0000000000000000125
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:41 edits_0000000000000000126-0000000000000000127
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:42 edits_0000000000000000128-0000000000000000129
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:43 edits_0000000000000000130-0000000000000000131
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:44 edits_0000000000000000132-0000000000000000133
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:45 edits_0000000000000000134-0000000000000000135
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:46 edits_0000000000000000136-0000000000000000137
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:47 edits_0000000000000000138-0000000000000000139
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:48 edits_0000000000000000140-0000000000000000141
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:49 edits_0000000000000000142-0000000000000000143
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:50 edits_0000000000000000144-0000000000000000145
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:51 edits_0000000000000000146-0000000000000000147
+-rw-rw-r--. 1 atguigu atguigu     203 11月 24 11:52 edits_0000000000000000148-0000000000000000151
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:53 edits_0000000000000000152-0000000000000000153
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:54 edits_0000000000000000154-0000000000000000155
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:55 edits_0000000000000000156-0000000000000000157
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:56 edits_0000000000000000158-0000000000000000159
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:57 edits_0000000000000000160-0000000000000000161
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:58 edits_0000000000000000162-0000000000000000163
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 11:59 edits_0000000000000000164-0000000000000000165
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:00 edits_0000000000000000166-0000000000000000167
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:01 edits_0000000000000000168-0000000000000000169
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:02 edits_0000000000000000170-0000000000000000171
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:03 edits_0000000000000000172-0000000000000000173
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:04 edits_0000000000000000174-0000000000000000175
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:05 edits_0000000000000000176-0000000000000000177
+-rw-rw-r--. 1 atguigu atguigu     209 11月 24 12:06 edits_0000000000000000178-0000000000000000181
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:07 edits_0000000000000000182-0000000000000000183
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:08 edits_0000000000000000184-0000000000000000185
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:09 edits_0000000000000000186-0000000000000000187
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:10 edits_0000000000000000188-0000000000000000189
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:11 edits_0000000000000000190-0000000000000000191
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:12 edits_0000000000000000192-0000000000000000193
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:13 edits_0000000000000000194-0000000000000000195
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:14 edits_0000000000000000196-0000000000000000197
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:15 edits_0000000000000000198-0000000000000000199
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:16 edits_0000000000000000200-0000000000000000201
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:17 edits_0000000000000000202-0000000000000000203
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:18 edits_0000000000000000204-0000000000000000205
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:19 edits_0000000000000000206-0000000000000000207
+-rw-rw-r--. 1 atguigu atguigu     419 11月 24 12:20 edits_0000000000000000208-0000000000000000214
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:21 edits_0000000000000000215-0000000000000000216
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:22 edits_0000000000000000217-0000000000000000218
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:23 edits_0000000000000000219-0000000000000000220
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:24 edits_0000000000000000221-0000000000000000222
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:25 edits_0000000000000000223-0000000000000000224
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:26 edits_0000000000000000225-0000000000000000226
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:27 edits_0000000000000000227-0000000000000000228
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:28 edits_0000000000000000229-0000000000000000230
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:29 edits_0000000000000000231-0000000000000000232
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:30 edits_0000000000000000233-0000000000000000234
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:31 edits_0000000000000000235-0000000000000000236
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:32 edits_0000000000000000237-0000000000000000238
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:33 edits_0000000000000000239-0000000000000000240
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:34 edits_0000000000000000241-0000000000000000242
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:35 edits_0000000000000000243-0000000000000000244
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:36 edits_0000000000000000245-0000000000000000246
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:37 edits_0000000000000000247-0000000000000000248
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:38 edits_0000000000000000249-0000000000000000250
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:39 edits_0000000000000000251-0000000000000000252
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:40 edits_0000000000000000253-0000000000000000254
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:41 edits_0000000000000000255-0000000000000000256
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:42 edits_0000000000000000257-0000000000000000258
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:43 edits_0000000000000000259-0000000000000000260
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:44 edits_0000000000000000261-0000000000000000262
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:45 edits_0000000000000000263-0000000000000000264
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:46 edits_0000000000000000265-0000000000000000266
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:47 edits_0000000000000000267-0000000000000000268
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:48 edits_0000000000000000269-0000000000000000270
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:49 edits_0000000000000000271-0000000000000000272
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:50 edits_0000000000000000273-0000000000000000274
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:51 edits_0000000000000000275-0000000000000000276
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:52 edits_0000000000000000277-0000000000000000278
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:53 edits_0000000000000000279-0000000000000000280
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:54 edits_0000000000000000281-0000000000000000282
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:55 edits_0000000000000000283-0000000000000000284
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:56 edits_0000000000000000285-0000000000000000286
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:57 edits_0000000000000000287-0000000000000000288
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:58 edits_0000000000000000289-0000000000000000290
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 12:59 edits_0000000000000000291-0000000000000000292
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:00 edits_0000000000000000293-0000000000000000294
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:01 edits_0000000000000000295-0000000000000000296
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:02 edits_0000000000000000297-0000000000000000298
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:03 edits_0000000000000000299-0000000000000000300
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:04 edits_0000000000000000301-0000000000000000302
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:05 edits_0000000000000000303-0000000000000000304
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:06 edits_0000000000000000305-0000000000000000306
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:07 edits_0000000000000000307-0000000000000000308
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:08 edits_0000000000000000309-0000000000000000310
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:09 edits_0000000000000000311-0000000000000000312
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:10 edits_0000000000000000313-0000000000000000314
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:11 edits_0000000000000000315-0000000000000000316
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:12 edits_0000000000000000317-0000000000000000318
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:13 edits_0000000000000000319-0000000000000000320
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:14 edits_0000000000000000321-0000000000000000322
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:15 edits_0000000000000000323-0000000000000000324
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:16 edits_0000000000000000325-0000000000000000326
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:17 edits_0000000000000000327-0000000000000000328
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:18 edits_0000000000000000329-0000000000000000330
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:19 edits_0000000000000000331-0000000000000000332
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:20 edits_0000000000000000333-0000000000000000334
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:21 edits_0000000000000000335-0000000000000000336
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:22 edits_0000000000000000337-0000000000000000338
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:23 edits_0000000000000000339-0000000000000000340
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:24 edits_0000000000000000341-0000000000000000342
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:25 edits_0000000000000000343-0000000000000000344
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:26 edits_0000000000000000345-0000000000000000346
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:27 edits_0000000000000000347-0000000000000000348
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:28 edits_0000000000000000349-0000000000000000350
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:29 edits_0000000000000000351-0000000000000000352
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:30 edits_0000000000000000353-0000000000000000354
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:31 edits_0000000000000000355-0000000000000000356
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:32 edits_0000000000000000357-0000000000000000358
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:33 edits_0000000000000000359-0000000000000000360
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:34 edits_0000000000000000361-0000000000000000362
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:35 edits_0000000000000000363-0000000000000000364
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:36 edits_0000000000000000365-0000000000000000366
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:37 edits_0000000000000000367-0000000000000000368
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:38 edits_0000000000000000369-0000000000000000370
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:39 edits_0000000000000000371-0000000000000000372
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:40 edits_0000000000000000373-0000000000000000374
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:41 edits_0000000000000000375-0000000000000000376
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:42 edits_0000000000000000377-0000000000000000378
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:43 edits_0000000000000000379-0000000000000000380
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:44 edits_0000000000000000381-0000000000000000382
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:45 edits_0000000000000000383-0000000000000000384
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:46 edits_0000000000000000385-0000000000000000386
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:47 edits_0000000000000000387-0000000000000000388
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:48 edits_0000000000000000389-0000000000000000390
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:49 edits_0000000000000000391-0000000000000000392
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:50 edits_0000000000000000393-0000000000000000394
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:51 edits_0000000000000000395-0000000000000000396
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:52 edits_0000000000000000397-0000000000000000398
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:53 edits_0000000000000000399-0000000000000000400
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:54 edits_0000000000000000401-0000000000000000402
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:55 edits_0000000000000000403-0000000000000000404
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:56 edits_0000000000000000405-0000000000000000406
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:57 edits_0000000000000000407-0000000000000000408
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:58 edits_0000000000000000409-0000000000000000410
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 13:59 edits_0000000000000000411-0000000000000000412
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:00 edits_0000000000000000413-0000000000000000414
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:01 edits_0000000000000000415-0000000000000000416
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:02 edits_0000000000000000417-0000000000000000418
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:03 edits_0000000000000000419-0000000000000000420
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:04 edits_0000000000000000421-0000000000000000422
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:05 edits_0000000000000000423-0000000000000000424
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:06 edits_0000000000000000425-0000000000000000426
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:07 edits_0000000000000000427-0000000000000000428
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:08 edits_0000000000000000429-0000000000000000430
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:09 edits_0000000000000000431-0000000000000000432
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:10 edits_0000000000000000433-0000000000000000434
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:11 edits_0000000000000000435-0000000000000000436
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:12 edits_0000000000000000437-0000000000000000438
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:13 edits_0000000000000000439-0000000000000000440
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:14 edits_0000000000000000441-0000000000000000442
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:15 edits_0000000000000000443-0000000000000000444
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:16 edits_0000000000000000445-0000000000000000446
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:17 edits_0000000000000000447-0000000000000000448
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:18 edits_0000000000000000449-0000000000000000450
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:19 edits_0000000000000000451-0000000000000000452
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:20 edits_0000000000000000453-0000000000000000454
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:21 edits_0000000000000000455-0000000000000000456
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:22 edits_0000000000000000457-0000000000000000458
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:23 edits_0000000000000000459-0000000000000000460
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:24 edits_0000000000000000461-0000000000000000462
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:25 edits_0000000000000000463-0000000000000000464
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:26 edits_0000000000000000465-0000000000000000466
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:27 edits_0000000000000000467-0000000000000000468
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:28 edits_0000000000000000469-0000000000000000470
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:29 edits_0000000000000000471-0000000000000000472
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:30 edits_0000000000000000473-0000000000000000474
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:31 edits_0000000000000000475-0000000000000000476
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:32 edits_0000000000000000477-0000000000000000478
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:33 edits_0000000000000000479-0000000000000000480
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:34 edits_0000000000000000481-0000000000000000482
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:35 edits_0000000000000000483-0000000000000000484
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:36 edits_0000000000000000485-0000000000000000486
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:37 edits_0000000000000000487-0000000000000000488
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:38 edits_0000000000000000489-0000000000000000490
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:39 edits_0000000000000000491-0000000000000000492
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:40 edits_0000000000000000493-0000000000000000494
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:41 edits_0000000000000000495-0000000000000000496
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:42 edits_0000000000000000497-0000000000000000498
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:43 edits_0000000000000000499-0000000000000000500
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:44 edits_0000000000000000501-0000000000000000502
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:45 edits_0000000000000000503-0000000000000000504
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:46 edits_0000000000000000505-0000000000000000506
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:47 edits_0000000000000000507-0000000000000000508
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:48 edits_0000000000000000509-0000000000000000510
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:49 edits_0000000000000000511-0000000000000000512
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:50 edits_0000000000000000513-0000000000000000514
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:51 edits_0000000000000000515-0000000000000000516
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:52 edits_0000000000000000517-0000000000000000518
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:53 edits_0000000000000000519-0000000000000000520
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:54 edits_0000000000000000521-0000000000000000522
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:55 edits_0000000000000000523-0000000000000000524
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:56 edits_0000000000000000525-0000000000000000526
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:57 edits_0000000000000000527-0000000000000000528
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:58 edits_0000000000000000529-0000000000000000530
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 14:59 edits_0000000000000000531-0000000000000000532
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:00 edits_0000000000000000533-0000000000000000534
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:01 edits_0000000000000000535-0000000000000000536
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:02 edits_0000000000000000537-0000000000000000538
+-rw-rw-r--. 1 atguigu atguigu      86 11月 24 15:03 edits_0000000000000000539-0000000000000000541
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:04 edits_0000000000000000542-0000000000000000543
+-rw-rw-r--. 1 atguigu atguigu     420 11月 24 15:05 edits_0000000000000000544-0000000000000000550
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:06 edits_0000000000000000551-0000000000000000552
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:07 edits_0000000000000000553-0000000000000000554
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:08 edits_0000000000000000555-0000000000000000556
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:09 edits_0000000000000000557-0000000000000000558
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:10 edits_0000000000000000559-0000000000000000560
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:11 edits_0000000000000000561-0000000000000000562
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:12 edits_0000000000000000563-0000000000000000564
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:13 edits_0000000000000000565-0000000000000000566
+-rw-rw-r--. 1 atguigu atguigu     474 11月 24 15:14 edits_0000000000000000567-0000000000000000574
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:15 edits_0000000000000000575-0000000000000000576
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:16 edits_0000000000000000577-0000000000000000578
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:17 edits_0000000000000000579-0000000000000000580
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:18 edits_0000000000000000581-0000000000000000582
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:19 edits_0000000000000000583-0000000000000000584
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:20 edits_0000000000000000585-0000000000000000586
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:21 edits_0000000000000000587-0000000000000000588
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:22 edits_0000000000000000589-0000000000000000590
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:23 edits_0000000000000000591-0000000000000000592
+-rw-rw-r--. 1 atguigu atguigu     133 11月 24 15:24 edits_0000000000000000593-0000000000000000595
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:25 edits_0000000000000000596-0000000000000000597
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:26 edits_0000000000000000598-0000000000000000599
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:27 edits_0000000000000000600-0000000000000000601
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:28 edits_0000000000000000602-0000000000000000603
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:29 edits_0000000000000000604-0000000000000000605
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:30 edits_0000000000000000606-0000000000000000607
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:31 edits_0000000000000000608-0000000000000000609
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:32 edits_0000000000000000610-0000000000000000611
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:33 edits_0000000000000000612-0000000000000000613
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:34 edits_0000000000000000614-0000000000000000615
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:35 edits_0000000000000000616-0000000000000000617
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:36 edits_0000000000000000618-0000000000000000619
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:37 edits_0000000000000000620-0000000000000000621
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:38 edits_0000000000000000622-0000000000000000623
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:39 edits_0000000000000000624-0000000000000000625
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:40 edits_0000000000000000626-0000000000000000627
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:41 edits_0000000000000000628-0000000000000000629
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:42 edits_0000000000000000630-0000000000000000631
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:43 edits_0000000000000000632-0000000000000000633
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:44 edits_0000000000000000634-0000000000000000635
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:45 edits_0000000000000000636-0000000000000000637
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:46 edits_0000000000000000638-0000000000000000639
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:47 edits_0000000000000000640-0000000000000000641
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:48 edits_0000000000000000642-0000000000000000643
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:49 edits_0000000000000000644-0000000000000000645
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:50 edits_0000000000000000646-0000000000000000647
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:51 edits_0000000000000000648-0000000000000000649
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:52 edits_0000000000000000650-0000000000000000651
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:53 edits_0000000000000000652-0000000000000000653
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:54 edits_0000000000000000654-0000000000000000655
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:55 edits_0000000000000000656-0000000000000000657
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:56 edits_0000000000000000658-0000000000000000659
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:57 edits_0000000000000000660-0000000000000000661
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:58 edits_0000000000000000662-0000000000000000663
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 15:59 edits_0000000000000000664-0000000000000000665
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:00 edits_0000000000000000666-0000000000000000667
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:01 edits_0000000000000000668-0000000000000000669
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:02 edits_0000000000000000670-0000000000000000671
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:03 edits_0000000000000000672-0000000000000000673
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:04 edits_0000000000000000674-0000000000000000675
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:05 edits_0000000000000000676-0000000000000000677
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:06 edits_0000000000000000678-0000000000000000679
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:07 edits_0000000000000000680-0000000000000000681
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:08 edits_0000000000000000682-0000000000000000683
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:09 edits_0000000000000000684-0000000000000000685
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:10 edits_0000000000000000686-0000000000000000687
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:11 edits_0000000000000000688-0000000000000000689
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:12 edits_0000000000000000690-0000000000000000691
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:13 edits_0000000000000000692-0000000000000000693
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:14 edits_0000000000000000694-0000000000000000695
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:15 edits_0000000000000000696-0000000000000000697
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:16 edits_0000000000000000698-0000000000000000699
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:17 edits_0000000000000000700-0000000000000000701
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:18 edits_0000000000000000702-0000000000000000703
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:19 edits_0000000000000000704-0000000000000000705
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:20 edits_0000000000000000706-0000000000000000707
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:21 edits_0000000000000000708-0000000000000000709
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:22 edits_0000000000000000710-0000000000000000711
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:23 edits_0000000000000000712-0000000000000000713
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:24 edits_0000000000000000714-0000000000000000715
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:25 edits_0000000000000000716-0000000000000000717
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:26 edits_0000000000000000718-0000000000000000719
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:27 edits_0000000000000000720-0000000000000000721
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:28 edits_0000000000000000722-0000000000000000723
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:29 edits_0000000000000000724-0000000000000000725
+-rw-rw-r--. 1 atguigu atguigu      86 11月 24 16:30 edits_0000000000000000726-0000000000000000728
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:31 edits_0000000000000000729-0000000000000000730
+-rw-rw-r--. 1 atguigu atguigu     625 11月 24 16:32 edits_0000000000000000731-0000000000000000739
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:33 edits_0000000000000000740-0000000000000000741
+-rw-rw-r--. 1 atguigu atguigu     154 11月 24 16:34 edits_0000000000000000742-0000000000000000744
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:35 edits_0000000000000000745-0000000000000000746
+-rw-rw-r--. 1 atguigu atguigu     187 11月 24 16:36 edits_0000000000000000747-0000000000000000750
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:37 edits_0000000000000000751-0000000000000000752
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:38 edits_0000000000000000753-0000000000000000754
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:39 edits_0000000000000000755-0000000000000000756
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:40 edits_0000000000000000757-0000000000000000758
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:41 edits_0000000000000000759-0000000000000000760
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:42 edits_0000000000000000761-0000000000000000762
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:43 edits_0000000000000000763-0000000000000000764
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:44 edits_0000000000000000765-0000000000000000766
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:45 edits_0000000000000000767-0000000000000000768
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:46 edits_0000000000000000769-0000000000000000770
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:47 edits_0000000000000000771-0000000000000000772
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:48 edits_0000000000000000773-0000000000000000774
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:49 edits_0000000000000000775-0000000000000000776
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:50 edits_0000000000000000777-0000000000000000778
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:51 edits_0000000000000000779-0000000000000000780
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:52 edits_0000000000000000781-0000000000000000782
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:53 edits_0000000000000000783-0000000000000000784
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:54 edits_0000000000000000785-0000000000000000786
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:55 edits_0000000000000000787-0000000000000000788
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:56 edits_0000000000000000789-0000000000000000790
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:57 edits_0000000000000000791-0000000000000000792
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:58 edits_0000000000000000793-0000000000000000794
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 16:59 edits_0000000000000000795-0000000000000000796
+-rw-rw-r--. 1 atguigu atguigu     413 11月 24 17:00 edits_0000000000000000797-0000000000000000803
+-rw-rw-r--. 1 atguigu atguigu     414 11月 24 17:01 edits_0000000000000000804-0000000000000000810
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:02 edits_0000000000000000811-0000000000000000812
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:03 edits_0000000000000000813-0000000000000000814
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:04 edits_0000000000000000815-0000000000000000816
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:05 edits_0000000000000000817-0000000000000000818
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:06 edits_0000000000000000819-0000000000000000820
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:07 edits_0000000000000000821-0000000000000000822
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:08 edits_0000000000000000823-0000000000000000824
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:09 edits_0000000000000000825-0000000000000000826
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:10 edits_0000000000000000827-0000000000000000828
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:11 edits_0000000000000000829-0000000000000000830
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:12 edits_0000000000000000831-0000000000000000832
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:13 edits_0000000000000000833-0000000000000000834
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:14 edits_0000000000000000835-0000000000000000836
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:15 edits_0000000000000000837-0000000000000000838
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:16 edits_0000000000000000839-0000000000000000840
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:17 edits_0000000000000000841-0000000000000000842
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:18 edits_0000000000000000843-0000000000000000844
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:19 edits_0000000000000000845-0000000000000000846
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:20 edits_0000000000000000847-0000000000000000848
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:21 edits_0000000000000000849-0000000000000000850
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:22 edits_0000000000000000851-0000000000000000852
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:23 edits_0000000000000000853-0000000000000000854
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:24 edits_0000000000000000855-0000000000000000856
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:25 edits_0000000000000000857-0000000000000000858
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:26 edits_0000000000000000859-0000000000000000860
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:27 edits_0000000000000000861-0000000000000000862
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:28 edits_0000000000000000863-0000000000000000864
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:29 edits_0000000000000000865-0000000000000000866
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:30 edits_0000000000000000867-0000000000000000868
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:31 edits_0000000000000000869-0000000000000000870
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:32 edits_0000000000000000871-0000000000000000872
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:33 edits_0000000000000000873-0000000000000000874
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:34 edits_0000000000000000875-0000000000000000876
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:35 edits_0000000000000000877-0000000000000000878
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:36 edits_0000000000000000879-0000000000000000880
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:37 edits_0000000000000000881-0000000000000000882
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:38 edits_0000000000000000883-0000000000000000884
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:39 edits_0000000000000000885-0000000000000000886
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:40 edits_0000000000000000887-0000000000000000888
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:41 edits_0000000000000000889-0000000000000000890
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:42 edits_0000000000000000891-0000000000000000892
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:43 edits_0000000000000000893-0000000000000000894
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:44 edits_0000000000000000895-0000000000000000896
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:45 edits_0000000000000000897-0000000000000000898
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:46 edits_0000000000000000899-0000000000000000900
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:47 edits_0000000000000000901-0000000000000000902
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:48 edits_0000000000000000903-0000000000000000904
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:49 edits_0000000000000000905-0000000000000000906
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:50 edits_0000000000000000907-0000000000000000908
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:51 edits_0000000000000000909-0000000000000000910
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:52 edits_0000000000000000911-0000000000000000912
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:53 edits_0000000000000000913-0000000000000000914
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:54 edits_0000000000000000915-0000000000000000916
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:55 edits_0000000000000000917-0000000000000000918
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:56 edits_0000000000000000919-0000000000000000920
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:57 edits_0000000000000000921-0000000000000000922
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:58 edits_0000000000000000923-0000000000000000924
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 17:59 edits_0000000000000000925-0000000000000000926
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:00 edits_0000000000000000927-0000000000000000928
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:01 edits_0000000000000000929-0000000000000000930
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:02 edits_0000000000000000931-0000000000000000932
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:03 edits_0000000000000000933-0000000000000000934
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:04 edits_0000000000000000935-0000000000000000936
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:05 edits_0000000000000000937-0000000000000000938
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:06 edits_0000000000000000939-0000000000000000940
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:07 edits_0000000000000000941-0000000000000000942
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:08 edits_0000000000000000943-0000000000000000944
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:09 edits_0000000000000000945-0000000000000000946
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:10 edits_0000000000000000947-0000000000000000948
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:11 edits_0000000000000000949-0000000000000000950
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:12 edits_0000000000000000951-0000000000000000952
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:13 edits_0000000000000000953-0000000000000000954
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:14 edits_0000000000000000955-0000000000000000956
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:15 edits_0000000000000000957-0000000000000000958
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:16 edits_0000000000000000959-0000000000000000960
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:17 edits_0000000000000000961-0000000000000000962
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:18 edits_0000000000000000963-0000000000000000964
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:19 edits_0000000000000000965-0000000000000000966
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:20 edits_0000000000000000967-0000000000000000968
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:21 edits_0000000000000000969-0000000000000000970
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:22 edits_0000000000000000971-0000000000000000972
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:23 edits_0000000000000000973-0000000000000000974
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:24 edits_0000000000000000975-0000000000000000976
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:25 edits_0000000000000000977-0000000000000000978
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:26 edits_0000000000000000979-0000000000000000980
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:27 edits_0000000000000000981-0000000000000000982
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:28 edits_0000000000000000983-0000000000000000984
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:29 edits_0000000000000000985-0000000000000000986
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:30 edits_0000000000000000987-0000000000000000988
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:31 edits_0000000000000000989-0000000000000000990
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:32 edits_0000000000000000991-0000000000000000992
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:33 edits_0000000000000000993-0000000000000000994
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:34 edits_0000000000000000995-0000000000000000996
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:35 edits_0000000000000000997-0000000000000000998
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:36 edits_0000000000000000999-0000000000000001000
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:37 edits_0000000000000001001-0000000000000001002
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:38 edits_0000000000000001003-0000000000000001004
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:39 edits_0000000000000001005-0000000000000001006
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:40 edits_0000000000000001007-0000000000000001008
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:41 edits_0000000000000001009-0000000000000001010
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:42 edits_0000000000000001011-0000000000000001012
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:43 edits_0000000000000001013-0000000000000001014
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:44 edits_0000000000000001015-0000000000000001016
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:45 edits_0000000000000001017-0000000000000001018
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:46 edits_0000000000000001019-0000000000000001020
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:47 edits_0000000000000001021-0000000000000001022
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:48 edits_0000000000000001023-0000000000000001024
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:49 edits_0000000000000001025-0000000000000001026
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:50 edits_0000000000000001027-0000000000000001028
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:51 edits_0000000000000001029-0000000000000001030
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:52 edits_0000000000000001031-0000000000000001032
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:53 edits_0000000000000001033-0000000000000001034
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:54 edits_0000000000000001035-0000000000000001036
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:55 edits_0000000000000001037-0000000000000001038
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:56 edits_0000000000000001039-0000000000000001040
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:57 edits_0000000000000001041-0000000000000001042
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:58 edits_0000000000000001043-0000000000000001044
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 18:59 edits_0000000000000001045-0000000000000001046
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:00 edits_0000000000000001047-0000000000000001048
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:01 edits_0000000000000001049-0000000000000001050
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:02 edits_0000000000000001051-0000000000000001052
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:03 edits_0000000000000001053-0000000000000001054
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:04 edits_0000000000000001055-0000000000000001056
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:05 edits_0000000000000001057-0000000000000001058
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:06 edits_0000000000000001059-0000000000000001060
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:07 edits_0000000000000001061-0000000000000001062
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:08 edits_0000000000000001063-0000000000000001064
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:09 edits_0000000000000001065-0000000000000001066
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:10 edits_0000000000000001067-0000000000000001068
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:11 edits_0000000000000001069-0000000000000001070
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:12 edits_0000000000000001071-0000000000000001072
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:13 edits_0000000000000001073-0000000000000001074
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:14 edits_0000000000000001075-0000000000000001076
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:15 edits_0000000000000001077-0000000000000001078
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:16 edits_0000000000000001079-0000000000000001080
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:17 edits_0000000000000001081-0000000000000001082
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:18 edits_0000000000000001083-0000000000000001084
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:19 edits_0000000000000001085-0000000000000001086
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:20 edits_0000000000000001087-0000000000000001088
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:21 edits_0000000000000001089-0000000000000001090
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:22 edits_0000000000000001091-0000000000000001092
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:23 edits_0000000000000001093-0000000000000001094
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:24 edits_0000000000000001095-0000000000000001096
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:25 edits_0000000000000001097-0000000000000001098
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:26 edits_0000000000000001099-0000000000000001100
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:27 edits_0000000000000001101-0000000000000001102
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:28 edits_0000000000000001103-0000000000000001104
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:29 edits_0000000000000001105-0000000000000001106
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:30 edits_0000000000000001107-0000000000000001108
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:31 edits_0000000000000001109-0000000000000001110
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:32 edits_0000000000000001111-0000000000000001112
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:33 edits_0000000000000001113-0000000000000001114
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:34 edits_0000000000000001115-0000000000000001116
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:35 edits_0000000000000001117-0000000000000001118
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:36 edits_0000000000000001119-0000000000000001120
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:37 edits_0000000000000001121-0000000000000001122
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:38 edits_0000000000000001123-0000000000000001124
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:39 edits_0000000000000001125-0000000000000001126
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:40 edits_0000000000000001127-0000000000000001128
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:41 edits_0000000000000001129-0000000000000001130
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:42 edits_0000000000000001131-0000000000000001132
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:43 edits_0000000000000001133-0000000000000001134
+-rw-rw-r--. 1 atguigu atguigu      42 11月 24 19:44 edits_0000000000000001135-0000000000000001136
+-rw-rw-r--. 1 atguigu atguigu 1048576 11月 24 19:44 edits_inprogress_0000000000000001137
+-rw-rw-r--. 1 atguigu atguigu     391 11月 23 21:43 fsimage_0000000000000000000
+-rw-rw-r--. 1 atguigu atguigu      62 11月 23 21:43 fsimage_0000000000000000000.md5
+-rw-rw-r--. 1 atguigu atguigu     480 11月 24 09:57 fsimage_0000000000000000007
+-rw-rw-r--. 1 atguigu atguigu      62 11月 24 09:57 fsimage_0000000000000000007.md5
+-rw-rw-r--. 1 atguigu atguigu       5 11月 24 19:44 seen_txid
+-rw-rw-r--. 1 atguigu atguigu     218 11月 24 09:57 VERSION
+[atguigu@hadoop102 current]$ 
