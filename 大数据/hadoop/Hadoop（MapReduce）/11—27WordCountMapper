@@ -1,0 +1,31 @@
+package com.atguigu.mapreduce.wordcount;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*/
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+import java.io.IOException;
+
+public class WordCountMapper  extends Mapper<LongWritable, Text, IntWritable,Text> {
+    Text k = new Text();
+    IntWritable v = new IntWritable();
+
+    @Override
+    protected void map(LongWritable key,Text value,Context context) throws IOException, InterruptedException {
+        //1.获取一行
+        String line = value.toString();
+
+        //2.对改行进行切割
+        String[] words = line.split(" ");
+
+        //3.输出
+        for (String word : words){
+            k.set(word);
+            context.write(v, k);
+        }
+    }
+}
