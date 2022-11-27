@@ -1,0 +1,30 @@
+package com.atguigu.mapreduce.wordcount;/*
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+import java.io.IOException;
+
+public class WordCountReducer extends Reducer<IntWritable ,Text,IntWritable, Text> {
+    int sum ;
+    IntWritable v = new IntWritable();
+
+
+    protected void reduce(Text key,Iterable<IntWritable> values,Context context) throws IOException, InterruptedException {
+        //1.累加求和
+        sum = 0;
+        for (IntWritable count : values){
+            sum += count.get();
+        }
+
+        //2.输出
+        v.set(sum);
+        context.write(v, key);
+    }
+
+}
