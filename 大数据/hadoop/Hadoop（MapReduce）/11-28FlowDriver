@@ -1,0 +1,49 @@
+package com.atguigu.mapreduce.writable;
+/**
+@Author Wzi
+@Create_Date 2019/10/4 15:09
+*
+*/
+
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+import java.io.IOException;
+
+public class FlowDriver {
+    public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
+        //函数执行体
+
+        //1.进行配置，同时获取job对象
+        Configuration configuration = new Configuration();
+        Job job = Job.getInstance(configuration);
+
+        //2.关联本Driver类
+        job.setJarByClass(FlowDriver.class);
+
+        //3.关联Mapper和Reducer
+        job.setMapperClass(FlowMapper.class);
+        job.setReducerClass(FlowReduce.class);
+
+        //4.设置Map端输出的KV类型
+        job.setMapOutputValueClass(Text.class);
+        job.setMapOutputValueClass(FlowBean.class);
+
+        //5.设置程序最终输出的kv类型
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(FlowBean.class);
+
+        //6.设置程序最终输出的KV类型
+        FileInputFormat.setInputPaths(job,new Path("D:\\DataOpertor\\input"));
+        FileOutputFormat.setOutputPath(job,new Path("D:\\DataOpertor\\input"));
+
+        //7.提交Job
+        boolean b = job.waitForCompletion(true);
+        System.out.println(b ? 0:1);
+    }
+}
