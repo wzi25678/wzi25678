@@ -1,0 +1,30 @@
+package com.atguigu.mapreduce.outputformat;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.RecordWriter;
+import org.apache.hadoop.mapreduce.TaskAttemptContext;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+import java.io.IOException;
+
+public class LogOutputFormat extends FileOutputFormat<Text, NullWritable> {
+    @Override
+    public RecordWriter<Text, NullWritable> getRecordWriter(TaskAttemptContext job) throws IOException, InterruptedException {
+        //创建一个自定义的RecordWriter返回
+        LogRecordWriter logRecordWriter = new LogRecordWriter(job);
+        return logRecordWriter;
+    }
+}
