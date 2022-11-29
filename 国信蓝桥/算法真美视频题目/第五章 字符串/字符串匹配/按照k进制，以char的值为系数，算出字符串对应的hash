@@ -1,0 +1,7 @@
+  static long hash(String str) {
+    long h = 0;
+    for (int i = 0; i < str.length(); ++i) {
+      h = seed * h + str.charAt(i);//上一次的哈希值h*31+这一次字符串
+    }
+    return h % Long.MAX_VALUE;
+  }
