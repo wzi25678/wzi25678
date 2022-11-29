@@ -1,0 +1,28 @@
+public static int RabinKarp(String txt,String pat,int q){//q为质数，也叫种子
+    long patHash=0;
+    long txtHash=0;
+    for (int i = 0; i < pat.length(); i++) {
+        patHash=patHash*q+pat.charAt(i);
+        txtHash=txtHash*q+txt.charAt(i);
+    }
+    for (int i = 0; i <=txt.length()-pat.length(); i++) {
+        if(patHash==txtHash){
+            int j;//一般情况下，hash相同不需要在匹配一次，有概率hash相同字符不同
+            for (j = 0; j <pat.length() ; j++) {
+                if (txt.charAt(i+j) != pat.charAt(j))
+                    break;
+            }
+            if(j==pat.length()){
+                return i;
+            }
+        }
+        if(i<txt.length()-pat.length()){//加条件，最后一次不在计算
+            char oldc=txt.charAt(i);
+            char newc=txt.charAt(i+pat.length());
+            int n=pat.length();
+            txtHash=txtHash*q+newc-(long)Math.pow(q,n)*oldc;//(上一次的hash值*q+新字符)-oldc的hash，注意在减去第一个的时候，不是减去pow(q,n-1)*oldc，因为前面多乘
+            txtHash=txtHash%Long.MAX_VALUE;
+        }
+    }
+    return -1;
+}
