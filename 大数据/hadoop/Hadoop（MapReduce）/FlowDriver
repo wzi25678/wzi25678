@@ -1,0 +1,70 @@
+package com.atguigu.mapreduce.partitioner;
+
+import com.atguigu.mapreduce.writable.FlowBean;
+import com.atguigu.mapreduce.writable.FlowMapper;
+import com.atguigu.mapreduce.writable.FlowReduce;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+import java.io.IOException;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class FlowDriver {
+    public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
+
+        //1.配置并获取job
+        Configuration configuration  = new Configuration();
+        Job job = Job.getInstance(configuration);
+
+        //2.关联本Driver类
+        job.setJarByClass(FlowDriver.class);
+
+        //3.关联Mapper和Reducer
+        job.setMapperClass(FlowMapper.class);
+        job.setReducerClass(FlowReduce.class);
+
+        //4.设置Map端输出数据的KV类型
+        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(FlowBean.class);
+
+        //5.设置程序最终输出的KV类型
+        job.setOutputValueClass(Text.class);
+        job.setOutputValueClass(FlowBean.class);
+
+
+
+
+        //8.指定自定义分区器
+        job.setPartitionerClass(ProvincePartitioner.class);
+
+        //9.同时指定相应数量的ReduceTask
+        job.setNumReduceTasks(5);
+
+
+
+
+        //6.设置输入输出路径
+        FileInputFormat.setInputPaths(job,new Path("这里填输入路径，即准确的文件存储所在的文件夹位置"));
+        FileOutputFormat.setOutputPath(job,new Path("这是填输出入境，要填一个类似于D：\\Oouput下不存在的文件夹名，系统会自动生成这样一个文件路径"));
+
+        //7.提交Job
+        boolean b = job.waitForCompletion(true);
+        System.exit(b ? 0 : 1);
+
+    }
+}
