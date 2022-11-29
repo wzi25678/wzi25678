@@ -1,0 +1,42 @@
+package com.atguigu.mapreduce.writablecompable;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+import java.io.IOException;
+
+public class FlowMapper extends Mapper<LongWritable, Text, FlowBean, Text> {
+    private FlowBean outK = new FlowBean();
+    private Text outV = new Text();
+
+    @Override
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+
+        //1 获取一行数据
+        String line = value.toString();
+
+        //2 按照"\t",切割数据
+        String[] split = line.split("\t");
+
+        //3 封装outK outV
+        outK.setUpFlow(Long.parseLong(split[1]));
+        outK.setDownFlow(Long.parseLong(split[2]));
+        outK.setSumFlow();
+        outV.set(split[0]);
+
+        //4 写出outK outV
+        context.write(outK,outV);
+    }
+}
