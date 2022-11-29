@@ -1,0 +1,5 @@
+// 设置自定义分区器
+job.setPartitionerClass(ProvincePartitioner2.class);
+
+// 设置对应的ReduceTask的个数
+job.setNumReduceTasks(5);
