@@ -1,0 +1,60 @@
+package com.atguigu.mapreduce.outputformat;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+import org.apache.hadoop.fs.FSDataOutputStream;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IOUtils;
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.RecordWriter;
+import org.apache.hadoop.mapreduce.TaskAttemptContext;
+
+import java.io.IOException;
+
+public class LogRecordWriter extends RecordWriter<Text, NullWritable> {
+
+    private FSDataOutputStream atguiguOut;
+    private FSDataOutputStream otherOut;
+
+    public LogRecordWriter(TaskAttemptContext job) {
+        try {
+            //获取文件系统对象
+            FileSystem fs = FileSystem.get(job.getConfiguration());
+            //用文件系统对象创建两个输出流对应不同的目录
+            atguiguOut = fs.create(new Path("d:/hadoop/atguigu.log"));
+            otherOut = fs.create(new Path("d:/hadoop/other.log"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void write(Text key, NullWritable value) throws IOException, InterruptedException {
+        String log = key.toString();
+        //根据一行的log数据是否包含atguigu,判断两条输出流输出的内容
+        if (log.contains("atguigu")) {
+            atguiguOut.writeBytes(log + "\n");
+        } else {
+            otherOut.writeBytes(log + "\n");
+        }
+    }
+
+    @Override
+    public void close(TaskAttemptContext context) throws IOException, InterruptedException {
+        //关流
+        IOUtils.closeStream(atguiguOut);
+        IOUtils.closeStream(otherOut);
+    }
+}
