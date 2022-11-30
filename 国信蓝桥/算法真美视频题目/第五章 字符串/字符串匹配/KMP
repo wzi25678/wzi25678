@@ -1,0 +1,17 @@
+public static int Index_KMP(String S,String T,int pos){//S为主串，T为模式串
+    int i=pos,j=0;
+    int next[]=new int[T.length()];
+    get_next4(T,next);
+    while(i<S.length()&&j<T.length()){
+        if(j==-1||S.charAt(i)==T.charAt(j)){
+            i++;
+            j++;
+        }else{
+            j=next[j];
+        }
+    }
+    if(j==T.length()){
+        return i-T.length();
+    }
+    return -1;
+}
