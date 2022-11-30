@@ -1,0 +1,16 @@
+public static int Index(String S,String T,int pos){//返回子串T在主串S中第pos个字符之后的位置。若不存在则函数值为-1
+    int i=pos,j=0;
+    while(i<S.length()&&j<T.length()){
+        if(S.charAt(i)==T.charAt(j)){//继续比较后继字符
+            i++;
+            j++;
+        }else {//指针后退,-j重新下一个开始匹配+1
+            i=i-j+1;
+            j=0;
+        }
+    }
+    if(j==T.length()){
+        return i-T.length();//i退回多走的距离
+    }
+    return -1;
+}
