@@ -1,0 +1,14 @@
+    public static void get_next2(String T,int[] next) {
+        int i=0;
+        next[0]=-1;//第一个元素代表j往前回溯到头了，必须初始化为-1
+        int j=-1;
+        while(i<T.length()-1){//注意这里是第一次i为0，但是是在填next[1]，所有填最后一个时i为T.length()-2
+            if(j==-1||T.charAt(i)==T.charAt(j)){
+                i++;
+                j++;
+                next[i]=j;//相当于next[i+1]=j+1
+            }else{
+                j=next[j];//j往前回溯
+            }
+        }
+    }
