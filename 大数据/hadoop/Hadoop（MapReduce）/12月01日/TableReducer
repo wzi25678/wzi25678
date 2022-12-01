@@ -1,0 +1,61 @@
+package com.atguigu.mapreduce.reducejoin;
+
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class TableReducer extends Reducer<Text,TableBean,TableBean, NullWritable> {
+    @Override
+    protected void reduce(Text key,Iterable<TableBean> values,Context context)throws IOException,InterruptedException{
+        ArrayList<TableBean> orderBeans = new ArrayList<>();
+        TableBean pdBean = new TableBean();
+
+        for (TableBean value : values){
+            //判断来自哪个表
+            if ("order".equals(value.getWhatTable())){  //如果是来自order表
+                //创建对象用于接收
+                TableBean tmpOrderBean = new TableBean();
+                try {
+                    BeanUtils.copyProperties(tmpOrderBean,value);
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            } //end if
+            else {  ////如果是来自pd表
+                try {
+                    BeanUtils.copyProperties(pdBean,value);
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        //遍历集合orderBeans，替换掉每个orderBean的pid为pname，然后写出
+        for (TableBean orderBean : orderBeans){
+            orderBean.setPname(pdBean.getPname());
+
+
+            context.write(orderBean,NullWritable.get());
+        }
+    }
+}
