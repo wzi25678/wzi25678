@@ -1,0 +1,4 @@
+//缓存普通文件到Task运行节点。
+job.addCacheFile(new URI("file:///e:/cache/pd.txt"));
+//如果是集群运行,需要设置HDFS路径
+job.addCacheFile(new URI("hdfs://hadoop102:8020/cache/pd.txt"));
