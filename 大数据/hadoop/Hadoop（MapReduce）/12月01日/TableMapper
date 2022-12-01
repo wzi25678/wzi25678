@@ -1,0 +1,65 @@
+package com.atguigu.mapreduce.reducejoin;
+
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapred.FileSplit;
+import org.apache.hadoop.mapreduce.InputSplit;
+import org.apache.hadoop.mapreduce.Mapper;
+
+import java.io.IOException;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class TableMapper extends Mapper<LongWritable, Text,Text,TableBean> {
+    private String filename;
+    private Text outK = new Text();
+    private TableBean outV = new TableBean();
+
+    @Override
+    protected void  setup(Context context) throws IOException,InterruptedException{
+        //获取一行
+        InputSplit split = context.getInputSplit();
+        FileSplit fileSplit = (FileSplit) split;
+        filename = fileSplit.getPath().getName();   //获取文件
+    }
+
+    @Override
+    protected void map(LongWritable key,Text value,Context context) throws IOException,InterruptedException{
+        //获取一行
+        String line = value.toString();
+
+        //判断是哪个文件，然后针对文件进行不同的操作
+        if (filename.contains("order")){    //订单表的处理
+            String [] split = line.split("\t"); //分割
+            outK.set(split[1]); //封装outK
+            outV.setId(split[0]);
+            outV.setPid(split[1]);
+            outV.setAmount(Integer.parseInt(split[2]));
+            outV.setPname("");
+            outV.setWhatTable("order");
+        } //end if
+        else {
+            String [] split = line.split("\t"); //分割
+            outK.set(split[0]); //封装outK
+            outV.setId("");
+            outV.setPid(split[0]);
+            outV.setAmount(0);
+            outV.setPname(split[1]);
+            outV.setWhatTable("pd");
+        }//end else
+
+        //输出kv
+        context.write(outK,outV);
+    }
+
+}
