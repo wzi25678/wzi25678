@@ -1,0 +1,44 @@
+package com.atguigu.mapreduce.reducejoin;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.checkerframework.checker.units.qual.C;
+
+import java.io.IOException;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class TableDriver {
+    public static void main(String[] args) throws IOException,ClassNotFoundException,InterruptedException {
+        Job job = Job.getInstance(new Configuration());
+
+        job.setJarByClass(TableDriver.class);
+        job.setMapperClass(TableMapper.class);
+        job.setReducerClass(TableReducer.class);
+
+        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(TableBean.class);
+
+        job.setOutputKeyClass(TableBean.class);
+        job.setOutputValueClass(NullWritable.class);
+
+        FileInputFormat.setInputPaths(job,new Path("==================="));
+        FileOutputFormat.setOutputPath(job ,new Path("================="));
+
+    }
+}
