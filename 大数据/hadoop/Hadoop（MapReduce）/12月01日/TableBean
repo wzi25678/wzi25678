@@ -1,0 +1,104 @@
+package com.atguigu.mapreduce.reducejoin;
+
+import org.apache.hadoop.io.Writable;
+
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class TableBean implements Writable {
+    private String id; //订单id
+    private String pid; //pid
+    private int amount;//数量
+    private String pname;//产品名称
+    private String WhatTable;//属于哪个表，order表   或者   pd表
+
+    public TableBean() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getPname() {
+        return pname;
+    }
+
+    public void setPname(String pname) {
+        this.pname = pname;
+    }
+
+    public String getWhatTable() {
+        return WhatTable;
+    }
+
+    public void setWhatTable(String whatTable) {
+        WhatTable = whatTable;
+    }
+
+    //需要哪些方法呢？
+    //自定义的类，需要重写toString方法
+    @Override
+    public String toString() {
+        return "TableBean{" +
+                "id='" + id + '\'' +
+                ", pid='" + pid + '\'' +
+                ", amount=" + amount +
+                ", pname='" + pname + '\'' +
+                ", WhatTable='" + WhatTable + '\'' +
+                '}';
+    }
+
+    @Override
+    public void write(DataOutput dataOutput) throws IOException {
+        dataOutput.writeUTF(id);        //UTF对应String类型
+        dataOutput.writeUTF(pid);
+        dataOutput.writeInt(amount);        //Int对应int类型
+        dataOutput.writeUTF(pname);
+        dataOutput.writeUTF(WhatTable);
+    }
+
+    @Override
+    public void readFields(DataInput dataInput) throws IOException {
+        this.id = dataInput.readUTF();  //这个XX   用对应的编码格式去识别
+        this.pid = dataInput.readUTF();
+        this.amount = dataInput.readInt();
+        this.pname = dataInput.readUTF();
+        this.WhatTable = dataInput.readUTF();
+    }
+
+
+
+}
