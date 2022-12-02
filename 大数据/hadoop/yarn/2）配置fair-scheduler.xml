@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<allocations>
+  <!-- 单个队列中Application Master占用资源的最大比例,取值0-1 ，企业一般配置0.1 -->
+  <queueMaxAMShareDefault>0.5</queueMaxAMShareDefault>
+  <!-- 单个队列最大资源的默认值 test atguigu default -->
+  <queueMaxResourcesDefault>4096mb,4vcores</queueMaxResourcesDefault>
+
+  <!-- 增加一个队列test -->
+  <queue name="test">
+    <!-- 队列最小资源 -->
+    <minResources>2048mb,2vcores</minResources>
+    <!-- 队列最大资源 -->
+    <maxResources>4096mb,4vcores</maxResources>
+    <!-- 队列中最多同时运行的应用数，默认50，根据线程数配置 -->
+    <maxRunningApps>4</maxRunningApps>
+    <!-- 队列中Application Master占用资源的最大比例 -->
+    <maxAMShare>0.5</maxAMShare>
+    <!-- 该队列资源权重,默认值为1.0 -->
+    <weight>1.0</weight>
+    <!-- 队列内部的资源分配策略 -->
+    <schedulingPolicy>fair</schedulingPolicy>
+  </queue>
+  <!-- 增加一个队列atguigu -->
+  <queue name="atguigu" type="parent">
+    <!-- 队列最小资源 -->
+    <minResources>2048mb,2vcores</minResources>
+    <!-- 队列最大资源 -->
+    <maxResources>4096mb,4vcores</maxResources>
+    <!-- 队列中最多同时运行的应用数，默认50，根据线程数配置 -->
+    <maxRunningApps>4</maxRunningApps>
+    <!-- 队列中Application Master占用资源的最大比例 -->
+    <maxAMShare>0.5</maxAMShare>
+    <!-- 该队列资源权重,默认值为1.0 -->
+    <weight>1.0</weight>
+    <!-- 队列内部的资源分配策略 -->
+    <schedulingPolicy>fair</schedulingPolicy>
+  </queue>
+
+  <!-- 任务队列分配策略,可配置多层规则,从第一个规则开始匹配,直到匹配成功 -->
+  <queuePlacementPolicy>
+    <!-- 提交任务时指定队列,如未指定提交队列,则继续匹配下一个规则; false表示：如果指定队列不存在,不允许自动创建-->
+    <rule name="specified" create="false"/>
+    <!-- 提交到root.group.username队列,若root.group不存在,不允许自动创建；若root.group.user不存在,允许自动创建 -->
+    <rule name="nestedUserQueue" create="true">
+        <rule name="primaryGroup" create="false"/>
+    </rule>
+    <!-- 最后一个规则必须为reject或者default。Reject表示拒绝创建提交失败，default表示把任务提交到default队列 -->
+    <rule name="reject" />
+  </queuePlacementPolicy>
+</allocations>
