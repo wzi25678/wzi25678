@@ -1,0 +1,21 @@
+<property>
+    <name>yarn.resourcemanager.scheduler.class</name>
+    <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.fair.FairScheduler</value>
+    <description>配置使用公平调度器</description>
+</property>
+
+<property>
+    <name>yarn.scheduler.fair.allocation.file</name>
+    <value>/opt/module/hadoop-3.1.3/etc/hadoop/fair-scheduler.xml</value>
+    <description>指明公平调度器队列分配配置文件</description>
+</property>
+
+<property>
+    <name>yarn.scheduler.fair.preemption</name>
+    <value>false</value>
+    <description>禁止队列间资源抢占</description>
+</property>
+
+
+
+
