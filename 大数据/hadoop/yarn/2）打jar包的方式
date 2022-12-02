@@ -1,0 +1,18 @@
+public class WcDrvier {
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+
+        Configuration conf = new Configuration();
+
+        conf.set("mapreduce.job.queuename","hive");
+
+        //1. 获取一个Job实例
+        Job job = Job.getInstance(conf);
+
+        。。。 。。。
+
+        //6. 提交Job
+        boolean b = job.waitForCompletion(true);
+        System.exit(b ? 0 : 1);
+    }
+}
