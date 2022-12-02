@@ -1,0 +1,59 @@
+<!-- 指定hive队列的资源额定容量 -->
+<property>
+    <name>yarn.scheduler.capacity.root.hive.capacity</name>
+    <value>60</value>
+</property>
+
+<!-- 用户最多可以使用队列多少资源，1表示 -->
+<property>
+    <name>yarn.scheduler.capacity.root.hive.user-limit-factor</name>
+    <value>1</value>
+</property>
+
+<!-- 指定hive队列的资源最大容量 -->
+<property>
+    <name>yarn.scheduler.capacity.root.hive.maximum-capacity</name>
+    <value>80</value>
+</property>
+
+<!-- 启动hive队列 -->
+<property>
+    <name>yarn.scheduler.capacity.root.hive.state</name>
+    <value>RUNNING</value>
+</property>
+
+<!-- 哪些用户有权向队列提交作业 -->
+<property>
+    <name>yarn.scheduler.capacity.root.hive.acl_submit_applications</name>
+    <value>*</value>
+</property>
+
+<!-- 哪些用户有权操作队列，管理员权限（查看/杀死） -->
+<property>
+    <name>yarn.scheduler.capacity.root.hive.acl_administer_queue</name>
+    <value>*</value>
+</property>
+
+<!-- 哪些用户有权配置提交任务优先级 -->
+<property>
+    <name>yarn.scheduler.capacity.root.hive.acl_application_max_priority</name>
+    <value>*</value>
+</property>
+
+<!-- 任务的超时时间设置：yarn application -appId appId -updateLifetime Timeout
+参考资料：https://blog.cloudera.com/enforcing-application-lifetime-slas-yarn/ -->
+
+<!-- 如果application指定了超时时间，则提交到该队列的application能够指定的最大超时时间不能超过该值。 
+-->
+<property>
+    <name>yarn.scheduler.capacity.root.hive.maximum-application-lifetime</name>
+    <value>-1</value>
+</property>
+
+<!-- 如果application没指定超时时间，则用default-application-lifetime作为默认值 -->
+<property>
+    <name>yarn.scheduler.capacity.root.hive.default-application-lifetime</name>
+    <value>-1</value>
+</property>
+
+
