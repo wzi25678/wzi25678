@@ -1,0 +1,14 @@
+# The maximum amount of heap to use (Java -Xmx).  If no unit
+# is provided, it will be converted to MB.  Daemons will
+# prefer any Xmx setting in their respective _OPT variable.
+# There is no default; the JVM will autoscale based upon machine
+# memory size.
+# export HADOOP_HEAPSIZE_MAX=
+
+# The minimum amount of heap to use (Java -Xms).  If no unit
+# is provided, it will be converted to MB.  Daemons will
+# prefer any Xms setting in their respective _OPT variable.
+# There is no default; the JVM will autoscale based upon machine
+# memory size.
+# export HADOOP_HEAPSIZE_MIN=
+HADOOP_NAMENODE_OPTS=-Xmx102400m
