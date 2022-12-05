@@ -1,0 +1,4 @@
+<property>
+    <name>fs.trash.interval</name>
+    <value>1</value>
+</property>
