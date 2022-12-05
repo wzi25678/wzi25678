@@ -1,0 +1,12 @@
+[atguigu@hadoop102 hadoop-3.1.3]$ hdfs ec
+Usage: bin/hdfs ec [COMMAND]
+          [-listPolicies]
+          [-addPolicies -policyFile <file>]
+          [-getPolicy -path <path>]
+          [-removePolicy -policy <policy>]
+          [-setPolicy -path <path> [-policy <policy>] [-replicate]]
+          [-unsetPolicy -path <path>]
+          [-listCodecs]
+          [-enablePolicy -policy <policy>]
+          [-disablePolicy -policy <policy>]
+          [-help <command-name>].
