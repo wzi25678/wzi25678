@@ -1,0 +1,4 @@
+<property>
+     <name>dfs.namenode.name.dir</name>
+     <value>file://${hadoop.tmp.dir}/dfs/name1,file://${hadoop.tmp.dir}/dfs/name2</value>
+</property>
