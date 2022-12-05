@@ -1,0 +1,10 @@
+[atguigu@hadoop102 mapreduce]$ hadoop jar /opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.1.3-tests.jar TestDFSIO -read -nrFiles 10 -fileSize 128MB
+
+2021-02-09 11:34:15,847 INFO fs.TestDFSIO: ----- TestDFSIO ----- : read
+2021-02-09 11:34:15,847 INFO fs.TestDFSIO:             Date & time: Tue Feb 09 11:34:15 CST 2021
+2021-02-09 11:34:15,847 INFO fs.TestDFSIO:         Number of files: 10
+2021-02-09 11:34:15,847 INFO fs.TestDFSIO:  Total MBytes processed: 1280
+2021-02-09 11:34:15,848 INFO fs.TestDFSIO:       Throughput mb/sec: 200.28
+2021-02-09 11:34:15,848 INFO fs.TestDFSIO:  Average IO rate mb/sec: 266.74
+2021-02-09 11:34:15,848 INFO fs.TestDFSIO:   IO rate std deviation: 143.12
+2021-02-09 11:34:15,848 INFO fs.TestDFSIO:      Test exec time sec: 20.83
