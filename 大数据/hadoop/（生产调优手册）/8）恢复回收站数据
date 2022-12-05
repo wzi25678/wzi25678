@@ -1,0 +1,2 @@
+[atguigu@hadoop102 hadoop-3.1.3]$ hadoop fs -mv
+/user/atguigu/.Trash/Current/user/atguigu/input    /user/atguigu/input
