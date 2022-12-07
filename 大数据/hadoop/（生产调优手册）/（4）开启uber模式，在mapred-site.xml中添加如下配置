@@ -1,0 +1,27 @@
+<!--  开启uber模式，默认关闭 -->
+<property>
+  	<name>mapreduce.job.ubertask.enable</name>
+  	<value>true</value>
+</property>
+
+<!-- uber模式中最大的mapTask数量，可向下修改  --> 
+<property>
+  	<name>mapreduce.job.ubertask.maxmaps</name>
+  	<value>9</value>
+</property>
+<!-- uber模式中最大的reduce数量，可向下修改 -->
+<property>
+  	<name>mapreduce.job.ubertask.maxreduces</name>
+  	<value>1</value>
+</property>
+<!-- uber模式中最大的输入数据量，默认使用dfs.blocksize 的值，可向下修改 -->
+<property>
+  	<name>mapreduce.job.ubertask.maxbytes</name>
+  	<value></value>
+</property>
+
+
+
+
+
+
