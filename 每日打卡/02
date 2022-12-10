@@ -1,0 +1,319 @@
+Sip服务器搭建全过程
+
+参考文档：http://blog.csdn.net/jhope/article/details/53129122
+参考文档：https://www.cnblogs.com/xlwm/p/4414207.html
+参考文档：http://blog.csdn.net/Richar1/article/details/50949506
+参考文档：http://blog.csdn.net/lhh1002/article/details/6131733
+
+参考文档：http://blog.csdn.net/canglonghacker/article/details/30537709
+
+环境：ubuntu14.04
+
+虚拟机网络适配器改为桥接模式(自动)
+
+桥黑板，重点提醒：
+
+*****安装过程中及时使用虚拟机快照功能*****
+
+快照使用：https://jingyan.baidu.com/article/1709ad806e1ebb4635c4f048.html
+
+极度郁闷：安装过程中提示错误，网上查找都说在目录/var/log目录下有对应的日志文件，但我实际安装过程中虽然有生成这些文件，但是不会更新记录错误信息，很是郁闷。下面所说的问题解决方法，都是自己查找资料，实验得出来的，按照这个操作步骤，及时使用虚拟快照功能(防止误操作从头来过)，将sip服务器搭建起来是没有问题的。
+
+有知道日志是什么回事的请告知！！！
+
+
+
+1. 关于mysql数据库
+
+a)  安装mysql
+
+sudo apt-get install mysql-server
+
+sudo apt-get install mysql-client
+
+sudo apt-get install libmysqlclient-dev
+
+这里输入的密码是root数据库的密码
+
+b)  卸载mysql
+
+删除mysql的数据文件
+
+sudo rm /var/lib/mysql/ -R
+
+删除mysql的配置文件
+
+sudo rm /etc/mysql/ -R
+
+自动卸载mysql(包括server和client)
+
+sudo apt-get autoremove mysql* --purge
+
+sudo apt-get remove apparmor
+
+检查是否卸载干净
+
+dpkg -l | grep mysql # 若没有返回，说明已完成卸载
+
+ 
+
+2. 关于opensips安装
+
+过程中可能涉及到权限问题，为了方便在root操作
+
+a)  下载opensips
+
+官网下载地址：http://www.opensips.org/Resources/Downloads
+
+我这里使用的是在虚拟机下git直接下载
+
+git clone https://github.com/OpenSIPS/opensips.git -b2.2 opensips-2.2
+
+b)  编译opensips
+
+最最重要的就是把db_mysql模块编译进去
+
+make menuconfig 执行此命令直接退出，会在源码根目录下生成Makefile.conf文件（使用左右键进入/返回菜单；opensis中默认是不支持mysql的，需要手动修改Makefile.conf文件）
+
+
+
+修改Makefile.conf文件：
+
+在exclude_modules中删掉db_mysql,
+
+在include_modules中添加db_mysql，
+
+修改安装目录为PREFIX=/usr/local/opensips/
+
+
+
+make all
+
+make install
+
+c)  配置opensips
+
+cd /usr/local/opensips/
+
+目录结构如下
+
+
+
+这里有两个文件需要修改，opensipsctlrc和oepnsips.cfg
+
+修改opensipsctlrc文件
+
+
+
+将对应字段的注释打开，部分需要手动修改
+
+ip为自己主机ip
+
+ 
+
+修改opensips.cfg文件(这个地方是个天坑)
+
+使用make menuconfig菜单工具生成一个opensips.cfg文件
+
+
+
+
+
+
+
+
+
+
+
+这一步记住自己菜单中生成的 .cfg文件名
+
+退出菜单后
+
+cd etc/
+
+mv opensips_residential_2018-2-7_3\:59\:1.cfgopensips.cfg
+
+cp opensips.cfg /usr/local/opensips/etc/opensips/opensips.cfg
+
+
+
+这里之后开始真正地修改opensips.cfg文件
+
+
+
+d)  创建opensips数据库
+
+cd /usr/local/opensips/sbin
+
+检测配置文件语法
+
+./opensips -C
+
+创建数据库
+
+./opensipsdbctl create
+
+
+
+MySQL password for root:输入安装mysql时的(root)密码
+
+报错1：
+
+
+
+解决方法：
+
+修改my.cnf文件
+
+vi /etc/mysql/my.cnf
+
+
+
+重新启动mysql
+
+
+
+报错2：
+
+
+
+解决方法：
+
+
+
+mysql安装的root数据库密码为1
+
+%使所有外部ip地址都能访问使用mysql
+
+ 
+
+e)  开启opensips服务
+
+./opensipsctl start      #开启opensips服务
+
+./opensipsctl stop       #关闭opensips服务
+
+./opensipsctl restart    #重启opensips服务 
+
+
+
+报错1：
+
+
+
+解决方法：
+
+vi/usr/local/opensips/etc/opensips/opensips.cfg
+
+
+
+修改为modules实际路径
+
+f)  添加sip用户
+
+./opensipsctl add username password       #添加用户
+
+./opensipsctl rm username                 #删除用户
+
+
+
+g)  查看sip用户
+
+可以使用mysql -u opensips -p而后输入你的密码，就能够通过show databases;查看数据库，再使用use opensips;并且show tables;就可以查看opensips数据库里的表格，最后使用select * from subscriber;便能够查看添加的sip用户情况
+
+默认的opensips的数据库密码为opensipsrw
+
+
+
+h)  查看在线用户
+
+./opensipsctl ul show
+
+./opensipsctl online
+
+这个时候查询还没有效果，先进行下一步使用Linphone注册sip账户，注册之后再查看就会显示在线
+
+3. 关于Linphone安装
+
+a)  PC机安装Linphone
+
+百度软件中心(普通下载)：http://rj.baidu.com/soft/detail/35293.html?ald
+
+b)  手机安装Linphone
+
+绿色资源网(其他下载地址)：http://www.downcc.com/soft/342710.html
+
+c)  设置PC机Linphone
+
+Options->SIP账户管理
+
+
+
+1. 填写自己的显示名称，随便填，不重要；
+
+2. 填写自己sip服务器上已经注册的账户；
+
+3. 添加sip代理账户；
+
+4. 按格式填写，IP为PC机IP地址，5060默认端口；
+
+5. 按格式填写，IP为SIP服务器地址，5060默认端口；
+
+添加联系人
+
+
+
+1. 点击添加Linphone联系人；
+
+2. 填写联系人名称；
+
+3. 按格式填写，IP为SIP服务器地址，5060默认端口；
+
+4. 自动识别，不用改；
+
+d)  设置手机端Linphone
+
+注册sip用户
+
+
+
+ 
+
+    
+
+ 
+
+      4.sip服务器注册用户的usrname;
+
+      5.sip服务器注册用户的password;
+
+      6.sip服务器的IP地址；
+
+      7.选择UDP；
+
+      9.直接选择Maybe later，其他不用管；
+
+ 
+
+      10.圆点变绿表示自己在线，才能和其他客户端通信；
+
+      11.自动填充的格式，IP为sip服务器地址；
+
+      添加联系人
+
+     
+
+      2.拨打用户的名称，不重要；
+
+      3.按格式填写，联系人的sip地址，ip为sip服务器地址，5060为默认端口；
+
+      4.sip服务器注册好的sip用户名称；
+
+      按手机添加联系人理解
+
+4. 互相拨打电话测试
+
+
+————————————————
+版权声明：本文为CSDN博主「蠢萌Boy」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_38631503/article/details/80005454
