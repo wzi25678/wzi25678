@@ -1,0 +1,113 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.137.35:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Fri Dec  9 15:21:26 2022 from typora-wzi.mshome.net
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop102 hadoop-3.1.3]$ cd etc/hadoop/
+[atguigu@hadoop102 hadoop]$ start start-dfs.sh
+bash: start: 未找到命令...
+[atguigu@hadoop102 hadoop]$ cd ..
+[atguigu@hadoop102 etc]$ cd sbin
+-bash: cd: sbin: 没有那个文件或目录
+[atguigu@hadoop102 etc]$ cd ..
+[atguigu@hadoop102 hadoop-3.1.3]$ cd sbin
+[atguigu@hadoop102 sbin]$ start start-dfs.sh
+bash: start: 未找到命令...
+[atguigu@hadoop102 sbin]$ start-dfs.sh
+Starting namenodes on [hadoop102]
+Starting datanodes
+192.168.137.225: ssh: connect to host 192.168.137.225 port 22: No route to host
+192.168.137.69: ssh: connect to host 192.168.137.69 port 22: No route to host
+Starting secondary namenodes [hadoop104]
+hadoop104: ssh: connect to host hadoop104 port 22: No route to host
+[atguigu@hadoop102 sbin]$ start-yarn.sh
+Starting resourcemanager
+Starting nodemanagers
+192.168.137.225: ssh: connect to host 192.168.137.225 port 22: No route to host
+192.168.137.69: ssh: connect to host 192.168.137.69 port 22: No route to host
+[atguigu@hadoop102 sbin]$ mapred job -help
+Usage: job <command> <args>
+	[-submit <job-file>]
+	[-status <job-id>]
+	[-counter <job-id> <group-name> <counter-name>]
+	[-kill <job-id>]
+	[-set-priority <job-id> <priority>]. Valid values for priorities are: VERY_HIGH HIGH NORMAL LOW VERY_LOW DEFAULT. In addition to this, integers also can be used.
+	[-events <job-id> <from-event-#> <#-of-events>]
+	[-history [all] <jobHistoryFile|jobId> [-outfile <file>] [-format <human|json>]]
+	[-list [all]]
+	[-list-active-trackers]
+	[-list-blacklisted-trackers]
+	[-list-attempt-ids <job-id> <task-type> <task-state>]. Valid values for <task-type> are MAP REDUCE. Valid values for <task-state> are pending, running, completed, failed, killed
+	[-kill-task <task-attempt-id>]
+	[-fail-task <task-attempt-id>]
+	[-logs <job-id> <task-attempt-id>]
+	[-config <job-id> <file>
+
+Generic options supported are:
+-conf <configuration file>        specify an application configuration file
+-D <property=value>               define a value for a given property
+-fs <file:///|hdfs://namenode:port> specify default filesystem URL to use, overrides 'fs.defaultFS' property from configurations.
+-jt <local|resourcemanager:port>  specify a ResourceManager
+-files <file1,...>                specify a comma-separated list of files to be copied to the map reduce cluster
+-libjars <jar1,...>               specify a comma-separated list of jar files to be included in the classpath
+-archives <archive1,...>          specify a comma-separated list of archives to be unarchived on the compute machines
+
+The general command line syntax is:
+command [genericOptions] [commandOptions]
+
+[atguigu@hadoop102 sbin]$ mapred -help
+Usage: mapred [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+ or    mapred [OPTIONS] CLASSNAME [CLASSNAME OPTIONS]
+  where CLASSNAME is a user-provided Java class
+
+  OPTIONS is none or any of:
+
+--config dir   Hadoop config directory
+--debug        turn on shell script debug mode
+--help         usage information
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+frameworkuploader   mapreduce framework upload
+hsadmin             job history server admin interface
+
+    Client Commands:
+
+classpath           prints the class path needed for running mapreduce subcommands
+envvars             display computed Hadoop environment variables
+job                 manipulate MapReduce jobs
+minicluster         CLI MiniCluster
+pipes               run a Pipes job
+queue               get information regarding JobQueues
+sampler             sampler
+version             print the version
+
+    Daemon Commands:
+
+historyserver       run job history servers as a standalone daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[atguigu@hadoop102 sbin]$ shutdown -h now
+==== AUTHENTICATING FOR org.freedesktop.login1.power-off ===
+Authentication is required for powering off the system.
+Authenticating as: root
+Password: 
+==== AUTHENTICATION COMPLETE ===
+[atguigu@hadoop102 sbin]$ Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(hadoop102（192.168.137.35)) at 21:14:14.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
