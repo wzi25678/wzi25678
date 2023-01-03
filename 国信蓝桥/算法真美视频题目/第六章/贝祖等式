@@ -1,0 +1,52 @@
+简单描述：ax + by = m 有整数解时，当且仅当m是d的倍数，d是a和b的最大公约数。
+在这里做一下主要的分析
+（1）ax + by = gcd;
+（2）bx1 + (a%b)y1 = gcd;
+因为a%b = a - a/b * b，例如5 % 3 = 5 - 5/3 * 3 = 2
+所以（3）gcd = bx1 + （a-（a/b）b）y1
+=bx1+ay1-（a/b）by1
+=ay1+b（x1 -（a/b）y1）
+由式子（1）（3），可得
+x = y1; y1 = x1 - （a/b）y1
+代码模板如下：
+
+public class Main {
+	static long x,y;
+	public static void main(String[] args) {
+		linearEquation(2,7,1);
+	}
+	//求解最大公因数
+	public static long gcd(long m,long n) {
+		return n == 0?m:gcd(n, m%n);
+	}
+	//求解最小公倍数
+	public static long lcm(long a,long b) {
+		return (a * b)/gcd(a, b);
+	}
+	
+	public static long ext_gcd(long a,long b) {
+		if(b == 0) {
+			x = 1;
+			y = 0;
+			return a;
+		}
+		long res = ext_gcd(b, a%b);
+		long x1 = x;
+		x = y;
+		y = x1 - a/b * y;
+		return res;
+	}
+	//线性方程 ax + by = m,当m是gcd(a.b)的倍数时有解
+	public static long linearEquation(long a,long b,long m) {
+		long d = ext_gcd(a, b);
+		if(m % d != 0) {
+			System.out.println("无解");
+		}else {
+			long n = m / d;
+			x *= n;
+			y *= n;
+			System.out.println(x + " "+y);
+		}
+		return d;
+	}
+}
