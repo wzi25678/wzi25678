@@ -1,0 +1,29 @@
+#include <stdio.h>
+int f[201][201], a[201];
+int max(int a, int b)
+{
+	if(a>b)	return a;
+	return b;
+}
+int main()
+{
+	int n, i, j, k, ans=0;
+	scanf("%d",&n);
+	for(i=1; i<=n; i++)
+	{
+		scanf("%d",&a[i]);
+		a[i+n]=a[i];
+	}
+	for(j=2; j<=n; j++)
+		for(i=1; i<=n; i++)
+		{
+			for(k=1; k<j; k++)
+			{
+				f[i][j]=max(f[i][j], f[i][k]+f[i+k][j-k]+a[i]*a[i+k]*a[i+j]);
+			}
+			f[i+n][j]=f[i][j];
+		}
+	for(i=1; i<=n; i++)	ans=max(ans, f[i][n]);
+    printf("%d\n", ans);
+	return 0;
+}
