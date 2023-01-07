@@ -1,0 +1,52 @@
+package 第六章_数学问题;
+
+import java.util.Scanner;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class 天平称重_三进制表示所有的数 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner (System.in);
+        String s = Integer.toString(sc.nextInt(),3);
+        System.out.println("此处显示一下上一条语句的意思 + " +s);
+        int arr [] = new int[s.length()+1];
+        for (int i=0;i<s.length();i++){
+            arr[i+1] = s.charAt(i)-48;  //将输入的字符串数字值 转换成   真正的整型数值
+        }
+        for (int i=arr.length-1;i>0;i--){
+            if (arr[i] == 2){
+                arr[i]=-1;
+                arr[i-1]++;
+            }
+            if (arr[i]==3){
+                arr[i]=0;
+                arr[i-1]=1;
+            }
+        }
+        boolean  isFirst = true;
+        for (int i=0;i<arr.length;i++){
+            if (arr[i]==1){
+            if (isFirst){
+                System.out.print((int)Math.pow(3,arr.length-i-1));
+                isFirst = false;
+             }else
+             {
+                System.out.print("+"+(int)Math.pow(3,arr.length-i-1));
+                }
+            }
+            if (arr[i]==-1){
+            System.out.print("-"+(int)Math.pow(3,arr.length-i-1));
+        }
+        }
+    }
+}
