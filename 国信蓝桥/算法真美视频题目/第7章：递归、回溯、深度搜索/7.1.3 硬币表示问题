@@ -1,0 +1,56 @@
+public class Test31 {
+	public static void main(String[] args) {
+		System.out.println(waysToChange(50));
+		System.out.println(countWays2(50));
+	}
+
+	static int waysToChange(int n) {
+		if (n <= 0)
+			return 0;
+		int[] coins = { 1, 5, 10, 25 };// 钱币面值数组
+		return countWays(n, coins, 3);// 从下标3对应的最大面值开始递归
+	}
+
+	/**
+	 * 统计n分有几种表示法(递归方式)
+	 * 
+	 * @param money
+	 * @param coins
+	 * @param index
+	 * @return
+	 */
+	static int countWays(int money, int[] coins, int index) {
+
+		if (index == 0)
+			return 1;
+
+		int result = 0;
+
+		for (int i = 0; coins[index] * i <= money; i++) {
+			int shengyu = money - coins[index] * i;// 剩余金额
+			result = result + countWays(shengyu, coins, index - 1);// 表示法数量
+		}
+		return result;
+	}
+
+	/**
+	 * 统计n分有几种表示法(动态规划方式)
+	 * 
+	 * @param n 总金额
+	 * @return
+	 */
+	static int countWays2(int n) {
+		int mod = 1000000007;
+		int[] dp = new int[n + 1];// dp[n] 就表示：n分表示法总数
+		int[] coins = new int[]{1,5,10,25};// 钱币面值数组
+		dp[0] = 1;// 不使用任何硬币，表示0元有一种方法
+
+		for (int coin : coins) {// 每一次循环，使用新面值coin
+			for (int i = coin; i <= n; i++) {// 增加新面值后，方法总数受影响的是从coin开始的
+				dp[i] = (dp[i] + dp[i - coin]) % mod;
+				// 方法总数 = 使用新的面值方法总数((j-面值)的方法总数) + 不使用新面值的方法总数(为原来值)
+			}
+		}
+		return dp[n];
+	}
+}
