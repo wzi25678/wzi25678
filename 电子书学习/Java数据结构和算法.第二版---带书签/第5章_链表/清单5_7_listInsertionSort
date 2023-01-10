@@ -1,0 +1,48 @@
+package 第5章__链表;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+class Link_5_7{
+    public long dDate;
+    public Link next;
+    public Link_5_7(long dd)
+    { dDate = dd; }
+}
+
+class SortedList{      
+    private Link_5_7 first;
+    public SortedList(){
+        first = null;
+    }
+    public SortedList(Link[] linkArr){
+        first =null;
+        for (int j =0;j<linkArr.length;j++){
+            insert(linkArr[j]);
+        }
+    }
+    
+    public void insert(Link k){
+        Link_5_7 previous = null;
+        Link_5_7 current = first;
+        
+        while (current != null && k.dDate > current.dDate){
+            previous = current;
+            current = current.next;
+        }
+    }
+
+}
+
+public class 清单5_7_listInsertionSort {
+
+}
