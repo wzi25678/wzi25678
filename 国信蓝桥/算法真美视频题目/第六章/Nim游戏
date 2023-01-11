@@ -1,0 +1,36 @@
+一共有N堆石子,编号1…n ,第i堆中有个a[门]个石子。
+每一次操作Alice和Bob可以从任意-堆石子中取出任意数量的石子至少取一颗,至多取出这一-堆剩下的所有石子。两个人轮流行动,取光所有石子的- -方获胜。Alice为先手。
+给定a,假设两人都采用最优策略,谁会获胜?
+
+package 第六章_数学问题;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class Nim游戏 {
+    public static void main(String[] args) {
+        int A [] = {5,10,15};
+        boolean result = solve(A);
+        System.out.println(result);
+    }
+
+    private static boolean solve(int[] A) {
+        int res = 0;
+        for (int i=0;i<A.length;i++){
+            res^=A[i];
+        }
+        return res!=0;
+    }
+
+
+}
+
