@@ -1,0 +1,51 @@
+Microsoft Windows [版本 10.0.22621.1105]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Wzi>D：
+'D：' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+
+C:\Users\Wzi>cd D
+系统找不到指定的路径。
+
+C:\Users\Wzi>cd D:
+D:\
+
+C:\Users\Wzi>D:L
+'D:L' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+
+C:\Users\Wzi>D:
+
+D:\>D:\DevelopmengtTools\Python\Jupyter
+'D:\DevelopmengtTools\Python\Jupyter' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+
+D:\>cd D:\DevelopmengtTools\Python\Jupyter
+
+D:\DevelopmengtTools\Python\Jupyter>jupyter notebook
+[I 19:55:56.834 NotebookApp] Serving notebooks from local directory: D:\DevelopmengtTools\Python\Jupyter
+[I 19:55:56.834 NotebookApp] Jupyter Notebook 6.5.2 is running at:
+[I 19:55:56.834 NotebookApp] http://localhost:8888/?token=eb36fff2aab065c325d2ef8b3963d6ac713f3b7df3d43449
+[I 19:55:56.834 NotebookApp]  or http://127.0.0.1:8888/?token=eb36fff2aab065c325d2ef8b3963d6ac713f3b7df3d43449
+[I 19:55:56.842 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 19:55:57.202 NotebookApp]
+
+    To access the notebook, open this file in a browser:
+        file:///C:/Users/Wzi/AppData/Roaming/jupyter/runtime/nbserver-17640-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/?token=eb36fff2aab065c325d2ef8b3963d6ac713f3b7df3d43449
+     or http://127.0.0.1:8888/?token=eb36fff2aab065c325d2ef8b3963d6ac713f3b7df3d43449
+[W 19:56:46.442 NotebookApp] Notebook DairyTestUse/01月11日.ipynb is not trusted
+[I 19:56:46.920 NotebookApp] Kernel started: 50ec54e0-ca73-444d-94e4-d19c2a9ac7ba, name: python3
+[I 19:56:50.048 NotebookApp] Saving file at /DairyTestUse/01月11日.ipynb
+[I 19:56:51.766 NotebookApp] Saving file at /DairyTestUse/01月11日.ipynb
+[I 20:00:33.478 NotebookApp] Saving file at /DairyTestUse/01月11日.ipynb
+D:\Python\Surronding\lib\site-packages\nbformat\__init__.py:129: MissingIDFieldWarning: Code cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+D:\Python\Surronding\lib\site-packages\notebook\services\contents\manager.py:353: MissingIDFieldWarning: Code cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate_nb(model['content'])
+[I 20:00:46.602 NotebookApp] Saving file at /DairyTestUse/01月11日.ipynb
+[I 20:34:46.606 NotebookApp] Saving file at /DairyTestUse/01月11日.ipynb
+[I 20:36:46.583 NotebookApp] Saving file at /DairyTestUse/01月11日.ipynb
+[I 20:38:46.586 NotebookApp] Saving file at /DairyTestUse/01月11日.ipynb
