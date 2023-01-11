@@ -1,0 +1,79 @@
+package 第5章__链表;
+
+import 第5章_链表.Link;
+
+import java.util.ListIterator;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class 清单5_9_interIterator {
+    class Link{
+        public long dData;
+        public Link next;
+
+        public Link(long dd) {
+            dData = dd;
+        } //带参构造器
+        
+        public void displayLink(){
+            System.out.println(dData + " ");
+        }
+    }
+    
+    class LinkList{
+        private Link first;
+        public LinkList(){
+            first = null;
+        }
+        public Link getFirst(){
+            return first;
+        }
+        public void setFirst(Link f){
+            first = f;
+        }
+        public boolean isEmpty(){
+            return first == null;
+        }
+        public ListIterator getIterator(){
+            return new ListIterator(this); //缺少一个ListIterator对象 //需要创建一个ListIterator
+        }
+        public void displayList(){
+            Link current = first;
+            while(current != null){
+                current.displayLink();
+                current = current.next;
+            }
+            System.out.println("");
+        }
+    }//end LinkList
+    class  ListIterator{
+        private Link current;
+        private Link previous;
+        private LinkList outList;
+        
+        public ListIterator(LinkList list){     //自己创建一个ListIterator构造器
+            outList = list;
+            reset();    //目前缺少该方法
+        }
+        
+        public void reset(){
+            current = current.getFirst();
+            previous = null;
+        }
+    }
+    public static void main(String[] args) {
+        
+    } //end main
+    
+    
+}
