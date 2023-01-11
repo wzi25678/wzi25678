@@ -1,0 +1,17 @@
+import numpy
+import numpy as np
+
+print(int(2.5))
+
+a = np.array([1,2,3,4,5])
+
+print(a)
+
+# good这是一个一级标题罢了。
+
+
+ar1 = np.arange(10)
+ar1
+
+ar2 = ar1[2:7]
+
