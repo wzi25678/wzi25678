@@ -1,0 +1,55 @@
+package 第6章_数学问题;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class Georgia_and_Bob {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+
+        //输入一个数，然后对应输入一个那么长的数组，常见输入格式，可以理解
+        for (int i=0;i<num;i++){
+            int n = sc.nextInt();
+            int arr[] = new int[n];
+            for (int j=0;j<n;j++){
+                arr[j] = sc.nextInt();
+            }
+            System.out.println(deal(arr));
+        }
+
+    } //end main
+
+    private static String deal(int[] arr) {
+        int len = arr.length; //有点多余啊
+        Arrays.sort(arr);
+        int res = 0;
+        if ((len & 1) ==1){ //如果是奇数
+            for (int i=0;i<len;i+=2){
+                res ^= (i==0)?(arr[0]-1):(arr[i]-arr[i-1]-1);
+            }
+        }else {
+            for (int i =1;i<len;i+=2){
+                res^=(arr[i]- arr[i-1]-1);
+            }
+        }
+        if (res ==0){
+            return "Bob will win";
+        }else {
+            return "Georgia will win";
+        }
+    }
+
+}
