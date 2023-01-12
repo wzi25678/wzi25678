@@ -1,0 +1,67 @@
+public class Sudoku {
+    //完全n叉树，9分支，每层每一结点都要遍历九个子节点
+    //每一层代表一个格子，每个格子共有九种选择，遍历1-9找到满意条件的数字
+    int[][] matrix = {//九宫格行列数为0-8
+            {0, 6, 1, 0, 3, 0, 0, 2, 0},
+            {0, 5, 0, 0, 0, 8, 1, 0, 7},
+            {0, 0, 0, 0, 0, 7, 0, 3, 4},
+            {0, 0, 9, 0, 0, 6, 0, 7, 8},
+            {0, 0, 3, 2, 0, 9, 5, 0, 0},
+            {5, 7, 0, 3, 0, 0, 9, 0, 0},
+            {1, 9, 0, 7, 0, 0, 0, 0, 0},
+            {8, 0, 2, 4, 0, 0, 0, 6, 0},
+            {0, 4, 0, 0, 1, 0, 2, 5, 0}};
+ 
+    void backtrack(int i, int j) {//81层结点通过9*9二维数组表示
+        if(i==8&&j==9){ //遍历至第81层，8行8列时遍历结束(九宫格行列数为0-8)
+            //得到数独正确解答，程序结束
+            printSudoku(); //打印数组
+        }
+        if(j==9){//换行
+            i++;
+            j=0;
+        }
+        if (matrix[i][j] == 0) {//判断九宫格i行j列是否为空
+            for (int t = 1; t <= 9; t++) { //若该位置为空，则遍历1-9，判断数字是否满足条件
+                if (judge(i, j, t)) {
+                    matrix[i][j] = t; //将符合条件的数字填入空格
+                    backtrack(i, j + 1); //回溯下一层，即进入下一个空格
+                    matrix[i][j] = 0; //初始化数独矩阵,恢复现场，向上回溯还原结点状态
+                }
+            }
+        } else {
+            backtrack(i, j + 1);
+        }
+    }
+ 
+    boolean judge(int row, int line, int num) { //行、列、数字
+        for (int i = 0; i < 9; i++)  //判断该行该列是否有重复数字
+            if ((matrix[row][i] == num) || (matrix[i][line] == num))
+                return false;
+        //判断小九宫格是否有重复数字
+        int smallRow = row/3;//找到小九宫格起始行列
+        int smallLine = line/3;
+        for(int i=0;i<3;i++){//遍历小九宫格，比较数字
+            for(int j=0;j<3;j++){
+                if(matrix[smallRow*3+i][smallLine*3+j]==num)
+                    return false;
+            }
+        }
+        return true;
+    }
+ 
+    void printSudoku(){//打印数独
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+ 
+    public static void main(String[] args) {
+        Sudoku s = new Sudoku();
+        s.backtrack(0, 0);
+    }
+}
