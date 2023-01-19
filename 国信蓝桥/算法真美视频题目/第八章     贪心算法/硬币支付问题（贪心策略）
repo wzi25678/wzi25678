@@ -1,0 +1,30 @@
+package cointanxin;
+
+import java.util.Scanner;
+
+public class Cion {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		for(int i=0;i<6;i++) {
+			cnts[i]=sc.nextInt();
+		}
+		int A=sc.nextInt();
+		int res=f(A,5);//当前面值最大的硬币,下标为5
+		System.out.println(res);
+	}
+	static int[] cnts=new int[6]; //一开始就选择下标为最大的500
+	static int[] coins= {1,5,10,50,100,500};
+	//尽量选取最大面值，若不选取最大面值，将使用更多小面值的硬币，一定得不到最优解
+	static int f(int A,int cur) {
+		if(A<=0)
+			return 0;
+		if(cur==0)
+			return 0;
+		int coinValue=coins[cur];  
+		int x=A/coinValue;  //当前面值的硬币有cnt个
+		int cnt=cnts[cur];  //当前面的硬币有cnt个
+	   	int t=min(x,cnt);
+		return t+f(A-t*coinValue,cur-1); //用t个当前面值，剩下的继续处理
+	}
+}
+
