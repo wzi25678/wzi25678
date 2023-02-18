@@ -1,0 +1,77 @@
+package 第七章;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class Case03硬币表示问题 {
+    public static void main(String[] args) {
+        /**int[] numbers = { 43, 32, 53, 54, 75, 7, 10 };
+        System.out.printf("----for each----");
+        // for-each语句
+        for (int item : numbers) {
+            System.out.println("Count is:" + item);
+        }*/
+        System.out.println(WaysToChange(50));
+        System.out.println(CountWays_2(50));
+        //。。。。。。。。。。。。。。。。。。。。。。。。
+    }
+
+    public static int WaysToChange(int n){     //定义硬币转换规则
+        if (n<=0){
+            return 0;
+        }
+        int [] CoinKinds = {1,5,10,25};
+        return CountWays(n,CoinKinds,3);    //3表示从最大的下标为3的25元面值来进行尝试兑换
+    }
+
+    private static int CountWays(int money, int[] coinKinds, int index) {
+        if (index == 0) {
+            //当只能尝试用1元面值来进行兑换时，说明只剩下一种兑换方式
+            return 1;
+        }
+        int result = 0;
+
+        for (int i=0;coinKinds[index] * i <=money;i++){
+            //当前最大面值使用数量从0开始，找出最大当前可兑换的最大面值的兑换数量
+            int remians = money -coinKinds[index]*i;    //使用+1数量最大面值后的剩余数量
+            result = result +CountWays(remians,coinKinds,index-1);  //递归后，尝试使用的最大兑换面值需要向下-1
+        }
+        return result;
+    }
+    public static int CountWays_2(int n){  //使用动态规划来解决问题
+        int mod = 1000000007;
+        int [] dp = new int[n+1];
+        int [] coins = new int []{1,5,10,25};
+        dp[0] = 1;
+        for (int coin:coins) {
+            for (int i=coin;i<=n;i++){
+                //dp[i]负责保存计算结果，而dp[i-coin]则负责实现不同币种的不同数量下的转换。
+                dp[i] = (dp[i] + dp[i-coin]) % mod;     //任意初始的dp[i]均为0
+
+            }
+        }
+        return dp[n];
+    }
+
+    public static int Test01(){
+        int[] numbers = { 43, 32, 53, 54, 75, 7, 10 };
+        System.out.printf("----for each----");
+        // for-each语句
+        for (int item : numbers) {
+            System.out.println("Count is:" + item);
+        }
+        return 1;
+    }
+
+}
+
+
