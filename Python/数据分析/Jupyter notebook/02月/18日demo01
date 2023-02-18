@@ -1,0 +1,9 @@
+
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+Cell In[27], line 3
+      1 a = np.array([1,2,3,4,5,10],dtype = np.int8)    #默认dtype('int32')
+      2 a.dtype    #显示a的数据类型       //int8表示该数只能表示【-128到127】之间这2^8个数
+----> 3 a.dm
+
+AttributeError: 'numpy.ndarray' object has no attribute 'dm'
