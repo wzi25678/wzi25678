@@ -1,0 +1,64 @@
+package 第七章;
+
+import java.util.HashSet;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class Case04不同数量括号的组合数 {     //逐步生成结果_非数值型
+    public static void main(String[] args) {
+        //要static才能实现同一个类里面的其他方法调用
+        HashSet<String> SET = new HashSet<String>();
+        int n = 3;
+        SET = f_1(n);
+        System.out.println(SET);
+    }
+
+    //方式1：
+    private static HashSet<String> f_1(int n) {
+        HashSet<String> set = new HashSet<String>();
+        if (n==1){
+            set.add("()");
+            return set;     //要展示出所有的组合情况
+        }
+        HashSet<String> se1 = f_1(n-1);
+        for (String s : se1){
+            set.add("()" + s);
+            set.add(s + "()");
+            set.add("(" + s + ")");
+        }
+        return set;
+    }
+
+    //方式2：  迭代形式
+    private static HashSet<String> f_2(int n)
+    {
+        HashSet<String> set = new HashSet<String>();
+        set.add("()");
+        if (n==1){
+            return set;
+        }else {
+            for (int i=2;i<=n;i++){
+                HashSet<String> set2 = new HashSet<String>();
+                for (String s :set){
+                    set2.add("()" + set);
+                    set2.add(set + "()");
+                    set2.add("(" + set + ")");
+                }
+                set = set2;
+            }
+            return set;
+        }
+
+    }
+
+}
