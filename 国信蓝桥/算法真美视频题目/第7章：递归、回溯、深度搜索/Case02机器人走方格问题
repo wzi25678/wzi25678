@@ -1,0 +1,47 @@
+package 第七章;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class Case02机器人走方格问题 {
+    public static void main(String[] args) {
+        //。。。。。。。。。。。。。。。。。。。。。。
+    }
+    //方式1：递归
+    public int CountWays_one(int x , int y){
+        if (x==1 || y==1){  //二维数组计数是从(0,0)开始的，但实际题目是从(1,1)开始的，因此去除掉x==0 and y==0的那一行/那一列方便正常的语义表达
+            return 1;   //x or y 走到头，就意味着固定只有一种走法了
+        }
+        return CountWays_one(x-1,y) + CountWays_one(x,y-1);
+    }
+
+    //方式2：递推
+    public int CountWays_two(int x ,int y){
+        int [][] a = new int [x+1][y+1];
+        //先设置好边界
+        for (int i=1; i<=x;i++){
+            a[i][1] = 1;
+        }
+        for (int j=1;j<=y;j++){
+            a[1][j] = 1;
+        }
+        //用循环数组来实现递推
+        for (int i=2;i<=x;i++){
+            for (int j=2;j<=y;j++){
+                a[i][j] = a[i-1][j] + a[i][j-1];
+            }
+        }
+        
+        return a[x][y];
+
+    }
+}
