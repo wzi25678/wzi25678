@@ -1,0 +1,55 @@
+package 第七章;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class Case01小白上楼梯问题 {
+    public static void main(String[] args) {
+
+    }
+    //方式1：递归实现
+    //递归会调用栈，当规模比较大时，即会导致【栈溢出】问题or【超时】现象的发生
+    public int WaysToStep_one(int  n){
+        if (n==1) {
+            return 1;
+        }
+        if (n==2) {
+            return 2;
+        }
+        if (n == 3){
+            return 4;
+        }
+        return WaysToStep_one(n-1) %1000000007 + WaysToStep_one(n-2)%1000000007 + WaysToStep_one(n-3)%1000000007;
+    }
+    //方式2：
+    public int  WaysToStep_two(int n){
+        if (n==1) {
+            return 1;
+        }
+        if (n==2){
+            return 2;
+        }
+        if (n==3){
+            return 4;
+        }
+        int [] dp  = new int [n+1];
+        dp[1] = 1;
+        dp[2] = 2;
+        dp[3] = 4;
+        for (int i=4;i<dp.length;i++){
+            //数组循环向前探索，来查找后面的元素位置情况
+            dp[i] = ((dp[i-1]+dp[i-2]+dp[i-3]) %1000000007) %1000000007;
+        }
+        return dp[n];
+    }
+    
+}
