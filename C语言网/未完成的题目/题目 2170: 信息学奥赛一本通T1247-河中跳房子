@@ -1,0 +1,87 @@
+package 入门题;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class 题目_2170_信息学奥赛一本通T1247_河中跳房子 {
+    public static void main(String[] args) {
+        /**输入格式
+        第一行包含三个整数L, N, M，相邻两个整数之间用单个空格隔开。
+        接下来N行，每行一个整数，表示每个岩石与起点的距离。岩石按与起点距离从近到远给出，且不会有两个岩石出现在同一个位置。
+
+         样例输入
+         25 5 2
+         2    【去掉】
+         11
+         14   【去掉】
+         17
+         21
+         此时最短跳跃距离为4
+         */
+        Scanner sc = new Scanner(System.in);
+        int L = sc.nextInt();       //L代表总长度
+        int N = sc.nextInt();       //N代表N块岩石
+        int M = sc.nextInt();       //M代表可以最多拿掉的石头数量，【当然了，去掉最多石头咯】
+        int D[] = new int[N];     //河岸中每个石头的位置
+        //录入各个石头之间的间距
+        for (int i =0;i<D.length;i++){
+            D[i] = sc.nextInt();
+        }
+        //其实也算简单吧，要保证最长，那么就要去掉那些能够去掉的最短间距
+        int gap[] = new int[N+1];   //gap代表石头之间的间距
+        for (int i=0;i<gap.length;i++){
+            if (i==gap.length-1){
+                //最后一块石头与终点的间距
+                gap[i] = L-D[i-1];
+            }else if (i==0){
+                gap[i] = D[i] - 0;
+            } else{
+                gap[i] = D[i] - D[i-1];
+            }
+        }
+        //System.out.println(Arrays.toString(gap));
+        //此时得到的gap[i]就是所有的间距
+        int helper [] = gap;
+        Arrays.sort(helper);
+        int reference = helper[M-1];    //reference即为需要删除的距离中最大的
+        //System.out.println(reference);
+        int count = 0;
+        for (int i=0;count<M;i++) {
+            //从前往后删除M个最小的数
+            if (i == 0) {
+                if (gap[i] < reference) {
+                    D[i] = 0;
+                    count++;
+                }
+            }
+            else if (i == gap.length - 1) {
+                if (gap[i] < reference) {
+                    D[i - 1] = 0;
+                    count++;
+                }
+            }
+            else {
+                if (gap[i] < reference){
+                    D[i] = 0;
+                    count++;
+                }
+            }
+            }   //找出了前M个小的
+        System.out.println(Arrays.toString(D));
+
+        }
+
+    }
+
