@@ -1,0 +1,85 @@
+package 第06章_递归;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+class Case02_anagram {
+    static int size;
+    static int count;
+    static char [] arrChar = new char[100];
+
+    public static void main(String[] args) throws IOException {
+        System.out.println("输入单词：");
+        String input = getString();
+        size = input.length();
+        count = 0;
+        for (int j=0;j<size;j++){
+            arrChar[j] = input.charAt(j);
+        }
+        doAnagram(size);
+    } //end- main
+
+    private static void doAnagram(int newSize) {
+        if (newSize == 1){
+            return;
+        }
+        for (int j=0;j<newSize;j++){
+            //递归的本质是大问题转化为小问题，然后通过小问题的解决，来实现大问题的得到解决。
+            doAnagram(newSize-1);
+            if (newSize == 2){
+                displayWord();
+            }
+            retate(newSize);
+
+        }
+    }
+
+    private static void retate(int newSize) {
+        int j;
+        int position = size - newSize;
+        char temp = arrChar[position];
+        for (j = position+1;j<size;j++){
+            arrChar[j-1] = arrChar[j];
+        }
+        arrChar[j-1] = temp;
+    }
+
+    private static void displayWord() {     //这里是显示打印的记号顺序
+        if (count<99){
+            System.out.print(" ");
+        }
+        if (count<9){
+            System.out.print(" ");
+        }
+        System.out.print(++count + " ");
+        for (int j=0;j<size;j++){
+            System.out.print(arrChar[j]);
+        }
+        System.out.print(" ");
+        System.out.flush();
+        if (count%6 == 0){
+            System.out.println("");
+        }
+    }
+
+    private static String getString() throws IOException{
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        String s = bufferedReader.readLine();
+        return s;
+    }
+
+}
