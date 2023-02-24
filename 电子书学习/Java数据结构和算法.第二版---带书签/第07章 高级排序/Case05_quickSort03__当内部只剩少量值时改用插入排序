@@ -1,0 +1,150 @@
+package 第07章__高级排序;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class Case05_quickSort03__当内部只剩少量值时改用插入排序 {
+    private long[] theArray;
+    private int nElems;
+
+    public Case05_quickSort03__当内部只剩少量值时改用插入排序(int max){
+        theArray = new long[max];
+        nElems = 0;
+    }
+
+    public void insert(long value){
+        theArray[nElems] = value;
+        nElems++;
+    }
+
+    public void display(){
+        System.out.println("A");
+        for (int j=0;j<nElems;j++){
+            System.out.println(theArray[j] + " ");
+        }
+        System.out.println();
+    }
+
+    public void quickSort(){
+        recQuickSort(0,nElems-1);
+    }
+
+    private void recQuickSort(int left, int right) {
+        int size = right -left +1;
+        if (size < 10){
+            insertionSort(left,right);
+        }
+        if (size <= 3){
+            manualSort(left,right);
+        }else {
+            long median = medianOf3(left,right);
+            int partition = partitionIt(left,right,median);
+            recQuickSort(left,partition-1);
+            recQuickSort(right+1,right);
+        }
+    }//end  -void -recQuickSort
+
+    private void insertionSort(int left, int right) {
+        int in ,out;
+        for (out=left+1;out<=right;out++){
+            long temp = theArray[out];
+            in = out;
+            
+            while (in>left && theArray[in-1] >=temp){
+                theArray[in] = theArray[in-1];
+                --in;
+            }
+            theArray[in] = temp;
+        }
+    }//end -void -insertionSort
+
+    private int partitionIt(int left, int right, long pivot) {
+        int leftPtr = left;
+        int rightPtr = right-1;
+        while (true){
+            while (theArray[++leftPtr]<pivot){
+                ;
+            }
+            while (theArray[right--]>pivot && right>0){
+                ;
+            }
+            if (leftPtr >= rightPtr){
+                break;
+            }else { //leftPtr < rightPtr
+                swap(leftPtr,rightPtr);
+            }
+        }
+        swap(leftPtr,right-1);
+        return leftPtr;
+    } //end -int -partition
+
+    private long medianOf3(int left, int right) {
+        //实现三个位置上的值，从小到大排序。
+        int center = (left + right)/2;
+        if (theArray[left] > theArray[center]){
+            swap(left,center);
+        }
+        if (theArray[left] > theArray[right]){
+            swap(left,right);
+        }
+        if (theArray[center] > theArray[right]){
+            swap(center,right);
+        }
+        swap(center,right-1);   //把本次选出来的center（即pivot）
+        //放到最右边去
+        return theArray[right-1];   //作为下一次的center值使用。
+    }//end -long -medianOf3
+
+    private void swap(int A, int B) {
+        int temp = A;
+        A = B;
+        B = temp;
+    }
+
+    private void manualSort(int left, int right) {
+        int size = right - left +1;
+        if (size <= 1){
+            return;
+        }
+        if (size == 2){
+            if (theArray[left] > theArray[right]){
+                swap(left,right);
+            }
+            return;
+        }else {
+            if (theArray[left] > theArray[right-1]){
+                swap(left,right-1);
+            }
+            if (theArray[left] > theArray[right]){
+                swap(left,right);
+            }
+            if (theArray[right-1] > theArray[right]){
+                swap(right-1,right);
+            }
+        }
+    }//end -void -manualSort
+}//end -class -Case05_quickSort03__当内部只剩少量值时改用插入排序
+
+class QuickSort3App{
+    public static void main(String[] args) {
+        int maxSize = 16;
+        Case04_quickSort2_三位置取中间位pivot arr;
+        arr = new Case04_quickSort2_三位置取中间位pivot(maxSize);
+        for (int j=0;j<maxSize;j++){
+            long n = (int)(Math.random()*99);
+            arr.insert(n);
+        }
+        arr.display();
+        arr.quickSort();
+        arr.display();
+    }//end -void -main
+}//end -class -QuickSort3App
