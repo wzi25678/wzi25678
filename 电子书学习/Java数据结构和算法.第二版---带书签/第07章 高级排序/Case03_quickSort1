@@ -1,0 +1,96 @@
+package 第07章__高级排序;
+
+import java.util.Arrays;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+class Case03_quickSort1 {
+    private long[] theArray;
+    private int nElems;
+
+    public Case03_quickSort1(int max){
+        theArray = new long[max];
+        nElems = 0;
+    }
+
+    public void insert(long value){
+        theArray[nElems] = value;
+        nElems++;
+    }
+
+    public void display(){
+        System.out.println("A");
+        for (int j=0;j<nElems;j++){
+            System.out.println(theArray[j] + " ");
+        }
+        System.out.println();
+    }
+
+    public void quickSort(){
+        recQuickSort(0,nElems-1);
+    }
+
+    private void recQuickSort(int left, int right) {
+        if (right - left <= 0){
+            return;
+        }
+        else {
+            long pivot = theArray[right];
+            int partition = partition(left,right,pivot);
+            recQuickSort(left,partition-1);
+            recQuickSort(partition+1,right);
+
+        }
+    } //end -void -recQuickSort
+
+    private int partition(int left, int right, long pivot) {
+        int leftPtr = left-1;
+        int rightPtr = right;
+        while (true){
+            while (theArray[++leftPtr]<pivot){
+                ;
+            }
+            while (theArray[right--]>pivot && right>0){
+                ;
+            }
+            if (leftPtr >= rightPtr){
+                break;
+            }else { //leftPtr < rightPtr
+                swap(leftPtr,rightPtr);
+            }
+        }
+        return leftPtr;
+    }  //end -int -partition
+
+    private void swap(int index1, int index2) {
+        long temp = theArray[index1];
+        theArray[index1] = theArray[index2];
+        theArray[index2] = temp;
+    } //end -void -swap
+} //end -class -Case03_quickSort1
+
+class QuickSort1App{
+    public static void main(String[] args) {
+        int maxSize = 16;
+        Case03_quickSort1  arr;
+        arr = new Case03_quickSort1(maxSize);
+
+        for (int j=0;j<maxSize;j++){
+            long n = (int)(Math.random()*99);
+            arr.insert(n);
+        }
+        arr.display();
+        arr.quickSort();
+        arr.display();
+    }  //end -void -main
+}//end -class -QuickSort1App
