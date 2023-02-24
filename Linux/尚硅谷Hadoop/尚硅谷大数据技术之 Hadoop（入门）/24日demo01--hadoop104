@@ -1,0 +1,15 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop104' resolved to 192.168.137.115.
+Connecting to 192.168.137.115:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Fri Feb 24 11:51:27 2023 from desktop-gchr6r6.mshome.net
+[atguigu@hadoop104 ~]$ cd /opt/
+[atguigu@hadoop104 opt]$ source /etc/profile
+[atguigu@hadoop104 opt]$ 
