@@ -1,0 +1,91 @@
+package 第08章__二叉树;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+class Case02_HuffmanTree implements Comparable<Case02_HuffmanTree> {
+    int value;
+    Case02_HuffmanTree left;
+    Case02_HuffmanTree right;
+
+    public Case02_HuffmanTree() {
+    }
+
+    public Case02_HuffmanTree(int value) {
+        this.value = value;
+    }
+
+    //写一个前序遍历哈夫曼树的方法
+    public void PreOrder(){
+        System.out.println(this);
+        if (this.left != null){
+            this.left.PreOrder();
+        }
+        if (this.right!=null){
+            this.right.PreOrder();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Case02_HuffmanTree{" +
+                "value=" + value +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Case02_HuffmanTree o) {
+        //从小到大排序
+        return this.value - o.value;
+    }
+}//end -class Case02_HuffmanTree
+
+class HuffmanTree{
+    public static void main(String[] args) {
+        int arr []  = {3,8,7,2,5};
+        Case02_HuffmanTree root = HuffmanTree(arr);
+        PreOrder(root);
+    }
+
+    private static void PreOrder(Case02_HuffmanTree root) {
+        if (root != null){
+            root.PreOrder();
+        }else {
+            System.out.println("空树，已无法遍历。");
+        }
+    }
+
+    public static Case02_HuffmanTree HuffmanTree(int arr[]){
+        List<Case02_HuffmanTree> nodes = new ArrayList<Case02_HuffmanTree>();
+        for (int value : arr){
+            nodes.add(new Case02_HuffmanTree(value));
+        }
+        while (nodes.size() > 1){
+            Collections.sort(nodes);
+            Case02_HuffmanTree leftNode = nodes.get(0);
+            Case02_HuffmanTree rightNode = nodes.get(1);
+            
+            Case02_HuffmanTree parent = new Case02_HuffmanTree(leftNode.value + rightNode.value);
+            parent.left = leftNode;
+            parent.right = rightNode;
+            
+            nodes.remove(leftNode);
+            nodes.remove(rightNode);
+            nodes.add(parent);
+        }
+        return nodes.get(0);
+    }//end - Case02_HuffmanTree HuffmanTree
+}//end -class HuffmanTree
