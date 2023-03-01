@@ -1,0 +1,2 @@
+plt.xlabel("这是给x轴取个名字")
+plt.ylabel("这是给y轴取个名字")
