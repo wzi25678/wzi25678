@@ -1,0 +1,390 @@
+package 第08章__二叉树;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+class RedBlackTreeNode{
+    private final boolean RED = false;
+    private final boolean BLACK = true;
+    private int key;
+    private boolean color;
+    private RedBlackTreeNode LeftChild;
+    private RedBlackTreeNode RightChild;
+    private RedBlackTreeNode Parent;
+
+    public RedBlackTreeNode(int key){
+        /**结点存储信息包括两个：
+            1.结点的关键值
+            2.结点对应的颜色
+         另外从大的角度来看，每个节点需要存储的属性来应该包括，
+         该结点的Parent、LeftChild和RightChild。
+         */
+        this.key = key;
+        this.color = RED;   //默认假设取个红色
+    }
+
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
+    }
+
+    public boolean getColor() {
+        return color;
+    }
+
+    public void setColor(boolean color) {
+        this.color = color;
+    }
+
+    public RedBlackTreeNode getLeftChild() {
+        return LeftChild;
+    }
+
+    public void setLeftChild(RedBlackTreeNode leftChild) {
+        LeftChild = leftChild;
+    }
+
+    public RedBlackTreeNode getRightChild() {
+        return RightChild;
+    }
+
+    public void setRightChild(RedBlackTreeNode rightChild) {
+        RightChild = rightChild;
+    }
+
+    public RedBlackTreeNode getParent() {
+        return Parent;
+    }
+
+    public void setParent(RedBlackTreeNode parent) {
+        Parent = parent;
+    }
+
+    @Override
+    public String toString() {      //自定义类型还至少应该重写一下toString方法
+        return "RedBlaceTreeNode{" +
+                "key=" + key +
+                ", color=" + color +
+                '}';
+    }
+}  //end -class RedBlackTreeNode
+class RedBlackTree {
+
+    //上面是定义每个独立节点应包含的信息
+    //现在应该包含的信息则更倾向于是宏观上对整棵树而言，需要的信息
+    private static RedBlackTreeNode root;
+    private static final boolean RED = false;
+    private static final boolean BLACK = true;
+
+    public static void main(String[] args) {
+        Query(50);     //查询50
+        Insert(20);   //插入20
+    }//end -main
+
+    private static void Insert(int key) {
+        //  【这个位置需要填入一个返回值类型】
+        RedBlackTreeNode node = new RedBlackTreeNode(key);
+        if (root == null){
+            root = node;
+            node.setColor(BLACK);
+            return ;
+        }
+        RedBlackTreeNode parent = root;
+        RedBlackTreeNode son = null;
+        if (key <= parent.getKey()){
+            son = parent.getLeftChild();
+        }else {
+            son = parent.getRightChild();
+        }
+        while (son != null){
+            parent = son;
+            if (key <= parent.getKey()){
+                son = parent.getLeftChild();
+            }else {
+                son = parent.getRightChild();
+            }
+        }
+        //退出来，说明为空，到头了。
+        if (key <= parent.getKey()){
+            parent.setLeftChild(node);
+        }else {
+            parent.setRightChild(node);
+        }
+        node.setParent(parent);
+
+        //fix up?
+        //正常插入完之后就得进行属于红黑树性质的颜色调整
+        InsertFix(node);
+    }       //end -void Insert
+
+    private static void InsertFix(RedBlackTreeNode node) {
+        RedBlackTreeNode Father,GrandFather;
+        while ((Father = node.getParent()) != (null) && Father.getColor() == RED){
+            GrandFather = Father.getParent();
+            //左旋情况-总览
+            if (GrandFather.getLeftChild() == Father){      //Father为GrandFather左儿子的情况，如之前的分析
+                RedBlackTreeNode uncle = GrandFather.getRightChild();
+                if (uncle != null && uncle.getColor() == RED){
+                    setBlack(Father);
+                    setBlack(uncle);
+                    setRed(GrandFather);
+                    node = GrandFather;
+                    continue;
+                  //rightRotate(GrandFather);
+                }
+                if (node == Father.getRightChild()){
+                    LeftRotate(Father);
+                    RedBlackTreeNode temp  = node;
+                    node = Father;
+                    Father = temp;
+                }
+                setBlack(Father);
+                setRed(GrandFather);
+                RightRotate(GrandFather);
+            }// end -if (GrandFather.getLeftChild() == Father)
+            //右旋情况-总览
+            else {      //Father为GrandFatheryou右儿子的情况，对称操作
+                RedBlackTreeNode uncle = GrandFather.getLeftChild();
+                if (uncle !=null && uncle.getColor() == RED){
+                    setBlack(Father);
+                    setBlack(uncle);
+                    setRed(GrandFather);
+                    node = GrandFather;
+                    continue;
+                }
+                if (node == Father.getLeftChild()){
+                    RightRotate(Father);
+                    RedBlackTreeNode temp = node;
+                    node = Father;
+                    Father = temp;
+                }
+                setBlack(Father);
+                setRed(GrandFather);
+                LeftRotate(GrandFather);
+            }
+        }
+    }     //end -void InsertFix
+
+    private void delete(int key){
+        delete(Query(key));         //采用方法重载的方式来解决。
+    } //end -void delete
+
+    private void delete(RedBlackTreeNode node){
+        //方法重载
+        if (node == null){
+            return;
+        }
+        if (node.getLeftChild() != null && node.getRightChild() != null){
+            RedBlackTreeNode replaceNode = node;
+            RedBlackTreeNode temp = node.getRightChild();
+            while (temp != null){
+                replaceNode = temp;
+                temp = temp.getLeftChild();
+            }
+            int t = replaceNode.getKey();
+            replaceNode.setKey(node.getKey());
+            node.setKey(t);
+            delete(replaceNode);
+            return;
+        }
+        RedBlackTreeNode replaceNode = null;
+        if (node.getLeftChild() != null){
+             replaceNode = node.getLeftChild();
+        }else{
+            replaceNode = node.getRightChild();
+        }
+        RedBlackTreeNode parent  = node.getParent();
+        if (parent == null){
+            root = replaceNode;
+            if (replaceNode != null){
+                replaceNode.setParent(null);
+            }else {
+                if (replaceNode != null){
+                    replaceNode.setParent(parent);
+                }
+                if (replaceNode.getLeftChild() == node){
+                    parent.setLeftChild(replaceNode);
+                }
+                if (replaceNode.getRightChild() == node){
+                  parent.setRightChild(replaceNode);
+                }
+            }//end -else
+            if (node.getColor() == BLACK) {
+                RemoveFix(parent,replaceNode);  //删除也涉及到旋转以及颜色调整
+            }
+        }
+
+    }//end -void delete
+
+    private void RemoveFix(RedBlackTreeNode father, RedBlackTreeNode node) {
+        while ((node == null || node.getColor() == BLACK) && node != root){
+            if (father.getLeftChild() == node){         //S为P的左儿子的情况，如之前分析
+                RedBlackTreeNode brother = father.getRightChild();
+                if (brother != null && brother.getColor() == RED){
+                    setRed(father);
+                    setBlack(brother);
+                    LeftRotate(father);
+                    brother = father.getRightChild();
+                }
+                if (brother == null || (isBlack(brother.getLeftChild()) && isBlack(brother.getRightChild()))){
+                    setRed(brother);
+                    node = father;
+                    father = node.getParent();
+                    continue;
+                }
+                if (isRed(brother.getLeftChild())){
+                    setBlack(brother.getLeftChild());
+                    setRed(brother);
+                    RightRotate(brother);
+                    brother = brother.getParent();
+                }
+                brother.setColor(father.getColor());
+                setBlack(father);
+                setBlack(brother.getRightChild());
+                LeftRotate(father);
+                node = root;    //跳出循环
+            }//end -(father.getLeftChild() == node)
+            else {      //S为P的右儿子的情况，同上述，对称操作即可
+                RedBlackTreeNode brother = father.getLeftChild();
+                if (brother != null && brother.getColor() ==RED){
+                    setRed(father);
+                    setBlack(brother);
+                    RightRotate(father);
+                    brother = father.getLeftChild();
+                }
+                if (brother == null || (isBlack(brother.getLeftChild()) && isBlack(brother.getRightChild()))){
+                    setRed(brother);
+                    node = father;
+                    father = node.getParent();
+                    continue;
+                }
+                if (isRed(brother.getRightChild())){
+                    setBlack(brother.getRightChild());
+                    setRed(brother);
+                    LeftRotate(brother);
+                    brother = brother.getParent();
+                }
+                brother.setColor(father.getColor());
+                setBlack(father);
+                setBlack(brother.getLeftChild());
+                RightRotate(father);
+                node = root;    //跳出循环
+            }//end -else
+        }//end -while ((node == null || node.getColor() == BLACK) && node != root)
+        if (node != null){
+            node.setColor(BLACK);
+        }
+    }//end -void RemoveFix
+
+    private boolean isRed(RedBlackTreeNode node) {
+        if (node == null){
+            return false;
+        }
+        return node.getColor() == RED;
+    }
+
+    private boolean isBlack(RedBlackTreeNode node) {
+        if (node == null){
+            return true;
+        }
+        return node.getColor() == BLACK;
+    }
+
+    private static void RightRotate(RedBlackTreeNode node) {
+        RedBlackTreeNode left = node.getLeftChild();
+        RedBlackTreeNode parent = node.getParent();
+        if (parent == null){
+            root = left;
+            left.setParent(null);
+        }else {
+            if (parent.getLeftChild() != null && parent.getLeftChild() == node){
+                parent.setLeftChild(left);
+            }else {
+                parent.setRightChild(left);
+            }
+            left.setParent(parent);
+        }
+        node.setParent(left);
+        node.setRightChild(left.getLeftChild());
+        if (left.getLeftChild() != null){
+            left.getLeftChild().setParent(node);
+        }
+        left.setLeftChild(node);
+    }//end -void RightRotate
+
+    private static void LeftRotate(RedBlackTreeNode node) {
+        RedBlackTreeNode right = node.getRightChild();
+        RedBlackTreeNode parent = node.getParent();
+        if (parent == null){
+            root = right;
+            right.setParent(null);
+        }else {
+            if (parent.getLeftChild() != null && parent.getLeftChild() == node){
+                parent.setLeftChild(right);
+            }else {
+                parent.setRightChild(right);
+            }
+            right.setParent(parent);
+        }//end -else
+        node.setParent(right);
+        node.setRightChild(right.getLeftChild());
+        if (right.getLeftChild() != null){
+            right.getLeftChild().setParent(node);
+        }
+        right.setLeftChild(node);
+    }//end -void LeftRotate
+
+    private static void setRed(RedBlackTreeNode node) {
+        if (node != null){
+            node.setColor(RED);
+        }
+    }
+
+    private static void setBlack(RedBlackTreeNode node) {
+        if (node != null){
+            node.setColor(BLACK);
+        }
+    }
+
+    private static RedBlackTreeNode Query(int key) {
+        //这个key不属于基本类型值，而是属于自定义的RedBlaceTreeNode
+        RedBlackTreeNode temp = root;
+        while (temp != null){
+            if (temp.getKey() == key){
+                return temp;
+            }else if (temp.getKey() > key){
+                temp = temp.getLeftChild();
+            }else {
+                temp = temp.getRightChild();
+            }
+        }
+        return null;
+    }//end -void Query
+
+    public void InOrder(){
+        InOrder(root);
+    }
+
+    private void InOrder(RedBlackTreeNode node){
+        if (node == null){
+            return;
+        }
+        InOrder(node.getLeftChild());
+        System.out.println(node);
+        InOrder(node.getRightChild());
+    }
+
+
+}
