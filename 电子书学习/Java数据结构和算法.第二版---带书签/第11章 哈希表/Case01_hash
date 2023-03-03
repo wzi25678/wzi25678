@@ -1,0 +1,173 @@
+package 第11章_哈希表;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class hash {
+    
+}
+class DataItem{
+    private int iData;
+    
+    public DataItem(int ii){
+        iData = ii;
+    }//end -public DataItem
+    
+    public int getKey(){
+        return iData;
+    }
+    
+}//end -class DataItem
+
+class HashTable{
+    private DataItem[] hashArray;
+    private int arraySize;
+    private DataItem nonItem;
+    
+    public HashTable(int size){
+        arraySize = size;
+        hashArray = new DataItem[arraySize];
+        nonItem = new DataItem(-1);     //delete item ket is -1
+    }
+    
+    public void displayTable(){
+        System.out.println("Table: ");
+        for (int j=0;j<arraySize;j++){
+            if (hashArray[j] != null){
+                System.out.print(hashArray[j].getKey() + " ");
+            }else {
+                System.out.println(" ** ");
+            }
+            System.out.println();
+        }//end -for
+    }//end -void displayTable
+    
+    public void insert(DataItem item){  
+        int key = item.getKey();
+        int hashVal = hashFunc(key);
+        
+        while (hashArray[hashVal] != null && hashArray[hashVal].getKey() != -1){
+            ++hashVal;
+            hashVal %= arraySize;
+        }
+        hashArray[hashVal] = item;
+    }//end -void insert
+    
+    public DataItem delete(int key){
+        int hashVal = hashFunc(key);
+        
+        while (hashArray[hashVal] != null){
+            if (hashArray[hashVal].getKey() != key){
+                DataItem temp = hashArray[hashVal];
+                hashArray[hashVal] = nonItem;
+                return temp;
+            }
+            ++hashVal;
+            hashVal %= arraySize;
+        }//end -while
+        return null;
+    }//end -DataItem delete
+
+    public DataItem find (int key){
+        int hashVal = hashFunc(key);
+        while (hashArray[hashVal] != null){
+            if (hashArray[hashVal].getKey() == key){
+                return hashArray[hashVal];
+            }else {
+                ++hashVal;
+                hashVal %= arraySize;
+            }
+        }//end -while (hashArray[hashVal] != null)
+        return null;
+    }   //end -DataItem find
+    
+    private int hashFunc(int key) {
+        return key% arraySize;
+    }   //end -int hashFunc
+}//end -class HashTable
+
+class HashTableApp {
+    public static void main(String[] args) throws IOException {
+        DataItem aDataItem;
+        int aKey, size, n, keysPerCell;
+
+        System.out.println("Enter size of hash table: ");
+        size = getInt();
+        System.out.println("Enter initial number of items: ");
+        n = getInt();
+        keysPerCell = 10;
+
+        HashTable theHashTable = new HashTable(size);
+        for (int j = 0; j < n; j++) {
+            aKey = (int) (Math.random() * (keysPerCell * size));
+            aDataItem = new DataItem(aKey);
+            theHashTable.insert(aDataItem);
+        }
+
+        while (true) {
+            System.out.print("Enter first letter of ");
+            System.out.print("show ,insert ,delete , or find : ");
+            char choice = getChar();
+            switch (choice) {
+                case 's':
+                    theHashTable.displayTable();
+                    break;
+                case 'i':
+                    System.out.print("Enter key value to insert: ");
+                    aKey = getInt();
+                    aDataItem = new DataItem(aKey);
+                    theHashTable.insert(aDataItem);
+                    break;
+                case 'd':
+                    System.out.println("Entry key value to insert: ");
+                    aKey = getInt();
+                    theHashTable.delete(aKey);
+                    break;
+                case 'f':
+                    System.out.println("Enter key value to find: ");
+                    aKey = getInt();
+                    aDataItem = theHashTable.find(aKey);
+                    if (aDataItem != null) {
+                        System.out.println("Found : " + aKey);
+                    } else {
+                        System.out.println("Could not find : " + aKey);
+                    }
+                    break;
+                default:
+                    System.out.println("Invalid entry!");
+            }//end -switch (choice)
+        }//end -while (true)
+    }   //end -main
+
+    private static char getChar() throws IOException {
+        String s = getString();
+        return s.charAt(0);
+    }
+
+    private static String getString() throws IOException {
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        String str = bufferedReader.readLine();
+        return str;
+    }
+
+
+    private static int getInt() throws IOException {
+        String s = getString();
+        return Integer.parseInt(s);
+    }
+}//end -class HashTableApp
