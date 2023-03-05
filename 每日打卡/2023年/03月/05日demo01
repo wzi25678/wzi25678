@@ -1,0 +1,24 @@
+需要注意的是，如果我们使用了表的别名，在查询字段中、过滤条件中就只能使用别名进行代替，
+不能使用原有的表名，否则就会报错。
+
+垫高
+#左外连接
+SELECT last_name,department_name
+FROM employees ,departments
+WHERE employees.department_id = departments.department_id(+);
+#右外连接
+SELECT last_name,department_name
+FROM employees ,departments
+WHERE employees.department_id(+) = departments.department_id;
+左边多，就是左外连接，因此需要右边+来补
+右边多，就是右外连接，因此需要左边+来补
+
+#实现查询结果是A
+SELECT 字段列表
+FROM A表 LEFT JOIN B表
+ON 关联条件
+WHERE 等其他子句;
+左外连接会实现左边的全显示，
+因为右边会对应补齐左边出现的NULL情况，同理
+右外连接也是会实现右边的全显示。
+
