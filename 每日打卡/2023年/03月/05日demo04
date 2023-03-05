@@ -1,0 +1,2 @@
+plt.grid(True)  #Shitf+Tab 查看详细使用方法，以及一些底层信息。
+plt.plot
