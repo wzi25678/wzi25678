@@ -1,0 +1,9 @@
+而在附加和 hsync 中添加了对可变长度块的支持后，用户可以在不将最后一个块填充到配置的块大小的情况下开始一个新块。
+现在我们将使用 skipTrash 选项删除文件，这不会将文件发送到垃圾箱。它将从 HDFS 中完全删除。
+
+$ hadoop fs -rm -r -skipTrash delete/test2
+已删除 delete/test2
+
+记录
+Hadoop通过 Apache Commons Logging 框架使用Apache log4j进行日志记录。编辑etc/hadoop/log4j.properties文件以自定义 Hadoop 守护程序的日志记录配置（日志格式等）。
+
