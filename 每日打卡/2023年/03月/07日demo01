@@ -1,0 +1,158 @@
+这样，一旦NameNode节点断电，可以通过FsImage和Edits的合并，合成元数据。
+
+因此，需要定期进行FsImage和Edits的合并，如果这个操作由NameNode节点完成，又会效率过低。因此，引入一个新的节点SecondaryNamenode，专门用于FsImage和Edits的合并。
+
+（5）Secondary NameNode加载编辑日志和镜像文件到内存，并合并。
+（6）生成新的镜像文件fsimage.chkpoint。
+（7）拷贝fsimage.chkpoint到NameNode。
+（8）NameNode将fsimage.chkpoint重新命名成fsimage。
+
+<inode>
+	<id>16386</id>
+	<type>DIRECTORY</type>
+	<name>user</name>
+	<mtime>1512722284477</mtime>
+	<permission>atguigu:supergroup:rwxr-xr-x</permission>
+	<nsquota>-1</nsquota>
+	<dsquota>-1</dsquota>
+</inode>
+<inode>
+	<id>16387</id>
+	<type>DIRECTORY</type>
+	<name>atguigu</name>
+	<mtime>1512790549080</mtime>
+	<permission>atguigu:supergroup:rwxr-xr-x</permission>
+	<nsquota>-1</nsquota>
+	<dsquota>-1</dsquota>
+</inode>
+<inode>
+	<id>16389</id>
+	<type>FILE</type>
+	<name>wc.input</name>
+	<replication>3</replication>
+	<mtime>1512722322219</mtime>
+	<atime>1512722321610</atime>
+	<perferredBlockSize>134217728</perferredBlockSize>
+	<permission>atguigu:supergroup:rw-r--r--</permission>
+	<blocks>
+		<block>
+			<id>1073741825</id>
+			<genstamp>1001</genstamp>
+			<numBytes>59</numBytes>
+		</block>
+	</blocks>
+</inode >
+
+<?xml version="1.0" encoding="UTF-8"?>
+<EDITS>
+	<EDITS_VERSION>-63</EDITS_VERSION>
+	<RECORD>
+		<OPCODE>OP_START_LOG_SEGMENT</OPCODE>
+		<DATA>
+			<TXID>129</TXID>
+		</DATA>
+	</RECORD>
+	<RECORD>
+		<OPCODE>OP_ADD</OPCODE>
+		<DATA>
+			<TXID>130</TXID>
+			<LENGTH>0</LENGTH>
+			<INODEID>16407</INODEID>
+			<PATH>/hello7.txt</PATH>
+			<REPLICATION>2</REPLICATION>
+			<MTIME>1512943607866</MTIME>
+			<ATIME>1512943607866</ATIME>
+			<BLOCKSIZE>134217728</BLOCKSIZE>
+			<CLIENT_NAME>DFSClient_NONMAPREDUCE_-1544295051_1</CLIENT_NAME>
+			<CLIENT_MACHINE>192.168.10.102</CLIENT_MACHINE>
+			<OVERWRITE>true</OVERWRITE>
+			<PERMISSION_STATUS>
+				<USERNAME>atguigu</USERNAME>
+				<GROUPNAME>supergroup</GROUPNAME>
+				<MODE>420</MODE>
+			</PERMISSION_STATUS>
+			<RPC_CLIENTID>908eafd4-9aec-4288-96f1-e8011d181561</RPC_CLIENTID>
+			<RPC_CALLID>0</RPC_CALLID>
+		</DATA>
+	</RECORD>
+	<RECORD>
+		<OPCODE>OP_ALLOCATE_BLOCK_ID</OPCODE>
+		<DATA>
+			<TXID>131</TXID>
+			<BLOCK_ID>1073741839</BLOCK_ID>
+		</DATA>
+	</RECORD>
+	<RECORD>
+		<OPCODE>OP_SET_GENSTAMP_V2</OPCODE>
+		<DATA>
+			<TXID>132</TXID>
+			<GENSTAMPV2>1016</GENSTAMPV2>
+		</DATA>
+	</RECORD>
+	<RECORD>
+		<OPCODE>OP_ADD_BLOCK</OPCODE>
+		<DATA>
+			<TXID>133</TXID>
+			<PATH>/hello7.txt</PATH>
+			<BLOCK>
+				<BLOCK_ID>1073741839</BLOCK_ID>
+				<NUM_BYTES>0</NUM_BYTES>
+				<GENSTAMP>1016</GENSTAMP>
+			</BLOCK>
+			<RPC_CLIENTID></RPC_CLIENTID>
+			<RPC_CALLID>-2</RPC_CALLID>
+		</DATA>
+	</RECORD>
+	<RECORD>
+		<OPCODE>OP_CLOSE</OPCODE>
+		<DATA>
+			<TXID>134</TXID>
+			<LENGTH>0</LENGTH>
+			<INODEID>0</INODEID>
+			<PATH>/hello7.txt</PATH>
+			<REPLICATION>2</REPLICATION>
+			<MTIME>1512943608761</MTIME>
+			<ATIME>1512943607866</ATIME>
+			<BLOCKSIZE>134217728</BLOCKSIZE>
+			<CLIENT_NAME></CLIENT_NAME>
+			<CLIENT_MACHINE></CLIENT_MACHINE>
+			<OVERWRITE>false</OVERWRITE>
+			<BLOCK>
+				<BLOCK_ID>1073741839</BLOCK_ID>
+				<NUM_BYTES>25</NUM_BYTES>
+				<GENSTAMP>1016</GENSTAMP>
+			</BLOCK>
+			<PERMISSION_STATUS>
+				<USERNAME>atguigu</USERNAME>
+				<GROUPNAME>supergroup</GROUPNAME>
+				<MODE>420</MODE>
+			</PERMISSION_STATUS>
+		</DATA>
+	</RECORD>
+</EDITS >
+
+NAMENODE负责发号施令，所有的操作都需要经过一下它的询问，然后它记录的是每个存储块的块号，同时操作时也相应的返回对应的许可/拒绝请求给对应的块号。
+
+NAMENODE和DATANODE通过设置的心跳频率来确保彼此还在通信。
+
+心跳是每3秒一次，心跳返回结果带有NameNode给该DataNode的命令如复制块数据到另一台机器，或删除某个数据块。
+如果超过10分钟没有收到某个DataNode的心跳，则认为该节点不可用。
+
+如下是DataNode节点保证数据完整性的方法。
+（1）当DataNode读取Block的时候，它会计算CheckSum。
+（2）如果计算后的CheckSum，与Block创建时值不一样，说明Block已经损坏。
+（3）Client读取其他DataNode上的Block。
+（4）常见的校验算法crc（32），md5（128），sha1（160）
+（5）DataNode在其文件创建后周期验证CheckSum。
+
+需要注意的是hdfs-site.xml 配置文件中的heartbeat.recheck.interval的单位为毫秒，dfs.heartbeat.interval的单位为秒。
+
+<property>
+    <name>dfs.namenode.heartbeat.recheck-interval</name>
+    <value>300000</value>
+</property>
+
+<property>
+    <name>dfs.heartbeat.interval</name>
+    <value>3</value>
+</property>
