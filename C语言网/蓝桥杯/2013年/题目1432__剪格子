@@ -1,0 +1,78 @@
+package Year_2013;
+
+import java.util.Scanner;
+
+public class 题目1432__剪格子 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int m = scanner.nextInt();	//长度
+		int n = scanner.nextInt();	//宽度
+		int [][] number = new int[n][m];	//构造二维数组
+		int sum = 0;	//找出一半的大小
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<m;j++) {
+				number[i][j] = scanner.nextInt();
+				sum+=number[i][j];	//记录总数
+			}
+		}
+		int avg = sum/=2;		//算出一半的大小
+		int x=0,y=0;	//记录走到了哪里
+		int result = 0;	//记录当前走向的总值和
+		int distance = 0;	//记录走了多少个数
+		while(true){
+			/**极端情况考虑：
+			 * 1.如果走过了的话，就会陷入死循环，卡死在里面
+			 * 2.
+			 * 
+			 */
+			result += number[x][y];	//走当前这一步
+			distance++;
+			number[x][y] = -1;	//将位置置为一个可以识别其已走过得数
+			if(result == avg) {
+				break;	//如果剪到了这么多总和数，就退出
+			}else {	//否则就进入一直找
+				int zuida = 0;
+				int x1 = 0,y1 = 0;
+				if(x-1 >=0) {//可以走上面
+					if(number[x-1][y] != -1) {	//且上面没走过
+						if(result + number[x-1][y]<=sum && result+number[x-1][y]>zuida) {
+							zuida = result+number[x-1][y];
+							x1 = x -1;
+							y1 = y;
+						}
+					}//end -if(number[x-1][y] != -1)
+				}//end -if(x-1 >=0)
+				if(x+1 <n) {//可以走下面
+					if(number[x+1][y] != -1) {	//且下面没走过
+						if(result + number[x+1][y]<=sum && result+number[x+1][y]>zuida) {
+							zuida = result+number[x+1][y];
+							x1 = x +1;
+							y1 = y;
+						}
+					}//end -if(number[x+1][y] != -1)
+				}//end -if(x+1 >=0)
+				if(y-1 >=0) {//可以走左面
+					if(number[x][y-1] != -1) {	//且左面没走过
+						if(result + number[x][y-1]<=sum && result+number[x][y-1]>zuida) {
+							zuida = result+number[x][y-1];
+							x1 = x;
+							y1 = y-1;
+						}
+					}//end -if(number[x】[y-1] != -1)
+				}//end -if(y-1 >=0)
+				if(y+1 <m) {//可以走右面
+					if(number[x][y+1] != -1) {	//且右面没走过
+						if(result + number[x][y+1]<=sum && result+number[x][y+1]>zuida) {
+							zuida = result+number[x][y+1];
+							x1 = x;
+							y1 = y+1;
+						}
+					}//end -if(number[x】[y+1] != -1)
+				}//end -if(y+1 >=0)
+				x = x1;
+				y = y1;
+			}//end -else
+		}//end -while(true)	
+		System.out.println(distance);
+	}//end -main
+}//end -class 题目1432__剪格子
