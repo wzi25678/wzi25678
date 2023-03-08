@@ -1,0 +1,103 @@
+CURDATE() ，CURRENT_DATE()
+返回当前日期，只包含年、
+月、日
+CURTIME() ， CURRENT_TIME()
+返回当前时间，只包含时、
+分、秒
+
+NOW() / SYSDATE() / CURRENT_TIMESTAMP() / LOCALTIME() /
+LOCALTIMESTAMP()
+
+UNIX_TIMESTAMP()
+以UNIX时间戳的形式返回当前时间。SELECT UNIX_TIMESTAMP() -
+>1634348884
+UNIX_TIMESTAMP(date) 将时间date以UNIX时间戳的形式返回。
+FROM_UNIXTIME(timestamp) 将UNIX时间戳的时间转换为普通格式的时间
+
+WEEKDAY(date) 返回周几，注意，周1是0，周2是1，。。。周日是6
+DAYOFWEEK(date)
+返回周几，注意：周日是1，周一是2，。。。周六是
+7
+
+EXTRACT(type FROM date) 返回指定日期中特定的部分，type指定返回的值
+
+DATEDIFF(date1,date2) 返回date1 - date2的日期间隔天数
+TIMEDIFF(time1, time2) 返回time1 - time2的时间间隔
+
+FROM_DAYS(N) 返回从0000年1月1日起，N天以后的日期
+TO_DAYS(date) 返回日期date距离0000年1月1日的天数
+
+
+
+SELECT STR_TO_DATE('09/01/2009','%m/%d/%Y')
+FROM DUAL;
+SELECT STR_TO_DATE('20140422154706','%Y%m%d%H%i%s')
+FROM DUAL;
+SELECT STR_TO_DATE('2014-04-22 15:47:06','%Y-%m-%d %H:%i:%s')
+FROM DUAL;
+SQL中用format格式化来取代Java中的sout输入输出操作：
+
+IF(value,value1,value2)
+如果value的值为TRUE，返回value1，
+否则返回value2
+IFNULL(value1, value2)
+如果value1不为NULL，返回value1，否
+则返回value2
+CASE WHEN 条件1 THEN 结果1 WHEN 条件2 THEN 结果2
+.... [ELSE resultn] END
+相当于Java的if...else if...else...
+CASE expr WHEN 常量值1 THEN 值1 WHEN 常量值1 THEN
+值1 .... [ELSE 值n] END
+相当于Java的switch...case...
+
+
+
+IFNULL(value1, value2)
+如果value1不为NULL，返回value1，否
+则返回value2
+SELECT IFNULL(null,'Hello Word')
+->Hello Word
+
+
+COUNT(expr) 返回expr不为空的记录总数。
+count(*)会统计值为 NULL 的行，而 count(列名)不会统计此列为 NULL 值的行。
+
+使用 WITH ROLLUP 关键字之后，在所有查询出的分组记录之后增加一条记录，该记录计算查询出的所
+有记录的总和，即统计记录数量。
+SELECT department_id,AVG(salary)
+FROM employees
+WHERE department_id > 80
+GROUP BY department_id WITH ROLLUP;
+在SQL查询中GROUP BY的含义是什么？
+
+在SQL查询中GROUP BY的含义是根据指定的规则对数据进行分组，其作用是将查询结果按某一列或多列的值进行分组，值相等的为一组，GROUP BY语句一般是和聚合函数进行配合使用。
+过滤分组：HAVING子句
+1. 行已经被分组。
+2. 使用了聚合函数。
+3. 满足HAVING 子句中条件的分组将被显示。
+4. HAVING 不能单独使用，必须要跟 GROUP BY 一起使用。
+
+SELECT department_id, MAX(salary)
+FROM employees
+GROUP BY department_id
+HAVING MAX(salary)>10000 ;
+
+非法使用聚合函数 ： 不能在 WHERE 子句中使用聚合函数。
+SELECT department_id, AVG(salary)
+FROM employees
+WHERE AVG(salary) > 8000
+GROUP BY department_id;
+
+区别1：WHERE 可以直接使用表中的字段作为筛选条件，但不能使用分组中的计算函数作为筛选条件；
+HAVING 必须要与 GROUP BY 配合使用，可以把分组计算的函数和分组字段作为筛选条件。
+这决定了，在需要对数据进行分组统计的时候，HAVING 可以完成 WHERE 不能完成的任务。这是因为，
+在查询语法结构中，WHERE 在 GROUP BY 之前，所以无法对分组结果进行筛选。HAVING 在 GROUP BY 之
+后，可以使用分组字段和分组中的计算函数，对分组的结果集进行筛选，这个功能是 WHERE 无法完成
+的。另外，WHERE排除的记录不再包括在分组中。
+区别2：如果需要通过连接从关联表中获取需要的数据，WHERE 是先筛选后连接，而 HAVING 是先连接
+后筛选。 这一点，就决定了在关联查询中，WHERE 比 HAVING 更高效。因为 WHERE 可以先筛选，用一
+个筛选后的较小数据集和关联表进行连接，这样占用的资源比较少，执行效率也比较高。HAVING 则需要
+先把结果集准备好，也就是用未被筛选的数据集进行关联，然后对这个大的数据集进行筛选，这样占用
+的资源就比较多，执行效率也较低。
+
+
