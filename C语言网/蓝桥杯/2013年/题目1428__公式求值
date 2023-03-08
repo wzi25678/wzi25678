@@ -1,0 +1,85 @@
+//package Year_2013;
+//
+//import java.math.BigDecimal;
+//import java.math.BigInteger;
+//import java.util.Scanner;
+//
+//
+//
+//public class 题目1428__公式求值 {
+//	public final static BigDecimal P = new BigDecimal(999101); 
+//	static long [] fac = new long[999101];
+//	static BigDecimal n;
+//	static long mod = 999101; 	//999101是一个质数； 当n位数比较多时，绝大多数情况下答案都是0，但评测的时候会选取一些答案不是0的数据；
+//	public static void main(String[] args) {
+//		Scanner scanner = new Scanner(System.in);
+//		n = new BigDecimal(scanner.next());
+//		BigDecimal m = new BigDecimal(scanner.next());
+//		int k = scanner.nextInt();	
+//		getfac();	//数据预处理
+//		BigDecimal lc = Lucas(n,m);
+//		if(lc.compareTo(BigDecimal.ZERO) == 0) {
+//			System.out.println(0);
+//		}else {
+//			getdp();
+//			long ans = 0l;
+//			int i;
+//			//预处理2^(n-k)求模，即大数形式的二项式定理
+//			for(i=k;i>=0;i--,P =((P+P)%mod)) {
+//				
+//			}
+//			long p = binpow(BigDecimal.valueOf(2),n.subtract(new BigDecimal(k))).toBigInteger().longValue();
+//		}
+//			
+//	}//end -main
+//	
+//	private static void getdp() {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	private static BigDecimal Lucas(BigDecimal n2, BigDecimal m) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	//普通树快速取幂
+//	private static long binpow(long a,long b) {
+//		a %=P;
+//		long res = 1l;
+//		while(b>0) {
+//			if((b & 1) == 1) {
+//				res = (res*a)%P;
+//			}
+//			a = (a*a) % P;
+//			b >>=1;
+//		}
+//		return res;
+//	}
+//	
+//	//大数快速取幂
+//	private static BigDecimal binpow(BigDecimal a,BigDecimal b) {
+//		a = a.divideAndRemainder(BigDecimal.valueOf(P))[1];	//[1]代表取除外之后的剩余remainder
+//		// TODO Auto-generated method stub
+//		BigDecimal res = BigDecimal.ONE;
+//		while (b.compareTo(BigDecimal.ZERO) > 0) {
+//			if(b.divideAndRemainder(BigDecimal.valueOf(2))[1].compareTo(BigDecimal.ONE) == 0) {
+//				res = res.multiply(a).divideAndRemainder(BigDecimal.valueOf(P))[1];
+//			}
+//			a = a.multiply(a).divideAndRemainder(BigDecimal.valueOf(P))[1];
+//			b = b.divide(BigDecimal.valueOf(2),BigDecimal.ROUND_DOWN);
+//		}
+//		return res;
+//	}
+//
+//	private static void getfac() {
+//		// TODO Auto-generated method stub
+//		int i;
+//		fac[0] = 1l;	//long类型的数，结尾加个l以作标识。
+//		for(i=1;i<mod;i++) {
+//			//这里存储的是1-999101的阶乘
+//			fac[i] = fac[i-1] * (long)i % mod;
+//		}
+//	}
+//
+//}
