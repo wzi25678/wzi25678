@@ -1,0 +1,47 @@
+package atguigu.mapreduce.writable;
+
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+import java.io.IOException;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class FlowMapper extends Mapper<LongWritable, Text,   Text,FlowBean> {
+    private Text outk = new Text();
+    private FlowBean outV = new FlowBean();
+
+    @Override
+    protected void map(LongWritable key,Text value,Context context) throws IOException,InterruptedException{
+        //1.获取一行数据，，转化成字符串
+        String line = value.toString();
+
+        //2.切割数据
+        String[] split = line.split("\t");
+
+        //3.抓取我们想要的数据：手机号、上行流量、下行流量
+        String PhoneNumber = split[1];
+        String upFlow = split[split.length-3];
+        String downFlow = split[split.length-2];
+
+        //4.对抓取数据进行封装
+        outk.set(PhoneNumber);
+        outV.setUpFlow(Long.parseLong(upFlow));
+        outV.setDownFlow(Long.parseLong(downFlow));
+        outV.setSumFlow();
+
+        //5.写出outK，outV
+        context.write(outk,outV);
+    }
+}
