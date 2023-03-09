@@ -1,0 +1,56 @@
+package atguigu.mapreduce.wordcount;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+import java.io.IOException;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class WordCountDriver {
+    public static void main(String[] args) throws IOException,ClassNotFoundException,InterruptedException {
+        //1.获取配置信息以及获取job对象
+        Configuration conf = new Configuration();
+        Job job = Job.getInstance(conf);
+
+        //2.关联本Driver程序的jar
+        job.setJarByClass(WordCountDriver.class);
+
+        //3.关联Mapper和Reducer的jar
+        job.setMapperClass(WordCountMapper.class);
+        job.setReducerClass(WordCountReducer.class);
+
+        //4.设置Mapper输出的kv类型
+        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(IntWritable.class);
+
+        //5.设置最终输出kv类型
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+
+        //6.设置输入和输出路径
+        //args[0]就是用命令行编译运行java程序时，传入的第一个参数，比如运行一个程序，代码如下：
+        //也就是说args[0]是你传入的第一个参数args[1]是传入的第二个参数，以此类推。
+        FileInputFormat.setInputPaths(job,new Path(args[0]));   //输入路径可以有多个，但输出路劲只能有一个。
+        FileOutputFormat.setOutputPath(job,new Path(args[1]));
+
+        //7.提交job
+        boolean result = job.waitForCompletion(true);
+        System.exit(result ? 0:1);
+    }
+}
