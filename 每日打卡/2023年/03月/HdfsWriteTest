@@ -1,0 +1,52 @@
+package atguigu.hdfs;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.*;
+import org.apache.hadoop.util.Progressable;
+
+import java.io.IOException;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class HdfsWriteTest {
+    public static void main(String[] args) throws IOException {
+        Configuration conf = new Configuration();
+        FileSystem local = FileSystem.getLocal(conf);
+        FileSystem hdfs = FileSystem.get(conf);
+
+        Path localdir = new Path(args[0]);
+        Path hdfsFile = new Path(args[1]);
+        try{
+            FileStatus[] inputFiles = local.listStatus(localdir);
+            FSDataOutputStream out = hdfs.create(hdfsFile, new Progressable() {
+                @Override
+                public void progress() {
+                    System.out.println(".");
+                }
+            });
+            for (int i=0;i<inputFiles.length;i++){
+                System.out.println(inputFiles[i].getPath().getName());
+                FSDataInputStream in = local.open(inputFiles[i].getPath());
+                byte buffer[] = new byte[512];
+                int bytesRead = 0;
+                while ((bytesRead = in.read(buffer)) > 0){
+                    out.write(buffer,0,bytesRead);
+                }
+                in.close();
+            }//end -for (int i=0;i<inputFiles.length;i++)
+            out.close();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }//end -main
+}//end -class HdfsWriteTest
