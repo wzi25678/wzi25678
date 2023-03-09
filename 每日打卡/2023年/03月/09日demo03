@@ -1,0 +1,20 @@
+2）不擅长流式计算
+流式计算的输入数据是动态的，而MapReduce的输入数据集是静态的，不能动态变化。这是因为MapReduce自身的设计特点决定了数据源必须是静态的。
+
+3）不擅长DAG（有向无环图）计算
+多个应用程序存在依赖关系，后一个应用程序的输入为前一个的输出。在这种情况下，MapReduce并不是不能做，而是使用后，每个MapReduce作业的输出结果都会写入到磁盘，会造成大量的磁盘IO，导致性能非常的低下。
+
+降低运存（内存）负载，用大容量的磁盘储存来实现TB以上级别的数据访问。
+
+
+Java类型	Hadoop Writable类型
+Boolean	BooleanWritable
+Byte	ByteWritable
+Int	IntWritable
+Float	FloatWritable
+Long	LongWritable
+Double	DoubleWritable
+String	Text
+Map	MapWritable
+Array	ArrayWritable
+Null	NullWritable
