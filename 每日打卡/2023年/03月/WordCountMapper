@@ -1,0 +1,40 @@
+package atguigu.mapreduce.wordcount;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+import java.io.IOException;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class WordCountMapper extends Mapper <LongWritable,Text, Text, IntWritable> {
+    Text k = new Text();
+    IntWritable v = new IntWritable(1);
+
+    @Override
+    protected void map(LongWritable key,Text value,Context context) throws IOException,InterruptedException{
+        //1.获取一行
+        String line = value.toString();
+
+        //2.切割
+        String [] words = line.split(" ");
+
+        //3.输出
+        for (String word : words){
+            k.set(word);
+            context.write(k,v);
+        }
+    }//end -void map
+}//end - class WordCountMapper
