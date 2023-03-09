@@ -1,0 +1,38 @@
+package atguigu.mapreduce.wordcount;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+import java.io.IOException;
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class WordCountReducer extends Reducer<Text, IntWritable,Text,IntWritable> {
+    int sum;
+    IntWritable v = new IntWritable();
+
+    @Override
+    //函数接口没有补全，则也会导致@Override报错
+    protected void reduce(Text key,Iterable<IntWritable> values,Context context) throws IOException, InterruptedException {
+        //1.累加写入的信息
+        sum = 0;
+        for (IntWritable count :values){
+            sum += count.get();
+        }
+
+        //2.输出
+        v.set(sum);
+        context.write(key,v);
+    }//end -void reduce
+}//end -class WordCountReducer
