@@ -1,0 +1,19 @@
+
+#方式3：子查询
+SELECT last_name,salary
+FROM employees
+WHERE salary > (  #查询结构
+		SELECT salary
+		FROM employees
+		WHERE last_name = 'Abel'
+		);
+#不推荐：
+SELECT last_name,salary
+FROM employees
+WHERE  (
+	SELECT salary
+	FROM employees
+	WHERE last_name = 'Abel'
+		) < salary;
+    
+    
