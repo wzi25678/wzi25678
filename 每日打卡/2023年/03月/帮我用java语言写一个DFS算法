@@ -1,0 +1,64 @@
+import java.util.*;
+
+class Graph {
+    private int V; // 顶点的数量
+    private LinkedList<Integer> adj[]; // 邻接表表示的图
+
+    // 构造函数
+    Graph(int v) {
+        V = v;
+        adj = new LinkedList[v];
+        for (int i=0; i<v; ++i)
+            adj[i] = new LinkedList();
+    }
+
+    // 添加边到图中
+    void addEdge(int v, int w) {
+        adj[v].add(w); // 把w添加到v的邻接表中
+    }
+
+    // DFS遍历图
+    void DFS(int v) {
+        // 标记所有顶点为未访问
+        boolean visited[] = new boolean[V];
+
+        // 调用递归函数，从指定的顶点开始遍历
+        DFSUtil(v, visited);
+    }
+
+    // 递归函数
+    void DFSUtil(int v, boolean visited[]) {
+        // 标记当前节点为已访问
+        visited[v] = true;
+        System.out.print(v + " ");
+
+        // 遍历所有相邻的顶点
+        Iterator<Integer> i = adj[v].listIterator();
+        while (i.hasNext()) {
+            int n = i.next();
+            if (!visited[n])
+                DFSUtil(n, visited); // 递归访问相邻节点
+        }
+    }
+}
+
+class DFS {
+    public static void main(String args[]) {
+        Graph g = new Graph(4); // 创建一个有4个顶点的图
+
+        // 添加边到图中
+        g.addEdge(0, 1);
+        g.addEdge(0, 2);
+        g.addEdge(1, 2);
+        g.addEdge(2, 0);
+        g.addEdge(2, 3);
+        g.addEdge(3, 3);
+
+        System.out.println("从顶点2开始的DFS遍历：");
+        g.DFS(2);
+    }
+}
+
+
+
+上面的代码中，我们使用了一个邻接表来表示图。在DFSUtil方法中，我们首先将当前顶点标记为已访问，然后遍历其所有相邻的顶点。如果相邻顶点没有被访问过，我们就递归地调用DFSUtil方法来访问它。
