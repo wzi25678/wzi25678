@@ -1,0 +1,11 @@
+强化学习
+神经网络
+
+监督学习
+
+奖励模型
+
+PPO   /// reward model
+PPO(Proximal Policy Optimization) 是一种On Policy强化学习算法，由于其实现简单、易于理解、性能稳定、能同时处理离散\连续动作空间问题、利于大规模训
+
+泛化能力，降低差异，人工打标签。
