@@ -1,0 +1,44 @@
+package 第二章;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+
+class Graph{
+	private int V;
+	private LinkedList<Integer> adj[];
+	
+	public Graph(int v) {
+		V = v;
+		adj = new LinkedList[v];
+		for(int i=0;i<v;i++) {
+			adj[i] = new LinkedList<>();
+		}
+	}
+	
+	void addEdge(int v,int w) {
+		adj[v].add(w);
+	}
+	
+	void BFS(int v) {
+		boolean visited[] = new boolean[v];
+		 LinkedList<Integer> queue = new LinkedList<Integer>();
+		 visited[v] = true;
+		 queue.add(v);
+		 
+		 while(queue.size() != 0) {
+			v = queue.poll();	//pop移出头顶元素
+			System.out.println(v + " ");
+			
+			Iterator<Integer> i = adj[v].listIterator();
+			while(i.hasNext()) {
+				int n = i.next();
+				if(!visited[n]) {
+					visited[n] = true;
+					queue.add(n);
+				}
+			}
+		 }
+	}
+}
+
+
