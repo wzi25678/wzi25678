@@ -1,0 +1,15 @@
+
+
+client
+
+输入文件
+  Map大类、Reduce大类
+  
+Map：  文件输入==初始化，MapTask---传入连接Job----AddJob---TaskJobScheduler
+initJob-----------------上传一定80%？就开始执行Reduce     
+--------------Map回传给Client/NameNode/
+--------RPC远程本地diaoyong
+----------Shuffle和Sort
+------Reduce
+        输出文件
+
