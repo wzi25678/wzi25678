@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class ConnectedGraph {
+    public static boolean isConnected(List<Integer>[] adjList) {
+        int n = adjList.length;
+        boolean[] visited = new boolean[n];
+        dfs(adjList, visited, 0); // 从节点 0 开始进行深度优先遍历
+        for (int i = 0; i < n; i++) {
+            if (!visited[i]) {
+                return false; // 存在未访问到的节点，说明图不连通
+            }
+        }
+        return true; // 所有节点都被访问到，说明图连通
+    }
+
+    private static void dfs(List<Integer>[] adjList, boolean[] visited, int u) {
+        visited[u] = true;
+        for (int v : adjList[u]) {
+            if (!visited[v]) {
+                dfs(adjList, visited, v);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Integer>[] adjList = new List[5];
+        for (int i = 0; i < 5; i++) {
+            adjList[i] = new ArrayList<>();
+        }
+        adjList[0].add(1);
+        adjList[0].add(2);
+        adjList[1].add(0);
+        adjList[1].add(2);
+        adjList[2].add(0);
+        adjList[2].add(1);
+        adjList[2].add(3);
+        adjList[3].add(2);
+        System.out.println(isConnected(adjList)); // 输出 true
+    }
+}
