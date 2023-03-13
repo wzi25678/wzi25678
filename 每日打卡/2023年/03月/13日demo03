@@ -1,0 +1,1168 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop102' resolved to 192.168.137.225.
+Connecting to 192.168.137.225:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Sat Mar 11 21:09:49 2023 from typora-wzi.mshome.net
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop102 hadoop-3.1.3]$ sbin/start-dfs.sh
+Starting namenodes on [hadoop102]
+Starting datanodes
+Starting secondary namenodes [hadoop104]
+[atguigu@hadoop102 hadoop-3.1.3]$ cd ..
+[atguigu@hadoop102 module]$ ll
+总用量 1497028
+-rw-rw-r--.  1 atguigu atguigu 312850286 3月  11 20:14 apache-hive-3.1.2-bin.tar.gz
+drwxr-xr-x. 13 atguigu atguigu       243 3月   2 15:33 hadoop-3.1.3
+drwxrwxr-x. 10 atguigu atguigu       190 3月  11 21:14 hive-3.1.2
+drwxr-xr-x.  7 atguigu atguigu       245 4月   2 2019 jdk1.8.0_212
+-rw-rw-r--.  1 atguigu atguigu 609556480 3月  11 20:36 mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
+-rw-r--r--.  1 atguigu atguigu  45109364 9月  30 2019 mysql-community-client-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu    318768 9月  30 2019 mysql-community-common-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   7037096 9月  30 2019 mysql-community-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  49329100 9月  30 2019 mysql-community-embedded-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  23354908 9月  30 2019 mysql-community-embedded-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 136837816 9月  30 2019 mysql-community-embedded-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   4374364 9月  30 2019 mysql-community-libs-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   1353312 9月  30 2019 mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 208694824 9月  30 2019 mysql-community-server-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 133129992 9月  30 2019 mysql-community-test-5.7.28-1.el7.x86_64.rpm
+-rw-rw-r--.  1 atguigu atguigu    985600 3月  11 20:34 mysql-connector-java-5.1.37.jar
+[atguigu@hadoop102 module]$ mkdir mysql-5.7.28
+[atguigu@hadoop102 module]$ ll
+总用量 1497028
+-rw-rw-r--.  1 atguigu atguigu 312850286 3月  11 20:14 apache-hive-3.1.2-bin.tar.gz
+drwxr-xr-x. 13 atguigu atguigu       243 3月   2 15:33 hadoop-3.1.3
+drwxrwxr-x. 10 atguigu atguigu       190 3月  11 21:14 hive-3.1.2
+drwxr-xr-x.  7 atguigu atguigu       245 4月   2 2019 jdk1.8.0_212
+drwxrwxr-x.  2 atguigu atguigu         6 3月  13 16:33 mysql-5.7.28
+-rw-rw-r--.  1 atguigu atguigu 609556480 3月  11 20:36 mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
+-rw-r--r--.  1 atguigu atguigu  45109364 9月  30 2019 mysql-community-client-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu    318768 9月  30 2019 mysql-community-common-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   7037096 9月  30 2019 mysql-community-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  49329100 9月  30 2019 mysql-community-embedded-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  23354908 9月  30 2019 mysql-community-embedded-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 136837816 9月  30 2019 mysql-community-embedded-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   4374364 9月  30 2019 mysql-community-libs-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   1353312 9月  30 2019 mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 208694824 9月  30 2019 mysql-community-server-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 133129992 9月  30 2019 mysql-community-test-5.7.28-1.el7.x86_64.rpm
+-rw-rw-r--.  1 atguigu atguigu    985600 3月  11 20:34 mysql-connector-java-5.1.37.jar
+[atguigu@hadoop102 module]$ mr-jobhistory-daemon.sh start historyserver
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement "mapred --daemon start" instead.
+[atguigu@hadoop102 module]$ tar -man
+tar: 您必须从"-Acdtrux"或是"--test-label"选项中指定一个
+请用“tar --help”或“tar --usage”获得更多信息。
+[atguigu@hadoop102 module]$ man tar
+[atguigu@hadoop102 module]$ sudo vim /etc/profile.d/
+256term.csh                   colorgrep.sh                  lang.csh                      .my_env.sh.swp                vte.sh
+256term.sh                    colorls.csh                   lang.sh                       PackageKit.sh                 which2.csh
+abrt-console-notification.sh  colorls.sh                    less.csh                      sh.local                      which2.sh
+bash_completion.sh            csh.local                     less.sh                       vim.csh                       
+colorgrep.csh                 flatpak.sh                    my_env.sh                     vim.sh                        
+[atguigu@hadoop102 module]$ sudo vim /etc/profile.d/
+256term.csh                   colorgrep.sh                  lang.csh                      .my_env.sh.swp                vte.sh
+256term.sh                    colorls.csh                   lang.sh                       PackageKit.sh                 which2.csh
+abrt-console-notification.sh  colorls.sh                    less.csh                      sh.local                      which2.sh
+bash_completion.sh            csh.local                     less.sh                       vim.csh                       
+colorgrep.csh                 flatpak.sh                    my_env.sh                     vim.sh                        
+[atguigu@hadoop102 module]$ sudo vim /etc/profile.d/my_env.sh 
+[atguigu@hadoop102 module]$ resouce profile my_env.sh
+bash: resouce: 未找到命令...
+[atguigu@hadoop102 module]$ resouce /etc/pro
+profile    profile.d/ protocols  
+[atguigu@hadoop102 module]$ resouce /etc/pro
+profile    profile.d/ protocols  
+[atguigu@hadoop102 module]$ resouce /etc/profile
+bash: resouce: 未找到命令...
+[atguigu@hadoop102 module]$ resource /etc/profile
+bash: resource: 未找到命令...
+[atguigu@hadoop102 module]$ resce /etc/profile
+rescan-scsi-bus.sh  reset               resize2fs           resizecons          resizepart          restorecon          
+[atguigu@hadoop102 module]$ resource /etc/profile
+bash: resource: 未找到命令...
+[atguigu@hadoop102 module]$ source /etc/profile
+[atguigu@hadoop102 module]$  mv $HIVE_HOME/lib/log4j-slf4j-impl-
+mv: 在"/opt/module/hive/lib/log4j-slf4j-impl-" 后缺少了要操作的目标文件
+Try 'mv --help' for more information.
+[atguigu@hadoop102 module]$  mv $HIVE_HOME/lib/log4j-slf4j-impl-2.10.0.jar $HIVE_HOME/lib/log4j-slf4j-impl-2.10.0.bak
+mv: 无法获取"/opt/module/hive/lib/log4j-slf4j-impl-2.10.0.jar" 的文件状态(stat): 没有那个文件或目录
+[atguigu@hadoop102 module]$ mv $HIVE_HOME /lib
+lib/   lib64/ 
+[atguigu@hadoop102 module]$ mv $HIVE_HOME /lib/
+alsa/             debug/            fontconfig/       kbd/              modprobe.d/       NetworkManager/   rpm/              sysctl.d/         udev/
+binfmt.d/         dracut/           games/            kdump/            modules/          os-release        sendmail          systemd/          yum-plugins/
+crda/             firewalld/        grub/             kernel/           modules-load.d/   polkit-1/         sendmail.postfix  tmpfiles.d/       
+cups/             firmware/         jvm/              locale/           mozilla/          python2.7/        sse2/             tuned/            
+[atguigu@hadoop102 module]$ mv $HIVE_HOME /lib/
+alsa/             debug/            fontconfig/       kbd/              modprobe.d/       NetworkManager/   rpm/              sysctl.d/         udev/
+binfmt.d/         dracut/           games/            kdump/            modules/          os-release        sendmail          systemd/          yum-plugins/
+crda/             firewalld/        grub/             kernel/           modules-load.d/   polkit-1/         sendmail.postfix  tmpfiles.d/       
+cups/             firmware/         jvm/              locale/           mozilla/          python2.7/        sse2/             tuned/            
+[atguigu@hadoop102 module]$ cd h
+hadoop-3.1.3/ hive-3.1.2/   
+[atguigu@hadoop102 module]$ cd h
+hadoop-3.1.3/ hive-3.1.2/   
+[atguigu@hadoop102 module]$ cd h
+hadoop-3.1.3/ hive-3.1.2/   
+[atguigu@hadoop102 module]$ cd h
+hadoop-3.1.3/ hive-3.1.2/   
+[atguigu@hadoop102 module]$ cd hive-3.1.2/
+[atguigu@hadoop102 hive-3.1.2]$  bin/schematool -dbType derby -initSchema
+Missing Hive Execution Jar: /opt/module/hive/lib/hive-exec-*.jar
+[atguigu@hadoop102 hive-3.1.2]$  bin/schematool -dbType derby -initSchema
+Missing Hive Execution Jar: /opt/module/hive/lib/hive-exec-*.jar
+[atguigu@hadoop102 hive-3.1.2]$  bin/hive
+Missing Hive Execution Jar: /opt/module/hive/lib/hive-exec-*.jar
+[atguigu@hadoop102 hive-3.1.2]$  bin/schematool -dbType derby -initSchema
+Missing Hive Execution Jar: /opt/module/hive/lib/hive-exec-*.jar
+[atguigu@hadoop102 hive-3.1.2]$ ll
+总用量 76
+drwxrwxr-x. 3 atguigu atguigu   157 3月  11 20:15 bin
+drwxrwxr-x. 2 atguigu atguigu  4096 3月  11 20:15 conf
+-rw-rw-r--. 1 atguigu atguigu 22206 3月  11 21:15 derby.log
+drwxrwxr-x. 4 atguigu atguigu    34 3月  11 20:15 examples
+drwxrwxr-x. 7 atguigu atguigu    68 3月  11 20:15 hcatalog
+drwxrwxr-x. 2 atguigu atguigu    44 3月  11 20:15 jdbc
+drwxrwxr-x. 4 atguigu atguigu 12288 3月  11 20:15 lib
+-rwxr-xr-x. 1 atguigu atguigu 20798 8月  23 2019 LICENSE
+drwxrwxr-x. 5 atguigu atguigu   133 3月  11 21:15 metastore_db
+-rwxr-xr-x. 1 atguigu atguigu   230 8月  23 2019 NOTICE
+-rwxr-xr-x. 1 atguigu atguigu  2469 8月  23 2019 RELEASE_NOTES.txt
+drwxrwxr-x. 4 atguigu atguigu    35 3月  11 20:15 scripts
+[atguigu@hadoop102 hive-3.1.2]$ cd bin
+[atguigu@hadoop102 bin]$ ll
+总用量 44
+-rwxr-xr-x. 1 atguigu atguigu   881 8月  23 2019 beeline
+drwxrwxr-x. 3 atguigu atguigu  4096 3月  11 20:15 ext
+-rwxr-xr-x. 1 atguigu atguigu 10158 8月  23 2019 hive
+-rwxr-xr-x. 1 atguigu atguigu  1900 8月  23 2019 hive-config.sh
+-rwxr-xr-x. 1 atguigu atguigu   885 8月  23 2019 hiveserver2
+-rwxr-xr-x. 1 atguigu atguigu   880 8月  23 2019 hplsql
+-rwxr-xr-x. 1 atguigu atguigu  3064 8月  23 2019 init-hive-dfs.sh
+-rwxr-xr-x. 1 atguigu atguigu   832 8月  23 2019 metatool
+-rwxr-xr-x. 1 atguigu atguigu   884 8月  23 2019 schematool
+[atguigu@hadoop102 bin]$ sudo vim /etc/profile.d/my_env.sh 
+[atguigu@hadoop102 bin]$ source /etc/profile
+profile    profile.d/ 
+[atguigu@hadoop102 bin]$ source /etc/profile
+[atguigu@hadoop102 bin]$  bin/schematool -dbType derby -initSchema
+-bash: bin/schematool: 没有那个文件或目录
+[atguigu@hadoop102 bin]$ ll
+总用量 44
+-rwxr-xr-x. 1 atguigu atguigu   881 8月  23 2019 beeline
+drwxrwxr-x. 3 atguigu atguigu  4096 3月  11 20:15 ext
+-rwxr-xr-x. 1 atguigu atguigu 10158 8月  23 2019 hive
+-rwxr-xr-x. 1 atguigu atguigu  1900 8月  23 2019 hive-config.sh
+-rwxr-xr-x. 1 atguigu atguigu   885 8月  23 2019 hiveserver2
+-rwxr-xr-x. 1 atguigu atguigu   880 8月  23 2019 hplsql
+-rwxr-xr-x. 1 atguigu atguigu  3064 8月  23 2019 init-hive-dfs.sh
+-rwxr-xr-x. 1 atguigu atguigu   832 8月  23 2019 metatool
+-rwxr-xr-x. 1 atguigu atguigu   884 8月  23 2019 schematool
+[atguigu@hadoop102 bin]$ cd ..
+[atguigu@hadoop102 hive-3.1.2]$  bin/schematool -dbType derby -initSchema
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/opt/module/hive-3.1.2/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Metastore connection URL:	 jdbc:derby:;databaseName=metastore_db;create=true
+Metastore Connection Driver :	 org.apache.derby.jdbc.EmbeddedDriver
+Metastore connection User:	 APP
+Starting metastore schema initialization to 3.1.0
+Initialization script hive-schema-3.1.0.derby.sql
+
+ 
+Error: FUNCTION 'NUCLEUS_ASCII' already exists. (state=X0Y68,code=30000)
+org.apache.hadoop.hive.metastore.HiveMetaException: Schema initialization FAILED! Metastore state would be inconsistent !!
+Underlying cause: java.io.IOException : Schema script failed, errorcode 2
+Use --verbose for detailed stacktrace.
+*** schemaTool failed ***
+[atguigu@hadoop102 hive-3.1.2]$ Error: FUNCTION 'NUCLEUS_ASCII' already exists. (state=X0Y68,code=30000)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ org.apache.hadoop.hive.metastore.HiveMetaException: Schema initialization FAILED! Metastore state would be inconsistent !!
+org.apache.hadoop.hive.metastore.HiveMetaException: Schema initialization FAILED! Metastore state would be inconsistent Error: FUNCTION 'NUCLEUS_ASCII' already exists. (state=X0Y68,code=30000)
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ Underlying cause: java.io.IOException : Schema script failed, errorcode 2
+bash: Underlying: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ mv $H
+$HADOOP_HOME   $HISTCMD       $HISTCONTROL   $HISTFILE      $HISTFILESIZE  $HISTSIZE      $HIVE_HOME     $HOME          $HOSTNAME      $HOSTTYPE      
+[atguigu@hadoop102 hive-3.1.2]$ mv $HI
+$HISTCMD       $HISTCONTROL   $HISTFILE      $HISTFILESIZE  $HISTSIZE      $HIVE_HOME     
+[atguigu@hadoop102 hive-3.1.2]$ mv $HI
+$HISTCMD       $HISTCONTROL   $HISTFILE      $HISTFILESIZE  $HISTSIZE      $HIVE_HOME     
+[atguigu@hadoop102 hive-3.1.2]$ mv \$HIVE_HOME/lib 
+bin/               derby.log          hcatalog/          lib/               metastore_db/      RELEASE_NOTES.txt  
+conf/              examples/          jdbc/              LICENSE            NOTICE             scripts/           
+[atguigu@hadoop102 hive-3.1.2]$ mv $HIVE_HOME/lib/log4j-slf4j-impl-2.10.0.jar $HIVE_HOME/lib/log4j-slf4j-impl-2.10.0.bak 
+[atguigu@hadoop102 hive-3.1.2]$ bin/hive
+which: no hbase in (/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive/bin:/home/atguigu/.local/bin:/home/atguigu/bin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive/bin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive-3.1.2/bin)
+Hive Session ID = 9b25146f-4aad-4e26-906e-e6e3108b1d63
+
+Logging initialized using configuration in jar:file:/opt/module/hive-3.1.2/lib/hive-common-3.1.2.jar!/hive-log4j2.properties Async: true
+Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Hive Session ID = 058ede46-70ac-4f23-bde2-bdcc05491116
+hive> show databases;
+OK
+default
+Time taken: 0.978 seconds, Fetched: 1 row(s)
+hive> show tables;
+OK
+Time taken: 0.042 seconds
+hive> create table Wzideng(int(12) id);
+NoViableAltException(159@[2389:1: columnNameTypeOrConstraint : ( ( tableConstraint ) | ( columnNameTypeConstraint ) );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraint(HiveParser.java:34044)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraintList(HiveParser.java:29819)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.createTableStatement(HiveParser.java:6662)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4295)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:21 cannot recognize input near 'int' '(' '12' in column name or constraint
+hive> create table Wzideng(int id);
+NoViableAltException(159@[2389:1: columnNameTypeOrConstraint : ( ( tableConstraint ) | ( columnNameTypeConstraint ) );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraint(HiveParser.java:34044)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraintList(HiveParser.java:29819)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.createTableStatement(HiveParser.java:6662)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4295)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:21 cannot recognize input near 'int' 'id' ')' in column name or constraint
+hive> create table Wzideng(id int);
+OK
+Time taken: 0.69 seconds
+hive> create table Wzideng(number int(12）);
+MismatchedTokenException(361!=374)
+	at org.antlr.runtime.BaseRecognizer.recoverFromMismatchedToken(BaseRecognizer.java:617)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.createTableStatement(HiveParser.java:6666)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4295)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:31 mismatched input '(' expecting ) near 'int' in create table statement
+hive> create table Wzideng01(number int(12));
+MismatchedTokenException(361!=374)
+	at org.antlr.runtime.BaseRecognizer.recoverFromMismatchedToken(BaseRecognizer.java:617)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.createTableStatement(HiveParser.java:6666)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4295)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:33 mismatched input '(' expecting ) near 'int' in create table statement
+hive> insert into test values(1);
+FAILED: SemanticException [Error 10001]: Line 1:12 Table not found 'test'
+hive> insert into wzideng values(1);
+Query ID = atguigu_20230313181747_8381e91c-f9bc-4ec1-adfd-8cc882374dc8
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1678695896191_0001, Tracking URL = http://hadoop103:8088/proxy/application_1678695896191_0001/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1678695896191_0001
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2023-03-13 18:18:24,343 Stage-1 map = 0%,  reduce = 0%
+2023-03-13 18:19:25,495 Stage-1 map = 0%,  reduce = 0%
+2023-03-13 18:20:35,910 Stage-1 map = 0%,  reduce = 0%
+2023-03-13 18:21:37,577 Stage-1 map = 0%,  reduce = 0%
+2023-03-13 18:22:13,989 Stage-1 map = 100%,  reduce = 100%
+Ended Job = job_1678695896191_0001 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1678695896191_0001_m_000000 (and more) from job job_1678695896191_0001
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1678695896191_0001_m_000000
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1678695896191_0001&tipid=task_1678695896191_0001_m_000000
+-----
+Diagnostic Messages for this Task:
+[2023-03-13 18:22:03.255]Container [pid=10111,containerID=container_1678695896191_0001_01_000005] is running 282536448B beyond the 'VIRTUAL' memory limit. Current usage: 29 MB of 1 GB physical memory used; 2.4 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1678695896191_0001_01_000005 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 10128 10111 10111 10111 (java) 1005 9707 2527596544 7137 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1678695896191_0001/container_1678695896191_0001_01_000005/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1678695896191_0001/container_1678695896191_0001_01_000005 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 192.168.137.67 45653 attempt_1678695896191_0001_m_000000_3 5 
+	|- 10111 10109 10111 10111 (bash) 9 440 9797632 287 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1678695896191_0001/container_1678695896191_0001_01_000005/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1678695896191_0001/container_1678695896191_0001_01_000005 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 192.168.137.67 45653 attempt_1678695896191_0001_m_000000_3 5 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1678695896191_0001/container_1678695896191_0001_01_000005/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1678695896191_0001/container_1678695896191_0001_01_000005/stderr  
+
+[2023-03-13 18:22:04.474]Container killed on request. Exit code is 143
+[2023-03-13 18:22:04.481]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   HDFS Read: 0 HDFS Write: 0 FAIL
+Total MapReduce CPU Time Spent: 0 msec
+hive> select * from test;
+FAILED: SemanticException [Error 10001]: Line 1:14 Table not found 'test'
+hive> select * from wzideng;
+OK
+Time taken: 0.162 seconds
+hive> exit;
+[atguigu@hadoop102 hive-3.1.2]$ cd .
+[atguigu@hadoop102 hive-3.1.2]$ cd
+[atguigu@hadoop102 ~]$ rpm -qa |grep mariadb
+mariadb-libs-5.5.68-1.el7.x86_64
+[atguigu@hadoop102 ~]$ sudo rpm -e --nodeps ma
+madan-fonts          make                 man-pages            man-pages-zh-CN      marisa               
+mailx                man-db               man-pages-overrides  mariadb-libs         
+[atguigu@hadoop102 ~]$ sudo rpm -e --nodeps mariadb-libs 
+[atguigu@hadoop102 ~]$ cd /opt/module/
+[atguigu@hadoop102 module]$ ll
+总用量 1497028
+-rw-rw-r--.  1 atguigu atguigu 312850286 3月  11 20:14 apache-hive-3.1.2-bin.tar.gz
+drwxr-xr-x. 13 atguigu atguigu       243 3月   2 15:33 hadoop-3.1.3
+drwxrwxr-x. 10 atguigu atguigu       190 3月  11 21:14 hive-3.1.2
+drwxr-xr-x.  7 atguigu atguigu       245 4月   2 2019 jdk1.8.0_212
+drwxrwxr-x.  2 atguigu atguigu         6 3月  13 16:33 mysql-5.7.28
+-rw-rw-r--.  1 atguigu atguigu 609556480 3月  11 20:36 mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
+-rw-r--r--.  1 atguigu atguigu  45109364 9月  30 2019 mysql-community-client-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu    318768 9月  30 2019 mysql-community-common-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   7037096 9月  30 2019 mysql-community-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  49329100 9月  30 2019 mysql-community-embedded-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  23354908 9月  30 2019 mysql-community-embedded-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 136837816 9月  30 2019 mysql-community-embedded-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   4374364 9月  30 2019 mysql-community-libs-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   1353312 9月  30 2019 mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 208694824 9月  30 2019 mysql-community-server-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 133129992 9月  30 2019 mysql-community-test-5.7.28-1.el7.x86_64.rpm
+-rw-rw-r--.  1 atguigu atguigu    985600 3月  11 20:34 mysql-connector-java-5.1.37.jar
+[atguigu@hadoop102 module]$ sudo rpm -ivh mysql-community-common-5.7.28-1.el7.x86_64.rpm
+警告：mysql-community-common-5.7.28-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-common-5.7.28-1.e################################# [100%]
+[atguigu@hadoop102 module]$ sudo rpm -ivh mysql-community-libs-5.7.28-1.el7.x86_64.rpm
+警告：mysql-community-libs-5.7.28-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-libs-5.7.28-1.el7################################# [100%]
+[atguigu@hadoop102 module]$ sudo rpm -ivh mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+警告：mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-libs-compat-5.7.2################################# [100%]
+[atguigu@hadoop102 module]$ sudo rpm -ivh mysql-community-client-5.7.28-1.el7.x86_64.rpm
+警告：mysql-community-client-5.7.28-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-client-5.7.28-1.e################################# [100%]
+[atguigu@hadoop102 module]$ sudo rpm -ivh mysql-community-server-5.7.28-1.el7.x86_64.rpm
+警告：mysql-community-server-5.7.28-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-server-5.7.28-1.e################################# [100%]
+[atguigu@hadoop102 module]$ 
+[atguigu@hadoop102 module]$ yum install -y libaio
+已加载插件：fastestmirror, langpacks
+您需要 root 权限执行此命令。
+[atguigu@hadoop102 module]$ sudo yum install -y libaio
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+epel/x86_64/metalink                                                                                                                                | 5.7 kB  00:00:00     
+ * base: mirrors.ustc.edu.cn
+ * epel: mirrors.bfsu.edu.cn
+ * extras: mirrors.ustc.edu.cn
+ * updates: mirrors.163.com
+base                                                                                                                                                | 3.6 kB  00:00:00     
+epel                                                                                                                                                | 4.7 kB  00:00:00     
+extras                                                                                                                                              | 2.9 kB  00:00:00     
+updates                                                                                                                                             | 2.9 kB  00:00:00     
+(1/2): epel/x86_64/updateinfo                                                                                                                       | 1.0 MB  00:00:03     
+(2/2): epel/x86_64/primary_db                                                                                                                       | 7.0 MB  00:00:08     
+软件包 libaio-0.3.109-13.el7.x86_64 已安装并且是最新版本
+无须任何处理
+[atguigu@hadoop102 module]$ cat /var/lib/mysql
+cat: /var/lib/mysql: 权限不够
+[atguigu@hadoop102 module]$ sudo cat /var/lib/mysql
+cat: /var/lib/mysql: 是一个目录
+[atguigu@hadoop102 module]$ cd  /var/lib/mysql
+[atguigu@hadoop102 mysql]$ ll
+ls: 无法打开目录.: 权限不够
+[atguigu@hadoop102 mysql]$ sudo ll
+sudo: ll：找不到命令
+[atguigu@hadoop102 mysql]$ sudo ll -al
+sudo: ll：找不到命令
+[atguigu@hadoop102 mysql]$ sudo 
+usage: sudo -h | -K | -k | -V
+usage: sudo -v [-AknS] [-g group] [-h host] [-p prompt] [-u user]
+usage: sudo -l [-AknS] [-g group] [-h host] [-p prompt] [-U user] [-u user] [command]
+usage: sudo [-AbEHknPS] [-r role] [-t type] [-C num] [-g group] [-h host] [-p prompt] [-T timeout] [-u user] [VAR=value] [-i|-s] [<command>]
+usage: sudo -e [-AknS] [-r role] [-t type] [-C num] [-g group] [-h host] [-p prompt] [-T timeout] [-u user] file ...
+[atguigu@hadoop102 mysql]$ ll
+ls: 无法打开目录.: 权限不够
+[atguigu@hadoop102 mysql]$ sudo ls
+[atguigu@hadoop102 mysql]$ sudo ls-al
+sudo: ls-al：找不到命令
+[atguigu@hadoop102 mysql]$ sudo ls -al
+总用量 4
+drwxr-x--x.  2 mysql mysql    6 9月  27 2019 .
+drwxr-xr-x. 64 root  root  4096 3月  13 18:27 ..
+[atguigu@hadoop102 mysql]$ cd 
+[atguigu@hadoop102 ~]$ cd /opt/
+[atguigu@hadoop102 opt]$ sudo mysql
+mysql                      mysql_config_editor        mysqldump                  mysql_plugin               mysqlslap                  
+mysqladmin                 mysqld                     mysqldumpslow              mysqlpump                  mysql_ssl_rsa_setup        
+mysqlbinlog                mysqld-debug               mysqlimport                mysql_secure_installation  mysql_tzinfo_to_sql        
+mysqlcheck                 mysqld_pre_systemd         mysql_install_db           mysqlshow                  mysql_upgrade              
+[atguigu@hadoop102 opt]$ sudo mysql
+mysql                      mysql_config_editor        mysqldump                  mysql_plugin               mysqlslap                  
+mysqladmin                 mysqld                     mysqldumpslow              mysqlpump                  mysql_ssl_rsa_setup        
+mysqlbinlog                mysqld-debug               mysqlimport                mysql_secure_installation  mysql_tzinfo_to_sql        
+mysqlcheck                 mysqld_pre_systemd         mysql_install_db           mysqlshow                  mysql_upgrade              
+[atguigu@hadoop102 opt]$ sudo mysqld --initialize --user=mysql
+[atguigu@hadoop102 opt]$ sudo cat /var/log/mysqld.log 
+2023-03-13T13:09:39.742036Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2023-03-13T13:09:40.405265Z 0 [Warning] InnoDB: New log files created, LSN=45790
+2023-03-13T13:09:40.610789Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
+2023-03-13T13:09:40.672604Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 506ee2ff-c1a0-11ed-b48c-000c293c8ad8.
+2023-03-13T13:09:40.687653Z 0 [Warning] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+2023-03-13T13:09:41.254601Z 0 [Warning] CA certificate ca.pem is self signed.
+2023-03-13T13:09:41.480784Z 1 [Note] A temporary password is generated for root@localhost: O;JqVkrAp9a7
+[atguigu@hadoop102 opt]$ systemctl start mysql
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to manage system services or units.
+Authenticating as: root
+Password: 
+polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+==== AUTHENTICATION FAILED ===
+Failed to start mysql.service: Access denied
+See system logs and 'systemctl status mysql.service' for details.
+[atguigu@hadoop102 opt]$ systemctl start mysqld
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to manage system services or units.
+Authenticating as: root
+Password: 
+polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+==== AUTHENTICATION FAILED ===
+Failed to start mysqld.service: Access denied
+See system logs and 'systemctl status mysqld.service' for details.
+[atguigu@hadoop102 opt]$ systemctl start mysqld
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to manage system services or units.
+Authenticating as: root
+Password: Failed to start mysqld.service: 连接超时
+See system logs and 'systemctl status mysqld.service' for details.
+[atguigu@hadoop102 opt]$ polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+systemctl start mysqld
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to manage system services or units.
+Authenticating as: root
+Password: 
+polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+==== AUTHENTICATION FAILED ===
+Failed to start mysqld.service: Access denied
+See system logs and 'systemctl status mysqld.service' for details.
+[atguigu@hadoop102 opt]$ sudo systemctl start mysqld
+[atguigu@hadoop102 opt]$ sudo systemctl start mysqld
+[atguigu@hadoop102 opt]$ systemctl start mysqld
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to manage system services or units.
+Authenticating as: root
+Password: 
+polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+==== AUTHENTICATION FAILED ===
+Failed to start mysqld.service: Access denied
+See system logs and 'systemctl status mysqld.service' for details.
+[atguigu@hadoop102 opt]$ mysql -u  root -p JqVkrAp9a7
+Enter password: 
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+[atguigu@hadoop102 opt]$ mysql -u  root -p
+Enter password: 
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+[atguigu@hadoop102 opt]$ systemctl start mysqld
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to manage system services or units.
+Authenticating as: root
+Password: 
+polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+==== AUTHENTICATION FAILED ===
+Failed to start mysqld.service: Access denied
+See system logs and 'systemctl status mysqld.service' for details.
+[atguigu@hadoop102 opt]$ O;JqVkrAp9a7
+bash: O: 未找到命令...
+bash: JqVkrAp9a7: 未找到命令...
+[atguigu@hadoop102 opt]$ mysql -u  root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 4
+Server version: 5.7.28
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> set password = password("123456");
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> quit
+Bye
+[atguigu@hadoop102 opt]$ systemctl start mysqld
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to manage system services or units.
+Authenticating as: root
+Password: 
+==== AUTHENTICATION COMPLETE ===
+[atguigu@hadoop102 opt]$ mysql -u  root -p123456
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 5
+Server version: 5.7.28 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> update mysql.user set host='%' where user='root';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> quit
+Bye
+[atguigu@hadoop102 opt]$ cp /opt/module/mysql-connector-java-5.1.37.jar $HIVE_HOME/lib
+[atguigu@hadoop102 opt]$ vim $HI
+$HISTCMD       $HISTCONTROL   $HISTFILE      $HISTFILESIZE  $HISTSIZE      $HIVE_HOME     
+[atguigu@hadoop102 opt]$ vim \$HIVE_HOME/conf/hive-site.xml
+[atguigu@hadoop102 opt]$ sudo vim \$HIVE_HOME/conf/hive-site.xml
+[atguigu@hadoop102 opt]$ cat $HIVE_HOME/conf/hive-site.xml
+cat: /opt/module/hive-3.1.2/conf/hive-site.xml: 没有那个文件或目录
+[atguigu@hadoop102 opt]$ cd  $HIVE_HOME
+[atguigu@hadoop102 hive-3.1.2]$ cd conf/
+[atguigu@hadoop102 conf]$ ll
+总用量 332
+-rwxr-xr-x. 1 atguigu atguigu   1596 8月  23 2019 beeline-log4j2.properties.template
+-rwxr-xr-x. 1 atguigu atguigu 300482 4月  15 2020 hive-default.xml.template
+-rwxr-xr-x. 1 atguigu atguigu   2365 8月  23 2019 hive-env.sh.template
+-rwxr-xr-x. 1 atguigu atguigu   2274 8月  23 2019 hive-exec-log4j2.properties.template
+-rwxr-xr-x. 1 atguigu atguigu   3086 8月  23 2019 hive-log4j2.properties.template
+-rwxr-xr-x. 1 atguigu atguigu   2060 8月  23 2019 ivysettings.xml
+-rwxr-xr-x. 1 atguigu atguigu   3558 8月  23 2019 llap-cli-log4j2.properties.template
+-rwxr-xr-x. 1 atguigu atguigu   7163 8月  23 2019 llap-daemon-log4j2.properties.template
+-rwxr-xr-x. 1 atguigu atguigu   2662 8月  23 2019 parquet-logging.properties
+[atguigu@hadoop102 conf]$ sudo vim hive-site.xml
+[atguigu@hadoop102 conf]$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 6
+Server version: 5.7.28 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> quti
+    -> quit
+    -> quit;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'quti
+quit
+quit' at line 1
+mysql> quit;
+Bye
+[atguigu@hadoop102 conf]$ sudo vim hive-site.xml
+[atguigu@hadoop102 conf]$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 7
+Server version: 5.7.28 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database metastore;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> quit;
+Bye
+[atguigu@hadoop102 conf]$ cd /opt/software/
+[atguigu@hadoop102 software]$ schema
+schemagen   schematool  
+[atguigu@hadoop102 software]$ schematool -initSchema -dbType mysql -verbose
+Metastore connection URL:	 jdbc:mysql://hadoop102:3306/metastore?useSSL=false
+Metastore Connection Driver :	 com.mysql.jdbc.Driver
+Metastore connection User:	 root
+Starting metastore schema initialization to 3.1.0
+Initialization script hive-schema-3.1.0.mysql.sql
+Connecting to jdbc:mysql://hadoop102:3306/metastore?useSSL=false
+Connected to: MySQL (version 5.7.28)
+Driver: MySQL Connector Java (version mysql-connector-java-5.1.37 ( Revision: 09940f05b4c98150f352e787a2549f11a2e9da93 ))
+Transaction isolation: TRANSACTION_READ_COMMITTED
+0: jdbc:mysql://hadoop102:3306/metastore> !autocommit on
+Autocommit status: true
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */
+No rows affected (0.004 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET NAMES utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40103 SET TIME_ZONE='+00:00' */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.002 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `BUCKETING_COLS` ( `SD_ID` bigint(20) NOT NULL, `BUCKET_COL_NAME` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `INTEGER_IDX` int(11) NOT NULL, PRIMARY KEY (`SD_ID`,`INTEGER_IDX`), KEY `BUCKETING_COLS_N49` (`SD_ID`), CONSTRAINT `BUCKETING_COLS_FK1` FOREIGN KEY (`SD_ID`) REFERENCES `SDS` (`SD_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.017 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `CDS` ( `CD_ID` bigint(20) NOT NULL, PRIMARY KEY (`CD_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `COLUMNS_V2` ( `CD_ID` bigint(20) NOT NULL, `COMMENT` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `COLUMN_NAME` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `TYPE_NAME` MEDIUMTEXT DEFAULT NULL, `INTEGER_IDX` int(11) NOT NULL, PRIMARY KEY (`CD_ID`,`COLUMN_NAME`), KEY `COLUMNS_V2_N49` (`CD_ID`), CONSTRAINT `COLUMNS_V2_FK1` FOREIGN KEY (`CD_ID`) REFERENCES `CDS` (`CD_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.009 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `DATABASE_PARAMS` ( `DB_ID` bigint(20) NOT NULL, `PARAM_KEY` varchar(180) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `PARAM_VALUE` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`DB_ID`,`PARAM_KEY`), KEY `DATABASE_PARAMS_N49` (`DB_ID`), CONSTRAINT `DATABASE_PARAMS_FK1` FOREIGN KEY (`DB_ID`) REFERENCES `DBS` (`DB_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE `CTLGS` ( `CTLG_ID` BIGINT PRIMARY KEY, `NAME` VARCHAR(256), `DESC` VARCHAR(4000), `LOCATION_URI` VARCHAR(4000) NOT NULL, UNIQUE KEY `UNIQUE_CATALOG` (`NAME`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> INSERT INTO `CTLGS` VALUES (1, 'hive', 'Default catalog for Hive', 'TBD')
+1 row affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `DBS` ( `DB_ID` bigint(20) NOT NULL, `DESC` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `DB_LOCATION_URI` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `OWNER_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `OWNER_TYPE` varchar(10) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `CTLG_NAME` varchar(256) NOT NULL DEFAULT 'hive', PRIMARY KEY (`DB_ID`), UNIQUE KEY `UNIQUE_DATABASE` (`NAME`, `CTLG_NAME`), CONSTRAINT `CTLG_FK1` FOREIGN KEY (`CTLG_NAME`) REFERENCES `CTLGS` (`NAME`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.01 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `DB_PRIVS` ( `DB_GRANT_ID` bigint(20) NOT NULL, `CREATE_TIME` int(11) NOT NULL, `DB_ID` bigint(20) DEFAULT NULL, `GRANT_OPTION` smallint(6) NOT NULL, `GRANTOR` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `GRANTOR_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PRINCIPAL_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PRINCIPAL_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `DB_PRIV` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `AUTHORIZER` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`DB_GRANT_ID`), UNIQUE KEY `DBPRIVILEGEINDEX` (`AUTHORIZER`,`DB_ID`,`PRINCIPAL_NAME`,`PRINCIPAL_TYPE`,`DB_PRIV`,`GRANTOR`,`GRANTOR_TYPE`), KEY `DB_PRIVS_N49` (`DB_ID`), CONSTRAINT `DB_PRIVS_FK1` FOREIGN KEY (`DB_ID`) REFERENCES `DBS` (`DB_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `GLOBAL_PRIVS` ( `USER_GRANT_ID` bigint(20) NOT NULL, `CREATE_TIME` int(11) NOT NULL, `GRANT_OPTION` smallint(6) NOT NULL, `GRANTOR` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `GRANTOR_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PRINCIPAL_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PRINCIPAL_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `USER_PRIV` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `AUTHORIZER` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`USER_GRANT_ID`), UNIQUE KEY `GLOBALPRIVILEGEINDEX` (`AUTHORIZER`,`PRINCIPAL_NAME`,`PRINCIPAL_TYPE`,`USER_PRIV`,`GRANTOR`,`GRANTOR_TYPE`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.01 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `IDXS` ( `INDEX_ID` bigint(20) NOT NULL, `CREATE_TIME` int(11) NOT NULL, `DEFERRED_REBUILD` bit(1) NOT NULL, `INDEX_HANDLER_CLASS` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `INDEX_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `INDEX_TBL_ID` bigint(20) DEFAULT NULL, `LAST_ACCESS_TIME` int(11) NOT NULL, `ORIG_TBL_ID` bigint(20) DEFAULT NULL, `SD_ID` bigint(20) DEFAULT NULL, PRIMARY KEY (`INDEX_ID`), UNIQUE KEY `UNIQUEINDEX` (`INDEX_NAME`,`ORIG_TBL_ID`), KEY `IDXS_N51` (`SD_ID`), KEY `IDXS_N50` (`INDEX_TBL_ID`), KEY `IDXS_N49` (`ORIG_TBL_ID`), CONSTRAINT `IDXS_FK1` FOREIGN KEY (`ORIG_TBL_ID`) REFERENCES `TBLS` (`TBL_ID`), CONSTRAINT `IDXS_FK2` FOREIGN KEY (`SD_ID`) REFERENCES `SDS` (`SD_ID`), CONSTRAINT `IDXS_FK3` FOREIGN KEY (`INDEX_TBL_ID`) REFERENCES `TBLS` (`TBL_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `INDEX_PARAMS` ( `INDEX_ID` bigint(20) NOT NULL, `PARAM_KEY` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `PARAM_VALUE` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`INDEX_ID`,`PARAM_KEY`), KEY `INDEX_PARAMS_N49` (`INDEX_ID`), CONSTRAINT `INDEX_PARAMS_FK1` FOREIGN KEY (`INDEX_ID`) REFERENCES `IDXS` (`INDEX_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.009 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `NUCLEUS_TABLES` ( `CLASS_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `TABLE_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `TYPE` varchar(4) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `OWNER` varchar(2) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `VERSION` varchar(20) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `INTERFACE_NAME` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`CLASS_NAME`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `PARTITIONS` ( `PART_ID` bigint(20) NOT NULL, `CREATE_TIME` int(11) NOT NULL, `LAST_ACCESS_TIME` int(11) NOT NULL, `PART_NAME` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `SD_ID` bigint(20) DEFAULT NULL, `TBL_ID` bigint(20) DEFAULT NULL, PRIMARY KEY (`PART_ID`), UNIQUE KEY `UNIQUEPARTITION` (`PART_NAME`,`TBL_ID`), KEY `PARTITIONS_N49` (`TBL_ID`), KEY `PARTITIONS_N50` (`SD_ID`), CONSTRAINT `PARTITIONS_FK1` FOREIGN KEY (`TBL_ID`) REFERENCES `TBLS` (`TBL_ID`), CONSTRAINT `PARTITIONS_FK2` FOREIGN KEY (`SD_ID`) REFERENCES `SDS` (`SD_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.017 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `PARTITION_EVENTS` ( `PART_NAME_ID` bigint(20) NOT NULL, `CAT_NAME` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `DB_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `EVENT_TIME` bigint(20) NOT NULL, `EVENT_TYPE` int(11) NOT NULL, `PARTITION_NAME` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `TBL_NAME` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`PART_NAME_ID`), KEY `PARTITIONEVENTINDEX` (`PARTITION_NAME`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `PARTITION_KEYS` ( `TBL_ID` bigint(20) NOT NULL, `PKEY_COMMENT` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PKEY_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `PKEY_TYPE` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `INTEGER_IDX` int(11) NOT NULL, PRIMARY KEY (`TBL_ID`,`PKEY_NAME`), KEY `PARTITION_KEYS_N49` (`TBL_ID`), CONSTRAINT `PARTITION_KEYS_FK1` FOREIGN KEY (`TBL_ID`) REFERENCES `TBLS` (`TBL_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.006 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `PARTITION_KEY_VALS` ( `PART_ID` bigint(20) NOT NULL, `PART_KEY_VAL` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `INTEGER_IDX` int(11) NOT NULL, PRIMARY KEY (`PART_ID`,`INTEGER_IDX`), KEY `PARTITION_KEY_VALS_N49` (`PART_ID`), CONSTRAINT `PARTITION_KEY_VALS_FK1` FOREIGN KEY (`PART_ID`) REFERENCES `PARTITIONS` (`PART_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `PARTITION_PARAMS` ( `PART_ID` bigint(20) NOT NULL, `PARAM_KEY` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `PARAM_VALUE` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`PART_ID`,`PARAM_KEY`), KEY `PARTITION_PARAMS_N49` (`PART_ID`), CONSTRAINT `PARTITION_PARAMS_FK1` FOREIGN KEY (`PART_ID`) REFERENCES `PARTITIONS` (`PART_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `PART_COL_PRIVS` ( `PART_COLUMN_GRANT_ID` bigint(20) NOT NULL, `COLUMN_NAME` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `CREATE_TIME` int(11) NOT NULL, `GRANT_OPTION` smallint(6) NOT NULL, `GRANTOR` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `GRANTOR_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PART_ID` bigint(20) DEFAULT NULL, `PRINCIPAL_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PRINCIPAL_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PART_COL_PRIV` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `AUTHORIZER` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`PART_COLUMN_GRANT_ID`), KEY `PART_COL_PRIVS_N49` (`PART_ID`), KEY `PARTITIONCOLUMNPRIVILEGEINDEX` (`AUTHORIZER`,`PART_ID`,`COLUMN_NAME`,`PRINCIPAL_NAME`,`PRINCIPAL_TYPE`,`PART_COL_PRIV`,`GRANTOR`,`GRANTOR_TYPE`), CONSTRAINT `PART_COL_PRIVS_FK1` FOREIGN KEY (`PART_ID`) REFERENCES `PARTITIONS` (`PART_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.009 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.002 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `PART_PRIVS` ( `PART_GRANT_ID` bigint(20) NOT NULL, `CREATE_TIME` int(11) NOT NULL, `GRANT_OPTION` smallint(6) NOT NULL, `GRANTOR` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `GRANTOR_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PART_ID` bigint(20) DEFAULT NULL, `PRINCIPAL_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PRINCIPAL_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PART_PRIV` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `AUTHORIZER` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`PART_GRANT_ID`), KEY `PARTPRIVILEGEINDEX` (`AUTHORIZER`,`PART_ID`,`PRINCIPAL_NAME`,`PRINCIPAL_TYPE`,`PART_PRIV`,`GRANTOR`,`GRANTOR_TYPE`), KEY `PART_PRIVS_N49` (`PART_ID`), CONSTRAINT `PART_PRIVS_FK1` FOREIGN KEY (`PART_ID`) REFERENCES `PARTITIONS` (`PART_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.009 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.002 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `ROLES` ( `ROLE_ID` bigint(20) NOT NULL, `CREATE_TIME` int(11) NOT NULL, `OWNER_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `ROLE_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`ROLE_ID`), UNIQUE KEY `ROLEENTITYINDEX` (`ROLE_NAME`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `ROLE_MAP` ( `ROLE_GRANT_ID` bigint(20) NOT NULL, `ADD_TIME` int(11) NOT NULL, `GRANT_OPTION` smallint(6) NOT NULL, `GRANTOR` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `GRANTOR_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PRINCIPAL_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PRINCIPAL_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `ROLE_ID` bigint(20) DEFAULT NULL, PRIMARY KEY (`ROLE_GRANT_ID`), UNIQUE KEY `USERROLEMAPINDEX` (`PRINCIPAL_NAME`,`ROLE_ID`,`GRANTOR`,`GRANTOR_TYPE`), KEY `ROLE_MAP_N49` (`ROLE_ID`), CONSTRAINT `ROLE_MAP_FK1` FOREIGN KEY (`ROLE_ID`) REFERENCES `ROLES` (`ROLE_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.009 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `SDS` ( `SD_ID` bigint(20) NOT NULL, `CD_ID` bigint(20) DEFAULT NULL, `INPUT_FORMAT` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `IS_COMPRESSED` bit(1) NOT NULL, `IS_STOREDASSUBDIRECTORIES` bit(1) NOT NULL, `LOCATION` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `NUM_BUCKETS` int(11) NOT NULL, `OUTPUT_FORMAT` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `SERDE_ID` bigint(20) DEFAULT NULL, PRIMARY KEY (`SD_ID`), KEY `SDS_N49` (`SERDE_ID`), KEY `SDS_N50` (`CD_ID`), CONSTRAINT `SDS_FK1` FOREIGN KEY (`SERDE_ID`) REFERENCES `SERDES` (`SERDE_ID`), CONSTRAINT `SDS_FK2` FOREIGN KEY (`CD_ID`) REFERENCES `CDS` (`CD_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.009 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `SD_PARAMS` ( `SD_ID` bigint(20) NOT NULL, `PARAM_KEY` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `PARAM_VALUE` MEDIUMTEXT CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`SD_ID`,`PARAM_KEY`), KEY `SD_PARAMS_N49` (`SD_ID`), CONSTRAINT `SD_PARAMS_FK1` FOREIGN KEY (`SD_ID`) REFERENCES `SDS` (`SD_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `SEQUENCE_TABLE` ( `SEQUENCE_NAME` varchar(255) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `NEXT_VAL` bigint(20) NOT NULL, PRIMARY KEY (`SEQUENCE_NAME`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.006 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> INSERT INTO `SEQUENCE_TABLE` (`SEQUENCE_NAME`, `NEXT_VAL`) VALUES ('org.apache.hadoop.hive.metastore.model.MNotificationLog', 1)
+1 row affected (0.002 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.002 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `SERDES` ( `SERDE_ID` bigint(20) NOT NULL, `NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `SLIB` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `DESCRIPTION` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `SERIALIZER_CLASS` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `DESERIALIZER_CLASS` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `SERDE_TYPE` integer, PRIMARY KEY (`SERDE_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `SERDE_PARAMS` ( `SERDE_ID` bigint(20) NOT NULL, `PARAM_KEY` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `PARAM_VALUE` MEDIUMTEXT CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`SERDE_ID`,`PARAM_KEY`), KEY `SERDE_PARAMS_N49` (`SERDE_ID`), CONSTRAINT `SERDE_PARAMS_FK1` FOREIGN KEY (`SERDE_ID`) REFERENCES `SERDES` (`SERDE_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `SKEWED_COL_NAMES` ( `SD_ID` bigint(20) NOT NULL, `SKEWED_COL_NAME` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `INTEGER_IDX` int(11) NOT NULL, PRIMARY KEY (`SD_ID`,`INTEGER_IDX`), KEY `SKEWED_COL_NAMES_N49` (`SD_ID`), CONSTRAINT `SKEWED_COL_NAMES_FK1` FOREIGN KEY (`SD_ID`) REFERENCES `SDS` (`SD_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `SKEWED_COL_VALUE_LOC_MAP` ( `SD_ID` bigint(20) NOT NULL, `STRING_LIST_ID_KID` bigint(20) NOT NULL, `LOCATION` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`SD_ID`,`STRING_LIST_ID_KID`), KEY `SKEWED_COL_VALUE_LOC_MAP_N49` (`STRING_LIST_ID_KID`), KEY `SKEWED_COL_VALUE_LOC_MAP_N50` (`SD_ID`), CONSTRAINT `SKEWED_COL_VALUE_LOC_MAP_FK2` FOREIGN KEY (`STRING_LIST_ID_KID`) REFERENCES `SKEWED_STRING_LIST` (`STRING_LIST_ID`), CONSTRAINT `SKEWED_COL_VALUE_LOC_MAP_FK1` FOREIGN KEY (`SD_ID`) REFERENCES `SDS` (`SD_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.009 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `SKEWED_STRING_LIST` ( `STRING_LIST_ID` bigint(20) NOT NULL, PRIMARY KEY (`STRING_LIST_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `SKEWED_STRING_LIST_VALUES` ( `STRING_LIST_ID` bigint(20) NOT NULL, `STRING_LIST_VALUE` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `INTEGER_IDX` int(11) NOT NULL, PRIMARY KEY (`STRING_LIST_ID`,`INTEGER_IDX`), KEY `SKEWED_STRING_LIST_VALUES_N49` (`STRING_LIST_ID`), CONSTRAINT `SKEWED_STRING_LIST_VALUES_FK1` FOREIGN KEY (`STRING_LIST_ID`) REFERENCES `SKEWED_STRING_LIST` (`STRING_LIST_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `SKEWED_VALUES` ( `SD_ID_OID` bigint(20) NOT NULL, `STRING_LIST_ID_EID` bigint(20) NOT NULL, `INTEGER_IDX` int(11) NOT NULL, PRIMARY KEY (`SD_ID_OID`,`INTEGER_IDX`), KEY `SKEWED_VALUES_N50` (`SD_ID_OID`), KEY `SKEWED_VALUES_N49` (`STRING_LIST_ID_EID`), CONSTRAINT `SKEWED_VALUES_FK2` FOREIGN KEY (`STRING_LIST_ID_EID`) REFERENCES `SKEWED_STRING_LIST` (`STRING_LIST_ID`), CONSTRAINT `SKEWED_VALUES_FK1` FOREIGN KEY (`SD_ID_OID`) REFERENCES `SDS` (`SD_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.01 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `SORT_COLS` ( `SD_ID` bigint(20) NOT NULL, `COLUMN_NAME` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `ORDER` int(11) NOT NULL, `INTEGER_IDX` int(11) NOT NULL, PRIMARY KEY (`SD_ID`,`INTEGER_IDX`), KEY `SORT_COLS_N49` (`SD_ID`), CONSTRAINT `SORT_COLS_FK1` FOREIGN KEY (`SD_ID`) REFERENCES `SDS` (`SD_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `TABLE_PARAMS` ( `TBL_ID` bigint(20) NOT NULL, `PARAM_KEY` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `PARAM_VALUE` MEDIUMTEXT CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`TBL_ID`,`PARAM_KEY`), KEY `TABLE_PARAMS_N49` (`TBL_ID`), CONSTRAINT `TABLE_PARAMS_FK1` FOREIGN KEY (`TBL_ID`) REFERENCES `TBLS` (`TBL_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.002 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `MV_CREATION_METADATA` ( `MV_CREATION_METADATA_ID` bigint(20) NOT NULL, `CAT_NAME` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `DB_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `TBL_NAME` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `TXN_LIST` TEXT DEFAULT NULL, `MATERIALIZATION_TIME` bigint(20) NOT NULL, PRIMARY KEY (`MV_CREATION_METADATA_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE INDEX MV_UNIQUE_TABLE ON MV_CREATION_METADATA (TBL_NAME, DB_NAME) USING BTREE
+No rows affected (0.006 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `TBLS` ( `TBL_ID` bigint(20) NOT NULL, `CREATE_TIME` int(11) NOT NULL, `DB_ID` bigint(20) DEFAULT NULL, `LAST_ACCESS_TIME` int(11) NOT NULL, `OWNER` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `OWNER_TYPE` varchar(10) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `RETENTION` int(11) NOT NULL, `SD_ID` bigint(20) DEFAULT NULL, `TBL_NAME` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `TBL_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `VIEW_EXPANDED_TEXT` mediumtext, `VIEW_ORIGINAL_TEXT` mediumtext, `IS_REWRITE_ENABLED` bit(1) NOT NULL DEFAULT 0, PRIMARY KEY (`TBL_ID`), UNIQUE KEY `UNIQUETABLE` (`TBL_NAME`,`DB_ID`), KEY `TBLS_N50` (`SD_ID`), KEY `TBLS_N49` (`DB_ID`), CONSTRAINT `TBLS_FK1` FOREIGN KEY (`SD_ID`) REFERENCES `SDS` (`SD_ID`), CONSTRAINT `TBLS_FK2` FOREIGN KEY (`DB_ID`) REFERENCES `DBS` (`DB_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.009 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `MV_TABLES_USED` ( `MV_CREATION_METADATA_ID` bigint(20) NOT NULL, `TBL_ID` bigint(20) NOT NULL, CONSTRAINT `MV_TABLES_USED_FK1` FOREIGN KEY (`MV_CREATION_METADATA_ID`) REFERENCES `MV_CREATION_METADATA` (`MV_CREATION_METADATA_ID`), CONSTRAINT `MV_TABLES_USED_FK2` FOREIGN KEY (`TBL_ID`) REFERENCES `TBLS` (`TBL_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `TBL_COL_PRIVS` ( `TBL_COLUMN_GRANT_ID` bigint(20) NOT NULL, `COLUMN_NAME` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `CREATE_TIME` int(11) NOT NULL, `GRANT_OPTION` smallint(6) NOT NULL, `GRANTOR` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `GRANTOR_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PRINCIPAL_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PRINCIPAL_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `TBL_COL_PRIV` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `TBL_ID` bigint(20) DEFAULT NULL, `AUTHORIZER` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`TBL_COLUMN_GRANT_ID`), KEY `TABLECOLUMNPRIVILEGEINDEX` (`AUTHORIZER`,`TBL_ID`,`COLUMN_NAME`,`PRINCIPAL_NAME`,`PRINCIPAL_TYPE`,`TBL_COL_PRIV`,`GRANTOR`,`GRANTOR_TYPE`), KEY `TBL_COL_PRIVS_N49` (`TBL_ID`), CONSTRAINT `TBL_COL_PRIVS_FK1` FOREIGN KEY (`TBL_ID`) REFERENCES `TBLS` (`TBL_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.012 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `TBL_PRIVS` ( `TBL_GRANT_ID` bigint(20) NOT NULL, `CREATE_TIME` int(11) NOT NULL, `GRANT_OPTION` smallint(6) NOT NULL, `GRANTOR` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `GRANTOR_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PRINCIPAL_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `PRINCIPAL_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `TBL_PRIV` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `TBL_ID` bigint(20) DEFAULT NULL, `AUTHORIZER` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`TBL_GRANT_ID`), KEY `TBL_PRIVS_N49` (`TBL_ID`), KEY `TABLEPRIVILEGEINDEX` (`AUTHORIZER`,`TBL_ID`,`PRINCIPAL_NAME`,`PRINCIPAL_TYPE`,`TBL_PRIV`,`GRANTOR`,`GRANTOR_TYPE`), CONSTRAINT `TBL_PRIVS_FK1` FOREIGN KEY (`TBL_ID`) REFERENCES `TBLS` (`TBL_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.009 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `TAB_COL_STATS` ( `CS_ID` bigint(20) NOT NULL, `CAT_NAME` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `DB_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `TABLE_NAME` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `COLUMN_NAME` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `COLUMN_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `TBL_ID` bigint(20) NOT NULL, `LONG_LOW_VALUE` bigint(20), `LONG_HIGH_VALUE` bigint(20), `DOUBLE_HIGH_VALUE` double(53,4), `DOUBLE_LOW_VALUE` double(53,4), `BIG_DECIMAL_LOW_VALUE` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin, `BIG_DECIMAL_HIGH_VALUE` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin, `NUM_NULLS` bigint(20) NOT NULL, `NUM_DISTINCTS` bigint(20), `BIT_VECTOR` blob, `AVG_COL_LEN` double(53,4), `MAX_COL_LEN` bigint(20), `NUM_TRUES` bigint(20), `NUM_FALSES` bigint(20), `LAST_ANALYZED` bigint(20) NOT NULL, PRIMARY KEY (`CS_ID`), CONSTRAINT `TAB_COL_STATS_FK` FOREIGN KEY (`TBL_ID`) REFERENCES `TBLS` (`TBL_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.238 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE INDEX TAB_COL_STATS_IDX ON TAB_COL_STATS (CAT_NAME, DB_NAME, TABLE_NAME, COLUMN_NAME) USING BTREE
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `PART_COL_STATS` ( `CS_ID` bigint(20) NOT NULL, `CAT_NAME` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `DB_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `TABLE_NAME` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `PARTITION_NAME` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `COLUMN_NAME` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `COLUMN_TYPE` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `PART_ID` bigint(20) NOT NULL, `LONG_LOW_VALUE` bigint(20), `LONG_HIGH_VALUE` bigint(20), `DOUBLE_HIGH_VALUE` double(53,4), `DOUBLE_LOW_VALUE` double(53,4), `BIG_DECIMAL_LOW_VALUE` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin, `BIG_DECIMAL_HIGH_VALUE` varchar(4000) CHARACTER SET latin1 COLLATE latin1_bin, `NUM_NULLS` bigint(20) NOT NULL, `NUM_DISTINCTS` bigint(20), `BIT_VECTOR` blob, `AVG_COL_LEN` double(53,4), `MAX_COL_LEN` bigint(20), `NUM_TRUES` bigint(20), `NUM_FALSES` bigint(20), `LAST_ANALYZED` bigint(20) NOT NULL, PRIMARY KEY (`CS_ID`), CONSTRAINT `PART_COL_STATS_FK` FOREIGN KEY (`PART_ID`) REFERENCES `PARTITIONS` (`PART_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE INDEX PCS_STATS_IDX ON PART_COL_STATS (CAT_NAME, DB_NAME,TABLE_NAME,COLUMN_NAME,PARTITION_NAME) USING BTREE
+No rows affected (0.006 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.01 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `TYPES` ( `TYPES_ID` bigint(20) NOT NULL, `TYPE_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `TYPE1` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `TYPE2` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, PRIMARY KEY (`TYPES_ID`), UNIQUE KEY `UNIQUE_TYPE` (`TYPE_NAME`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET @saved_cs_client     = @@character_set_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = utf8 */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `TYPE_FIELDS` ( `TYPE_NAME` bigint(20) NOT NULL, `COMMENT` varchar(256) CHARACTER SET latin1 COLLATE latin1_bin DEFAULT NULL, `FIELD_NAME` varchar(128) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `FIELD_TYPE` varchar(767) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL, `INTEGER_IDX` int(11) NOT NULL, PRIMARY KEY (`TYPE_NAME`,`FIELD_NAME`), KEY `TYPE_FIELDS_N49` (`TYPE_NAME`), CONSTRAINT `TYPE_FIELDS_FK1` FOREIGN KEY (`TYPE_NAME`) REFERENCES `TYPES` (`TYPES_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.013 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `MASTER_KEYS` ( `KEY_ID` INTEGER NOT NULL AUTO_INCREMENT, `MASTER_KEY` VARCHAR(767) BINARY NULL, PRIMARY KEY (`KEY_ID`) ) ENGINE=INNODB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `DELEGATION_TOKENS` ( `TOKEN_IDENT` VARCHAR(767) BINARY NOT NULL, `TOKEN` VARCHAR(767) BINARY NULL, PRIMARY KEY (`TOKEN_IDENT`) ) ENGINE=INNODB DEFAULT CHARSET=latin1
+No rows affected (0.006 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `VERSION` ( `VER_ID` BIGINT NOT NULL, `SCHEMA_VERSION` VARCHAR(127) NOT NULL, `VERSION_COMMENT` VARCHAR(255), PRIMARY KEY (`VER_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.006 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `FUNCS` ( `FUNC_ID` BIGINT(20) NOT NULL, `CLASS_NAME` VARCHAR(4000) CHARACTER SET latin1 COLLATE latin1_bin, `CREATE_TIME` INT(11) NOT NULL, `DB_ID` BIGINT(20), `FUNC_NAME` VARCHAR(128) CHARACTER SET latin1 COLLATE latin1_bin, `FUNC_TYPE` INT(11) NOT NULL, `OWNER_NAME` VARCHAR(128) CHARACTER SET latin1 COLLATE latin1_bin, `OWNER_TYPE` VARCHAR(10) CHARACTER SET latin1 COLLATE latin1_bin, PRIMARY KEY (`FUNC_ID`), UNIQUE KEY `UNIQUEFUNCTION` (`FUNC_NAME`, `DB_ID`), KEY `FUNCS_N49` (`DB_ID`), CONSTRAINT `FUNCS_FK1` FOREIGN KEY (`DB_ID`) REFERENCES `DBS` (`DB_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.009 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `FUNC_RU` ( `FUNC_ID` BIGINT(20) NOT NULL, `RESOURCE_TYPE` INT(11) NOT NULL, `RESOURCE_URI` VARCHAR(4000) CHARACTER SET latin1 COLLATE latin1_bin, `INTEGER_IDX` INT(11) NOT NULL, PRIMARY KEY (`FUNC_ID`, `INTEGER_IDX`), CONSTRAINT `FUNC_RU_FK1` FOREIGN KEY (`FUNC_ID`) REFERENCES `FUNCS` (`FUNC_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `NOTIFICATION_LOG` ( `NL_ID` BIGINT(20) NOT NULL, `EVENT_ID` BIGINT(20) NOT NULL, `EVENT_TIME` INT(11) NOT NULL, `EVENT_TYPE` varchar(32) NOT NULL, `CAT_NAME` varchar(256), `DB_NAME` varchar(128), `TBL_NAME` varchar(256), `MESSAGE` longtext, `MESSAGE_FORMAT` varchar(16), PRIMARY KEY (`NL_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `NOTIFICATION_SEQUENCE` ( `NNI_ID` BIGINT(20) NOT NULL, `NEXT_EVENT_ID` BIGINT(20) NOT NULL, PRIMARY KEY (`NNI_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> INSERT INTO `NOTIFICATION_SEQUENCE` (`NNI_ID`, `NEXT_EVENT_ID`) SELECT * from (select 1 as `NNI_ID`, 1 as `NOTIFICATION_SEQUENCE`) a WHERE (SELECT COUNT(*) FROM `NOTIFICATION_SEQUENCE`) = 0
+1 row affected (0.002 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `KEY_CONSTRAINTS` ( `CHILD_CD_ID` BIGINT, `CHILD_INTEGER_IDX` INT(11), `CHILD_TBL_ID` BIGINT, `PARENT_CD_ID` BIGINT, `PARENT_INTEGER_IDX` INT(11) NOT NULL, `PARENT_TBL_ID` BIGINT NOT NULL, `POSITION` BIGINT NOT NULL, `CONSTRAINT_NAME` VARCHAR(400) NOT NULL, `CONSTRAINT_TYPE` SMALLINT(6)  NOT NULL, `UPDATE_RULE` SMALLINT(6), `DELETE_RULE` SMALLINT(6), `ENABLE_VALIDATE_RELY` SMALLINT(6) NOT NULL, `DEFAULT_VALUE` VARCHAR(400), PRIMARY KEY (`CONSTRAINT_NAME`, `POSITION`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.006 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE INDEX `CONSTRAINTS_PARENT_TABLE_ID_INDEX` ON KEY_CONSTRAINTS (`PARENT_TBL_ID`) USING BTREE
+No rows affected (0.005 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE INDEX `CONSTRAINTS_CONSTRAINT_TYPE_INDEX` ON KEY_CONSTRAINTS (`CONSTRAINT_TYPE`) USING BTREE
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS `METASTORE_DB_PROPERTIES` ( `PROPERTY_KEY` varchar(255) NOT NULL, `PROPERTY_VALUE` varchar(1000) NOT NULL, `DESCRIPTION` varchar(1000), PRIMARY KEY(`PROPERTY_KEY`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS WM_RESOURCEPLAN ( `RP_ID` bigint(20) NOT NULL, `NAME` varchar(128) NOT NULL, `QUERY_PARALLELISM` int(11), `STATUS` varchar(20) NOT NULL, `DEFAULT_POOL_ID` bigint(20), PRIMARY KEY (`RP_ID`), UNIQUE KEY `UNIQUE_WM_RESOURCEPLAN` (`NAME`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1 
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS WM_POOL ( `POOL_ID` bigint(20) NOT NULL, `RP_ID` bigint(20) NOT NULL, `PATH` varchar(767) NOT NULL, `ALLOC_FRACTION` DOUBLE, `QUERY_PARALLELISM` int(11), `SCHEDULING_POLICY` varchar(767), PRIMARY KEY (`POOL_ID`), UNIQUE KEY `UNIQUE_WM_POOL` (`RP_ID`, `PATH`), CONSTRAINT `WM_POOL_FK1` FOREIGN KEY (`RP_ID`) REFERENCES `WM_RESOURCEPLAN` (`RP_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> ALTER TABLE `WM_RESOURCEPLAN` ADD CONSTRAINT `WM_RESOURCEPLAN_FK1` FOREIGN KEY (`DEFAULT_POOL_ID`) REFERENCES `WM_POOL`(`POOL_ID`)
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS WM_TRIGGER ( `TRIGGER_ID` bigint(20) NOT NULL, `RP_ID` bigint(20) NOT NULL, `NAME` varchar(128) NOT NULL, `TRIGGER_EXPRESSION` varchar(1024), `ACTION_EXPRESSION` varchar(1024), `IS_IN_UNMANAGED` bit(1) NOT NULL DEFAULT 0, PRIMARY KEY (`TRIGGER_ID`), UNIQUE KEY `UNIQUE_WM_TRIGGER` (`RP_ID`, `NAME`), CONSTRAINT `WM_TRIGGER_FK1` FOREIGN KEY (`RP_ID`) REFERENCES `WM_RESOURCEPLAN` (`RP_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS WM_POOL_TO_TRIGGER ( `POOL_ID` bigint(20) NOT NULL, `TRIGGER_ID` bigint(20) NOT NULL, PRIMARY KEY (`POOL_ID`, `TRIGGER_ID`), CONSTRAINT `WM_POOL_TO_TRIGGER_FK1` FOREIGN KEY (`POOL_ID`) REFERENCES `WM_POOL` (`POOL_ID`), CONSTRAINT `WM_POOL_TO_TRIGGER_FK2` FOREIGN KEY (`TRIGGER_ID`) REFERENCES `WM_TRIGGER` (`TRIGGER_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.006 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE IF NOT EXISTS WM_MAPPING ( `MAPPING_ID` bigint(20) NOT NULL, `RP_ID` bigint(20) NOT NULL, `ENTITY_TYPE` varchar(128) NOT NULL, `ENTITY_NAME` varchar(128) NOT NULL, `POOL_ID` bigint(20), `ORDERING` int, PRIMARY KEY (`MAPPING_ID`), UNIQUE KEY `UNIQUE_WM_MAPPING` (`RP_ID`, `ENTITY_TYPE`, `ENTITY_NAME`), CONSTRAINT `WM_MAPPING_FK1` FOREIGN KEY (`RP_ID`) REFERENCES `WM_RESOURCEPLAN` (`RP_ID`), CONSTRAINT `WM_MAPPING_FK2` FOREIGN KEY (`POOL_ID`) REFERENCES `WM_POOL` (`POOL_ID`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.024 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE TXNS ( TXN_ID bigint PRIMARY KEY, TXN_STATE char(1) NOT NULL, TXN_STARTED bigint NOT NULL, TXN_LAST_HEARTBEAT bigint NOT NULL, TXN_USER varchar(128) NOT NULL, TXN_HOST varchar(128) NOT NULL, TXN_AGENT_INFO varchar(128), TXN_META_INFO varchar(128), TXN_HEARTBEAT_COUNT int, TXN_TYPE int ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.006 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE TXN_COMPONENTS ( TC_TXNID bigint NOT NULL, TC_DATABASE varchar(128) NOT NULL, TC_TABLE varchar(128), TC_PARTITION varchar(767), TC_OPERATION_TYPE char(1) NOT NULL, TC_WRITEID bigint, FOREIGN KEY (TC_TXNID) REFERENCES TXNS (TXN_ID) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.02 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE INDEX TC_TXNID_INDEX ON TXN_COMPONENTS (TC_TXNID)
+No rows affected (0.027 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE COMPLETED_TXN_COMPONENTS ( CTC_TXNID bigint NOT NULL, CTC_DATABASE varchar(128) NOT NULL, CTC_TABLE varchar(256), CTC_PARTITION varchar(767), CTC_TIMESTAMP timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL, CTC_WRITEID bigint, CTC_UPDATE_DELETE char(1) NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.015 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE INDEX COMPLETED_TXN_COMPONENTS_IDX ON COMPLETED_TXN_COMPONENTS (CTC_DATABASE, CTC_TABLE, CTC_PARTITION) USING BTREE
+No rows affected (0.015 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE NEXT_TXN_ID ( NTXN_NEXT bigint NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.028 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> INSERT INTO NEXT_TXN_ID VALUES(1)
+1 row affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE HIVE_LOCKS ( HL_LOCK_EXT_ID bigint NOT NULL, HL_LOCK_INT_ID bigint NOT NULL, HL_TXNID bigint NOT NULL, HL_DB varchar(128) NOT NULL, HL_TABLE varchar(128), HL_PARTITION varchar(767), HL_LOCK_STATE char(1) not null, HL_LOCK_TYPE char(1) not null, HL_LAST_HEARTBEAT bigint NOT NULL, HL_ACQUIRED_AT bigint, HL_USER varchar(128) NOT NULL, HL_HOST varchar(128) NOT NULL, HL_HEARTBEAT_COUNT int, HL_AGENT_INFO varchar(128), HL_BLOCKEDBY_EXT_ID bigint, HL_BLOCKEDBY_INT_ID bigint, PRIMARY KEY(HL_LOCK_EXT_ID, HL_LOCK_INT_ID), KEY HIVE_LOCK_TXNID_INDEX (HL_TXNID) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE INDEX HL_TXNID_IDX ON HIVE_LOCKS (HL_TXNID)
+No rows affected (0.005 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE NEXT_LOCK_ID ( NL_NEXT bigint NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.02 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> INSERT INTO NEXT_LOCK_ID VALUES(1)
+1 row affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE COMPACTION_QUEUE ( CQ_ID bigint PRIMARY KEY, CQ_DATABASE varchar(128) NOT NULL, CQ_TABLE varchar(128) NOT NULL, CQ_PARTITION varchar(767), CQ_STATE char(1) NOT NULL, CQ_TYPE char(1) NOT NULL, CQ_TBLPROPERTIES varchar(2048), CQ_WORKER_ID varchar(128), CQ_START bigint, CQ_RUN_AS varchar(128), CQ_HIGHEST_WRITE_ID bigint, CQ_META_INFO varbinary(2048), CQ_HADOOP_JOB_ID varchar(32) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.005 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE COMPLETED_COMPACTIONS ( CC_ID bigint PRIMARY KEY, CC_DATABASE varchar(128) NOT NULL, CC_TABLE varchar(128) NOT NULL, CC_PARTITION varchar(767), CC_STATE char(1) NOT NULL, CC_TYPE char(1) NOT NULL, CC_TBLPROPERTIES varchar(2048), CC_WORKER_ID varchar(128), CC_START bigint, CC_END bigint, CC_RUN_AS varchar(128), CC_HIGHEST_WRITE_ID bigint, CC_META_INFO varbinary(2048), CC_HADOOP_JOB_ID varchar(32) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.005 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE NEXT_COMPACTION_QUEUE_ID ( NCQ_NEXT bigint NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.005 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> INSERT INTO NEXT_COMPACTION_QUEUE_ID VALUES(1)
+1 row affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE AUX_TABLE ( MT_KEY1 varchar(128) NOT NULL, MT_KEY2 bigint NOT NULL, MT_COMMENT varchar(255), PRIMARY KEY(MT_KEY1, MT_KEY2) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE WRITE_SET ( WS_DATABASE varchar(128) NOT NULL, WS_TABLE varchar(128) NOT NULL, WS_PARTITION varchar(767), WS_TXNID bigint NOT NULL, WS_COMMIT_ID bigint NOT NULL, WS_OPERATION_TYPE char(1) NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.006 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE TXN_TO_WRITE_ID ( T2W_TXNID bigint NOT NULL, T2W_DATABASE varchar(128) NOT NULL, T2W_TABLE varchar(256) NOT NULL, T2W_WRITEID bigint NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.005 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE UNIQUE INDEX TBL_TO_TXN_ID_IDX ON TXN_TO_WRITE_ID (T2W_DATABASE, T2W_TABLE, T2W_TXNID)
+No rows affected (0.008 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE UNIQUE INDEX TBL_TO_WRITE_ID_IDX ON TXN_TO_WRITE_ID (T2W_DATABASE, T2W_TABLE, T2W_WRITEID)
+No rows affected (0.004 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE NEXT_WRITE_ID ( NWI_DATABASE varchar(128) NOT NULL, NWI_TABLE varchar(256) NOT NULL, NWI_NEXT bigint NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.005 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE UNIQUE INDEX NEXT_WRITE_ID_IDX ON NEXT_WRITE_ID (NWI_DATABASE, NWI_TABLE)
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE MIN_HISTORY_LEVEL ( MHL_TXNID bigint NOT NULL, MHL_MIN_OPEN_TXNID bigint NOT NULL, PRIMARY KEY(MHL_TXNID) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.006 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE INDEX MIN_HISTORY_LEVEL_IDX ON MIN_HISTORY_LEVEL (MHL_MIN_OPEN_TXNID)
+No rows affected (0.006 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE MATERIALIZATION_REBUILD_LOCKS ( MRL_TXN_ID bigint NOT NULL, MRL_DB_NAME VARCHAR(128) NOT NULL, MRL_TBL_NAME VARCHAR(256) NOT NULL, MRL_LAST_HEARTBEAT bigint NOT NULL, PRIMARY KEY(MRL_TXN_ID) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE `I_SCHEMA` ( `SCHEMA_ID` BIGINT PRIMARY KEY, `SCHEMA_TYPE` INTEGER NOT NULL, `NAME` VARCHAR(256), `DB_ID` BIGINT, `COMPATIBILITY` INTEGER NOT NULL, `VALIDATION_LEVEL` INTEGER NOT NULL, `CAN_EVOLVE` bit(1) NOT NULL, `SCHEMA_GROUP` VARCHAR(256), `DESCRIPTION` VARCHAR(4000), FOREIGN KEY (`DB_ID`) REFERENCES `DBS` (`DB_ID`), KEY `UNIQUE_NAME` (`NAME`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.007 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE `SCHEMA_VERSION` ( `SCHEMA_VERSION_ID` bigint primary key, `SCHEMA_ID` BIGINT, `VERSION` INTEGER NOT NULL, `CREATED_AT` BIGINT NOT NULL, `CD_ID` BIGINT, `STATE` INTEGER NOT NULL, `DESCRIPTION` VARCHAR(4000), `SCHEMA_TEXT` mediumtext, `FINGERPRINT` VARCHAR(256), `SCHEMA_VERSION_NAME` VARCHAR(256), `SERDE_ID` bigint, FOREIGN KEY (`SCHEMA_ID`) REFERENCES `I_SCHEMA` (`SCHEMA_ID`), FOREIGN KEY (`CD_ID`) REFERENCES `CDS` (`CD_ID`), FOREIGN KEY (`SERDE_ID`) REFERENCES `SERDES` (`SERDE_ID`), KEY `UNIQUE_VERSION` (`SCHEMA_ID`, `VERSION`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.009 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE REPL_TXN_MAP ( RTM_REPL_POLICY varchar(256) NOT NULL, RTM_SRC_TXN_ID bigint NOT NULL, RTM_TARGET_TXN_ID bigint NOT NULL, PRIMARY KEY (RTM_REPL_POLICY, RTM_SRC_TXN_ID) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.006 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE TABLE RUNTIME_STATS ( RS_ID bigint primary key, CREATE_TIME bigint NOT NULL, WEIGHT bigint NOT NULL, PAYLOAD blob ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+No rows affected (0.004 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> CREATE INDEX IDX_RUNTIME_STATS_CREATE_TIME ON RUNTIME_STATS(CREATE_TIME)
+No rows affected (0.004 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> INSERT INTO VERSION (VER_ID, SCHEMA_VERSION, VERSION_COMMENT) VALUES (1, '3.1.0', 'Hive release version 3.1.0')
+1 row affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET character_set_client = @saved_cs_client */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET SQL_MODE=@OLD_SQL_MODE */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */
+No rows affected (0 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */
+No rows affected (0.001 seconds)
+0: jdbc:mysql://hadoop102:3306/metastore> !closeall
+Closing: 0: jdbc:mysql://hadoop102:3306/metastore?useSSL=false
+beeline> 
+beeline> Initialization script completed
+schemaTool completed
+[atguigu@hadoop102 software]$ 
