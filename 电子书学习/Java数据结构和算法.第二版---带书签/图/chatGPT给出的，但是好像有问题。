@@ -1,0 +1,85 @@
+import java.util.*;
+
+class Graph {
+    private int V; // 顶点数目
+    private LinkedList<Edge>[] adj; // 邻接表
+
+    // 定义图的边
+    class Edge {
+        int v, w; // 边的两个端点
+        double weight; // 权值
+
+        Edge(int v, int w, double weight) {
+            this.v = v;
+            this.w = w;
+            this.weight = weight;
+        }
+    }
+
+    // 构造函数，初始化图
+    Graph(int V) {
+        this.V = V;
+        adj = new LinkedList[V];
+        for (int i = 0; i < V; i++) {
+            adj[i] = new LinkedList<>();
+        }
+    }
+
+    // 添加边
+    void addEdge(int v, int w, double weight) {
+        Edge e = new Edge(v, w, weight);
+        adj[v].add(e);
+        adj[w].add(e);
+    }
+
+    // 判断是否连通
+    boolean isConnected() {
+        boolean[] visited = new boolean[V]; // 记录每个顶点是否被访问过
+        Stack<Integer> stack = new Stack<>(); // 深度优先搜索用的栈
+
+        // 遍历每个顶点
+        for (int i = 0; i < V; i++) {
+            if (!visited[i]) {
+                stack.push(i);
+                visited[i] = true;
+
+                // 深度优先搜索
+                while (!stack.isEmpty()) {
+                    int v = stack.pop();
+                    for (Edge e : adj[v]) {
+                        int w = e.v == v ? e.w : e.v;
+                        if (!visited[w]) {
+                            stack.push(w);
+                            visited[w] = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 判断所有顶点是否都被访问过，若是则表示连通
+        for (boolean b : visited) {
+            if (!b) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Graph g = new Graph(5);
+        g.addEdge(0, 1, 0.5);
+        g.addEdge(1, 2, 0.8);
+        g.addEdge(2, 3, 0.3);
+        g.addEdge(3, 4, 0.6);
+        System.out.println("The graph is connected: " + g.isConnected()); // 输出 true
+
+        Graph g2 = new Graph(5);
+        g2.addEdge(0, 1, 0.5);
+        g2.addEdge(1, 2, 0.8);
+        g2.addEdge(3, 4, 0.6);
+        System.out.println("The graph is connected: " + g2.isConnected()); // 输出 false
+    }
+}
