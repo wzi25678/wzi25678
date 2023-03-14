@@ -1,4 +1,4 @@
-Follow me on E-mail (2567839929@qq.com)! I'm pushing forward multiple open source projects I believe many developers would be interested in. These projects will involve game and network development with a focus on modding support. See my projects below for more details 🙂
+Follow me on E-mail (wzideng@qq.com)! I'm pushing forward multiple open source projects I believe many developers would be interested in. These projects will involve game and network development with a focus on modding support. See my projects below for more details 🙂
 
 ### Why Did You Follow Me?
 
@@ -25,6 +25,3 @@ Introdution。
 Introdution。
 
 
-
-
-![image](https://user-images.githubusercontent.com/84449746/198819769-381a602d-176e-4187-b817-bb290292a68c.png)
