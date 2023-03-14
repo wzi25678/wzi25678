@@ -1,0 +1,226 @@
+package 堆;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+class Node{
+	private int iData;		//key
+
+	public Node(int key) {
+		super();
+		this.iData = key;
+	}
+
+	public int getKey() {
+		return iData;
+	}
+
+	public void setKey(int id) {
+		this.iData = id;
+	}
+}
+
+class Heap{
+	private Node [] heapArray;
+	private int maxSize;
+	private int currentSize;
+	
+	public Heap(int ms) {
+		super();
+		this.maxSize = ms;
+		currentSize = 0;
+		heapArray = new Node[ms];
+	}
+	
+	public boolean isEmpty() {	//判断是否为空
+		return currentSize == 0;
+	}
+
+//	public boolean insert(boolean i) {
+//		// TODO Auto-generated method stub
+//		return true;
+//		
+//		重载要求参数个数，或者参数类型不相同即可。	
+	
+//	}//end -void insert
+	
+	public boolean insert(int key) {
+		// TODO Auto-generated method stub
+		//判断是否可以插入
+		if(currentSize == maxSize) {
+			return false;
+		}
+		//currentSize记录当前插入的节点位置
+		Node newNode = new Node(key);
+		heapArray[currentSize] = newNode;
+		trickleUp(currentSize++);	//进行插入调整
+		return true;
+	}//end -boolean insert
+
+	private void trickleUp(int index) {		//插入元素之后的调整
+	// TODO Auto-generated method stub
+		int parent  = (index -1)/2; 
+		Node bottom = heapArray[index];		//类似temp作用，保存当前结点的值，然后其他节点对相应位置进行覆盖
+		//1.index代表当前结点序号
+		//2.[index]代表当前节点元素
+		while(index > 0 && heapArray[parent].getKey() < bottom.getKey()) {
+			heapArray[index] = heapArray[parent];
+			index = parent;
+			parent = (parent - 1)/2;
+		}//end -while
+		heapArray[index] = bottom;
+}//end -void trickleUp
+
+	public void displayHeap() {
+		// TODO Auto-generated method stub
+		System.out.println("heapArray: ");
+		for(int m=0;m<currentSize;m++) {
+			if(heapArray[m] != null) {
+				System.out.println(heapArray[m].getKey()+ " ");
+			}else {
+				System.out.println("------ ");
+			}
+		}
+		System.out.println();
+		int nBlanks = 32;
+		int itemsPerRow = -1;
+		int column = 0;
+		int j = 0;
+		String dots = ".......................";
+		System.out.println(dots + dots);
+		while(currentSize > 0) {
+			if(column == 0) {
+				
+			}
+		}
+		
+	}
+
+	public Node remove() {
+		// TODO Auto-generated method stub
+		Node root =heapArray[0];
+		heapArray[0] = heapArray[--currentSize];	//最后一个元素的值去代替顶部元素的值
+		trickleDown(0);		//从0号位开始进行调整
+		return root;
+	}//end -void remove() 
+
+	private void trickleDown(int index) {	//初始设置的是0
+		// TODO Auto-generated method stub
+		int largerChild ;
+		Node top = heapArray[index];
+		while(index < currentSize/2) {
+			int leftChild = 2*index +1;
+			int rightChild = leftChild +1;
+			
+			if(rightChild < currentSize && heapArray[leftChild].getKey() < heapArray[rightChild].getKey()) {
+				//右边的上去
+				largerChild = rightChild;
+			}else {	//否则，左边的上去
+				largerChild = leftChild;
+			}
+			
+			if(top.getKey() >= heapArray[largerChild].getKey()) {
+				break;
+			}
+			
+			heapArray[index] = heapArray[largerChild];
+			index = largerChild;		
+		}//end -while(index < currentSize/2)	
+	}//end-void trickleDown
+
+	public boolean change(int index, int newvalue) {
+		if(index <0 || index >=currentSize) {
+			return false;
+		}
+		int oldValue = heapArray[index].getKey();
+		heapArray[index].setKey(newvalue);
+		
+		if(oldValue < newvalue) {
+			trickleUp(index);
+		}else {
+			trickleDown(index);
+		}
+		return true;
+		// TODO Auto-generated method stub
+	}//end -boolean change
+}//end -class Heap
+
+class HeapApp{
+	public static void main(String[] args) throws IOException {
+		int value,value2;
+		
+		Heap theHeap = new Heap(31);
+		boolean success;	
+		
+		theHeap.insert(70);
+		theHeap.insert(40);
+		theHeap.insert(50);
+		theHeap.insert(20);
+		theHeap.insert(60);
+		theHeap.insert(100);
+		theHeap.insert(80);
+		theHeap.insert(30);
+		theHeap.insert(10);
+		theHeap.insert(90);
+		
+		while(true) {
+			System.out.println("Enter first letter of :");
+			System.out.println("show ,insert ,remove ,change: ");
+			int choice = getChar();
+			switch(choice) {
+			case 's':
+				theHeap.displayHeap();
+				break;
+			case 'i':
+				System.out.println("Enter the value to insert: ");
+				value = getInt();
+				//插入要判断是否能成功
+				success = theHeap.insert(value);
+				if(!success)
+					System.out.println("Can't insert ;heap full !");
+				break;
+			case 'r':
+				if(!theHeap.isEmpty())
+					theHeap.remove();
+				else {
+					System.out.println("Can't remove ;heap empty !");
+				}
+				break;
+			case 'c':
+					System.out.println("Enter current index of item: !");
+					value = getInt();
+					System.out.println("Enter new key: ");
+					value2 = getInt();
+					success = theHeap.change(value,value2);
+					if(!success)
+						System.out.println("Invalid index!");
+				break;
+			default:
+					System.out.println("Invalid entry\n");
+			}//end -switch(choice) 	
+				
+			}//end -while(true)
+			
+		}//end -main
+	
+	private static String getString() throws IOException {
+		InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		String str = bufferedReader.readLine();
+		return str;
+	}
+	private static int getInt() throws IOException {
+		// TODO Auto-generated method stub
+		String s = getString();
+		return Integer.parseInt(s);
+	}
+	
+
+	private static int getChar()  throws IOException {
+		String s = getString();
+		// TODO Auto-generated method stub
+		return s.charAt(0);
+	}
+}//end -class HeapApp
