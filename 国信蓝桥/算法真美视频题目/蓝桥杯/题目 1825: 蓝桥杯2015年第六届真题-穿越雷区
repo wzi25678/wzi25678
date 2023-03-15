@@ -1,0 +1,73 @@
+package Year_2015;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class 穿越雷区 {
+	
+	
+	public static int n;
+	public static String arr[][];
+	
+	public static Queue<Node> queue = new LinkedList<>();
+	public static Node now;
+	public static int [] fx = {1,0,0,-1};
+	public static int [] fy = {0,1,-1,0};
+	
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		n = scanner.nextInt();
+		arr = new String [n][n];
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<n;j++) {
+				arr[i][j] = scanner.next();
+				if(arr[i][j].equals('A')) {
+					now = new Node(i,j,0,"o");
+				}
+			}//end -for(int j=0;j<n;j++)
+			
+		}//end -for(int i=0;i<n;i++)
+		int res = bfs();
+		System.out.println(res);
+		scanner.close();
+	}
+
+	private static int bfs() {
+		// TODO Auto-generated method stub
+		queue.add(now);
+		while(!queue.isEmpty()) {
+			Node node = queue.poll();
+			int x = node.i;
+			int y = node.j;
+			String status = node.status;
+			if(arr[x][y].equals("B")) {
+				return node.step;
+			}
+			int x2,y2;	//记录下一步移动到的坐标
+			for(int i=0;i<4;i++) {
+				x2 = x + fx[i];
+				y2 = y + fy[i];
+				
+				//如果移动合法，就将新节点坐标加入到队列中
+				if(x2<n && y2<n && x2 >=0 && !status.equals(arr[x2][y2])) {
+					queue.add(new Node(x2,y2,node.step+1,arr[x2][y2]));
+				}
+			}//end -for(int i=0;i<4;i++) 
+		}//end -while(!queue.isEmpty())
+		return -1;
+	}
+}
+
+class Node{
+	int i , j;	//记录当前结点的坐标
+	int step;
+	String status;	//记录该结点的+-情况
+	
+	public Node(int i, int j, int step, String status) {
+		this.i = i;
+		this.j = j;
+		this.step = step;
+		this.status = status;
+	}
+}
