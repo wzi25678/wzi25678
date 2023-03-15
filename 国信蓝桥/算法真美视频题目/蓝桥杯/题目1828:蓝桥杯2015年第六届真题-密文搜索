@@ -1,0 +1,38 @@
+package Year_2015;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class 密文搜索 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Set<String> set = new HashSet<String>();
+		String s = sc.next();	//输出字符串
+		int n = sc.nextInt();	//接下来n行
+		char[] d,t;	  //保存接下来可以拆分的字符数粗
+		sc.nextLine();	
+		for(int i=0;i<n;i++) {
+			String ch = sc.next();
+			d = ch.toCharArray();
+			Arrays.sort(d);
+			for(int j=0;j<=s.length()-8;j++) {
+				String temp = s.substring(j,j+8);	//获取截取的S中的所有部分长度
+				t = temp.toCharArray();
+				Arrays.sort(t);
+				int flag = 0;
+				for(int q=0;q<8;q++) {
+					if(t[q] != d[q]) {
+						flag = 1;
+					}
+				}
+				if(flag == 0) {
+					set.add(temp);
+				}
+			}
+			
+		}
+		System.out.println(set.size());
+	}
+}
