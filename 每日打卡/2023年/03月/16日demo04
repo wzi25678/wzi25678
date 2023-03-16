@@ -1,0 +1,41 @@
+Xshell 7 (Build 0122)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop102' resolved to 192.168.137.225.
+Connecting to 192.168.137.225:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Thu Mar 16 11:58:38 2023 from typora-wzi.mshome.net
+[atguigu@hadoop102 ~]$ cd /opt/module/hive-3.1.2/
+[atguigu@hadoop102 hive-3.1.2]$ jps
+16405 RunJar
+15446 DataNode
+15244 NameNode
+15804 NodeManager
+16605 Jps
+[atguigu@hadoop102 hive-3.1.2]$ hive metastore service
+which: no hbase in (/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive-3.1.2/bin:/home/atguigu/.local/bin:/home/atguigu/bin)
+Hive Session ID = c11b010a-cd52-4372-9771-2f71e19ec187
+
+Logging initialized using configuration in jar:file:/opt/module/hive-3.1.2/lib/hive-common-3.1.2.jar!/hive-log4j2.properties Async: true
+Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+hive> [atguigu@hadoop102 hive-3.1.2]$ ^C
+[atguigu@hadoop102 hive-3.1.2]$ bin/hive --service hiveserver2
+which: no hbase in (/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive-3.1.2/bin:/home/atguigu/.local/bin:/home/atguigu/bin)
+2023-03-16 22:28:04: Starting HiveServer2
+Hive Session ID = a52bc902-65b0-4e42-a3d0-3baec97af987
+Hive Session ID = ef340750-b202-4637-97fd-9cacf9760d29
+Hive Session ID = 148c9b3b-7ac5-45db-88e7-110672eaa22e
+Hive Session ID = de7aacd3-70e9-4b94-ae77-e617778de293
+Hive Session ID = 9e862189-14db-494e-80c0-7e20b59db835
+Hive Session ID = 77b1fa51-f73c-4fad-ba04-378ccc28d942
+Hive Session ID = f655d333-f55e-4e90-9496-1e19cb03ab9e
+Hive Session ID = a7493383-44fd-4be0-aa18-984e43871e91
+Hive Session ID = e1b73b22-e82c-4d9a-89ec-8217ee1397fc
+Hive Session ID = ced050b0-c6f0-424f-8ead-70b9dcf20793
+Hive Session ID = 3aa00806-b7bf-440c-9457-435f06c37aaf
+^A
