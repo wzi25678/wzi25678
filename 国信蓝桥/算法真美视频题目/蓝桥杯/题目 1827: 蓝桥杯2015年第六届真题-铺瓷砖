@@ -1,0 +1,99 @@
+package Year_2015;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.*;
+ 
+public class 铺瓷砖net {
+    public static InputReader in = new InputReader(new BufferedInputStream(System.in));
+    public static PrintWriter out = new PrintWriter(System.out);
+    public static long n, m;
+    public static BigInteger sum, mod = BigInteger.valueOf(65521);
+    public static void main(String[] args) {
+        n = in.nextLong();
+        m = in.nextLong();
+        sum = BigInteger.ZERO;
+        if (n == 1 || m == 1) {
+            out.println("0");
+            out.flush();
+        } else if (m == 2) {
+            if (n == 2 || n == 4) sum = BigInteger.ZERO;
+            else {
+                if (n % 3 == 0) sum = BigInteger.valueOf(2).modPow(BigInteger.valueOf(n).divide(BigInteger.valueOf(3)), mod);
+                if (n % 5 == 0) sum = sum.add(BigInteger.valueOf(2).modPow(BigInteger.valueOf(n).divide(BigInteger.valueOf(5)), mod));
+                if (n % 8 == 0 && n % 3 != 0 && n % 5 != 0) sum = BigInteger.valueOf(8).modPow(BigInteger.valueOf(n).divide(BigInteger.valueOf(8)), mod);
+            }
+            out.println(sum);
+            out.flush();
+        } else if (m == 3){
+            if (n % 2 == 0) sum = BigInteger.valueOf(2).modPow(BigInteger.valueOf(n).divide(BigInteger.valueOf(2)), mod);
+            out.println(sum);
+            out.flush();
+        } else if (m == 4) {
+            if (n % 3 == 0) sum = sum.add(BigInteger.valueOf(4).modPow(BigInteger.valueOf(n).divide(BigInteger.valueOf(3)), mod));
+            else if (n % 4 == 0) sum = sum.add(BigInteger.valueOf(2).modPow(BigInteger.valueOf(n).divide(BigInteger.valueOf(4)), mod));
+            else if (n % 5 == 0) sum = sum.add(BigInteger.valueOf(4).modPow(BigInteger.valueOf(n).divide(BigInteger.valueOf(5)), mod));
+            out.println(sum);
+            out.flush();
+        } else if (m == 5) {
+            if (n % 2 == 0) sum = sum.add(BigInteger.valueOf(2).modPow(BigInteger.valueOf(n).divide(BigInteger.valueOf(2)), mod));
+            if (n % 5 == 0) sum = sum.add(BigInteger.valueOf(32).modPow(BigInteger.valueOf(n).divide(BigInteger.valueOf(5)), mod));
+            out.println(sum);
+            out.flush();
+        } else if (m == 6){
+            if (n % 2 == 0) sum = sum.add(BigInteger.valueOf(4).modPow(BigInteger.valueOf(n).divide(BigInteger.valueOf(2)), mod));
+            if (n % 5 == 0) sum = sum.add(BigInteger.valueOf(2).modPow(BigInteger.valueOf(n).divide(BigInteger.valueOf(5)), mod));
+            out.println(sum);
+            out.flush();
+        }
+        out.close();
+    }
+    static class InputReader {
+        public BufferedReader reader;
+        public StringTokenizer tokenizer;
+        public InputReader(InputStream stream) {
+            reader = new BufferedReader(new InputStreamReader(stream), 32768);
+            tokenizer = null;
+        }
+        public String next() {
+            while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                try {
+                    tokenizer = new StringTokenizer(reader.readLine());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            return tokenizer.nextToken();
+        }
+        public String nextLine() {
+            String str = null;
+            try {
+                str = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+        public int nextInt() {
+            return Integer.parseInt(next());
+        }
+        public long nextLong() {
+            return Long.parseLong(next());
+        }
+        public Double nextDouble() {
+            return Double.parseDouble(next());
+        }
+        public BigInteger nextBigInteger() {
+            return new BigInteger(next());
+        }
+        public BigDecimal nextBigDecimal() {
+            return new BigDecimal(next());
+        }
+    }
+}
