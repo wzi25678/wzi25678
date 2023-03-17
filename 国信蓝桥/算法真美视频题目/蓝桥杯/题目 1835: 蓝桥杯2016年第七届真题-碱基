@@ -1,0 +1,42 @@
+package Year_2016;
+
+import java.util.Scanner;
+
+public class 碱基 {
+	/**
+	 * 他们现在关注那些至少在m个生物中出现的长度为k的连续碱基序列。
+	 * 准确的说，科学家关心的序列用2m元组(i1,p1,i2,p2....im,pm)表示，
+	 * 满足:
+		1<=i1<i2<....<im<=n;
+		且对于所有q(0<=q<k), s[i1][p1+q]=s[i2][p2+q]=....=s[im][pm+q]。
+		
+		输入的第一行包含三个整数n、m、k，两个整数之间用一个空格分隔，意义如题目所述。
+		接下来n行，每行一个字符串表示一种生物的DNA序列。
+		DNA序列从1至n编号，每个序列中的碱基从1开始依次编号，不同的生物的DNA序列长度可能不同。
+	 */
+	public static int n,m,k;	
+	public static String [] DNA_Series;
+	public static long ans,temp,mod = 1000000007;
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		m = sc.nextInt();
+		k = sc.nextInt();
+		DNA_Series = new String[n];
+		for(int i=0;i<n;i++) {
+			DNA_Series[i] = sc.nextLine();
+		}
+		ans = 0;
+		dfs(0,0);
+		
+	}//end -main
+
+	private static void dfs(int kk, int p) {
+		// TODO Auto-generated method stub
+		if(kk>m) {
+			int len = s[DNA_Series[1]].length;
+		}
+		
+	}
+}//end -class 碱基
