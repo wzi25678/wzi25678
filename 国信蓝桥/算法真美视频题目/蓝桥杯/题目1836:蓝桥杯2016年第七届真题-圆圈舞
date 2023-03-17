@@ -1,0 +1,173 @@
+package Year_2016;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+public class 圆圈舞 {
+	static int n;	//动物数量
+	static int m;	//变化次数  ---表示队形、欢乐值、感动值的变化次数。
+	static int [][] operate ; //操作内容
+	static int result []; //操作结果
+	static Animal [] animals;	//动物存放的索引	
+	static List<Set<Animal>> list = new ArrayList<Set<Animal>>();
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		animals = new Animal[n];
+		for(int i =0;i<n;i++) {
+			//						编号，	欢乐值，		感动次数
+			animals[i] = new Animal(i+1, sc.nextInt(), sc.nextInt());
+		}
+		//为每个动物建立左右手初始连接对象
+		animals[0].left = animals[n-1];
+		animals[0].right = animals[1];
+		animals[n-1].left = animals[n-2];
+		animals[n-1].right = animals[0];
+		for(int i=1;i<n-1;i++) {
+			animals[i].left = animals[i-1];
+			animals[i].right = animals[1+1];
+		}
+		
+		//接下来一行包含一个整数m，表示队形、欢乐值、感动值的变化次数。
+		m = sc.nextInt();
+		operate = new int [m][3];
+		for(int i =0;i<m;i++) {
+			operate[i][0] = sc.nextInt();	//k
+			operate[i][1] = sc.nextInt();	//p
+			operate[i][2] = sc.nextInt();	//q
+		}
+		result = new int[m];
+		
+		//构造一个圈
+		list.add(createSet(animals[0]));
+		for(int i=0;i<m;i++) {
+			change(operate[i]);
+			for(int j=0;j<list.size();j++) {
+				result[i] += getEnergySum(list.get(j));
+			}//for(int j=0;j<list.size();j++)
+		}//for(int i=0;i<m;i++)
+		for(int a : result) {
+			System.out.println(a);
+		}
+	}
+
+	private static int getEnergySum(Set<Animal> set) {
+		// TODO Auto-generated method stub
+		int sum = 0;
+		Iterator<Animal> iterator = set.iterator();
+		
+		//计算欢乐能量
+		while(iterator.hasNext()) {
+			Animal head_animal = iterator.next();
+			int headnumber = head_animal.number;
+			int p = 0;
+			Animal next_animal = head_animal.right;
+			while(next_animal.number != headnumber) {
+				p++;
+				sum = (p*next_animal.happy * head_animal.affect);
+				next_animal = next_animal.right;
+			}
+		}
+		
+		return sum;
+	}
+
+	private static void change(int[] once) {
+		// TODO Auto-generated method stub
+		if(once[0] == 1) {
+			//，当k=1时，表示小动物们通过动物p和动物q变换了队形
+			ChangeFormation(once[1] -1,once[2]-1);
+		}else if(once[0] == 2) {
+			//当k=2时，表示动物p的欢乐值变为q，
+			animals[once[1]-1].happy = animals[once[2]-1].happy;
+		}else if(once[0] == 3) {
+			//当k=3时，表示动物p的感动值变为了q
+			animals[once[1]-1].affect = animals[once[2]-1].affect;
+		}
+	}//end - void change
+
+	private static void ChangeFormation(int i, int j) {
+		// TODO Auto-generated method stub
+		boolean sign = false;
+		
+		for(int a = 0;a<list.size();a++) {
+			////当前圈内包含有动物i
+			if(list.get(a).contains(animals[i])) {
+				//当前圈内包含有动物j
+				if(list.get(a).contains(animals[j])) {
+					//如果两只动物是连续位置
+					if(i+1 == j) {
+						return;
+					}else {
+						sign = true;
+						list.remove(list.get(a));
+						a--;
+						break;
+					}
+				}//if(list.get(a).contains(animals[j]))
+				////当前圈内不包含动物j，交换的两只不在同一个圈内
+				else {
+					sign = false;
+					list.remove(list.get(a));
+					a--;
+					continue;
+				}
+			}//if(list.get(a).contains(animals[i]))
+			//当前圈中不含有动物i，但是含有动物j
+			if(list.get(a).contains(animals[j])) {
+				list.remove(list.get(a));
+				a--;
+			}
+		}//for(int a = 0;a<list.size();a++)
+		
+		//两个在一个圈，拆分出两条
+		if(sign) {
+			animals[i].right.left = animals[i].left;
+			animals[i].left.right = animals[i].right;
+			list.add(createSet(animals[i].right));
+			animals[i].right = animals[j];
+			animals[j].left =  animals[i];
+			list.add(createSet(animals[i]));
+		}else {
+			animals[i].right.left = animals[j].left;
+			animals[j].left.right = animals[i].right;
+			animals[i].right = animals[j];
+			animals[j].left =  animals[i];
+			list.add(createSet(animals[i]));
+		}
+	}//end - void ChangeFormation(int i, int j)
+
+	//生成一个动物圈
+	private static Set<Animal> createSet(Animal animal) {
+		// TODO Auto-generated method stub
+		Set<Animal> set = new HashSet<Animal>();
+		while(!set.contains(animal)) {
+			set.add(animal);
+			animal = animal.right;
+		}
+		return set;
+	}
+	
+}
+
+class Animal{
+	int number; //自身编号
+	int happy;	//欢乐值
+	int affect;	//感动值
+	
+	Animal left;
+	Animal right;
+	
+	public Animal(int number, int happy, int affect) {
+		super();
+		this.number = number;
+		this.happy = happy;
+		this.affect = affect;
+	}
+}//end -class Animal
