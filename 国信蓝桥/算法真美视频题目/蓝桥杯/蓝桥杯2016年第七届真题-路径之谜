@@ -1,0 +1,128 @@
+package Year_2016;
+
+import java.util.Scanner;
+
+import com.sun.tools.javac.comp.Check;
+
+public class 路径之谜 {
+	private static int N;
+	private static int ans;	//记录结果
+	private static int [][] map;	
+	private static boolean [][] visited;
+	private static int [][] arr;
+	//									实现右，上，下，左四个方向的移动
+	private static int [][] fire_way = {{0,1},{1,0},{0,-1},{-1,0}};
+	public static void main(String[] args) {
+//		System.out.println(fire_way[0].length);
+//		System.out.println("===============================");
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		map = new  int [N+1][N+1];	//方便计数,同时外面一圈即为靶子数
+		visited = new  boolean [N+1][N+1];
+		arr = new int[N][N];
+		//第二行N个整数，空格分开，表示北边的箭靶上的数字（自西向东）
+		for(int i=1;i<=N;i++) {
+			map[0][i] = sc.nextInt();
+		}
+		//第三行N个整数，空格分开，表示西边的箭靶上的数字（自北向南）
+		for(int i=1;i<=N;i++) {
+			map[i][0] = sc.nextInt();
+		}
+		int mark_number = 0;
+		//为每一个位置进行一下标号
+		for(int i=1;i<=N;i++) {
+			for(int j=1;j<=N;j++) {
+				map[i][j] = mark_number;
+				mark_number++;
+			}
+		}//for(int i=1;i<=N;i++) 
+		
+		arr[0][0] = 1;
+		visited[1][1] = false;	//
+		map[0][1]--;
+		map[1][0]--;
+		dfs(1,1);
+	}
+	
+	
+	private static void dfs(int x, int y) {
+		// TODO Auto-generated method stub
+		//如果到达边界
+		if(x==N && y==N && f(x,y)) {
+			print();
+			return;
+		}
+		//尝试走不同方向
+		for(int i=0;i<4;i++) {
+			int t_x = x +fire_way[i][0];
+			int t_y = y +fire_way[i][1];
+			
+			if(!check(t_x,t_y)) {
+				continue;
+			}
+			
+			visited[t_x][t_y] = true;
+			map[0][t_y]--;
+			map[t_x][0]--;
+			ans++;
+			arr[t_x - 1][t_y - 1] = ans;
+			dfs(t_x,t_y);
+			arr[t_x - 1][t_y - 1] = 0;
+			ans--;
+			visited[t_x][t_y] = false;
+			map[0][t_y]++;
+			map[t_x][0]++;
+		}//for(int i=0;i<4;i++)
+	}//
+
+
+	private static boolean check(int t_x, int t_y) {
+		// TODO Auto-generated method stub
+		if(t_x < 1 || t_x > N || t_y <1 || t_y > N) {
+			return false;
+		}
+		if(visited[t_x][t_y] == true) {
+			return false;
+		}
+		if(map[0][t_y]-1 <0 || map[t_x][0] - 1 < 0) {
+			return false;
+		}
+		return true;
+	}
+
+
+	private static boolean f(int x, int y) {
+		// TODO Auto-generated method stub
+		int count = 0;
+		for(int i=1;i<=N;i++) {
+			if(map[0][i] == 0) {
+				count++;
+			}
+		}//for(int i=1;i<=N;i++)
+		for(int i=1;i<=N;i++) {
+			if(map[i][0] == 0) {
+				count++;
+			}
+		}//for(int i=1;i<=N;i++)
+		if(count == 2*N) {
+			return true;
+		}else {
+			return false;
+		}
+	}//end -boolean f(int x, int y)
+
+
+	private static void print() {
+		// TODO Auto-generated method stub
+		for(int i=1;i<=ans;i++) {
+			for(int j=0;j<N;j++) {
+				for(int z=0;z<N;z++) {
+					if(arr[j][z] == i) {
+						System.out.println(map[j+1][z+1]+" ");
+					}
+				}
+			}
+		}
+		
+	}//end -void print() 
+}
