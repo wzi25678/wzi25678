@@ -1,0 +1,67 @@
+package Year_2015;
+
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class 切开字符串 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()) {
+			int n = sc.nextInt();
+			String str = sc.next();
+			int max = 0;
+			int index = 0;
+			//要回文，起码也得两个吧
+			for(int i=1;i<n-1;i++) {
+				Set<String> set1 = new HashSet<>();
+				Set<String> set2 = new HashSet<>();
+				String A = str.substring(0,i);
+				String B = str.substring(i,n);
+//				System.out.println("temp1__"+ A);
+//				System.out.println("temp2__"+ B);
+				
+				//上述已按要求截取了每一轮的A，B
+				for(int j=0;j<i;j++) {
+					for(int k=j+1;k<=i;k++) {
+						if(even(A.substring(j,k)) && palindrome(A.substring(j,k))) {
+							set1.add(A.substring(j,k));
+						}
+					}//end -for(int k=j+1;k<=i;k++)
+				}//end -for(int j=0;j<i;j++)
+				
+				for(int j=0;j<n-i;j++) {
+					for(int k=j+1;k<=n-i;k++) {
+						if(!even(B.substring(j,k)) && !palindrome(B.substring(j,k))) {
+							set2.add(B.substring(j,k));
+						}
+					}
+				}//end -for(int j=0;j<n-i;j++)
+			}//end -for(int i=1;i<n-1;i++) 
+		}//end -while(sc.hasNext())
+	}//end -main
+
+	private static boolean palindrome(String str) {
+		if(str.length() == 1) {
+			return true;
+		}else {
+			boolean flag = true;
+			for(int i=0;i<str.length()/2;i++) {
+				if(str.charAt(i) != str.charAt(str.length()-1-i)) {
+					flag = false;
+				}
+			}
+			return flag;
+		}
+		
+		// TODO Auto-generated method stub
+	
+	}//end - boolean palindrome(String str) 
+
+	private static boolean even(String str) {
+		
+		// TODO Auto-generated method stub
+		return str.length() % 2 != 0;
+	}
+
+}
