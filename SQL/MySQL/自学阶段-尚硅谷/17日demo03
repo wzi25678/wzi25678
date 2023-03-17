@@ -1,0 +1,46 @@
+#6. 结论：如果有n个表实现多表的查询，则需要至少n-1个连接条件
+#练习：查询员工的employee_id,last_name,department_name,city
+SELECT e.employee_id,e.last_name,d.department_name,l.city,e.department_id,l.location_id
+FROM employees e,departments d,locations l
+WHERE e.`department_id` = d.`department_id`
+AND d.`location_id` = l.`location_id`;
+
+# 7.1 等值连接  vs  非等值连接
+# 同一属性在多个表之间的字段数量是否一致？
+
+#非等值连接的例子：
+SELECT *
+FROM job_grades;
+
+SELECT e.last_name,e.salary,j.grade_level
+FROM employees e,job_grades j
+#where e.`salary` between j.`lowest_sal` and j.`highest_sal`;
+WHERE e.`salary` >= j.`lowest_sal` AND e.`salary` <= j.`highest_sal`;
+
+1. 非自连接
+非自连指的是在多表查询中，连接的是不同的表。我的这篇博文《多表查询的分类1：等值连接和非等值连接》提到的例子都是非自连接。故此不再赘述。
+
+2. 自连接
+自连接，顾名思义，就是自己连接自己，指的是在多表查询中连接的是同一张表。
+
+# 内连接：合并具有同一列的两个以上的表的行, 结果集中【不包含】一个表与另一个表不匹配的行
+SELECT employee_id,department_name
+FROM employees e,departments d
+WHERE e.`department_id` = d.department_id;  #只有106条记录
+
+# 外连接：合并具有同一列的两个以上的表的行, 结果集中除了包含一个表与另一个表匹配的行之外，
+#         还查询到了左表 或 右表中不匹配的行。
+
+
+3.3.3 满外连接(FULL OUTER JOIN)
+满外连接的结果 = 左右表匹配的数据 + 左表没有匹配到的数据 + 右表没有匹配到的数据。
+SQL99是支持满外连接的。使用FULL JOIN 或 FULL OUTER JOIN来实现。
+需要注意的是，MySQL不支持FULL JOIN，但是可以用 LEFT JOIN UNION RIGHT join代替。
+
+
+#8. UNION  和 UNION ALL的使用
+# UNION：会执行去重操作
+# UNION ALL:不会执行去重操作
+，则结果会显示两份一样的数据
+#结论：如果明确知道合并数据后的结果数据不存在重复数据，或者不需要去除重复的数据，
+#则尽量使用UNION ALL语句，以提高数据查询的效率。
