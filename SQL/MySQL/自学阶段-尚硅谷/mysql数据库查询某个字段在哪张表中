@@ -1,0 +1,1 @@
+SELECT * from information_schema.columns where   TABLE_SCHEMA='数据库名'  and   COLUMN_NAME='字段名'
