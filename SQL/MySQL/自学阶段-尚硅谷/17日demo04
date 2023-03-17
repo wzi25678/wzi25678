@@ -1,0 +1,88 @@
+# 中图：内连接
+SELECT employee_id,department_name
+FROM employees e JOIN departments d
+ON e.`department_id` = d.`department_id`;
+
+#中图：内连接
+SELECT employee_id,department_name
+FROM employees e,departments d
+WHERE e.`department_id` = d.`department_id`
+
+# 左上图：左外连接
+SELECT employee_id,department_name
+FROM employees e LEFT JOIN departments d
+ON e.`department_id` = d.`department_id`;
+
+SELECT employee_id,department_name
+FROM employees e LEFT JOIN departments d
+ON e.`department_id` = d.`department_id`;
+
+
+# 右上图：右外连接
+SELECT employee_id,department_name
+FROM employees e RIGHT JOIN departments d
+ON e.`department_id` = d.`department_id`;
+
+# 左中图：
+SELECT employee_id,department_name
+FROM employees e LEFT JOIN departments d
+ON e.`department_id` = d.`department_id`
+WHERE d.`department_id` IS NULL;
+
+SELECT employee_id,department_name
+FROM employees e LEFT JOIN departments d
+ON e.`department_id` = d.`department_id` 
+WHERE e.`department_id` IS  NULL;
+
+
+# 右中图：
+SELECT employee_id,department_name
+FROM employees e RIGHT JOIN departments d
+ON e.`department_id` = d.`department_id`
+WHERE e.`department_id` IS NULL;
+
+
+# 左下图：满外连接
+# 方式1：左上图 UNION ALL 右中图
+
+SELECT employee_id,department_name
+FROM employees e LEFT JOIN departments d
+ON e.`department_id` = d.`department_id`
+UNION ALL
+SELECT employee_id,department_name
+FROM employees e RIGHT JOIN departments d
+ON e.`department_id` = d.`department_id`
+WHERE e.`department_id` IS NULL;
+
+
+SELECT employee_id,department_name
+FROM employees e LEFT JOIN departments d
+ON e.`department_id` = d.`department_id`
+UNION #ALL 需要？？？
+SELECT employee_id,department_name
+FROM employees e RIGHT JOIN departments d
+ON e.`department_id` = d.`department_id`
+WHERE e.`department_id` IS NULL;
+
+
+# 方式2：左中图 UNION ALL 右上图
+
+SELECT employee_id,department_name
+FROM employees e LEFT JOIN departments d
+ON e.`department_id` = d.`department_id`
+WHERE d.`department_id` IS NULL
+UNION ALL
+SELECT employee_id,department_name
+FROM employees e RIGHT JOIN departments d
+ON e.`department_id` = d.`department_id`;
+
+# 右下图：左中图  UNION ALL 右中图
+SELECT employee_id,department_name
+FROM employees e LEFT JOIN departments d
+ON e.`department_id` = d.`department_id`
+WHERE d.`department_id` IS NULL
+UNION ALL
+SELECT employee_id,department_name
+FROM employees e RIGHT JOIN departments d
+ON e.`department_id` = d.`department_id`
+WHERE e.`department_id` IS NULL;
