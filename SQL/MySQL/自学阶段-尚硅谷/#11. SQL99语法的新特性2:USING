@@ -1,0 +1,15 @@
+
+SELECT employee_id,last_name,department_name
+FROM employees e JOIN departments d
+ON e.department_id = d.department_id;
+
+SELECT employee_id,last_name,department_name
+FROM employees e JOIN departments d
+USING (department_id);
+
+
+#拓展：
+SELECT last_name,job_title,department_name 
+FROM employees INNER JOIN departments INNER JOIN jobs 
+ON employees.department_id = departments.department_id 
+AND employees.job_id = jobs.job_id;
