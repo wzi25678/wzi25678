@@ -1,0 +1,18 @@
+（1）查询表的类型
+hive (default)> desc formatted student2;
+Table Type: MANAGED_TABLE
+（2）修改内部表 student2 为外部表
+alter table student2 set tblproperties('EXTERNAL'='TRUE');
+（3）查询表的类型
+hive (default)> desc formatted student2;
+Table Type: EXTERNAL_TABLE
+（4）修改外部表 student2 为内部表
+alter table student2 set tblproperties('EXTERNAL'='FALSE');
+（5）查询表的类型
+hive (default)> desc formatted student2;
+Table Type: MANAGED_TABLE
+
+
+
+注意：('EXTERNAL'='TRUE')和('EXTERNAL'='FALSE')为固定写法，区分大小写！
+
