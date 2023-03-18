@@ -1,0 +1,24 @@
+尚硅谷大数据技术之Hive-01（基础）
+数据类型 描述 语法示例
+STRUCT 和 c 语言中的 struct 类似，都可以通过“点”符号访
+问元素内容。例如，如果某个列的数据类型是 STRUCT{first 
+STRING, last STRING},那么第 1 个元素可以通过字段.first 来
+引用。
+struct()
+例 如 struct<street:string, 
+city:string>
+MAP MAP 是一组键-值对元组集合，使用数组表示法可以
+访问数据。例如，如果某个列的数据类型是 MAP，其中键
+->值对是’first’->’John’和’last’->’Doe’，那么可以
+通过字段名[‘last’]获取最后一个元素
+map()
+例如 map<string, int>
+ARRAY 数组是一组具有相同类型和名称的变量的集合。这些
+变量称为数组的元素，每个数组元素都有一个编号，编号从
+零开始。例如，数组值为[‘John’, ‘Doe’]，那么第 2 个
+元素可以通过数组名[1]进行引用。
+Array()
+例如 array<string>
+Hive 有三种复杂数据类型 ARRAY、MAP 和 STRUCT。ARRAY 和 MAP 与 Java 中的 Array
+和 Map 类似，而 STRUCT 与 C 语言中的 Struct 类似，它封装了一个命名字段集合，复杂数据
+类型允许任意层次的嵌套
