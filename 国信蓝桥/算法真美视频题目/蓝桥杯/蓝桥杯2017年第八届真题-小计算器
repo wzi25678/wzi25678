@@ -1,0 +1,47 @@
+package Year_2017;
+
+import java.util.Scanner;
+
+public class 小计算器 {
+	private static long NUM;
+	private static int   index_system = 10 ;	//表示当前是多少进制，默认十进制
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();	//操作指令数
+		String [] data = new String[n+1];
+		
+		for(int i=0;i<n+1;i++) {
+			data[i] = sc.nextLine();
+		}
+		
+		for(int i=0;i<n+1;i++) {
+			if(data[i].startsWith("NUM")) {
+				long b = Long.parseLong(data[i].substring(4),index_system);
+				if(data[i-1].equals("ADD")) {
+					NUM += b;
+				}else if(data[i-1].equals("SUB")) {
+					NUM -= b;
+				}else if(data[i-1].equals("MUL")) {
+					NUM *= b;
+				}else if(data[i-1].equals("DIV")) {
+					NUM /= b;
+				}else if(data[i-1].equals("MOD")) {
+					NUM %= b;
+				}else if(data[i-1].equals("CLEAR")) {
+					NUM = b;
+				}
+			}//if(data[i].startsWith("NUM"))
+			if(data[i].startsWith("CHANGE")) {
+				index_system = Integer.parseInt(data[i].substring(7));
+				data[i] = data[i-1];
+				continue;
+			}
+			if(data[i].startsWith("EQUAL")) {
+				System.out.println(Long.toString(NUM,index_system).toUpperCase());
+			}
+		}
+		
+	}
+
+}
