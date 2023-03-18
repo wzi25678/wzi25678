@@ -1,0 +1,56 @@
+package Year_2017;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class 填字母游戏 {
+	private static int round,m;
+	private static int [] arr ;
+	private static int [] degree ;
+	private static HashMap<String,Integer> map = new HashMap<String,Integer>();
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		round = sc.nextInt();
+		for(int i=0;i<round;i++) {
+			System.out.println(Judge(sc.next()));
+		}
+		sc.close();
+	}//end -main
+
+	private static int Judge(String str) {
+		// TODO Auto-generated method stub
+		if(map.containsKey(str)) {
+			return map.get(str);
+		}
+		if(str.indexOf("LOL") != -1) {
+			return -1;
+		}
+		if(str.length() < 3 || str.indexOf("*") == -1) {
+			int res = 0;
+		}
+		
+		int res = -1;
+		char [] arr = str.toCharArray();
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i] == '*') {
+				arr[i] = 'L';
+				res = Math.max(res, -Judge(new String(arr)));
+				if(res == 1) {
+					break;
+				}else {
+					arr[i] = '0';
+					res = Math.max(res, -Judge(new String(arr)));
+					if(res == 1) {
+						break;
+					}
+				}
+				arr[i] = '*';
+			}//if(arr[i] == '*')
+		}
+		if(!map.containsKey(str)) {
+			map.put(str, res);
+		}
+		return res;
+	}//end -char[] Judge
+}//end -class 填字母游戏
