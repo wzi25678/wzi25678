@@ -1,0 +1,31 @@
+package Year_2017;
+
+import java.util.Scanner;
+
+public class 对局匹配AC {
+	private static int N,K;
+	private static int [] arr ;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		K  =sc.nextInt();
+		arr = new int [N];
+		for(int i=0;i<N;i++) {
+			arr[i] = sc.nextInt();
+		}
+		
+		int count = 0;
+		for(int i=0;i<N;i++) {
+			if(arr[i] != -1) {
+				for(int j=i+1;j<N;j++) {
+					if(arr[i] - K ==arr[j] || arr[i] + K ==arr[j]) {
+						arr[j] = -1;
+						arr[i] = -1;
+						count +=2;
+					}
+				}
+			}
+		}
+		System.out.println(count/2 + N -count);	
+	}
+}
