@@ -1,0 +1,105 @@
+package Year_2017;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class 发现环 {
+	private static int index = 0;
+	private static int[] arr,visited;
+	private static Map<Integer,ArrayList<Integer>> map = new HashMap<Integer,ArrayList<Integer>>();
+	private static ArrayList<Integer> res = new ArrayList<>();
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()) {
+			int n = sc.nextInt();
+			arr = new int [n+1];
+			visited  = new int [n+1];
+			
+			for(int i=1;i<=n;i++) {
+				//给结点编一个默认号
+				arr[i] = i;
+			}
+			
+			for(int i=1;i<=n;i++) {
+				int u_head = sc.nextInt();
+				int v_tail = sc.nextInt();
+				
+				if(map.get(u_head) == null) {
+					ArrayList<Integer> list = new ArrayList<Integer>();
+					list.add(v_tail);
+					map.put(u_head, list);
+				}else {			//如果u_head不为空
+					ArrayList<Integer> list = map.get(u_head);
+					list.add(v_tail);
+					map.put(u_head, list);
+				}
+				//================================================================
+				if(map.get(v_tail) == null) {
+					ArrayList<Integer> list = new ArrayList<Integer>();
+					list.add(u_head);
+					map.put(v_tail, list);
+				}else {			//如果u_head不为空
+					ArrayList<Integer> list = map.get(v_tail);
+					list.add(u_head);
+					map.put(v_tail, list);
+				}
+				//================================================================
+				//构造一个find，查看当前的值，有没有出现过
+				int x = find(u_head) ,y = find(v_tail);
+				if(x != y) {
+					arr[x] = y;
+				}else {
+					index = u_head;
+					dfs(u_head);
+				}	
+			}//for(int i=1;i<=n;i++) 
+			Collections.sort(res);
+			for(int i=0;i<res.size();i++) {
+				System.out.print(res.get(i));
+				if(i<res.size()-1) {
+					System.out.print(" ");
+				}else {
+					System.out.println();
+				}
+			}
+		}
+		sc.close();
+	}
+
+	private static boolean dfs(int x) {
+		// TODO Auto-generated method stub
+		if(visited[x] == 1) {
+			if(x==index) {
+				return true;
+			}
+			return false;
+		}
+		
+		visited[x] = 1;
+		for(int i=0;i<map.get(x).size();i++) {
+			int v = map.get(x).get(i);
+			if(dfs(v)) {
+				res.add(v);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private static int find(int x) {
+		// TODO Auto-generated method stub
+		if(x == arr[x]) {
+			return x;
+		}else {
+			arr[x] = find(arr[x]);
+			return arr[x];
+		}
+	}
+	
+	
+}
