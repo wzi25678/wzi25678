@@ -1,0 +1,52 @@
+package Year_2018;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/** @author Wzi
+ * 
+ * 现在小葱给了你 n 个数，希望你从这 n 个数中找到三个数，使得这三个数的和是 K 的倍数，且这个和最大。
+ *
+ */
+public class 倍数问题 {
+	private static int n,K;
+	private static int [] arr ;
+	private static int res = -1;	//输出结果
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		K = sc.nextInt();
+		arr = new int [n];
+		for(int i=0;i<n;i++) {
+			arr[i] = sc.nextInt();
+		}
+		
+		Arrays.sort(arr);
+		
+		for(int i=0;i<n;i++) {
+			//如果出现这种情况，则无满足条件了，直接退出
+//			if((arr[i]*3) -3 < res) {
+//				break;
+//			}
+			//如果出现这种情况，则无满足条件了，直接退出
+			for(int j=i+1;j<n;j++) {
+				//如果出现这种情况，则无满足条件了，直接退出
+				if(arr[i]+arr[j]+arr[j] - 1 <res) {
+					break;
+				}
+				for(int k=j+1;k<n;k++) {
+					//如果出现这种情况，则无满足条件了，直接退出
+					if(arr[i]+arr[j]+arr[k] <res) {
+						break;
+					}
+					if( (arr[i]+arr[j]+arr[k]) % K == 0) {
+						res = (arr[i]+arr[j]+arr[k]);
+					}
+				}
+			}
+		}
+		System.out.println(res);
+	}
+
+}
