@@ -1,0 +1,120 @@
+Xshell 7 (Build 0122)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop104' resolved to 192.168.137.191.
+Connecting to 192.168.137.191:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Sun Mar 19 15:55:27 2023
+[atguigu@hadoop104 ~]$ source /etc/profile
+[atguigu@hadoop104 ~]$ cd /home/atguigu/.ssh
+[atguigu@hadoop104 .ssh]$  ssh-copy-id hadoop102
+
+/usr/bin/ssh-copy-id: ERROR: failed to open ID file '/home/atguigu/.pub': 没有那个文件或目录
+	(to install the contents of '/home/atguigu/.pub' anyway, look at the -f option)
+[atguigu@hadoop104 .ssh]$  ssh-copy-id hadoop103
+
+/usr/bin/ssh-copy-id: ERROR: failed to open ID file '/home/atguigu/.pub': 没有那个文件或目录
+	(to install the contents of '/home/atguigu/.pub' anyway, look at the -f option)
+[atguigu@hadoop104 .ssh]$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/atguigu/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/atguigu/.ssh/id_rsa.
+Your public key has been saved in /home/atguigu/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:1gGCDsIoxwX/23QkjmvDlPHJqslK9EtKodXN6Z/W5vM atguigu@hadoop104
+The key's randomart image is:
++---[RSA 2048]----+
+|o..o... .        |
+|+.+..  . .       |
+|.o o. . . o      |
+|   ..+ O = .     |
+|  + . O S o      |
+| + o + B .       |
+|. o o O ..       |
+| o + = o..+      |
+|  o.=  .oo.oE    |
++----[SHA256]-----+
+[atguigu@hadoop104 .ssh]$  ssh-copy-id hadoop102
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/atguigu/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+atguigu@hadoop102's password: 
+Permission denied, please try again.
+atguigu@hadoop102's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'hadoop102'"
+and check to make sure that only the key(s) you wanted were added.
+
+[atguigu@hadoop104 .ssh]$  ssh-copy-id hadoop103
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/atguigu/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+atguigu@hadoop103's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'hadoop103'"
+and check to make sure that only the key(s) you wanted were added.
+
+[atguigu@hadoop104 .ssh]$  ssh-copy-id hadoop104
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/atguigu/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+atguigu@hadoop104's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'hadoop104'"
+and check to make sure that only the key(s) you wanted were added.
+
+[atguigu@hadoop104 .ssh]$ stop-all.sh 
+WARNING: Stopping all Apache Hadoop daemons as atguigu in 10 seconds.
+WARNING: Use CTRL-C to abort.
+Stopping namenodes on [hadoop102]
+Stopping datanodes
+Stopping secondary namenodes [hadoop104]
+Stopping nodemanagers
+Stopping resourcemanager
+[atguigu@hadoop104 .ssh]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(hadoop104) at 17:02:16.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop104' resolved to 192.168.137.191.
+Connecting to 192.168.137.191:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Sun Mar 19 15:55:59 2023 from typora-wzi.mshome.net
+[atguigu@hadoop104 ~]$ sudo shutdown
+Shutdown scheduled for 日 2023-03-19 20:02:25 CST, use 'shutdown -c' to cancel.
+[atguigu@hadoop104 ~]$ 
+Broadcast message from root@hadoop104 (Sun 2023-03-19 20:01:26 CST):
+
+The system is going down for power-off at Sun 2023-03-19 20:02:25 CST!
+
+
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(hadoop104) at 20:02:17.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
