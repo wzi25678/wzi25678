@@ -1,0 +1,54 @@
+本节书摘来自华章计算机《Mahout算法解析与案例实战》一书中的第3章，第3.3节,作者：樊　哲，更多章节内容可以访问云栖社区“华章计算机”公众号查看。
+
+3.3　Mean Shift算法
+3.3.1　Mean Shift算法简介
+Mean Shift算法，中文可以翻译为均值偏移或均值漂移，最早是由Fukunaga在1975年发表的《The Estimation of the Gradient of a Density Function, with Application in Pattern Recognition》中被提出来，这是一篇关于概率密度梯度函数的论文。Mean Shift最开始的意思是偏移的均值向量，它是一种无参的估计方法，沿着概率梯度上升方向寻找分布的峰值。通俗地讲，它是一个这样的迭代过程：先计算出当前点的偏移均值，移动该点到其偏移均值，然后以此为新的起点，继续移动，直到满足一定的条件结束。
+Mean Shift算法的特性之一是该算法不需要提供一个要聚类的数目（K-Means聚类算法是需要的），而且该算法还能根据数据的特征发现任意形状的聚类簇（这点和Canopy算法不同，Canopy算法发现的是圆形簇）。该算法首先为每个数据创建一个固定半径的窗口，循环遍历每个窗口，通过一个本地的密度函数计算一个均值漂移向量（这个向量是指向最大增长速度的方向）。然后每个窗口根据计算出来的均值漂移向量移动到一个新的位置，并且开始新的循环。循环退出的条件是当通过本地密度函数计算出来的向量变到很小的时候，满足一个阈值就退出。
+3.3.2　Mahout中Mean Shift算法实现原理
+在Mahout中，Mean Shift算法是通过修改Canopy聚类算法得到的。该算法在Mahout 中的实现思路如下。
+在讲解算法前，首先需要了解下面的参数设定：该算法使用距离阈值T1作为每个窗口的固定半径，使用距离阈值T2来决定两个canopy什么时候合并为一个（即当两个canopy的距离小于T2的时候就把它们合并）。每个canopy包含一个或者多个被限制在某个范围的点（这些点使用整数id来表示）。下面是算法的具体步骤。
+1）算法在初始时为每个输入样本数据点创建一个canopy。
+2）针对每一个canopy，把输入与当前canopy的距离小于距离阈值T1的归为当前canopy（比如，一共有三条记录，如果它们彼此的距离都小于T1，那么以第一条记录为canopy的点有两个，分别是记录2和记录3；以第二条记录为canopy的点也有两个，分别是记录1和记录3；以第三条记录为canopy的点也有两个，分别是记录1和记录2）。每一个canopy计算它的均值漂移向量，计算方法：使用每个canopy包含的点的全部维度相加除以包含点的数目就得到了一个新的canopy中心向量，即均值漂移向量。这个中心向量的权重通过它包含的点的数目来表示。
+3）针对步骤2中新的canopy计算它们之间的距离，当距离小于阈值T2时就把它们归为一个canopy，同时相应的属性也叠加。
+4）算法结束的条件：当每一个canopy的前后两次的差值都满足小于一个给定的阈值delta时，该算法结束。
+5）算法结束后，剩下的canopy的数目就是聚类的数目。
+该算法的流程图如图3?14所示。image
+
+这里的mapper和reducer的操作其实是一样的，而driver主要是进行循环的触发和退出循环条件的判断，在图3?15中可以详细地看出该算法的Mapper、Reducer和Driver的主要工作。
+mapper主要的工作是根据T1和T2阈值把canopy进行归类、合并，然后使用新的中心向量来更新每个canopy，输出到reducer；reducer根据map的输出进行与map同样的操作，然后返回到driver；driver根据reducer的结果进行判断，看阈值是否小于delta（当然循环的次数也是一个条件），然后根据该结果确定退出或继续循环。
+image
+
+图3?15　Mean Shift算法mapper、reducer和driver工作流
+3.3.3　Mahout的Mean Shift算法实战
+1．输入数据
+从http://archive.ics.uci.edu/m1/databases/synthetic_control/synthetic_control.data.html上下载数据，这里使用的数据同样是第2章中的控制图数据，包含600个样本数据，每个样本数据有60个属性列，这些数据可以分为6个类。上传到HDFS的文件如图3?4所示，这里上传到/user/test/input/synthetic_control.data中。
+2．参数意义
+Mean Shift算法在Mahout中的使用方式如下：
+
+usage: meanshift [Generic Options] [Job-Specific Options]
+其中[]包含的两个参数是可选的。
+Generic Options参数选项和Canopy算法一样，这里不再介绍，可直接参考相关内容。
+Job-Specific Options参数选项包含如下：
+--input (-i ) input：任务的输入文件选项，必选。
+--output (-o) output：任务的输出文件的选项，必选。
+-- convergenceDelta (-cd) convergenceDelta：判断退出循环的阈值，默认是0.5，可选。
+-- maxIter (-x) maxIter：最大的循环次数，必选。
+--overwrite (-ow)：如果出现，则对输出路径进行重写，可选。
+--inputIsCanopies (-ic) inputIsCanopies：如果出现，则说明输入已经被转换为Mean-ShiftCanopies了，可选。
+--distanceMeasure (-dm) distanceMeasure：距离计算的类名称，默认为Square-Euclidean，即欧氏距离平方，可选。
+--kernelProfile (-kp) kernelProfile：内部计算方法类，默认是TriangularKernelProfile。
+--t1 (-t1) t1：T1阈值，可选。
+--t2 (-t2) t2：T2阈值，可选。
+--clustering (-cl)：如果出现，则对数据进行分类，可选。
+--method (-xm) method：选择使用的计算方式，单机或集群，默认为集群，可选。
+--outlierThreshold (-outlierThreshold) outlierThreshold：异常值阈值，可选。
+--help (-h)：打印此参数帮助信息，可选。
+--tempDir tempDir：临时文件所存放的地方，可选。
+--startPhase startPhase：开始要运行算法的阶段，可选。
+--endPhase endPhase：最后要运行算法的阶段，可选。
+关于inputIsCanopies参数的设置：当输入的样本数据已经转换为MeanShiftCanopies时，就不需要设置参数，否则就需要设置，然后就是在程序中执行一个InputDriver任务，这个任务就是把输入转换为MeanShiftCanopies的，且要求输入中的维度是按照空格来间隔的（一个或多个空格）。
+3．运行
+通过前面两个小节的内容，相信读者已经知道了如何上传数据，这里不再赘述。在正式运行该算法的调用命令之前，首先要对输入数据进行转换。进入Hadoop安装目录，执行如下命令：
+
+./hadoop jar ../../mahout-d-0.7/mahout-examples-0.7-job.jar org.apache.mahout.clustering.conversion.meanshift.InputDriver -i /user/test/input/synthetic_control.data -o /user/test/input/real_input
+上面的命令运行完成后，直接运行下面的命令：
