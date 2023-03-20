@@ -1,0 +1,724 @@
+Xshell 7 (Build 0122)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop102' resolved to 192.168.137.39.
+Connecting to 192.168.137.39:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Sun Mar 19 17:04:29 2023 from typora-wzi.mshome.net
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop102 hadoop-3.1.3]$ 
+[atguigu@hadoop102 hadoop-3.1.3]$  mkdir wcinput
+mkdir: 无法创建目录"wcinput": 文件已存在
+[atguigu@hadoop102 hadoop-3.1.3]$ ll
+总用量 188
+drwxr-xr-x. 2 atguigu atguigu    183 9月  12 2019 bin
+drwxrwxr-x. 4 atguigu atguigu     37 2月  24 18:23 data
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 etc
+drwxr-xr-x. 2 atguigu atguigu    106 9月  12 2019 include
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 lib
+drwxr-xr-x. 4 atguigu atguigu    288 9月  12 2019 libexec
+-rw-rw-r--. 1 atguigu atguigu 147145 9月   4 2019 LICENSE.txt
+drwxrwxr-x. 3 atguigu atguigu   4096 3月  19 17:09 logs
+-rw-rw-r--. 1 atguigu atguigu  21867 9月   4 2019 NOTICE.txt
+-rw-rw-r--. 1 atguigu atguigu   1366 9月   4 2019 README.txt
+drwxr-xr-x. 3 atguigu atguigu   4096 9月  12 2019 sbin
+drwxr-xr-x. 4 atguigu atguigu     31 9月  12 2019 share
+drwxrwxr-x. 2 atguigu atguigu     22 2月  24 11:21 wcinput
+drwxr-xr-x. 2 atguigu atguigu     88 2月  24 11:21 wcoutput
+-rw-rw-r--. 1 atguigu atguigu     34 3月   2 15:30 weiguo.txt
+-rw-rw-r--. 1 atguigu atguigu     42 3月   2 15:33 黄月英.txt
+[atguigu@hadoop102 hadoop-3.1.3]$ cat wc
+wcinput/  wcoutput/ 
+[atguigu@hadoop102 hadoop-3.1.3]$ cat wc
+wcinput/  wcoutput/ 
+[atguigu@hadoop102 hadoop-3.1.3]$ cat wcinput/
+cat: wcinput/: 是一个目录
+[atguigu@hadoop102 hadoop-3.1.3]$ cd wc
+wcinput/  wcoutput/ 
+[atguigu@hadoop102 hadoop-3.1.3]$ cd wc
+wcinput/  wcoutput/ 
+[atguigu@hadoop102 hadoop-3.1.3]$ cd wcinput/
+[atguigu@hadoop102 wcinput]$ ll
+总用量 4
+-rw-rw-r--. 1 atguigu atguigu 45 2月  24 11:21 word.txt
+[atguigu@hadoop102 wcinput]$ cat word.txt 
+hadoop yarn
+hadoop mapreduce
+atguigu
+atguigu
+[atguigu@hadoop102 wcinput]$ start-all.sh 
+WARNING: Attempting to start all Apache Hadoop daemons as atguigu in 10 seconds.
+WARNING: This is not a recommended production deployment configuration.
+WARNING: Use CTRL-C to abort.
+Starting namenodes on [hadoop102]
+Starting datanodes
+localhost: mv: 无法将"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.4" 移动至"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.5": 没有那个文件或目录
+localhost: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.3" 的文件状态(stat): 没有那个文件或目录
+localhost: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.2" 的文件状态(stat): 没有那个文件或目录
+localhost: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.1" 的文件状态(stat): 没有那个文件或目录
+localhost: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out" 的文件状态(stat): 没有那个文件或目录
+Starting secondary namenodes [hadoop104]
+Starting resourcemanager
+Starting nodemanagers
+hadoop102: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-nodemanager-hadoop102.out.4" 的文件状态(stat): 没有那个文件或目录
+hadoop102: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-nodemanager-hadoop102.out.3" 的文件状态(stat): 没有那个文件或目录
+hadoop102: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-nodemanager-hadoop102.out.2" 的文件状态(stat): 没有那个文件或目录
+hadoop102: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-nodemanager-hadoop102.out.1" 的文件状态(stat): 没有那个文件或目录
+[atguigu@hadoop102 wcinput]$  mapred --daemon start historyserver
+[atguigu@hadoop102 wcinput]$ hadoop fs -mkdir /input
+[atguigu@hadoop102 wcinput]$ cd
+[atguigu@hadoop102 ~]$ hadoop fs -mkdir /input
+mkdir: `/input': File exists
+[atguigu@hadoop102 ~]$ hadoop fs -mkdir /software
+[atguigu@hadoop102 ~]$ hadoop fs -put  /opt/software/jdk-8u212-linux-x64.tar.gz  /software
+2023-03-20 15:18:41,055 WARN hdfs.DataStreamer: DataStreamer Exception
+org.apache.hadoop.ipc.RemoteException(java.io.IOException): File /software/jdk-8u212-linux-x64.tar.gz._COPYING_ could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(BlockManager.java:2205)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDirWriteFileOp.java:294)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:2731)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:892)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:568)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:527)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1036)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1000)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:928)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1729)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2916)
+
+	at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1545)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1491)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1388)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:118)
+	at com.sun.proxy.$Proxy9.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.addBlock(ClientNamenodeProtocolTranslatorPB.java:514)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:422)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeMethod(RetryInvocationHandler.java:165)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invoke(RetryInvocationHandler.java:157)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeOnce(RetryInvocationHandler.java:95)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:359)
+	at com.sun.proxy.$Proxy10.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSOutputStream.addBlock(DFSOutputStream.java:1081)
+	at org.apache.hadoop.hdfs.DataStreamer.locateFollowingBlock(DataStreamer.java:1866)
+	at org.apache.hadoop.hdfs.DataStreamer.nextBlockOutputStream(DataStreamer.java:1668)
+	at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:716)
+put: File /software/jdk-8u212-linux-x64.tar.gz._COPYING_ could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+[atguigu@hadoop102 ~]$ hadoop fs -put  /opt/software/jdk-8u212-linux-x64.tar.gz  /
+2023-03-20 15:19:10,175 WARN hdfs.DataStreamer: DataStreamer Exception
+org.apache.hadoop.ipc.RemoteException(java.io.IOException): File /jdk-8u212-linux-x64.tar.gz._COPYING_ could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(BlockManager.java:2205)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDirWriteFileOp.java:294)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:2731)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:892)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:568)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:527)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1036)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1000)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:928)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1729)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2916)
+
+	at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1545)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1491)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1388)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:118)
+	at com.sun.proxy.$Proxy9.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.addBlock(ClientNamenodeProtocolTranslatorPB.java:514)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:422)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeMethod(RetryInvocationHandler.java:165)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invoke(RetryInvocationHandler.java:157)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeOnce(RetryInvocationHandler.java:95)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:359)
+	at com.sun.proxy.$Proxy10.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSOutputStream.addBlock(DFSOutputStream.java:1081)
+	at org.apache.hadoop.hdfs.DataStreamer.locateFollowingBlock(DataStreamer.java:1866)
+	at org.apache.hadoop.hdfs.DataStreamer.nextBlockOutputStream(DataStreamer.java:1668)
+	at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:716)
+put: File /jdk-8u212-linux-x64.tar.gz._COPYING_ could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+[atguigu@hadoop102 ~]$ hadoop fs -put $HADOOP_HOME/wcinput/word.txt /input
+2023-03-20 15:19:51,698 WARN hdfs.DataStreamer: DataStreamer Exception
+org.apache.hadoop.ipc.RemoteException(java.io.IOException): File /input/word.txt._COPYING_ could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(BlockManager.java:2205)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDirWriteFileOp.java:294)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:2731)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:892)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:568)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:527)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1036)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1000)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:928)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1729)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2916)
+
+	at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1545)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1491)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1388)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:118)
+	at com.sun.proxy.$Proxy9.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.addBlock(ClientNamenodeProtocolTranslatorPB.java:514)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:422)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeMethod(RetryInvocationHandler.java:165)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invoke(RetryInvocationHandler.java:157)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeOnce(RetryInvocationHandler.java:95)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:359)
+	at com.sun.proxy.$Proxy10.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSOutputStream.addBlock(DFSOutputStream.java:1081)
+	at org.apache.hadoop.hdfs.DataStreamer.locateFollowingBlock(DataStreamer.java:1866)
+	at org.apache.hadoop.hdfs.DataStreamer.nextBlockOutputStream(DataStreamer.java:1668)
+	at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:716)
+put: File /input/word.txt._COPYING_ could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+[atguigu@hadoop102 ~]$ ll
+总用量 0
+drwxrwxr-x. 2 atguigu atguigu 52 2月  24 18:40 bin
+drwxr-xr-x. 2 atguigu atguigu  6 2月  24 05:16 公共
+drwxr-xr-x. 2 atguigu atguigu  6 2月  24 05:16 模板
+drwxr-xr-x. 2 atguigu atguigu  6 2月  24 05:16 视频
+drwxr-xr-x. 2 atguigu atguigu  6 2月  24 05:16 图片
+drwxr-xr-x. 2 atguigu atguigu  6 2月  24 05:16 文档
+drwxr-xr-x. 6 atguigu atguigu 85 3月  17 21:20 下载
+drwxr-xr-x. 2 atguigu atguigu  6 2月  24 05:16 音乐
+drwxr-xr-x. 2 atguigu atguigu  6 2月  24 05:16 桌面
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop102 hadoop-3.1.3]$ sbin/start-dfs.sh
+Starting namenodes on [hadoop102]
+hadoop102: namenode is running as process 6224.  Stop it first.
+Starting datanodes
+localhost: mv: 无法将"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.4" 移动至"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.5": 没有那个文件或目录
+localhost: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.3" 的文件状态(stat): 没有那个文件或目录
+localhost: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.2" 的文件状态(stat): 没有那个文件或目录
+localhost: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.1" 的文件状态(stat): 没有那个文件或目录
+localhost: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out" 的文件状态(stat): 没有那个文件或目录
+Starting secondary namenodes [hadoop104]
+hadoop104: secondarynamenode is running as process 2724.  Stop it first.
+[atguigu@hadoop102 hadoop-3.1.3]$ hadoop fs -put $HADOOP_HOME/wcinput/word.txt /input
+2023-03-20 15:22:20,121 WARN hdfs.DataStreamer: DataStreamer Exception
+org.apache.hadoop.ipc.RemoteException(java.io.IOException): File /input/word.txt._COPYING_ could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(BlockManager.java:2205)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDirWriteFileOp.java:294)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:2731)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:892)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:568)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:527)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1036)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1000)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:928)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1729)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2916)
+
+	at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1545)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1491)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1388)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:118)
+	at com.sun.proxy.$Proxy9.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.addBlock(ClientNamenodeProtocolTranslatorPB.java:514)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:422)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeMethod(RetryInvocationHandler.java:165)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invoke(RetryInvocationHandler.java:157)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeOnce(RetryInvocationHandler.java:95)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:359)
+	at com.sun.proxy.$Proxy10.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSOutputStream.addBlock(DFSOutputStream.java:1081)
+	at org.apache.hadoop.hdfs.DataStreamer.locateFollowingBlock(DataStreamer.java:1866)
+	at org.apache.hadoop.hdfs.DataStreamer.nextBlockOutputStream(DataStreamer.java:1668)
+	at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:716)
+put: File /input/word.txt._COPYING_ could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+[atguigu@hadoop102 hadoop-3.1.3]$ hdfs dfs -df -h
+Filesystem             Size  Used  Available  Use%
+hdfs://hadoop102:8020     0     0          0  NaN%
+[atguigu@hadoop102 hadoop-3.1.3]$ hadoop namenode -format
+WARNING: Use of this script to execute namenode is deprecated.
+WARNING: Attempting to execute replacement "hdfs namenode" instead.
+
+namenode is running as process 6224.  Stop it first.
+[atguigu@hadoop102 hadoop-3.1.3]$ sbin/stop-dfs.sh
+Stopping namenodes on [hadoop102]
+Stopping datanodes
+Stopping secondary namenodes [hadoop104]
+[atguigu@hadoop102 hadoop-3.1.3]$ hdfs namenode -format
+2023-03-20 15:25:10,927 INFO namenode.NameNode: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting NameNode
+STARTUP_MSG:   host = hadoop102/192.168.137.39
+STARTUP_MSG:   args = [-format]
+STARTUP_MSG:   version = 3.1.3
+STARTUP_MSG:   classpath = /opt/module/hadoop-3.1.3/etc/hadoop:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/accessors-smart-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/animal-sniffer-annotations-1.17.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/asm-5.0.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/audience-annotations-0.5.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/avro-1.7.7.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/checker-qual-2.5.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-beanutils-1.9.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-cli-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-codec-1.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-collections-3.2.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-compress-1.18.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-configuration2-2.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-io-2.5.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-lang-2.6.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-lang3-3.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-logging-1.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-math3-3.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-net-3.6.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/curator-client-2.13.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/curator-framework-2.13.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/curator-recipes-2.13.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/error_prone_annotations-2.2.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/failureaccess-1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/gson-2.2.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/guava-27.0-jre.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/hadoop-annotations-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/hadoop-auth-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/htrace-core4-4.1.0-incubating.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/httpclient-4.5.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/httpcore-4.4.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/j2objc-annotations-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-annotations-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-core-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-core-asl-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-databind-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-jaxrs-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-mapper-asl-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-xc-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/javax.servlet-api-3.1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jaxb-api-2.2.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jaxb-impl-2.2.3-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jcip-annotations-1.0-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jersey-core-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jersey-json-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jersey-server-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jersey-servlet-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jettison-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-http-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-io-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-security-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-server-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-servlet-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-util-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-webapp-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-xml-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsch-0.1.54.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/json-smart-2.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsp-api-2.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsr305-3.0.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsr311-api-1.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-admin-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-client-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-common-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-core-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-crypto-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-identity-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-server-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-simplekdc-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-util-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerby-asn1-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerby-config-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerby-pkix-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerby-util-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerby-xdr-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/log4j-1.2.17.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/netty-3.10.5.Final.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/nimbus-jose-jwt-4.41.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/paranamer-2.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/protobuf-java-2.5.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/re2j-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/slf4j-api-1.7.25.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/snappy-java-1.0.5.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/stax2-api-3.1.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/token-provider-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/woodstox-core-5.0.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/zookeeper-3.4.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jul-to-slf4j-1.7.25.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/metrics-core-3.2.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/hadoop-common-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/hadoop-common-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/hadoop-nfs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/hadoop-kms-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-daemon-1.0.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-util-ajax-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/leveldbjni-all-1.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/netty-all-4.0.52.Final.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/okhttp-2.7.5.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/okio-1.6.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jersey-servlet-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jersey-json-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/hadoop-auth-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-codec-1.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/log4j-1.2.17.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/httpclient-4.5.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/httpcore-4.4.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-logging-1.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/nimbus-jose-jwt-4.41.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jcip-annotations-1.0-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/json-smart-2.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/accessors-smart-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/asm-5.0.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/zookeeper-3.4.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/audience-annotations-0.5.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/netty-3.10.5.Final.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/curator-framework-2.13.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/curator-client-2.13.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/guava-27.0-jre.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/failureaccess-1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jsr305-3.0.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/checker-qual-2.5.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/error_prone_annotations-2.2.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/j2objc-annotations-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/animal-sniffer-annotations-1.17.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-simplekdc-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-client-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerby-config-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-core-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerby-pkix-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerby-asn1-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerby-util-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-common-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-crypto-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-io-2.5.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-util-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/token-provider-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-admin-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-server-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-identity-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerby-xdr-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jersey-core-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jsr311-api-1.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jersey-server-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/javax.servlet-api-3.1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/json-simple-1.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-server-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-http-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-util-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-io-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-webapp-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-xml-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-servlet-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-security-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/hadoop-annotations-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-cli-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-math3-3.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-net-3.6.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-collections-3.2.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jettison-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jaxb-impl-2.2.3-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jaxb-api-2.2.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-core-asl-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-mapper-asl-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-jaxrs-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-xc-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-lang-2.6.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-beanutils-1.9.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-configuration2-2.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-lang3-3.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/avro-1.7.7.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/paranamer-2.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/snappy-java-1.0.5.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-compress-1.18.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/re2j-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/protobuf-java-2.5.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/gson-2.2.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jsch-0.1.54.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/curator-recipes-2.13.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/htrace-core4-4.1.0-incubating.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-databind-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-annotations-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-core-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/stax2-api-3.1.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/woodstox-core-5.0.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-nfs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-client-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-client-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-native-client-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-native-client-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-rbf-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-rbf-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-httpfs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/lib/hamcrest-core-1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/lib/junit-4.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-app-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-common-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-plugins-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-nativetask-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-shuffle-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-uploader-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/HikariCP-java7-2.4.12.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/aopalliance-1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/dnsjava-2.1.7.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/ehcache-3.3.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/fst-2.50.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/geronimo-jcache_1.0_spec-1.0-alpha-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/guice-4.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/guice-servlet-4.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jackson-jaxrs-base-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jackson-jaxrs-json-provider-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jackson-module-jaxb-annotations-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/java-util-1.9.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/javax.inject-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jersey-client-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jersey-guice-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/json-io-2.5.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/metrics-core-3.2.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/mssql-jdbc-6.2.1.jre7.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/objenesis-1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/snakeyaml-1.16.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/swagger-annotations-1.5.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-api-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-applications-distributedshell-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-applications-unmanaged-am-launcher-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-client-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-common-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-registry-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-applicationhistoryservice-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-common-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-nodemanager-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-resourcemanager-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-router-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-sharedcachemanager-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-tests-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-timeline-pluginstorage-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-web-proxy-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-services-api-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-services-core-3.1.3.jar
+STARTUP_MSG:   build = https://gitbox.apache.org/repos/asf/hadoop.git -r ba631c436b806728f8ec2f54ab1e289526c90579; compiled by 'ztang' on 2019-09-12T02:47Z
+STARTUP_MSG:   java = 1.8.0_212
+************************************************************/
+2023-03-20 15:25:10,937 INFO namenode.NameNode: registered UNIX signal handlers for [TERM, HUP, INT]
+2023-03-20 15:25:11,006 INFO namenode.NameNode: createNameNode [-format]
+Formatting using clusterid: CID-26aa9d0d-e378-4b8a-a5df-21aecd7d9331
+2023-03-20 15:25:11,388 INFO namenode.FSEditLog: Edit logging is async:true
+2023-03-20 15:25:11,398 INFO namenode.FSNamesystem: KeyProvider: null
+2023-03-20 15:25:11,399 INFO namenode.FSNamesystem: fsLock is fair: true
+2023-03-20 15:25:11,399 INFO namenode.FSNamesystem: Detailed lock hold time metrics enabled: false
+2023-03-20 15:25:11,403 INFO namenode.FSNamesystem: fsOwner             = atguigu (auth:SIMPLE)
+2023-03-20 15:25:11,403 INFO namenode.FSNamesystem: supergroup          = supergroup
+2023-03-20 15:25:11,403 INFO namenode.FSNamesystem: isPermissionEnabled = true
+2023-03-20 15:25:11,403 INFO namenode.FSNamesystem: HA Enabled: false
+2023-03-20 15:25:11,437 INFO common.Util: dfs.datanode.fileio.profiling.sampling.percentage set to 0. Disabling file IO profiling
+2023-03-20 15:25:11,445 INFO blockmanagement.DatanodeManager: dfs.block.invalidate.limit: configured=1000, counted=60, effected=1000
+2023-03-20 15:25:11,445 INFO blockmanagement.DatanodeManager: dfs.namenode.datanode.registration.ip-hostname-check=true
+2023-03-20 15:25:11,456 INFO blockmanagement.BlockManager: dfs.namenode.startup.delay.block.deletion.sec is set to 000:00:00:00.000
+2023-03-20 15:25:11,456 INFO blockmanagement.BlockManager: The block deletion will start around 2023 三月 20 15:25:11
+2023-03-20 15:25:11,457 INFO util.GSet: Computing capacity for map BlocksMap
+2023-03-20 15:25:11,457 INFO util.GSet: VM type       = 64-bit
+2023-03-20 15:25:11,458 INFO util.GSet: 2.0% max memory 839.5 MB = 16.8 MB
+2023-03-20 15:25:11,458 INFO util.GSet: capacity      = 2^21 = 2097152 entries
+2023-03-20 15:25:11,463 INFO blockmanagement.BlockManager: dfs.block.access.token.enable = false
+2023-03-20 15:25:11,469 INFO Configuration.deprecation: No unit for dfs.namenode.safemode.extension(30000) assuming MILLISECONDS
+2023-03-20 15:25:11,469 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.threshold-pct = 0.9990000128746033
+2023-03-20 15:25:11,469 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.min.datanodes = 0
+2023-03-20 15:25:11,469 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.extension = 30000
+2023-03-20 15:25:11,470 INFO blockmanagement.BlockManager: defaultReplication         = 3
+2023-03-20 15:25:11,470 INFO blockmanagement.BlockManager: maxReplication             = 512
+2023-03-20 15:25:11,470 INFO blockmanagement.BlockManager: minReplication             = 1
+2023-03-20 15:25:11,470 INFO blockmanagement.BlockManager: maxReplicationStreams      = 2
+2023-03-20 15:25:11,470 INFO blockmanagement.BlockManager: redundancyRecheckInterval  = 3000ms
+2023-03-20 15:25:11,470 INFO blockmanagement.BlockManager: encryptDataTransfer        = false
+2023-03-20 15:25:11,470 INFO blockmanagement.BlockManager: maxNumBlocksToLog          = 1000
+2023-03-20 15:25:11,506 INFO namenode.FSDirectory: GLOBAL serial map: bits=24 maxEntries=16777215
+2023-03-20 15:25:11,520 INFO util.GSet: Computing capacity for map INodeMap
+2023-03-20 15:25:11,520 INFO util.GSet: VM type       = 64-bit
+2023-03-20 15:25:11,520 INFO util.GSet: 1.0% max memory 839.5 MB = 8.4 MB
+2023-03-20 15:25:11,520 INFO util.GSet: capacity      = 2^20 = 1048576 entries
+2023-03-20 15:25:11,521 INFO namenode.FSDirectory: ACLs enabled? false
+2023-03-20 15:25:11,521 INFO namenode.FSDirectory: POSIX ACL inheritance enabled? true
+2023-03-20 15:25:11,521 INFO namenode.FSDirectory: XAttrs enabled? true
+2023-03-20 15:25:11,521 INFO namenode.NameNode: Caching file names occurring more than 10 times
+2023-03-20 15:25:11,524 INFO snapshot.SnapshotManager: Loaded config captureOpenFiles: false, skipCaptureAccessTimeOnlyChange: false, snapshotDiffAllowSnapRootDescendant: true, maxSnapshotLimit: 65536
+2023-03-20 15:25:11,526 INFO snapshot.SnapshotManager: SkipList is disabled
+2023-03-20 15:25:11,528 INFO util.GSet: Computing capacity for map cachedBlocks
+2023-03-20 15:25:11,528 INFO util.GSet: VM type       = 64-bit
+2023-03-20 15:25:11,528 INFO util.GSet: 0.25% max memory 839.5 MB = 2.1 MB
+2023-03-20 15:25:11,528 INFO util.GSet: capacity      = 2^18 = 262144 entries
+2023-03-20 15:25:11,534 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.window.num.buckets = 10
+2023-03-20 15:25:11,534 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.num.users = 10
+2023-03-20 15:25:11,535 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.windows.minutes = 1,5,25
+2023-03-20 15:25:11,537 INFO namenode.FSNamesystem: Retry cache on namenode is enabled
+2023-03-20 15:25:11,538 INFO namenode.FSNamesystem: Retry cache will use 0.03 of total heap and retry cache entry expiry time is 600000 millis
+2023-03-20 15:25:11,539 INFO util.GSet: Computing capacity for map NameNodeRetryCache
+2023-03-20 15:25:11,539 INFO util.GSet: VM type       = 64-bit
+2023-03-20 15:25:11,539 INFO util.GSet: 0.029999999329447746% max memory 839.5 MB = 257.9 KB
+2023-03-20 15:25:11,539 INFO util.GSet: capacity      = 2^15 = 32768 entries
+Re-format filesystem in Storage Directory root= /opt/module/hadoop-3.1.3/data/dfs/name; location= null ? (Y or N) y
+2023-03-20 15:25:16,817 INFO namenode.FSImage: Allocated new BlockPoolId: BP-680535077-192.168.137.39-1679297116812
+2023-03-20 15:25:16,818 INFO common.Storage: Will remove files: [/opt/module/hadoop-3.1.3/data/dfs/name/current/VERSION, /opt/module/hadoop-3.1.3/data/dfs/name/current/seen_txid, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000074-0000000000000000075, /opt/module/hadoop-3.1.3/data/dfs/name/current/fsimage_0000000000000000000.md5, /opt/module/hadoop-3.1.3/data/dfs/name/current/fsimage_0000000000000000000, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_inprogress_0000000000000000361, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000001-0000000000000000002, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000003-0000000000000000004, /opt/module/hadoop-3.1.3/data/dfs/name/current/fsimage_0000000000000000360.md5, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000005-0000000000000000006, /opt/module/hadoop-3.1.3/data/dfs/name/current/fsimage_0000000000000000360, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000007-0000000000000000015, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000016-0000000000000000017, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000018-0000000000000000019, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000020-0000000000000000021, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000022-0000000000000000023, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000024-0000000000000000025, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000026-0000000000000000027, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000028-0000000000000000029, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000030-0000000000000000031, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000032-0000000000000000033, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000034-0000000000000000035, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000036-0000000000000000037, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000038-0000000000000000039, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000040-0000000000000000041, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000042-0000000000000000043, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000044-0000000000000000045, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000046-0000000000000000047, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000048-0000000000000000049, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000050-0000000000000000051, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000052-0000000000000000053, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000054-0000000000000000055, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000056-0000000000000000057, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000058-0000000000000000059, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000060-0000000000000000061, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000062-0000000000000000063, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000064-0000000000000000065, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000066-0000000000000000067, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000068-0000000000000000069, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000070-0000000000000000071, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000072-0000000000000000073, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000076-0000000000000000077, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000078-0000000000000000079, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000080-0000000000000000081, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000082-0000000000000000083, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000084-0000000000000000085, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000086-0000000000000000087, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000088-0000000000000000089, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000090-0000000000000000091, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000092-0000000000000000093, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000094-0000000000000000095, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000096-0000000000000000097, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000098-0000000000000000099, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000100-0000000000000000101, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000102-0000000000000000103, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000104-0000000000000000105, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000106-0000000000000000107, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000108-0000000000000000109, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000110-0000000000000000111, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000112-0000000000000000113, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000114-0000000000000000115, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000116-0000000000000000117, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000118-0000000000000000119, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000120-0000000000000000121, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000122-0000000000000000123, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000124-0000000000000000125, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000126-0000000000000000127, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000128-0000000000000000129, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000130-0000000000000000131, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000132-0000000000000000133, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000134-0000000000000000135, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000136-0000000000000000137, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000138-0000000000000000139, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000140-0000000000000000141, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000142-0000000000000000143, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000144-0000000000000000145, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000146-0000000000000000147, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000148-0000000000000000149, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000150-0000000000000000151, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000152-0000000000000000153, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000154-0000000000000000155, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000156-0000000000000000157, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000158-0000000000000000159, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000160-0000000000000000161, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000162-0000000000000000163, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000164-0000000000000000165, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000166-0000000000000000167, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000168-0000000000000000169, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000170-0000000000000000171, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000172-0000000000000000173, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000174-0000000000000000175, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000176-0000000000000000177, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000178-0000000000000000179, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000180-0000000000000000181, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000182-0000000000000000183, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000184-0000000000000000185, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000186-0000000000000000187, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000188-0000000000000000189, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000190-0000000000000000191, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000192-0000000000000000193, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000194-0000000000000000195, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000196-0000000000000000197, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000198-0000000000000000199, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000200-0000000000000000201, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000202-0000000000000000203, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000204-0000000000000000205, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000206-0000000000000000207, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000208-0000000000000000209, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000210-0000000000000000211, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000212-0000000000000000213, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000214-0000000000000000215, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000216-0000000000000000217, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000218-0000000000000000219, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000220-0000000000000000221, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000222-0000000000000000223, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000224-0000000000000000225, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000226-0000000000000000227, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000228-0000000000000000229, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000230-0000000000000000231, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000232-0000000000000000233, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000234-0000000000000000235, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000236-0000000000000000237, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000238-0000000000000000239, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000240-0000000000000000241, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000242-0000000000000000243, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000244-0000000000000000245, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000246-0000000000000000247, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000248-0000000000000000249, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000250-0000000000000000251, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000252-0000000000000000253, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000254-0000000000000000255, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000256-0000000000000000257, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000258-0000000000000000259, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000260-0000000000000000261, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000262-0000000000000000263, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000264-0000000000000000265, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000266-0000000000000000267, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000268-0000000000000000269, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000270-0000000000000000271, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000272-0000000000000000273, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000274-0000000000000000275, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000276-0000000000000000277, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000278-0000000000000000279, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000280-0000000000000000281, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000282-0000000000000000283, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000284-0000000000000000285, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000286-0000000000000000287, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000288-0000000000000000289, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000290-0000000000000000291, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000292-0000000000000000293, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000294-0000000000000000295, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000296-0000000000000000297, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000298-0000000000000000299, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000300-0000000000000000301, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000302-0000000000000000303, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000304-0000000000000000305, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000306-0000000000000000307, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000308-0000000000000000309, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000310-0000000000000000311, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000312-0000000000000000313, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000314-0000000000000000315, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000316-0000000000000000317, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000318-0000000000000000319, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000320-0000000000000000321, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000322-0000000000000000323, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000324-0000000000000000325, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000326-0000000000000000327, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000328-0000000000000000329, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000330-0000000000000000331, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000332-0000000000000000333, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000334-0000000000000000335, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000336-0000000000000000337, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000338-0000000000000000339, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000340-0000000000000000341, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000342-0000000000000000343, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000344-0000000000000000345, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000346-0000000000000000347, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000348-0000000000000000349, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000350-0000000000000000351, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000352-0000000000000000353, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000354-0000000000000000355, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000356-0000000000000000357, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000358-0000000000000000359, /opt/module/hadoop-3.1.3/data/dfs/name/current/edits_0000000000000000360-0000000000000000360]
+2023-03-20 15:25:16,835 INFO common.Storage: Storage directory /opt/module/hadoop-3.1.3/data/dfs/name has been successfully formatted.
+2023-03-20 15:25:16,853 INFO namenode.FSImageFormatProtobuf: Saving image file /opt/module/hadoop-3.1.3/data/dfs/name/current/fsimage.ckpt_0000000000000000000 using no compression
+2023-03-20 15:25:16,921 INFO namenode.FSImageFormatProtobuf: Image file /opt/module/hadoop-3.1.3/data/dfs/name/current/fsimage.ckpt_0000000000000000000 of size 391 bytes saved in 0 seconds .
+2023-03-20 15:25:16,928 INFO namenode.NNStorageRetentionManager: Going to retain 1 images with txid >= 0
+2023-03-20 15:25:16,933 INFO namenode.FSImage: FSImageSaver clean checkpoint: txid = 0 when meet shutdown.
+2023-03-20 15:25:16,933 INFO namenode.NameNode: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at hadoop102/192.168.137.39
+************************************************************/
+[atguigu@hadoop102 hadoop-3.1.3]$ sbin/start-dfs.sh
+Starting namenodes on [hadoop102]
+Starting datanodes
+Starting secondary namenodes [hadoop104]
+[atguigu@hadoop102 hadoop-3.1.3]$ sbin/start-dfs.sh
+Starting namenodes on [hadoop102]
+hadoop102: namenode is running as process 10025.  Stop it first.
+Starting datanodes
+hadoop102: mv: 无法将"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.4" 移动至"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.5": 没有那个文件或目录
+hadoop102: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.3" 的文件状态(stat): 没有那个文件或目录
+hadoop102: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.2" 的文件状态(stat): 没有那个文件或目录
+hadoop102: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.1" 的文件状态(stat): 没有那个文件或目录
+Starting secondary namenodes [hadoop104]
+hadoop104: secondarynamenode is running as process 4837.  Stop it first.
+[atguigu@hadoop102 hadoop-3.1.3]$ hadoop fs -mkdir /input
+[atguigu@hadoop102 hadoop-3.1.3]$ hadoop fs -put $HADOOP_HOME/wcinput/word.txt /input
+2023-03-20 15:26:55,870 WARN hdfs.DataStreamer: DataStreamer Exception
+org.apache.hadoop.ipc.RemoteException(java.io.IOException): File /input/word.txt._COPYING_ could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(BlockManager.java:2205)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDirWriteFileOp.java:294)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:2731)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:892)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:568)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:527)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1036)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1000)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:928)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1729)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2916)
+
+	at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1545)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1491)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1388)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:118)
+	at com.sun.proxy.$Proxy9.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.addBlock(ClientNamenodeProtocolTranslatorPB.java:514)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:422)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeMethod(RetryInvocationHandler.java:165)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invoke(RetryInvocationHandler.java:157)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeOnce(RetryInvocationHandler.java:95)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:359)
+	at com.sun.proxy.$Proxy10.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSOutputStream.addBlock(DFSOutputStream.java:1081)
+	at org.apache.hadoop.hdfs.DataStreamer.locateFollowingBlock(DataStreamer.java:1866)
+	at org.apache.hadoop.hdfs.DataStreamer.nextBlockOutputStream(DataStreamer.java:1668)
+	at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:716)
+put: File /input/word.txt._COPYING_ could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+[atguigu@hadoop102 hadoop-3.1.3]$ ll
+总用量 188
+drwxr-xr-x. 2 atguigu atguigu    183 9月  12 2019 bin
+drwxrwxr-x. 4 atguigu atguigu     37 2月  24 18:23 data
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 etc
+drwxr-xr-x. 2 atguigu atguigu    106 9月  12 2019 include
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 lib
+drwxr-xr-x. 4 atguigu atguigu    288 9月  12 2019 libexec
+-rw-rw-r--. 1 atguigu atguigu 147145 9月   4 2019 LICENSE.txt
+drwxrwxr-x. 3 atguigu atguigu   4096 3月  20 15:25 logs
+-rw-rw-r--. 1 atguigu atguigu  21867 9月   4 2019 NOTICE.txt
+-rw-rw-r--. 1 atguigu atguigu   1366 9月   4 2019 README.txt
+drwxr-xr-x. 3 atguigu atguigu   4096 9月  12 2019 sbin
+drwxr-xr-x. 4 atguigu atguigu     31 9月  12 2019 share
+drwxrwxr-x. 2 atguigu atguigu     22 2月  24 11:21 wcinput
+drwxr-xr-x. 2 atguigu atguigu     88 2月  24 11:21 wcoutput
+-rw-rw-r--. 1 atguigu atguigu     34 3月   2 15:30 weiguo.txt
+-rw-rw-r--. 1 atguigu atguigu     42 3月   2 15:33 黄月英.txt
+[atguigu@hadoop102 hadoop-3.1.3]$ hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar wordcount wcinput wcoutput
+2023-03-20 15:28:32,846 INFO client.RMProxy: Connecting to ResourceManager at hadoop103/192.168.137.50:8032
+2023-03-20 15:28:33,252 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/atguigu/.staging/job_1679296463696_0001
+2023-03-20 15:28:33,331 WARN hdfs.DataStreamer: DataStreamer Exception
+org.apache.hadoop.ipc.RemoteException(java.io.IOException): File /tmp/hadoop-yarn/staging/atguigu/.staging/job_1679296463696_0001/job.jar could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(BlockManager.java:2205)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDirWriteFileOp.java:294)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:2731)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:892)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:568)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:527)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1036)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1000)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:928)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1729)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2916)
+
+	at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1545)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1491)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1388)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:118)
+	at com.sun.proxy.$Proxy9.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.addBlock(ClientNamenodeProtocolTranslatorPB.java:514)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:422)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeMethod(RetryInvocationHandler.java:165)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invoke(RetryInvocationHandler.java:157)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeOnce(RetryInvocationHandler.java:95)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:359)
+	at com.sun.proxy.$Proxy10.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSOutputStream.addBlock(DFSOutputStream.java:1081)
+	at org.apache.hadoop.hdfs.DataStreamer.locateFollowingBlock(DataStreamer.java:1866)
+	at org.apache.hadoop.hdfs.DataStreamer.nextBlockOutputStream(DataStreamer.java:1668)
+	at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:716)
+2023-03-20 15:28:33,334 INFO mapreduce.JobSubmitter: Cleaning up the staging area /tmp/hadoop-yarn/staging/atguigu/.staging/job_1679296463696_0001
+org.apache.hadoop.ipc.RemoteException(java.io.IOException): File /tmp/hadoop-yarn/staging/atguigu/.staging/job_1679296463696_0001/job.jar could only be written to 0 of the 1 minReplication nodes. There are 0 datanode(s) running and 0 node(s) are excluded in this operation.
+	at org.apache.hadoop.hdfs.server.blockmanagement.BlockManager.chooseTarget4NewBlock(BlockManager.java:2205)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.chooseTargetForNewBlock(FSDirWriteFileOp.java:294)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:2731)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:892)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:568)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:527)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1036)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1000)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:928)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1729)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2916)
+
+	at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1545)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1491)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1388)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:118)
+	at com.sun.proxy.$Proxy9.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.addBlock(ClientNamenodeProtocolTranslatorPB.java:514)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:422)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeMethod(RetryInvocationHandler.java:165)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invoke(RetryInvocationHandler.java:157)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler$Call.invokeOnce(RetryInvocationHandler.java:95)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:359)
+	at com.sun.proxy.$Proxy10.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSOutputStream.addBlock(DFSOutputStream.java:1081)
+	at org.apache.hadoop.hdfs.DataStreamer.locateFollowingBlock(DataStreamer.java:1866)
+	at org.apache.hadoop.hdfs.DataStreamer.nextBlockOutputStream(DataStreamer.java:1668)
+	at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:716)
+[atguigu@hadoop102 hadoop-3.1.3]$ cat wcoutput/part-r-00000
+atguigu	2
+hadoop	2
+mapreduce	1
+yarn	1
+[atguigu@hadoop102 hadoop-3.1.3]$ ll
+总用量 188
+drwxr-xr-x. 2 atguigu atguigu    183 9月  12 2019 bin
+drwxrwxr-x. 4 atguigu atguigu     37 2月  24 18:23 data
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 etc
+drwxr-xr-x. 2 atguigu atguigu    106 9月  12 2019 include
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 lib
+drwxr-xr-x. 4 atguigu atguigu    288 9月  12 2019 libexec
+-rw-rw-r--. 1 atguigu atguigu 147145 9月   4 2019 LICENSE.txt
+drwxrwxr-x. 3 atguigu atguigu   4096 3月  20 15:25 logs
+-rw-rw-r--. 1 atguigu atguigu  21867 9月   4 2019 NOTICE.txt
+-rw-rw-r--. 1 atguigu atguigu   1366 9月   4 2019 README.txt
+drwxr-xr-x. 3 atguigu atguigu   4096 9月  12 2019 sbin
+drwxr-xr-x. 4 atguigu atguigu     31 9月  12 2019 share
+drwxrwxr-x. 2 atguigu atguigu     22 2月  24 11:21 wcinput
+drwxr-xr-x. 2 atguigu atguigu     88 2月  24 11:21 wcoutput
+-rw-rw-r--. 1 atguigu atguigu     34 3月   2 15:30 weiguo.txt
+-rw-rw-r--. 1 atguigu atguigu     42 3月   2 15:33 黄月英.txt
+[atguigu@hadoop102 hadoop-3.1.3]$ rm -rf data
+[atguigu@hadoop102 hadoop-3.1.3]$ rm -rf logs
+[atguigu@hadoop102 hadoop-3.1.3]$ ll
+总用量 184
+drwxr-xr-x. 2 atguigu atguigu    183 9月  12 2019 bin
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 etc
+drwxr-xr-x. 2 atguigu atguigu    106 9月  12 2019 include
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 lib
+drwxr-xr-x. 4 atguigu atguigu    288 9月  12 2019 libexec
+-rw-rw-r--. 1 atguigu atguigu 147145 9月   4 2019 LICENSE.txt
+-rw-rw-r--. 1 atguigu atguigu  21867 9月   4 2019 NOTICE.txt
+-rw-rw-r--. 1 atguigu atguigu   1366 9月   4 2019 README.txt
+drwxr-xr-x. 3 atguigu atguigu   4096 9月  12 2019 sbin
+drwxr-xr-x. 4 atguigu atguigu     31 9月  12 2019 share
+drwxrwxr-x. 2 atguigu atguigu     22 2月  24 11:21 wcinput
+drwxr-xr-x. 2 atguigu atguigu     88 2月  24 11:21 wcoutput
+-rw-rw-r--. 1 atguigu atguigu     34 3月   2 15:30 weiguo.txt
+-rw-rw-r--. 1 atguigu atguigu     42 3月   2 15:33 黄月英.txt
+[atguigu@hadoop102 hadoop-3.1.3]$ stop-all.sh
+WARNING: Stopping all Apache Hadoop daemons as atguigu in 10 seconds.
+WARNING: Use CTRL-C to abort.
+Stopping namenodes on [hadoop102]
+Stopping datanodes
+Stopping secondary namenodes [hadoop104]
+Stopping nodemanagers
+Stopping resourcemanager
+[atguigu@hadoop102 hadoop-3.1.3]$ ll
+总用量 184
+drwxr-xr-x. 2 atguigu atguigu    183 9月  12 2019 bin
+drwxrwxr-x. 3 atguigu atguigu     26 3月  20 15:32 data
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 etc
+drwxr-xr-x. 2 atguigu atguigu    106 9月  12 2019 include
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 lib
+drwxr-xr-x. 4 atguigu atguigu    288 9月  12 2019 libexec
+-rw-rw-r--. 1 atguigu atguigu 147145 9月   4 2019 LICENSE.txt
+drwxrwxr-x. 3 atguigu atguigu     22 3月  20 15:32 logs
+-rw-rw-r--. 1 atguigu atguigu  21867 9月   4 2019 NOTICE.txt
+-rw-rw-r--. 1 atguigu atguigu   1366 9月   4 2019 README.txt
+drwxr-xr-x. 3 atguigu atguigu   4096 9月  12 2019 sbin
+drwxr-xr-x. 4 atguigu atguigu     31 9月  12 2019 share
+drwxrwxr-x. 2 atguigu atguigu     22 2月  24 11:21 wcinput
+drwxr-xr-x. 2 atguigu atguigu     88 2月  24 11:21 wcoutput
+-rw-rw-r--. 1 atguigu atguigu     34 3月   2 15:30 weiguo.txt
+-rw-rw-r--. 1 atguigu atguigu     42 3月   2 15:33 黄月英.txt
+[atguigu@hadoop102 hadoop-3.1.3]$ ll
+总用量 184
+drwxr-xr-x. 2 atguigu atguigu    183 9月  12 2019 bin
+drwxrwxr-x. 3 atguigu atguigu     26 3月  20 15:32 data
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 etc
+drwxr-xr-x. 2 atguigu atguigu    106 9月  12 2019 include
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 lib
+drwxr-xr-x. 4 atguigu atguigu    288 9月  12 2019 libexec
+-rw-rw-r--. 1 atguigu atguigu 147145 9月   4 2019 LICENSE.txt
+drwxrwxr-x. 3 atguigu atguigu     22 3月  20 15:32 logs
+-rw-rw-r--. 1 atguigu atguigu  21867 9月   4 2019 NOTICE.txt
+-rw-rw-r--. 1 atguigu atguigu   1366 9月   4 2019 README.txt
+drwxr-xr-x. 3 atguigu atguigu   4096 9月  12 2019 sbin
+drwxr-xr-x. 4 atguigu atguigu     31 9月  12 2019 share
+drwxrwxr-x. 2 atguigu atguigu     22 2月  24 11:21 wcinput
+drwxr-xr-x. 2 atguigu atguigu     88 2月  24 11:21 wcoutput
+-rw-rw-r--. 1 atguigu atguigu     34 3月   2 15:30 weiguo.txt
+-rw-rw-r--. 1 atguigu atguigu     42 3月   2 15:33 黄月英.txt
+[atguigu@hadoop102 hadoop-3.1.3]$ rm -rf logs
+[atguigu@hadoop102 hadoop-3.1.3]$ rm -rf data
+[atguigu@hadoop102 hadoop-3.1.3]$ ll
+总用量 184
+drwxr-xr-x. 2 atguigu atguigu    183 9月  12 2019 bin
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 etc
+drwxr-xr-x. 2 atguigu atguigu    106 9月  12 2019 include
+drwxr-xr-x. 3 atguigu atguigu     20 9月  12 2019 lib
+drwxr-xr-x. 4 atguigu atguigu    288 9月  12 2019 libexec
+-rw-rw-r--. 1 atguigu atguigu 147145 9月   4 2019 LICENSE.txt
+-rw-rw-r--. 1 atguigu atguigu  21867 9月   4 2019 NOTICE.txt
+-rw-rw-r--. 1 atguigu atguigu   1366 9月   4 2019 README.txt
+drwxr-xr-x. 3 atguigu atguigu   4096 9月  12 2019 sbin
+drwxr-xr-x. 4 atguigu atguigu     31 9月  12 2019 share
+drwxrwxr-x. 2 atguigu atguigu     22 2月  24 11:21 wcinput
+drwxr-xr-x. 2 atguigu atguigu     88 2月  24 11:21 wcoutput
+-rw-rw-r--. 1 atguigu atguigu     34 3月   2 15:30 weiguo.txt
+-rw-rw-r--. 1 atguigu atguigu     42 3月   2 15:33 黄月英.txt
+[atguigu@hadoop102 hadoop-3.1.3]$ hdfs namenode -format
+WARNING: /opt/module/hadoop-3.1.3/logs does not exist. Creating.
+2023-03-20 15:34:40,398 INFO namenode.NameNode: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting NameNode
+STARTUP_MSG:   host = hadoop102/192.168.137.39
+STARTUP_MSG:   args = [-format]
+STARTUP_MSG:   version = 3.1.3
+STARTUP_MSG:   classpath = /opt/module/hadoop-3.1.3/etc/hadoop:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/accessors-smart-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/animal-sniffer-annotations-1.17.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/asm-5.0.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/audience-annotations-0.5.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/avro-1.7.7.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/checker-qual-2.5.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-beanutils-1.9.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-cli-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-codec-1.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-collections-3.2.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-compress-1.18.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-configuration2-2.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-io-2.5.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-lang-2.6.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-lang3-3.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-logging-1.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-math3-3.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/commons-net-3.6.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/curator-client-2.13.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/curator-framework-2.13.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/curator-recipes-2.13.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/error_prone_annotations-2.2.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/failureaccess-1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/gson-2.2.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/guava-27.0-jre.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/hadoop-annotations-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/hadoop-auth-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/htrace-core4-4.1.0-incubating.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/httpclient-4.5.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/httpcore-4.4.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/j2objc-annotations-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-annotations-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-core-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-core-asl-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-databind-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-jaxrs-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-mapper-asl-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jackson-xc-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/javax.servlet-api-3.1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jaxb-api-2.2.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jaxb-impl-2.2.3-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jcip-annotations-1.0-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jersey-core-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jersey-json-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jersey-server-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jersey-servlet-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jettison-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-http-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-io-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-security-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-server-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-servlet-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-util-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-webapp-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jetty-xml-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsch-0.1.54.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/json-smart-2.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsp-api-2.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsr305-3.0.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jsr311-api-1.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-admin-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-client-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-common-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-core-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-crypto-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-identity-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-server-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-simplekdc-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerb-util-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerby-asn1-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerby-config-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerby-pkix-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerby-util-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/kerby-xdr-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/log4j-1.2.17.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/netty-3.10.5.Final.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/nimbus-jose-jwt-4.41.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/paranamer-2.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/protobuf-java-2.5.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/re2j-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/slf4j-api-1.7.25.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/snappy-java-1.0.5.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/stax2-api-3.1.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/token-provider-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/woodstox-core-5.0.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/zookeeper-3.4.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/jul-to-slf4j-1.7.25.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/metrics-core-3.2.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/hadoop-common-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/hadoop-common-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/hadoop-nfs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/common/hadoop-kms-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-daemon-1.0.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-util-ajax-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/leveldbjni-all-1.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/netty-all-4.0.52.Final.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/okhttp-2.7.5.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/okio-1.6.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jersey-servlet-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jersey-json-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/hadoop-auth-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-codec-1.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/log4j-1.2.17.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/httpclient-4.5.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/httpcore-4.4.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-logging-1.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/nimbus-jose-jwt-4.41.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jcip-annotations-1.0-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/json-smart-2.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/accessors-smart-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/asm-5.0.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/zookeeper-3.4.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/audience-annotations-0.5.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/netty-3.10.5.Final.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/curator-framework-2.13.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/curator-client-2.13.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/guava-27.0-jre.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/failureaccess-1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jsr305-3.0.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/checker-qual-2.5.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/error_prone_annotations-2.2.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/j2objc-annotations-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/animal-sniffer-annotations-1.17.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-simplekdc-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-client-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerby-config-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-core-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerby-pkix-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerby-asn1-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerby-util-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-common-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-crypto-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-io-2.5.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-util-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/token-provider-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-admin-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-server-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerb-identity-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/kerby-xdr-1.0.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jersey-core-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jsr311-api-1.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jersey-server-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/javax.servlet-api-3.1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/json-simple-1.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-server-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-http-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-util-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-io-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-webapp-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-xml-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-servlet-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jetty-security-9.3.24.v20180605.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/hadoop-annotations-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-cli-1.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-math3-3.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-net-3.6.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-collections-3.2.2.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jettison-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jaxb-impl-2.2.3-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jaxb-api-2.2.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-core-asl-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-mapper-asl-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-jaxrs-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-xc-1.9.13.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-lang-2.6.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-beanutils-1.9.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-configuration2-2.1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-lang3-3.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/avro-1.7.7.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/paranamer-2.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/snappy-java-1.0.5.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/commons-compress-1.18.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/re2j-1.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/protobuf-java-2.5.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/gson-2.2.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jsch-0.1.54.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/curator-recipes-2.13.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/htrace-core4-4.1.0-incubating.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-databind-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-annotations-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/jackson-core-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/stax2-api-3.1.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/lib/woodstox-core-5.0.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-nfs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-client-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-client-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-native-client-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-native-client-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-rbf-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-rbf-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/hdfs/hadoop-hdfs-httpfs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/lib/hamcrest-core-1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/lib/junit-4.11.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-app-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-common-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-plugins-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.1.3-tests.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-nativetask-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-shuffle-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-client-uploader-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/HikariCP-java7-2.4.12.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/aopalliance-1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/dnsjava-2.1.7.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/ehcache-3.3.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/fst-2.50.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/geronimo-jcache_1.0_spec-1.0-alpha-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/guice-4.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/guice-servlet-4.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jackson-jaxrs-base-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jackson-jaxrs-json-provider-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jackson-module-jaxb-annotations-2.7.8.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/java-util-1.9.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/javax.inject-1.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jersey-client-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/jersey-guice-1.19.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/json-io-2.5.1.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/metrics-core-3.2.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/mssql-jdbc-6.2.1.jre7.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/objenesis-1.0.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/snakeyaml-1.16.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/lib/swagger-annotations-1.5.4.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-api-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-applications-distributedshell-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-applications-unmanaged-am-launcher-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-client-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-common-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-registry-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-applicationhistoryservice-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-common-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-nodemanager-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-resourcemanager-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-router-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-sharedcachemanager-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-tests-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-timeline-pluginstorage-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-server-web-proxy-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-services-api-3.1.3.jar:/opt/module/hadoop-3.1.3/share/hadoop/yarn/hadoop-yarn-services-core-3.1.3.jar
+STARTUP_MSG:   build = https://gitbox.apache.org/repos/asf/hadoop.git -r ba631c436b806728f8ec2f54ab1e289526c90579; compiled by 'ztang' on 2019-09-12T02:47Z
+STARTUP_MSG:   java = 1.8.0_212
+************************************************************/
+2023-03-20 15:34:40,405 INFO namenode.NameNode: registered UNIX signal handlers for [TERM, HUP, INT]
+2023-03-20 15:34:40,478 INFO namenode.NameNode: createNameNode [-format]
+Formatting using clusterid: CID-247a51e6-2e56-4838-a202-e73f062c32b6
+2023-03-20 15:34:40,844 INFO namenode.FSEditLog: Edit logging is async:true
+2023-03-20 15:34:40,855 INFO namenode.FSNamesystem: KeyProvider: null
+2023-03-20 15:34:40,856 INFO namenode.FSNamesystem: fsLock is fair: true
+2023-03-20 15:34:40,856 INFO namenode.FSNamesystem: Detailed lock hold time metrics enabled: false
+2023-03-20 15:34:40,860 INFO namenode.FSNamesystem: fsOwner             = atguigu (auth:SIMPLE)
+2023-03-20 15:34:40,860 INFO namenode.FSNamesystem: supergroup          = supergroup
+2023-03-20 15:34:40,860 INFO namenode.FSNamesystem: isPermissionEnabled = true
+2023-03-20 15:34:40,860 INFO namenode.FSNamesystem: HA Enabled: false
+2023-03-20 15:34:40,890 INFO common.Util: dfs.datanode.fileio.profiling.sampling.percentage set to 0. Disabling file IO profiling
+2023-03-20 15:34:40,900 INFO blockmanagement.DatanodeManager: dfs.block.invalidate.limit: configured=1000, counted=60, effected=1000
+2023-03-20 15:34:40,900 INFO blockmanagement.DatanodeManager: dfs.namenode.datanode.registration.ip-hostname-check=true
+2023-03-20 15:34:40,904 INFO blockmanagement.BlockManager: dfs.namenode.startup.delay.block.deletion.sec is set to 000:00:00:00.000
+2023-03-20 15:34:40,904 INFO blockmanagement.BlockManager: The block deletion will start around 2023 三月 20 15:34:40
+2023-03-20 15:34:40,913 INFO util.GSet: Computing capacity for map BlocksMap
+2023-03-20 15:34:40,913 INFO util.GSet: VM type       = 64-bit
+2023-03-20 15:34:40,914 INFO util.GSet: 2.0% max memory 839.5 MB = 16.8 MB
+2023-03-20 15:34:40,914 INFO util.GSet: capacity      = 2^21 = 2097152 entries
+2023-03-20 15:34:40,920 INFO blockmanagement.BlockManager: dfs.block.access.token.enable = false
+2023-03-20 15:34:40,925 INFO Configuration.deprecation: No unit for dfs.namenode.safemode.extension(30000) assuming MILLISECONDS
+2023-03-20 15:34:40,925 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.threshold-pct = 0.9990000128746033
+2023-03-20 15:34:40,925 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.min.datanodes = 0
+2023-03-20 15:34:40,925 INFO blockmanagement.BlockManagerSafeMode: dfs.namenode.safemode.extension = 30000
+2023-03-20 15:34:40,925 INFO blockmanagement.BlockManager: defaultReplication         = 3
+2023-03-20 15:34:40,925 INFO blockmanagement.BlockManager: maxReplication             = 512
+2023-03-20 15:34:40,925 INFO blockmanagement.BlockManager: minReplication             = 1
+2023-03-20 15:34:40,925 INFO blockmanagement.BlockManager: maxReplicationStreams      = 2
+2023-03-20 15:34:40,925 INFO blockmanagement.BlockManager: redundancyRecheckInterval  = 3000ms
+2023-03-20 15:34:40,925 INFO blockmanagement.BlockManager: encryptDataTransfer        = false
+2023-03-20 15:34:40,925 INFO blockmanagement.BlockManager: maxNumBlocksToLog          = 1000
+2023-03-20 15:34:40,962 INFO namenode.FSDirectory: GLOBAL serial map: bits=24 maxEntries=16777215
+2023-03-20 15:34:40,974 INFO util.GSet: Computing capacity for map INodeMap
+2023-03-20 15:34:40,974 INFO util.GSet: VM type       = 64-bit
+2023-03-20 15:34:40,974 INFO util.GSet: 1.0% max memory 839.5 MB = 8.4 MB
+2023-03-20 15:34:40,974 INFO util.GSet: capacity      = 2^20 = 1048576 entries
+2023-03-20 15:34:40,975 INFO namenode.FSDirectory: ACLs enabled? false
+2023-03-20 15:34:40,975 INFO namenode.FSDirectory: POSIX ACL inheritance enabled? true
+2023-03-20 15:34:40,975 INFO namenode.FSDirectory: XAttrs enabled? true
+2023-03-20 15:34:40,975 INFO namenode.NameNode: Caching file names occurring more than 10 times
+2023-03-20 15:34:40,978 INFO snapshot.SnapshotManager: Loaded config captureOpenFiles: false, skipCaptureAccessTimeOnlyChange: false, snapshotDiffAllowSnapRootDescendant: true, maxSnapshotLimit: 65536
+2023-03-20 15:34:40,979 INFO snapshot.SnapshotManager: SkipList is disabled
+2023-03-20 15:34:40,984 INFO util.GSet: Computing capacity for map cachedBlocks
+2023-03-20 15:34:40,984 INFO util.GSet: VM type       = 64-bit
+2023-03-20 15:34:40,984 INFO util.GSet: 0.25% max memory 839.5 MB = 2.1 MB
+2023-03-20 15:34:40,984 INFO util.GSet: capacity      = 2^18 = 262144 entries
+2023-03-20 15:34:40,990 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.window.num.buckets = 10
+2023-03-20 15:34:40,990 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.num.users = 10
+2023-03-20 15:34:40,990 INFO metrics.TopMetrics: NNTop conf: dfs.namenode.top.windows.minutes = 1,5,25
+2023-03-20 15:34:40,992 INFO namenode.FSNamesystem: Retry cache on namenode is enabled
+2023-03-20 15:34:40,992 INFO namenode.FSNamesystem: Retry cache will use 0.03 of total heap and retry cache entry expiry time is 600000 millis
+2023-03-20 15:34:40,994 INFO util.GSet: Computing capacity for map NameNodeRetryCache
+2023-03-20 15:34:40,994 INFO util.GSet: VM type       = 64-bit
+2023-03-20 15:34:40,994 INFO util.GSet: 0.029999999329447746% max memory 839.5 MB = 257.9 KB
+2023-03-20 15:34:40,994 INFO util.GSet: capacity      = 2^15 = 32768 entries
+2023-03-20 15:34:41,011 INFO namenode.FSImage: Allocated new BlockPoolId: BP-1618247432-192.168.137.39-1679297681007
+2023-03-20 15:34:41,022 INFO common.Storage: Storage directory /opt/module/hadoop-3.1.3/data/dfs/name has been successfully formatted.
+2023-03-20 15:34:41,041 INFO namenode.FSImageFormatProtobuf: Saving image file /opt/module/hadoop-3.1.3/data/dfs/name/current/fsimage.ckpt_0000000000000000000 using no compression
+2023-03-20 15:34:41,106 INFO namenode.FSImageFormatProtobuf: Image file /opt/module/hadoop-3.1.3/data/dfs/name/current/fsimage.ckpt_0000000000000000000 of size 394 bytes saved in 0 seconds .
+2023-03-20 15:34:41,117 INFO namenode.NNStorageRetentionManager: Going to retain 1 images with txid >= 0
+2023-03-20 15:34:41,121 INFO namenode.FSImage: FSImageSaver clean checkpoint: txid = 0 when meet shutdown.
+2023-03-20 15:34:41,121 INFO namenode.NameNode: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at hadoop102/192.168.137.39
+************************************************************/
+[atguigu@hadoop102 hadoop-3.1.3]$ sbin/start-dfs.sh
+Starting namenodes on [hadoop102]
+Starting datanodes
+hadoop102: datanode is running as process 13018.  Stop it first.
+Starting secondary namenodes [hadoop104]
+[atguigu@hadoop102 hadoop-3.1.3]$ hadoop fs -mkdir /input
+[atguigu@hadoop102 hadoop-3.1.3]$ hadoop fs -put $HADOOP_HOME/wcinput/word.txt /input
+2023-03-20 15:38:35,678 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+[atguigu@hadoop102 hadoop-3.1.3]$ hadoop fs -mkdir /software
+[atguigu@hadoop102 hadoop-3.1.3]$ hadoop fs -put  /opt/software/jdk-8u212-linux-x64.tar.gz  /s
+sbin/ srv/  sys/  
+[atguigu@hadoop102 hadoop-3.1.3]$ hadoop fs -put  /opt/software/jdk-8u212-linux-x64.tar.gz  /s
+sbin/ srv/  sys/  
+[atguigu@hadoop102 hadoop-3.1.3]$ hadoop fs -put  /opt/software/jdk-8u212-linux-x64.tar.gz  /software
+2023-03-20 15:39:56,721 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+2023-03-20 15:40:08,368 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/
+data/ name/ 
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/
+data/ name/ 
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/data/current/BP-1618247432-192.168.137.39-1679297681007/
+current/ tmp/     
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/data/current/BP-1618247432-192.168.137.39-1679297681007/
+current/ tmp/     
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/data/current/BP-1618247432-192.168.137.39-1679297681007/
+current/ tmp/     
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/data/current/BP-1618247432-192.168.137.39-1679297681007/
+current/ tmp/     
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/data/current/BP-1618247432-192.168.137.39-1679297681007/
+current/ tmp/     
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/data/current/BP-1618247432-192.168.137.39-1679297681007/
+current/ tmp/     
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/data/current/BP-1618247432-192.168.137.39-1679297681007/current/
+finalized/ rbw/       
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/data/current/BP-1618247432-192.168.137.39-1679297681007/current/
+finalized/ rbw/       
+[atguigu@hadoop102 hadoop-3.1.3]$ cd data/dfs/data/current/BP-1618247432-192.168.137.39-1679297681007/current/finalized/subdir0/subdir0/
+[atguigu@hadoop102 subdir0]$ pwd
+/opt/module/hadoop-3.1.3/data/dfs/data/current/BP-1618247432-192.168.137.39-1679297681007/current/finalized/subdir0/subdir0
+[atguigu@hadoop102 subdir0]$ 
