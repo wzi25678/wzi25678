@@ -1,0 +1,57 @@
+1）求总行数（count）
+hive (default)> select count(*) cnt from emp;
+2）求工资的最大值（max）
+hive (default)> select max(sal) max_sal from emp;
+3）求工资的最小值（min）
+hive (default)> select min(sal) min_sal from emp;
+4）求工资的总和（sum）
+hive (default)> select sum(sal) sum_sal from emp; 
+5）求工资的平均值（avg）
+hive (default)> select avg(sal) avg_sal from emp;
+
+6.1.5 Limit 语句
+典型的查询会返回多行数据。LIMIT 子句用于限制返回的行数。
+hive (default)> select * from emp limit 5;
+ 尚硅谷大数据技术之 Hive 
+—————————————————————————————————————
+更多 Java –大数据 –前端 –python 人工智能资料下载，可百度访问：尚硅谷官网
+hive (default)> select * from emp limit 2;
+
+
+6.1.7 比较运算符（Between/In/ Is Null）
+1）下面表中描述了谓词操作符，这些操作符同样可以用于 JOIN…ON 和 HAVING 语句中。
+操作符 支持的数据类型 描述
+A=B 基本数据类型 如果 A 等于 B 则返回 TRUE，反之返回 FALSE
+A<=>B 基本数据类型 如果 A 和 B 都为 NULL，则返回 TRUE，如果一边为 NULL，
+返回 False
+A<>B, A!=B 基本数据类型 A 或者 B 为 NULL 则返回 NULL；如果 A 不等于 B，则返回
+TRUE，反之返回 FALSE
+A<B 基本数据类型 A 或者 B 为 NULL，则返回 NULL；如果 A 小于 B，则返回
+TRUE，反之返回 FALSE
+A<=B 基本数据类型 A 或者 B 为 NULL，则返回 NULL；如果 A 小于等于 B，则返
+回 TRUE，反之返回 FALSE
+A>B 基本数据类型 A 或者 B 为 NULL，则返回 NULL；如果 A 大于 B，则返回
+TRUE，反之返回 FALSE
+A>=B 基本数据类型 A 或者 B 为 NULL，则返回 NULL；如果 A 大于等于 B，则返
+回 TRUE，反之返回 FALSE
+A [NOT] BETWEEN B 
+AND C
+基本数据类型 如果 A，B 或者 C 任一为 NULL，则结果为 NULL。如果 A 的
+值大于等于 B 而且小于或等于 C，则结果为 TRUE，反之为 FALSE。
+如果使用 NOT 关键字则可达到相反的效果。
+A IS NULL 所有数据类型 如果 A 等于 NULL，则返回 TRUE，反之返回 FALSE
+A IS NOT NULL 所有数据类型 如果 A 不等于 NULL，则返回 TRUE，反之返回 FALSE
+IN(数值 1, 数值 2) 所有数据类型 使用 IN 运算显示列表中的值
+A [NOT] LIKE B STRING 类型 B 是一个 SQL 下的简单正则表达式，也叫通配符模式，如
+果 A 与其匹配的话，则返回 TRUE；反之返回 FALSE。B 的表达式
+说明如下：‘x%’表示 A 必须以字母‘x’开头，‘%x’表示 A
+必须以字母’x’结尾，而‘%x%’表示 A 包含有字母’x’,可以
+位于开头，结尾或者字符串中间。如果使用 NOT 关键字则可达到
+相反的效果。
+A RLIKE B, A REGEXP B STRING 类型 B 是基于 java 的正则表达式，如果 A 与其匹配，则返回
+TRUE；反之返回 FALSE。匹配使用的是 JDK 中的正则表达式接口
+ 尚硅谷大数据技术之 Hive 
+—————————————————————————————————————
+更多 Java –大数据 –前端 –python 人工智能资料下载，可百度访问：尚硅谷官网
+实现的，因为正则也依据其中的规则。例如，正则表达式必须和
+整个字符串 A 相匹配，而不是只需与其字符串匹配。
