@@ -1,0 +1,18 @@
+1）创建一张表
+hive (default)> create table student_par(id int, name string) row format 
+delimited fields terminated by '\t';
+2）基本插入数据
+hive (default)> insert into table student_par 
+values(1,'wangwu'),(2,'zhaoliu');
+3）基本模式插入（根据单张表查询结果）
+hive (default)> insert overwrite table student_par
+ select id, name from student where month='201709';
+insert into：以追加数据的方式插入到表或分区，原有数据不会删除
+insert overwrite：会覆盖表中已存在的数据
+注意：insert 不支持插入部分字段
+4）多表（多分区）插入模式（根据多张表查询结果）
+hive (default)> from student
+ insert overwrite table student partition(month='201707')
+ select id, name where month='201709'
+ insert overwrite table student partition(month='201706')
+ select id, name where month='201709';
