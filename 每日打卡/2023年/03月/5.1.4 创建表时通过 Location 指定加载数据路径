@@ -1,0 +1,16 @@
+1）上传数据到 hdfs 上
+hive (default)> dfs -mkdir /student;
+hive (default)> dfs -put /opt/module/datas/student.txt /student;
+2）创建表，并指定在 hdfs 上的位置
+hive (default)> create external table if not exists student5(
+ id int, name string
+ )
+ row format delimited fields terminated by '\t'
+ location '/student;
+3）查询数据
+hive (default)> select * from student5;
+
+5.1.5 Import 数据到指定 Hive 表中
+注意：先用 export 导出后，再将数据导入。
+hive (default)> import table student2
+from '/user/hive/warehouse/export/student';
