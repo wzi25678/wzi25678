@@ -1,0 +1,28 @@
+1）将查询的结果导出到本地
+hive (default)> insert overwrite local directory 
+'/opt/module/hive/data/export/student'
+select * from student;
+2）将查询的结果格式化导出到本地
+hive(default)>insert overwrite local directory 
+'/opt/module/hive/data/export/student1'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+select * from student;
+3）将查询的结果导出到 HDFS 上(没有 local)
+hive (default)> insert overwrite directory '/user/atguigu/student2'
+ ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' 
+ select * from student;
+5.2.2 Hadoop 命令导出到本地
+hive (default)> dfs -get /user/hive/warehouse/student/student.txt
+/opt/module/data/export/student3.txt;
+
+
+5.2.3 Hive Shell 命令导出
+基本语法：（hive -f/-e 执行语句或者脚本 > file）
+[atguigu@hadoop102 hive]$ bin/hive -e 'select * from default.student;' >
+/opt/module/hive/data/export/student4.txt;
+
+5.2.3 Hive Shell 命令导出
+基本语法：（hive -f/-e 执行语句或者脚本 > file）
+[atguigu@hadoop102 hive]$ bin/hive -e 'select * from default.student;' >
+/opt/module/hive/data/export/student4.txt;
+文件开头会带有表头信息。。。
