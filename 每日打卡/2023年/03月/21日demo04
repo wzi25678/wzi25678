@@ -1,0 +1,5 @@
+5.2.6 清除表中数据（Truncate）
+注意：Truncate 只能删除管理表，不能删除外部表中数据
+hive (default)> truncate table student;
+
+删除之后，且会导致无法使用回归操作恢复。
