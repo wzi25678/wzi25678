@@ -1,0 +1,4 @@
+详见 4.5.1 章创建表。
+根据查询结果创建表（查询的结果会添加到新创建的表中）
+create table if not exists student3
+as select id, name from student;
