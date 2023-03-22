@@ -1,0 +1,41 @@
+#0. 储备工作
+USE atguigudb;
+
+DROP TABLE emp1;
+
+CREATE TABLE IF NOT EXISTS emp1(
+id INT,
+`name` VARCHAR(15),
+hire_date DATE,
+salary DOUBLE(10,2)
+);
+
+DESC emp1;
+
+SELECT *
+FROM emp1;
+
+#1. 添加数据
+
+#方式1：一条一条的添加数据
+
+# ① 没有指明添加的字段
+#正确的
+INSERT INTO emp1
+VALUES (1,'Tom','2000-12-21',3400); #注意：一定要按照声明的字段的先后顺序添加
+#错误的
+INSERT INTO emp1
+VALUES (2,3400,'2000-12-21','Jerry');
+
+# ② 指明要添加的字段 （推荐）
+INSERT INTO emp1(id,hire_date,salary,`name`)
+VALUES(2,'1999-09-09',4000,'Jerry');
+# 说明：没有进行赋值的hire_date 的值为 null
+INSERT INTO emp1(id,salary,`name`)
+VALUES(3,4500,'shk');
+
+# ③ 同时插入多条记录 （推荐）
+INSERT INTO emp1(id,NAME,salary)
+VALUES
+(4,'Jim',5000),
+(5,'张俊杰',5500);
