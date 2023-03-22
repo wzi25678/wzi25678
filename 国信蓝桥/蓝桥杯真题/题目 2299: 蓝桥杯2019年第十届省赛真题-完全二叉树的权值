@@ -1,0 +1,54 @@
+package Year_2019;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class 完全二叉树的权值 {
+	/**	他想知道哪个深度的节点 权值之和最大?如果有多个深度的权值和同为最大，请你输出其中最小的深度。
+	 */
+	private static int N;
+	private static int [] tree_arr;
+	private static int [] every_ceng;
+	private static int [] sum_max;	//某深度的最大权值
+	private static int tempSum;   //当前访问深度的权值之和 
+	private static int dept;	//最大权值对应的最小深度
+	private static int tempSum_dept; ////当前访问深度的权值之和，对应的深度
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		tree_arr = new int[N];
+		int floor [] = new int [N];
+		every_ceng = new int [N];
+		
+		for(int i=0;i<N;i++) {
+			tree_arr[i] = sc.nextInt();
+			//可以用数学公式快速标记是第几层
+			//System.out.print((int)Math.floor(log2(i+1))+" ");
+			//ceng 层
+			int ceng =  ((int)Math.floor(log2(i+1))+1);
+			//当前层的总和
+			every_ceng[ceng] += ceng*tree_arr[i]; 	
+			
+		}
+		System.out.print(Arrays.toString(every_ceng));
+		int max = 0;
+		int index = 0;
+		for(int i=0;i<N;i++) {
+			if(every_ceng[i] > max) {
+				  max = every_ceng[i];
+				  index  = i;
+			}
+		}
+		System.out.println(index -1);
+		
+		sc.close();
+		
+		
+	}//end -main
+	
+	public static double log2(double N) {
+		return Math.log(N)/Math.log(2);//Math.log的底为e
+	}
+
+}
