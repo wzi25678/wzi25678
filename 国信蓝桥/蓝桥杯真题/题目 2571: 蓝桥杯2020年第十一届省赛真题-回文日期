@@ -1,0 +1,104 @@
+package Year_2020;
+
+import java.util.Scanner;
+
+/**
+ * 给定一个8 位数的日期，请你计算该日期之后下一个回文日期和下一个ABABBABA型的回文日期各是哪一天。
+ * 
+ * @author Wzi
+ *
+ */
+/**
+ * 
+ * @author Wzi
+ *	解题思路：
+ *	1.先获取当前的年月日，从这一天往后遍历
+ *	年月日转成int，便于计算，迭代    ，同时用一个str来记录形式
+ */
+public class 回文日期 {
+	private static int N;
+	private static int a_year,b_month,c_day;
+	
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		a_year = N/10000;	//取前四位
+		b_month = N%10000/100;	//去中间两位
+		c_day = N%100;  //取后两位
+		
+		for(int y=a_year;y<9999;y++) {
+			int m = 1;
+			if(y==a_year) {
+				m=b_month;
+			}
+			char [] c1 = (y+"").toCharArray();
+			//对第0/1个位置上的年份进行判断
+			if(c1[1] > '3') {
+				continue;
+			}else if(c1[1]=='3') {
+				if(c1[0]>='2') {
+					continue;
+				}
+			}
+			//对第2/3个位置上的月份进行判断
+			if(c1[2] > '2') {
+				if(c1[3] != '0') {
+					continue;
+				}
+			}else {
+				if(c1[3]!='1' && c1[3]!='0') {
+					continue;
+			}
+			}
+			int day = 0;
+			for(int i=m;i<=12;i++) {
+				if(i==1||i==3||i==5||i==7||i==8||i==10||i==12) {
+					day=31;
+				}else if(i==4||i==6||i==9||i==11) {
+					day=30;
+				}else {
+					if(isrun(y)) {
+						day = 29;
+					}else {
+						day = 28;
+					}
+				}
+				int today = 1;
+				if(i==b_month && y==a_year) {
+					today = c+1;
+				}
+				for(int j=today;j<=day;j++) {
+					int sum = y*10000+i*100+j;
+					if(ishw(sum)) {
+						System.out.println(sum);
+						getd(a_year,b_month,c_day);
+						
+					}
+				}
+			}
+			
+			
+		}//for(int y=a_year;y<9999;y++) 
+		
+	}//end -main
+
+
+	private static void getd(int a_year2, int b_month2, int c_day2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static boolean ishw(int sum) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	private static boolean isrun(int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}//end -class 回文日期
