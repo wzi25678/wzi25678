@@ -1,0 +1,114 @@
+package Year_2020;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class 子串分值 {
+	private static String s;
+	//private static char [] helper = new char [26];
+	private static char S [];
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		s = sc.next();
+		int sum = 0;
+		for(int i=0;i<s.length();i++) {
+			for(int j=i;j<s.length();j++) {
+				S = (s.substring(i, j+1)).toCharArray();
+			//	System.out.println("当前S为：" +Arrays.toString(S));
+				char [] helper = new char [26];
+				for(int k=0;k<S.length;k++) {
+					switch (S[k]) {
+					case 'a':
+						helper[0]++;
+						break;
+					case 'b':
+						helper[1]++;
+						break;
+					case 'c':
+						helper[2]++;
+						break;
+					case 'd':
+						helper[3]++;
+						break;
+					case 'e':
+						helper[4]++;
+						break;
+					case 'f':
+						helper[5]++;
+						break;
+					case 'g':
+						helper[6]++;
+						break;
+					case 'h':
+						helper[7]++;
+						break;
+					case 'i':
+						helper[8]++;
+						break;
+					case 'j':
+						helper[9]++;
+						break;
+					case 'k':
+						helper[10]++;
+						break;
+					case 'l':
+						helper[11]++;
+						break;
+					case 'm':
+						helper[12]++;
+						break;
+					case 'n':
+						helper[13]++;
+						break;
+					case 'o':
+						helper[14]++;
+						break;
+					case 'p':
+						helper[15]++;
+						break;
+					case 'q':
+						helper[16]++;
+						break;
+					case 'r':
+						helper[17]++;
+						break;
+					case 's':
+						helper[18]++;
+						break;
+					case 't':
+						helper[19]++;
+						break;
+					case 'u':
+						helper[20]++;
+						break;
+					case 'v':
+						helper[21]++;
+						break;
+					case 'w':
+						helper[22]++;
+						break;
+					case 'x':
+						helper[23]++;
+						break;
+					case 'y':
+						helper[24]++;
+						break;
+					case 'z':
+						helper[25]++;
+						break;
+
+					}//switch (k) 
+				}//for(int k=i;k<=j;k++)
+				for(int p = 0;p<26;p++) {
+					if(helper[p] == 1) {
+						sum++;
+					}
+				}
+			}
+		}
+		System.out.println(sum);
+		sc.close();
+	}//end main
+
+}//end -class 子串分值
