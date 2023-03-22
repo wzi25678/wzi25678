@@ -1,0 +1,42 @@
+什么叫计算列呢？简单来说就是某一列的值是通过别的列计算得来的。例如，a列值为1、b列值为2，c列
+不需要手动插入，定义a+b的结果为c的值，那么c就是计算列，是通过别的列计算得来的。
+在MySQL 8.0中，CREATE TABLE 和 ALTER TABLE 中都支持增加计算列。下面以CREATE TABLE为例进行讲
+解。
+举例：定义数据表tb1，然后定义字段id、字段a、字段b和字段c，其中字段c为计算列，用于计算a+b的
+值。 首先创建测试表tb1，语句如下：
+插入演示数据，语句如下：
+DELETE FROM table_name [WHERE <condition>];
+DELETE FROM departments
+WHERE department_name = 'Finance';
+DELETE FROM copy_emp;
+DELETE FROM departments
+WHERE department_id = 60;
+CREATE TABLE tb1(
+id INT,
+a INT,
+b INT,
+c INT GENERATED ALWAYS AS (a + b) VIRTUAL
+);
+北京宏福校区：010-56253825 深圳西部硅谷校区：0755-23060254 上海大江商厦校区：021-57652717
+字段名 字段说明 数据类型
+id 书编号 INT
+name 书名 VARCHAR(50)
+authors 作者 VARCHAR(100)
+price 价格 FLOAT
+pubdate 出版日期 YEAR
+note 说明 VARCHAR(100)
+num 库存 INT
+查询数据表tb1中的数据，结果如下：
+更新数据中的数据，语句如下：
+5. 综合案例
+INSERT INTO tb1(a,b) VALUES (100,200);
+mysql> SELECT * FROM tb1;
++------+------+------+------+
+| id | a | b | c |
++------+------+------+------+
+| NULL | 100 | 200 | 300 |
++------+------+------+------+
+1 row in set (0.00 sec)
+mysql> UPDATE tb1 SET a = 500;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1 Changed: 0 Warnings: 0
