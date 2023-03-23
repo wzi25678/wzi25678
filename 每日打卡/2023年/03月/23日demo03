@@ -1,0 +1,112 @@
+4. 定点数类型
+
+4.1 类型介绍
+MySQL中的定点数类型只有 DECIMAL 一种类型。
+CREATE TABLE test_double2(
+f1 DOUBLE
+);
+INSERT INTO test_double2
+VALUES(0.47),(0.44),(0.19);
+mysql> SELECT SUM(f1)
+-> FROM test_double2;
++--------------------+
+| SUM(f1) |
++--------------------+
+| 1.0999999999999999 |
++--------------------+
+1 row in set (0.00 sec)
+mysql> SELECT SUM(f1) = 1.1,1.1 = 1.1
+-> FROM test_double2;
++---------------+-----------+
+| SUM(f1) = 1.1 | 1.1 = 1.1 |
++---------------+-----------+
+| 0 | 1 |
++---------------+-----------+
+1 row in set (0.00 sec)
+北京宏福校区：010-56253825 深圳西部硅谷校区：0755-23060254 上海大江商厦校区：021-57652717
+数据类型 字节数 含义
+DECIMAL(M,D),DEC,NUMERIC M+2字节 有效范围由M和D决定
+使用 DECIMAL(M,D) 的方式表示高精度小数。其中，M被称为精度，D被称为标度。0<=M<=65，
+0<=D<=30，D<M。例如，定义DECIMAL（5,2）的类型，表示该列取值范围是-999.99~999.99。
+DECIMAL(M,D)的最大取值范围与DOUBLE类型一样，但是有效的数据范围是由M和D决定的。
+DECIMAL 的存储空间并不是固定的，由精度值M决定，总共占用的存储空间为M+2个字节。也就是
+说，在一些对精度要求不高的场景下，比起占用同样字节长度的定点数，浮点数表达的数值范围可
+以更大一些。
+定点数在MySQL内部是以 字符串 的形式进行存储，这就决定了它一定是精准的。
+当DECIMAL类型不指定精度和标度时，其默认为DECIMAL(10,0)。当数据的精度超出了定点数类型的
+精度范围时，则MySQL同样会进行四舍五入处理。
+浮点数 vs 定点数
+浮点数相对于定点数的优点是在长度一定的情况下，浮点类型取值范围大，但是不精准，适用
+于需要取值范围大，又可以容忍微小误差的科学计算场景（比如计算化学、分子建模、流体动
+力学等）
+定点数类型取值范围相对小，但是精准，没有误差，适合于对精度要求极高的场景 （比如涉
+及金额计算的场景）
+举例
+举例
+我们运行下面的语句，把test_double2表中字段“f1”的数据类型修改为 DECIMAL(5,2)：
+然后，我们再一次运行求和语句：
+CREATE TABLE test_decimal1(
+f1 DECIMAL,
+f2 DECIMAL(5,2)
+);
+DESC test_decimal1;
+INSERT INTO test_decimal1(f1,f2)
+VALUES(123.123,123.456);
+#Out of range value for column 'f2' at row 1
+INSERT INTO test_decimal1(f2)
+VALUES(1234.34);
+mysql> SELECT * FROM test_decimal1;
++------+--------+
+| f1 | f2 |
++------+--------+
+| 123 | 123.46 |
++------+--------+
+1 row in set (0.00 sec)
+ALTER TABLE test_double2
+MODIFY f1 DECIMAL(5,2);
+北京宏福校区：010-56253825 深圳西部硅谷校区：0755-23060254 上海大江商厦校区：021-57652717
+二进制字符串类型 长度 长度范围 占用空间
+BIT(M) M 1 <= M <= 64 约为(M + 7)/8个字节
+4.2 开发中经验
+“由于 DECIMAL 数据类型的精准性，在我们的项目中，除了极少数（比如商品编号）用到整数类型
+外，其他的数值都用的是 DECIMAL，原因就是这个项目所处的零售行业，要求精准，一分钱也不能
+差。 ” ——来自某项目经理
+
+#4. 定点数类型
+CREATE TABLE test_decimal1(
+f1 DECIMAL,   #默认（10,0）长度为10位，且不含小数。
+f2 DECIMAL(5,2)
+);
+
+DESC test_decimal1;
+
+INSERT INTO test_decimal1(f1)
+VALUES(123),(123.45);
+
+SELECT * FROM test_decimal1;
+
+INSERT INTO test_decimal1(f2)
+VALUES(999.99);
+
+INSERT INTO test_decimal1(f2)
+VALUES(67.567);#存在四色五入
+
+#Out of range value for column 'f2' at row 1
+INSERT INTO test_decimal1(f2)
+VALUES(1267.567);
+
+#Out of range value for column 'f2' at row 1
+INSERT INTO test_decimal1(f2)
+VALUES(999.995);
+
+#演示DECIMAL替换DOUBLE，体现精度
+ALTER TABLE test_double2
+MODIFY f1 DECIMAL(5,2);
+
+DESC test_double2;
+
+SELECT SUM(f1)
+FROM test_double2;
+
+SELECT SUM(f1) = 1.1,1.1 = 1.1
+FROM test_double2;
