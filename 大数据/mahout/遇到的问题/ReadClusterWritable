@@ -1,0 +1,71 @@
+package mahout.fansy.utils;
+
+import org.apache.hadoop.conf.Configuration;
+
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;
+import org.apache.hadoop.util.ToolRunner;
+
+import org.apache.mahout.clustering.iterator.ClusterWritable;
+import org.apache.mahout.common.AbstractJob;
+import org.slf4j.LoggerFactory;
+
+
+import java.io.IOException;
+import java.util.logging.Logger;
+
+import static org.jdom2.Content.CType.Text;
+
+
+/**
+ * Title：XXXX OCR
+ * Description:XXXX OCR 3.0
+ * Copyright:Copyright(c) 2021
+ * Company:XXXX 有限公司
+ *
+ * @author Wzi
+ * @version jdk1.8
+ * <p>
+ * 带参数构造函数，初始化模式名、变量名称和数据源类型
+ * @create_date 2019/10/4 15:09
+ */
+public class ReadClusterWritable extends AbstractJob {
+    public static void main(String[] args) throws Exception {
+        ToolRunner.run(new Configuration(),new ReadClusterWritable(),args);
+    }//end -main
+
+    @Override
+    public int run(String[] args) throws Exception {
+        addInputOption();
+        addOutputOption();
+        if (parseArguments(args) == null){
+            return -1;
+        }
+        Job job = new Job(getConf(),getInputPath().toString());
+        job.setInputFormatClass(SequenceFileInputFormat.class);
+        job.setMapperClass(RM.class);
+        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(Text.class);
+        job.setNumReduceTasks(0);
+        job.setJarByClass(ReadClusterWritable.class);
+        FileInputFormat.addInputPath(job,getInputPath());
+        FileInputFormat.addInputPath(job,getOutputPath());
+            if (!job.waitForCompletion(true)) {
+                throw new InterruptedException("Canopy Job failed processing " + getInputPath());
+            }
+        return 0;
+    }//end -int run(String[] strings) throws Exception
+
+    public static class RM extends Mapper<Text, ClusterWritable,Text,Text>{
+        private Logger logger = (Logger) LoggerFactory.getLogger(RM.class);
+        public void map(Text key,ClusterWritable value,Context context) throws IOException,InterruptedException{
+            String str = value.getValue().getCenter().asFormatString();
+            logger.info("center****************************: "+str);
+            context.write(key.new Text(str));
+        }
+
+    }
+}//end -class ReadClusterWritable extends AbstractJob
