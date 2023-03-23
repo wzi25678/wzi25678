@@ -1,0 +1,13 @@
+（4）查看表格式化数据
+hive (default)> desc formatted dept;
+Table Type: EXTERNAL_TABLE
+（5）删除外部表
+hive (default)> drop table dept;
+外部表删除后，hdfs 中的数据还在，但是 metadata 中 dept 的元数据已被删除
+
+ALTER TABLE table_name RENAME TO new_table_name
+alter table A rename to B;
+
+（6）替换列  #没有被替换到的，则将被删除。
+hive (default)> alter table dept replace columns(deptno string, dname
+string, loc string
