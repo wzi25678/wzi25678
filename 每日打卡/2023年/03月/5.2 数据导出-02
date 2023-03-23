@@ -1,0 +1,41 @@
+5.2.1 Insert 导出
+1）将查询的结果导出到本地
+hive (default)> insert overwrite local directory 
+'/opt/module/hive/data/export/student'
+select * from student;
+
+2）将查询的结果格式化导出到本地
+【导出到Linux本地磁盘指定位置。】
+hive(default)>insert overwrite 【local directory 】
+'/opt/module/hive/data/export/student1'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+select * from student;
+
+3）将查询的结果导出到 HDFS 上(没有 local)
+【导出到hdfs集群服务器上】
+hive (default)> insert overwrite directory '/user/atguigu/student2'
+ ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' 
+ select * from student;
+5.2.2 Hadoop 命令导出到本地
+hive (default)> dfs -get /user/hive/warehouse/student/student.txt
+/opt/module/data/export/student3.txt;
+
+
+5.2.2 Hadoop 命令导出到本地
+hive (default)> dfs -get /user/hive/warehouse/student/student.txt
+/opt/module/data/export/student3.txt;
+
+A<=>B 基本数据类型 如果 A 和 B 都为 NULL，则返回 TRUE，如果一边为 NULL，
+返回 False
+
+（3）查找名字中带有 A 的员工信息
+hive (default)> select * from emp where ename RLIKE '[A]';
+
+6.2.1 Group By 语句
+GROUP BY 语句通常会和聚合函数一起使用，按照一个或者多个列队结果进行分组，然
+后对每个组执行聚合操作。
+
+6.2.2 Having 语句
+1）having 与 where 不同点
+（1）where 后面不能写分组函数，而 having 后面可以使用分组函数。
+（2）having 只用于 group by 分组统计语句。
