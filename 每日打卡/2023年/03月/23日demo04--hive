@@ -1,0 +1,23 @@
+3）如果数据库不为空，可以采用 cascade 命令，强制删除
+hive> drop database db_hive;
+FAILED: Execution Error, return code 1 from 
+org.apache.hadoop.hive.ql.exec.DDLTask. 
+InvalidOperationException(message:Database db_hive is not empty. One or 
+more tables exist.)
+hive> drop database db_hive cascade;
+
+
+用户在建表的时候可以自定义 SerDe 或者使用自带的 SerDe。如果没有指定 ROW 
+FORMAT 或者 ROW FORMAT DELIMITED，将会使用自带的 SerDe。在建表的时候，用户还需
+要为表指定列，用户在指定表的列的同时也会指定自定义的 SerDe，Hive 通过 SerDe 确定表
+的具体的列的数据。
+SerDe 是 Serialize/Deserilize 的简称， hive 使用 Serde 进行行对象的序列与反序列化。
+
+默认创建的表都是所谓的管理表，有时也被称为内部表。因为这种表，Hive 会（或多或
+少地）控制着数据的生命周期。Hive 默认情况下会将这些表的数据存储在由配置项
+ 尚硅谷大数据技术之 Hive 
+—————————————————————————————————————
+更多 Java –大数据 –前端 –python 人工智能资料下载，可百度访问：尚硅谷官网
+hive.metastore.warehouse.dir(例如，/user/hive/warehouse)所定义的目录的子目录下。
+当我们删除一个管理表时，Hive 也会删除这个表中数据。管理表不适合和其他工具共享
+数据
