@@ -1,0 +1,45 @@
+package _2022年省赛Java大学B组真题;
+
+import java.util.Scanner;
+
+public class 最大子矩阵 {
+	private static int N,M,limit;
+	private static int maxn = 100002;
+	private static int arr[][];
+	private static int nowa[] = new int [maxn],nowi[] = new int [maxn];
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int M = sc.nextInt();
+		arr = new int [N][M];
+		for(int i=0;i<N;i++) {
+			for(int j=0;j<M;j++) {
+				arr[i][j] = sc.nextInt();
+			}
+		}
+		sc.close();
+		int ans = 0;
+		for(int i=0;i<N;i++) {
+			for(int j=i;j<M;j++) {
+				ans = Math.max(ans, cal(i,j));
+			}
+		
+		}
+		System.out.println(ans);
+	}
+
+	private static int cal(int u, int d) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<M;i++) {
+			int ma = 0, mi = (int) (1e9+2);
+			for(int j=u;i<=d;j++) {
+				ma = Math.max(ma,arr[j][i]);
+				mi = Math.min(mi,arr[j][i]);
+			}
+			nowa[i] = ma;
+			nowi[i]=  mi;
+		}
+		//build(1,M,1);
+	}
+}
