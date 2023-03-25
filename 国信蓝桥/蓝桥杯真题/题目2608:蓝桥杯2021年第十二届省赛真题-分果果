@@ -1,0 +1,44 @@
+//动态规划做的
+#include<cstdio>
+#include<cmath>
+#include<algorithm>
+#include<cstring>
+using namespace std;
+#define N 105
+int n,m;
+int w[N],sum[N],dp[N][N][N];
+int ans=0x7f7f7f7f,tot=0,maxw=0;
+int main(){
+	scanf("%d%d",&n,&m);
+	for(int i=1;i<=n;i++){
+		scanf("%d",&w[i]);
+		tot+=w[i];
+		maxw=max(maxw,w[i]);
+		sum[i]=sum[i-1]+w[i];
+	}
+	if(m==1){
+		printf("0\n");return 0;
+	}
+	int max_sum=tot*2/(m-1);
+	maxw=max(maxw,max_sum/2);
+	for(int max_v=max_sum;max_v>=maxw;max_v--){
+		memset(dp,0,sizeof(dp));
+		dp[0][0][0]=max_v;
+		for(int i=1;i<=m;i++){
+			for(int j=1;j<=n;j++){
+				for(int k=0;k<=j;k++){
+					dp[i][j][k]=dp[i][j][k-1];
+					for(int kk=k;kk>=0;kk--){
+						if(sum[j]-sum[kk]<=max_v){
+							dp[i][j][k]=max(dp[i][j][k],min(dp[i-1][k][kk],sum[j]-sum[kk]));
+							if(i==m&&j==n)ans=min(ans,max_v-dp[i][j][k]);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	printf("%d\n",ans);
+	
+}
