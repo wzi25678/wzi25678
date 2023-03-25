@@ -1,0 +1,31 @@
+package _2021年蓝桥杯第十二届省赛及国赛真题;
+
+import java.util.Scanner;
+
+public class 杨辉三角形 {
+	private static long n;
+	private static long arr[] = new long [1000002];
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextLong();
+		arr[0] = 1;
+		long k = 1l;
+		if(n==1) {
+			System.out.println(1);
+			return;
+		}
+		for(int i=1;i<arr.length;i++) {
+			for(int j=i;j>=1;j--) {
+				arr[j]+=arr[j-1];
+				if(arr[j]==n) {
+					System.out.println(k+i-j+1);
+					return;
+				}
+			}
+			k+=(i+1);
+			
+		}
+		System.out.println(((1+n)*n /2)+2);
+	}
+
+}
