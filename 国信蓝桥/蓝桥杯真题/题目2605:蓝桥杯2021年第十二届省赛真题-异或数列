@@ -1,0 +1,71 @@
+//2021省赛G-异或数列 
+#include <iostream>
+#include <cstring>
+#define rep(i,a,b) for(int i=(a);i<=(b);i++)
+#define _for(i,a,b) for(int i=(a);i<(b);i++)
+using namespace std;
+ 
+const int inf = 0x3f3f3f3f;
+const int N = 200000+10;
+int T,n,ans,a,b,sum;
+int x[N],num[20+5];
+ 
+void count()    //存储各位上1的个数 
+{   
+    sum=0;
+    memset(num,0,sizeof(num));
+	rep(i,1,n){
+		int xi=x[i];
+		sum^=xi;
+		int pos=0;  
+		while(xi){
+			if(xi&1) num[pos]++;
+			pos++;
+			xi>>=1; 
+		}
+	}
+}
+ 
+void solve(){
+	count();
+	if(!sum){
+		cout<<0<<endl;
+		return;
+	}
+	else{
+		for(int i=19;i>=0;i--){
+			int num0=n-num[i];
+			if(num[i]%2==0){
+				continue;
+			}
+			else if(num[i]==1){
+				cout<<1<<endl;
+				return;
+			}
+			else{
+				if(num0%2==0){
+					cout<<1<<endl;
+					return;
+				}
+				else{
+					cout<<-1<<endl;
+					return;
+				}
+			}
+		} 
+	}
+	
+    cout<<ans<<endl;
+}
+ 
+int main(){
+	cin>>T;
+	while(T--){
+		cin>>n;
+		rep(i,1,n){
+			cin>>x[i];
+		}
+		solve();
+    }
+	return 0;
+} 
