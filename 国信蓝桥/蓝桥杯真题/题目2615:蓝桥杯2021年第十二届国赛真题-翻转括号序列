@@ -1,0 +1,256 @@
+package _2021年蓝桥杯第十二届省赛及国赛真题;
+
+import java.util.Scanner;
+
+public class 翻转括号序列 {
+	/**
+	 * 给定一个长度为 n 的括号序列，要求支持两种操作：
+		1. 将 [Li, Ri] 区间内（序列中的第 Li 个字符到第 Ri 个字符）的括号全部翻转（左括号变成右括号，右括号变成左括号）。
+		2. 求出以 Li 为左端点时，最长的合法括号序列对应的 Ri （即找出最大的Ri 使 [Li, Ri] 是一个合法括号序列）。
+		
+		输入的第一行包含两个整数 n, m，分别表示括号序列长度和操作次数。
+		第二行包含给定的括号序列，括号序列中只包含左括号和右括号。
+		接下来 m 行，每行描述一个操作。如果该行为 “1 Li Ri”，表示第一种操作，区间为 [Li, Ri] ；如果该行为 “2 Li” 表示第二种操作，左端点为 Li。
+	 */
+	private static int N = 100002,INF = 1<<29 +2;
+	private static Node tr[] = new Node[N<<2];
+	private static int arr[] = new int [N];
+	private static int s[]	 = new int [N];
+	private static int n,m;
+	
+	private static class Node{
+		private static int left,right,min,max,sum,lazy = 1,add;
+		
+		public Node(int a,int b) {
+			left  = a;
+			right = b;
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		m = sc.nextInt();
+		String ss = sc.next();
+		for(int i=0;i<m;i++) {
+			if(ss.charAt(i) == '(') {
+				arr[i+1] = 1;;
+			}else {
+				arr[i+1] = -1;
+			}
+			s[i+1] = s[i] + arr[i+1];
+		}
+		
+		build(1,1,n);
+		while(m-- > 0) {
+			int op = sc.nextInt();
+			if(op == 1) {
+				int l = sc.nextInt();
+				int r = sc.nextInt();
+				change(l,r);
+			}else {
+				int L = sc.nextInt();
+				if(query_sum(1,L,L) ==-1) {
+					System.out.println(0);
+					continue;
+				}
+				int l = 1,r = n-L,res = 0;
+				int pre = 0;
+				if(L != 1) {
+					pre = query_min(1, L-1, L-1);
+				}
+				
+				while(l<=r) {
+					int mid = l+r >>1;
+					if(check(L,mid,pre)) {
+						l = mid +1;
+						res = mid;
+					}else {
+						r = mid -1;
+					}
+				}
+				
+				if(res + L < n) {
+					System.out.println(L +res);
+					continue;
+				}
+				
+				int ans = query_find(1, L,n,pre);
+					if(ans != L) {
+						System.out.println(ans);
+					}else {
+						System.out.println(0);
+					}
+				}
+			}
+		}
+		
+
+	private static int query_find(int u, int l, int r, int val) {
+		// TODO Auto-generated method stub
+		if(tr[u].left == tr[u].right) {
+			return tr[u].left;
+		}
+		pushdown(u);
+		int mid = tr[u].left + tr[u].right >> 1;
+		if(tr[u << 1 | 1].min <= val) {
+			return query_find(u<<1 | 1, l, r, val);
+		}
+		if(l<=mid) {
+			return query_find(u<<1 , l, r, val);
+		}
+		return 0;
+	}
+
+	private static void pushdown(int u) {
+		// TODO Auto-generated method stub
+		if(tr[u].lazy == -1) {
+			F1(u << 1);
+			F1(u << 1 | 1);
+			tr[u].lazy = 1;
+		}
+		if(tr[u].add != 0) {
+			F2(u << 1,tr[u].add);
+			F2(u << 1 | 1,tr[u].add);
+			tr[u].add = 0;
+		}
+		
+	}
+
+
+	private static void F2(int u, int val) {
+		// TODO Auto-generated method stub
+		tr[u].add += val;
+		tr[u].min += val;
+		tr[u].max += val;	
+	}
+
+
+	private static void F1(int u) {
+		// TODO Auto-generated method stub
+		tr[u].add*=-1;
+		tr[u].lazy*=-1;
+		tr[u].sum*=-1;
+		tr[u].max*=-tr[u].max;
+		tr[u].min*=-tr[u].min;
+		int t = tr[u].max;
+		tr[u].max=tr[u].min;
+		tr[u].min=t;
+	}
+
+
+	private static boolean check(int l, int r, int pre) {
+		// TODO Auto-generated method stub
+		return query_min(1,l,l+r) >= pre;
+	}
+
+	private static int query_min(int u, int l, int r) {
+		// TODO Auto-generated method stub
+		if(tr[u].left >= l && tr[u].right >= r) {
+			return tr[u].min;
+		}
+		int mid = tr[u].left + tr[u].right >>1;
+		int res = INF;
+		pushdown(u);
+		if(l <=mid) {
+			res = query_min(u<<1,l , r);
+		}
+		if(r>mid) {
+			res = Math.min(res, query_min(u<<1 | 1, l, r));
+		}
+		return res;
+	}
+
+	private static int query_sum(int u, int l, int r) {
+		// TODO Auto-generated method stub
+		if(tr[u].left >= l && tr[u].right >= r) {
+			return tr[u].sum;
+		}
+		int res=0;
+		int mid = tr[u].left + tr[u].right >>1;
+		pushdown(u);
+		if(l <=mid) {
+			res += query_min(u<<1,l , r);
+		}
+		if(r>mid) {
+			res += Math.min(res, query_min(u<<1 | 1, l, r));
+		}
+		return res;
+	}
+
+	private static void change(int l, int r) {
+		// TODO Auto-generated method stub
+		int add1 = query_sum(1, 1, r)*(-2);
+		modify_rev(1,1,r);
+		if(r+1 <= n) {
+			modify_add(1, r+1, n,add1);
+		}
+		if(l-1>=1) {
+			int add2 = query_sum(1, 1, l-1)*(-2);
+			modify_rev(1,1,l-1);
+			modify_add(1, l, n, add2);
+		}
+	}
+
+	private static void modify_add(int u, int l, int r, int val) {
+		// TODO Auto-generated method stub
+		if(tr[u].left >= l && tr[u].right <= r) {
+			F2(u,val);
+			return;
+		}
+		pushdown(u);
+		int mid = tr[u].left +tr[u].right >> 1;
+		if(l <=mid) {
+			modify_add(u<<1, l, r, val);
+		}
+		if(r > mid) {
+			modify_add(u<<1 | 1, l, r, val);
+		}
+		pushdown(u);
+	}
+
+
+	private static void modify_rev(int u, int l, int r) {
+		// TODO Auto-generated method stub
+		if(tr[u].left >= l && tr[u].right <= r) {
+			F1(u);
+			return;
+		}
+		pushdown(u);
+		int mid = tr[u].left +tr[u].right >> 1;
+		if(l <=mid) {
+			modify_rev(u<<1, l, r);
+		}
+		if(r > mid) {
+			modify_rev(u<<1 | 1, l, r);
+		}
+		pushup(u);
+	}
+
+
+	private static void build(int u, int l, int r) {
+		// TODO Auto-generated method stub
+		tr[u] = new Node(l,r);
+		if(l==r) {
+			tr[u].min = tr[u].max =s[l];
+			tr[u].sum = arr[l];
+			return;
+		}
+		int mid = l+r >>1;
+		build(u<<1,l,mid);
+		build(u<<1 | 1,mid+1,r);
+		pushup(u);
+	}
+
+
+	private static void pushup(int u) {
+		// TODO Auto-generated method stub
+		tr[u].min = Math.min(tr[u<<1].min,tr[u<<1 |1].min );
+		tr[u].max = Math.min(tr[u<<1].max,tr[u<<1 |1].max );
+		tr[u].sum = tr[u<<1].sum+tr[u<<1 |1].sum ;
+	}
+	
+	
+
+}
