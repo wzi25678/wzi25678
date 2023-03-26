@@ -1,0 +1,40 @@
+package _2021年蓝桥杯第十二届省赛及国赛真题;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+/** @author Wzi
+ *
+ *	随着气温的变化，冰山的体积可能增大或缩小。
+ *	第 i 天，每座冰山的变化量都是 Xi。
+ *	当 Xi > 0 时，所有冰山体积增加 Xi；
+ *	当 Xi < 0 时，所有冰山体积减少 ቁ Xi；
+ *	当 Xi = 0 时，所有冰山体积不变。
+ *
+ *	如果第 i 天某座冰山的体积变化后小于等于 0，则冰山会永远消失。
+ *	冰山有大小限制 k。如果第 i 天某座冰山 j 的体积变化后 Vj 大于 k，则它会分裂成一个体积为 k 的冰山和 Vj 赗?
+ */
+public class 冰山 {
+	private static int n,m,k;
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		int k = sc.nextInt();
+		Queue<Long> queue = new LinkedList<Long>();
+		for(int i=0;i<n;i++) {
+			queue.add(sc.nextLong());
+		}
+		//接下来的都是对冰山的操作
+		for(int i=0;i<m;i++) {
+			long x = sc.nextLong();
+			long y = sc.nextLong();
+			long sum = y;
+		}
+		
+		
+	}
+	
+}
