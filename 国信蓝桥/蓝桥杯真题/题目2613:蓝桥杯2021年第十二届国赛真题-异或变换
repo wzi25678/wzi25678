@@ -1,0 +1,42 @@
+package _2021年蓝桥杯第十二届省赛及国赛真题;
+
+import java.util.Scanner;
+
+/** @author Wzi
+ *
+ *	小蓝有一个 01 串 s = s1 s2 s3 · · · sn。
+ *
+ */
+
+public class 异或变换 {
+	private static int n,t;
+	private static String s;
+	private static int N = 10005;
+	private static int arr[] = new int[N];
+	private static int ll;
+		
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		t = sc.nextInt();
+		s = sc.next();
+		for(int j=1;j<=n;j++) {
+			arr[j] = s.toCharArray()[j-1] - '0';
+		}
+		int i=1;
+		while(i<n) {
+			i*=2;
+		}
+		t%=i;
+		for(int j=t;j>0;j--) {
+			for(int k=n;k>1;k--) {
+				arr[k]^=arr[k-1];
+			}
+		}
+		for(int j=1;j<=n;j++) {
+			System.out.print(arr[j]);
+		}
+		sc.close();
+	}
+
+}
