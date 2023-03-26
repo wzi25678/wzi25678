@@ -1,0 +1,39 @@
+注意：连接 n 个表，至少需要 n-1 个连接条件。例如：连接三个表，至少需要两个连接
+条件。
+数据准备
+1700 Beijing
+1800 London
+1900 Tokyo
+1）创建位置表
+ 尚硅谷大数据技术之 Hive 
+—————————————————————————————————————
+更多 Java –大数据 –前端 –python 人工智能资料下载，可百度访问：尚硅谷官网
+create table if not exists location(
+loc int,
+loc_name string
+)
+row format delimited fields terminated by '\t';
+2）导入数据
+hive (default)> load data local inpath '/opt/module/datas/location.txt' 
+into table location;
+3）多表连接查询
+hive (default)>SELECT e.ename, d.dname, l.loc_name
+FROM emp e 
+JOIN dept d
+ON d.deptno = e.deptno 
+JOIN location l
+ON d.loc = l.loc;
+大多数情况下，Hive 会对每对 JOIN 连接对象启动一个 MapReduce 任务。本例中会首先
+启动一个 MapReduce job 对表 e 和表 d 进行连接操作，然后会再启动一个 MapReduce job 将
+第一个 MapReduce job 的输出和表 l;进行连接操作。
+注意：为什么不是表 d 和表 l 先进行连接操作呢？这是因为 Hive 总是按照从左到右的
+顺序执行的。
+优化：当对 3 个或者更多表进行 join 连接时，如果每个 on 子句都使用相同的连接键的
+话，那么只会产生一个 MapReduce job。
+6.3.8 笛卡尔积
+1）笛卡尔集会在下面条件下产生
+（1）省略连接条件
+（2）连接条件无效
+（3）所有表中的所有行互相连接
+2）案例实操
+hive (default)> select empno, dname from emp, dept;
