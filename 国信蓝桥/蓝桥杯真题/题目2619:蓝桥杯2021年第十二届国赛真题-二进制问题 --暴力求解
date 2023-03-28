@@ -1,0 +1,30 @@
+package _2021年蓝桥杯第十二届省赛及国赛真题;
+
+import java.util.Scanner;
+
+public class 二进制问题 {
+	private static long N,K ;
+	private static int ans = 0;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextLong();
+		K = sc.nextLong();
+		for(long i=1l;i<=N;i++) {
+			String str = Long.toBinaryString(i);
+			//System.out.println(str);
+			long count = 0l;
+			for(int j=0;j<str.length();j++) {
+				if(str.charAt(j)=='1') {
+					count++;
+				}
+			}
+			if(count==K) {
+				ans++;
+			}
+			
+		}
+		System.out.println(ans);
+	}
+	
+
+}
