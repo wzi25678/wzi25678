@@ -1,0 +1,91 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.StreamTokenizer;
+import java.io.IOException;
+ 
+public class Main {
+ 
+    public static void main(String[] args) { new Main().run(); }
+ 
+    int p = 998244353;
+ 
+    int[] swap;
+ 
+    void run() {
+        int n = nextInt(), w = nextInt(), L = nextInt(), R = nextInt(), x = nextInt(), y = nextInt(), z = nextInt();
+        int lim = limit(Math.max(x - 1, y - x) * (R - L) + 1), ans = 0;
+        swap = new int[lim];
+        int[] A = new int[lim];
+        int[] B = new int[lim];
+        for (int i = 0; i < lim; i++)
+            swap[i] = (i & 1) * (lim >> 1) | (swap[i >> 1] >> 1);
+        for (int i = 0; i <= R - L; i++) A[i] = 1;
+        NTT(A, lim, 1);
+        for (int i = 0; i < lim; i++) {
+            B[i] = qpow(A[i], y - x);
+            A[i] = qpow(A[i], x - 1);
+        }
+        NTT(A, lim, -1);
+        NTT(B, lim, -1);
+        for (int i = 0; i <= (x - 1) * (R - L); i++) {
+            int tmp = z * (w + (x - 1) * L + i) - w - i - (y - 1) * L;
+            if (tmp >= lim) break;
+            ans = (int)((ans + (long)A[i] * B[tmp]) % p);
+        }
+        System.out.println((long)ans * qpow(R - L + 1, n - y) % p);
+    }
+ 
+    int qpow(long a, int n) {
+        long res = 1;
+        while (n > 0) {
+            if ((n & 1) == 1) res = res * a % p;
+            a = a * a % p;
+            n >>= 1;
+        }
+        return (int)res;
+    }
+ 
+    void NTT(int[] F, int lim, int opt) {
+        for (int i = 0; i < lim; i++) {
+            if (swap[i] < i) {
+                int t = F[i];
+                F[i] = F[swap[i]];
+                F[swap[i]] = t;
+            }
+        }
+        for (int len = 2; len <= lim; len <<= 1) {
+            long gn = qpow(3, (p - 1) / len);
+            int k = len >> 1;
+            for (int i = 0; i < lim; i += len) {
+                long g = 1, tmp;
+                for (int j = 0; j < k; j++, g = g * gn % p) {
+                    tmp = F[i + j + k] * g % p;
+                    F[i + j + k] = (int)((F[i + j] - tmp + p) % p);
+                    F[i + j] = (int)((F[i + j] + tmp) % p);
+                }
+            }
+        }
+        if (opt == -1) {
+            for (int i = 1, j = lim - 1; i < j; i++, j--) {
+                int t = F[i];
+                F[i] = F[j];
+                F[j] = t;
+            }
+            long inv = qpow(lim, p - 2);
+            for (int i = 0; i < lim; i++) F[i] = (int)(F[i] * inv % p);
+        }
+    }
+ 
+    StreamTokenizer in = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+ 
+    int limit(int lim) { return Integer.highestOneBit(lim) == lim ? lim : (Integer.highestOneBit(lim) << 1); }
+ 
+    int nextInt() {
+        try {
+            in.nextToken();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return (int)in.nval;
+    }
+}
