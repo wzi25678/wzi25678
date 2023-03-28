@@ -1,0 +1,51 @@
+package _2021年蓝桥杯第十二届省赛及国赛真题;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class _123_暴力法 {
+	private static long T,li,ri ;
+	private static long ans = 0;
+	private static int time = 1;
+	private static long arr_num = 1000000002l;
+	private static long arr[] = new long [10000002];
+	static Scanner sc = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+		//T = sc.nextLong();
+		for(int p=0;p<T;p++) {
+			for(int i=0;i<arr.length;i++) {
+				for(int k=0;k<time&&i<arr.length;k++,i++) {
+					arr[i] = k+1;
+					if(i==ri) {
+						System.out.println(Check(li,ri));
+					}
+					ans++;
+					System.out.print(arr[i]+" ");
+					if(ans==arr_num) {
+						break;
+					}
+				}
+				System.out.println();
+				//System.out.println("=======================================");
+				time++;
+			}
+		}
+		
+	
+	}
+	private static long Check(long li, long ri) {
+		// TODO Auto-generated method stub
+		long count = 0;
+		for(int i=0;i<T;i++) {
+			li = sc.nextLong();
+			ri = sc.nextLong();
+			for(long j = li;j<ri;j++) {
+				count+=arr[(int) li];
+			}
+		}
+		return count;
+	}
+
+}
