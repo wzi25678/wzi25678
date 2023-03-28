@@ -1,0 +1,56 @@
+package _2022年蓝桥杯第十三届大赛省赛真题;
+
+import java.util.Scanner;
+
+/*
+ * 现在有两个 X 进制表示的整数 A 和 B，但是其具体每一数位的进制还不确定，只知道 A 和 B 是同一进制规则，
+ * 且每一数位最高为 N 进制，最低为二进制。
+ * 请你算出 A − B 的结果最小可能是多少。
+ * 
+ * 第一行一个正整数 N，含义如题面所述。最高为 N 进制
+ * 第二行一个正整数 Ma，表示 X 进制数 A 的位数。
+ * 第三行 Ma 个用空格分开的整数，表示 X 进制数 A 按从高位到低位顺序各个数位上的数字在十进制下的表示。
+ * 
+ * 第四行一个正整数 Mb，表示 X 进制数 B 的位数。
+	第五行 Mb 个用空格分开的整数，表示 X 进制数 B 按从高位到低位顺序各个数位上的数字在十进制下的表示。
+ */
+public class X进制减法 {
+	private static int n ;
+	private static int arr_A[] = new int [10000+2];
+	private static int arr_B[] = new int [10000+2];
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int Ma = sc.nextInt();
+		for(int i=Ma-1;i>=0;i--) {
+			arr_A[i] = sc.nextInt();
+		}
+		//=====================================
+		int Mb = sc.nextInt();
+		for(int i=Mb-1;i>=0;i--) {
+			arr_B[i] = sc.nextInt();
+		}
+		
+		long c[] = new long[100010];
+		int len = Math.max(Ma, Mb);
+		for(int i=0;i<len;i++) {
+			c[i] = Math.max(2, Math.max(arr_A[i]+1, arr_B[i]+1));
+		}
+		long x[] = new long[100010];
+		int mod = 1000000007;
+		x[0] = 1;
+		for(int i=1;i<len;i++) {
+			x[i] = (x[i-1] * c[i-1])%mod;
+		}
+		long ans = 0;
+		for(int i=0;i<len;i++) {
+			ans = (ans + (long)((arr_A[i] - arr_B[i]) * x[i]))%mod;
+		}
+		System.out.println(ans);
+		sc.close();
+		
+	}
+	
+
+}
