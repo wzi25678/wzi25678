@@ -1,0 +1,50 @@
+视图一方面可以帮我们使用表的一部分而不是所有的表，另一方面也可以针对不同的用户制定不同的查
+询视图。比如，针对一个公司的销售人员，我们只想给他看部分数据，而某些特殊的数据，比如采购的
+价格，则不会提供给他。再比如，人员薪酬是个敏感的字段，那么只给某个级别以上的人员开放，其他
+人的查询视图中则不提供这个字段。
+刚才讲的只是视图的一个使用场景，实际上视图还有很多作用。最后，我们总结视图的优点。要使视图可更新，视图中的行和底层基本表中的行之间必须存在 一对一 的关系。另外当视图定义出现如
+下情况时，视图不支持更新操作：
+在定义视图的时候指定了“ALGORITHM = TEMPTABLE”，视图将不支持INSERT和DELETE操作；
+视图中不包含基表中所有被定义为非空又未指定默认值的列，视图将不支持INSERT操作；
+在定义视图的SELECT语句中使用了 JOIN联合查询 ，视图将不支持INSERT和DELETE操作；
+在定义视图的SELECT语句后的字段列表中使用了 数学表达式 或 子查询 ，视图将不支持INSERT，也
+不支持UPDATE使用了数学表达式、子查询的字段值；
+在定义视图的SELECT语句后的字段列表中使用 DISTINCT 、 聚合函数 、 GROUP BY 、 HAVING 、
+UNION 等，视图将不支持INSERT、UPDATE、DELETE；
+在定义视图的SELECT语句中包含了子查询，而子查询中引用了FROM后面的表，视图将不支持
+INSERT、UPDATE、DELETE；
+视图定义基于一个 不可更新视图 ；
+常量视图。
+举例：
+mysql> SELECT ename,tel FROM emp_tel WHERE ename = '孙洪亮';
++---------+-------------+
+| ename | tel |
++---------+-------------+
+| 孙洪亮 | 13789091234 |
++---------+-------------+
+1 row in set (0.00 sec)
+mysql> SELECT ename,tel FROM t_employee WHERE ename = '孙洪亮';
++---------+-------------+
+| ename | tel |
++---------+-------------+
+| 孙洪亮 | 13789091234 |
++---------+-------------+
+1 row in set (0.00 sec)
+mysql> SELECT ename,tel FROM emp_tel WHERE ename = '孙洪亮';
++---------+-------------+
+| ename | tel |
++---------+-------------+
+| 孙洪亮 | 13789091234 |
++---------+-------------+
+1 row in set (0.00 sec)
+mysql> DELETE FROM emp_tel WHERE ename = '孙洪亮';
+Query OK, 1 row affected (0.01 sec)
+mysql> SELECT ename,tel FROM emp_tel WHERE ename = '孙洪亮';
+Empty set (0.00 sec)
+mysql> SELECT ename,tel FROM t_employee WHERE ename = '孙洪亮';
+Empty set (0.00 sec)
+北京宏福校区：010-56253825 深圳西部硅谷校区：0755-23060254 上海大江商厦校区：021-57652717
+从上面的SQL执行结果可以看出，在定义视图的SELECT语句中使用了JOIN联合查询，视图将不支持更新
+操作。
+虽然可以更新视图数据，但总的来说，视图作为 虚拟表 ，主要用于 方便查询 ，不建议更新视图的
+数据。对视图数据的更改，都是通过对实际数据表里数据的操作来完成的。
