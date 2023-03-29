@@ -1,0 +1,38 @@
+package _2022年蓝桥杯第十三届大赛省赛真题;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class 扫雷 {
+	private static int n,m;
+	private static int x_i,y_i,r_i;
+	
+	public static void main(String[] args) {
+		/**
+		 *  在一个二维平面上放置着 n 个炸雷，第 i 个炸雷 (xi , yi ,ri) 
+		 *  表示在坐标 (xi , yi) 处存在一个炸雷，它的爆炸范围是以半径为 ri 的一个圆。
+		 *  
+		 *  玩家可以发射 m 个排雷火箭，小明已经规划好了每个排雷火箭的发射方向，第 j 个排雷火箭 (xj , yj ,rj) 
+		 *  表示这个排雷火箭将会在 (xj , yj) 处爆炸，它的爆炸范围是以半径为 rj 的一个圆，在其爆炸范围内的炸雷会被引爆。
+		 *  在其爆炸范围内的炸雷也会被引爆。现在小明想知道他这次共引爆了几颗炸雷？ 
+		 */
+		Scanner sc = new Scanner(System.in);
+		Map<Integer,Integer> hash1  = new HashMap<Integer,Integer>();
+		Map<Integer,Integer> hash2  = new HashMap<Integer,Integer>();
+		Map<Integer,Integer> hash3  = new HashMap<Integer,Integer>();
+		n = sc.nextInt();
+		m = sc.nextInt();
+		for(int i=0;i<n;i++) {
+			x_i = sc.nextInt();
+			y_i = sc.nextInt();
+			r_i = sc.nextInt();
+			
+		}
+		
+		
+		
+	}
+	
+	
+}
