@@ -1,0 +1,11 @@
+CREATE [EXTERNAL] TABLE [IF NOT EXISTS] table_name
+[(col_name data_type [COMMENT col_comment], ...)]
+[COMMENT table_comment]
+[PARTITIONED BY (col_name data_type [COMMENT col_comment], ...)]
+[CLUSTERED BY (col_name, col_name, ...)
+[SORTED BY (col_name [ASC|DESC], ...)] INTO num_buckets BUCKETS]
+[ROW FORMAT row_format]
+[STORED AS file_format]
+[LOCATION hdfs_path]
+[TBLPROPERTIES (property_name=property_value, ...)]
+[AS select_statement]
