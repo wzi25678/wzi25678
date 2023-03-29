@@ -1,0 +1,32 @@
+package ___2022年省赛Java大学A组;
+
+import java.util.Scanner;
+
+public class 求和_暴力法 {
+	/**
+	 * 给定 n 个整数 a1, a2, · · · , an ，求它们两两相乘再相加的和，
+	 * 即 S = a1 · a2 + a1 · a3 + · · · + a1 · an + a2 · a3 + · · · + an-2 · an-1 + an-2 · an + an-1 · an.
+	 */
+	private static int n;
+	private static long ans = 0l;
+	private static long[] arr = new long [n];
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		arr = new long [n];
+		for(int i=0;i<n;i++) {
+			arr[i] = sc.nextLong();
+		}
+		for(int i=0;i<n;i++) {
+			for(int j=i+1;j<n;j++) {
+				ans += (arr[i]*arr[j]);
+			}
+		}
+		System.out.println(ans);
+		
+		
+	}
+	
+
+}
