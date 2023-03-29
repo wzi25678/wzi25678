@@ -1,0 +1,35 @@
+package _2022年蓝桥杯第十三届大赛省赛真题;
+
+import java.util.Scanner;
+
+public class 积木画 {
+	
+	private static int N;
+	private static int mod =  1000000007;
+	private static long L = 10000000+2;
+	private static int dp[][] = new int [(int) L][4];
+	private static int g[][] = {
+			{1,1,1,1},
+			{0,0,1,1},
+			{0,1,0,1},
+			{1,0,0,0},
+	};
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		dp[1][0] = 1;
+		for(int i=1;i<=N;i++) {
+			for(int j=0;j<4;j++) {
+				for(int k=0;k<4;k++) {
+					if(g[j][k] > 0) {
+						dp[i+1][k] = (dp[i+1][k] + dp[i][j])%mod;
+					}
+				}
+			}
+		}
+		System.out.println(dp[N+1][0]);
+		sc.close();
+	}
+
+}
