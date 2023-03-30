@@ -1,0 +1,48 @@
+import java.util.Scanner;
+ 
+/**
+ * 
+ * @author Wzi
+ *
+ *我们以 O 为原点定义坐标系，如果一个点 A 由 O 点先向 d 方向走 p 步
+ *再向 (d + 2) mod 6 方向（d 的顺时针 120◦ 方向）走 q 步到达
+ *
+ *即先确认一个方向d开始走p步，然后接下来每次都遵循走当前方向的120°方向走q步
+ *则这个点的坐标定义为 (d, p, q)。
+ */
+public class Main {
+    private static int d1, p1, q1, d2, p2, q2;
+    private static double [] x_way = {-1,-0.5,0.5,1,0.5,-0.5};
+    private static double [] y_way = {0,1,1,0,-1,-1};
+     
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            int d1 = sc.nextInt();
+            int p1 = sc.nextInt();
+            int q1 = sc.nextInt();
+            int d2 = sc.nextInt();
+            int p2 = sc.nextInt();
+            int q2 = sc.nextInt();
+             
+            double x1 =0,x2=0,y1=0,y2=0;
+            x1+=x_way[d1]*p1 +x_way[(d1+2)%6]*q1;
+            y1+=y_way[d1]*p1 +y_way[(d1+2)%6]*q1;
+             
+            x2+=x_way[d2]*p1 +x_way[(d2+2)%6]*q1;
+            y2+=y_way[d2]*p1 +y_way[(d2+2)%6]*q1;
+             
+            double xloc = Math.abs(x2-x1);
+            double yloc = Math.abs(y2-y1);
+             
+            int res = (int) yloc;
+            if(xloc -yloc/2 > 0) {
+                res+=Math.abs(xloc-yloc/2);
+            }
+            System.out.println(res);
+             
+        }
+          
+    }
+ 
+}
