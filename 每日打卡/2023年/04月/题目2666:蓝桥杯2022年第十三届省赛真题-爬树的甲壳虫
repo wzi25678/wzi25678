@@ -1,0 +1,43 @@
+import java.util.Scanner;
+ 
+public class Main {
+    /**
+     * 爬上一颗高度为 n 的树
+     * 
+     */
+    private static long n ;
+    private static long P_mod = 998244353;
+    private static long xi,yi;
+    private static long res;
+     
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()) {
+            int n = sc.nextInt();
+            long E = 0l;
+            for(int i=0;i<n;i++) {
+                xi = sc.nextLong();
+                yi = sc.nextLong();
+                E = (E +1l) % P_mod*yi%P_mod *QuickPow(yi-xi,P_mod-2l,P_mod) %P_mod;
+                E = (E + P_mod )%P_mod;
+            }
+            System.out.println(E);
+        }
+         
+    }
+     
+    private static long QuickPow(long b, long n, long p_mod) {
+        long res = 1l%P_mod;
+        while(n!=0) {
+            if((n&1L) == 1) {
+                res = (res *b) % P_mod;
+            }
+            b = (b*b)%P_mod;
+            n = n>>1;
+        }
+        // TODO Auto-generated method stub
+        return res;
+    }
+     
+ 
+}
