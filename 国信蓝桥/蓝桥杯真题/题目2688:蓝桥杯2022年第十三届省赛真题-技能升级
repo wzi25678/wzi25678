@@ -1,0 +1,66 @@
+//package __2022省赛Java研究生组真题;
+ 
+import java.util.Scanner;
+ 
+/**
+ * @author Wzi
+ *
+ *  他的角色一共有 N 个可以加攻击力的技能。
+ *  其中第 i 个技能首次升级可以提升 Ai 点攻击力，以后每次升级增加的点数都会减少 Bi。
+ *  (上取整) 次之后,再升级该技能将不会改变攻击力。
+ *  现在小蓝可以总计升级 M 次技能，他可以任意选择升级的技能和次数。请你计算小蓝最多可以提高多少点攻击力？ 
+ *  输入第一行包含两个整数 N 和 M。
+    以下 N 行每行包含两个整数 Ai 和 Bi。
+ */
+public class Main {
+    //对于所有评测用例，1 ≤ N ≤ 105，1 ≤ M ≤ 2 × 109，1 ≤ Ai , Bi ≤ 106。
+    private static int N;   //技能组数
+    private static int Skill_up[];//记录下次升级获得的点数
+    private static int Skill_down[]; ////记录每次升级消耗的点数
+    private static int Can_Up[];    //当前技能是否还可以升级
+    private static long M ;     //可用升级次数
+    private static long ans;    //已升级次数
+    //private static int Ai,Bi;
+     
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        N = sc.nextInt();
+        M = sc.nextLong();
+        Skill_up = new int [N];
+        Skill_down = new int [N];
+        Can_Up = new int [N];
+        for(int i=0;i<N;i++) {
+            Skill_up[i] = sc.nextInt();
+            Skill_down[i] = sc.nextInt();
+            Can_Up[i] = Skill_up[i]/Skill_down[i];
+        }
+        while(M>0) {
+            M--;    
+            int max = 0;
+            int index = 0;
+            //找到了本轮最大升级的选择
+            for(int i=0;i<N;i++) {   //找当前可用的最大升级数目
+                if(Skill_up[i] > max) {
+                    if(Can_Up[i]>0) {
+                    max = Skill_up[i];
+                    index = i;
+                    }
+                     
+                }
+            }
+            //ans升级
+            ans+=Skill_up[index];
+            //接下来进行善后
+            Skill_up[index]-=Skill_down[index];
+            Can_Up[index]--;
+        }
+         
+        System.out.println(ans);
+        sc.close();
+    }
+     
+     
+     
+     
+ 
+}
