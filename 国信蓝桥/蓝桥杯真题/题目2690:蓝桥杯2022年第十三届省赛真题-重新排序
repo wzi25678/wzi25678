@@ -1,0 +1,47 @@
+//package __2022省赛Java研究生组真题;
+ 
+import java.util.Arrays;
+import java.util.Scanner;
+ 
+/* 
+ * 
+ * 给定一个数组 A 和一些查询 Li , Ri，求数组中第 Li 至第 Ri 个元素之和。
+ * 小蓝觉得这个问题很无聊，于是他想重新排列一下数组，使得最终每个查询结果的和尽可能地大。
+ * 小蓝想知道相比原数组，所有查询结果的总和最多可以增加多少?
+ */
+public class Main {
+    private static long n,m ;
+    private static Long [] A;
+    private static long Li,Ri ;
+     
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextLong();
+        A = new Long [(int) n];
+        for(int i=0;i<n;i++) {
+            A[i] = sc.nextLong();
+        }
+        m = sc.nextLong();
+        int [] times = new int[(int) n];    //每一位标记一个重复查询次数 
+        long sum1 = 0;
+        for(long i=0;i<m;i++) {
+            Li = sc.nextLong();
+            Ri = sc.nextLong();
+            for(long j=Li-1;j<Ri;j++) {
+                times[(int) j]++;
+                sum1 +=A[(int) j];
+            }
+        }
+         
+        //根据重复次数，调整值
+        long sum = 0;
+        Arrays.sort(A);
+        Arrays.sort(times);
+        for(int i=(int) (n-1);i>=0;i--) {
+            sum+=(long)A[i]*times[i];
+        }
+        System.out.println(sum-sum1);
+         
+         
+    }
+}
