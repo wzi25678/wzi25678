@@ -1,0 +1,48 @@
+//package __2022年Java决赛真题;
+ 
+import java.util.Scanner;
+ 
+/**
+ * 
+ * @author Wzi
+ *你可以执行任意次修改，每次修改将数组中的某个位置的元素修改为一个大于 0 的整数。请问最少修改几个元素之后，数组 A 会变成一个斐波那契数组。
+ *
+ *输入的第一行包含一个整数 n ，表示数组 A 中的元素个数。
+ *第二行包含 n 个整数 a0, a1, · · · , an−1，相邻两个整数之间用一个空格分隔。 
+ *
+ *
+ */
+public class Main {
+    private static int n;
+    private static int arr[];
+    private static int helper[];
+    private static int res;
+     
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n  = sc.nextInt();
+        arr = new int[n];
+        helper = new int [n];
+        for(int i=0;i<n;i++) {
+            arr[i] = sc.nextInt();
+            if(i>1) {
+                helper[i] = helper[i-1] +helper[i-2];
+            }
+            helper[0]= arr[0];
+            helper[1]= arr[0];
+        }
+         
+        res = 0;
+        for(int i=1;i<n;i++) {
+            if(helper[i] != arr[i]) {
+                res++;
+            }
+        }
+        System.out.println(res);
+         
+         
+    }
+     
+     
+ 
+}
