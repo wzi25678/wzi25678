@@ -1,0 +1,49 @@
+package __2022年Java决赛真题;
+
+import java.util.Scanner;
+
+public class 斐波那契数组AC {
+	private static int n;
+	private static int arr[] = new int [1000002];
+	private static int helper[]= new int [100];
+	private static int res = 0;
+	private static int max = 0;
+	private static int need = 2;
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		n  = sc.nextInt();
+		for(int i=0;i<n;i++) {
+			arr[i] = sc.nextInt();
+		}
+		for(int i=1;i<1000001;i++) {
+			res = enum_help_arr(i);
+			if(res > max) {
+				max = res;
+			}
+		}
+		System.out.println(n - max);
+	}
+
+	private static int enum_help_arr(int in) {
+		// TODO Auto-generated method stub
+		need = 2;
+		helper[0] = helper[1] = in;
+		for(int i=2;;i++) {  //i<1000001
+			helper[i] = helper[i-1]+helper[i-2];
+			if(helper[i]>1000000) {
+				break;
+			}
+			need++;
+		}
+		int count = 0;
+		for(int i=0;i<need;i++) {
+			if(arr[i] == helper[i]) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	
+}
