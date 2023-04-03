@@ -1,0 +1,39 @@
+package 蓝桥杯2022年第十三届决赛真题;
+
+import java.util.Scanner;
+
+public class 取模 {
+	private static int n,m,T;
+	private static int x,y;
+	
+	//1 ≤ T ≤ 105 ，1 ≤ n ≤ 109 ，2 ≤ m ≤ 109
+	/*
+	 * 给定 n, m ，问是否存在两个不同的数 x, y 使得 1 ≤ x < y ≤ m 且 n mod x = n mod y 。
+	 */
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		T = sc.nextInt();
+		while(T-->0) {
+			n = sc.nextInt();
+			m = sc.nextInt();
+			boolean isYes = false;
+			Label: for(int y=1;y<=m;y++) {
+				for(int x=1;y>x;x++) {
+					if(n%x != n%y) {
+						continue;
+					}else {
+						//找到了
+						isYes = true;
+						System.out.println("Yes");
+						break Label ;
+					}
+				}
+			}
+			if(isYes == false) {
+				System.out.println("No");
+			}
+		}
+		
+		sc.close();
+	}
+}
