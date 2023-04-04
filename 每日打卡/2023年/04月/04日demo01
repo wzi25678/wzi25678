@@ -1,0 +1,74 @@
+//package 蓝桥杯2022年第十三届决赛真题;
+ 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+ 
+public class Main {
+    private static int N,M;
+    private static int arr [] = new int [10002];
+    /*
+     * 小蓝有一个长度为 N 的数组，初始时从左到右依次是 1, 2, 3, . . . N。
+     * 进行了 M 次操作
+     * 第一行包含 2 个整数，N 和 M。
+     * 其中 “L x”表示左移 x，“R x”表示右移 x。
+     */
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        N = sc.nextInt();
+        M = sc.nextInt();
+        List<Integer> left = new ArrayList<>();
+        List<Integer> right = new ArrayList<>();
+        int [] status = new int [N+1];
+        boolean [] isUsed = new boolean [N+1];
+        while(M-->0) {
+            String  s1 = sc.next();
+            String  s2 = sc.next();
+            sc.nextLine();
+            //String s []= s1.split(" ");
+            //String dirction  = s[0];
+            String dirction  =s1;
+            int numerical_value = Integer.parseInt(s2);
+            if(dirction.equals("L")) {
+                left.add(numerical_value);
+                status[numerical_value] = 1;
+            }else {
+                right.add(numerical_value);
+                status[numerical_value] = 2;
+            }
+        }
+         
+        for(int i=left.size()-1;i>=0;i--) {
+            if(!isUsed[left.get(i)] && status[left.get(i)] == 1) {
+                System.out.println(left.get(i) + " ");
+                isUsed[left.get(i)] = true;
+            }
+        }
+         
+        for(int i=1;i<=N;i++) {
+            if(status[i]==0) {
+                System.out.print(i+" ");
+            }
+        }
+         
+        HashMap<Integer,Integer> hashMap = new HashMap<>();
+         
+        for(int i=0;i<right.size();i++) {
+            if(!isUsed[right.get(i)] && status[right.get(i)] == 2) {
+                hashMap.put(right.get(i), i);
+            }
+        }
+         
+        List<Integer> sorted = new ArrayList<>(hashMap.values());
+        Collections.sort(sorted);
+         
+        for(int key : sorted) {
+            System.out.println(right.get(key) + " ");
+        }
+             
+ 
+    }
+ 
+}
