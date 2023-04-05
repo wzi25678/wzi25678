@@ -1,0 +1,72 @@
+package 蓝桥杯2022年第十三届决赛真题;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+
+public class 左移右移_链表实现 {
+	private static int N,M;
+	private static List<Integer> left_arr = new ArrayList<>();
+	private static List<Integer> right_arr = new ArrayList<>();
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		M = sc.nextInt();
+		boolean [] isUsed = new boolean [N+1];
+		int [] choiceWhere = new int[N+1];
+		while(M-->0) {
+			String  s1 = sc.next();
+			String  s2 = sc.next();
+			sc.nextLine();
+			String dirction  =s1;
+			int numerical_value = Integer.parseInt(s2);
+			if(dirction.equals("L")) {
+				left_arr.add(numerical_value);
+				isUsed[numerical_value-1] = true;
+				choiceWhere[numerical_value-1] = 1;	//1代表左
+			}
+			if(dirction.equals("R")){
+				right_arr.add(numerical_value);
+				isUsed[numerical_value-1] = true;
+				choiceWhere[numerical_value-1] = 2;	//2代表右
+			}
+		}//while(M-->0)
+		
+		//开始分三部分打印
+		
+		//左
+		for(int i=left_arr.size()-1;i>=0;i--) {
+			if(isUsed[left_arr.get(i)] && choiceWhere[left_arr.get(i)] ==1) {
+				System.out.print(left_arr.get(i)+" ");
+				isUsed[left_arr.get(i)] = false;
+			}
+		}
+		//正常数组
+		for(int i=1;i<=N;i++) {
+			if(choiceWhere[i]==0) {
+				System.out.print(i+" ");
+			}
+		}
+		
+		HashMap<Integer,Integer>  hashMap = new HashMap<>();
+		
+		//右
+		for(int i=0;i<right_arr.size();i++) {
+			if(isUsed[right_arr.get(i)] && choiceWhere[right_arr.get(i)] ==2) {
+				System.out.print(right_arr.get(i)+" ");
+				isUsed[right_arr.get(i)] = false;
+			}
+		}
+		
+		List<Integer> sorted = new ArrayList<>(hashMap.values());
+		Collections.sort(sorted);
+		for(int key : sorted) {
+			System.out.print(right_arr.get(key)+" ");
+		}
+		
+	}
+
+}
