@@ -1,0 +1,53 @@
+//package 蓝桥杯2022年第十三届决赛真题;
+ 
+import java.util.Scanner;
+ 
+public class Main {
+    private static int n, m;
+    private static long x;
+    private static int arr[];
+    private static long li,ri;
+    /**
+     * 给定一个长度为 n 的数列 A1, A2, · · · , An 和一个非负整数 x，
+     * 给定 m 次查询, 每次询问能否从某个区间 [l,r] 中选择两个数使得他们的异或等于 x 。
+     * 
+     *  输入的第一行包含三个整数 n, m, x 。
+        第二行包含 n 个整数 A1, A2, · · · , An 。
+        接下来 m 行，每行包含两个整数 li ,ri 表示询问区间 [li ,ri ] 。
+     */
+    public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in); 
+         //对于所有评测用例，1 ≤ n, m ≤ 100000 ，0 ≤ x < 2^20 ，1 ≤ li ≤ ri ≤ n ， 0 ≤ Ai < 2^20。 
+         n = sc.nextInt();
+         m = sc.nextInt();
+         x = sc.nextLong();
+         arr = new int [n];
+         for(int i=0;i<n;i++) {
+             arr[i] = sc.nextInt();
+         }
+         while(m-->0) {
+             boolean flag = false;
+             li = sc.nextLong();
+             ri = sc.nextLong();
+             Label: for(long i=li;i<=ri-1;i++) {
+                 for(long j=li+1;j<=ri;j++) {
+                     long a = arr[(int) i-1];
+                     long b = arr[(int) j-1];
+                     //System.out.println("本次i为："+i+",j为："+j+"异或结果为："+(a^b));
+                     if((a^b)==x) {
+                         System.out.println("yes");
+                         flag = true;
+                         break Label;
+                     }
+                 }
+             }
+             if(flag == false) {
+                 System.out.println("no");
+             }
+                  
+         }
+          
+    }
+     
+    // for(int i=1;i<=N;i++) 
+}
