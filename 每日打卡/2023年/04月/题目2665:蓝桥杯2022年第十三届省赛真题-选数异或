@@ -1,0 +1,68 @@
+ 
+import java.util.ArrayList;
+import java.util.Scanner;
+ 
+public class Main {
+    private static int n, m,x;
+    private static long ans;
+    private static ArrayList<int []> YesList = new ArrayList<>();
+    private static ArrayList<int []> NoList = new ArrayList<>();
+    //100000
+     
+    public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         n = sc.nextInt();
+         m = sc.nextInt();
+         x = sc.nextInt();
+         int arr[] = new int[n];
+         for(int i=0;i<n;i++) {
+             arr[i] = sc.nextInt();
+         }
+         int start,end;
+         while(m-->0) {
+             boolean flag = false;
+             start = sc.nextInt()-1;
+             end = sc.nextInt()-1;
+              
+             for(int i=0;i<YesList.size();i++) {
+                 if(start<=YesList.get(i)[0] && end >=YesList.get(i)[1]) {
+                     System.out.println("yes");
+                     flag = true;
+                     break;
+                 }
+             }
+              
+             if(flag) continue;
+              
+             for(int i=0;i<NoList.size();i++) {
+                 if(start>=YesList.get(i)[0] && end <=NoList.get(i)[1]) {
+                     System.out.println("no");
+                     flag = true;
+                     break;
+                 }
+             }
+              
+             if(flag) continue;
+              
+             for(int i=start;i<end;i++) {
+                 for(int j=i+1;j<=end;j++) {
+                     if((arr[i] ^ arr[j])==x) {
+                         System.out.println("yes");
+                         YesList.add(new int[] {i,j});
+                         flag = true;
+                         break;
+                     }
+                 }
+                  if(flag) break;
+             }
+              
+             if(!flag) {
+                 System.out.println("no");
+                 NoList.add(new int[] {start,end});
+             }
+ 
+         }
+     
+    }
+ 
+}
