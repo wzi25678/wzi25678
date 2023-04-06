@@ -1,0 +1,91 @@
+//package 蓝桥杯2022年第十三届决赛真题;
+ 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.Deque;
+ 
+public class Main {
+    //max/min [k][i][j]表示第k列中范围[i,j]之间的max/min
+    private static int max[][][];
+    private static int min[][][];
+    private static int n,m,limit,ans;
+    private static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    private static PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(System.out));
+     
+    public static void main(String[] args) throws IOException {
+        String s[] = bufferedReader.readLine().split(" ");
+        n = Integer.parseInt(s[0]);
+        m = Integer.parseInt(s[1]);
+        max = new int[m+1][n+1][n+1];
+        min = new int[m+1][n+1][n+1];
+        for(int i=1;i<=n;i++) {
+            s = bufferedReader.readLine().split(" ");
+            for(int j=1;j<=m;j++) {
+                max[j][i][i] = min[j][i][i] = Integer.parseInt(s[j-1]);
+            }
+        }
+        limit = Integer.parseInt(bufferedReader.readLine());
+        for(int k=1;k<=m;k++) {
+            for(int i=1;i<=n;i++) {
+                for(int j=1+i;j<=n;j++) {
+                    max[k][i][j] = Math.max(max[k][i][j-1],max[k][i][j] );
+                    min[k][i][j] = Math.min(min[k][i][j-1],min[k][i][j] );  
+                }
+            }
+        }
+        for(int x1 = 1;x1<=n;x1++) {
+            for(int x2 = 1;x2<=n;x2++) {
+                int l = 1,r=m;
+                while(l<r) {
+                    int mid = l+r+1>>1;
+                    if(check(x1,x2,mid)) {
+                        l = mid;
+                    }else {
+                        r = mid-1;
+                    }
+                }
+                if(check(x1,x2,r)) {
+                    ans = Math.max(ans, (x2-x1+1)*r);
+                }
+            }
+        }
+        printWriter.println(ans/2);
+        printWriter.flush();
+        printWriter.close();
+    }
+ 
+    private static boolean check(int x1, int x2, int mid) {
+        // TODO Auto-generated method stub
+        Deque<Integer> qmax = new ArrayDeque<>();
+        Deque<Integer> qmin = new ArrayDeque<>();
+        for(int i=1;i<=m;i++) {
+            if(!qmin.isEmpty() && qmin.peekFirst()<i-mid+1) {
+                qmin.pollFirst();
+            }
+            while(!qmin.isEmpty() && min[qmin.peekLast()][x1][x2] > min[i][x1][x2]) {
+                qmin.pollLast();
+            }
+            qmin.offerLast(i);
+            //=============================================================================
+            if(!qmax.isEmpty() && qmax.peekFirst()<i-mid+1) {
+                qmax.pollFirst();
+            }
+            while(!qmax.isEmpty() && max[qmax.peekLast()][x1][x2] > max[i][x1][x2]) {
+                qmax.pollLast();
+            }
+            qmax.offerLast(i);
+            //=============================================================================
+            if(i>=mid && max[qmax.peekFirst()][x1][x2] - min[qmin.peekFirst()][x1][x2] <= limit) {
+                return true;
+            }
+         
+        }
+        return false;
+         
+    }
+     
+}
