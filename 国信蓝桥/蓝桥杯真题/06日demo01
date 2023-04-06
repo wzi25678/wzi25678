@@ -1,0 +1,94 @@
+//package 蓝桥杯2022年第十三届决赛真题;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.StreamTokenizer;
+import java.util.Arrays;
+
+public class Main{
+	private static class Pair implements Comparable<Pair>{
+		int index;
+		int value;
+		
+		public Pair(int index, int value) {
+			super();
+			this.index = index;
+			this.value = value;
+		}
+
+		@Override
+		public int compareTo(Pair o) {
+			// TODO Auto-generated method stub
+			return o.value-this.value;
+		}
+	}//class Pair implements Comparable<Pair>
+	
+	private static int N;
+	private static Pair[] arr;
+	private static int res[];
+	private static PrintWriter out_printWriter;
+	private static StreamTokenizer cin_streamTokenizer;
+	
+	public static void main(String[] args)  {
+		InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		cin_streamTokenizer = new StreamTokenizer(bufferedReader);
+		N = nextInt();
+		arr = new Pair[N];
+		res = new int[N];
+		for(int i=0;i<N;i++) {
+			int num = nextInt();
+			arr[i] = new Pair(num, i);
+		}
+		
+		Arrays.sort(arr);
+		int axis = N%2==0?N/2-1:N/2;
+		int axis_V = arr[axis].value;
+		int s = axis;
+		int e = axis;
+		for(;s!=-1 && arr[s].value==axis_V;s--) ;
+		for(;e!=N && arr[e].value==axis_V;e++) ;
+		boolean flag = false;
+		int bigger = s+1;
+		int smaller = N-e;
+		if(bigger <= smaller) {
+			flag = true;
+		}
+		int index = e;
+		if(!flag) {
+			index = s+1;
+		}
+		for(int i=index;i<N;i++) {
+			if(s+1 <=N-e-1) {
+				res[arr[i].index] = arr[axis].value-arr[i].value;
+			}else {
+				res[arr[i].index] = arr[axis].value-arr[i].value +1;
+			}
+		}
+		boolean first = true;
+		for(int i=0;i<N;i++) {
+			if(first) {
+				out_printWriter.print(res[i]);
+				first = false;
+				continue;
+			}
+			out_printWriter.print(" "+res[i]);
+		}
+		out_printWriter.flush();
+		out_printWriter.close();
+	}
+
+	private static int nextInt() {
+		// TODO Auto-generated method stub
+		try {
+			cin_streamTokenizer.nextToken();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return (int) cin_streamTokenizer.nval;
+	}
+	
+}
