@@ -1,0 +1,44 @@
+package 背包问题;
+
+import java.util.Scanner;
+
+public class __01背包 {
+	/*
+	 * 给定N个物品,每个物品有一个重量W和一个价值V.你有一个能装M重量的背包.问怎么装使得所装价值最大.每个物品只有一个.
+	 * 
+	 * 输入的第一行包含两个整数n, m，分别表示物品的个数和背包能装重量。
+	   以后N行每行两个数Wi和Vi,表示物品的重量和价值
+	 */
+	
+	private static int n,m;
+	private static int w [];
+	private static int v [];
+	private static int dp [][];
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		w = new int [n+1];
+		v = new int [n+1];
+		dp = new int [n+1][m+1];
+		//第一笔先录入全部情况
+		for(int i = 1;i<=n;i++) {
+			w[i] = sc.nextInt();
+			v[i] = sc.nextInt();
+		}
+		//进行比较
+		for(int i=1;i<=n;i++) {
+			for(int j=1;j<=m;j++) {
+				if(j<w[i]) {	//当前重量 < 当前物品的重量
+					dp[i][j] = dp[i-1][j];
+				}else {
+					//可以取
+					dp[i][j] = Math.max(dp[i-1][j], dp[i-1][j-w[i]]+v[i]);
+				}
+			}
+		}
+		//上述就会生成一个二维矩阵
+		System.out.println(dp[n][m]);	
+	}
+}
