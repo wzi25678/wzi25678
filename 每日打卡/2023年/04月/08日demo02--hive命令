@@ -1,0 +1,50 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop102' resolved to 10.16.51.223.
+Connecting to 10.16.51.223:22...
+Connection established.
+To escape to local shell, press Ctrl+Alt+].
+
+Last login: Wed Apr  5 17:49:19 2023 from 10.16.51.1
+[atguigu@hadoop102 ~]$ cd /opt/module/hive-3.1.2/
+[atguigu@hadoop102 hive-3.1.2]$ ls
+bin  conf  datas  derby.log  examples  hcatalog  jdbc  lib  LICENSE  logs  metastore_db  nohup.out  NOTICE  RELEASE_NOTES.txt  scripts  test_stor
+[atguigu@hadoop102 hive-3.1.2]$ cd test_store/
+[atguigu@hadoop102 test_store]$  vim emp_sex.txt
+[atguigu@hadoop102 test_store]$ sudo  vim emp_sex.txt
+[atguigu@hadoop102 test_store]$ sudo  vim emp_sex.txt
+[atguigu@hadoop102 test_store]$ pwd
+/opt/module/hive-3.1.2/test_store
+[atguigu@hadoop102 test_store]$ ^C
+[atguigu@hadoop102 test_store]$  vim person_info.txt
+[atguigu@hadoop102 test_store]$ sudp  vim person_info.txt
+bash: sudp: 未找到命令...
+[atguigu@hadoop102 test_store]$ sudo  vim person_info.txt
+[atguigu@hadoop102 test_store]$ ls
+04022016.txt  dept.txt  emp_sex.txt  emp.txt  person_info.txt  test00.txt  test.txt
+[atguigu@hadoop102 test_store]$ vim movie_info.txt
+[atguigu@hadoop102 test_store]$ vim movie_info.txt
+[atguigu@hadoop102 test_store]$ sudo vim movie_info.txt
+[atguigu@hadoop102 test_store]$ sudo vim movie_info.txt
+[atguigu@hadoop102 test_store]$ sudo vim business.txt
+[atguigu@hadoop102 test_store]$ pwd
+/opt/module/hive-3.1.2/test_store
+[atguigu@hadoop102 test_store]$ ls
+04022016.txt  business.txt  dept.txt  emp_sex.txt  emp.txt  movie_info.txt  person_info.txt  test00.txt  test.txt
+[atguigu@hadoop102 test_store]$  vim score.txt
+[atguigu@hadoop102 test_store]$ sudo vim score.txt
+[atguigu@hadoop102 test_store]$ rz -E
+rz waiting to receive.
+[atguigu@hadoop102 test_store]$ ls
+04022016.txt  business.txt  dept.txt  emp_sex.txt  emp.txt  movie_info.txt  person_info.txt  score.txt  test00.txt  test.txt
+[atguigu@hadoop102 test_store]$ rz -E
+rz waiting to receive.
+[atguigu@hadoop102 test_store]$ rz -E
+rz waiting to receive.
+[atguigu@hadoop102 test_store]$ rz -E
+rz waiting to receive.
+[atguigu@hadoop102 test_store]$ 
