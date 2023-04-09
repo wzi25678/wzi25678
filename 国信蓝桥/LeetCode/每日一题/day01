@@ -1,0 +1,53 @@
+class Solution {
+    public int beautySum(String s) {
+		//1 <= s.length <= 500
+		//a = 97
+		int ans = 0;
+		//认为a为0开始计数   z则为26-1
+		//sc.nextLine();
+		//s = s.substring(1,s.length()-1);
+		//System.out.println(s);
+		for (int i=0;i<s.length();i++){
+			for (int j=i+1;j<s.length();j++){
+				int [] str = new int [26];
+				for (int k = i;k<=j;k++){
+					int zifu = (int)s.charAt(k)-97;
+					str[zifu]++;
+				}
+				int max = Integer.MIN_VALUE;
+				int min = Integer.MAX_VALUE;
+				for (int k=0;k<26;k++){
+					if (str[k] > max){
+						max = str[k];
+					}
+					if (str[k] !=0){
+						if (str[k]<=min){
+							min = str[k];
+						}
+					}
+				}
+				if (min==0){
+					continue;
+				}
+//				System.out.println("本轮字符串：");
+//				for (int zx = i;zx<=j;zx++) {
+//					System.out.print(s.charAt(zx));
+//				}
+//				System.out.println();
+//				System.out.println("本轮最大值"+max);
+//				System.out.println("本轮最小值"+min);
+				ans+=(max-min);
+//				System.out.println("本轮ans值为："+ans);
+//				System.out.println("=================================");
+
+
+
+			}
+		}
+		return ans;
+
+    }
+}
+
+
+https://leetcode.cn/problems/sum-of-beauty-of-all-substrings/submissions/
