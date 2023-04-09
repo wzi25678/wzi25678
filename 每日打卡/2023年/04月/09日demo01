@@ -1,0 +1,262 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop102' resolved to 10.16.51.223.
+Connecting to 10.16.51.223:22...
+Connection established.
+To escape to local shell, press Ctrl+Alt+].
+
+Last login: Sun Apr  9 10:26:25 2023 from 10.16.51.1
+[atguigu@hadoop102 ~]$ cd /opt/module/hive-3.1.2/
+[atguigu@hadoop102 hive-3.1.2]$ bin/hive
+which: no hbase in (/opt/module/mahout-distribution-0.13.0/conf:/opt/module/mahout-distribution-0.13.0/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive-3.1.2/bin:/opt/module/maven-3.8.8/bin:/home/atguigu/.local/bin:/home/atguigu/bin)
+Hive Session ID = 13011451-4a54-40d2-91e0-72810cc70b89
+
+Logging initialized using configuration in file:/opt/module/hive-3.1.2/conf/hive-log4j2.properties Async: true
+Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Hive Session ID = 0fdc54d5-6611-4dd6-9232-3074092d9d8c
+hive> rz -E
+    > ;
+NoViableAltException(24@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:0 cannot recognize input near 'rz' '-' 'E'
+hive> add jar /opt/module/hive-3.1.2/datas/myudf.jar
+    > ;
+Added [/opt/module/hive-3.1.2/datas/myudf.jar] to class path
+Added resources: [/opt/module/hive-3.1.2/datas/myudf.jar]
+hive>  create temporary function myudtf as "com.atguigu.hive.MyUDTF";
+FAILED: Class com.atguigu.hive.MyUDTF not found
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.FunctionTask
+hive>  create temporary function myudtf as "MyStringLength";
+OK
+Time taken: 0.115 seconds
+hive>  create temporary function myudtf as "MyStringLength01";
+FAILED: Class MyStringLength01 not found
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.FunctionTask
+hive>  select myudtf("hello,world,hadoop,hive",",");
+FAILED: SemanticException [Error 10015]: Line 1:8 Arguments length mismatch '","': Input Args Length Error!!!
+hive>  select myudtf("hello,world,hadoop,hive" , ",");
+FAILED: SemanticException [Error 10015]: Line 1:8 Arguments length mismatch '","': Input Args Length Error!!!
+hive>  select myudtf("hello,world,hadoop,hive" , ",");
+FAILED: SemanticException [Error 10015]: Line 1:8 Arguments length mismatch '","': Input Args Length Error!!!
+hive>  select myudtf("hello,world,hadoop,hive" , " ");
+FAILED: SemanticException [Error 10015]: Line 1:8 Arguments length mismatch '" "': Input Args Length Error!!!
+hive> >set hive.exec.compress.intermediate=true;
+NoViableAltException(21@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:0 cannot recognize input near '>' 'set' 'hive'
+hive> >set hive.exec.compress.intermediate=true;
+NoViableAltException(21@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:0 cannot recognize input near '>' 'set' 'hive'
+hive> set hive.exec.compress.intermediate=true;
+hive> set hive.exec.compress.output=true;
+hive> set mapreduce.output.fileoutputformat.compress=true;
+hive> create table log_text (
+    > track_time string,
+    > url string,
+    > session_id string,
+    > referer string,
+    > ip string,
+    > end_user_id string,
+    > city_id string
+    > )
+    > row format delimited fields terminated by '\t'
+    > stored as textfile;
+OK
+Time taken: 8.555 seconds
+hive> load data local inpath '/opt/module/hive-3.1.2/datas/log.data' into table log_text ;
+Loading data to table default.log_text
+OK
+Time taken: 4.61 seconds
+hive>  dfs -du -h /user/hive/warehouse/log_text;
+18.1 M  54.4 M  /user/hive/warehouse/log_text/log.data
+hive> create table log_orc(
+    > track_time string,
+    > url string,
+    > session_id string,
+    > referer string,
+    > ip string,end_user_id string,
+    > city_id string
+    > )
+    > row format delimited fields terminated by '\t'
+    > stored as orc
+    > tblproperties("orc.compress"="NONE"); -- 设置 orc 存储不使用压缩
+    > ;
+OK
+Time taken: 0.406 seconds
+hive> insert into table log_orc select * from log_text;
+Query ID = atguigu_20230409212331_a8e268a0-5092-4f15-83d5-c58a6fe9aa82
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Interrupting... Be patient, this might take some time.
+Press Ctrl+C again to kill JVM
+Exiting the JVM
+[atguigu@hadoop102 hive-3.1.2]$ create table log_orc( 
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ track_time string, 
+bash: track_time: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ url string, 
+bash: url: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ session_id string, 
+bash: session_id: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ referer string, 
+bash: referer: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ ip string,end_user_id string, 
+Object "string,end_user_id" is unknown, try "ip help".
+[atguigu@hadoop102 hive-3.1.2]$ city_id string 
+bash: city_id: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ ) 
+-bash: 未预期的符号 `)' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ row format delimited fields terminated by '\t' 
+bash: row: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ stored as orc 
+bash: stored: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ tblproperties("orc.compress"="NONE"); -- 设置 orc 存储不使用压缩
+-bash: 未预期的符号 `"orc.compress"="NONE"' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ create table log_orc( 
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ track_time string, 
+c 存储不使用压缩bash: track_time: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ url string, 
+bash: url: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ session_id string, 
+bash: session_id: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ referer string, 
+bash: referer: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ ip string,end_user_id string, 
+Object "string,end_user_id" is unknown, try "ip help".
+[atguigu@hadoop102 hive-3.1.2]$ city_id string 
+bash: city_id: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ ) 
+-bash: 未预期的符号 `)' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ row format delimited fields terminated by '\t' 
+bash: row: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ stored as orc 
+bash: stored: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ tblproperties("orc.compress"="NONE"); -- 设置 orc 存储不使用压缩;
+-bash: 未预期的符号 `"orc.compress"="NONE"' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ bin/hive
+which: no hbase in (/opt/module/mahout-distribution-0.13.0/conf:/opt/module/mahout-distribution-0.13.0/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive-3.1.2/bin:/opt/module/maven-3.8.8/bin:/home/atguigu/.local/bin:/home/atguigu/bin)
+Hive Session ID = f671c535-539f-41e8-8f06-2c6f6a63b790
+
+Logging initialized using configuration in file:/opt/module/hive-3.1.2/conf/hive-log4j2.properties Async: true
+Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Hive Session ID = 39aab23d-b3a3-41a4-aa4e-c1fb283b6b76
+hive> create table log_orc_zlib(
+    > track_time string,
+    > url string,
+    > session_id string,
+    > referer string,
+    > ip string,
+    > end_user_id string,
+    > city_id string
+    > )
+    > row format delimited fields terminated by '\t'
+    > stored as orc
+    > tblproperties("orc.compress"="ZLIB");
+OK
+Time taken: 1.073 seconds
+hive> insert into log_orc_zlib select * from log_text;
+Query ID = atguigu_20230409213718_175a3014-83a2-4068-b5cb-2f7e77d96c67
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Interrupting... Be patient, this might take some time.
+Press Ctrl+C again to kill JVM
+Exiting the JVM
+[atguigu@hadoop102 hive-3.1.2]$ bin/hive
+which: no hbase in (/opt/module/mahout-distribution-0.13.0/conf:/opt/module/mahout-distribution-0.13.0/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive-3.1.2/bin:/opt/module/maven-3.8.8/bin:/home/atguigu/.local/bin:/home/atguigu/bin)
+Hive Session ID = 6270f4bd-f0d9-4491-b272-b3e81bd61488
+
+Logging initialized using configuration in file:/opt/module/hive-3.1.2/conf/hive-log4j2.properties Async: true
+Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Hive Session ID = b563b2fa-c62c-4c58-b1f3-9b91214df7d2
+hive> [atguigu@hadoop102 hive-3.1.2]$ ^C
+[atguigu@hadoop102 hive-3.1.2]$ bin/hive
+which: no hbase in (/opt/module/mahout-distribution-0.13.0/conf:/opt/module/mahout-distribution-0.13.0/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive-3.1.2/bin:/opt/module/maven-3.8.8/bin:/home/atguigu/.local/bin:/home/atguigu/bin)
+Hive Session ID = 89dbd49d-0c99-44f4-aaa4-9dffb220ead2
+
+Logging initialized using configuration in file:/opt/module/hive-3.1.2/conf/hive-log4j2.properties Async: true
+Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Hive Session ID = ea86ea09-3d41-45e3-b5b0-19651e7c4b75
+hive> 
