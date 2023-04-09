@@ -1,0 +1,21 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop102' resolved to 10.16.51.223.
+Connecting to 10.16.51.223:22...
+Connection established.
+To escape to local shell, press Ctrl+Alt+].
+
+Last login: Sat Apr  8 19:49:21 2023 from 10.16.51.1
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop102 hadoop-3.1.3]$ sbin/start-dfs.sh 
+Starting namenodes on [hadoop102]
+Starting datanodes
+Starting secondary namenodes [hadoop104]
+[atguigu@hadoop102 hadoop-3.1.3]$ cd ..
+[atguigu@hadoop102 module]$ cd hive-3.1.2/
+[atguigu@hadoop102 hive-3.1.2]$ hive --service metastore
+2023-04-09 10:29:30: Starting Hive Metastore Server
