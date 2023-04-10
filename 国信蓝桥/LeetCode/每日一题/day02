@@ -1,0 +1,64 @@
+package Year2023.M04;
+
+import java.util.*;
+
+public class Day02 {
+	private static String s;
+	private static List<List<String>> knowledge;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		//evaluate();
+		s = sc.nextLine();
+		List<List<String>> knowledge = new ArrayList<>();
+		int m = 2;
+		while(m-->0){
+			for (List<String> list_knowledges :knowledge){
+				list_knowledges.set(0,sc.nextLine());
+				list_knowledges.set(1,sc.nextLine());
+			}
+		}
+		System.out.println(evaluate(s,knowledge));;
+		sc.close();
+	}
+
+
+	private static String evaluate(String s, List<List<String>> knowledge) {
+		Map<String,String> map = new HashMap<String, String>();
+		for (List<String> list_knowledges :knowledge){
+			map.put(list_knowledges.get(0), list_knowledges.get(1));
+		}
+
+		StringBuilder key_dict = new StringBuilder();
+		StringBuilder normal_dict = new StringBuilder();
+		boolean isKey = false;
+		for (int i=0;i<s.length();i++){
+			char panduan = s.charAt(i);
+			if (panduan == '('){
+				isKey = true;
+			}
+			else if (panduan == ')') {
+				//此时添加对象到底了，不再添加
+				//到头了就要对前面获得的key_dict.append(panduan);进行判断
+				if (map.containsKey(key_dict.toString())){
+					normal_dict.append(map.get(key_dict.toString()));
+				}else{
+					normal_dict.append('?');
+				}
+				isKey = false;
+				key_dict.setLength(0);
+			}else {
+				//这里就是非()的判断，即判断字符能否被添加
+				if (isKey){
+					//如果可以添加到键值对匹配序列
+					key_dict.append(panduan);
+				}else{
+					//不可以,则加入常规队列
+					normal_dict.append(panduan);
+				}
+			}
+		}
+
+		return normal_dict.toString();
+	}
+}
