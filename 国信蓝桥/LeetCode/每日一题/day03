@@ -1,0 +1,39 @@
+package Year2023.M04;
+
+import java.util.Scanner;
+
+public class Day03 {
+	private static String s;
+	private static int k;
+	private static int res = 1;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		//s = sc.next();
+		//sc.nextLine();
+		//k  = sc.nextInt();
+		System.out.println("s= "+s);
+		System.out.println("k= "+k);
+		System.out.println(longestIdealString(s, k));
+	}
+	public static int longestIdealString(String s, int k) {
+		int max = 0;
+		//int head;
+		for (int i=0;i<s.length();i++){
+			//int index = i;
+			int head = s.charAt(i);
+			int count = 1;
+			//int min = s.charAt(i);
+			for (int j=i+1;j<s.length();j++){
+				if (Math.abs(s.charAt(j) - head) <= k){
+					head = s.charAt(j);
+					count++;
+				}
+			}
+			if (count > max){
+				max = count;
+			}
+		}
+		return  max;
+	}
+}
