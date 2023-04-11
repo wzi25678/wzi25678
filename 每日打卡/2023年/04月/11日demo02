@@ -1,0 +1,143 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop102' resolved to 10.16.51.223.
+Connecting to 10.16.51.223:22...
+Connection established.
+To escape to local shell, press Ctrl+Alt+].
+
+Last login: Sun Apr  9 10:27:43 2023 from 10.16.51.1
+[atguigu@hadoop102 ~]$ cd /opt/module/hive-3.1.2/
+bin/          datas/        hcatalog/     lib/          metastore_db/ test_store/   
+conf/         examples/     jdbc/         logs/         scripts/      
+[atguigu@hadoop102 ~]$ cd /opt/module/hive-3.1.2/
+bin/          datas/        hcatalog/     lib/          metastore_db/ test_store/   
+conf/         examples/     jdbc/         logs/         scripts/      
+[atguigu@hadoop102 ~]$ cd /opt/module/hive-3.1.2/datas/
+[atguigu@hadoop102 datas]$ rz -E
+rz waiting to receive.
+[atguigu@hadoop102 datas]$ pwd
+/opt/module/hive-3.1.2/datas
+[atguigu@hadoop102 datas]$ ls
+dept.txt  emp.txt  hivef.sql  myudf.jar  student.txt
+[atguigu@hadoop102 datas]$ rz -E
+rz waiting to receive.
+[atguigu@hadoop102 datas]$ pwd
+/opt/module/hive-3.1.2/datas
+[atguigu@hadoop102 datas]$ ls
+dept.txt  emp.txt  hivef.sql  log.data  myudf.jar  student.txt
+[atguigu@hadoop102 datas]$ ls
+dept.txt  emp.txt  hivef.sql  log.data  myudf.jar  student.txt
+[atguigu@hadoop102 datas]$ pwd
+/opt/module/hive-3.1.2/datas
+[atguigu@hadoop102 datas]$ ^C
+[atguigu@hadoop102 datas]$ pwd
+/opt/module/hive-3.1.2/datas
+[atguigu@hadoop102 datas]$ rz -E
+rz waiting to receive.
+[atguigu@hadoop102 datas]$ ls
+dept.txt  emp.txt  hivef.sql  log.data  log_text  myudf.jar  student.txt
+[atguigu@hadoop102 datas]$ pwd
+/opt/module/hive-3.1.2/datas
+[atguigu@hadoop102 datas]$ ls
+dept.txt  emp.txt  hivef.sql  log.data  log_text  myudf.jar  student.txt
+[atguigu@hadoop102 datas]$ cd ..
+[atguigu@hadoop102 hive-3.1.2]$ cd ..
+[atguigu@hadoop102 module]$ cd hadoop-3.1.3/
+[atguigu@hadoop102 hadoop-3.1.3]$ ls
+bin   etc          include  lib      LICENSE.txt  NOTICE.txt  sbin   synthetic_control.data  wcinput  wcoutput
+data  fsimage.xml  jar      libexec  logs         README.txt  share  textStore               wc.jar   weiguo.txt
+[atguigu@hadoop102 hadoop-3.1.3]$ cd etc/
+[atguigu@hadoop102 etc]$ ls
+hadoop
+[atguigu@hadoop102 etc]$ cd ..
+[atguigu@hadoop102 hadoop-3.1.3]$ cd bin/
+[atguigu@hadoop102 bin]$ ll
+总用量 996
+-rwxr-xr-x. 1 atguigu atguigu 441936 9月  12 2019 container-executor
+-rwxr-xr-x. 1 atguigu atguigu   8707 9月  12 2019 hadoop
+-rwxr-xr-x. 1 atguigu atguigu  11265 9月  12 2019 hadoop.cmd
+-rwxr-xr-x. 1 atguigu atguigu  11026 9月  12 2019 hdfs
+-rwxr-xr-x. 1 atguigu atguigu   8081 9月  12 2019 hdfs.cmd
+-rwxr-xr-x. 1 atguigu atguigu   6237 9月  12 2019 mapred
+-rwxr-xr-x. 1 atguigu atguigu   6311 9月  12 2019 mapred.cmd
+-rwxr-xr-x. 1 atguigu atguigu 483728 9月  12 2019 test-container-executor
+-rwxr-xr-x. 1 atguigu atguigu  11888 9月  12 2019 yarn
+-rwxr-xr-x. 1 atguigu atguigu  12840 9月  12 2019 yarn.cmd
+[atguigu@hadoop102 bin]$ cd ..
+[atguigu@hadoop102 hadoop-3.1.3]$ cd lib
+[atguigu@hadoop102 lib]$ ls
+ClusteringUtils.jar                mahout-mr-0.13.0-job.jar.0
+mahout-examples-0.13.0.jar         mahout-native-viennacl_2.10-0.13.0.jar
+mahout-examples-0.13.0.jar.0       mahout-native-viennacl_2.10-0.13.0.jar.0
+mahout-examples-0.13.0-job.jar     mahout-native-viennacl-omp_2.10-0.13.0.jar
+mahout-hdfs-0.13.0.jar             mahout-native-viennacl-omp_2.10-0.13.0.jar.0
+mahout-integration-0.13.0.jar      mahout-spark_2.10-0.13.0-dependency-reduced.jar
+mahout-math-0.13.0.jar             mahout-spark_2.10-0.13.0-dependency-reduced.jar.0
+mahout-math-scala_2.10-0.13.0.jar  mahout-spark_2.10-0.13.0.jar
+mahout-mr-0.13.0.jar               mahout-spark_2.10-0.13.0.jar.0
+mahout-mr-0.13.0.jar.0             native
+mahout-mr-0.13.0-job.jar
+[atguigu@hadoop102 lib]$ cd ..
+[atguigu@hadoop102 hadoop-3.1.3]$ cd s
+sbin/  share/ 
+[atguigu@hadoop102 hadoop-3.1.3]$ cd sbin/
+[atguigu@hadoop102 sbin]$ ls
+distribute-exclude.sh  mr-jobhistory-daemon.sh  start-dfs.sh         stop-balancer.sh    workers.sh
+FederationStateStore   refresh-namenodes.sh     start-secure-dns.sh  stop-dfs.cmd        yarn-daemon.sh
+hadoop-daemon.sh       start-all.cmd            start-yarn.cmd       stop-dfs.sh         yarn-daemons.sh
+hadoop-daemons.sh      start-all.sh             start-yarn.sh        stop-secure-dns.sh
+httpfs.sh              start-balancer.sh        stop-all.cmd         stop-yarn.cmd
+kms.sh                 start-dfs.cmd            stop-all.sh          stop-yarn.sh
+[atguigu@hadoop102 sbin]$ cd ..
+[atguigu@hadoop102 hadoop-3.1.3]$ whereis mapred-site.xml
+mapred-site:[atguigu@hadoop102 hadoop-3.1.3]$ which mapred-site.xml
+/usr/bin/which: no mapred-site.xml in (/opt/module/mahout-distribution-0.13.0/conf:/opt/module/mahout-distribution-0.13.0/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive-3.1.2/bin:/opt/module/maven-3.8.8/bin:/home/atguigu/.local/bin:/home/atguigu/bin)
+[atguigu@hadoop102 hadoop-3.1.3]$ cd 
+[atguigu@hadoop102 ~]$ locate mapred-site.xml
+/opt/module/hadoop-3.1.3/etc/hadoop/mapred-site.xml
+[atguigu@hadoop102 ~]$ vim /opt/module/hadoop-3.1.3/etc/hadoop/mapred-site.xml
+[atguigu@hadoop102 ~]$ sbin/mr-jobhistory-daemon.sh start historyserver
+-bash: sbin/mr-jobhistory-daemon.sh: 没有那个文件或目录
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop102 hadoop-3.1.3]$ sbin/mr-jobhistory-daemon.sh start historyserver
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement "mapred --daemon start" instead.
+historyserver is running as process 35283.  Stop it first.
+[atguigu@hadoop102 hadoop-3.1.3]$ sbin/mr-jobhistory-daemon.sh stop historyserver
+WARNING: Use of this script to stop the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement "mapred --daemon stop" instead.
+[atguigu@hadoop102 hadoop-3.1.3]$ sbin/mr-jobhistory-daemon.sh start historyserver
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement "mapred --daemon start" instead.
+[atguigu@hadoop102 hadoop-3.1.3]$ cd ..
+[atguigu@hadoop102 module]$ cd hive-3.1.2/
+[atguigu@hadoop102 hive-3.1.2]$ cd 
+bin/          datas/        hcatalog/     lib/          metastore_db/ test_store/   
+conf/         examples/     jdbc/         logs/         scripts/      
+[atguigu@hadoop102 hive-3.1.2]$ cd 
+bin/          datas/        hcatalog/     lib/          metastore_db/ test_store/   
+conf/         examples/     jdbc/         logs/         scripts/      
+[atguigu@hadoop102 hive-3.1.2]$ cd datas/
+[atguigu@hadoop102 datas]$ vim nullid
+[atguigu@hadoop102 datas]$ pwd
+/opt/module/hive-3.1.2/datas
+[atguigu@hadoop102 datas]$ ^C
+[atguigu@hadoop102 datas]$ ls
+dept.txt  emp.txt  hivef.sql  log.data  log_text  myudf.jar  nullid  student.txt
+[atguigu@hadoop102 datas]$ vim bigtable;
+[atguigu@hadoop102 datas]$ pwd
+/opt/module/hive-3.1.2/datas
+[atguigu@hadoop102 datas]$ ^C
+[atguigu@hadoop102 datas]$ vim bigtable;
+[atguigu@hadoop102 datas]$ pwd
+/opt/module/hive-3.1.2/datas
+[atguigu@hadoop102 datas]$ cd 
+[atguigu@hadoop102 ~]$ locate mapred-default.xml
+/opt/module/hadoop-3.1.3/share/doc/hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
+[atguigu@hadoop102 ~]$ cd ^C
+[atguigu@hadoop102 ~]$ cd /opt/module/hive-3.1.2/datas
+[atguigu@hadoop102 datas]$ 
