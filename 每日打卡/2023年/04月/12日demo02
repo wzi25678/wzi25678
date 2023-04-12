@@ -1,0 +1,2955 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop102' resolved to 10.16.51.223.
+Connecting to 10.16.51.223:22...
+Connection established.
+To escape to local shell, press Ctrl+Alt+].
+
+Last login: Sun Apr  9 10:26:25 2023 from 10.16.51.1
+[atguigu@hadoop102 ~]$ cd /opt/module/hive-3.1.2/
+[atguigu@hadoop102 hive-3.1.2]$ bin/hive
+which: no hbase in (/opt/module/mahout-distribution-0.13.0/conf:/opt/module/mahout-distribution-0.13.0/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive-3.1.2/bin:/opt/module/maven-3.8.8/bin:/home/atguigu/.local/bin:/home/atguigu/bin)
+Hive Session ID = 13011451-4a54-40d2-91e0-72810cc70b89
+
+Logging initialized using configuration in file:/opt/module/hive-3.1.2/conf/hive-log4j2.properties Async: true
+Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Hive Session ID = 0fdc54d5-6611-4dd6-9232-3074092d9d8c
+hive> rz -E
+    > ;
+NoViableAltException(24@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:0 cannot recognize input near 'rz' '-' 'E'
+hive> add jar /opt/module/hive-3.1.2/datas/myudf.jar
+    > ;
+Added [/opt/module/hive-3.1.2/datas/myudf.jar] to class path
+Added resources: [/opt/module/hive-3.1.2/datas/myudf.jar]
+hive>  create temporary function myudtf as "com.atguigu.hive.MyUDTF";
+FAILED: Class com.atguigu.hive.MyUDTF not found
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.FunctionTask
+hive>  create temporary function myudtf as "MyStringLength";
+OK
+Time taken: 0.115 seconds
+hive>  create temporary function myudtf as "MyStringLength01";
+FAILED: Class MyStringLength01 not found
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.FunctionTask
+hive>  select myudtf("hello,world,hadoop,hive",",");
+FAILED: SemanticException [Error 10015]: Line 1:8 Arguments length mismatch '","': Input Args Length Error!!!
+hive>  select myudtf("hello,world,hadoop,hive" , ",");
+FAILED: SemanticException [Error 10015]: Line 1:8 Arguments length mismatch '","': Input Args Length Error!!!
+hive>  select myudtf("hello,world,hadoop,hive" , ",");
+FAILED: SemanticException [Error 10015]: Line 1:8 Arguments length mismatch '","': Input Args Length Error!!!
+hive>  select myudtf("hello,world,hadoop,hive" , " ");
+FAILED: SemanticException [Error 10015]: Line 1:8 Arguments length mismatch '" "': Input Args Length Error!!!
+hive> >set hive.exec.compress.intermediate=true;
+NoViableAltException(21@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:0 cannot recognize input near '>' 'set' 'hive'
+hive> >set hive.exec.compress.intermediate=true;
+NoViableAltException(21@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:0 cannot recognize input near '>' 'set' 'hive'
+hive> set hive.exec.compress.intermediate=true;
+hive> set hive.exec.compress.output=true;
+hive> set mapreduce.output.fileoutputformat.compress=true;
+hive> create table log_text (
+    > track_time string,
+    > url string,
+    > session_id string,
+    > referer string,
+    > ip string,
+    > end_user_id string,
+    > city_id string
+    > )
+    > row format delimited fields terminated by '\t'
+    > stored as textfile;
+OK
+Time taken: 8.555 seconds
+hive> load data local inpath '/opt/module/hive-3.1.2/datas/log.data' into table log_text ;
+Loading data to table default.log_text
+OK
+Time taken: 4.61 seconds
+hive>  dfs -du -h /user/hive/warehouse/log_text;
+18.1 M  54.4 M  /user/hive/warehouse/log_text/log.data
+hive> create table log_orc(
+    > track_time string,
+    > url string,
+    > session_id string,
+    > referer string,
+    > ip string,end_user_id string,
+    > city_id string
+    > )
+    > row format delimited fields terminated by '\t'
+    > stored as orc
+    > tblproperties("orc.compress"="NONE"); -- 设置 orc 存储不使用压缩
+    > ;
+OK
+Time taken: 0.406 seconds
+hive> insert into table log_orc select * from log_text;
+Query ID = atguigu_20230409212331_a8e268a0-5092-4f15-83d5-c58a6fe9aa82
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Interrupting... Be patient, this might take some time.
+Press Ctrl+C again to kill JVM
+Exiting the JVM
+[atguigu@hadoop102 hive-3.1.2]$ create table log_orc( 
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ track_time string, 
+bash: track_time: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ url string, 
+bash: url: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ session_id string, 
+bash: session_id: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ referer string, 
+bash: referer: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ ip string,end_user_id string, 
+Object "string,end_user_id" is unknown, try "ip help".
+[atguigu@hadoop102 hive-3.1.2]$ city_id string 
+bash: city_id: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ ) 
+-bash: 未预期的符号 `)' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ row format delimited fields terminated by '\t' 
+bash: row: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ stored as orc 
+bash: stored: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ tblproperties("orc.compress"="NONE"); -- 设置 orc 存储不使用压缩
+-bash: 未预期的符号 `"orc.compress"="NONE"' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ create table log_orc( 
+-bash: 未预期的符号 `(' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ track_time string, 
+c 存储不使用压缩bash: track_time: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ url string, 
+bash: url: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ session_id string, 
+bash: session_id: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ referer string, 
+bash: referer: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ ip string,end_user_id string, 
+Object "string,end_user_id" is unknown, try "ip help".
+[atguigu@hadoop102 hive-3.1.2]$ city_id string 
+bash: city_id: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ ) 
+-bash: 未预期的符号 `)' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ row format delimited fields terminated by '\t' 
+bash: row: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ stored as orc 
+bash: stored: 未找到命令...
+[atguigu@hadoop102 hive-3.1.2]$ tblproperties("orc.compress"="NONE"); -- 设置 orc 存储不使用压缩;
+-bash: 未预期的符号 `"orc.compress"="NONE"' 附近有语法错误
+[atguigu@hadoop102 hive-3.1.2]$ bin/hive
+which: no hbase in (/opt/module/mahout-distribution-0.13.0/conf:/opt/module/mahout-distribution-0.13.0/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive-3.1.2/bin:/opt/module/maven-3.8.8/bin:/home/atguigu/.local/bin:/home/atguigu/bin)
+Hive Session ID = f671c535-539f-41e8-8f06-2c6f6a63b790
+
+Logging initialized using configuration in file:/opt/module/hive-3.1.2/conf/hive-log4j2.properties Async: true
+Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Hive Session ID = 39aab23d-b3a3-41a4-aa4e-c1fb283b6b76
+hive> create table log_orc_zlib(
+    > track_time string,
+    > url string,
+    > session_id string,
+    > referer string,
+    > ip string,
+    > end_user_id string,
+    > city_id string
+    > )
+    > row format delimited fields terminated by '\t'
+    > stored as orc
+    > tblproperties("orc.compress"="ZLIB");
+OK
+Time taken: 1.073 seconds
+hive> insert into log_orc_zlib select * from log_text;
+Query ID = atguigu_20230409213718_175a3014-83a2-4068-b5cb-2f7e77d96c67
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Interrupting... Be patient, this might take some time.
+Press Ctrl+C again to kill JVM
+Exiting the JVM
+[atguigu@hadoop102 hive-3.1.2]$ bin/hive
+which: no hbase in (/opt/module/mahout-distribution-0.13.0/conf:/opt/module/mahout-distribution-0.13.0/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive-3.1.2/bin:/opt/module/maven-3.8.8/bin:/home/atguigu/.local/bin:/home/atguigu/bin)
+Hive Session ID = 6270f4bd-f0d9-4491-b272-b3e81bd61488
+
+Logging initialized using configuration in file:/opt/module/hive-3.1.2/conf/hive-log4j2.properties Async: true
+Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Hive Session ID = b563b2fa-c62c-4c58-b1f3-9b91214df7d2
+hive> [atguigu@hadoop102 hive-3.1.2]$ ^C
+[atguigu@hadoop102 hive-3.1.2]$ bin/hive
+which: no hbase in (/opt/module/mahout-distribution-0.13.0/conf:/opt/module/mahout-distribution-0.13.0/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive-3.1.2/bin:/opt/module/maven-3.8.8/bin:/home/atguigu/.local/bin:/home/atguigu/bin)
+Hive Session ID = 89dbd49d-0c99-44f4-aaa4-9dffb220ead2
+
+Logging initialized using configuration in file:/opt/module/hive-3.1.2/conf/hive-log4j2.properties Async: true
+Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Hive Session ID = ea86ea09-3d41-45e3-b5b0-19651e7c4b75
+hive> set hive.auto.convert.join = true;
+hive> set hive.mapjoin.smalltable.filesize = 25000000;
+hive> create table bigtable(id bigint, t bigint, uid string, keyword string, 
+    > url_rank int, click_num int, click_url string) row format delimited 
+    > fields terminated by '\t';
+OK
+Time taken: 3.274 seconds
+hive> create table smalltable(id bigint, t bigint, uid string, keyword string, 
+    > url_rank int, click_num int, click_url string) row format delimited 
+    > fields terminated by '\t';
+OK
+Time taken: 0.252 seconds
+hive> create table jointable(id bigint, t bigint, uid string, keyword string, 
+    > url_rank int, click_num int, click_url string) row format delimited 
+    > fields terminated by '\t';
+OK
+Time taken: 0.14 seconds
+hive>  load data local inpath  '/opt/module/hive-3.1.2/datas/log.data' into table bigtable;
+Loading data to table default.bigtable
+OK
+Time taken: 3.257 seconds
+hive>  load data local inpath  '/opt/module/hive-3.1.2/datas/myudf.jar' into table smalltable;
+Loading data to table default.smalltable
+OK
+Time taken: 0.5 seconds
+hive> insert overwrite table jointable
+    > select b.id, b.t, b.uid, b.keyword, b.url_rank, b.click_num, b.click_url
+    > from smalltable s
+    > join bigtable b
+    > on b.id = s.id;
+Query ID = atguigu_20230410211416_ada29dc8-70de-4d65-9d38-7e16433ee1e3
+Total jobs = 2
+2023-04-10 21:15:51	Dump the side-table for tag: 0 with group count: 0 into file: file:/tmp/atguigu/89dbd49d-0c99-44f4-aaa4-9dffb220ead2/hive_2023-04-10_21-14-16_751_1929687842457334307-1/-local-10003/HashTable-Stage-5/MapJoin-mapfile00--.hashtable
+2023-04-10 21:15:51	Uploaded 1 File to: file:/tmp/atguigu/89dbd49d-0c99-44f4-aaa4-9dffb220ead2/hive_2023-04-10_21-14-16_751_1929687842457334307-1/-local-10003/HashTable-Stage-5/MapJoin-mapfile00--.hashtable (260 bytes)
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 1 out of 2
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0001, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0001/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0001
+Hadoop job information for Stage-5: number of mappers: 1; number of reducers: 0
+2023-04-10 21:29:09,739 Stage-5 map = 0%,  reduce = 0%
+2023-04-10 21:30:03,757 Stage-5 map = 100%,  reduce = 0%
+Ended Job = job_1681133273168_0001 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1681133273168_0001_m_000000 (and more) from job job_1681133273168_0001
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1681133273168_0001_m_000000
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1681133273168_0001&tipid=task_1681133273168_0001_m_000000
+-----
+Diagnostic Messages for this Task:
+[2023-04-10 21:30:02.825]Container [pid=30858,containerID=container_1681133273168_0001_01_000005] is running 340404736B beyond the 'VIRTUAL' memory limit. Current usage: 196.5 MB of 1 GB physical memory used; 2.4 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1681133273168_0001_01_000005 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 30858 30856 30858 30858 (bash) 0 2 9797632 287 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0001/container_1681133273168_0001_01_000005/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0001/container_1681133273168_0001_01_000005 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.223 34711 attempt_1681133273168_0001_m_000000_3 5 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0001/container_1681133273168_0001_01_000005/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0001/container_1681133273168_0001_01_000005/stderr  
+	|- 30869 30858 30858 30858 (java) 893 1364 2585464832 50023 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0001/container_1681133273168_0001_01_000005/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0001/container_1681133273168_0001_01_000005 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.223 34711 attempt_1681133273168_0001_m_000000_3 5 
+
+[2023-04-10 21:30:02.845]Container killed on request. Exit code is 143
+[2023-04-10 21:30:02.855]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-5: Map: 1   HDFS Read: 0 HDFS Write: 0 FAIL
+Total MapReduce CPU Time Spent: 0 msec
+hive> exit;
+[atguigu@hadoop102 hive-3.1.2]$ mr-jobhistory-daemon.sh start jobhistoryserver
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement "mapred --daemon start" instead.
+ERROR: jobhistoryserver is not COMMAND nor fully qualified CLASSNAME.
+Usage: mapred [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+ or    mapred [OPTIONS] CLASSNAME [CLASSNAME OPTIONS]
+  where CLASSNAME is a user-provided Java class
+
+  OPTIONS is none or any of:
+
+--config dir   Hadoop config directory
+--debug        turn on shell script debug mode
+--help         usage information
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+frameworkuploader   mapreduce framework upload
+hsadmin             job history server admin interface
+
+    Client Commands:
+
+archive             create a Hadoop archive
+archive-logs        combine aggregated logs into hadoop archives
+classpath           prints the class path needed for running mapreduce subcommands
+distcp              copy file or directories recursively
+envvars             display computed Hadoop environment variables
+job                 manipulate MapReduce jobs
+minicluster         CLI MiniCluster
+pipes               run a Pipes job
+queue               get information regarding JobQueues
+sampler             sampler
+streaming           launch a mapreduce streaming job
+version             print the version
+
+    Daemon Commands:
+
+historyserver       run job history servers as a standalone daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[atguigu@hadoop102 hive-3.1.2]$ mr-jobhistory-daemon.sh start jobshistoryserver
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement "mapred --daemon start" instead.
+ERROR: jobshistoryserver is not COMMAND nor fully qualified CLASSNAME.
+Usage: mapred [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+ or    mapred [OPTIONS] CLASSNAME [CLASSNAME OPTIONS]
+  where CLASSNAME is a user-provided Java class
+
+  OPTIONS is none or any of:
+
+--config dir   Hadoop config directory
+--debug        turn on shell script debug mode
+--help         usage information
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+frameworkuploader   mapreduce framework upload
+hsadmin             job history server admin interface
+
+    Client Commands:
+
+archive             create a Hadoop archive
+archive-logs        combine aggregated logs into hadoop archives
+classpath           prints the class path needed for running mapreduce subcommands
+distcp              copy file or directories recursively
+envvars             display computed Hadoop environment variables
+job                 manipulate MapReduce jobs
+minicluster         CLI MiniCluster
+pipes               run a Pipes job
+queue               get information regarding JobQueues
+sampler             sampler
+streaming           launch a mapreduce streaming job
+version             print the version
+
+    Daemon Commands:
+
+historyserver       run job history servers as a standalone daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[atguigu@hadoop102 hive-3.1.2]$ mr-jobhistory-daemon.sh start jobhistoryserver
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement "mapred --daemon start" instead.
+ERROR: jobhistoryserver is not COMMAND nor fully qualified CLASSNAME.
+Usage: mapred [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+ or    mapred [OPTIONS] CLASSNAME [CLASSNAME OPTIONS]
+  where CLASSNAME is a user-provided Java class
+
+  OPTIONS is none or any of:
+
+--config dir   Hadoop config directory
+--debug        turn on shell script debug mode
+--help         usage information
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+frameworkuploader   mapreduce framework upload
+hsadmin             job history server admin interface
+
+    Client Commands:
+
+archive             create a Hadoop archive
+archive-logs        combine aggregated logs into hadoop archives
+classpath           prints the class path needed for running mapreduce subcommands
+distcp              copy file or directories recursively
+envvars             display computed Hadoop environment variables
+job                 manipulate MapReduce jobs
+minicluster         CLI MiniCluster
+pipes               run a Pipes job
+queue               get information regarding JobQueues
+sampler             sampler
+streaming           launch a mapreduce streaming job
+version             print the version
+
+    Daemon Commands:
+
+historyserver       run job history servers as a standalone daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[atguigu@hadoop102 hive-3.1.2]$ sbin/mr-jobhistory-daemon.sh start historyserver
+-bash: sbin/mr-jobhistory-daemon.sh: 没有那个文件或目录
+[atguigu@hadoop102 hive-3.1.2]$ cd ..
+[atguigu@hadoop102 module]$ cd hadoop-3.1.3/
+[atguigu@hadoop102 hadoop-3.1.3]$ sbin/mr-jobhistory-daemon.sh start historyserver
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement "mapred --daemon start" instead.
+[atguigu@hadoop102 hadoop-3.1.3]$ cd ..
+[atguigu@hadoop102 module]$ cd hive-3.1.2/
+[atguigu@hadoop102 hive-3.1.2]$ bin/hive
+which: no hbase in (/opt/module/mahout-distribution-0.13.0/conf:/opt/module/mahout-distribution-0.13.0/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/module/jdk1.8.0_212/bin:/opt/module/hadoop-3.1.3/bin:/opt/module/hadoop-3.1.3/sbin:/opt/module/hive-3.1.2/bin:/opt/module/maven-3.8.8/bin:/home/atguigu/.local/bin:/home/atguigu/bin)
+Hive Session ID = 17799a5f-552f-4316-a7d1-fc67d9897290
+
+Logging initialized using configuration in file:/opt/module/hive-3.1.2/conf/hive-log4j2.properties Async: true
+Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Hive Session ID = 4cc86567-5c38-4ec6-8bca-dc787cbe2cdc
+hive> set mapreduce.job.reduces = 5; 
+hive> dfs -du -h /user/hive/warehouse/log_text;
+18.1 M  54.4 M  /user/hive/warehouse/log_text/log.data
+hive> create table log_orc( 
+    > track_time string, 
+    > url string, 
+    > session_id string, 
+    > referer string, 
+    > ip string,end_user_id string, 
+    > city_id string 
+    > ) 
+    > row format delimited fields terminated by '\t' 
+    > stored as orc 
+    > tblproperties("orc.compress"="NONE"); 
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. AlreadyExistsException(message:Table hive.default.log_orc already exists)
+hive> create table log_orc(  
+    > track_time string, 
+    > url string, 
+    > session_id string, 
+    > referer string, 
+    > ip string,end_user_id string, 
+    > city_id string 
+    > ) 
+    > row format delimited fields terminated by '\t' 
+    > stored as orc 
+    > tblproperties("orc.compress"="NONE");
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. AlreadyExistsException(message:Table hive.default.log_orc already exists)
+hive> create table log_orc( 
+    > track_time string, 
+    > url string, 
+    > session_id string, 
+    > referer string, 
+    > ip string,end_user_id string, 
+    > city_id string 
+    > ) 
+    > row format delimited fields terminated by '\t' 
+    > stored as orc 
+    > tblproperties("orc.compress"="NONE");
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. AlreadyExistsException(message:Table hive.default.log_orc already exists)
+hive> 
+    > create table log_orc01( 
+    > track_time string, 
+    > url string, 
+    > session_id string, 
+    > referer string, 
+    > ip string,end_user_id string, 
+    > city_id string 
+    > ) 
+    > row format delimited fields terminated by '\t' 
+    > stored as orc 
+    > tblproperties("orc.compress"="NONE");
+OK
+Time taken: 0.34 seconds
+hive> show extend database;
+NoViableAltException(24@[917:1: ddlStatement : ( createDatabaseStatement | switchDatabaseStatement | dropDatabaseStatement | createTableStatement | dropTableStatement | truncateTableStatement | alterStatement | descStatement | showStatement | metastoreCheck | createViewStatement | createMaterializedViewStatement | dropViewStatement | dropMaterializedViewStatement | createFunctionStatement | createMacroStatement | dropFunctionStatement | reloadFunctionStatement | dropMacroStatement | analyzeStatement | lockStatement | unlockStatement | lockDatabase | unlockDatabase | createRoleStatement | dropRoleStatement | ( grantPrivileges )=> grantPrivileges | ( revokePrivileges )=> revokePrivileges | showGrants | showRoleGrants | showRolePrincipals | showRoles | grantRole | revokeRole | setRole | showCurrentRole | abortTransactionStatement | killQueryStatement | resourcePlanDdlStatements );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:144)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4244)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:5 cannot recognize input near 'show' 'extend' 'database' in ddl statement
+hive> show extend database;
+NoViableAltException(24@[917:1: ddlStatement : ( createDatabaseStatement | switchDatabaseStatement | dropDatabaseStatement | createTableStatement | dropTableStatement | truncateTableStatement | alterStatement | descStatement | showStatement | metastoreCheck | createViewStatement | createMaterializedViewStatement | dropViewStatement | dropMaterializedViewStatement | createFunctionStatement | createMacroStatement | dropFunctionStatement | reloadFunctionStatement | dropMacroStatement | analyzeStatement | lockStatement | unlockStatement | lockDatabase | unlockDatabase | createRoleStatement | dropRoleStatement | ( grantPrivileges )=> grantPrivileges | ( revokePrivileges )=> revokePrivileges | showGrants | showRoleGrants | showRolePrincipals | showRoles | grantRole | revokeRole | setRole | showCurrentRole | abortTransactionStatement | killQueryStatement | resourcePlanDdlStatements );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:144)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4244)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:5 cannot recognize input near 'show' 'extend' 'database' in ddl statement
+hive> show  database;
+NoViableAltException(84@[917:1: ddlStatement : ( createDatabaseStatement | switchDatabaseStatement | dropDatabaseStatement | createTableStatement | dropTableStatement | truncateTableStatement | alterStatement | descStatement | showStatement | metastoreCheck | createViewStatement | createMaterializedViewStatement | dropViewStatement | dropMaterializedViewStatement | createFunctionStatement | createMacroStatement | dropFunctionStatement | reloadFunctionStatement | dropMacroStatement | analyzeStatement | lockStatement | unlockStatement | lockDatabase | unlockDatabase | createRoleStatement | dropRoleStatement | ( grantPrivileges )=> grantPrivileges | ( revokePrivileges )=> revokePrivileges | showGrants | showRoleGrants | showRolePrincipals | showRoles | grantRole | revokeRole | setRole | showCurrentRole | abortTransactionStatement | killQueryStatement | resourcePlanDdlStatements );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4244)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:6 cannot recognize input near 'show' 'database' '<EOF>' in ddl statement
+hive> show  databases;
+OK
+db_hive
+default
+Time taken: 0.092 seconds, Fetched: 2 row(s)
+hive> show  extend tables;
+NoViableAltException(24@[917:1: ddlStatement : ( createDatabaseStatement | switchDatabaseStatement | dropDatabaseStatement | createTableStatement | dropTableStatement | truncateTableStatement | alterStatement | descStatement | showStatement | metastoreCheck | createViewStatement | createMaterializedViewStatement | dropViewStatement | dropMaterializedViewStatement | createFunctionStatement | createMacroStatement | dropFunctionStatement | reloadFunctionStatement | dropMacroStatement | analyzeStatement | lockStatement | unlockStatement | lockDatabase | unlockDatabase | createRoleStatement | dropRoleStatement | ( grantPrivileges )=> grantPrivileges | ( revokePrivileges )=> revokePrivileges | showGrants | showRoleGrants | showRolePrincipals | showRoles | grantRole | revokeRole | setRole | showCurrentRole | abortTransactionStatement | killQueryStatement | resourcePlanDdlStatements );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:144)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4244)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:6 cannot recognize input near 'show' 'extend' 'tables' in ddl statement
+hive> show  extends tables;
+NoViableAltException(24@[917:1: ddlStatement : ( createDatabaseStatement | switchDatabaseStatement | dropDatabaseStatement | createTableStatement | dropTableStatement | truncateTableStatement | alterStatement | descStatement | showStatement | metastoreCheck | createViewStatement | createMaterializedViewStatement | dropViewStatement | dropMaterializedViewStatement | createFunctionStatement | createMacroStatement | dropFunctionStatement | reloadFunctionStatement | dropMacroStatement | analyzeStatement | lockStatement | unlockStatement | lockDatabase | unlockDatabase | createRoleStatement | dropRoleStatement | ( grantPrivileges )=> grantPrivileges | ( revokePrivileges )=> revokePrivileges | showGrants | showRoleGrants | showRolePrincipals | showRoles | grantRole | revokeRole | setRole | showCurrentRole | abortTransactionStatement | killQueryStatement | resourcePlanDdlStatements );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:144)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4244)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:6 cannot recognize input near 'show' 'extends' 'tables' in ddl statement
+hive> show  tables;
+OK
+bigtable
+business
+emp_sex
+jointable
+log_orc
+log_orc01
+log_orc_zlib
+log_text
+movie_info
+person_info
+score
+smalltable
+test
+Time taken: 0.212 seconds, Fetched: 13 row(s)
+hive> show bigtable;
+NoViableAltException(24@[917:1: ddlStatement : ( createDatabaseStatement | switchDatabaseStatement | dropDatabaseStatement | createTableStatement | dropTableStatement | truncateTableStatement | alterStatement | descStatement | showStatement | metastoreCheck | createViewStatement | createMaterializedViewStatement | dropViewStatement | dropMaterializedViewStatement | createFunctionStatement | createMacroStatement | dropFunctionStatement | reloadFunctionStatement | dropMacroStatement | analyzeStatement | lockStatement | unlockStatement | lockDatabase | unlockDatabase | createRoleStatement | dropRoleStatement | ( grantPrivileges )=> grantPrivileges | ( revokePrivileges )=> revokePrivileges | showGrants | showRoleGrants | showRolePrincipals | showRoles | grantRole | revokeRole | setRole | showCurrentRole | abortTransactionStatement | killQueryStatement | resourcePlanDdlStatements );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:144)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4244)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:5 cannot recognize input near 'show' 'bigtable' '<EOF>' in ddl statement
+hive> desc formatted bigtable;
+OK
+# col_name            	data_type           	comment             
+id                  	bigint              	                    
+t                   	bigint              	                    
+uid                 	string              	                    
+keyword             	string              	                    
+url_rank            	int                 	                    
+click_num           	int                 	                    
+click_url           	string              	                    
+	 	 
+# Detailed Table Information	 	 
+Database:           	default             	 
+OwnerType:          	USER                	 
+Owner:              	atguigu             	 
+CreateTime:         	Mon Apr 10 21:11:54 CST 2023	 
+LastAccessTime:     	UNKNOWN             	 
+Retention:          	0                   	 
+Location:           	hdfs://hadoop102:8020/user/hive/warehouse/bigtable	 
+Table Type:         	MANAGED_TABLE       	 
+Table Parameters:	 	 
+	bucketing_version   	2                   
+	numFiles            	1                   
+	numRows             	0                   
+	rawDataSize         	0                   
+	totalSize           	19014996            
+	transient_lastDdlTime	1681132411          
+	 	 
+# Storage Information	 	 
+SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
+InputFormat:        	org.apache.hadoop.mapred.TextInputFormat	 
+OutputFormat:       	org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat	 
+Compressed:         	No                  	 
+Num Buckets:        	-1                  	 
+Bucket Columns:     	[]                  	 
+Sort Columns:       	[]                  	 
+Storage Desc Params:	 	 
+	field.delim         	\t                  
+	serialization.format	\t                  
+Time taken: 0.611 seconds, Fetched: 37 row(s)
+hive> show  tables;
+OK
+bigtable
+business
+emp_sex
+jointable
+log_orc
+log_orc01
+log_orc_zlib
+log_text
+movie_info
+person_info
+score
+smalltable
+test
+Time taken: 0.157 seconds, Fetched: 13 row(s)
+hive> create table log_parquet( 
+    > track_time string, 
+    > url string, 
+    > session_id string, 
+    > referer string, 
+    > ip string, 
+    > end_user_id string, 
+    > city_id string 
+    > ) 
+    > row format delimited fields terminated by '\t' 
+    > stored as parquet; 
+OK
+Time taken: 0.194 seconds
+hive>  insert overwrite local directory  '/opt/module/hive-3.1.2/datas/log_text' select substring(url,1,4)  from  log_text; 
+Query ID = atguigu_20230410215222_d05377d0-ff7d-471d-9726-d3736be1e605
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0002, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0002/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0002
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+2023-04-10 21:53:17,207 Stage-1 map = 0%,  reduce = 0%
+2023-04-10 21:53:54,759 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.74 sec
+MapReduce Total cumulative CPU time: 2 seconds 740 msec
+Ended Job = job_1681133273168_0002
+Moving data to local directory /opt/module/hive-3.1.2/datas/log_text
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask. Unable to move source hdfs://hadoop102:8020/tmp/hive/atguigu/17799a5f-552f-4316-a7d1-fc67d9897290/hive_2023-04-10_21-52-22_508_766499700610966262-1/-mr-10000 to destination /opt/module/hive-3.1.2/datas/log_text
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 2.74 sec   HDFS Read: 19020523 HDFS Write: 500000 SUCCESS
+Total MapReduce CPU Time Spent: 2 seconds 740 msec
+hive>  dfs -du -h /user/hive/warehouse/log_parquet/;
+hive> show  tables;
+OK
+bigtable
+business
+emp_sex
+jointable
+log_orc
+log_orc01
+log_orc_zlib
+log_parquet
+log_text
+movie_info
+person_info
+score
+smalltable
+test
+Time taken: 0.107 seconds, Fetched: 14 row(s)
+hive>  insert overwrite local directory  '/opt/module/hive-3.1.2/datas/log_text' select substring(url,1,4)  from  log_orc; 
+Query ID = atguigu_20230410215609_962d1ddf-4486-4393-8fdf-1735e1974e97
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0003, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0003/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0003
+Hadoop job information for Stage-1: number of mappers: 0; number of reducers: 0
+2023-04-10 21:56:20,659 Stage-1 map = 0%,  reduce = 0%
+Ended Job = job_1681133273168_0003
+Moving data to local directory /opt/module/hive-3.1.2/datas/log_text
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask. Unable to move source hdfs://hadoop102:8020/tmp/hive/atguigu/17799a5f-552f-4316-a7d1-fc67d9897290/hive_2023-04-10_21-56-09_852_8202454106299340328-1/-mr-10000 to destination /opt/module/hive-3.1.2/datas/log_text
+MapReduce Jobs Launched: 
+Stage-Stage-1:  HDFS Read: 0 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 0 msec
+hive>  insert overwrite local directory  '/opt/module/hive-3.1.2/datas/log_text' select substring(url,1,4)  from  log_parquet; 
+Query ID = atguigu_20230410215705_968d0bad-0463-4e4b-a4b4-293855eb6df2
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0004, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0004/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0004
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+2023-04-10 21:57:12,918 Stage-1 map = 0%,  reduce = 0%
+2023-04-10 21:57:39,772 Stage-1 map = 100%,  reduce = 0%
+Ended Job = job_1681133273168_0004 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1681133273168_0004_m_000000 (and more) from job job_1681133273168_0004
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1681133273168_0004_m_000000
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1681133273168_0004&tipid=task_1681133273168_0004_m_000000
+-----
+Diagnostic Messages for this Task:
+[2023-04-10 21:57:39.043]Container [pid=34460,containerID=container_1681133273168_0004_01_000005] is running 347920896B beyond the 'VIRTUAL' memory limit. Current usage: 248.9 MB of 1 GB physical memory used; 2.4 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1681133273168_0004_01_000005 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 34460 34458 34460 34460 (bash) 0 0 9797632 286 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0004/container_1681133273168_0004_01_000005/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0004/container_1681133273168_0004_01_000005 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.224 38795 attempt_1681133273168_0004_m_000000_3 5 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0004/container_1681133273168_0004_01_000005/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0004/container_1681133273168_0004_01_000005/stderr  
+	|- 34470 34460 34460 34460 (java) 589 473 2592980992 63436 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0004/container_1681133273168_0004_01_000005/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0004/container_1681133273168_0004_01_000005 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.224 38795 attempt_1681133273168_0004_m_000000_3 5 
+
+[2023-04-10 21:57:39.122]Container killed on request. Exit code is 143
+[2023-04-10 21:57:39.128]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   HDFS Read: 0 HDFS Write: 0 FAIL
+Total MapReduce CPU Time Spent: 0 msec
+hive> create table log_orc_zlib(
+    > track_time string,
+    > url string,
+    > session_id string,
+    > referer string,
+    > ip string,
+    > end_user_id string,
+    > city_id string
+    > )
+    > row format delimited fields terminated by '\t'
+    > stored as orc
+    > tblproperties("orc.compress"="ZLIB");
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. AlreadyExistsException(message:Table hive.default.log_orc_zlib already exists)
+hive> create table log_orc_zlib01
+    > (track_time string,
+    > url string,
+    > session_id string,
+    > referer string,
+    > ip string,
+    > end_user_id string,
+    > city_id string
+    > )
+    > row format delimited fields terminated by '\t'
+    > stored as orc
+    > tblproperties("orc.compress"="ZLIB");
+OK
+Time taken: 0.235 seconds
+hive> show tables;
+OK
+bigtable
+business
+emp_sex
+jointable
+log_orc
+log_orc01
+log_orc_zlib
+log_orc_zlib01
+log_parquet
+log_text
+movie_info
+person_info
+score
+smalltable
+test
+Time taken: 0.026 seconds, Fetched: 15 row(s)
+hive> insert into log_orc_zlib select * from log_text;
+Query ID = atguigu_20230410220001_85d8070d-a419-4461-8adc-c28135dbbdac
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0005, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0005/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0005
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2023-04-10 22:00:12,587 Stage-1 map = 0%,  reduce = 0%
+2023-04-10 22:00:59,454 Stage-1 map = 100%,  reduce = 100%
+Ended Job = job_1681133273168_0005 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1681133273168_0005_m_000000 (and more) from job job_1681133273168_0005
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1681133273168_0005_m_000000
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1681133273168_0005&tipid=task_1681133273168_0005_m_000000
+-----
+Diagnostic Messages for this Task:
+[2023-04-10 22:00:55.491]Container [pid=36849,containerID=container_1681133273168_0005_01_000005] is running 347945472B beyond the 'VIRTUAL' memory limit. Current usage: 295.7 MB of 1 GB physical memory used; 2.4 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1681133273168_0005_01_000005 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 36849 36847 36849 36849 (bash) 0 0 9797632 287 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0005/container_1681133273168_0005_01_000005/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0005/container_1681133273168_0005_01_000005 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.128 43842 attempt_1681133273168_0005_m_000000_3 5 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0005/container_1681133273168_0005_01_000005/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0005/container_1681133273168_0005_01_000005/stderr  
+	|- 36860 36849 36849 36849 (java) 571 350 2593005568 75404 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0005/container_1681133273168_0005_01_000005/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0005/container_1681133273168_0005_01_000005 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.128 43842 attempt_1681133273168_0005_m_000000_3 5 
+
+[2023-04-10 22:00:58.277]Container killed on request. Exit code is 143
+[2023-04-10 22:00:58.277]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   HDFS Read: 0 HDFS Write: 0 FAIL
+Total MapReduce CPU Time Spent: 0 msec
+hive>  dfs -du -h /user/hive/warehouse/log_orc_zlib/ ;
+hive>  dfs -du -h /user/hive/warehouse/log_orc_zlib
+    > ;
+hive>  dfs -du -h /user/hive/warehouse/log_orc_zlib;
+hive>  dfs -du -h /user/hive/warehouse/log_orc_zlib/ ;
+hive> create table log_orc_snappy(
+    > track_time string,
+    > url string,
+    > session_id string,referer string,
+    > ip string,
+    > end_user_id string,
+    > city_id string
+    > )
+    > row format delimited fields terminated by '\t'
+    > stored as orc
+    > tblproperties("orc.compress"="SNAPPY");
+OK
+Time taken: 0.282 seconds
+hive> insert into log_orc_snappy select * from log_text;
+Query ID = atguigu_20230410220311_4a9813ed-e4a6-48b5-b2d1-38c9579cee79
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0006, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0006/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0006
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2023-04-10 22:03:18,087 Stage-1 map = 0%,  reduce = 0%
+2023-04-10 22:03:55,258 Stage-1 map = 100%,  reduce = 100%
+Ended Job = job_1681133273168_0006 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1681133273168_0006_m_000000 (and more) from job job_1681133273168_0006
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1681133273168_0006_m_000000
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1681133273168_0006&tipid=task_1681133273168_0006_m_000000
+-----
+Diagnostic Messages for this Task:
+[2023-04-10 22:03:50.232]Container [pid=32654,containerID=container_1681133273168_0006_01_000005] is running 374999552B beyond the 'VIRTUAL' memory limit. Current usage: 361.2 MB of 1 GB physical memory used; 2.4 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1681133273168_0006_01_000005 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 32654 32652 32654 32654 (bash) 0 2 9797632 287 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0006/container_1681133273168_0006_01_000005/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0006/container_1681133273168_0006_01_000005 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.224 38607 attempt_1681133273168_0006_m_000000_3 5 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0006/container_1681133273168_0006_01_000005/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0006/container_1681133273168_0006_01_000005/stderr  
+	|- 32665 32654 32654 32654 (java) 1011 174 2620059648 92184 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0006/container_1681133273168_0006_01_000005/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0006/container_1681133273168_0006_01_000005 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.224 38607 attempt_1681133273168_0006_m_000000_3 5 
+
+[2023-04-10 22:03:51.919]Container killed on request. Exit code is 143
+[2023-04-10 22:03:53.058]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   HDFS Read: 0 HDFS Write: 0 FAIL
+Total MapReduce CPU Time Spent: 0 msec
+hive>  dfs -du -h /user/hive/warehouse/log_parquet_snappy/;
+du: `/user/hive/warehouse/log_parquet_snappy/': No such file or directory
+Command -du -h /user/hive/warehouse/log_parquet_snappy/ failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+hive>  dfs -du -h /user/hive/warehouse/log_parquet_snappy;
+du: `/user/hive/warehouse/log_parquet_snappy': No such file or directory
+Command -du -h /user/hive/warehouse/log_parquet_snappy failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+hive>  dfs -du -h /user/hive/warehouse/log_parquet_snappy/;
+du: `/user/hive/warehouse/log_parquet_snappy/': No such file or directory
+Command -du -h /user/hive/warehouse/log_parquet_snappy/ failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+hive>  dfs -du -h /user/hive/warehouse/log_parquet_snappy/;
+du: `/user/hive/warehouse/log_parquet_snappy/': No such file or directory
+Command -du -h /user/hive/warehouse/log_parquet_snappy/ failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+hive>  dfs -du -h /user/hive/warehouse/log_orc_zlib/ ;
+hive>  explain select * from emp;
+FAILED: SemanticException [Error 10001]: Line 1:23 Table not found 'emp'
+hive> load data local inpath '/opt/module/hive-3.1.2/datas/XXXX.data' into table emp; 
+FAILED: SemanticException [Error 10001]: Line 1:75 Table not found 'emp'
+hive> load data local inpath '/opt/module/hive-3.1.2/datas/emp.txt' into table emp; 
+FAILED: SemanticException [Error 10001]: Line 1:73 Table not found 'emp'
+hive> load data local inpath '/opt/module/hive-3.1.2/datas/emp.txt' into table emp; 
+FAILED: SemanticException [Error 10001]: Line 1:73 Table not found 'emp'
+hive> select * from table;
+MismatchedTokenException(-1!=361)
+	at org.antlr.runtime.BaseRecognizer.recoverFromMismatchedToken(BaseRecognizer.java:617)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_FromClauseParser.virtualTableSource(HiveParser_FromClauseParser.java:6293)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_FromClauseParser.atomjoinSource(HiveParser_FromClauseParser.java:1649)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_FromClauseParser.joinSource(HiveParser_FromClauseParser.java:1903)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_FromClauseParser.fromSource(HiveParser_FromClauseParser.java:1527)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_FromClauseParser.fromClause(HiveParser_FromClauseParser.java:1370)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.fromClause(HiveParser.java:45304)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.atomSelectStatement(HiveParser.java:39792)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.selectStatement(HiveParser.java:40044)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.regularBody(HiveParser.java:39690)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.queryStatementExpressionBody(HiveParser.java:38900)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.queryStatementExpression(HiveParser.java:38788)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2396)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:19 mismatched input '<EOF>' expecting ( near 'table' in virtual table source
+hive> select * from tables;
+FAILED: SemanticException [Error 10001]: Line 1:14 Table not found 'tables'
+hive> use tables;;
+FAILED: SemanticException [Error 10072]: Database does not exist: tables
+hive> use tables;
+FAILED: SemanticException [Error 10072]: Database does not exist: tables
+hive> use tabless;
+FAILED: SemanticException [Error 10072]: Database does not exist: tabless
+hive> show tables;
+OK
+bigtable
+business
+emp_sex
+jointable
+log_orc
+log_orc01
+log_orc_snappy
+log_orc_zlib
+log_orc_zlib01
+log_parquet
+log_text
+movie_info
+person_info
+score
+smalltable
+test
+Time taken: 0.207 seconds, Fetched: 16 row(s)
+hive> create table emp(
+    > id int,
+    > string name,
+    > varchar id_card,
+    > decimal money)
+    > row format delimited fields terminated by '\t' ;
+NoViableAltException(24@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.type(HiveParser.java:36813)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.colType(HiveParser.java:36595)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeConstraint(HiveParser.java:34322)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraint(HiveParser.java:34075)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraintList(HiveParser.java:29840)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.createTableStatement(HiveParser.java:6662)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4295)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 3:7 cannot recognize input near 'name' ',' 'varchar' in column type
+hive> create table emp(
+    > id int,
+    > name string,
+    > id_card varchar,
+    > money decimal)
+    > row format delimited fields terminated by '\t' ;
+MismatchedTokenException(9!=361)
+	at org.antlr.runtime.BaseRecognizer.recoverFromMismatchedToken(BaseRecognizer.java:617)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.primitiveType(HiveParser.java:37665)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.type(HiveParser.java:36825)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.colType(HiveParser.java:36595)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeConstraint(HiveParser.java:34322)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraint(HiveParser.java:34075)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraintList(HiveParser.java:29840)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.createTableStatement(HiveParser.java:6662)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4295)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 4:15 mismatched input ',' expecting ( near 'varchar' in primitive type specification
+hive> create table emp(
+    > track_time string, 
+    > url string, 
+    > session_id string, 
+    > referer string, 
+    > ip string, 
+    > end_user_id string, 
+    > city_id string 
+    > ) 
+    > row format delimited fields terminated by '\t' ;
+OK
+Time taken: 1.222 seconds
+hive>  explain select * from emp;
+OK
+STAGE DEPENDENCIES:
+  Stage-0 is a root stage
+
+STAGE PLANS:
+  Stage: Stage-0
+    Fetch Operator
+      limit: -1
+      Processor Tree:
+        TableScan
+          alias: emp
+          Statistics: Num rows: 1 Data size: 0 Basic stats: PARTIAL Column stats: NONE
+          Select Operator
+            expressions: track_time (type: string), url (type: string), session_id (type: string), referer (type: string), ip (type: string), end_user_id (type: string), city_id (type: string)
+            outputColumnNames: _col0, _col1, _col2, _col3, _col4, _col5, _col6
+            Statistics: Num rows: 1 Data size: 0 Basic stats: PARTIAL Column stats: NONE
+            ListSink
+
+Time taken: 1.286 seconds, Fetched: 17 row(s)
+hive>  explain select deptno, avg(sal) avg_sal from emp group by 
+    > deptno;
+FAILED: SemanticException [Error 10004]: Line 2:0 Invalid table alias or column reference 'deptno': (possible column names are: track_time, url, session_id, referer, ip, end_user_id, city_id)
+hive>  explain select deptno, avg(sal) avg_sal from emp group by log_text;
+FAILED: SemanticException [Error 10004]: Line 1:59 Invalid table alias or column reference 'log_text': (possible column names are: track_time, url, session_id, referer, ip, end_user_id, city_id)
+hive>  explain extended select * from emp;
+OK
+STAGE DEPENDENCIES:
+  Stage-0 is a root stage
+
+STAGE PLANS:
+  Stage: Stage-0
+    Fetch Operator
+      limit: -1
+      Processor Tree:
+        TableScan
+          alias: emp
+          Statistics: Num rows: 1 Data size: 0 Basic stats: PARTIAL Column stats: NONE
+          GatherStats: false
+          Select Operator
+            expressions: track_time (type: string), url (type: string), session_id (type: string), referer (type: string), ip (type: string), end_user_id (type: string), city_id (type: string)
+            outputColumnNames: _col0, _col1, _col2, _col3, _col4, _col5, _col6
+            Statistics: Num rows: 1 Data size: 0 Basic stats: PARTIAL Column stats: NONE
+            ListSink
+
+Time taken: 0.764 seconds, Fetched: 18 row(s)
+hive>  explain extended select deptno, avg(sal) avg_sal from emp group by deptno;
+FAILED: SemanticException [Error 10004]: Line 1:68 Invalid table alias or column reference 'deptno': (possible column names are: track_time, url, session_id, referer, ip, end_user_id, city_id)
+hive> desc formatted emp;
+OK
+# col_name            	data_type           	comment             
+track_time          	string              	                    
+url                 	string              	                    
+session_id          	string              	                    
+referer             	string              	                    
+ip                  	string              	                    
+end_user_id         	string              	                    
+city_id             	string              	                    
+	 	 
+# Detailed Table Information	 	 
+Database:           	default             	 
+OwnerType:          	USER                	 
+Owner:              	atguigu             	 
+CreateTime:         	Tue Apr 11 09:45:11 CST 2023	 
+LastAccessTime:     	UNKNOWN             	 
+Retention:          	0                   	 
+Location:           	hdfs://hadoop102:8020/user/hive/warehouse/emp	 
+Table Type:         	MANAGED_TABLE       	 
+Table Parameters:	 	 
+	COLUMN_STATS_ACCURATE	{\"BASIC_STATS\":\"true\",\"COLUMN_STATS\":{\"city_id\":\"true\",\"end_user_id\":\"true\",\"ip\":\"true\",\"referer\":\"true\",\"session_id\":\"true\",\"track_time\":\"true\",\"url\":\"true\"}}
+	bucketing_version   	2                   
+	numFiles            	0                   
+	numRows             	0                   
+	rawDataSize         	0                   
+	totalSize           	0                   
+	transient_lastDdlTime	1681177511          
+	 	 
+# Storage Information	 	 
+SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
+InputFormat:        	org.apache.hadoop.mapred.TextInputFormat	 
+OutputFormat:       	org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat	 
+Compressed:         	No                  	 
+Num Buckets:        	-1                  	 
+Bucket Columns:     	[]                  	 
+Sort Columns:       	[]                  	 
+Storage Desc Params:	 	 
+	field.delim         	\t                  
+	serialization.format	\t                  
+Time taken: 0.55 seconds, Fetched: 38 row(s)
+hive> set hive.fetch.task.conversion=none;
+hive>  select * from emp;
+Query ID = atguigu_20230411115003_f52ed76e-fad9-4d62-8e31-6a3239336660
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0007, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0007/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0007
+Hadoop job information for Stage-1: number of mappers: 0; number of reducers: 0
+2023-04-11 11:51:13,037 Stage-1 map = 0%,  reduce = 0%
+Ended Job = job_1681133273168_0007
+MapReduce Jobs Launched: 
+Stage-Stage-1:  HDFS Read: 0 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 0 msec
+OK
+Time taken: 75.231 seconds
+hive>  select ename from emp;
+FAILED: SemanticException [Error 10004]: Line 1:8 Invalid table alias or column reference 'ename': (possible column names are: track_time, url, session_id, referer, ip, end_user_id, city_id)
+hive>  select ename from emp;
+FAILED: SemanticException [Error 10004]: Line 1:8 Invalid table alias or column reference 'ename': (possible column names are: track_time, url, session_id, referer, ip, end_user_id, city_id)
+hive> select ename from emp limit 3;
+FAILED: SemanticException [Error 10004]: Line 1:7 Invalid table alias or column reference 'ename': (possible column names are: track_time, url, session_id, referer, ip, end_user_id, city_id)
+hive> select ename from emp limit 3;
+FAILED: SemanticException [Error 10004]: Line 1:7 Invalid table alias or column reference 'ename': (possible column names are: track_time, url, session_id, referer, ip, end_user_id, city_id)
+hive> select ename from emp limit 3;
+FAILED: SemanticException [Error 10004]: Line 1:7 Invalid table alias or column reference 'ename': (possible column names are: track_time, url, session_id, referer, ip, end_user_id, city_id)
+hive> desc formatted emp;
+OK
+# col_name            	data_type           	comment             
+track_time          	string              	                    
+url                 	string              	                    
+session_id          	string              	                    
+referer             	string              	                    
+ip                  	string              	                    
+end_user_id         	string              	                    
+city_id             	string              	                    
+	 	 
+# Detailed Table Information	 	 
+Database:           	default             	 
+OwnerType:          	USER                	 
+Owner:              	atguigu             	 
+CreateTime:         	Tue Apr 11 09:45:11 CST 2023	 
+LastAccessTime:     	UNKNOWN             	 
+Retention:          	0                   	 
+Location:           	hdfs://hadoop102:8020/user/hive/warehouse/emp	 
+Table Type:         	MANAGED_TABLE       	 
+Table Parameters:	 	 
+	COLUMN_STATS_ACCURATE	{\"BASIC_STATS\":\"true\",\"COLUMN_STATS\":{\"city_id\":\"true\",\"end_user_id\":\"true\",\"ip\":\"true\",\"referer\":\"true\",\"session_id\":\"true\",\"track_time\":\"true\",\"url\":\"true\"}}
+	bucketing_version   	2                   
+	numFiles            	0                   
+	numRows             	0                   
+	rawDataSize         	0                   
+	totalSize           	0                   
+	transient_lastDdlTime	1681177511          
+	 	 
+# Storage Information	 	 
+SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
+InputFormat:        	org.apache.hadoop.mapred.TextInputFormat	 
+OutputFormat:       	org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat	 
+Compressed:         	No                  	 
+Num Buckets:        	-1                  	 
+Bucket Columns:     	[]                  	 
+Sort Columns:       	[]                  	 
+Storage Desc Params:	 	 
+	field.delim         	\t                  
+	serialization.format	\t                  
+Time taken: 0.159 seconds, Fetched: 38 row(s)
+hive>  select * from emp;
+Query ID = atguigu_20230411115228_fec1cc44-bc13-4c87-bf5d-71db08e5c7ac
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0008, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0008/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0008
+Hadoop job information for Stage-1: number of mappers: 0; number of reducers: 0
+2023-04-11 11:53:38,498 Stage-1 map = 0%,  reduce = 0%
+Ended Job = job_1681133273168_0008
+MapReduce Jobs Launched: 
+Stage-Stage-1:  HDFS Read: 0 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 0 msec
+OK
+Time taken: 75.429 seconds
+hive>  select ip from emp;
+Query ID = atguigu_20230411115402_e8e94360-c2e2-483b-b506-aa4768301cde
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0009, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0009/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0009
+Hadoop job information for Stage-1: number of mappers: 0; number of reducers: 0
+2023-04-11 11:54:17,701 Stage-1 map = 0%,  reduce = 0%
+Ended Job = job_1681133273168_0009
+MapReduce Jobs Launched: 
+Stage-Stage-1:  HDFS Read: 0 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 0 msec
+OK
+Time taken: 19.03 seconds
+hive> select url from emp limit 3;
+Query ID = atguigu_20230411115519_554cb7b6-f295-4674-96ae-8280112f0ef7
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0010, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0010/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0010
+Hadoop job information for Stage-1: number of mappers: 0; number of reducers: 0
+2023-04-11 11:55:28,115 Stage-1 map = 0%,  reduce = 0%
+Ended Job = job_1681133273168_0010
+MapReduce Jobs Launched: 
+Stage-Stage-1:  HDFS Read: 0 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 0 msec
+OK
+Time taken: 12.206 seconds
+hive> set hive.fetch.task.conversion=more;
+hive> select * from emp;
+OK
+Time taken: 0.317 seconds
+hive> select ename from emp;
+FAILED: SemanticException [Error 10004]: Line 1:7 Invalid table alias or column reference 'ename': (possible column names are: track_time, url, session_id, referer, ip, end_user_id, city_id)
+hive> select ip from emp;
+OK
+Time taken: 0.307 seconds
+hive> select url from emp;
+OK
+Time taken: 0.437 seconds
+hive>  select url from emp limit 3;
+OK
+Time taken: 0.286 seconds
+hive> set hive.fetch.task.conversion=none;
+hive>  select url from emp limit 3;
+Query ID = atguigu_20230411115915_17f6df6b-d677-4667-9c8e-642eee0c5d22
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0011, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0011/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0011
+Hadoop job information for Stage-1: number of mappers: 0; number of reducers: 0
+2023-04-11 11:59:46,219 Stage-1 map = 0%,  reduce = 0%
+Ended Job = job_1681133273168_0011
+MapReduce Jobs Launched: 
+Stage-Stage-1:  HDFS Read: 0 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 0 msec
+OK
+Time taken: 33.642 seconds
+hive> set hive.auto.convert.join = true;
+hive> set hive.mapjoin.smalltable.filesize = 25000000;
+hive> create table bigtable(id bigint, t bigint, uid string, keyword string, 
+    > url_rank int, click_num int, click_url string) row format delimited 
+    > fields terminated by '\t';
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. AlreadyExistsException(message:Table hive.default.bigtable already exists)
+hive> insert overwrite table jointable
+    > select b.id, b.t, b.uid, b.keyword, b.url_rank, b.click_num, b.click_url
+    > from smalltable s
+    > join bigtable b
+    > on b.id = s.id;
+Query ID = atguigu_20230411120030_706f16bd-59d7-4081-8740-708d8b25b70c
+Total jobs = 2
+2023-04-11 12:00:54	Uploaded 1 File to: file:/tmp/atguigu/17799a5f-552f-4316-a7d1-fc67d9897290/hive_2023-04-11_12-00-30_480_175273591554550878-1/-local-10003/HashTable-Stage-5/MapJoin-mapfile00--.hashtable (260 bytes)
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 1 out of 2
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0012, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0012/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0012
+Hadoop job information for Stage-5: number of mappers: 1; number of reducers: 0
+2023-04-11 12:01:04,909 Stage-5 map = 0%,  reduce = 0%
+2023-04-11 12:01:35,752 Stage-5 map = 100%,  reduce = 0%, Cumulative CPU 4.35 sec
+MapReduce Total cumulative CPU time: 4 seconds 350 msec
+Ended Job = job_1681133273168_0012
+Loading data to table default.jointable
+Launching Job 2 out of 2
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0013, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0013/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0013
+Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+2023-04-11 12:01:50,922 Stage-3 map = 0%,  reduce = 0%
+2023-04-11 12:01:57,078 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 1.63 sec
+2023-04-11 12:02:06,131 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 5.9 sec
+MapReduce Total cumulative CPU time: 5 seconds 900 msec
+Ended Job = job_1681133273168_0013
+MapReduce Jobs Launched: 
+Stage-Stage-5: Map: 1   Cumulative CPU: 4.35 sec   HDFS Read: 19026455 HDFS Write: 255 SUCCESS
+Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 5.9 sec   HDFS Read: 15349 HDFS Write: 217 SUCCESS
+Total MapReduce CPU Time Spent: 10 seconds 250 msec
+OK
+Time taken: 102.503 seconds
+hive> insert overwrite table jointable
+    > select b.id, b.t, b.uid, b.keyword, b.url_rank, b.click_num, b.click_url
+    > from bigtable b
+    > join smalltable s
+    > on s.id = b.id;
+Query ID = atguigu_20230411120323_38ba11ac-fc89-452d-9294-77190ecbc0dc
+Total jobs = 2
+2023-04-11 12:03:33	Dump the side-table for tag: 1 with group count: 0 into file: file:/tmp/atguigu/17799a5f-552f-4316-a7d1-fc67d9897290/hive_2023-04-11_12-03-23_251_4756129677324134523-1/-local-10003/HashTable-Stage-5/MapJoin-mapfile11--.hashtable
+2023-04-11 12:03:33	Uploaded 1 File to: file:/tmp/atguigu/17799a5f-552f-4316-a7d1-fc67d9897290/hive_2023-04-11_12-03-23_251_4756129677324134523-1/-local-10003/HashTable-Stage-5/MapJoin-mapfile11--.hashtable (260 bytes)
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 1 out of 2
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0014, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0014/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0014
+Hadoop job information for Stage-5: number of mappers: 1; number of reducers: 0
+2023-04-11 12:03:43,612 Stage-5 map = 0%,  reduce = 0%
+2023-04-11 12:04:01,222 Stage-5 map = 100%,  reduce = 0%, Cumulative CPU 3.52 sec
+MapReduce Total cumulative CPU time: 3 seconds 520 msec
+Ended Job = job_1681133273168_0014
+Loading data to table default.jointable
+Launching Job 2 out of 2
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0015, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0015/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0015
+Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+2023-04-11 12:04:12,849 Stage-3 map = 0%,  reduce = 0%
+2023-04-11 12:04:26,257 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 2.06 sec
+2023-04-11 12:04:32,429 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 4.8 sec
+MapReduce Total cumulative CPU time: 4 seconds 800 msec
+Ended Job = job_1681133273168_0015
+MapReduce Jobs Launched: 
+Stage-Stage-5: Map: 1   Cumulative CPU: 3.52 sec   HDFS Read: 19026009 HDFS Write: 255 SUCCESS
+Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 4.8 sec   HDFS Read: 15352 HDFS Write: 217 SUCCESS
+Total MapReduce CPU Time Spent: 8 seconds 320 msec
+OK
+Time taken: 71.508 seconds
+hive> create table nullidtable(id bigint, t bigint, uid string, keyword string, 
+    > url_rank int, click_num int, click_url string) row format delimited 
+    > fields terminated by '\t';
+OK
+Time taken: 0.43 seconds
+hive>  load data local inpath '...... key .............................在/nullid' into table nullidtable;
+FAILED: SemanticException Line 1:24 Invalid path ''有时虽然某个 key 为空对应的数据很多，但是相应的数据不是异常数据，必须要包含在/nullid'': No files matching path file:/opt/module/hive-3.1.2/%3F%3F%3F%3F%3F%3F%20key%20%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F%3F/nullid
+hive> join 的结果中，此时我们可以表 a 中 key 为空的字段赋一个随机的值，使得数据随机均匀地
+    > 分不到不同的 reducer 上。例如：
+    > 案例实操：
+    > 不随机分布空 null 值：
+    > （1）设置 5 个 reduce 个数
+    > set mapreduce.job.reduces = 5;
+NoViableAltException(167@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:0 cannot recognize input near 'join' 'a' 'key'
+hive> （2）JOIN 两张表
+    > insert overwrite table jointable
+    > select n.* from nullidtable n left join bigtable b on n.id = b.id;
+NoViableAltException(367@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:1 cannot recognize input near '2' 'JOIN' 'insert'
+hive> 结果：如下图所示，可以看出来，出现了数据倾斜，某些 reducer 的资源消耗远大于其
+    > select n.* from nullidtable n left join bigtable b on n.id = b.id;
+NoViableAltException(24@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:26 cannot recognize input near 'reducer' 'select' 'n'
+hive>  load data local inpath '/opt/module/hive-3.1.2/datas/nullid' into table nullidtable;
+Loading data to table default.nullidtable
+OK
+Time taken: 0.345 seconds
+hive>  insert overwrite table jointable select n.* from 
+    > nullidtable n left join bigtable o on n.id = o.id;
+Query ID = atguigu_20230411185715_58ba2cce-c83a-425c-b9ad-a0ec6059b1ac
+Total jobs = 3
+Stage-7 is selected by condition resolver.
+Stage-1 is filtered out by condition resolver.
+2023-04-11 18:57:38	Dump the side-table for tag: 1 with group count: 1 into file: file:/tmp/atguigu/17799a5f-552f-4316-a7d1-fc67d9897290/hive_2023-04-11_18-57-15_649_4092105204079867237-1/-local-10003/HashTable-Stage-5/MapJoin-mapfile21--.hashtable
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 2 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0016, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0016/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0016
+Hadoop job information for Stage-5: number of mappers: 1; number of reducers: 0
+2023-04-11 18:57:49,528 Stage-5 map = 0%,  reduce = 0%
+2023-04-11 18:57:55,683 Stage-5 map = 100%,  reduce = 0%, Cumulative CPU 2.77 sec
+MapReduce Total cumulative CPU time: 2 seconds 770 msec
+Ended Job = job_1681133273168_0016
+Loading data to table default.jointable
+Launching Job 3 out of 3
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0017, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0017/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0017
+Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+2023-04-11 18:58:09,330 Stage-3 map = 0%,  reduce = 0%
+2023-04-11 18:58:21,787 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 2.24 sec
+2023-04-11 18:58:30,000 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 4.98 sec
+MapReduce Total cumulative CPU time: 4 seconds 980 msec
+Ended Job = job_1681133273168_0017
+MapReduce Jobs Launched: 
+Stage-Stage-5: Map: 1   Cumulative CPU: 2.77 sec   HDFS Read: 12337 HDFS Write: 580 SUCCESS
+Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 4.98 sec   HDFS Read: 15394 HDFS Write: 281 SUCCESS
+Total MapReduce CPU Time Spent: 7 seconds 750 msec
+OK
+Time taken: 75.673 seconds
+hive> insert overwrite table jointable select n.* from (select 
+    > * from nullidtable where id is not null) n left join bigtable o on n.id = 
+    > o.id;
+Query ID = atguigu_20230411185840_63a284a4-9377-4a7a-9a12-a4b0e23d3057
+Total jobs = 3
+Stage-7 is selected by condition resolver.
+Stage-1 is filtered out by condition resolver.
+2023-04-11 18:58:50	Dump the side-table for tag: 1 with group count: 0 into file: file:/tmp/atguigu/17799a5f-552f-4316-a7d1-fc67d9897290/hive_2023-04-11_18-58-40_616_1161988444273877968-1/-local-10003/HashTable-Stage-5/MapJoin-mapfile31--.hashtable
+2023-04-11 18:58:50	Uploaded 1 File to: file:/tmp/atguigu/17799a5f-552f-4316-a7d1-fc67d9897290/hive_2023-04-11_18-58-40_616_1161988444273877968-1/-local-10003/HashTable-Stage-5/MapJoin-mapfile31--.hashtable (260 bytes)
+2023-04-11 18:58:50	End of local task; Time Taken: 2.044 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 2 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0018, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0018/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0018
+Hadoop job information for Stage-5: number of mappers: 1; number of reducers: 0
+2023-04-11 18:58:57,663 Stage-5 map = 0%,  reduce = 0%
+2023-04-11 18:59:03,835 Stage-5 map = 100%,  reduce = 0%, Cumulative CPU 2.61 sec
+MapReduce Total cumulative CPU time: 2 seconds 610 msec
+Ended Job = job_1681133273168_0018
+Loading data to table default.jointable
+Launching Job 3 out of 3
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0019, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0019/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0019
+Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+2023-04-11 18:59:15,999 Stage-3 map = 0%,  reduce = 0%
+2023-04-11 18:59:20,168 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 1.7 sec
+2023-04-11 18:59:26,458 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 3.8 sec
+MapReduce Total cumulative CPU time: 3 seconds 800 msec
+Ended Job = job_1681133273168_0019
+MapReduce Jobs Launched: 
+Stage-Stage-5: Map: 1   Cumulative CPU: 2.61 sec   HDFS Read: 12776 HDFS Write: 255 SUCCESS
+Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 3.8 sec   HDFS Read: 15352 HDFS Write: 217 SUCCESS
+Total MapReduce CPU Time Spent: 6 seconds 410 msec
+OK
+Time taken: 47.175 seconds
+hive> set mapreduce.job.reduces = 5;
+hive> insert overwrite table jointable
+    > select n.* from nullidtable n left join bigtable b on n.id = b.id;
+Query ID = atguigu_20230411190154_c796ebdd-3c71-485a-a607-fe7685ab44e1
+Total jobs = 3
+Stage-7 is selected by condition resolver.
+Stage-1 is filtered out by condition resolver.
+2023-04-11 19:02:02	Dump the side-table for tag: 1 with group count: 1 into file: file:/tmp/atguigu/17799a5f-552f-4316-a7d1-fc67d9897290/hive_2023-04-11_19-01-54_023_1977558871235167589-1/-local-10003/HashTable-Stage-5/MapJoin-mapfile41--.hashtable
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 2 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0020, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0020/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0020
+Hadoop job information for Stage-5: number of mappers: 1; number of reducers: 0
+2023-04-11 19:02:09,660 Stage-5 map = 0%,  reduce = 0%
+2023-04-11 19:02:14,803 Stage-5 map = 100%,  reduce = 0%, Cumulative CPU 2.21 sec
+MapReduce Total cumulative CPU time: 2 seconds 210 msec
+Ended Job = job_1681133273168_0020
+Loading data to table default.jointable
+Launching Job 3 out of 3
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0021, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0021/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0021
+Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+2023-04-11 19:02:27,229 Stage-3 map = 0%,  reduce = 0%
+2023-04-11 19:02:33,375 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 1.17 sec
+2023-04-11 19:02:37,504 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 3.16 sec
+MapReduce Total cumulative CPU time: 3 seconds 160 msec
+Ended Job = job_1681133273168_0021
+MapReduce Jobs Launched: 
+Stage-Stage-5: Map: 1   Cumulative CPU: 2.21 sec   HDFS Read: 12346 HDFS Write: 580 SUCCESS
+Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 3.16 sec   HDFS Read: 15394 HDFS Write: 281 SUCCESS
+Total MapReduce CPU Time Spent: 5 seconds 370 msec
+OK
+Time taken: 45.773 seconds
+hive> set mapreduce.job.reduces = 5;
+hive> insert overwrite table jointable
+    > select n.* from nullidtable n full join bigtable o on 
+    > nvl(n.id,rand()) = o.id;
+WARNING: Comparing a bigint and a double may result in a loss of precision.
+Query ID = atguigu_20230411190503_0a2e75b4-8392-46e1-a97d-02e1438103d8
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks not specified. Defaulting to jobconf value of: 5
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0022, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0022/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0022
+Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 5
+2023-04-11 19:05:09,953 Stage-1 map = 0%,  reduce = 0%
+2023-04-11 19:05:26,850 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 5.55 sec
+2023-04-11 19:05:41,435 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 9.01 sec
+2023-04-11 19:05:44,804 Stage-1 map = 100%,  reduce = 20%, Cumulative CPU 12.6 sec
+2023-04-11 19:05:53,351 Stage-1 map = 100%,  reduce = 40%, Cumulative CPU 12.6 sec
+2023-04-11 19:05:57,465 Stage-1 map = 100%,  reduce = 60%, Cumulative CPU 20.58 sec
+2023-04-11 19:05:59,556 Stage-1 map = 100%,  reduce = 80%, Cumulative CPU 23.15 sec
+2023-04-11 19:06:05,896 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 23.15 sec
+MapReduce Total cumulative CPU time: 23 seconds 150 msec
+Ended Job = job_1681133273168_0022 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1681133273168_0022_m_000000 (and more) from job job_1681133273168_0022
+Examining task ID: task_1681133273168_0022_m_000001 (and more) from job job_1681133273168_0022
+Examining task ID: task_1681133273168_0022_r_000000 (and more) from job job_1681133273168_0022
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1681133273168_0022_r_000003
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1681133273168_0022&tipid=task_1681133273168_0022_r_000003
+-----
+Diagnostic Messages for this Task:
+[2023-04-11 19:06:03.399]Container [pid=52485,containerID=container_1681133273168_0022_01_000034] is running 394738176B beyond the 'VIRTUAL' memory limit. Current usage: 320.7 MB of 1 GB physical memory used; 2.5 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1681133273168_0022_01_000034 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 52485 52483 52485 52485 (bash) 0 0 9797632 286 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0022/container_1681133273168_0022_01_000034/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0022/container_1681133273168_0022_01_000034 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog -Dyarn.app.mapreduce.shuffle.logger=INFO,shuffleCLA -Dyarn.app.mapreduce.shuffle.logfile=syslog.shuffle -Dyarn.app.mapreduce.shuffle.log.filesize=0 -Dyarn.app.mapreduce.shuffle.log.backups=0 org.apache.hadoop.mapred.YarnChild 10.16.51.224 42926 attempt_1681133273168_0022_r_000003_3 34 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0022/container_1681133273168_0022_01_000034/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0022/container_1681133273168_0022_01_000034/stderr  
+	|- 52496 52485 52485 52485 (java) 526 98 2639798272 81825 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0022/container_1681133273168_0022_01_000034/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0022/container_1681133273168_0022_01_000034 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog -Dyarn.app.mapreduce.shuffle.logger=INFO,shuffleCLA -Dyarn.app.mapreduce.shuffle.logfile=syslog.shuffle -Dyarn.app.mapreduce.shuffle.log.filesize=0 -Dyarn.app.mapreduce.shuffle.log.backups=0 org.apache.hadoop.mapred.YarnChild 10.16.51.224 42926 attempt_1681133273168_0022_r_000003_3 34 
+
+[2023-04-11 19:06:03.407]Container killed on request. Exit code is 143
+[2023-04-11 19:06:03.416]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 2  Reduce: 5   Cumulative CPU: 23.15 sec   HDFS Read: 19066998 HDFS Write: 2101548 FAIL
+Total MapReduce CPU Time Spent: 23 seconds 150 msec
+hive> create table bigtable2(
+    >  id bigint,
+    >  t bigint,
+    >  uid string,
+    >  keyword string,
+    >  url_rank int,
+    >  click_num int,
+    >  click_url string)
+    > row format delimited fields terminated by '\t';
+OK
+Time taken: 0.177 seconds
+hive> load data local inpath '/opt/module/data/bigtable' into table bigtable2;
+FAILED: SemanticException Line 1:23 Invalid path ''/opt/module/data/bigtable'': No files matching path file:/opt/module/data/bigtable
+hive> insert overwrite table jointable
+    > select b.id, b.t, b.uid, b.keyword, b.url_rank, b.click_num, b.click_url
+    > from bigtable s
+    > join bigtable2 b
+    > on b.id = s.id;
+Query ID = atguigu_20230411190815_014ca58d-491c-4516-9408-ae73d8e0a8e4
+Total jobs = 2
+2023-04-11 19:08:22	Starting to launch local task to process map join;	maximum memory = 239075328
+2023-04-11 19:08:23	Dump the side-table for tag: 1 with group count: 0 into file: file:/tmp/atguigu/17799a5f-552f-4316-a7d1-fc67d9897290/hive_2023-04-11_19-08-15_521_3525187900543149891-1/-local-10003/HashTable-Stage-5/MapJoin-mapfile51--.hashtable
+2023-04-11 19:08:23	End of local task; Time Taken: 1.202 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 1 out of 2
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0023, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0023/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0023
+Hadoop job information for Stage-5: number of mappers: 1; number of reducers: 0
+2023-04-11 19:08:31,033 Stage-5 map = 0%,  reduce = 0%
+2023-04-11 19:08:38,311 Stage-5 map = 100%,  reduce = 0%, Cumulative CPU 3.45 sec
+MapReduce Total cumulative CPU time: 3 seconds 450 msec
+Ended Job = job_1681133273168_0023
+Loading data to table default.jointable
+Launching Job 2 out of 2
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0024, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0024/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0024
+Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+2023-04-11 19:08:49,466 Stage-3 map = 0%,  reduce = 0%
+2023-04-11 19:09:21,182 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 1.19 sec
+2023-04-11 19:09:27,314 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 3.64 sec
+MapReduce Total cumulative CPU time: 3 seconds 640 msec
+Ended Job = job_1681133273168_0024
+MapReduce Jobs Launched: 
+Stage-Stage-5: Map: 1   Cumulative CPU: 3.45 sec   HDFS Read: 19026247 HDFS Write: 255 SUCCESS
+Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 3.64 sec   HDFS Read: 15352 HDFS Write: 217 SUCCESS
+Total MapReduce CPU Time Spent: 7 seconds 90 msec
+OK
+Time taken: 73.295 seconds
+hive> create table bigtable_buck1(
+    >  id bigint,
+    >  t bigint,
+    >  uid string,
+    >  keyword string,
+    >  url_rank int,
+    >  click_num int,
+    >  click_url string)
+    > clustered by(id) 
+    > sorted by(id)
+    > into 6 buckets
+    > row format delimited fields terminated by '\t';
+OK
+Time taken: 0.363 seconds
+hive> load data local inpath '/opt/module/hive-3.1.2/datas/bigtable' into table bigtable_buck1;
+Query ID = atguigu_20230411191253_d1feaf30-39d8-4a45-800f-413cdf9c1480
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks determined at compile time: 3
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0025, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0025/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0025
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 3
+2023-04-11 19:13:01,861 Stage-1 map = 0%,  reduce = 0%
+2023-04-11 19:13:12,525 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.33 sec
+2023-04-11 19:13:19,805 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 8.63 sec
+2023-04-11 19:13:20,836 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 11.61 sec
+2023-04-11 19:13:24,942 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 14.12 sec
+MapReduce Total cumulative CPU time: 14 seconds 120 msec
+Ended Job = job_1681133273168_0025
+Loading data to table default.bigtable_buck1
+Launching Job 2 out of 2
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0026, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0026/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0026
+Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+2023-04-11 19:13:37,173 Stage-3 map = 0%,  reduce = 0%
+2023-04-11 19:13:42,312 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 1.41 sec
+2023-04-11 19:13:47,459 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 3.58 sec
+MapReduce Total cumulative CPU time: 3 seconds 580 msec
+Ended Job = job_1681133273168_0026
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 14.12 sec   HDFS Read: 35620 HDFS Write: 2367 SUCCESS
+Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 3.58 sec   HDFS Read: 16507 HDFS Write: 513 SUCCESS
+Total MapReduce CPU Time Spent: 17 seconds 700 msec
+OK
+Time taken: 55.33 seconds
+hive> create table bigtable_buck2(
+    >  id bigint,
+    >  t bigint,
+    >  uid string,
+    >  keyword string,
+    >  url_rank int,
+    >  click_num int,
+    >  click_url string)
+    > clustered by(id)
+    > sorted by(id) 
+    > into 6 buckets
+    > row format delimited fields terminated by '\t';
+OK
+Time taken: 0.124 seconds
+hive> load data local inpath '/opt/module/hive-3.1.2/datas/bigtable' into table bigtable_buck2;
+Query ID = atguigu_20230411191732_e898fcfc-a18d-4eab-a217-b4cf33e55410
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks determined at compile time: 3
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0027, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0027/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0027
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 3
+2023-04-11 19:17:39,685 Stage-1 map = 0%,  reduce = 0%
+2023-04-11 19:17:45,309 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.87 sec
+2023-04-11 19:17:52,828 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 7.22 sec
+2023-04-11 19:17:57,920 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 9.94 sec
+2023-04-11 19:17:58,944 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 12.21 sec
+MapReduce Total cumulative CPU time: 12 seconds 210 msec
+Ended Job = job_1681133273168_0027
+Loading data to table default.bigtable_buck2
+Launching Job 2 out of 2
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0028, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0028/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0028
+Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+2023-04-11 19:18:10,814 Stage-3 map = 0%,  reduce = 0%
+2023-04-11 19:18:15,938 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 1.36 sec
+2023-04-11 19:18:21,073 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 3.43 sec
+MapReduce Total cumulative CPU time: 3 seconds 430 msec
+Ended Job = job_1681133273168_0028
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 12.21 sec   HDFS Read: 35620 HDFS Write: 2924 SUCCESS
+Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 3.43 sec   HDFS Read: 16557 HDFS Write: 602 SUCCESS
+Total MapReduce CPU Time Spent: 15 seconds 640 msec
+OK
+Time taken: 50.65 seconds
+hive> set hive.optimize.bucketmapjoin = true;
+hive> set hive.optimize.bucketmapjoin.sortedmerge = true;
+hive> set 
+    > hive.input.format=org.apache.hadoop.hive.ql.io.BucketizedHiveInputFormat;
+hive> insert overwrite table jointable
+    > select b.id, b.t, b.uid, b.keyword, b.url_rank, b.click_num, b.click_url
+    > from bigtable_buck1 s
+    > join bigtable_buck2 b
+    > on b.id = s.id;
+Query ID = atguigu_20230411191930_1a692d1a-e31a-4c28-a9b4-6eb2cfcaf882
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0029, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0029/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0029
+Hadoop job information for Stage-1: number of mappers: 6; number of reducers: 1
+2023-04-11 19:19:36,192 Stage-1 map = 0%,  reduce = 0%
+2023-04-11 19:19:58,243 Stage-1 map = 17%,  reduce = 0%, Cumulative CPU 3.57 sec
+2023-04-11 19:20:09,910 Stage-1 map = 50%,  reduce = 100%, Cumulative CPU 3.57 sec
+2023-04-11 19:20:11,051 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 3.57 sec
+MapReduce Total cumulative CPU time: 3 seconds 570 msec
+Ended Job = job_1681133273168_0029 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1681133273168_0029_m_000001 (and more) from job job_1681133273168_0029
+Examining task ID: task_1681133273168_0029_m_000000 (and more) from job job_1681133273168_0029
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1681133273168_0029_m_000004
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1681133273168_0029&tipid=task_1681133273168_0029_m_000004
+-----
+Diagnostic Messages for this Task:
+[2023-04-11 19:20:07.638]Container [pid=57405,containerID=container_1681133273168_0029_01_000029] is running 341772800B beyond the 'VIRTUAL' memory limit. Current usage: 205.2 MB of 1 GB physical memory used; 2.4 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1681133273168_0029_01_000029 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 57405 57403 57405 57405 (bash) 0 0 9797632 286 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0029/container_1681133273168_0029_01_000029/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0029/container_1681133273168_0029_01_000029 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.224 42844 attempt_1681133273168_0029_m_000004_3 29 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0029/container_1681133273168_0029_01_000029/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0029/container_1681133273168_0029_01_000029/stderr  
+	|- 57416 57405 57405 57405 (java) 613 96 2586832896 52234 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0029/container_1681133273168_0029_01_000029/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0029/container_1681133273168_0029_01_000029 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.224 42844 attempt_1681133273168_0029_m_000004_3 29 
+
+[2023-04-11 19:20:07.701]Container killed on request. Exit code is 143
+[2023-04-11 19:20:07.702]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 6  Reduce: 1   Cumulative CPU: 3.57 sec   HDFS Read: 13728 HDFS Write: 43 FAIL
+Total MapReduce CPU Time Spent: 3 seconds 570 msec
+hive> set hive.map.aggr = true
+    > ;
+hive> set hive.groupby.mapaggr.checkinterval = 100000;
+hive> set hive.groupby.skewindata = true;
+hive>  select deptno from emp group by deptno;
+FAILED: SemanticException [Error 10004]: Line 1:33 Invalid table alias or column reference 'deptno': (possible column names are: track_time, url, session_id, referer, ip, end_user_id, city_id)
+hive>  select session_id  from emp group by session_id;
+Query ID = atguigu_20230411202729_eefbcd71-ea5e-4437-8ad9-13a288ae5e9c
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks not specified. Defaulting to jobconf value of: 5
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0030, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0030/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0030
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 5
+2023-04-11 20:27:35,647 Stage-1 map = 0%,  reduce = 0%
+2023-04-11 20:27:39,788 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.87 sec
+2023-04-11 20:27:49,546 Stage-1 map = 100%,  reduce = 20%, Cumulative CPU 3.92 sec
+2023-04-11 20:27:56,883 Stage-1 map = 100%,  reduce = 40%, Cumulative CPU 7.19 sec
+2023-04-11 20:28:06,242 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 7.19 sec
+MapReduce Total cumulative CPU time: 7 seconds 190 msec
+Ended Job = job_1681133273168_0030 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1681133273168_0030_m_000000 (and more) from job job_1681133273168_0030
+Examining task ID: task_1681133273168_0030_r_000000 (and more) from job job_1681133273168_0030
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1681133273168_0030_r_000000
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1681133273168_0030&tipid=task_1681133273168_0030_r_000000
+-----
+Diagnostic Messages for this Task:
+[2023-04-11 20:28:05.688]Container [pid=55612,containerID=container_1681133273168_0030_01_000016] is running 355047936B beyond the 'VIRTUAL' memory limit. Current usage: 210.7 MB of 1 GB physical memory used; 2.4 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1681133273168_0030_01_000016 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 55612 55610 55612 55612 (bash) 0 0 9797632 287 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0030/container_1681133273168_0030_01_000016/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0030/container_1681133273168_0030_01_000016 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog -Dyarn.app.mapreduce.shuffle.logger=INFO,shuffleCLA -Dyarn.app.mapreduce.shuffle.logfile=syslog.shuffle -Dyarn.app.mapreduce.shuffle.log.filesize=0 -Dyarn.app.mapreduce.shuffle.log.backups=0 org.apache.hadoop.mapred.YarnChild 10.16.51.128 46375 attempt_1681133273168_0030_r_000000_3 16 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0030/container_1681133273168_0030_01_000016/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0030/container_1681133273168_0030_01_000016/stderr  
+	|- 55623 55612 55612 55612 (java) 781 291 2600108032 53645 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0030/container_1681133273168_0030_01_000016/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0030/container_1681133273168_0030_01_000016 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog -Dyarn.app.mapreduce.shuffle.logger=INFO,shuffleCLA -Dyarn.app.mapreduce.shuffle.logfile=syslog.shuffle -Dyarn.app.mapreduce.shuffle.log.filesize=0 -Dyarn.app.mapreduce.shuffle.log.backups=0 org.apache.hadoop.mapred.YarnChild 10.16.51.128 46375 attempt_1681133273168_0030_r_000000_3 16 
+
+[2023-04-11 20:28:05.697]Container killed on request. Exit code is 143
+[2023-04-11 20:28:05.704]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 5   Cumulative CPU: 7.19 sec   HDFS Read: 18139 HDFS Write: 192 FAIL
+Total MapReduce CPU Time Spent: 7 seconds 190 msec
+hive>  select session_id  from emp group by session_id;
+Query ID = atguigu_20230411202814_7a6f0c5e-c3b7-424b-b792-a17d3cb9f958
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks not specified. Defaulting to jobconf value of: 5
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0031, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0031/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0031
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 5
+2023-04-11 20:28:20,391 Stage-1 map = 0%,  reduce = 0%
+2023-04-11 20:28:25,542 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.22 sec
+2023-04-11 20:28:36,327 Stage-1 map = 100%,  reduce = 40%, Cumulative CPU 6.09 sec
+2023-04-11 20:28:43,646 Stage-1 map = 100%,  reduce = 60%, Cumulative CPU 8.61 sec
+2023-04-11 20:28:45,679 Stage-1 map = 100%,  reduce = 40%, Cumulative CPU 6.09 sec
+2023-04-11 20:28:47,714 Stage-1 map = 100%,  reduce = 60%, Cumulative CPU 7.79 sec
+2023-04-11 20:28:51,810 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 12.12 sec
+MapReduce Total cumulative CPU time: 12 seconds 120 msec
+Ended Job = job_1681133273168_0031
+Launching Job 2 out of 2
+Number of reduce tasks not specified. Defaulting to jobconf value of: 5
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0032, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0032/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0032
+Hadoop job information for Stage-2: number of mappers: 5; number of reducers: 5
+2023-04-11 20:29:02,560 Stage-2 map = 0%,  reduce = 0%
+2023-04-11 20:29:25,090 Stage-2 map = 40%,  reduce = 0%, Cumulative CPU 2.73 sec
+2023-04-11 20:29:28,267 Stage-2 map = 60%,  reduce = 0%, Cumulative CPU 7.64 sec
+2023-04-11 20:29:37,793 Stage-2 map = 80%,  reduce = 0%, Cumulative CPU 8.93 sec
+2023-04-11 20:29:42,246 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 8.93 sec
+MapReduce Total cumulative CPU time: 8 seconds 930 msec
+Ended Job = job_1681133273168_0032 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1681133273168_0032_m_000001 (and more) from job job_1681133273168_0032
+Examining task ID: task_1681133273168_0032_m_000001 (and more) from job job_1681133273168_0032
+Examining task ID: task_1681133273168_0032_m_000004 (and more) from job job_1681133273168_0032
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1681133273168_0032_m_000004
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1681133273168_0032&tipid=task_1681133273168_0032_m_000004
+-----
+Diagnostic Messages for this Task:
+[2023-04-11 20:29:40.796]Container [pid=59794,containerID=container_1681133273168_0032_01_000029] is running 332708352B beyond the 'VIRTUAL' memory limit. Current usage: 149.3 MB of 1 GB physical memory used; 2.4 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1681133273168_0032_01_000029 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 59794 59792 59794 59794 (bash) 0 2 9797632 287 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0032/container_1681133273168_0032_01_000029/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0032/container_1681133273168_0032_01_000029 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.224 33270 attempt_1681133273168_0032_m_000004_3 29 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0032/container_1681133273168_0032_01_000029/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0032/container_1681133273168_0032_01_000029/stderr  
+	|- 59805 59794 59794 59794 (java) 482 139 2577768448 37944 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0032/container_1681133273168_0032_01_000029/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0032/container_1681133273168_0032_01_000029 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.224 33270 attempt_1681133273168_0032_m_000004_3 29 
+
+[2023-04-11 20:29:41.162]Container killed on request. Exit code is 143
+[2023-04-11 20:29:41.183]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 5   Cumulative CPU: 12.12 sec   HDFS Read: 34837 HDFS Write: 480 SUCCESS
+Stage-Stage-2: Map: 5  Reduce: 5   Cumulative CPU: 8.93 sec   HDFS Read: 13404 HDFS Write: 0 FAIL
+Total MapReduce CPU Time Spent: 21 seconds 50 msec
+hive> set hive.groupby.skewindata = true;
+hive>  select session_id  from emp group by session_id;
+Query ID = atguigu_20230411203017_74fad2e8-8214-4aeb-8e9c-900f81d2d5a8
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks not specified. Defaulting to jobconf value of: 5
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0033, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0033/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0033
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 5
+2023-04-11 20:30:22,856 Stage-1 map = 0%,  reduce = 0%
+2023-04-11 20:30:27,979 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.36 sec
+2023-04-11 20:30:37,872 Stage-1 map = 100%,  reduce = 40%, Cumulative CPU 7.43 sec
+2023-04-11 20:30:41,976 Stage-1 map = 100%,  reduce = 60%, Cumulative CPU 10.1 sec
+2023-04-11 20:30:43,002 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 14.26 sec
+MapReduce Total cumulative CPU time: 14 seconds 260 msec
+Ended Job = job_1681133273168_0033
+Launching Job 2 out of 2
+Number of reduce tasks not specified. Defaulting to jobconf value of: 5
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0034, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0034/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0034
+Hadoop job information for Stage-2: number of mappers: 5; number of reducers: 5
+2023-04-11 20:30:55,399 Stage-2 map = 0%,  reduce = 0%
+2023-04-11 20:31:12,518 Stage-2 map = 40%,  reduce = 0%, Cumulative CPU 4.13 sec
+2023-04-11 20:31:14,576 Stage-2 map = 60%,  reduce = 0%, Cumulative CPU 5.46 sec
+2023-04-11 20:31:24,678 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 5.46 sec
+MapReduce Total cumulative CPU time: 5 seconds 460 msec
+Ended Job = job_1681133273168_0034 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1681133273168_0034_m_000001 (and more) from job job_1681133273168_0034
+Examining task ID: task_1681133273168_0034_m_000001 (and more) from job job_1681133273168_0034
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1681133273168_0034_m_000004
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1681133273168_0034&tipid=task_1681133273168_0034_m_000004
+-----
+Diagnostic Messages for this Task:
+[2023-04-11 20:31:23.850]Container [pid=68090,containerID=container_1681133273168_0034_01_000025] is running 341015040B beyond the 'VIRTUAL' memory limit. Current usage: 192.7 MB of 1 GB physical memory used; 2.4 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1681133273168_0034_01_000025 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 68102 68090 68090 68090 (java) 530 209 2586075136 49042 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0034/container_1681133273168_0034_01_000025/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0034/container_1681133273168_0034_01_000025 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.128 39890 attempt_1681133273168_0034_m_000004_3 25 
+	|- 68090 68088 68090 68090 (bash) 0 1 9797632 286 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0034/container_1681133273168_0034_01_000025/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0034/container_1681133273168_0034_01_000025 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.128 39890 attempt_1681133273168_0034_m_000004_3 25 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0034/container_1681133273168_0034_01_000025/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0034/container_1681133273168_0034_01_000025/stderr  
+
+[2023-04-11 20:31:23.865]Container killed on request. Exit code is 143
+[2023-04-11 20:31:23.874]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 5   Cumulative CPU: 14.26 sec   HDFS Read: 34942 HDFS Write: 480 SUCCESS
+Stage-Stage-2: Map: 5  Reduce: 5   Cumulative CPU: 5.46 sec   HDFS Read: 10053 HDFS Write: 0 FAIL
+Total MapReduce CPU Time Spent: 19 seconds 720 msec
+hive> set hive.groupby.skewindata = false;
+hive>  select session_id  from emp group by session_id;
+Query ID = atguigu_20230411203139_562aec74-b2a0-4c72-928c-cb7b2da60621
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Defaulting to jobconf value of: 5
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0035, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0035/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0035
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 5
+2023-04-11 20:31:45,119 Stage-1 map = 0%,  reduce = 0%
+2023-04-11 20:31:50,264 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.41 sec
+2023-04-11 20:31:59,902 Stage-1 map = 100%,  reduce = 40%, Cumulative CPU 6.62 sec
+2023-04-11 20:32:05,099 Stage-1 map = 100%,  reduce = 80%, Cumulative CPU 11.82 sec
+2023-04-11 20:32:08,164 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 14.07 sec
+MapReduce Total cumulative CPU time: 14 seconds 70 msec
+Ended Job = job_1681133273168_0035
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 5   Cumulative CPU: 14.07 sec   HDFS Read: 36986 HDFS Write: 435 SUCCESS
+Total MapReduce CPU Time Spent: 14 seconds 70 msec
+OK
+Time taken: 29.939 seconds
+hive> set hive.groupby.skewindata = true;
+hive>  select session_id  from emp group by session_id;
+Query ID = atguigu_20230411203240_d1394e24-fb0b-4be7-965a-2a00280a5a80
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks not specified. Defaulting to jobconf value of: 5
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0036, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0036/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0036
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 5
+2023-04-11 20:32:46,873 Stage-1 map = 0%,  reduce = 0%
+2023-04-11 20:32:51,991 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.59 sec
+2023-04-11 20:33:00,556 Stage-1 map = 100%,  reduce = 20%, Cumulative CPU 1.59 sec
+2023-04-11 20:33:01,585 Stage-1 map = 100%,  reduce = 40%, Cumulative CPU 3.66 sec
+2023-04-11 20:33:04,657 Stage-1 map = 100%,  reduce = 60%, Cumulative CPU 5.39 sec
+2023-04-11 20:33:06,708 Stage-1 map = 100%,  reduce = 80%, Cumulative CPU 7.32 sec
+2023-04-11 20:33:08,765 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 12.72 sec
+MapReduce Total cumulative CPU time: 12 seconds 720 msec
+Ended Job = job_1681133273168_0036
+Launching Job 2 out of 2
+Number of reduce tasks not specified. Defaulting to jobconf value of: 5
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0037, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0037/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0037
+Hadoop job information for Stage-2: number of mappers: 5; number of reducers: 5
+2023-04-11 20:33:20,412 Stage-2 map = 0%,  reduce = 0%
+2023-04-11 20:33:50,240 Stage-2 map = 60%,  reduce = 0%, Cumulative CPU 5.41 sec
+2023-04-11 20:33:58,268 Stage-2 map = 80%,  reduce = 60%, Cumulative CPU 5.41 sec
+2023-04-11 20:33:59,310 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 5.41 sec
+MapReduce Total cumulative CPU time: 5 seconds 410 msec
+Ended Job = job_1681133273168_0037 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1681133273168_0037_m_000002 (and more) from job job_1681133273168_0037
+Examining task ID: task_1681133273168_0037_m_000001 (and more) from job job_1681133273168_0037
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1681133273168_0037_m_000003
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1681133273168_0037&tipid=task_1681133273168_0037_m_000003
+-----
+Diagnostic Messages for this Task:
+[2023-04-11 20:33:57.691]Container [pid=69629,containerID=container_1681133273168_0037_01_000025] is running 352115200B beyond the 'VIRTUAL' memory limit. Current usage: 209.3 MB of 1 GB physical memory used; 2.4 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1681133273168_0037_01_000025 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 69629 69627 69629 69629 (bash) 0 0 9797632 287 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0037/container_1681133273168_0037_01_000025/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0037/container_1681133273168_0037_01_000025 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.224 40723 attempt_1681133273168_0037_m_000003_3 25 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0037/container_1681133273168_0037_01_000025/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0037/container_1681133273168_0037_01_000025/stderr  
+	|- 69640 69629 69629 69629 (java) 611 438 2597175296 53290 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0037/container_1681133273168_0037_01_000025/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0037/container_1681133273168_0037_01_000025 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.224 40723 attempt_1681133273168_0037_m_000003_3 25 
+
+[2023-04-11 20:33:57.707]Container killed on request. Exit code is 143
+[2023-04-11 20:33:57.719]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 5   Cumulative CPU: 12.72 sec   HDFS Read: 34942 HDFS Write: 480 SUCCESS
+Stage-Stage-2: Map: 5  Reduce: 5   Cumulative CPU: 5.41 sec   HDFS Read: 10053 HDFS Write: 0 FAIL
+Total MapReduce CPU Time Spent: 18 seconds 130 msec
+hive>  create table bigtable(id bigint, time bigint, uid string, 
+    > keyword
+    > string, url_rank int, click_num int, click_url string) row format 
+    > delimited
+    > fields terminated by '\t';
+NoViableAltException(308@[2389:1: columnNameTypeOrConstraint : ( ( tableConstraint ) | ( columnNameTypeConstraint ) );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraint(HiveParser.java:34044)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraintList(HiveParser.java:29840)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.createTableStatement(HiveParser.java:6662)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4295)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:34 cannot recognize input near 'time' 'bigint' ',' in column name or constraint
+hive> create table bigtable(id bigint, time bigint, uid string, 
+    > keyword
+    > string, url_rank int, click_num int, click_url string) row format 
+    > delimited
+    > fields terminated by '\t';
+NoViableAltException(308@[2389:1: columnNameTypeOrConstraint : ( ( tableConstraint ) | ( columnNameTypeConstraint ) );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraint(HiveParser.java:34044)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraintList(HiveParser.java:29840)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.createTableStatement(HiveParser.java:6662)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4295)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:33 cannot recognize input near 'time' 'bigint' ',' in column name or constraint
+hive> create table bigtable001(id bigint, time bigint, uid string, 
+    > keyword
+    > string, url_rank int, click_num int, click_url string) row format 
+    > delimited
+    > fields terminated by '\t';
+NoViableAltException(308@[2389:1: columnNameTypeOrConstraint : ( ( tableConstraint ) | ( columnNameTypeConstraint ) );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraint(HiveParser.java:34044)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraintList(HiveParser.java:29840)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.createTableStatement(HiveParser.java:6662)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4295)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:36 cannot recognize input near 'time' 'bigint' ',' in column name or constraint
+hive>  load data local inpath '/opt/module/hive-3.1.2/datas/bigtable' into table bigtable;
+Loading data to table default.bigtable
+OK
+Time taken: 0.363 seconds
+hive> set mapreduce.job.reduces = 5;
+hive>  select count(distinct id) from bigtable;
+Query ID = atguigu_20230411203612_6d287ad2-6eec-4048-9458-e027d00fcc4d
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks not specified. Defaulting to jobconf value of: 5
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0038, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0038/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0038
+Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 5
+2023-04-11 20:36:18,443 Stage-1 map = 0%,  reduce = 0%
+2023-04-11 20:36:36,630 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 1.86 sec
+2023-04-11 20:36:37,665 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 9.43 sec
+2023-04-11 20:36:45,240 Stage-1 map = 100%,  reduce = 20%, Cumulative CPU 9.43 sec
+2023-04-11 20:36:53,702 Stage-1 map = 100%,  reduce = 40%, Cumulative CPU 9.43 sec
+2023-04-11 20:36:55,741 Stage-1 map = 100%,  reduce = 60%, Cumulative CPU 10.93 sec
+2023-04-11 20:36:59,863 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 14.88 sec
+MapReduce Total cumulative CPU time: 14 seconds 880 msec
+Ended Job = job_1681133273168_0038
+Launching Job 2 out of 2
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0039, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0039/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0039
+Hadoop job information for Stage-2: number of mappers: 5; number of reducers: 1
+2023-04-11 20:37:11,606 Stage-2 map = 0%,  reduce = 0%
+2023-04-11 20:37:27,712 Stage-2 map = 20%,  reduce = 0%, Cumulative CPU 3.29 sec
+2023-04-11 20:37:28,750 Stage-2 map = 40%,  reduce = 0%, Cumulative CPU 5.22 sec
+2023-04-11 20:37:33,913 Stage-2 map = 60%,  reduce = 0%, Cumulative CPU 7.32 sec
+2023-04-11 20:37:34,930 Stage-2 map = 80%,  reduce = 0%, Cumulative CPU 8.66 sec
+2023-04-11 20:37:39,019 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 9.84 sec
+2023-04-11 20:37:41,066 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 11.82 sec
+MapReduce Total cumulative CPU time: 11 seconds 820 msec
+Ended Job = job_1681133273168_0039
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 2  Reduce: 5   Cumulative CPU: 14.88 sec   HDFS Read: 19046543 HDFS Write: 570 SUCCESS
+Stage-Stage-2: Map: 5  Reduce: 1   Cumulative CPU: 11.82 sec   HDFS Read: 20507 HDFS Write: 101 SUCCESS
+Total MapReduce CPU Time Spent: 26 seconds 700 msec
+OK
+0
+Time taken: 90.634 seconds, Fetched: 1 row(s)
+hive>  select count(id) from (select id from bigtable group by 
+    > id) a;
+Query ID = atguigu_20230411203809_d5774276-0d23-436f-9c37-a2a8181d08a1
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks not specified. Defaulting to jobconf value of: 5
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0040, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0040/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0040
+Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 5
+2023-04-11 20:38:15,295 Stage-1 map = 0%,  reduce = 0%
+2023-04-11 20:38:21,469 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 3.29 sec
+2023-04-11 20:38:35,987 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 3.29 sec
+MapReduce Total cumulative CPU time: 3 seconds 290 msec
+Ended Job = job_1681133273168_0040 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1681133273168_0040_m_000001 (and more) from job job_1681133273168_0040
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1681133273168_0040_m_000000
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1681133273168_0040&tipid=task_1681133273168_0040_m_000000
+-----
+Diagnostic Messages for this Task:
+[2023-04-11 20:38:34.091]Container [pid=60216,containerID=container_1681133273168_0040_01_000014] is running 367344128B beyond the 'VIRTUAL' memory limit. Current usage: 402.6 MB of 1 GB physical memory used; 2.4 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1681133273168_0040_01_000014 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 60216 60214 60216 60216 (bash) 0 0 9797632 287 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0040/container_1681133273168_0040_01_000014/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0040/container_1681133273168_0040_01_000014 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.224 36072 attempt_1681133273168_0040_m_000000_3 14 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0040/container_1681133273168_0040_01_000014/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0040/container_1681133273168_0040_01_000014/stderr  
+	|- 60227 60216 60216 60216 (java) 612 99 2612404224 102766 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0040/container_1681133273168_0040_01_000014/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0040/container_1681133273168_0040_01_000014 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.224 36072 attempt_1681133273168_0040_m_000000_3 14 
+
+[2023-04-11 20:38:34.587]Container killed on request. Exit code is 143
+[2023-04-11 20:38:34.597]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 2  Reduce: 5   Cumulative CPU: 3.29 sec   HDFS Read: 11597 HDFS Write: 0 FAIL
+Total MapReduce CPU Time Spent: 3 seconds 290 msec
+hive> create table bigtable04112044(id bigint, time bigint, uid string, 
+    > keyword 
+    > string, url_rank int, click_num int, click_url string) row format 
+    > delimited 
+    > fields terminated by '\t'; 
+NoViableAltException(308@[2389:1: columnNameTypeOrConstraint : ( ( tableConstraint ) | ( columnNameTypeConstraint ) );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraint(HiveParser.java:34044)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraintList(HiveParser.java:29840)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.createTableStatement(HiveParser.java:6662)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4295)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:41 cannot recognize input near 'time' 'bigint' ',' in column name or constraint
+hive> create table bigtable04112044(id bigint, time bigint, uid string, 
+    > keyword 
+    > string, url_rank int, click_num int, click_url string) row format 
+    > delimited 
+    > fields terminated by '\t'; 
+NoViableAltException(308@[2389:1: columnNameTypeOrConstraint : ( ( tableConstraint ) | ( columnNameTypeConstraint ) );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraint(HiveParser.java:34044)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraintList(HiveParser.java:29840)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.createTableStatement(HiveParser.java:6662)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4295)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:41 cannot recognize input near 'time' 'bigint' ',' in column name or constraint
+hive> create table bigtable04112044(id bigint, time bigint, uid string, 
+    > keyword string, url_rank int, click_num int, click_url string) row format 
+    > delimited fields terminated by '\t'; 
+NoViableAltException(308@[2389:1: columnNameTypeOrConstraint : ( ( tableConstraint ) | ( columnNameTypeConstraint ) );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraint(HiveParser.java:34044)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraintList(HiveParser.java:29840)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.createTableStatement(HiveParser.java:6662)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4295)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:41 cannot recognize input near 'time' 'bigint' ',' in column name or constraint
+hive> create table bigtable04112044(id bigint, time bigint, uid string, 
+    > delimited fields terminated by '\t'; 
+NoViableAltException(308@[2389:1: columnNameTypeOrConstraint : ( ( tableConstraint ) | ( columnNameTypeConstraint ) );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraint(HiveParser.java:34044)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.columnNameTypeOrConstraintList(HiveParser.java:29840)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.createTableStatement(HiveParser.java:6662)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:4295)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:2494)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1420)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:41 cannot recognize input near 'time' 'bigint' ',' in column name or constraint
+hive> set mapreduce.job.reduces = 5;
+hive>  select count(distinct id) from bigtable;
+Query ID = atguigu_20230411204657_ee16e68d-541e-48a9-959c-976be626827d
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks not specified. Defaulting to jobconf value of: 5
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0041, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0041/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0041
+Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 5
+2023-04-11 20:47:05,447 Stage-1 map = 0%,  reduce = 0%
+2023-04-11 20:47:11,646 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 2.36 sec
+2023-04-11 20:47:12,683 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 7.35 sec
+2023-04-11 20:47:19,402 Stage-1 map = 100%,  reduce = 20%, Cumulative CPU 10.19 sec
+2023-04-11 20:47:21,587 Stage-1 map = 100%,  reduce = 60%, Cumulative CPU 14.7 sec
+2023-04-11 20:47:25,976 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 17.72 sec
+MapReduce Total cumulative CPU time: 17 seconds 720 msec
+Ended Job = job_1681133273168_0041
+Launching Job 2 out of 2
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0042, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0042/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0042
+Hadoop job information for Stage-2: number of mappers: 5; number of reducers: 1
+2023-04-11 20:47:37,748 Stage-2 map = 0%,  reduce = 0%
+2023-04-11 20:48:08,752 Stage-2 map = 100%,  reduce = 100%
+Ended Job = job_1681133273168_0042 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1681133273168_0042_m_000004 (and more) from job job_1681133273168_0042
+Examining task ID: task_1681133273168_0042_m_000001 (and more) from job job_1681133273168_0042
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1681133273168_0042_m_000000
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1681133273168_0042&tipid=task_1681133273168_0042_m_000000
+-----
+Diagnostic Messages for this Task:
+[2023-04-11 20:48:07.819]Container [pid=61298,containerID=container_1681133273168_0042_01_000024] is running 340679168B beyond the 'VIRTUAL' memory limit. Current usage: 175.9 MB of 1 GB physical memory used; 2.4 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1681133273168_0042_01_000024 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 61309 61298 61298 61298 (java) 545 77 2585739264 44743 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0042/container_1681133273168_0042_01_000024/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0042/container_1681133273168_0042_01_000024 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.223 44522 attempt_1681133273168_0042_m_000000_3 24 
+	|- 61298 61296 61298 61298 (bash) 0 0 9797632 287 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0042/container_1681133273168_0042_01_000024/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0042/container_1681133273168_0042_01_000024 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.223 44522 attempt_1681133273168_0042_m_000000_3 24 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0042/container_1681133273168_0042_01_000024/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0042/container_1681133273168_0042_01_000024/stderr  
+
+[2023-04-11 20:48:07.896]Container killed on request. Exit code is 143
+[2023-04-11 20:48:07.902]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 2  Reduce: 5   Cumulative CPU: 17.72 sec   HDFS Read: 19046701 HDFS Write: 570 SUCCESS
+Stage-Stage-2: Map: 5  Reduce: 1   HDFS Read: 0 HDFS Write: 0 FAIL
+Total MapReduce CPU Time Spent: 17 seconds 720 msec
+hive>  select count(id) from (select id from bigtable group by id) a; 
+Query ID = atguigu_20230411204909_1c686144-6c31-4985-a068-396fa971ba34
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks not specified. Defaulting to jobconf value of: 5
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1681133273168_0043, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0043/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0043
+Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 5
+2023-04-11 20:49:15,255 Stage-1 map = 0%,  reduce = 0%
+2023-04-11 20:49:30,752 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 3.57 sec
+2023-04-11 20:49:46,465 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 3.57 sec
+MapReduce Total cumulative CPU time: 3 seconds 570 msec
+Ended Job = job_1681133273168_0043 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1681133273168_0043_m_000000 (and more) from job job_1681133273168_0043
+Examining task ID: task_1681133273168_0043_m_000000 (and more) from job job_1681133273168_0043
+
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1681133273168_0043_m_000000
+
+URL:
+  http://hadoop103:8088/taskdetails.jsp?jobid=job_1681133273168_0043&tipid=task_1681133273168_0043_m_000000
+-----
+Diagnostic Messages for this Task:
+[2023-04-11 20:49:44.836]Container [pid=61670,containerID=container_1681133273168_0043_01_000015] is running 333101568B beyond the 'VIRTUAL' memory limit. Current usage: 163.6 MB of 1 GB physical memory used; 2.4 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1681133273168_0043_01_000015 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 61670 61668 61670 61670 (bash) 0 0 9797632 287 /bin/bash -c /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN   -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0043/container_1681133273168_0043_01_000015/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0043/container_1681133273168_0043_01_000015 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.223 42764 attempt_1681133273168_0043_m_000000_3 15 1>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0043/container_1681133273168_0043_01_000015/stdout 2>/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0043/container_1681133273168_0043_01_000015/stderr  
+	|- 61681 61670 61670 61670 (java) 399 693 2578161664 41586 /opt/module/jdk1.8.0_212/bin/java -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Xmx820m -Djava.io.tmpdir=/opt/module/hadoop-3.1.3/data/nm-local-dir/usercache/atguigu/appcache/application_1681133273168_0043/container_1681133273168_0043_01_000015/tmp -Dlog4j.configuration=container-log4j.properties -Dyarn.app.container.log.dir=/opt/module/hadoop-3.1.3/logs/userlogs/application_1681133273168_0043/container_1681133273168_0043_01_000015 -Dyarn.app.container.log.filesize=0 -Dhadoop.root.logger=INFO,CLA -Dhadoop.root.logfile=syslog org.apache.hadoop.mapred.YarnChild 10.16.51.223 42764 attempt_1681133273168_0043_m_000000_3 15 
+
+[2023-04-11 20:49:44.897]Container killed on request. Exit code is 143
+[2023-04-11 20:49:44.952]Container exited with a non-zero exit code 143. 
+
+
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 2  Reduce: 5   Cumulative CPU: 3.57 sec   HDFS Read: 11597 HDFS Write: 0 FAIL
+Total MapReduce CPU Time Spent: 3 seconds 570 msec
+hive>  select o.id from bigtable b 
+    > join bigtable o on o.id = b.id 
+    > where o.id <= 10; 
+Query ID = atguigu_20230411205025_2db789c0-ac45-488b-8df5-aa6a0fe0494a
+Total jobs = 3
+Stage-6 is selected by condition resolver.
+Stage-7 is filtered out by condition resolver.
+Stage-1 is filtered out by condition resolver.
+2023-04-11 20:50:38	Dump the side-table for tag: 1 with group count: 0 into file: file:/tmp/atguigu/17799a5f-552f-4316-a7d1-fc67d9897290/hive_2023-04-11_20-50-25_983_5724306147552653730-1/-local-10004/HashTable-Stage-3/MapJoin-mapfile71--.hashtable
+2023-04-11 20:50:38	End of local task; Time Taken: 1.678 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 2 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0044, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0044/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0044
+Hadoop job information for Stage-3: number of mappers: 2; number of reducers: 0
+2023-04-11 20:50:45,728 Stage-3 map = 0%,  reduce = 0%
+2023-04-11 20:50:50,850 Stage-3 map = 50%,  reduce = 0%, Cumulative CPU 3.54 sec
+2023-04-11 20:50:51,866 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 7.84 sec
+MapReduce Total cumulative CPU time: 7 seconds 840 msec
+Ended Job = job_1681133273168_0044
+MapReduce Jobs Launched: 
+Stage-Stage-3: Map: 2   Cumulative CPU: 7.84 sec   HDFS Read: 19038597 HDFS Write: 174 SUCCESS
+Total MapReduce CPU Time Spent: 7 seconds 840 msec
+OK
+Time taken: 26.93 seconds
+hive>  select b.id from bigtable b 
+    > join (select id from bigtable where id <= 10) o on b.id = o.id; 
+Query ID = atguigu_20230411205114_b0aff370-9f1e-4d27-9a7c-0641ff8329c5
+Total jobs = 3
+Stage-6 is selected by condition resolver.
+Stage-7 is filtered out by condition resolver.
+Stage-1 is filtered out by condition resolver.
+2023-04-11 20:51:23	Uploaded 1 File to: file:/tmp/atguigu/17799a5f-552f-4316-a7d1-fc67d9897290/hive_2023-04-11_20-51-14_429_2650739580691975324-1/-local-10004/HashTable-Stage-3/MapJoin-mapfile91--.hashtable (260 bytes)
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 2 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1681133273168_0045, Tracking URL = http://hadoop103:8088/proxy/application_1681133273168_0045/
+Kill Command = /opt/module/hadoop-3.1.3/bin/mapred job  -kill job_1681133273168_0045
+Hadoop job information for Stage-3: number of mappers: 2; number of reducers: 0
+2023-04-11 20:51:29,915 Stage-3 map = 0%,  reduce = 0%
+2023-04-11 20:51:36,058 Stage-3 map = 50%,  reduce = 0%, Cumulative CPU 4.25 sec
+2023-04-11 20:51:43,220 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 8.81 sec
+MapReduce Total cumulative CPU time: 8 seconds 810 msec
+Ended Job = job_1681133273168_0045
+MapReduce Jobs Launched: 
+Stage-Stage-3: Map: 2   Cumulative CPU: 8.81 sec   HDFS Read: 19038421 HDFS Write: 174 SUCCESS
+Total MapReduce CPU Time Spent: 8 seconds 810 msec
+OK
+Time taken: 29.854 seconds
+hive> select count(*) from emp; 
+OK
+0
+Time taken: 0.095 seconds, Fetched: 1 row(s)
+hive> set mapreduce.input.fileinputformat.split.maxsize=100; 
+hive>  select count(*) from emp; 
+OK
+0
+Time taken: 0.116 seconds, Fetched: 1 row(s)
+hive> set hive.input.format = org.apache.hadoop.hive.ql.io.CombineHiveInputFormat; 
+hive> SET hive.merge.mapfiles = true;
+hive> SET hive.merge.mapredfiles = true; 
+hive> SET hive.merge.size.per.task = 268435456;
+hive> SET hive.merge.smallfiles.avgsize = 16777216;
+hive> hive.exec.reducers.bytes.per.reducer=256000000
+    > ;
+NoViableAltException(24@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:0 cannot recognize input near 'hive' '.' 'exec'
+hive> hive.exec.reducers.bytes.per.reducer=256000000;
+NoViableAltException(24@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:0 cannot recognize input near 'hive' '.' 'exec'
+hive> hive.exec.reducers.bytes.per.reducer=256000000;
+NoViableAltException(24@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:0 cannot recognize input near 'hive' '.' 'exec'
+hive> set mapreduce.job.reduces = 15;
+hive> set hive.exec.parallel=true;
+hive> set hive.exec.parallel=true;
+hive> set hive.exec.parallel.thread.number=16;
+hive>  hive.strict.checks.no.partition.filter = true;
+NoViableAltException(24@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1387)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:220)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:74)
+	at org.apache.hadoop.hive.ql.parse.ParseUtils.parse(ParseUtils.java:67)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:616)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1826)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1773)
+	at org.apache.hadoop.hive.ql.Driver.compileAndRespond(Driver.java:1768)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.compileAndRespond(ReExecDriver.java:126)
+	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:214)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:239)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:188)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:402)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:821)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:759)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:318)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:232)
+FAILED: ParseException line 1:1 cannot recognize input near 'hive' '.' 'strict'
+hive> 
