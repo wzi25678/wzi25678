@@ -1,0 +1,66 @@
+package Year2023.M04;
+
+import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class Day05__1882使用服务器处理任务 {
+	private static int servers[];
+	private static int tasks[];
+	private static int ans [];
+	private static int t_time;
+	private static int servers_recover_time [];
+	//处理第 j 项任务时，你需要为它分配一台 权重最小 的空闲服务器。
+	//。如果存在多台相同权重的空闲服务器，请选择 下标最小 的服务器。
+	//如果一台空闲服务器在第 t 秒分配到第 j 项任务，那么在 t + tasks[j] 时它将恢复空闲状态。
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		servers = new int[n];
+		tasks = new int[m];
+		int servers_recover_time [] = new int[servers.length];
+		int ans [] = new int[m];
+		for (int i=0;i<n;i++){
+			servers[i] = sc.nextInt();
+		}
+		for (int i=0;i<m;i++){
+			tasks[i] = sc.nextInt();
+		}
+		//===============================================================================
+		assignTasks(servers,tasks);
+		sc.close();
+	}
+
+	private static int [] assignTasks(int[] servers, int[] tasks) {
+
+		int ans[] = new int[tasks.length];
+		//模拟时间的流逝
+		for (int i=0;i<tasks.length;i++){
+			int cur_task = tasks[i];
+			int Icanuse = find_whocanuse(cur_task);
+			if (Icanuse <= 0){
+				continue;
+			}else{
+				servers_recover_time[i]+=(tasks[Icanuse]+i);
+				ans[i] = Icanuse;
+			}
+		}
+
+		return ans;
+	}
+
+	private static int find_whocanuse(int cur_task) {
+		int min = Integer.MAX_VALUE;
+		int index = -1;
+		for (int i=0;i<servers.length;i++){
+			if (servers_recover_time[i]<=i){
+				if (servers[i] < min){
+					min = servers[i];
+					index = i;
+				}
+			}
+		}
+		return index;
+	}
+}
