@@ -1,0 +1,57 @@
+class Solution {
+    public int[] assignTasks(int[] servers, int[] tasks) {
+
+        int[] res = new int[tasks.length];
+        int count = 0, timer = 0;
+        // 可用服务器
+        PriorityQueue<Server> usable = new PriorityQueue<>((a, b) -> a.weight == b.weight ? a.id - b.id : a.weight - b.weight);
+        // 正在执行服务器
+        PriorityQueue<Server> run = new PriorityQueue<>((a, b) -> a.time - b.time);
+
+        // 初始化可用服务器
+        for (int i = 0; i < servers.length; i++)
+            usable.add(new Server(i, servers[i]));
+
+        while(true){
+            // 所有任务分配完成，直接结束
+            if(count == tasks.length)
+                break;
+            // 将完成任务的服务器添加到可用队列中
+            while(!run.isEmpty() && run.peek().time <= timer)
+                usable.add(run.poll());
+            // 分配timer时刻之前的任务给可用服务器
+            while(count <= timer && count < tasks.length)
+                if(!usable.isEmpty()){
+                    Server server = usable.poll();
+                    server.time = timer + tasks[count];
+                    res[count++] = server.id;
+                    run.add(server);
+                }
+                else
+                    break;
+
+            // 可用服务器为空时，可直接跳到正在执行服务器的任务结束时刻（减少循环次数）
+            if (usable.isEmpty())
+                timer = run.peek().time;
+            else
+                timer++;
+        }
+        return res;
+    }
+}
+
+// 服务器
+class Server{
+
+    // 编号
+    int id;
+    // 权重
+    int weight;
+    // 任务结束时刻
+    int time;
+
+    public Server(int id, int weight) {
+        this.id = id;
+        this.weight = weight;
+    }
+}
