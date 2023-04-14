@@ -1,0 +1,30 @@
+package Dotcpp;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class 题目3179蓝桥杯2023年第十四届省赛真题__平均_AC {
+	public static void main(String[] args) {
+		Scanner scanner =new Scanner(System.in);
+		int n = scanner.nextInt();
+		int dp[][]=new int[12][100002];
+		int len[] = new int[12];
+		for(int i=1;i<=n;i++){
+			int x = scanner.nextInt();
+			int y = scanner.nextInt();
+			dp[x][++len[x]] = y;
+		}
+		for (int i=0;i<=9;i++){
+			Arrays.sort(dp[i],1,len[i]+1);
+		}
+		long ans = 0L;
+		for (int i=0;i<10;i++){
+			for (int j=1;j<=len[i]-n/10;j++){
+				ans+=dp[i][j];
+			}
+		}
+		System.out.println(ans);
+	}
+
+}
+
