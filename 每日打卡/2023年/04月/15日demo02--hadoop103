@@ -1,0 +1,199 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop103' resolved to 10.16.51.224.
+Connecting to 10.16.51.224:22...
+Connection established.
+To escape to local shell, press Ctrl+Alt+].
+
+Last login: Fri Apr 14 10:35:09 2023 from 10.16.51.1
+[atguigu@hadoop103 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop103 hadoop-3.1.3]$ sbin/start-yarn.sh 
+Starting resourcemanager
+Starting nodemanagers
+hadoop103: nodemanager is running as process 2690.  Stop it first.
+[atguigu@hadoop103 hadoop-3.1.3]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(hadoop103) at 15:31:01.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop103' resolved to 10.16.51.224.
+Connecting to 10.16.51.224:22...
+Connection established.
+To escape to local shell, press Ctrl+Alt+].
+
+Last login: Fri Apr 14 11:17:49 2023 from 10.16.51.1
+[atguigu@hadoop103 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop103 hadoop-3.1.3]$ sbin/start-yarn.sh 
+Starting resourcemanager
+Starting nodemanagers
+hadoop103: nodemanager is running as process 3292.  Stop it first.
+[atguigu@hadoop103 hadoop-3.1.3]$ cd ..
+[atguigu@hadoop103 module]$ cd zookeeper-3.5.7/
+bin/    conf/   docs/   lib/    logs/   zkData/ 
+[atguigu@hadoop103 module]$ cd zookeeper-3.5.7/zkData/
+[atguigu@hadoop103 zkData]$ vim myid 
+[atguigu@hadoop103 zkData]$ cd ..
+[atguigu@hadoop103 zookeeper-3.5.7]$ bin/zkServer.sh start
+ZooKeeper JMX enabled by default
+Using config: /opt/module/zookeeper-3.5.7/bin/../conf/zoo.cfg
+Starting zookeeper ... STARTED
+[atguigu@hadoop103 zookeeper-3.5.7]$  bin/zkServer.sh status
+ZooKeeper JMX enabled by default
+Using config: /opt/module/zookeeper-3.5.7/bin/../conf/zoo.cfg
+Client port found: 2181. Client address: localhost.
+Mode: leader
+[atguigu@hadoop103 zookeeper-3.5.7]$ bin/zkCli.sh -server hadoop102:2181 
+Connecting to hadoop102:2181
+2023-04-15 22:02:28,279 [myid:] - INFO  [main:Environment@109] - Client environment:zookeeper.version=3.5.7-f0fdd52973d373ffd9c86b81d99842dc2c7f660e, built on 02/10/2020 11:30 GMT
+2023-04-15 22:02:28,313 [myid:] - INFO  [main:Environment@109] - Client environment:host.name=hadoop103
+2023-04-15 22:02:28,313 [myid:] - INFO  [main:Environment@109] - Client environment:java.version=1.8.0_212
+2023-04-15 22:02:28,314 [myid:] - INFO  [main:Environment@109] - Client environment:java.vendor=Oracle Corporation
+2023-04-15 22:02:28,314 [myid:] - INFO  [main:Environment@109] - Client environment:java.home=/opt/module/jdk1.8.0_212/jre
+2023-04-15 22:02:28,314 [myid:] - INFO  [main:Environment@109] - Client environment:java.class.path=/opt/module/zookeeper-3.5.7/bin/../zookeeper-server/target/classes:/opt/module/zookeeper-3.5.7/bin/../build/classes:/opt/module/zookeeper-3.5.7/bin/../zookeeper-server/target/lib/*.jar:/opt/module/zookeeper-3.5.7/bin/../build/lib/*.jar:/opt/module/zookeeper-3.5.7/bin/../lib/zookeeper-jute-3.5.7.jar:/opt/module/zookeeper-3.5.7/bin/../lib/zookeeper-3.5.7.jar:/opt/module/zookeeper-3.5.7/bin/../lib/slf4j-log4j12-1.7.25.jar:/opt/module/zookeeper-3.5.7/bin/../lib/slf4j-api-1.7.25.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-transport-native-unix-common-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-transport-native-epoll-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-transport-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-resolver-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-handler-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-common-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-codec-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-buffer-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/log4j-1.2.17.jar:/opt/module/zookeeper-3.5.7/bin/../lib/json-simple-1.1.1.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jline-2.11.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-util-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-servlet-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-server-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-security-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-io-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-http-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/javax.servlet-api-3.1.0.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jackson-databind-2.9.10.2.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jackson-core-2.9.10.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jackson-annotations-2.9.10.jar:/opt/module/zookeeper-3.5.7/bin/../lib/commons-cli-1.2.jar:/opt/module/zookeeper-3.5.7/bin/../lib/audience-annotations-0.5.0.jar:/opt/module/zookeeper-3.5.7/bin/../zookeeper-*.jar:/opt/module/zookeeper-3.5.7/bin/../zookeeper-server/src/main/resources/lib/*.jar:/opt/module/zookeeper-3.5.7/bin/../conf:
+2023-04-15 22:02:28,314 [myid:] - INFO  [main:Environment@109] - Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2023-04-15 22:02:28,314 [myid:] - INFO  [main:Environment@109] - Client environment:java.io.tmpdir=/tmp
+2023-04-15 22:02:28,315 [myid:] - INFO  [main:Environment@109] - Client environment:java.compiler=<NA>
+2023-04-15 22:02:28,315 [myid:] - INFO  [main:Environment@109] - Client environment:os.name=Linux
+2023-04-15 22:02:28,315 [myid:] - INFO  [main:Environment@109] - Client environment:os.arch=amd64
+2023-04-15 22:02:28,315 [myid:] - INFO  [main:Environment@109] - Client environment:os.version=3.10.0-1160.el7.x86_64
+2023-04-15 22:02:28,315 [myid:] - INFO  [main:Environment@109] - Client environment:user.name=atguigu
+2023-04-15 22:02:28,315 [myid:] - INFO  [main:Environment@109] - Client environment:user.home=/home/atguigu
+2023-04-15 22:02:28,315 [myid:] - INFO  [main:Environment@109] - Client environment:user.dir=/opt/module/zookeeper-3.5.7
+2023-04-15 22:02:28,315 [myid:] - INFO  [main:Environment@109] - Client environment:os.memory.free=52MB
+2023-04-15 22:02:28,316 [myid:] - INFO  [main:Environment@109] - Client environment:os.memory.max=228MB
+2023-04-15 22:02:28,316 [myid:] - INFO  [main:Environment@109] - Client environment:os.memory.total=57MB
+2023-04-15 22:02:28,318 [myid:] - INFO  [main:ZooKeeper@868] - Initiating client connection, connectString=hadoop102:2181 sessionTimeout=30000 watcher=org.apache.zookeeper.ZooKeeperMain$MyWatcher@5fcfe4b2
+2023-04-15 22:02:28,323 [myid:] - INFO  [main:X509Util@79] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2023-04-15 22:02:28,328 [myid:] - INFO  [main:ClientCnxnSocket@237] - jute.maxbuffer value is 4194304 Bytes
+2023-04-15 22:02:28,335 [myid:] - INFO  [main:ClientCnxn@1653] - zookeeper.request.timeout value is 0. feature enabled=
+Welcome to ZooKeeper!
+2023-04-15 22:02:28,351 [myid:hadoop102:2181] - INFO  [main-SendThread(hadoop102:2181):ClientCnxn$SendThread@1112] - Opening socket connection to server hadoop102/10.16.51.223:2181. Will not attempt to authenticate using SASL (unknown error)
+JLine support is enabled
+2023-04-15 22:02:28,460 [myid:hadoop102:2181] - INFO  [main-SendThread(hadoop102:2181):ClientCnxn$SendThread@959] - Socket connection established, initiating session, client: /10.16.51.224:47634, server: hadoop102/10.16.51.223:2181
+2023-04-15 22:02:28,509 [myid:hadoop102:2181] - INFO  [main-SendThread(hadoop102:2181):ClientCnxn$SendThread@1394] - Session establishment complete on server hadoop102/10.16.51.223:2181, sessionid = 0x200064b4f410001, negotiated timeout = 30000
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:None path:null
+[zk: hadoop102:2181(CONNECTED) 0] exit;
+ZooKeeper -server host:port cmd args
+	addauth scheme auth
+	close 
+	config [-c] [-w] [-s]
+	connect host:port
+	create [-s] [-e] [-c] [-t ttl] path [data] [acl]
+	delete [-v version] path
+	deleteall path
+	delquota [-n|-b] path
+	get [-s] [-w] path
+	getAcl [-s] path
+	history 
+	listquota path
+	ls [-s] [-w] [-R] path
+	ls2 path [watch]
+	printwatches on|off
+	quit 
+	reconfig [-s] [-v version] [[-file path] | [-members serverID=host:port1:port2;port3[,...]*]] | [-add serverId=host:port1:port2;port3[,...]]* [-remove serverId[,...]*]
+	redo cmdno
+	removewatches path [-c|-d|-a] [-l]
+	rmr path
+	set [-s] [-v version] path data
+	setAcl [-s] [-v version] [-R] path acl
+	setquota -n|-b val path
+	stat [-w] path
+	sync path
+Command not found: Command not found exit;
+[zk: hadoop102:2181(CONNECTED) 1] quit
+
+WATCHER::
+
+WatchedEvent state:Closed type:None path:null
+2023-04-15 22:02:45,526 [myid:] - INFO  [main:ZooKeeper@1422] - Session: 0x200064b4f410001 closed
+2023-04-15 22:02:45,530 [myid:] - INFO  [main-EventThread:ClientCnxn$EventThread@524] - EventThread shut down for session: 0x200064b4f410001
+[atguigu@hadoop103 zookeeper-3.5.7]$ bin/zkCli.sh 
+Connecting to localhost:2181
+2023-04-15 22:02:58,852 [myid:] - INFO  [main:Environment@109] - Client environment:zookeeper.version=3.5.7-f0fdd52973d373ffd9c86b81d99842dc2c7f660e, built on 02/10/2020 11:30 GMT
+2023-04-15 22:02:58,854 [myid:] - INFO  [main:Environment@109] - Client environment:host.name=hadoop103
+2023-04-15 22:02:58,854 [myid:] - INFO  [main:Environment@109] - Client environment:java.version=1.8.0_212
+2023-04-15 22:02:58,855 [myid:] - INFO  [main:Environment@109] - Client environment:java.vendor=Oracle Corporation
+2023-04-15 22:02:58,855 [myid:] - INFO  [main:Environment@109] - Client environment:java.home=/opt/module/jdk1.8.0_212/jre
+2023-04-15 22:02:58,856 [myid:] - INFO  [main:Environment@109] - Client environment:java.class.path=/opt/module/zookeeper-3.5.7/bin/../zookeeper-server/target/classes:/opt/module/zookeeper-3.5.7/bin/../build/classes:/opt/module/zookeeper-3.5.7/bin/../zookeeper-server/target/lib/*.jar:/opt/module/zookeeper-3.5.7/bin/../build/lib/*.jar:/opt/module/zookeeper-3.5.7/bin/../lib/zookeeper-jute-3.5.7.jar:/opt/module/zookeeper-3.5.7/bin/../lib/zookeeper-3.5.7.jar:/opt/module/zookeeper-3.5.7/bin/../lib/slf4j-log4j12-1.7.25.jar:/opt/module/zookeeper-3.5.7/bin/../lib/slf4j-api-1.7.25.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-transport-native-unix-common-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-transport-native-epoll-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-transport-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-resolver-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-handler-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-common-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-codec-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-buffer-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/log4j-1.2.17.jar:/opt/module/zookeeper-3.5.7/bin/../lib/json-simple-1.1.1.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jline-2.11.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-util-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-servlet-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-server-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-security-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-io-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-http-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/javax.servlet-api-3.1.0.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jackson-databind-2.9.10.2.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jackson-core-2.9.10.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jackson-annotations-2.9.10.jar:/opt/module/zookeeper-3.5.7/bin/../lib/commons-cli-1.2.jar:/opt/module/zookeeper-3.5.7/bin/../lib/audience-annotations-0.5.0.jar:/opt/module/zookeeper-3.5.7/bin/../zookeeper-*.jar:/opt/module/zookeeper-3.5.7/bin/../zookeeper-server/src/main/resources/lib/*.jar:/opt/module/zookeeper-3.5.7/bin/../conf:
+2023-04-15 22:02:58,856 [myid:] - INFO  [main:Environment@109] - Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2023-04-15 22:02:58,856 [myid:] - INFO  [main:Environment@109] - Client environment:java.io.tmpdir=/tmp
+2023-04-15 22:02:58,856 [myid:] - INFO  [main:Environment@109] - Client environment:java.compiler=<NA>
+2023-04-15 22:02:58,856 [myid:] - INFO  [main:Environment@109] - Client environment:os.name=Linux
+2023-04-15 22:02:58,856 [myid:] - INFO  [main:Environment@109] - Client environment:os.arch=amd64
+2023-04-15 22:02:58,856 [myid:] - INFO  [main:Environment@109] - Client environment:os.version=3.10.0-1160.el7.x86_64
+2023-04-15 22:02:58,856 [myid:] - INFO  [main:Environment@109] - Client environment:user.name=atguigu
+2023-04-15 22:02:58,856 [myid:] - INFO  [main:Environment@109] - Client environment:user.home=/home/atguigu
+2023-04-15 22:02:58,856 [myid:] - INFO  [main:Environment@109] - Client environment:user.dir=/opt/module/zookeeper-3.5.7
+2023-04-15 22:02:58,856 [myid:] - INFO  [main:Environment@109] - Client environment:os.memory.free=52MB
+2023-04-15 22:02:58,857 [myid:] - INFO  [main:Environment@109] - Client environment:os.memory.max=228MB
+2023-04-15 22:02:58,857 [myid:] - INFO  [main:Environment@109] - Client environment:os.memory.total=57MB
+2023-04-15 22:02:58,859 [myid:] - INFO  [main:ZooKeeper@868] - Initiating client connection, connectString=localhost:2181 sessionTimeout=30000 watcher=org.apache.zookeeper.ZooKeeperMain$MyWatcher@5fcfe4b2
+2023-04-15 22:02:58,863 [myid:] - INFO  [main:X509Util@79] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2023-04-15 22:02:58,868 [myid:] - INFO  [main:ClientCnxnSocket@237] - jute.maxbuffer value is 4194304 Bytes
+2023-04-15 22:02:58,875 [myid:] - INFO  [main:ClientCnxn@1653] - zookeeper.request.timeout value is 0. feature enabled=
+Welcome to ZooKeeper!
+2023-04-15 22:02:58,881 [myid:localhost:2181] - INFO  [main-SendThread(localhost:2181):ClientCnxn$SendThread@1112] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181. Will not attempt to authenticate using SASL (unknown error)
+JLine support is enabled
+2023-04-15 22:02:59,021 [myid:localhost:2181] - INFO  [main-SendThread(localhost:2181):ClientCnxn$SendThread@959] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:57140, server: localhost/0:0:0:0:0:0:0:1:2181
+2023-04-15 22:02:59,035 [myid:localhost:2181] - INFO  [main-SendThread(localhost:2181):ClientCnxn$SendThread@1394] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, sessionid = 0x300064b48120000, negotiated timeout = 30000
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:None path:null
+[zk: localhost:2181(CONNECTED) 0] quit
+
+WATCHER::
+
+WatchedEvent state:Closed type:None path:null
+2023-04-15 22:03:39,943 [myid:] - INFO  [main:ZooKeeper@1422] - Session: 0x300064b48120000 closed
+2023-04-15 22:03:39,943 [myid:] - INFO  [main-EventThread:ClientCnxn$EventThread@524] - EventThread shut down for session: 0x300064b48120000
+[atguigu@hadoop103 zookeeper-3.5.7]$ bin/zkCli.sh -server hadoop102:2181
+Connecting to hadoop102:2181
+2023-04-15 22:03:42,410 [myid:] - INFO  [main:Environment@109] - Client environment:zookeeper.version=3.5.7-f0fdd52973d373ffd9c86b81d99842dc2c7f660e, built on 02/10/2020 11:30 GMT
+2023-04-15 22:03:42,412 [myid:] - INFO  [main:Environment@109] - Client environment:host.name=hadoop103
+2023-04-15 22:03:42,412 [myid:] - INFO  [main:Environment@109] - Client environment:java.version=1.8.0_212
+2023-04-15 22:03:42,413 [myid:] - INFO  [main:Environment@109] - Client environment:java.vendor=Oracle Corporation
+2023-04-15 22:03:42,414 [myid:] - INFO  [main:Environment@109] - Client environment:java.home=/opt/module/jdk1.8.0_212/jre
+2023-04-15 22:03:42,414 [myid:] - INFO  [main:Environment@109] - Client environment:java.class.path=/opt/module/zookeeper-3.5.7/bin/../zookeeper-server/target/classes:/opt/module/zookeeper-3.5.7/bin/../build/classes:/opt/module/zookeeper-3.5.7/bin/../zookeeper-server/target/lib/*.jar:/opt/module/zookeeper-3.5.7/bin/../build/lib/*.jar:/opt/module/zookeeper-3.5.7/bin/../lib/zookeeper-jute-3.5.7.jar:/opt/module/zookeeper-3.5.7/bin/../lib/zookeeper-3.5.7.jar:/opt/module/zookeeper-3.5.7/bin/../lib/slf4j-log4j12-1.7.25.jar:/opt/module/zookeeper-3.5.7/bin/../lib/slf4j-api-1.7.25.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-transport-native-unix-common-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-transport-native-epoll-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-transport-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-resolver-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-handler-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-common-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-codec-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/netty-buffer-4.1.45.Final.jar:/opt/module/zookeeper-3.5.7/bin/../lib/log4j-1.2.17.jar:/opt/module/zookeeper-3.5.7/bin/../lib/json-simple-1.1.1.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jline-2.11.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-util-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-servlet-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-server-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-security-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-io-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jetty-http-9.4.24.v20191120.jar:/opt/module/zookeeper-3.5.7/bin/../lib/javax.servlet-api-3.1.0.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jackson-databind-2.9.10.2.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jackson-core-2.9.10.jar:/opt/module/zookeeper-3.5.7/bin/../lib/jackson-annotations-2.9.10.jar:/opt/module/zookeeper-3.5.7/bin/../lib/commons-cli-1.2.jar:/opt/module/zookeeper-3.5.7/bin/../lib/audience-annotations-0.5.0.jar:/opt/module/zookeeper-3.5.7/bin/../zookeeper-*.jar:/opt/module/zookeeper-3.5.7/bin/../zookeeper-server/src/main/resources/lib/*.jar:/opt/module/zookeeper-3.5.7/bin/../conf:
+2023-04-15 22:03:42,414 [myid:] - INFO  [main:Environment@109] - Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2023-04-15 22:03:42,414 [myid:] - INFO  [main:Environment@109] - Client environment:java.io.tmpdir=/tmp
+2023-04-15 22:03:42,414 [myid:] - INFO  [main:Environment@109] - Client environment:java.compiler=<NA>
+2023-04-15 22:03:42,414 [myid:] - INFO  [main:Environment@109] - Client environment:os.name=Linux
+2023-04-15 22:03:42,414 [myid:] - INFO  [main:Environment@109] - Client environment:os.arch=amd64
+2023-04-15 22:03:42,414 [myid:] - INFO  [main:Environment@109] - Client environment:os.version=3.10.0-1160.el7.x86_64
+2023-04-15 22:03:42,414 [myid:] - INFO  [main:Environment@109] - Client environment:user.name=atguigu
+2023-04-15 22:03:42,414 [myid:] - INFO  [main:Environment@109] - Client environment:user.home=/home/atguigu
+2023-04-15 22:03:42,414 [myid:] - INFO  [main:Environment@109] - Client environment:user.dir=/opt/module/zookeeper-3.5.7
+2023-04-15 22:03:42,414 [myid:] - INFO  [main:Environment@109] - Client environment:os.memory.free=52MB
+2023-04-15 22:03:42,415 [myid:] - INFO  [main:Environment@109] - Client environment:os.memory.max=228MB
+2023-04-15 22:03:42,415 [myid:] - INFO  [main:Environment@109] - Client environment:os.memory.total=57MB
+2023-04-15 22:03:42,417 [myid:] - INFO  [main:ZooKeeper@868] - Initiating client connection, connectString=hadoop102:2181 sessionTimeout=30000 watcher=org.apache.zookeeper.ZooKeeperMain$MyWatcher@5fcfe4b2
+2023-04-15 22:03:42,421 [myid:] - INFO  [main:X509Util@79] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2023-04-15 22:03:42,426 [myid:] - INFO  [main:ClientCnxnSocket@237] - jute.maxbuffer value is 4194304 Bytes
+2023-04-15 22:03:42,431 [myid:] - INFO  [main:ClientCnxn@1653] - zookeeper.request.timeout value is 0. feature enabled=
+Welcome to ZooKeeper!
+2023-04-15 22:03:42,440 [myid:hadoop102:2181] - INFO  [main-SendThread(hadoop102:2181):ClientCnxn$SendThread@1112] - Opening socket connection to server hadoop102/10.16.51.223:2181. Will not attempt to authenticate using SASL (unknown error)
+JLine support is enabled
+2023-04-15 22:03:42,499 [myid:hadoop102:2181] - INFO  [main-SendThread(hadoop102:2181):ClientCnxn$SendThread@959] - Socket connection established, initiating session, client: /10.16.51.224:47638, server: hadoop102/10.16.51.223:2181
+2023-04-15 22:03:42,509 [myid:hadoop102:2181] - INFO  [main-SendThread(hadoop102:2181):ClientCnxn$SendThread@1394] - Session establishment complete on server hadoop102/10.16.51.223:2181, sessionid = 0x200064b4f410004, negotiated timeout = 30000
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:None path:null
+[zk: hadoop102:2181(CONNECTED) 0]  set /sanguo "xisi"
+[zk: hadoop102:2181(CONNECTED) 1]  create /sanguo/jin "simayi" 
+Created /sanguo/jin
+[zk: hadoop102:2181(CONNECTED) 2] 
