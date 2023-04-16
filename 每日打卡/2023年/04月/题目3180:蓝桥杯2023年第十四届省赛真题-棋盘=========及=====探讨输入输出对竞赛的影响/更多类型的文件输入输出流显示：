@@ -1,0 +1,21 @@
+输入：
+
+ private static char getChar() throws IOException {
+        String s = getString();
+        return s.charAt(0);
+    }
+
+    private static String getString() throws IOException {
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        String str = bufferedReader.readLine();
+        return str;
+    }
+
+
+    private static int getInt() throws IOException {
+        String s = getString();
+        return Integer.parseInt(s);
+
+输出：
+ 	private static PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out));
