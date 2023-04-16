@@ -1,0 +1,11 @@
+概述：JDK1.5后用于扩区用户的键盘输入；
+原理：	Scanner（InputStream source）（构造一个新的Scanner，他声称的值是指定的输入流扫描的；）
+		System类下面有一个静态的字段：public static fianl Inputstream in;(标准的输入流，对应着键盘录入)
+		即：Inputstream in=Sysytem.in;
+			Scanner scanner=new Scanner(in);
+两套录入方法：
+	1：录入数据：nextxxx（Scanner.nextLong）（Scanner.nextDouble）...
+	2：录入字符串：nextLine（）（String s=scanner.nextLine(）
+PS：使用nextLine()方法时，你先录入整数，在录入字符串时，录入不进去，需要在重新创建一个Scanner对象。
+	hasnextXXX（）：判断录入数据的元素。
+
