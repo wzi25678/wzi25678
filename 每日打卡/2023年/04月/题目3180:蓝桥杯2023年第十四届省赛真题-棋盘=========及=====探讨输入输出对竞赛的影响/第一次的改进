@@ -1,0 +1,63 @@
+//package Dotcpp;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class Main {
+	/*
+	小蓝拥有 n × n 大小的棋盘
+	小蓝进行了 m 次操作
+	每次操作会将棋盘上某个范围内的所有棋子的颜色取反 (也就是白色棋子变为黑色，黑色棋子变为白色)。
+	 */
+	private static int n,m;
+	private static int qipan [][] ;
+
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static StreamTokenizer st = new StreamTokenizer(br);
+	static int nextInt() throws Exception {st.nextToken();return (int) st.nval;}
+	static PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out));
+	public static void main(String[] args) throws Exception {
+		//输入的第一行包含两个整数 n, m，
+		//接下来 m 行每行包含四个整数 x1, y1, x2, y2，
+		//对于所有评测用例，1 ≤ n, m ≤ 2000 ，1 ≤ x1 ≤ x2 ≤ n ，1 ≤ y1 ≤ y2 ≤ m 。
+		n = nextInt();
+		m = nextInt();
+
+		qipan = new int[n+4][n+4];
+		//int qipan [][] = new int[n][n];
+		while(m-->0){
+//			int x1 = sc.nextInt();
+//			int y1 = sc.nextInt();
+//			int x2 = sc.nextInt();
+//			int y2 = sc.nextInt();
+			int x1 = nextInt();
+			int y1 = nextInt();
+			int x2 = nextInt();
+			int y2 = nextInt();
+			Reverse(x1,y1,x2,y2);
+		}//while(m-->=0)
+
+		for (int i=0;i<n;i++){
+			for (int j=0;j<n;j++){
+				//System.out.print(qipan[i][j]);
+				pw.print(qipan[i][j]);
+			}
+			//System.out.println();
+			pw.println();
+		}
+		pw.flush();
+	}
+
+	private static void Reverse(int x1, int y1, int x2, int y2) {
+		for (int i=x1-1;i<x2;i++){
+			for (int j=y1-1;j<y2;j++){
+				if (qipan[i][j] == 0){
+					qipan[i][j] = 1;
+				}else{
+					qipan[i][j] = 0;
+				}
+			}
+		}
+	}
+}
+
