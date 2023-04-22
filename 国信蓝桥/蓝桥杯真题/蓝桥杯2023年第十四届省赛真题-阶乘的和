@@ -1,0 +1,26 @@
+#include<iostream>
+#include<algorithm>
+#include<unordered_map>
+using namespace std;
+const int N=1e5+10;
+unordered_map<int,int> M;
+int A[N];
+int main(){
+    int n;
+    cin>>n;
+    int maxv=2e9;
+    for(int i=1;i<=n;i++) {
+        cin>>A[i];
+        M[A[i]]++;
+        maxv=min(maxv,A[i]);
+    }
+    while (M.count(maxv)){
+        if(M[maxv]%(maxv+1)==0) {
+            if(M.count(maxv+1)==0) M[maxv+1]=M[maxv]/(maxv+1);
+            else M[maxv+1]+=M[maxv]/(maxv+1);
+            maxv++;
+        }
+        else break;
+    }
+    cout<<maxv;
+}
