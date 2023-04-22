@@ -1,0 +1,48 @@
+package 蓝桥杯专题;
+
+import java.io.*;
+
+public class _2023试题F_阶乘的和 {
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	static StreamTokenizer st = new StreamTokenizer(br);
+
+	static int nextInt() throws Exception {st.nextToken();return (int) st.nval;}
+
+	static PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out));
+
+	private static int n;
+	private static int arr[];
+
+	public static void main(String[] args) throws Exception {
+//		对于 40% 的评测用例，n ≤ 5000 ；
+//		对于所有评测用例，1 ≤ n ≤ 105 1 ≤ Ai ≤ 109 。
+		n = nextInt();
+		arr = new int[n+2];
+		int Ai_count = 0;
+		for (int i=0;i<n;i++){
+			arr[i] = nextInt();
+			int temp = 1;
+			for (int j=2;j<=arr[i];j++){
+				temp*=j;
+			}
+			Ai_count+=temp;
+		}
+		//暴力遍历
+		int max = 1;
+		for (int i=1;i<=Ai_count/2;i++){
+			int temp = 1;
+			for (int j=1;j<=i;j++){
+				temp*=j;
+			}
+			if (Ai_count%temp==0){
+				max = i;
+			}
+		}
+		pw.println(max);
+
+		pw.flush();
+
+
+	}
+}
