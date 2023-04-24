@@ -1,0 +1,40 @@
+package 蓝桥杯专题;
+
+import java.io.*;
+import java.util.*;
+public class _2023试题F_阶乘的和03 {
+	public static void main(String[] args) {
+		Scanner cin =new Scanner(System.in);
+		long helper[] = new long[1000000002];
+		int n=cin.nextInt();
+		int a[]=new int[n+10];
+			for(int i=1;i<=n;i++) {
+			a[i]=cin.nextInt();
+		}
+		Arrays.sort(a);
+		long ans=1,p=1;
+			while(true) {
+			long sum=0;
+			for(int i=1;i<=n;i++) {
+				long res=1;
+				//如果helper[i]被访问过
+				if (helper[i] != 0){
+					res=a[i]%ans;
+				} else{
+					for(int j=2;j<=a[i];j++) {
+						res=res*j%ans;
+						helper[j]=res;
+					}
+				}
+				sum=(sum+res)%ans;        //算和
+			}
+			if(sum==0) {
+				ans*=(++p);
+			}else {
+				break;
+			}
+		}
+		System.out.println(p-1);
+
+	}
+}
