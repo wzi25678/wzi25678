@@ -1,0 +1,36 @@
+package Dotcpp;
+
+import java.util.Scanner;
+
+public class 题目1186__倒杨辉三角形 {
+	//输入一些整数n（1≤n≤10）
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int m = scanner.nextInt();
+		long arr[][] = new long[m][m];
+		FormYHsanjiao(arr,m);
+		for (int i = arr.length-1;i>=0;i--){
+			for (int j=0;j<=i;j++){
+				for (int k= arr.length-i+1;k>=0;k--){
+					System.out.print("  ");
+				}
+				System.out.print(arr[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+
+	private static void FormYHsanjiao(long[][] arr, int index) {
+		for (int i=0;i<index;i++){
+			for (int j=0;j<=i;j++){
+				if(j==0 || j==i){
+					arr[i][j] = 1;
+				}else{
+					arr[i][j] = arr[i-1][j]+arr[i-1][j-1];
+				}
+			}
+		}
+
+	}
+
+}
