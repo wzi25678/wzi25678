@@ -1,0 +1,29 @@
+package Dotcpp;
+
+import java.util.Scanner;
+
+public class 题目2042__杨辉三角 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int i = scanner.nextInt();
+		int j = scanner.nextInt();
+		long arr[][] = new long[i][i];
+		FormYHsanjiao(arr,i);
+		System.out.println(arr[i-1][j-1]);
+	}
+
+	private static void FormYHsanjiao(long[][] arr, int index) {
+		for (int i=0;i<index;i++){
+			for (int j=0;j<=i;j++){
+				if(j==0 || j==i){
+					arr[i][j] = 1;
+					System.out.print(arr[i][j]+" ");
+				}else{
+					arr[i][j] = arr[i-1][j]+arr[i-1][j-1];
+					System.out.print(arr[i][j]+" ");
+				}
+			}
+			System.out.println();
+		}
+	}
+}
