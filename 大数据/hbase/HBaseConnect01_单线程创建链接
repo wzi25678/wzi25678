@@ -1,0 +1,37 @@
+package com.atguigu;
+
+//如果没有被使用到，那么import就会是灰色的。
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.client.AsyncConnection;
+import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.ConnectionFactory;
+
+import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
+
+public class HBaseConnect01_单线程创建链接{
+	public static Connection connection;
+
+	public static void main(String[] args) throws IOException {
+		//1.创建配置对象
+		Configuration configuration = new Configuration();
+
+		//2.添加配置参数
+		configuration.set("hbase.zookeeper.quorum","hadoop102,hadoop103,hadoop104");
+
+		//3.创建hbase的连接
+		//默认使用同步连接
+		Connection connection = ConnectionFactory.createConnection(configuration);
+
+		//可以使用异步联接
+		//主要影响后续的DML操作
+		CompletableFuture<AsyncConnection> asyncConnectionCompletableFuture = (CompletableFuture<AsyncConnection>) ConnectionFactory.createConnection(configuration);
+
+		//4.使用连接
+		System.out.println(connection);
+
+		//5.关闭连接
+		connection.close();
+	}
+}
