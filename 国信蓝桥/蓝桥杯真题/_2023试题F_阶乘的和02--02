@@ -1,0 +1,44 @@
+package 蓝桥__真题__专题;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class _2023试题F_阶乘的和02 {
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	static StreamTokenizer st = new StreamTokenizer(br);
+
+	static int nextInt() throws Exception {st.nextToken();return (int) st.nval;}
+	static long nextLong() throws Exception {st.nextToken();return (long) st.nval;}
+
+	static PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out));
+
+	public static void main(String[] args) throws Exception {
+		int n = nextInt();
+		int arr [] = new int[n+2];
+		for (int i=1;i<=n;i++){
+			arr[i] = nextInt();;
+		}
+		long ans =1L,p=1L;
+		while (true){
+			long sum = 0L;
+			for (int i=1;i<=n;i++){
+				long res=1;
+				for (int j=2;j<=arr[i];j++){
+					res=res*j%ans;
+				}
+				sum=(sum+res)%ans;
+			}
+			//--------------------------------------------
+			if (sum==0){
+				ans*=(++p);
+			}else {
+				break;
+			}
+		}//while
+		pw.println(p-1);
+		//System.out.println(p-1);
+		pw.flush();
+		//scanner.close();
+	}
+}
