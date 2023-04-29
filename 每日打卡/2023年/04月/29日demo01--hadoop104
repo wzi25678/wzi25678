@@ -1,0 +1,420 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop104' resolved to 10.16.51.128.
+Connecting to 10.16.51.128:22...
+Connection established.
+To escape to local shell, press Ctrl+Alt+].
+
+Last login: Sat Apr 22 20:20:00 2023 from 10.16.51.1
+[atguigu@hadoop104 ~]$ cd /opt/module/
+[atguigu@hadoop104 module]$ hbase
+bash: hbase: 未找到命令...
+[atguigu@hadoop104 module]$ cd hbase-2.4.11/
+[atguigu@hadoop104 hbase-2.4.11]$  bin/hbase shell
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/opt/module/hbase-2.4.11/lib/client-facing-thirdparty/slf4j-reload4j-1.7.33.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Reload4jLoggerFactory]
+HBase Shell
+Use "help" to get list of supported commands.
+Use "exit" to quit this interactive shell.
+For Reference, please visit: http://hbase.apache.org/2.0/book.html#shell
+Version 2.4.11, r7e672a0da0586e6b7449310815182695bc6ae193, Tue Mar 15 10:31:00 PDT 2022
+Took 0.0011 seconds                                                                                 
+hbase:001:0> help 'get'
+Get row or cell contents; pass table name, row, and optionally
+a dictionary of column(s), timestamp, timerange and versions. Examples:
+
+  hbase> get 'ns1:t1', 'r1'
+  hbase> get 't1', 'r1'
+  hbase> get 't1', 'r1', {TIMERANGE => [ts1, ts2]}
+  hbase> get 't1', 'r1', {COLUMN => 'c1'}
+  hbase> get 't1', 'r1', {COLUMN => ['c1', 'c2', 'c3']}
+  hbase> get 't1', 'r1', {COLUMN => 'c1', TIMESTAMP => ts1}
+  hbase> get 't1', 'r1', {COLUMN => 'c1', TIMERANGE => [ts1, ts2], VERSIONS => 4}
+  hbase> get 't1', 'r1', {COLUMN => 'c1', TIMESTAMP => ts1, VERSIONS => 4}
+  hbase> get 't1', 'r1', {FILTER => "ValueFilter(=, 'binary:abc')"}
+  hbase> get 't1', 'r1', 'c1'
+  hbase> get 't1', 'r1', 'c1', 'c2'
+  hbase> get 't1', 'r1', ['c1', 'c2']
+  hbase> get 't1', 'r1', {COLUMN => 'c1', ATTRIBUTES => {'mykey'=>'myvalue'}}
+  hbase> get 't1', 'r1', {COLUMN => 'c1', AUTHORIZATIONS => ['PRIVATE','SECRET']}
+  hbase> get 't1', 'r1', {CONSISTENCY => 'TIMELINE'}
+  hbase> get 't1', 'r1', {CONSISTENCY => 'TIMELINE', REGION_REPLICA_ID => 1}
+
+Besides the default 'toStringBinary' format, 'get' also supports custom formatting by
+column.  A user can define a FORMATTER by adding it to the column name in the get
+specification.  The FORMATTER can be stipulated:
+
+ 1. either as a org.apache.hadoop.hbase.util.Bytes method name (e.g, toInt, toString)
+ 2. or as a custom class followed by method name: e.g. 'c(MyFormatterClass).format'.
+
+Example formatting cf:qualifier1 and cf:qualifier2 both as Integers:
+  hbase> get 't1', 'r1' {COLUMN => ['cf:qualifier1:toInt',
+    'cf:qualifier2:c(org.apache.hadoop.hbase.util.Bytes).toInt'] }
+
+Note that you can specify a FORMATTER by column only (cf:qualifier). You can set a
+formatter for all columns (including, all key parts) using the "FORMATTER"
+and "FORMATTER_CLASS" options. The default "FORMATTER_CLASS" is
+"org.apache.hadoop.hbase.util.Bytes".
+
+  hbase> get 't1', 'r1', {FORMATTER => 'toString'}
+  hbase> get 't1', 'r1', {FORMATTER_CLASS => 'org.apache.hadoop.hbase.util.Bytes', FORMATTER => 'toString'}
+
+The same commands also can be run on a reference to a table (obtained via get_table or
+create_table). Suppose you had a reference t to table 't1', the corresponding commands
+would be:
+
+  hbase> t.get 'r1'
+  hbase> t.get 'r1', {TIMERANGE => [ts1, ts2]}
+  hbase> t.get 'r1', {COLUMN => 'c1'}
+  hbase> t.get 'r1', {COLUMN => ['c1', 'c2', 'c3']}
+  hbase> t.get 'r1', {COLUMN => 'c1', TIMESTAMP => ts1}
+  hbase> t.get 'r1', {COLUMN => 'c1', TIMERANGE => [ts1, ts2], VERSIONS => 4}
+  hbase> t.get 'r1', {COLUMN => 'c1', TIMESTAMP => ts1, VERSIONS => 4}
+  hbase> t.get 'r1', {FILTER => "ValueFilter(=, 'binary:abc')"}
+  hbase> t.get 'r1', 'c1'
+  hbase> t.get 'r1', 'c1', 'c2'
+  hbase> t.get 'r1', ['c1', 'c2']
+  hbase> t.get 'r1', {CONSISTENCY => 'TIMELINE'}
+  hbase> t.get 'r1', {CONSISTENCY => 'TIMELINE', REGION_REPLICA_ID => 1}
+hbase:002:0> cd 
+NameError: undefined local variable or method `cd' for #<HBaseReceiver:0x1753475d>
+                  evaluate at (hbase):2
+                      eval at org/jruby/RubyKernel.java:1048
+                  evaluate at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb/workspace.rb:85
+                  evaluate at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb/context.rb:380
+                eval_input at uri:classloader:/irb/hirb.rb:114
+             signal_status at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb.rb:623
+                eval_input at uri:classloader:/irb/hirb.rb:111
+  each_top_level_statement at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb/ruby-lex.rb:246
+                      loop at org/jruby/RubyKernel.java:1442
+  each_top_level_statement at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb/ruby-lex.rb:232
+                     catch at org/jruby/RubyKernel.java:1189
+  each_top_level_statement at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb/ruby-lex.rb:231
+                eval_input at uri:classloader:/irb/hirb.rb:110
+                       run at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb.rb:428
+                     catch at org/jruby/RubyKernel.java:1189
+                       run at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb.rb:427
+                    <main> at classpath:/jar-bootstrap.rb:223
+[atguigu@hadoop104 hbase-2.4.11]$ cd
+[atguigu@hadoop104 ~]$ cd /opt/module/zookeeper-3.5.7/
+[atguigu@hadoop104 zookeeper-3.5.7]$ bin/zkServer.sh start
+ZooKeeper JMX enabled by default
+Using config: /opt/module/zookeeper-3.5.7/bin/../conf/zoo.cfg
+Starting zookeeper ... STARTED
+[atguigu@hadoop104 zookeeper-3.5.7]$ cd
+[atguigu@hadoop104 ~]$ rpm -qa |grep -i mysql
+^L^H^H^H^C
+[atguigu@hadoop104 ~]$ 
+[atguigu@hadoop104 ~]$ rpm -qa |grep -i mysql
+[atguigu@hadoop104 ~]$ systemctl status mysqld.service
+Unit mysqld.service could not be found.
+[atguigu@hadoop104 ~]$ systemctl stop mysqld.service
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to manage system services or units.
+Authenticating as: root
+1Password: 
+polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+==== AUTHENTICATION FAILED ===
+Failed to stop mysqld.service: Access denied
+See system logs and 'systemctl status mysqld.service' for details.
+[atguigu@hadoop104 ~]$ cd /opt/software/
+[atguigu@hadoop104 software]$ rz -E
+rz waiting to receive.
+[atguigu@hadoop104 software]$ ll
+总用量 1115872
+-rw-rw-r--. 1 atguigu atguigu 338075860 2月  24 11:04 hadoop-3.1.3.tar.gz
+-rw-rw-r--. 1 atguigu atguigu 195013152 2月  24 11:04 jdk-8u212-linux-x64.tar.gz
+-rw-r--r--. 1 atguigu atguigu 609556480 1月  12 2022 mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
+[atguigu@hadoop104 software]$ ccd
+bash: ccd: 未找到命令...
+相似命令是： 'cd'
+[atguigu@hadoop104 software]$ cd 
+[atguigu@hadoop104 ~]$ sudo chmod -R 777 /tmp3
+chmod: 无法访问"/tmp3": 没有那个文件或目录
+[atguigu@hadoop104 ~]$ sudo chmod -R 777 /tmp
+[atguigu@hadoop104 ~]$ yum -y install lbaio
+^[[D^[[D^CTraceback (most recent call last):
+  File "/usr/bin/yum", line 4, in <module>
+    import yum
+  File "/usr/lib/python2.7/site-packages/yum/__init__.py", line 81, in <module>
+    import callbacks
+  File "/usr/lib/python2.7/site-packages/yum/callbacks.py", line 16, in <module>
+    """Classes for handling various callbacks."""
+KeyboardInterrupt
+[atguigu@hadoop104 ~]$ yum -y install lbaio
+已加载插件：fastestmirror, langpacks
+您需要 root 权限执行此命令。
+[atguigu@hadoop104 ~]$ sudo yum -y install lbaio
+已加载插件：fastestmirror, langpacks
+Determining fastest mirrors
+epel/x86_64/metalink                                                                                                                                                                                                            |  32 kB  00:00:00     
+ * base: mirrors.nju.edu.cn
+ * epel: ftp.iij.ad.jp
+ * extras: ftp.sjtu.edu.cn
+ * updates: mirrors.aliyun.com
+base                                                                                                                                                                                                                            | 3.6 kB  00:00:00     
+epel                                                                                                                                                                                                                            | 4.7 kB  00:00:00     
+extras                                                                                                                                                                                                                          | 2.9 kB  00:00:00     
+updates                                                                                                                                                                                                                         | 2.9 kB  00:00:00     
+(1/3): epel/x86_64/updateinfo                                                                                                                                                                                                   | 1.0 MB  00:00:01     
+(2/3): epel/x86_64/primary_db                                                                                                                                                                                                   | 7.0 MB  00:00:00     
+(3/3): updates/7/x86_64/primary_db                                                                                                                                                                                              |  20 MB  00:00:05     
+没有可用软件包 lbaio。
+错误：无须任何处理
+[atguigu@hadoop104 ~]$ sudo yum -y install libaio
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.nju.edu.cn
+ * epel: ftp.iij.ad.jp
+ * extras: ftp.sjtu.edu.cn
+ * updates: mirrors.aliyun.com
+软件包 libaio-0.3.109-13.el7.x86_64 已安装并且是最新版本
+无须任何处理
+[atguigu@hadoop104 ~]$ sudo yum -y install net-tools
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.nju.edu.cn
+ * epel: ftp.iij.ad.jp
+ * extras: ftp.sjtu.edu.cn
+ * updates: mirrors.aliyun.com
+软件包 net-tools-2.0-0.25.20131004git.el7.x86_64 已安装并且是最新版本
+无须任何处理
+[atguigu@hadoop104 ~]$ rpm -qa|grep mariadb
+mariadb-libs-5.5.68-1.el7.x86_64
+
+[atguigu@hadoop104 ~]$ 
+[atguigu@hadoop104 ~]$ rpm -e --nodeps 文件名
+错误：未安装软件包 文件名 
+[atguigu@hadoop104 ~]$ sudo rpm -e --nodeps mariadb-libs-5.5.68-1.el7.x86_64
+[atguigu@hadoop104 ~]$ cd /opt/software/
+[atguigu@hadoop104 software]$ tar -xvf mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar 
+mysql-community-embedded-5.7.28-1.el7.x86_64.rpm
+mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+mysql-community-devel-5.7.28-1.el7.x86_64.rpm
+mysql-community-embedded-compat-5.7.28-1.el7.x86_64.rpm
+mysql-community-libs-5.7.28-1.el7.x86_64.rpm
+mysql-community-test-5.7.28-1.el7.x86_64.rpm
+mysql-community-common-5.7.28-1.el7.x86_64.rpm
+mysql-community-embedded-devel-5.7.28-1.el7.x86_64.rpm
+mysql-community-client-5.7.28-1.el7.x86_64.rpm
+mysql-community-server-5.7.28-1.el7.x86_64.rpm
+[atguigu@hadoop104 software]$ rpm -ivh mysql-community-c
+mysql-community-client-5.7.28-1.el7.x86_64.rpm  mysql-community-common-5.7.28-1.el7.x86_64.rpm  
+[atguigu@hadoop104 software]$ rpm -ivh mysql-community-c
+mysql-community-client-5.7.28-1.el7.x86_64.rpm  mysql-community-common-5.7.28-1.el7.x86_64.rpm  
+[atguigu@hadoop104 software]$ rpm -ivh mysql-community-common-5.7.28-1.el7.x86_64.rpm 
+警告：mysql-community-common-5.7.28-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+错误：can't create 事务 lock on /var/lib/rpm/.rpm.lock (权限不够)
+[atguigu@hadoop104 software]$ sudo su root
+ABRT 已检测到 '5' 个问题。预了解详细信息请执行：abrt-cli list --since 1678109646
+[root@hadoop104 software]# rpm -ivh mysql-community-common-5.7.28-1.el7.x86_64.rpm
+警告：mysql-community-common-5.7.28-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-common-5.7.28-1.e################################# [100%]
+[root@hadoop104 software]# rpm -ivh mysql-community-client-5.7.28-1.el7.x86_64.rpm 
+警告：mysql-community-client-5.7.28-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+错误：依赖检测失败：
+	mysql-community-libs(x86-64) >= 5.7.9 被 mysql-community-client-5.7.28-1.el7.x86_64 需要
+[root@hadoop104 software]# rpm -ivh mysql-community-libs-
+mysql-community-libs-5.7.28-1.el7.x86_64.rpm         mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm  
+[root@hadoop104 software]# rpm -ivh mysql-community-libs-
+mysql-community-libs-5.7.28-1.el7.x86_64.rpm         mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm  
+[root@hadoop104 software]# rpm -ivh mysql-community-libs-
+mysql-community-libs-5.7.28-1.el7.x86_64.rpm         mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm  
+[root@hadoop104 software]# rpm -ivh mysql-community-libs-5.7.28-1.el7.x86_64.rpm 
+警告：mysql-community-libs-5.7.28-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-libs-5.7.28-1.el7################################# [100%]
+[root@hadoop104 software]# rpm -ivh mysql-community-client-5.7.28-1.el7.x86_64.rpm 
+警告：mysql-community-client-5.7.28-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-client-5.7.28-1.e################################# [100%]
+[root@hadoop104 software]# rpm -ivh mysql-community-server-5.7.28-1.el7.x86_64.rpm 
+警告：mysql-community-server-5.7.28-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-server-5.7.28-1.e################################# [100%]
+[root@hadoop104 software]# mysql --version
+mysql  Ver 14.14 Distrib 5.7.28, for Linux (x86_64) using  EditLine wrapper
+[root@hadoop104 software]# mysqld --initialize --user==mysql
+2023-04-29T13:54:13.887558Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2023-04-29T13:54:13.937738Z 0 [ERROR] Fatal error: Can't change to run as user '=mysql' ;  Please check that the user exists!
+
+2023-04-29T13:54:13.937767Z 0 [ERROR] Aborting
+
+[root@hadoop104 software]# mysqld --initialize --user=mysql
+[root@hadoop104 software]# cat /var/lo
+local/ lock/  log/   
+[root@hadoop104 software]# cat /var/lo
+local/ lock/  log/   
+[root@hadoop104 software]# cat /var/log/m
+maillog            maillog-20230402   maillog-20230409   maillog-20230416   maillog-20230423   messages           messages-20230402  messages-20230409  messages-20230416  messages-20230423  mysqld.log         
+[root@hadoop104 software]# cat /var/log/m
+maillog            maillog-20230402   maillog-20230409   maillog-20230416   maillog-20230423   messages           messages-20230402  messages-20230409  messages-20230416  messages-20230423  mysqld.log         
+[root@hadoop104 software]# cat /var/log/mysqld.log 
+2023-04-29T13:54:32.156698Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2023-04-29T13:54:32.541332Z 0 [Warning] InnoDB: New log files created, LSN=45790
+2023-04-29T13:54:32.668204Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
+2023-04-29T13:54:32.749642Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 5e737e75-e695-11ed-8cd8-000c2911a385.
+2023-04-29T13:54:32.766371Z 0 [Warning] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+2023-04-29T13:54:33.223794Z 0 [Warning] CA certificate ca.pem is self signed.
+2023-04-29T13:54:33.894103Z 1 [Note] A temporary password is generated for root@localhost: 4*D_Y>c=Mjw0
+[root@hadoop104 software]# mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+[root@hadoop104 software]# mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+[root@hadoop104 software]#  4*D_Y>c=Mjw0
+bash: 4*D_Y: 未找到命令...
+[root@hadoop104 software]# mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+[root@hadoop104 software]# 4*D_Y>c=Mjw0
+bash: 4*D_Y: 未找到命令...
+[root@hadoop104 software]# mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+[root@hadoop104 software]# systemctl status mysqld.service 
+● mysqld.service - MySQL Server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
+   Active: inactive (dead)
+     Docs: man:mysqld(8)
+           http://dev.mysql.com/doc/refman/en/using-systemd.html
+[root@hadoop104 software]# systemctl start mysqld.service 
+[root@hadoop104 software]# systemctl list-unit-files|grep mysqld.service
+mysqld.service                                enabled 
+[root@hadoop104 software]# mysql -u root -p
+Enter password: 
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+[root@hadoop104 software]# mysql -u root -p
+Enter password: 
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+[root@hadoop104 software]# mysql -u root -p
+Enter password: 
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+[root@hadoop104 software]# mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 5
+Server version: 5.7.28
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> exit;
+Bye
+[root@hadoop104 software]# firewall-cmd --add-service=http --permanent
+FirewallD is not running
+[root@hadoop104 software]# system
+system-config-abrt              systemd-analyze                 systemd-cgtop                   systemd-escape                  systemd-loginctl                systemd-path                    systemd-tmpfiles
+system-config-printer           systemd-ask-password            systemd-coredumpctl             systemd-firstboot               systemd-machine-id-setup        systemd-run                     systemd-tty-ask-password-agent
+system-config-printer-applet    systemd-cat                     systemd-delta                   systemd-hwdb                    systemd-notify                  systemd-stdio-bridge            
+systemctl                       systemd-cgls                    systemd-detect-virt             systemd-inhibit                 systemd-nspawn                  systemd-sysv-convert            
+[root@hadoop104 software]# systemctl start firewalld.service 
+[root@hadoop104 software]# firewall-cmd --add-service=http --permanent
+success
+[root@hadoop104 software]# firewall-cmd --add-port=3306/tcp --permanent
+success
+[root@hadoop104 software]# mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 6
+Server version: 5.7.28 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use mysql;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select Host,User from user;
++-----------+---------------+
+| Host      | User          |
++-----------+---------------+
+| localhost | mysql.session |
+| localhost | mysql.sys     |
+| localhost | root          |
++-----------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> update user set host = '%' where user ='root';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> exit;
+Bye
+[root@hadoop104 software]# systemctl status mysqld.service 
+● mysqld.service - MySQL Server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
+   Active: active (running) since 六 2023-04-29 21:56:32 CST; 6min ago
+     Docs: man:mysqld(8)
+           http://dev.mysql.com/doc/refman/en/using-systemd.html
+  Process: 100051 ExecStart=/usr/sbin/mysqld --daemonize --pid-file=/var/run/mysqld/mysqld.pid $MYSQLD_OPTS (code=exited, status=0/SUCCESS)
+  Process: 100027 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)
+ Main PID: 100054 (mysqld)
+    Tasks: 28
+   CGroup: /system.slice/mysqld.service
+           └─100054 /usr/sbin/mysqld --daemonize --pid-file=/var/run/mysqld/mysqld.pid
+
+4月 29 21:56:27 hadoop104 systemd[1]: Starting MySQL Server...
+4月 29 21:56:32 hadoop104 systemd[1]: Started MySQL Server.
+[root@hadoop104 software]# systemctl stop firewalld.service
+[root@hadoop104 software]# systemctl disable firewalld.service
+[root@hadoop104 software]# firewall-cmd --list-all
+FirewallD is not running
+[root@hadoop104 software]# firewall-cmd --add-service=http --permanent
+FirewallD is not running
+[root@hadoop104 software]# systemctl enable firewalld.service 
+Created symlink from /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service to /usr/lib/systemd/system/firewalld.service.
+Created symlink from /etc/systemd/system/multi-user.target.wants/firewalld.service to /usr/lib/systemd/system/firewalld.service.
+[root@hadoop104 software]# firewall-cmd --list-all
+FirewallD is not running
+[root@hadoop104 software]# systemctl start firewalld.service
+[root@hadoop104 software]# firewall-cmd --list-all
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: ens33
+  sources: 
+  services: dhcpv6-client http ssh
+  ports: 3306/tcp
+  protocols: 
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
+	
+[root@hadoop104 software]# 
