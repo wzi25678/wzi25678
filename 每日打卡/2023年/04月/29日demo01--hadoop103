@@ -1,0 +1,697 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop103' resolved to 10.16.51.224.
+Connecting to 10.16.51.224:22...
+Connection established.
+To escape to local shell, press Ctrl+Alt+].
+
+Last login: Sat Apr 22 20:20:05 2023 from 10.16.51.1
+[atguigu@hadoop103 ~]$ cd /opt/module/
+[atguigu@hadoop103 module]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop103 hadoop-3.1.3]$ sbin/start-yarn.sh 
+Starting resourcemanager
+Starting nodemanagers
+[atguigu@hadoop103 hadoop-3.1.3]$ cd 
+[atguigu@hadoop103 ~]$ cd
+[atguigu@hadoop103 ~]$ cd /opt/module/zookeeper-3.5.7/
+[atguigu@hadoop103 zookeeper-3.5.7]$ bin/zkServer.sh start
+ZooKeeper JMX enabled by default
+Using config: /opt/module/zookeeper-3.5.7/bin/../conf/zoo.cfg
+Starting zookeeper ... STARTED
+[atguigu@hadoop103 zookeeper-3.5.7]$ cd
+[atguigu@hadoop103 ~]$ rpm -qa |grep -i mysql
+[atguigu@hadoop103 ~]$ systemctl status mysqld.service
+Unit mysqld.service could not be found.
+[atguigu@hadoop103 ~]$ ^C
+[atguigu@hadoop103 ~]$ 
+[atguigu@hadoop103 ~]$ systemctl stop mysqld.service
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to manage system services or units.
+Authenticating as: root
+Password: 
+==== AUTHENTICATION COMPLETE ===
+Failed to stop mysqld.service: Unit mysqld.service not loaded.
+[atguigu@hadoop103 ~]$ 123456
+bash: 123456: 未找到命令...
+[atguigu@hadoop103 ~]$ cd /opt/software/
+[atguigu@hadoop103 software]$ ll
+总用量 797376
+-rw-rw-r--. 1 atguigu atguigu 338075860 2月  24 11:04 hadoop-3.1.3.tar.gz
+-rw-r--r--. 1 atguigu atguigu 283415422 6月  14 2022 hbase-2.4.11-bin.tar.gz
+-rw-rw-r--. 1 atguigu atguigu 195013152 2月  24 11:04 jdk-8u212-linux-x64.tar.gz
+[atguigu@hadoop103 software]$ rz -E
+rz waiting to receive.
+[atguigu@hadoop103 software]$ ll
+总用量 1572756
+-rw-rw-r--. 1 atguigu atguigu 338075860 2月  24 11:04 hadoop-3.1.3.tar.gz
+-rw-r--r--. 1 atguigu atguigu 283415422 6月  14 2022 hbase-2.4.11-bin.tar.gz
+-rw-rw-r--. 1 atguigu atguigu 195013152 2月  24 11:04 jdk-8u212-linux-x64.tar.gz
+-rw-r--r--. 1 atguigu atguigu 793989120 1月  12 2022 mysql-8.0.25-1.el7.x86_64.rpm-bundle.tar
+[atguigu@hadoop103 software]$ tar -zxvf mysql-8.0.25-1.el7.x86_64.rpm-bundle.tar -C /opt/module/
+
+gzip: stdin: not in gzip format
+tar: Child returned status 1
+tar: Error is not recoverable: exiting now
+[atguigu@hadoop103 software]$ tar -zxvf mysql-8.0.25-1.el7.x86_64.rpm-bundle.tar -c /opt/module/
+tar: 您不能指定超过一个"-Acdtrux"或是"--test-label"外的选项
+请用“tar --help”或“tar --usage”获得更多信息。
+[atguigu@hadoop103 software]$ tar -zxvf mysql-8.0.25-1.el7.x86_64.rpm-bundle.tar -C /opt/module/
+apache-hive-3.1.2-bin/                                   hadoop-3.1.3/                                            myself_test/                                             mysql-community-embedded-devel-5.7.28-1.el7.x86_64.rpm
+apache-hive-3.1.2-bin.tar.gz                             hbase-2.4.11/                                            mysql-5.7.28/                                            mysql-community-libs-5.7.28-1.el7.x86_64.rpm
+apache-mahout-distribution-0.13.0.tar.gz                 hive-3.1.2/                                              mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar                 mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+apache-maven-3.8.8-bin.tar.gz                            jdk1.8.0_212/                                            mysql-community-client-5.7.28-1.el7.x86_64.rpm           mysql-community-server-5.7.28-1.el7.x86_64.rpm
+apache-maven-3.8.8-src.tar.gz                            lib/                                                     mysql-community-common-5.7.28-1.el7.x86_64.rpm           mysql-community-test-5.7.28-1.el7.x86_64.rpm
+bin/                                                     LICENSE                                                  mysql-community-devel-5.7.28-1.el7.x86_64.rpm            mysql-connector-java-5.1.37.jar
+conf/                                                    mahout-distribution-0.13.0/                              mysql-community-embedded-5.7.28-1.el7.x86_64.rpm         NOTICE
+examples/                                                maven-3.8.8/                                             mysql-community-embedded-compat-5.7.28-1.el7.x86_64.rpm  zookeeper-3.5.7/
+[atguigu@hadoop103 software]$ tar -zxvf mysql-8.0.25-1.el7.x86_64.rpm-bundle.tar -C /opt/module/
+
+gzip: stdin: not in gzip format
+tar: Child returned status 1
+tar: Error is not recoverable: exiting now
+[atguigu@hadoop103 software]$ cd /opt/module/
+[atguigu@hadoop103 module]$ ll
+总用量 1730628
+drwxrwxr-x.  9 atguigu atguigu       153 3月  17 21:15 apache-hive-3.1.2-bin
+-rw-rw-r--.  1 atguigu atguigu 312850286 3月  11 20:14 apache-hive-3.1.2-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu 228079891 3月  17 21:18 apache-mahout-distribution-0.13.0.tar.gz
+-rw-rw-r--.  1 atguigu atguigu   8296049 3月  20 17:06 apache-maven-3.8.8-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu   2792384 3月  20 16:52 apache-maven-3.8.8-src.tar.gz
+drwxr-xr-x.  2 atguigu atguigu       151 3月  17 21:15 bin
+drwxr-xr-x.  2 atguigu atguigu        30 3月  17 21:15 conf
+drwxr-xr-x.  3 atguigu atguigu        17 1月  22 2020 examples
+drwxr-xr-x. 14 atguigu atguigu       260 4月   5 17:00 hadoop-3.1.3
+drwxrwxr-x.  8 atguigu atguigu       194 4月  23 22:05 hbase-2.4.11
+drwxrwxr-x. 11 atguigu atguigu       219 3月  16 21:29 hive-3.1.2
+drwxr-xr-x.  7 atguigu atguigu       245 4月   2 2019 jdk1.8.0_212
+drwxrwxr-x.  2 atguigu atguigu       161 3月  17 21:15 lib
+-rw-r--r--.  1 atguigu atguigu     21210 1月  22 2020 LICENSE
+drwxrwxr-x. 12 atguigu atguigu      4096 3月  20 16:20 mahout-distribution-0.13.0
+drwxrwxr-x.  7 atguigu atguigu       109 3月  20 17:08 maven-3.8.8
+drwxrwxr-x.  2 atguigu atguigu        25 3月  17 21:31 myself_test
+drwxrwxr-x.  2 atguigu atguigu         6 3月  13 16:33 mysql-5.7.28
+-rw-rw-r--.  1 atguigu atguigu 609556480 3月  11 20:36 mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
+-rw-r--r--.  1 atguigu atguigu  45109364 9月  30 2019 mysql-community-client-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu    318768 9月  30 2019 mysql-community-common-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   7037096 9月  30 2019 mysql-community-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  49329100 9月  30 2019 mysql-community-embedded-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  23354908 9月  30 2019 mysql-community-embedded-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 136837816 9月  30 2019 mysql-community-embedded-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   4374364 9月  30 2019 mysql-community-libs-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   1353312 9月  30 2019 mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 208694824 9月  30 2019 mysql-community-server-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 133129992 9月  30 2019 mysql-community-test-5.7.28-1.el7.x86_64.rpm
+-rw-rw-r--.  1 atguigu atguigu    985600 3月  11 20:34 mysql-connector-java-5.1.37.jar
+-rw-r--r--.  1 atguigu atguigu      1498 1月  22 2020 NOTICE
+drwxrwxr-x.  8 atguigu atguigu       160 4月  15 19:46 zookeeper-3.5.7
+[atguigu@hadoop103 module]$ ll
+总用量 1730628
+drwxrwxr-x.  9 atguigu atguigu       153 3月  17 21:15 apache-hive-3.1.2-bin
+-rw-rw-r--.  1 atguigu atguigu 312850286 3月  11 20:14 apache-hive-3.1.2-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu 228079891 3月  17 21:18 apache-mahout-distribution-0.13.0.tar.gz
+-rw-rw-r--.  1 atguigu atguigu   8296049 3月  20 17:06 apache-maven-3.8.8-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu   2792384 3月  20 16:52 apache-maven-3.8.8-src.tar.gz
+drwxr-xr-x.  2 atguigu atguigu       151 3月  17 21:15 bin
+drwxr-xr-x.  2 atguigu atguigu        30 3月  17 21:15 conf
+drwxr-xr-x.  3 atguigu atguigu        17 1月  22 2020 examples
+drwxr-xr-x. 14 atguigu atguigu       260 4月   5 17:00 hadoop-3.1.3
+drwxrwxr-x.  8 atguigu atguigu       194 4月  23 22:05 hbase-2.4.11
+drwxrwxr-x. 11 atguigu atguigu       219 3月  16 21:29 hive-3.1.2
+drwxr-xr-x.  7 atguigu atguigu       245 4月   2 2019 jdk1.8.0_212
+drwxrwxr-x.  2 atguigu atguigu       161 3月  17 21:15 lib
+-rw-r--r--.  1 atguigu atguigu     21210 1月  22 2020 LICENSE
+drwxrwxr-x. 12 atguigu atguigu      4096 3月  20 16:20 mahout-distribution-0.13.0
+drwxrwxr-x.  7 atguigu atguigu       109 3月  20 17:08 maven-3.8.8
+drwxrwxr-x.  2 atguigu atguigu        25 3月  17 21:31 myself_test
+drwxrwxr-x.  2 atguigu atguigu         6 3月  13 16:33 mysql-5.7.28
+-rw-rw-r--.  1 atguigu atguigu 609556480 3月  11 20:36 mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
+-rw-r--r--.  1 atguigu atguigu  45109364 9月  30 2019 mysql-community-client-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu    318768 9月  30 2019 mysql-community-common-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   7037096 9月  30 2019 mysql-community-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  49329100 9月  30 2019 mysql-community-embedded-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  23354908 9月  30 2019 mysql-community-embedded-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 136837816 9月  30 2019 mysql-community-embedded-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   4374364 9月  30 2019 mysql-community-libs-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   1353312 9月  30 2019 mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 208694824 9月  30 2019 mysql-community-server-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 133129992 9月  30 2019 mysql-community-test-5.7.28-1.el7.x86_64.rpm
+-rw-rw-r--.  1 atguigu atguigu    985600 3月  11 20:34 mysql-connector-java-5.1.37.jar
+-rw-r--r--.  1 atguigu atguigu      1498 1月  22 2020 NOTICE
+drwxrwxr-x.  8 atguigu atguigu       160 4月  15 19:46 zookeeper-3.5.7
+[atguigu@hadoop103 module]$ cd /opt/software/
+[atguigu@hadoop103 software]$ ll
+总用量 1572756
+-rw-rw-r--. 1 atguigu atguigu 338075860 2月  24 11:04 hadoop-3.1.3.tar.gz
+-rw-r--r--. 1 atguigu atguigu 283415422 6月  14 2022 hbase-2.4.11-bin.tar.gz
+-rw-rw-r--. 1 atguigu atguigu 195013152 2月  24 11:04 jdk-8u212-linux-x64.tar.gz
+-rw-r--r--. 1 atguigu atguigu 793989120 1月  12 2022 mysql-8.0.25-1.el7.x86_64.rpm-bundle.tar
+[atguigu@hadoop103 software]$ tar -zxvf mysql-8.0.25-1.el7.x86_64.rpm-bundle.tar 
+
+gzip: stdin: not in gzip format
+tar: Child returned status 1
+tar: Error is not recoverable: exiting now
+[atguigu@hadoop103 software]$ chmod -R 777 /tmp
+chmod: 更改"/tmp" 的权限: 不允许的操作
+chmod: 更改"/tmp/.font-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.ICE-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.ICE-unix/1967" 的权限: 不允许的操作
+chmod: 更改"/tmp/.X11-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.X11-unix/X0" 的权限: 不允许的操作
+chmod: 更改"/tmp/.Test-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.XIM-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-bolt.service-yL2CBn" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-bolt.service-yL2CBn": 权限不够
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-rtkit-daemon.service-lPWplZ" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-rtkit-daemon.service-lPWplZ": 权限不够
+chmod: 更改"/tmp/vmware-root_858-2722632195" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/vmware-root_858-2722632195": 权限不够
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-colord.service-gZYiMN" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-colord.service-gZYiMN": 权限不够
+chmod: 更改"/tmp/.X0-lock" 的权限: 不允许的操作
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-cups.service-niQyrS" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-cups.service-niQyrS": 权限不够
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-chronyd.service-P83iGf" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-chronyd.service-P83iGf": 权限不够
+[atguigu@hadoop103 software]$ chmod -R 777 /tmp
+chmod: 更改"/tmp" 的权限: 不允许的操作
+chmod: 更改"/tmp/.font-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.ICE-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.ICE-unix/1967" 的权限: 不允许的操作
+chmod: 更改"/tmp/.X11-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.X11-unix/X0" 的权限: 不允许的操作
+chmod: 更改"/tmp/.Test-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.XIM-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-bolt.service-yL2CBn" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-bolt.service-yL2CBn": 权限不够
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-rtkit-daemon.service-lPWplZ" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-rtkit-daemon.service-lPWplZ": 权限不够
+chmod: 更改"/tmp/vmware-root_858-2722632195" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/vmware-root_858-2722632195": 权限不够
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-colord.service-gZYiMN" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-colord.service-gZYiMN": 权限不够
+chmod: 更改"/tmp/.X0-lock" 的权限: 不允许的操作
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-cups.service-niQyrS" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-cups.service-niQyrS": 权限不够
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-chronyd.service-P83iGf" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-chronyd.service-P83iGf": 权限不够
+[atguigu@hadoop103 software]$ cd
+[atguigu@hadoop103 ~]$ chmod -R 777 /tmp
+chmod: 更改"/tmp" 的权限: 不允许的操作
+chmod: 更改"/tmp/.font-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.ICE-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.ICE-unix/1967" 的权限: 不允许的操作
+chmod: 更改"/tmp/.X11-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.X11-unix/X0" 的权限: 不允许的操作
+chmod: 更改"/tmp/.Test-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.XIM-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-bolt.service-yL2CBn" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-bolt.service-yL2CBn": 权限不够
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-rtkit-daemon.service-lPWplZ" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-rtkit-daemon.service-lPWplZ": 权限不够
+chmod: 更改"/tmp/vmware-root_858-2722632195" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/vmware-root_858-2722632195": 权限不够
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-colord.service-gZYiMN" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-colord.service-gZYiMN": 权限不够
+chmod: 更改"/tmp/.X0-lock" 的权限: 不允许的操作
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-cups.service-niQyrS" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-cups.service-niQyrS": 权限不够
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-chronyd.service-P83iGf" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-chronyd.service-P83iGf": 权限不够
+[atguigu@hadoop103 ~]$ chmod -R 777 /tmp
+chmod: 更改"/tmp" 的权限: 不允许的操作
+chmod: 更改"/tmp/.font-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.ICE-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.ICE-unix/1967" 的权限: 不允许的操作
+chmod: 更改"/tmp/.X11-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.X11-unix/X0" 的权限: 不允许的操作
+chmod: 更改"/tmp/.Test-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/.XIM-unix" 的权限: 不允许的操作
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-bolt.service-yL2CBn" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-bolt.service-yL2CBn": 权限不够
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-rtkit-daemon.service-lPWplZ" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-rtkit-daemon.service-lPWplZ": 权限不够
+chmod: 更改"/tmp/vmware-root_858-2722632195" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/vmware-root_858-2722632195": 权限不够
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-colord.service-gZYiMN" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-colord.service-gZYiMN": 权限不够
+chmod: 更改"/tmp/.X0-lock" 的权限: 不允许的操作
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-cups.service-niQyrS" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-cups.service-niQyrS": 权限不够
+chmod: 更改"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-chronyd.service-P83iGf" 的权限: 不允许的操作
+chmod: 无法读取目录"/tmp/systemd-private-da02ddd29e644f73a11f0e33e4b0816b-chronyd.service-P83iGf": 权限不够
+[atguigu@hadoop103 ~]$ sudo chmod -R 777 /tmp
+[atguigu@hadoop103 ~]$ rpm -qa | grep libiao
+[atguigu@hadoop103 ~]$ sudo install apt-get libiao
+install: 无法获取"apt-get" 的文件状态(stat): 没有那个文件或目录
+[atguigu@hadoop103 ~]$ sudo install libiao
+install: 在"libiao" 后缺少了要操作的目标文件
+Try 'install --help' for more information.
+[atguigu@hadoop103 ~]$ sudo yum libiao
+已加载插件：fastestmirror, langpacks
+没有该命令：libiao。请使用 /bin/yum --help
+[atguigu@hadoop103 ~]$ yum -y install lbaio
+已加载插件：fastestmirror, langpacks
+您需要 root 权限执行此命令。
+[atguigu@hadoop103 ~]$ sudo yum -y install lbaio
+已加载插件：fastestmirror, langpacks
+Determining fastest mirrors
+epel/x86_64/metalink                                                                                                                                                                                                            |  32 kB  00:00:00     
+ * base: mirrors.njupt.edu.cn
+ * epel: d2lzkl7pfhq30w.cloudfront.net
+ * extras: ftp.sjtu.edu.cn
+ * updates: mirrors.aliyun.com
+base                                                                                                                                                                                                                            | 3.6 kB  00:00:00     
+epel                                                                                                                                                                                                                            | 4.7 kB  00:00:00     
+extras                                                                                                                                                                                                                          | 2.9 kB  00:00:00     
+updates                                                                                                                                                                                                                         | 2.9 kB  00:00:00     
+(1/3): epel/x86_64/updateinfo                                                                                                                                                                                                   | 1.0 MB  00:00:02     
+(2/3): epel/x86_64/primary_db                                                                                                                                                                                                   | 7.0 MB  00:00:07     
+(3/3): updates/7/x86_64/primary_db                                                                                                                                                                                              |  20 MB  00:00:08     
+没有可用软件包 lbaio。
+错误：无须任何处理
+[atguigu@hadoop103 ~]$ sudo yum -y install libaio
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.njupt.edu.cn
+ * epel: d2lzkl7pfhq30w.cloudfront.net
+ * extras: ftp.sjtu.edu.cn
+ * updates: mirrors.aliyun.com
+软件包 libaio-0.3.109-13.el7.x86_64 已安装并且是最新版本
+无须任何处理
+[atguigu@hadoop103 ~]$ sudo yum -y install net-tools
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.njupt.edu.cn
+ * epel: d2lzkl7pfhq30w.cloudfront.net
+ * extras: ftp.sjtu.edu.cn
+ * updates: mirrors.aliyun.com
+软件包 net-tools-2.0-0.25.20131004git.el7.x86_64 已安装并且是最新版本
+无须任何处理
+[atguigu@hadoop103 ~]$ ls
+bin  tmp  公共  模板  视频  图片  文档  下载  音乐  桌面
+[atguigu@hadoop103 ~]$ cd /opt/module/
+[atguigu@hadoop103 module]$ ls
+apache-hive-3.1.2-bin                     conf          lib                         mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar                 mysql-community-embedded-devel-5.7.28-1.el7.x86_64.rpm  NOTICE
+apache-hive-3.1.2-bin.tar.gz              examples      LICENSE                     mysql-community-client-5.7.28-1.el7.x86_64.rpm           mysql-community-libs-5.7.28-1.el7.x86_64.rpm            zookeeper-3.5.7
+apache-mahout-distribution-0.13.0.tar.gz  hadoop-3.1.3  mahout-distribution-0.13.0  mysql-community-common-5.7.28-1.el7.x86_64.rpm           mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+apache-maven-3.8.8-bin.tar.gz             hbase-2.4.11  maven-3.8.8                 mysql-community-devel-5.7.28-1.el7.x86_64.rpm            mysql-community-server-5.7.28-1.el7.x86_64.rpm
+apache-maven-3.8.8-src.tar.gz             hive-3.1.2    myself_test                 mysql-community-embedded-5.7.28-1.el7.x86_64.rpm         mysql-community-test-5.7.28-1.el7.x86_64.rpm
+bin                                       jdk1.8.0_212  mysql-5.7.28                mysql-community-embedded-compat-5.7.28-1.el7.x86_64.rpm  mysql-connector-java-5.1.37.jar
+[atguigu@hadoop103 module]$ cd /opt/software/
+[atguigu@hadoop103 software]$ ls
+hadoop-3.1.3.tar.gz  hbase-2.4.11-bin.tar.gz  jdk-8u212-linux-x64.tar.gz  mysql-8.0.25-1.el7.x86_64.rpm-bundle.tar
+[atguigu@hadoop103 software]$ tar -zxvf mysql-8.0.25-1.el7.x86_64.rpm-bundle.tar 
+
+gzip: stdin: not in gzip format
+tar: Child returned status 1
+tar: Error is not recoverable: exiting now
+[atguigu@hadoop103 software]$ rpm -qa|grep mariadb
+mariadb-libs-5.5.68-1.el7.x86_64
+[atguigu@hadoop103 software]$ rpm -qa|grep mariadb
+mariadb-libs-5.5.68-1.el7.x86_64
+[atguigu@hadoop103 software]$ rpm -e --nodeps 文件名
+错误：未安装软件包 文件名 
+[atguigu@hadoop103 software]$ rpm -e --nodeps 文件名
+错误：未安装软件包 文件名 
+[atguigu@hadoop103 software]$ rpm -e --nodeps 文件名
+错误：未安装软件包 文件名 
+[atguigu@hadoop103 software]$ rpm -e --nodeps mariadb-libs-5.5.68-1.el7.x86_64
+错误：can't create 事务 lock on /var/lib/rpm/.rpm.lock (权限不够)
+[atguigu@hadoop103 software]$ sudo rpm -e --nodeps mariadb-libs-5.5.68-1.el7.x86_64
+[atguigu@hadoop103 software]$ rpm -qa|grep mariadb
+[atguigu@hadoop103 software]$ rpm -qa|grep mysql
+[atguigu@hadoop103 software]$ tar -xvf mysql-8.0.25-1.el7.x86_64.rpm-bundle.tar 
+mysql-community-client-8.0.25-1.el7.x86_64.rpm
+mysql-community-client-plugins-8.0.25-1.el7.x86_64.rpm
+mysql-community-common-8.0.25-1.el7.x86_64.rpm
+mysql-community-devel-8.0.25-1.el7.x86_64.rpm
+mysql-community-embedded-compat-8.0.25-1.el7.x86_64.rpm
+mysql-community-libs-8.0.25-1.el7.x86_64.rpm
+mysql-community-libs-compat-8.0.25-1.el7.x86_64.rpm
+mysql-community-server-8.0.25-1.el7.x86_64.rpm
+mysql-community-test-8.0.25-1.el7.x86_64.rpm
+[atguigu@hadoop103 software]$ ll
+总用量 2348148
+-rw-rw-r--. 1 atguigu atguigu 338075860 2月  24 11:04 hadoop-3.1.3.tar.gz
+-rw-r--r--. 1 atguigu atguigu 283415422 6月  14 2022 hbase-2.4.11-bin.tar.gz
+-rw-rw-r--. 1 atguigu atguigu 195013152 2月  24 11:04 jdk-8u212-linux-x64.tar.gz
+-rw-r--r--. 1 atguigu atguigu 793989120 1月  12 2022 mysql-8.0.25-1.el7.x86_64.rpm-bundle.tar
+-rw-r--r--. 1 atguigu atguigu  47810444 4月  26 2021 mysql-community-client-8.0.25-1.el7.x86_64.rpm
+-rw-r--r--. 1 atguigu atguigu    193616 4月  26 2021 mysql-community-client-plugins-8.0.25-1.el7.x86_64.rpm
+-rw-r--r--. 1 atguigu atguigu    628904 4月  26 2021 mysql-community-common-8.0.25-1.el7.x86_64.rpm
+-rw-r--r--. 1 atguigu atguigu   6800820 4月  26 2021 mysql-community-devel-8.0.25-1.el7.x86_64.rpm
+-rw-r--r--. 1 atguigu atguigu  23586756 4月  26 2021 mysql-community-embedded-compat-8.0.25-1.el7.x86_64.rpm
+-rw-r--r--. 1 atguigu atguigu   4240320 4月  26 2021 mysql-community-libs-8.0.25-1.el7.x86_64.rpm
+-rw-r--r--. 1 atguigu atguigu   1262876 4月  26 2021 mysql-community-libs-compat-8.0.25-1.el7.x86_64.rpm
+-rw-r--r--. 1 atguigu atguigu 448614076 4月  26 2021 mysql-community-server-8.0.25-1.el7.x86_64.rpm
+-rw-r--r--. 1 atguigu atguigu 260841936 4月  26 2021 mysql-community-test-8.0.25-1.el7.x86_64.rpm
+[atguigu@hadoop103 software]$ rpm -ivh mysql-community-common-8.0.25-1.el7.x86_64.rpm 
+警告：mysql-community-common-8.0.25-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+错误：can't create 事务 lock on /var/lib/rpm/.rpm.lock (权限不够)
+[atguigu@hadoop103 software]$ sudo rpm -ivh mysql-community-common-8.0.25-1.el7.x86_64.rpm 
+警告：mysql-community-common-8.0.25-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-common-8.0.25-1.e################################# [100%]
+[atguigu@hadoop103 software]$ sudo su root
+ABRT 已检测到 '3' 个问题。预了解详细信息请执行：abrt-cli list --since 1678109626
+[root@hadoop103 software]# rpm -ivh mysql-community-client-plugins-8.0.25-1.el7.x86_64.rpm
+警告：mysql-community-client-plugins-8.0.25-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-client-plugins-8.################################# [100%]
+[root@hadoop103 software]# rpm -ivh mysql-community-libs-8.0.25-1.el7.x86_64.rpm 
+警告：mysql-community-libs-8.0.25-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-libs-8.0.25-1.el7################################# [100%]
+[root@hadoop103 software]# rpm -ivh mysql-community-client-8.0.25-1.el7.x86_64.rpm
+警告：mysql-community-client-8.0.25-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-client-8.0.25-1.e################################# [100%]
+[root@hadoop103 software]# rpm -ivh mysql-community-server-8.0.25-1.el7.x86_64.rpm
+警告：mysql-community-server-8.0.25-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密钥 ID 5072e1f5: NOKEY
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:mysql-community-server-8.0.25-1.e################################# [100%]
+[root@hadoop103 software]# mysql --version
+mysql  Ver 8.0.25 for Linux on x86_64 (MySQL Community Server - GPL)
+[root@hadoop103 software]# cd ..
+[root@hadoop103 opt]# cd ..
+[root@hadoop103 /]# vim /etc/p
+pam.d/          passwd          pbm2ppa.conf    pkcs11/         plymouth/       pnm2ppa.conf    popt.d/         ppp/            printcap        profile.d/      pulse/          python/         
+papersize       passwd-         pinforc         pki/            pm/             polkit-1/       postfix/        prelink.conf.d/ profile         protocols       purple/         
+[root@hadoop103 /]# vim /etc/profile
+profile    profile.d/ 
+[root@hadoop103 /]# vim /etc/profile
+profile    profile.d/ 
+[root@hadoop103 /]# vim /etc/profile.d/
+256term.csh                   bash_completion.sh            colorls.csh                   flatpak.sh                    less.csh                      PackageKit.sh                 vim.sh                        which2.sh
+256term.sh                    colorgrep.csh                 colorls.sh                    lang.csh                      less.sh                       sh.local                      vte.sh                        
+abrt-console-notification.sh  colorgrep.sh                  csh.local                     lang.sh                       my_env.sh                     vim.csh                       which2.csh                    
+[root@hadoop103 /]# vim /etc/profile.d/
+256term.csh                   bash_completion.sh            colorls.csh                   flatpak.sh                    less.csh                      PackageKit.sh                 vim.sh                        which2.sh
+256term.sh                    colorgrep.csh                 colorls.sh                    lang.csh                      less.sh                       sh.local                      vte.sh                        
+abrt-console-notification.sh  colorgrep.sh                  csh.local                     lang.sh                       my_env.sh                     vim.csh                       which2.csh                    
+[root@hadoop103 /]# vim /etc/profile.d/
+256term.csh                   bash_completion.sh            colorls.csh                   flatpak.sh                    less.csh                      PackageKit.sh                 vim.sh                        which2.sh
+256term.sh                    colorgrep.csh                 colorls.sh                    lang.csh                      less.sh                       sh.local                      vte.sh                        
+abrt-console-notification.sh  colorgrep.sh                  csh.local                     lang.sh                       my_env.sh                     vim.csh                       which2.csh                    
+[root@hadoop103 /]# vim /etc/profile.d/
+256term.csh                   bash_completion.sh            colorls.csh                   flatpak.sh                    less.csh                      PackageKit.sh                 vim.sh                        which2.sh
+256term.sh                    colorgrep.csh                 colorls.sh                    lang.csh                      less.sh                       sh.local                      vte.sh                        
+abrt-console-notification.sh  colorgrep.sh                  csh.local                     lang.sh                       my_env.sh                     vim.csh                       which2.csh                    
+[root@hadoop103 /]# vim /etc/profile.d/my_env.sh 
+[root@hadoop103 /]# cd /opt/module/
+[root@hadoop103 module]# mysqld --initialize --user=mysql
+[root@hadoop103 module]# car /var/lo
+local/ lock/  log/   
+[root@hadoop103 module]# car /var/lo
+local/ lock/  log/   
+[root@hadoop103 module]# car /var/log/mysqld.log 
+bash: car: 未找到命令...
+相似命令是： 'sar'
+[root@hadoop103 module]# cat /var/log/mysqld.log 
+2023-04-29T13:28:25.070190Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.25) initializing of server in progress as process 101004
+2023-04-29T13:28:25.182709Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-04-29T13:28:26.114889Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-04-29T13:28:27.230975Z 6 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: pDC(Z+9Xwf*I
+[root@hadoop103 module]# systemctl start mysqld.service
+[root@hadoop103 module]# systemctl status mysqld.service
+● mysqld.service - MySQL Server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
+   Active: active (running) since 六 2023-04-29 21:29:35 CST; 7s ago
+     Docs: man:mysqld(8)
+           http://dev.mysql.com/doc/refman/en/using-systemd.html
+  Process: 101126 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)
+ Main PID: 101155 (mysqld)
+   Status: "Server is operational"
+    Tasks: 38
+   CGroup: /system.slice/mysqld.service
+           └─101155 /usr/sbin/mysqld
+
+4月 29 21:29:29 hadoop103 systemd[1]: Starting MySQL Server...
+4月 29 21:29:35 hadoop103 systemd[1]: Started MySQL Server.
+[root@hadoop103 module]# systemctl list-unit-files|grep  mysqld.service
+mysqld.service                                enabled 
+[root@hadoop103 module]# mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.25
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> service iptables stop
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'service iptables stop' at line 1
+mysql> exit;
+Bye
+[root@hadoop103 module]# cd 
+[root@hadoop103 ~]# system
+system-config-abrt              systemd-analyze                 systemd-cgtop                   systemd-escape                  systemd-loginctl                systemd-path                    systemd-tmpfiles
+system-config-printer           systemd-ask-password            systemd-coredumpctl             systemd-firstboot               systemd-machine-id-setup        systemd-run                     systemd-tty-ask-password-agent
+system-config-printer-applet    systemd-cat                     systemd-delta                   systemd-hwdb                    systemd-notify                  systemd-stdio-bridge            
+systemctl                       systemd-cgls                    systemd-detect-virt             systemd-inhibit                 systemd-nspawn                  systemd-sysv-convert            
+[root@hadoop103 ~]# system
+system-config-abrt              systemd-analyze                 systemd-cgtop                   systemd-escape                  systemd-loginctl                systemd-path                    systemd-tmpfiles
+system-config-printer           systemd-ask-password            systemd-coredumpctl             systemd-firstboot               systemd-machine-id-setup        systemd-run                     systemd-tty-ask-password-agent
+system-config-printer-applet    systemd-cat                     systemd-delta                   systemd-hwdb                    systemd-notify                  systemd-stdio-bridge            
+systemctl                       systemd-cgls                    systemd-detect-virt             systemd-inhibit                 systemd-nspawn                  systemd-sysv-convert            
+[root@hadoop103 ~]# systemctl stop firewalld.service
+[root@hadoop103 ~]# systemctl disable firewalld.service
+[root@hadoop103 ~]# firewall -cmd --list0all
+bash: firewall: 未找到命令...
+[root@hadoop103 ~]# firewall -cmd --list-all
+bash: firewall: 未找到命令...
+[root@hadoop103 ~]# firewall -cmd --list -all
+bash: firewall: 未找到命令...
+[root@hadoop103 ~]# firewall-cmd --list-all
+FirewallD is not running
+[root@hadoop103 ~]# firewall-cmd --add-service=http --permanent
+FirewallD is not running
+[root@hadoop103 ~]# firewall-cmd --add-port=3306/tcp --permanent
+FirewallD is not running
+[root@hadoop103 ~]# firewall-cmd --list-all
+FirewallD is not running
+[root@hadoop103 ~]# systemctl start firewalld.service
+[root@hadoop103 ~]# firewall-cmd --add-service=http --permanent
+success
+[root@hadoop103 ~]# firewall-cmd --add-port=3306/tcp --permanent
+success
+[root@hadoop103 ~]# firewall-cmd --list-all
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: ens33
+  sources: 
+  services: dhcpv6-client ssh
+  ports: 
+  protocols: 
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
+	
+[root@hadoop103 ~]# firewall-cmd --reload
+success
+[root@hadoop103 ~]# mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.25 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use mysql;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select Host,User from user;
++-----------+------------------+
+| Host      | User             |
++-----------+------------------+
+| localhost | mysql.infoschema |
+| localhost | mysql.session    |
+| localhost | mysql.sys        |
+| localhost | root             |
++-----------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> updata user set host = '%' where user = 'root';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'updata user set host = '%' where user = 'root'' at line 1
+mysql> update user set host = '%' where user = 'root';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> exit;
+Bye
+[root@hadoop103 ~]# mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.25 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show variables like '%data%'
+    -> ;
++---------------------------------------+------------------------+
+| Variable_name                         | Value                  |
++---------------------------------------+------------------------+
+| binlog_row_metadata                   | MINIMAL                |
+| character_set_database                | utf8mb4                |
+| collation_database                    | utf8mb4_0900_ai_ci     |
+| datadir                               | /var/lib/mysql/        |
+| innodb_data_file_path                 | ibdata1:12M:autoextend |
+| innodb_data_home_dir                  |                        |
+| innodb_stats_on_metadata              | OFF                    |
+| innodb_temp_data_file_path            | ibtmp1:12M:autoextend  |
+| max_length_for_sort_data              | 4096                   |
+| myisam_data_pointer_size              | 6                      |
+| performance_schema_max_metadata_locks | -1                     |
+| resultset_metadata                    | FULL                   |
+| skip_show_database                    | OFF                    |
+| updatable_views_with_limit            | YES                    |
++---------------------------------------+------------------------+
+14 rows in set (0.01 sec)
+
+mysql> exit;
+Bye
+[root@hadoop103 ~]# cd /var/lib/mysql/
+#innodb_temp/       mysql/              performance_schema/ sys/                
+[root@hadoop103 ~]# cd /var/lib/mysql/
+#innodb_temp/       mysql/              performance_schema/ sys/                
+[root@hadoop103 ~]# cd /var/lib/mysql/
+[root@hadoop103 mysql]# vim mysql
+mysql/           mysql.ibd        mysql.sock       mysql.sock.lock  
+[root@hadoop103 mysql]# vim mysql
+mysql/           mysql.ibd        mysql.sock       mysql.sock.lock  
+[root@hadoop103 mysql]# mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.25 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+ERROR 1396 (HY000): Operation ALTER USER failed for 'root'@'localhost'
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+ERROR 1396 (HY000): Operation ALTER USER failed for 'root'@'localhost'
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+ERROR 1396 (HY000): Operation ALTER USER failed for 'root'@'localhost'
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+ERROR 1396 (HY000): Operation ALTER USER failed for 'root'@'localhost'
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+ERROR 1396 (HY000): Operation ALTER USER failed for 'root'@'localhost'
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+ERROR 1396 (HY000): Operation ALTER USER failed for 'root'@'localhost'
+mysql> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> exit;
+Bye
+[root@hadoop103 mysql]# firewall-cmd --list-all
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: ens33
+  sources: 
+  services: dhcpv6-client http ssh
+  ports: 3306/tcp
+  protocols: 
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
+	
+[root@hadoop103 mysql]# firewall-cmd --add-port=3306/tcp --permanent
+Warning: ALREADY_ENABLED: 3306:tcp
+success
+[root@hadoop103 mysql]# firewall-cmd --list-all
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: ens33
+  sources: 
+  services: dhcpv6-client http ssh
+  ports: 3306/tcp
+  protocols: 
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
+	
+[root@hadoop103 mysql]# mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 8.0.25 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> exit;
+Bye
+[root@hadoop103 mysql]# systemctl disable firewalld.service
+[root@hadoop103 mysql]# 
