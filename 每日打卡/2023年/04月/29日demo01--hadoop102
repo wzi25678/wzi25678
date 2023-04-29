@@ -1,0 +1,585 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop102' resolved to 10.16.51.223.
+Connecting to 10.16.51.223:22...
+Connection established.
+To escape to local shell, press Ctrl+Alt+].
+
+Last login: Sat Apr 22 20:20:07 2023 from 10.16.51.1
+[atguigu@hadoop102 ~]$ cd /opt/module/
+[atguigu@hadoop102 module]$ cd hbase-2.4.11/
+[atguigu@hadoop102 hbase-2.4.11]$ hbase shell
+bash: hbase: 未找到命令...
+[atguigu@hadoop102 hbase-2.4.11]$ hbase shell
+bash: hbase: 未找到命令...
+[atguigu@hadoop102 hbase-2.4.11]$ cd.
+bash: cd.: 未找到命令...
+[atguigu@hadoop102 hbase-2.4.11]$ cd
+[atguigu@hadoop102 ~]$ hbase shell
+bash: hbase: 未找到命令...
+[atguigu@hadoop102 ~]$ hbase shell
+bash: hbase: 未找到命令...
+[atguigu@hadoop102 ~]$ cd  ..
+[atguigu@hadoop102 home]$ cd /opt/module/hbase-2.4.11/
+[atguigu@hadoop102 hbase-2.4.11]$ ls
+bin         conf  hbase-webapps  lib          logs        README.txt       tmp
+CHANGES.md  docs  LEGAL          LICENSE.txt  NOTICE.txt  RELEASENOTES.md
+[atguigu@hadoop102 hbase-2.4.11]$ bin/hbase-daemon.sh start master
+running master, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-master-hadoop102.out
+[atguigu@hadoop102 hbase-2.4.11]$ bin/hbase-daemon.sh start master
+master running as process 91620. Stop it first.
+[atguigu@hadoop102 hbase-2.4.11]$ bin/start-hbase.sh 
+master running as process 91620. Stop it first.
+hadoop102: running regionserver, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop102.out
+localhost: mv: 无法获取"/opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop102.out.2" 的文件状态(stat): 没有那个文件或目录
+localhost: running regionserver, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop102.out
+hadoop104: running regionserver, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop104.out
+hadoop103: running regionserver, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-regionserver-hadoop103.out
+hadoop103: running master, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-master-hadoop103.out
+[atguigu@hadoop102 hbase-2.4.11]$ cd ..
+[atguigu@hadoop102 module]$ cd 
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop102 hadoop-3.1.3]$ sbin/start-dfs.sh 
+Starting namenodes on [hadoop102]
+Starting datanodes
+localhost: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.2" 的文件状态(stat): 没有那个文件或目录
+Starting secondary namenodes [hadoop104]
+[atguigu@hadoop102 hadoop-3.1.3]$ mr-jobhistory-daemon.sh start historyserver
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement "mapred --daemon start" instead.
+[atguigu@hadoop102 hadoop-3.1.3]$ mr-jobhistory-daemon.sh start jobhistoryserver
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement "mapred --daemon start" instead.
+ERROR: jobhistoryserver is not COMMAND nor fully qualified CLASSNAME.
+Usage: mapred [OPTIONS] SUBCOMMAND [SUBCOMMAND OPTIONS]
+ or    mapred [OPTIONS] CLASSNAME [CLASSNAME OPTIONS]
+  where CLASSNAME is a user-provided Java class
+
+  OPTIONS is none or any of:
+
+--config dir   Hadoop config directory
+--debug        turn on shell script debug mode
+--help         usage information
+
+  SUBCOMMAND is one of:
+
+
+    Admin Commands:
+
+frameworkuploader   mapreduce framework upload
+hsadmin             job history server admin interface
+
+    Client Commands:
+
+archive             create a Hadoop archive
+archive-logs        combine aggregated logs into hadoop archives
+classpath           prints the class path needed for running mapreduce subcommands
+distcp              copy file or directories recursively
+envvars             display computed Hadoop environment variables
+job                 manipulate MapReduce jobs
+minicluster         CLI MiniCluster
+pipes               run a Pipes job
+queue               get information regarding JobQueues
+sampler             sampler
+streaming           launch a mapreduce streaming job
+version             print the version
+
+    Daemon Commands:
+
+historyserver       run job history servers as a standalone daemon
+
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[atguigu@hadoop102 hadoop-3.1.3]$ ~cd 
+bash: ~cd: 未找到命令...
+[atguigu@hadoop102 hadoop-3.1.3]$ cd
+[atguigu@hadoop102 ~]$ cd /opt/module/zookeeper-3.5.7/
+[atguigu@hadoop102 zookeeper-3.5.7]$ bin/zkServer.sh start
+ZooKeeper JMX enabled by default
+Using config: /opt/module/zookeeper-3.5.7/bin/../conf/zoo.cfg
+Starting zookeeper ... STARTED
+[atguigu@hadoop102 zookeeper-3.5.7]$ bin/start-hbase.sh 
+-bash: bin/start-hbase.sh: 没有那个文件或目录
+[atguigu@hadoop102 zookeeper-3.5.7]$ cd ..
+[atguigu@hadoop102 module]$ cd hbase-2.4.11/
+[atguigu@hadoop102 hbase-2.4.11]$ bin/start-hbase.sh 
+running master, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-master-hadoop102.out
+hadoop104: running regionserver, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop104.out
+hadoop103: running regionserver, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-regionserver-hadoop103.out
+localhost: running regionserver, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop102.out
+hadoop102: running regionserver, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop102.out
+hadoop104: SLF4J: Class path contains multiple SLF4J bindings.
+hadoop104: SLF4J: Found binding in [jar:file:/opt/module/hbase-2.4.11/lib/client-facing-thirdparty/slf4j-reload4j-1.7.33.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+hadoop104: SLF4J: Found binding in [jar:file:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+hadoop104: SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+hadoop104: SLF4J: Actual binding is of type [org.slf4j.impl.Reload4jLoggerFactory]
+hadoop103: running master, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-master-hadoop103.out
+[atguigu@hadoop102 hbase-2.4.11]$  bin/hbase-daemon.sh start master
+master running as process 95110. Stop it first.
+[atguigu@hadoop102 hbase-2.4.11]$ bin/stop-hbase.sh 
+stopping hbase......
+[atguigu@hadoop102 hbase-2.4.11]$ bin/start-hbase.sh 
+running master, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-master-hadoop102.out
+hadoop104: running regionserver, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop104.out
+hadoop103: running regionserver, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-regionserver-hadoop103.out
+localhost: running regionserver, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop102.out
+hadoop102: regionserver running as process 96917. Stop it first.
+hadoop104: SLF4J: Class path contains multiple SLF4J bindings.
+hadoop104: SLF4J: Found binding in [jar:file:/opt/module/hbase-2.4.11/lib/client-facing-thirdparty/slf4j-reload4j-1.7.33.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+hadoop104: SLF4J: Found binding in [jar:file:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+hadoop104: SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+hadoop103: SLF4J: Class path contains multiple SLF4J bindings.
+hadoop103: SLF4J: Found binding in [jar:file:/opt/module/hbase-2.4.11/lib/client-facing-thirdparty/slf4j-reload4j-1.7.33.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+hadoop103: SLF4J: Found binding in [jar:file:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+hadoop103: SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+hadoop103: SLF4J: Actual binding is of type [org.slf4j.impl.Reload4jLoggerFactory]
+hadoop103: running master, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-master-hadoop103.out
+[atguigu@hadoop102 hbase-2.4.11]$ ls
+bin         conf  hbase-webapps  lib          logs        README.txt       tmp
+CHANGES.md  docs  LEGAL          LICENSE.txt  NOTICE.txt  RELEASENOTES.md
+[atguigu@hadoop102 hbase-2.4.11]$ cd bin/
+[atguigu@hadoop102 bin]$ ll
+总用量 184
+-rwxr-xr-x. 1 atguigu atguigu  3637 1月  22 2020 chaos-daemon.sh
+-rwxr-xr-x. 1 atguigu atguigu  1948 1月  22 2020 considerAsDead.sh
+-rwxr-xr-x. 1 atguigu atguigu  4549 1月  22 2020 draining_servers.rb
+-rwxr-xr-x. 1 atguigu atguigu  1545 1月  22 2020 get-active-master.rb
+-rwxr-xr-x. 1 atguigu atguigu  7512 1月  22 2020 graceful_stop.sh
+-rwxr-xr-x. 1 atguigu atguigu 28053 1月  22 2020 hbase
+-rwxr-xr-x. 1 atguigu atguigu  4832 1月  22 2020 hbase-cleanup.sh
+-rw-r--r--. 1 atguigu atguigu 14999 1月  22 2020 hbase.cmd
+-rwxr-xr-x. 1 atguigu atguigu  1537 1月  22 2020 hbase-common.sh
+-rw-r--r--. 1 atguigu atguigu  2578 1月  22 2020 hbase-config.cmd
+-rwxr-xr-x. 1 atguigu atguigu  6664 1月  22 2020 hbase-config.sh
+-rwxr-xr-x. 1 atguigu atguigu 12502 1月  22 2020 hbase-daemon.sh
+-rwxr-xr-x. 1 atguigu atguigu  2091 1月  22 2020 hbase-daemons.sh
+-rwxr-xr-x. 1 atguigu atguigu   876 1月  22 2020 hbase-jruby
+-rwxr-xr-x. 1 atguigu atguigu  1118 1月  22 2020 hirb.rb
+-rwxr-xr-x. 1 atguigu atguigu  2294 1月  22 2020 local-master-backup.sh
+-rwxr-xr-x. 1 atguigu atguigu  2588 1月  22 2020 local-regionservers.sh
+-rwxr-xr-x. 1 atguigu atguigu  2271 1月  22 2020 master-backup.sh
+-rwxr-xr-x. 1 atguigu atguigu  1188 1月  22 2020 region_mover.rb
+-rwxr-xr-x. 1 atguigu atguigu  2687 1月  22 2020 regionservers.sh
+-rwxr-xr-x. 1 atguigu atguigu  4836 1月  22 2020 region_status.rb
+drwxr-xr-x. 2 atguigu atguigu    33 4月  23 21:50 replication
+-rwxr-xr-x. 1 atguigu atguigu  7994 1月  22 2020 rolling-restart.sh
+-rwxr-xr-x. 1 atguigu atguigu  1838 1月  22 2020 shutdown_regionserver.rb
+-rw-r--r--. 1 atguigu atguigu  2262 1月  22 2020 start-hbase.cmd
+-rwxr-xr-x. 1 atguigu atguigu  2372 1月  22 2020 start-hbase.sh
+-rw-r--r--. 1 atguigu atguigu  1752 1月  22 2020 stop-hbase.cmd
+-rwxr-xr-x. 1 atguigu atguigu  2601 1月  22 2020 stop-hbase.sh
+drwxr-xr-x. 2 atguigu atguigu    38 4月  23 21:50 test
+-rwxr-xr-x. 1 atguigu atguigu  1870 1月  22 2020 zookeepers.sh
+[atguigu@hadoop102 bin]$ hbase shell
+bash: hbase: 未找到命令...
+[atguigu@hadoop102 bin]$  shell
+bash: shell: 未找到命令...
+[atguigu@hadoop102 bin]$ cd ..
+[atguigu@hadoop102 hbase-2.4.11]$ bin/hbase shell
+HBase Shell
+Use "help" to get list of supported commands.
+Use "exit" to quit this interactive shell.
+For Reference, please visit: http://hbase.apache.org/2.0/book.html#shell
+Version 2.4.11, r7e672a0da0586e6b7449310815182695bc6ae193, Tue Mar 15 10:31:00 PDT 2022
+Took 0.0016 seconds                                                                                                 
+hbase:001:0> help
+HBase Shell, version 2.4.11, r7e672a0da0586e6b7449310815182695bc6ae193, Tue Mar 15 10:31:00 PDT 2022
+Type 'help "COMMAND"', (e.g. 'help "get"' -- the quotes are necessary) for help on a specific command.
+Commands are grouped. Type 'help "COMMAND_GROUP"', (e.g. 'help "general"') for help on a command group.
+
+COMMAND GROUPS:
+  Group name: general
+  Commands: processlist, status, table_help, version, whoami
+
+  Group name: ddl
+  Commands: alter, alter_async, alter_status, clone_table_schema, create, describe, disable, disable_all, drop, drop_all, enable, enable_all, exists, get_table, is_disabled, is_enabled, list, list_regions, locate_region, show_filters
+
+  Group name: namespace
+  Commands: alter_namespace, create_namespace, describe_namespace, drop_namespace, list_namespace, list_namespace_tables
+
+  Group name: dml
+  Commands: append, count, delete, deleteall, get, get_counter, get_splits, incr, put, scan, truncate, truncate_preserve
+
+  Group name: tools
+  Commands: assign, balance_switch, balancer, balancer_enabled, catalogjanitor_enabled, catalogjanitor_run, catalogjanitor_switch, cleaner_chore_enabled, cleaner_chore_run, cleaner_chore_switch, clear_block_cache, clear_compaction_queues, clear_deadservers, clear_slowlog_responses, close_region, compact, compact_rs, compaction_state, compaction_switch, decommission_regionservers, flush, get_balancer_decisions, get_balancer_rejections, get_largelog_responses, get_slowlog_responses, hbck_chore_run, is_in_maintenance_mode, list_deadservers, list_decommissioned_regionservers, major_compact, merge_region, move, normalize, normalizer_enabled, normalizer_switch, recommission_regionserver, regioninfo, rit, snapshot_cleanup_enabled, snapshot_cleanup_switch, split, splitormerge_enabled, splitormerge_switch, stop_master, stop_regionserver, trace, unassign, wal_roll, zk_dump
+
+  Group name: replication
+  Commands: add_peer, append_peer_exclude_namespaces, append_peer_exclude_tableCFs, append_peer_namespaces, append_peer_tableCFs, disable_peer, disable_table_replication, enable_peer, enable_table_replication, get_peer_config, list_peer_configs, list_peers, list_replicated_tables, remove_peer, remove_peer_exclude_namespaces, remove_peer_exclude_tableCFs, remove_peer_namespaces, remove_peer_tableCFs, set_peer_bandwidth, set_peer_exclude_namespaces, set_peer_exclude_tableCFs, set_peer_namespaces, set_peer_replicate_all, set_peer_serial, set_peer_tableCFs, show_peer_tableCFs, update_peer_config
+
+  Group name: snapshots
+  Commands: clone_snapshot, delete_all_snapshot, delete_snapshot, delete_table_snapshots, list_snapshots, list_table_snapshots, restore_snapshot, snapshot
+
+  Group name: configuration
+  Commands: update_all_config, update_config
+
+  Group name: quotas
+  Commands: disable_exceed_throttle_quota, disable_rpc_throttle, enable_exceed_throttle_quota, enable_rpc_throttle, list_quota_snapshots, list_quota_table_sizes, list_quotas, list_snapshot_sizes, set_quota
+
+  Group name: security
+  Commands: grant, list_security_capabilities, revoke, user_permission
+
+  Group name: procedures
+  Commands: list_locks, list_procedures
+
+  Group name: visibility labels
+  Commands: add_labels, clear_auths, get_auths, list_labels, set_auths, set_visibility
+
+  Group name: rsgroup
+  Commands: add_rsgroup, alter_rsgroup_config, balance_rsgroup, get_namespace_rsgroup, get_rsgroup, get_server_rsgroup, get_table_rsgroup, list_rsgroups, move_namespaces_rsgroup, move_servers_namespaces_rsgroup, move_servers_rsgroup, move_servers_tables_rsgroup, move_tables_rsgroup, remove_rsgroup, remove_servers_rsgroup, rename_rsgroup, show_rsgroup_config
+
+SHELL USAGE:
+Quote all names in HBase Shell such as table and column names.  Commas delimit
+command parameters.  Type <RETURN> after entering a command to run it.
+Dictionaries of configuration used in the creation and alteration of tables are
+Ruby Hashes. They look like this:
+
+  {'key1' => 'value1', 'key2' => 'value2', ...}
+
+and are opened and closed with curley-braces.  Key/values are delimited by the
+'=>' character combination.  Usually keys are predefined constants such as
+NAME, VERSIONS, COMPRESSION, etc.  Constants do not need to be quoted.  Type
+'Object.constants' to see a (messy) list of all constants in the environment.
+
+If you are using binary keys or values and need to enter them in the shell, use
+double-quote'd hexadecimal representation. For example:
+
+  hbase> get 't1', "key\x03\x3f\xcd"
+  hbase> get 't1', "key\003\023\011"
+  hbase> put 't1', "test\xef\xff", 'f1:', "\x01\x33\x40"
+
+The HBase shell is the (J)Ruby IRB with the above HBase-specific commands added.
+For more on the HBase Shell, see http://hbase.apache.org/book.html
+hbase:002:0> help create_namespace
+
+ERROR: wrong number of arguments (given 0, expected 1+)
+
+For usage try 'help "create_namespace"'
+
+Took 0.0147 seconds                                                                                                 
+HBase Shell, version 2.4.11, r7e672a0da0586e6b7449310815182695bc6ae193, Tue Mar 15 10:31:00 PDT 2022
+Type 'help "COMMAND"', (e.g. 'help "get"' -- the quotes are necessary) for help on a specific command.
+Commands are grouped. Type 'help "COMMAND_GROUP"', (e.g. 'help "general"') for help on a command group.
+
+COMMAND GROUPS:
+  Group name: general
+  Commands: processlist, status, table_help, version, whoami
+
+  Group name: ddl
+  Commands: alter, alter_async, alter_status, clone_table_schema, create, describe, disable, disable_all, drop, drop_all, enable, enable_all, exists, get_table, is_disabled, is_enabled, list, list_regions, locate_region, show_filters
+
+  Group name: namespace
+  Commands: alter_namespace, create_namespace, describe_namespace, drop_namespace, list_namespace, list_namespace_tables
+
+  Group name: dml
+  Commands: append, count, delete, deleteall, get, get_counter, get_splits, incr, put, scan, truncate, truncate_preserve
+
+  Group name: tools
+  Commands: assign, balance_switch, balancer, balancer_enabled, catalogjanitor_enabled, catalogjanitor_run, catalogjanitor_switch, cleaner_chore_enabled, cleaner_chore_run, cleaner_chore_switch, clear_block_cache, clear_compaction_queues, clear_deadservers, clear_slowlog_responses, close_region, compact, compact_rs, compaction_state, compaction_switch, decommission_regionservers, flush, get_balancer_decisions, get_balancer_rejections, get_largelog_responses, get_slowlog_responses, hbck_chore_run, is_in_maintenance_mode, list_deadservers, list_decommissioned_regionservers, major_compact, merge_region, move, normalize, normalizer_enabled, normalizer_switch, recommission_regionserver, regioninfo, rit, snapshot_cleanup_enabled, snapshot_cleanup_switch, split, splitormerge_enabled, splitormerge_switch, stop_master, stop_regionserver, trace, unassign, wal_roll, zk_dump
+
+  Group name: replication
+  Commands: add_peer, append_peer_exclude_namespaces, append_peer_exclude_tableCFs, append_peer_namespaces, append_peer_tableCFs, disable_peer, disable_table_replication, enable_peer, enable_table_replication, get_peer_config, list_peer_configs, list_peers, list_replicated_tables, remove_peer, remove_peer_exclude_namespaces, remove_peer_exclude_tableCFs, remove_peer_namespaces, remove_peer_tableCFs, set_peer_bandwidth, set_peer_exclude_namespaces, set_peer_exclude_tableCFs, set_peer_namespaces, set_peer_replicate_all, set_peer_serial, set_peer_tableCFs, show_peer_tableCFs, update_peer_config
+
+  Group name: snapshots
+  Commands: clone_snapshot, delete_all_snapshot, delete_snapshot, delete_table_snapshots, list_snapshots, list_table_snapshots, restore_snapshot, snapshot
+
+  Group name: configuration
+  Commands: update_all_config, update_config
+
+  Group name: quotas
+  Commands: disable_exceed_throttle_quota, disable_rpc_throttle, enable_exceed_throttle_quota, enable_rpc_throttle, list_quota_snapshots, list_quota_table_sizes, list_quotas, list_snapshot_sizes, set_quota
+
+  Group name: security
+  Commands: grant, list_security_capabilities, revoke, user_permission
+
+  Group name: procedures
+  Commands: list_locks, list_procedures
+
+  Group name: visibility labels
+  Commands: add_labels, clear_auths, get_auths, list_labels, set_auths, set_visibility
+
+  Group name: rsgroup
+  Commands: add_rsgroup, alter_rsgroup_config, balance_rsgroup, get_namespace_rsgroup, get_rsgroup, get_server_rsgroup, get_table_rsgroup, list_rsgroups, move_namespaces_rsgroup, move_servers_namespaces_rsgroup, move_servers_rsgroup, move_servers_tables_rsgroup, move_tables_rsgroup, remove_rsgroup, remove_servers_rsgroup, rename_rsgroup, show_rsgroup_config
+
+SHELL USAGE:
+Quote all names in HBase Shell such as table and column names.  Commas delimit
+command parameters.  Type <RETURN> after entering a command to run it.
+Dictionaries of configuration used in the creation and alteration of tables are
+Ruby Hashes. They look like this:
+
+  {'key1' => 'value1', 'key2' => 'value2', ...}
+
+and are opened and closed with curley-braces.  Key/values are delimited by the
+'=>' character combination.  Usually keys are predefined constants such as
+NAME, VERSIONS, COMPRESSION, etc.  Constants do not need to be quoted.  Type
+'Object.constants' to see a (messy) list of all constants in the environment.
+
+If you are using binary keys or values and need to enter them in the shell, use
+double-quote'd hexadecimal representation. For example:
+
+  hbase> get 't1', "key\x03\x3f\xcd"
+  hbase> get 't1', "key\003\023\011"
+  hbase> put 't1', "test\xef\xff", 'f1:', "\x01\x33\x40"
+
+The HBase shell is the (J)Ruby IRB with the above HBase-specific commands added.
+For more on the HBase Shell, see http://hbase.apache.org/book.html
+hbase:003:0> help 'create_namespace'
+Create namespace; pass namespace name,
+and optionally a dictionary of namespace configuration.
+Examples:
+
+  hbase> create_namespace 'ns1'
+  hbase> create_namespace 'ns1', {'PROPERTY_NAME'=>'PROPERTY_VALUE'}
+hbase:004:0> help "create_namespace"
+Create namespace; pass namespace name,
+and optionally a dictionary of namespace configuration.
+Examples:
+
+  hbase> create_namespace 'ns1'
+  hbase> create_namespace 'ns1', {'PROPERTY_NAME'=>'PROPERTY_VALUE'}
+hbase:005:0> create_namespace 'bigdata'
+Took 1.3385 seconds                                                                                                 
+hbase:006:0> list_namespace
+list_namespace          list_namespace_tables   
+hbase:006:0> list_namespace
+NAMESPACE                                                                                                           
+bigdata                                                                                                             
+default                                                                                                             
+hbase                                                                                                               
+3 row(s)
+Took 0.0622 seconds                                                                                                 
+hbase:007:0> help "create_namespace"
+Create namespace; pass namespace name,
+and optionally a dictionary of namespace configuration.
+Examples:
+
+  hbase> create_namespace 'ns1'
+  hbase> create_namespace 'ns1', {'PROPERTY_NAME'=>'PROPERTY_VALUE'}
+hbase:008:0>  create 'bigdata:student', {NAME => 'info', VERSIONS => 
+hbase:009:1* ^C
+^C
+^C
+^C
+^C
+^C
+hbase:009:0> list_namespace
+NAMESPACE                                                                                                           
+bigdata                                                                                                             
+default                                                                                                             
+hbase                                                                                                               
+3 row(s)
+Took 0.0296 seconds                                                                                                 
+hbase:010:0> create 'bigdata:student', {NAME => 'info', VERSIONS => 5}, {NAME => 'msg'} 
+Created table bigdata:student
+Took 1.1946 seconds                                                                                                 
+=> Hbase::Table - bigdata:student
+hbase:011:0> list
+TABLE                                                                                                               
+bigdata:student                                                                                                     
+1 row(s)
+Took 0.0178 seconds                                                                                                 
+=> ["bigdata:student"]
+hbase:012:0> describe 'student1'
+
+ERROR: Table student1 does not exist.
+
+For usage try 'help "describe"'
+
+Took 0.0828 seconds                                                                                                 
+hbase:013:0> describe 'student'
+
+ERROR: Table student does not exist.
+
+For usage try 'help "describe"'
+
+Took 0.0059 seconds                                                                                                 
+hbase:014:0>  'help "describe"'
+=> "help \"describe\""
+hbase:015:0>  help 'describe'
+Describe the named table. For example:
+  hbase> describe 't1'
+  hbase> describe 'ns1:t1'
+
+Alternatively, you can use the abbreviated 'desc' for the same thing.
+  hbase> desc 't1'
+  hbase> desc 'ns1:t1'
+hbase:016:0> describe 'student'
+
+ERROR: Table student does not exist.
+
+For usage try 'help "describe"'
+
+Took 0.0063 seconds                                                                                                 
+hbase:017:0> describe 'bigdata'
+
+ERROR: Table bigdata does not exist.
+
+For usage try 'help "describe"'
+
+Took 0.0059 seconds                                                                                                 
+hbase:018:0> list
+TABLE                                                                                                               
+bigdata:student                                                                                                     
+1 row(s)
+Took 0.0054 seconds                                                                                                 
+=> ["bigdata:student"]
+hbase:019:0> describe 'student'
+
+ERROR: Table student does not exist.
+
+For usage try 'help "describe"'
+
+Took 0.0043 seconds                                                                                                 
+hbase:020:0> describe 'bigdata:student'
+Table bigdata:student is ENABLED                                                                                    
+bigdata:student                                                                                                     
+COLUMN FAMILIES DESCRIPTION                                                                                         
+{NAME => 'info', BLOOMFILTER => 'ROW', IN_MEMORY => 'false', VERSIONS => '5', KEEP_DELETED_CELLS => 'FALSE', DATA_BL
+OCK_ENCODING => 'NONE', COMPRESSION => 'NONE', TTL => 'FOREVER', MIN_VERSIONS => '0', BLOCKCACHE => 'true', BLOCKSIZ
+E => '65536', REPLICATION_SCOPE => '0'}                                                                             
+
+{NAME => 'msg', BLOOMFILTER => 'ROW', IN_MEMORY => 'false', VERSIONS => '1', KEEP_DELETED_CELLS => 'FALSE', DATA_BLO
+CK_ENCODING => 'NONE', COMPRESSION => 'NONE', TTL => 'FOREVER', MIN_VERSIONS => '0', BLOCKCACHE => 'true', BLOCKSIZE
+ => '65536', REPLICATION_SCOPE => '0'}                                                                              
+
+2 row(s)
+Quota is disabled
+Took 0.0612 seconds                                                                                                 
+hbase:021:0> create 'bigdata:student1', {NAME => 'info', VERSIONS => 5}, {NAME => 'msg'} 
+Created table bigdata:student1
+Took 0.6428 seconds                                                                                                 
+=> Hbase::Table - bigdata:student1
+hbase:022:0> alter 'student1', {NAME => 'f1', VERSIONS => 3} 
+
+ERROR: Can't find a table: student1
+
+For usage try 'help "alter"'
+
+Took 0.0070 seconds                                                                                                 
+hbase:023:0> alter 'bigdata:student1', {NAME => 'f1', VERSIONS => 3} 
+Updating all regions with the new schema...
+1/1 regions updated.
+Done.
+Took 2.3985 seconds                                                                                                 
+hbase:024:0> use bigdata
+NameError: undefined local variable or method `bigdata' for #<HBaseReceiver:0x46894dc5>
+                  evaluate at (hbase):24
+                      eval at org/jruby/RubyKernel.java:1048
+                  evaluate at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb/workspace.rb:85
+                  evaluate at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb/context.rb:380
+                eval_input at uri:classloader:/irb/hirb.rb:114
+             signal_status at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb.rb:623
+                eval_input at uri:classloader:/irb/hirb.rb:111
+  each_top_level_statement at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb/ruby-lex.rb:246
+                      loop at org/jruby/RubyKernel.java:1442
+  each_top_level_statement at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb/ruby-lex.rb:232
+                     catch at org/jruby/RubyKernel.java:1189
+  each_top_level_statement at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb/ruby-lex.rb:231
+                eval_input at uri:classloader:/irb/hirb.rb:110
+                       run at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb.rb:428
+                     catch at org/jruby/RubyKernel.java:1189
+                       run at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/irb.rb:427
+                    <main> at classpath:/jar-bootstrap.rb:223
+[atguigu@hadoop102 hbase-2.4.11]$ bin/hbse shell
+-bash: bin/hbse: 没有那个文件或目录
+[atguigu@hadoop102 hbase-2.4.11]$ bin/hbase shell
+HBase Shell
+Use "help" to get list of supported commands.
+Use "exit" to quit this interactive shell.
+For Reference, please visit: http://hbase.apache.org/2.0/book.html#shell
+Version 2.4.11, r7e672a0da0586e6b7449310815182695bc6ae193, Tue Mar 15 10:31:00 PDT 2022
+Took 0.0023 seconds                                                                                                 
+hbase:001:0>  alter 'student1', {NAME => 'f1', VERSIONS => 3}
+
+ERROR: Can't find a table: student1
+
+For usage try 'help "alter"'
+
+Took 0.6085 seconds                                                                                                 
+hbase:002:0>  alter 'bigdatastudent1', {NAME => 'f1', VERSIONS => 3}
+
+ERROR: Can't find a table: bigdatastudent1
+
+For usage try 'help "alter"'
+
+Took 0.0298 seconds                                                                                                 
+hbase:003:0>  alter 'bigdata:student1', {NAME => 'f1', VERSIONS => 3}
+Updating all regions with the new schema...
+1/1 regions updated.
+Done.
+Took 1.9104 seconds                                                                                                 
+hbase:004:0>  alter 'bigdata:student1', NAME => 'f1', METHOD => 'delete'
+Updating all regions with the new schema...
+1/1 regions updated.
+Done.
+Took 1.7470 seconds                                                                                                 
+hbase:005:0>  alter 'bigdata:student1', 'delete' => 'f1'
+Updating all regions with the new schema...
+1/1 regions updated.
+Done.
+Took 1.7447 seconds                                                                                                 
+hbase:006:0>  disable 'student1'
+
+ERROR: Table student1 does not exist.
+
+For usage try 'help "disable"'
+
+Took 0.0069 seconds                                                                                                 
+hbase:007:0>  disable 'bigdata:student1'
+Took 0.3663 seconds                                                                                                 
+hbase:008:0>  drop 'bigdata:student1'
+Took 0.3448 seconds                                                                                                 
+hbase:009:0> list
+TABLE                                                                                                               
+bigdata:student                                                                                                     
+1 row(s)
+Took 0.0147 seconds                                                                                                 
+=> ["bigdata:student"]
+hbase:010:0>  put 'bigdata:student','1001','info:name','zhangsan'
+Took 1.6930 seconds                                                                                                 
+hbase:011:0>  put 'bigdata:student','1001','info:name','lisi'
+Took 0.0079 seconds                                                                                                 
+hbase:012:0>  put 'bigdata:student','1001','info:age','18'
+Took 0.0054 seconds                                                                                                 
+hbase:013:0>  get 'bigdata:student','1001'
+COLUMN                         CELL                                                                                 
+ info:age                      timestamp=2023-04-29T17:04:55.147, value=18                                          
+ info:name                     timestamp=2023-04-29T17:04:49.629, value=lisi                                        
+1 row(s)
+Took 0.0356 seconds                                                                                                 
+hbase:014:0> get 'bigdata:student','1001' , {COLUMN => 'info:name'}
+COLUMN                         CELL                                                                                 
+ info:name                     timestamp=2023-04-29T17:04:49.629, value=lisi                                        
+1 row(s)
+Took 0.0100 seconds                                                                                                 
+hbase:015:0> get 'bigdata:student','1001' , {COLUMN => 'info:name', VERSIONS => 6} 
+COLUMN                         CELL                                                                                 
+ info:name                     timestamp=2023-04-29T17:04:49.629, value=lisi                                        
+ info:name                     timestamp=2023-04-29T17:04:43.289, value=zhangsan                                    
+1 row(s)
+Took 0.0066 seconds                                                                                                 
+hbase:016:0> get 'bigdata:student','1001' , {COLUMN => 'info:name'}
+COLUMN                         CELL                                                                                 
+ info:name                     timestamp=2023-04-29T17:04:49.629, value=lisi                                        
+1 row(s)
+Took 0.0088 seconds                                                                                                 
+hbase:017:0> scan 'bigdata:student',{STARTROW => '1001',STOPROW => '1002'}
+ROW                            COLUMN+CELL                                                                          
+ 1001                          column=info:age, timestamp=2023-04-29T17:04:55.147, value=18                         
+ 1001                          column=info:name, timestamp=2023-04-29T17:04:49.629, value=lisi                      
+1 row(s)
+Took 0.0129 seconds                                                                                                 
+hbase:018:0> delete 'bigdata:student','1001','info:name' 
+Took 0.0087 seconds                                                                                                 
+hbase:019:0>  deleteall 'bigdata:student','1001','info:name' 
+Took 0.0064 seconds                                                                                                 
+hbase:020:0> exit;
+[atguigu@hadoop102 hbase-2.4.11]$ cd conf/
+[atguigu@hadoop102 conf]$ ls
+backup-masters                    hbase-env.cmd  hbase-policy.xml  log4j-hbtop.properties  regionservers
+hadoop-metrics2-hbase.properties  hbase-env.sh   hbase-site.xml    log4j.properties
+[atguigu@hadoop102 conf]$ vim hbase-site.xml 
+[atguigu@hadoop102 conf]$ 
+[atguigu@hadoop102 conf]$ 
