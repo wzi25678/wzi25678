@@ -1,0 +1,36 @@
+package 蓝桥__真题__专题;
+
+import java.io.*;
+
+public class _2023试题F_阶乘的和06 {
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	static StreamTokenizer st = new StreamTokenizer(br);
+
+	static int nextInt() throws Exception {st.nextToken();return (int) st.nval;}
+	static long nextLong() throws Exception {st.nextToken();return (long) st.nval;}
+	static PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out));
+
+
+	public static void main(String[] args) throws Exception {
+		int n = nextInt();
+		int arr [] = new int[n+2];
+		int min = Integer.MAX_VALUE;
+		for (int i=1;i<=n;i++){
+			arr[i] = nextInt();;
+			if (arr[i]<min){
+				min = arr[i] ;
+			}
+		}
+		if (n==(min+1)){
+			pw.println(n);
+		}else {
+			pw.println(min);
+		}
+		pw.flush();
+		pw.close();
+	}
+
+
+
+}
