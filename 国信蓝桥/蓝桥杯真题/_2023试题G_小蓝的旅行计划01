@@ -1,0 +1,164 @@
+package 蓝桥__真题__专题;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.PriorityQueue;
+
+/**
+	小蓝要依次经过 n 个地点，其中从第 i − 1 个地点到达第 i 个地点需要消耗 Disi 升油。
+	在第 i 个加油站加 1 升油需要 Costi 的费用，且在这个加油站最多只能加 Limi 升油。
+
+
+	一开始小蓝的油箱是满的，请问小蓝需要准备多少钱才能顺利完成他的旅行计划。
+	如果小蓝按给定条件无论准备多少钱都不能完成他的旅行计划，请输出 −1 。
+	 */
+public class _2023试题G_小蓝的旅行计划01 {
+	/*
+	输入格式：
+	输入的第一行包含两个整数 n m ，用一个空格分隔。
+
+	接下来 n 行每行包含 3 个整数 Disi Costi Limi，相邻整数之间使用一个空 格分隔。
+	 */
+	//首先思考这是一道什么问题？
+	//带权最短距离问题---对应解决方案，djistra算法，然后采用优先队列
+
+	/*
+	怎么判断当前是最低花费且能够到达终点？
+	1.首先最直接的方法，每到达一个地方我都加满油，这样还到不了那说明这把G了
+	2.在1的前提下，我想要知道最低的话，就得有个mincost记录花费，有个DFS全部尝试一遍
+	 */
+
+	private static int n,m,ans;
+	private static int maxn = 200005,vol = 0;
+	private static int Dis[],Cost[],Lim[],Rest[],k[];
+
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	static StreamTokenizer st = new StreamTokenizer(br);
+
+	static int nextInt() throws Exception {st.nextToken();return (int) st.nval;}
+
+	static PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out));
+
+
+	public static void main(String[] args) throws Exception {
+		int ans = 1;
+		//一开始不知道干嘛，就先把数据全读进来
+		n = nextInt();
+		m = nextInt();
+		PriorityQueue<gas> q = new PriorityQueue<>();
+		Dis = new int[n+2];
+		Cost = new int[n+2];
+		Lim = new int[n+2];
+		Rest = new int[n+2];
+		k = new int[n+2];
+		for (int i=1;i<=n;i++){
+			 Dis[i] = nextInt();
+			Cost[i] = nextInt();
+			Lim[i] = nextInt();
+		}
+		build(1,1,n);
+		for (int i=1;i<=n;i++){
+			vol -= Dis[i];
+			while (vol < 0){
+				if (q.isEmpty()){
+					pw.println(-1);
+					return;
+				}
+				gas remind = q.poll();
+				int cnt = Math.min(m-query(1,1,n,remind.id,i-1),Lim[remind.id]);
+				if (cnt <= 0){
+					continue;
+				}
+				if (cnt <= -vol){
+					ans += remind.c *cnt;
+					vol += cnt;
+					Lim[remind.id] = 0;
+					add(1,1,n,remind.id,i-1,cnt);
+				}else{
+					ans += remind.c *(-vol);
+					Lim[remind.id] = cnt +vol;
+					q.add(new gas(remind.id, remind.c));
+					vol = 0;
+				}
+			}
+			if (vol>0){
+				add(1,1,n,i,i,vol);
+				Lim[i] = Math.min(Lim[i],m-vol);
+				q.add(new gas(i,Cost[i]));
+			}
+			pw.println(ans);
+		}
+		pw.flush();
+	}
+
+	private static void add(int i, int l, int r, int ll, int rr, int v) {
+		if (ll <=1 && r<=rr){
+			Rest[i]+=v;
+			k[i]+=v;
+			return;
+		}
+		pd(i);
+		int mid = (l+(r-l)/2);
+		if (mid >=ll){
+			add(i<<1,l,mid,ll,rr,v);
+		}
+		if (mid<rr){
+			add(i<<1|1,mid+1,r,ll,rr,v);
+		}
+		up(i);
+	}
+
+	private static void pd(int i) {
+		if(k[i]!=0) {
+			k[i<<1] += k[i]; k[i<<1|1] += k[i];
+			Rest[i<<1] += k[i]; Rest[i<<1|1] +=k[i];
+			k[i] = 0;
+		}
+	}
+
+	private static void up(int i) {
+	}
+
+	private static int query(int i, int l, int r, int ll, int rr) {
+		if (ll <=l && r<=rr){
+			return Rest[i];
+		}
+		pd(i);
+		int res = 0;
+		int mid = (l+(r-l)/2);
+		if (mid>=ll){
+			res = Math.max(res,query(i<<1,l,mid,ll,rr));
+		}
+		if (mid<rr){
+			res = Math.max(res,query(i<<1,l,mid,ll,rr));
+		}
+		up(i);
+		return res;
+	}
+
+	private static void build(int i, int l, int r) {
+		if(l == r) {
+			Rest[i]=0; //到达时油量
+			return ;
+		}
+		int mid = (l+r)/2;
+		build(i<<1,l,mid);build(i<<1|1,mid+1,r);
+		up(i);
+	}
+
+	private static class gas implements Comparable<gas>{
+		long c;
+		int id;
+
+		public gas(int i,long a){
+			c = a;id = i;
+		}
+
+		@Override
+		public int compareTo(gas o) {
+			return this.c-o.c >0 ? 1:-1;
+		}
+	}
+}
