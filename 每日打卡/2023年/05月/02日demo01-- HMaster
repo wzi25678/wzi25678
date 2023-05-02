@@ -1,0 +1,2205 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package org.apache.hadoop.hbase.master;
+
+import com.google.common.annotations.VisibleForTesting;
+import com.google.common.collect.Maps;
+import com.google.protobuf.Descriptors;
+import com.google.protobuf.Service;
+import java.io.IOException;
+import java.io.InterruptedIOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.regex.Pattern;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.hbase.ClusterStatus;
+import org.apache.hadoop.hbase.CoordinatedStateException;
+import org.apache.hadoop.hbase.CoordinatedStateManager;
+import org.apache.hadoop.hbase.DoNotRetryIOException;
+import org.apache.hadoop.hbase.HBaseIOException;
+import org.apache.hadoop.hbase.HColumnDescriptor;
+import org.apache.hadoop.hbase.HRegionInfo;
+import org.apache.hadoop.hbase.HTableDescriptor;
+import org.apache.hadoop.hbase.MasterNotRunningException;
+import org.apache.hadoop.hbase.MetaMigrationConvertingToPB;
+import org.apache.hadoop.hbase.MetaTableAccessor;
+import org.apache.hadoop.hbase.NamespaceDescriptor;
+import org.apache.hadoop.hbase.NamespaceNotFoundException;
+import org.apache.hadoop.hbase.PleaseHoldException;
+import org.apache.hadoop.hbase.ProcedureInfo;
+import org.apache.hadoop.hbase.ScheduledChore;
+import org.apache.hadoop.hbase.Server;
+import org.apache.hadoop.hbase.ServerLoad;
+import org.apache.hadoop.hbase.ServerName;
+import org.apache.hadoop.hbase.TableDescriptors;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.TableNotDisabledException;
+import org.apache.hadoop.hbase.TableNotFoundException;
+import org.apache.hadoop.hbase.UnknownRegionException;
+import org.apache.hadoop.hbase.classification.InterfaceAudience.LimitedPrivate;
+import org.apache.hadoop.hbase.client.Admin;
+import org.apache.hadoop.hbase.client.MetaScanner;
+import org.apache.hadoop.hbase.client.RegionReplicaUtil;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.coprocessor.CoprocessorHost;
+import org.apache.hadoop.hbase.exceptions.DeserializationException;
+import org.apache.hadoop.hbase.executor.ExecutorType;
+import org.apache.hadoop.hbase.http.InfoServer;
+import org.apache.hadoop.hbase.ipc.CoprocessorRpcUtils;
+import org.apache.hadoop.hbase.ipc.RpcServer;
+import org.apache.hadoop.hbase.ipc.ServerNotRunningYetException;
+import org.apache.hadoop.hbase.master.MasterRpcServices.BalanceSwitchMode;
+import org.apache.hadoop.hbase.master.RegionState.State;
+import org.apache.hadoop.hbase.master.balancer.BalancerChore;
+import org.apache.hadoop.hbase.master.balancer.BaseLoadBalancer;
+import org.apache.hadoop.hbase.master.balancer.ClusterStatusChore;
+import org.apache.hadoop.hbase.master.balancer.LoadBalancerFactory;
+import org.apache.hadoop.hbase.master.cleaner.HFileCleaner;
+import org.apache.hadoop.hbase.master.cleaner.LogCleaner;
+import org.apache.hadoop.hbase.master.cleaner.ReplicationZKLockCleanerChore;
+import org.apache.hadoop.hbase.master.handler.DispatchMergingRegionHandler;
+import org.apache.hadoop.hbase.master.normalizer.NormalizationPlan;
+import org.apache.hadoop.hbase.master.normalizer.RegionNormalizer;
+import org.apache.hadoop.hbase.master.normalizer.RegionNormalizerChore;
+import org.apache.hadoop.hbase.master.normalizer.RegionNormalizerFactory;
+import org.apache.hadoop.hbase.master.normalizer.NormalizationPlan.PlanType;
+import org.apache.hadoop.hbase.master.procedure.AddColumnFamilyProcedure;
+import org.apache.hadoop.hbase.master.procedure.CreateNamespaceProcedure;
+import org.apache.hadoop.hbase.master.procedure.CreateTableProcedure;
+import org.apache.hadoop.hbase.master.procedure.DeleteColumnFamilyProcedure;
+import org.apache.hadoop.hbase.master.procedure.DeleteNamespaceProcedure;
+import org.apache.hadoop.hbase.master.procedure.DeleteTableProcedure;
+import org.apache.hadoop.hbase.master.procedure.DisableTableProcedure;
+import org.apache.hadoop.hbase.master.procedure.EnableTableProcedure;
+import org.apache.hadoop.hbase.master.procedure.MasterProcedureEnv;
+import org.apache.hadoop.hbase.master.procedure.MasterProcedureScheduler;
+import org.apache.hadoop.hbase.master.procedure.MasterProcedureUtil;
+import org.apache.hadoop.hbase.master.procedure.ModifyColumnFamilyProcedure;
+import org.apache.hadoop.hbase.master.procedure.ModifyNamespaceProcedure;
+import org.apache.hadoop.hbase.master.procedure.ModifyTableProcedure;
+import org.apache.hadoop.hbase.master.procedure.ProcedurePrepareLatch;
+import org.apache.hadoop.hbase.master.procedure.ProcedureSyncWait;
+import org.apache.hadoop.hbase.master.procedure.TruncateTableProcedure;
+import org.apache.hadoop.hbase.master.snapshot.SnapshotManager;
+import org.apache.hadoop.hbase.monitoring.MemoryBoundedLogMessageBuffer;
+import org.apache.hadoop.hbase.monitoring.MonitoredTask;
+import org.apache.hadoop.hbase.monitoring.TaskMonitor;
+import org.apache.hadoop.hbase.procedure.MasterProcedureManagerHost;
+import org.apache.hadoop.hbase.procedure.flush.MasterFlushTableProcedureManager;
+import org.apache.hadoop.hbase.procedure2.ProcedureExecutor;
+import org.apache.hadoop.hbase.procedure2.store.wal.WALProcedureStore;
+import org.apache.hadoop.hbase.protobuf.generated.HBaseProtos;
+import org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos;
+import org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode;
+import org.apache.hadoop.hbase.quotas.MasterQuotaManager;
+import org.apache.hadoop.hbase.regionserver.HRegionServer;
+import org.apache.hadoop.hbase.regionserver.RSRpcServices;
+import org.apache.hadoop.hbase.regionserver.RegionCoprocessorHost;
+import org.apache.hadoop.hbase.regionserver.RegionSplitPolicy;
+import org.apache.hadoop.hbase.regionserver.compactions.ExploringCompactionPolicy;
+import org.apache.hadoop.hbase.regionserver.compactions.FIFOCompactionPolicy;
+import org.apache.hadoop.hbase.replication.regionserver.Replication;
+import org.apache.hadoop.hbase.security.User;
+import org.apache.hadoop.hbase.security.UserProvider;
+import org.apache.hadoop.hbase.util.Addressing;
+import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.hadoop.hbase.util.CompressionTest;
+import org.apache.hadoop.hbase.util.ConfigUtil;
+import org.apache.hadoop.hbase.util.EncryptionTest;
+import org.apache.hadoop.hbase.util.FSUtils;
+import org.apache.hadoop.hbase.util.HFileArchiveUtil;
+import org.apache.hadoop.hbase.util.HasThread;
+import org.apache.hadoop.hbase.util.ModifyRegionUtils;
+import org.apache.hadoop.hbase.util.Pair;
+import org.apache.hadoop.hbase.util.Threads;
+import org.apache.hadoop.hbase.zookeeper.DrainingServerTracker;
+import org.apache.hadoop.hbase.zookeeper.LoadBalancerTracker;
+import org.apache.hadoop.hbase.zookeeper.MasterAddressTracker;
+import org.apache.hadoop.hbase.zookeeper.MetaTableLocator;
+import org.apache.hadoop.hbase.zookeeper.RegionNormalizerTracker;
+import org.apache.hadoop.hbase.zookeeper.RegionServerTracker;
+import org.apache.hadoop.hbase.zookeeper.SplitOrMergeTracker;
+import org.apache.hadoop.hbase.zookeeper.ZKClusterId;
+import org.apache.hadoop.hbase.zookeeper.ZKUtil;
+import org.apache.hadoop.hbase.zookeeper.ZooKeeperWatcher;
+import org.apache.hadoop.util.VersionInfo;
+import org.apache.zookeeper.KeeperException;
+import org.mortbay.jetty.Connector;
+import org.mortbay.jetty.nio.SelectChannelConnector;
+import org.mortbay.jetty.servlet.Context;
+import org.mortbay.jetty.servlet.ServletHolder;
+
+@LimitedPrivate({"Tools"})
+public class HMaster extends HRegionServer implements MasterServices, Server {
+    private static final Log LOG = LogFactory.getLog(HMaster.class.getName());
+    public static final String MASTER = "master";
+    private final ActiveMasterManager activeMasterManager;
+    RegionServerTracker regionServerTracker;
+    private DrainingServerTracker drainingServerTracker;
+    LoadBalancerTracker loadBalancerTracker;
+    private SplitOrMergeTracker splitOrMergeTracker;
+    private RegionNormalizerTracker regionNormalizerTracker;
+    private TableNamespaceManager tableNamespaceManager;
+    final MetricsMaster metricsMaster;
+    private MasterFileSystem fileSystemManager;
+    volatile ServerManager serverManager;
+    AssignmentManager assignmentManager;
+    MemoryBoundedLogMessageBuffer rsFatals;
+    private volatile boolean isActiveMaster = false;
+    private final MasterProcedureScheduler.ProcedureEvent initialized = new MasterProcedureScheduler.ProcedureEvent("master initialized");
+    volatile boolean serviceStarted = false;
+    private final MasterProcedureScheduler.ProcedureEvent serverCrashProcessingEnabled = new MasterProcedureScheduler.ProcedureEvent("server crash processing");
+    LoadBalancer balancer;
+    private RegionNormalizer normalizer;
+    private BalancerChore balancerChore;
+    private RegionNormalizerChore normalizerChore;
+    private ClusterStatusChore clusterStatusChore;
+    private ClusterStatusPublisher clusterStatusPublisherChore = null;
+    private PeriodicDoMetrics periodicDoMetricsChore = null;
+    CatalogJanitor catalogJanitorChore;
+    private ReplicationZKLockCleanerChore replicationZKLockCleanerChore;
+    private LogCleaner logCleaner;
+    private HFileCleaner hfileCleaner;
+    MasterCoprocessorHost cpHost;
+    private final boolean preLoadTableDescriptors;
+    private long masterActiveTime;
+    private final boolean masterCheckCompression;
+    private final boolean masterCheckEncryption;
+    Map<String, Service> coprocessorServiceHandlers = Maps.newHashMap();
+    SnapshotManager snapshotManager;
+    MasterProcedureManagerHost mpmHost;
+    private volatile MasterQuotaManager quotaManager;
+    private ProcedureExecutor<MasterProcedureEnv> procedureExecutor;
+    private WALProcedureStore procedureStore;
+    private long splitPlanCount;
+    private long mergePlanCount;
+    private volatile boolean initializationBeforeMetaAssignment = false;
+    private org.mortbay.jetty.Server masterJettyServer;
+
+    public HMaster(Configuration conf, CoordinatedStateManager csm) throws IOException, KeeperException, InterruptedException {
+        super(conf, csm);
+        this.rsFatals = new MemoryBoundedLogMessageBuffer(conf.getLong("hbase.master.buffer.for.rs.fatals", 1048576L));
+        LOG.info("hbase.rootdir=" + FSUtils.getRootDir(this.conf) + ", hbase.cluster.distributed=" + this.conf.getBoolean("hbase.cluster.distributed", false));
+        this.conf.setBoolean("hbase.meta.replicas.use", false);
+        Replication.decorateMasterConfiguration(this.conf);
+        if (this.conf.get("mapreduce.task.attempt.id") == null) {
+            this.conf.set("mapreduce.task.attempt.id", "hb_m_" + this.serverName.toString());
+        }
+
+        this.masterCheckCompression = conf.getBoolean("hbase.master.check.compression", true);
+        this.masterCheckEncryption = conf.getBoolean("hbase.master.check.encryption", true);
+        this.metricsMaster = new MetricsMaster(new MetricsMasterWrapperImpl(this));
+        this.preLoadTableDescriptors = conf.getBoolean("hbase.master.preload.tabledescriptors", true);
+        boolean shouldPublish = conf.getBoolean("hbase.status.published", false);
+        Class<? extends ClusterStatusPublisher.Publisher> publisherClass = conf.getClass("hbase.status.publisher.class", ClusterStatusPublisher.DEFAULT_STATUS_PUBLISHER_CLASS, ClusterStatusPublisher.Publisher.class);
+        if (shouldPublish) {
+            if (publisherClass == null) {
+                LOG.warn("hbase.status.published is true, but " + ClusterStatusPublisher.DEFAULT_STATUS_PUBLISHER_CLASS + " is not set - not publishing status");
+            } else {
+                this.clusterStatusPublisherChore = new ClusterStatusPublisher(this, conf, publisherClass);
+                this.getChoreService().scheduleChore(this.clusterStatusPublisherChore);
+            }
+        }
+
+        if (!conf.getBoolean("hbase.testing.nocluster", false)) {
+            this.activeMasterManager = new ActiveMasterManager(this.zooKeeper, this.serverName, this);
+            int infoPort = this.putUpJettyServer();
+            this.startActiveMasterManager(infoPort);
+        } else {
+            this.activeMasterManager = null;
+        }
+
+    }
+
+    private int putUpJettyServer() throws IOException {
+        if (!this.conf.getBoolean("hbase.master.infoserver.redirect", true)) {
+            return -1;
+        } else {
+            int infoPort = this.conf.getInt("hbase.master.info.port.orig", 16010);
+            if (infoPort >= 0 && this.infoServer != null) {
+                if (infoPort == this.infoServer.getPort()) {
+                    return infoPort;
+                } else {
+                    String addr = this.conf.get("hbase.master.info.bindAddress", "0.0.0.0");
+                    if (!Addressing.isLocalAddress(InetAddress.getByName(addr))) {
+                        String msg = "Failed to start redirecting jetty server. Address " + addr + " does not belong to this host. Correct configuration parameter: " + "hbase.master.info.bindAddress";
+                        LOG.error(msg);
+                        throw new IOException(msg);
+                    } else {
+                        this.masterJettyServer = new org.mortbay.jetty.Server();
+                        Connector connector = new SelectChannelConnector();
+                        connector.setHost(addr);
+                        connector.setPort(infoPort);
+                        this.masterJettyServer.addConnector(connector);
+                        this.masterJettyServer.setStopAtShutdown(true);
+                        String redirectHostname = this.shouldUseThisHostnameInstead() ? this.useThisHostnameInstead : null;
+                        RedirectServlet redirect = new RedirectServlet(this.infoServer, redirectHostname);
+                        Context context = new Context(this.masterJettyServer, "/", 0);
+                        context.addServlet(new ServletHolder(redirect), "/*");
+
+                        try {
+                            this.masterJettyServer.start();
+                        } catch (Exception var8) {
+                            throw new IOException("Failed to start redirecting jetty server", var8);
+                        }
+
+                        return connector.getLocalPort();
+                    }
+                }
+            } else {
+                return -1;
+            }
+        }
+    }
+
+    protected void login(UserProvider user, String host) throws IOException {
+        try {
+            super.login(user, host);
+        } catch (IOException var4) {
+            user.login("hbase.master.keytab.file", "hbase.master.kerberos.principal", host);
+        }
+
+    }
+
+    protected void waitForMasterActive() {
+        boolean tablesOnMaster = BaseLoadBalancer.tablesOnMaster(this.conf);
+
+        while((!tablesOnMaster || !this.isActiveMaster) && !this.isStopped() && !this.isAborted()) {
+            this.sleeper.sleep();
+        }
+
+    }
+
+    @VisibleForTesting
+    public MasterRpcServices getMasterRpcServices() {
+        return (MasterRpcServices)this.rpcServices;
+    }
+
+    public boolean balanceSwitch(boolean b) throws IOException {
+        return this.getMasterRpcServices().switchBalancer(b, BalanceSwitchMode.ASYNC);
+    }
+
+    protected String getProcessName() {
+        return "master";
+    }
+
+    protected boolean canCreateBaseZNode() {
+        return true;
+    }
+
+    protected boolean canUpdateTableDescriptor() {
+        return true;
+    }
+
+    protected RSRpcServices createRpcServices() throws IOException {
+        return new MasterRpcServices(this);
+    }
+
+    protected void configureInfoServer() {
+        this.infoServer.addServlet("master-status", "/master-status", MasterStatusServlet.class);
+        this.infoServer.setAttribute("master", this);
+        if (BaseLoadBalancer.tablesOnMaster(this.conf)) {
+            super.configureInfoServer();
+        }
+
+    }
+
+    protected Class<? extends HttpServlet> getDumpServlet() {
+        return MasterDumpServlet.class;
+    }
+
+    private void doMetrics() {
+        try {
+            if (this.assignmentManager != null) {
+                this.assignmentManager.updateRegionsInTransitionMetrics();
+            }
+        } catch (Throwable var2) {
+            LOG.error("Couldn't update metrics: " + var2.getMessage());
+        }
+
+    }
+
+    MetricsMaster getMasterMetrics() {
+        return this.metricsMaster;
+    }
+
+    void initializeZKBasedSystemTrackers() throws IOException, InterruptedException, KeeperException, CoordinatedStateException {
+        this.balancer = LoadBalancerFactory.getLoadBalancer(this.conf);
+        this.normalizer = RegionNormalizerFactory.getRegionNormalizer(this.conf);
+        this.normalizer.setMasterServices(this);
+        this.normalizer.setMasterRpcServices((MasterRpcServices)this.rpcServices);
+        this.loadBalancerTracker = new LoadBalancerTracker(this.zooKeeper, this);
+        this.loadBalancerTracker.start();
+        this.regionNormalizerTracker = new RegionNormalizerTracker(this.zooKeeper, this);
+        this.regionNormalizerTracker.start();
+        this.splitOrMergeTracker = new SplitOrMergeTracker(this.zooKeeper, this.conf, this);
+        this.splitOrMergeTracker.start();
+        this.assignmentManager = new AssignmentManager(this, this.serverManager, this.balancer, this.service, this.metricsMaster, this.tableLockManager);
+        this.zooKeeper.registerListenerFirst(this.assignmentManager);
+        this.regionServerTracker = new RegionServerTracker(this.zooKeeper, this, this.serverManager);
+        this.regionServerTracker.start();
+        this.drainingServerTracker = new DrainingServerTracker(this.zooKeeper, this, this.serverManager);
+        this.drainingServerTracker.start();
+        boolean wasUp = this.clusterStatusTracker.isClusterUp();
+        if (!wasUp) {
+            this.clusterStatusTracker.setClusterUp();
+        }
+
+        LOG.info("Server active/primary master=" + this.serverName + ", sessionid=0x" + Long.toHexString(this.zooKeeper.getRecoverableZooKeeper().getSessionId()) + ", setting cluster-up flag (Was=" + wasUp + ")");
+        this.snapshotManager = new SnapshotManager();
+        this.mpmHost = new MasterProcedureManagerHost();
+        this.mpmHost.register(this.snapshotManager);
+        this.mpmHost.register(new MasterFlushTableProcedureManager());
+        this.mpmHost.loadProcedures(this.conf);
+        this.mpmHost.initialize(this, this.metricsMaster);
+    }
+
+    private void finishActiveMasterInitialization(MonitoredTask status) throws IOException, InterruptedException, KeeperException, CoordinatedStateException {
+        this.isActiveMaster = true;
+        Thread zombieDetector = new Thread(new InitializationMonitor(this), "ActiveMasterInitializationMonitor-" + System.currentTimeMillis());
+        zombieDetector.start();
+        status.setStatus("Initializing Master file system");
+        this.masterActiveTime = System.currentTimeMillis();
+        this.fileSystemManager = new MasterFileSystem(this, this);
+        this.tableDescriptors.setCacheOn();
+        this.tableDescriptors.get(TableName.META_TABLE_NAME).setRegionReplication(this.conf.getInt("hbase.meta.replica.count", 1));
+        if (this.preLoadTableDescriptors) {
+            status.setStatus("Pre-loading table descriptors");
+            this.tableDescriptors.getAll();
+        }
+
+        status.setStatus("Publishing Cluster ID in ZooKeeper");
+        ZKClusterId.setClusterId(this.zooKeeper, this.fileSystemManager.getClusterId());
+        this.serverManager = this.createServerManager(this, this);
+        this.setupClusterConnection();
+        this.tableLockManager.reapWriteLocks();
+        status.setStatus("Initializing ZK system trackers");
+        this.initializeZKBasedSystemTrackers();
+        status.setStatus("Initializing master coprocessors");
+        this.cpHost = new MasterCoprocessorHost(this, this.conf);
+        status.setStatus("Initializing master service threads");
+        this.startServiceThreads();
+        this.sleeper.skipSleepCycle();
+        this.serverManager.waitForRegionServers(status);
+        Iterator i$ = this.regionServerTracker.getOnlineServers().iterator();
+
+        ServerName oldMetaServerLocation;
+        while(i$.hasNext()) {
+            oldMetaServerLocation = (ServerName)i$.next();
+            if (!this.serverManager.isServerOnline(oldMetaServerLocation) && this.serverManager.checkAndRecordNewServer(oldMetaServerLocation, ServerLoad.EMPTY_SERVERLOAD)) {
+                LOG.info("Registered server found up in zk but who has not yet reported in: " + oldMetaServerLocation);
+            }
+        }
+
+        Set<ServerName> previouslyFailedServers = this.fileSystemManager.getFailedServersFromLogFolders();
+        oldMetaServerLocation = this.metaTableLocator.getMetaRegionLocation(this.getZooKeeper());
+        if (oldMetaServerLocation != null && previouslyFailedServers.contains(oldMetaServerLocation)) {
+            this.splitMetaLogBeforeAssignment(oldMetaServerLocation);
+        }
+
+        Set<ServerName> previouslyFailedMetaRSs = this.getPreviouselyFailedMetaServersFromZK();
+        previouslyFailedMetaRSs.addAll(previouslyFailedServers);
+        this.initializationBeforeMetaAssignment = true;
+        if (BaseLoadBalancer.tablesOnMaster(this.conf)) {
+            this.waitForServerOnline();
+        }
+
+        this.balancer.setClusterStatus(this.getClusterStatus());
+        this.balancer.setMasterServices(this);
+        this.balancer.initialize();
+        if (!this.isStopped()) {
+            status.setStatus("Assigning Meta Region");
+            this.assignMeta(status, previouslyFailedMetaRSs, 0);
+            if (!this.isStopped()) {
+                status.setStatus("Submitting log splitting work for previously failed region servers");
+                Iterator i$ = previouslyFailedServers.iterator();
+
+                while(i$.hasNext()) {
+                    ServerName tmpServer = (ServerName)i$.next();
+                    this.serverManager.processDeadServer(tmpServer, true);
+                }
+
+                if (this.conf.getBoolean("hbase.MetaMigrationConvertingToPB", true)) {
+                    MetaMigrationConvertingToPB.updateMetaIfNecessary(this);
+                }
+
+                status.setStatus("Starting assignment manager");
+                this.assignmentManager.joinCluster();
+                this.balancer.setClusterStatus(this.getClusterStatus());
+                status.setStatus("Starting balancer and catalog janitor");
+                this.clusterStatusChore = new ClusterStatusChore(this, this.balancer);
+                this.getChoreService().scheduleChore(this.clusterStatusChore);
+                this.balancerChore = new BalancerChore(this);
+                this.getChoreService().scheduleChore(this.balancerChore);
+                this.normalizerChore = new RegionNormalizerChore(this);
+                this.getChoreService().scheduleChore(this.normalizerChore);
+                this.catalogJanitorChore = new CatalogJanitor(this, this);
+                this.getChoreService().scheduleChore(this.catalogJanitorChore);
+                this.periodicDoMetricsChore = new PeriodicDoMetrics(this.msgInterval, this);
+                this.getChoreService().scheduleChore(this.periodicDoMetricsChore);
+                status.setStatus("Starting namespace manager");
+                this.initNamespace();
+                if (this.cpHost != null) {
+                    try {
+                        this.cpHost.preMasterInitialization();
+                    } catch (IOException var10) {
+                        LOG.error("Coprocessor preMasterInitialization() hook failed", var10);
+                    }
+                }
+
+                status.markComplete("Initialization successful");
+                LOG.info("Master has completed initialization");
+                this.configurationManager.registerObserver(this.balancer);
+                this.setInitialized(true);
+                status.setStatus("Starting quota manager");
+                this.initQuotaManager();
+                Set<ServerName> EMPTY_SET = new HashSet();
+                int numReplicas = this.conf.getInt("hbase.meta.replica.count", 1);
+
+                for(int i = 1; i < numReplicas; ++i) {
+                    this.assignMeta(status, EMPTY_SET, i);
+                }
+
+                this.unassignExcessMetaReplica(this.zooKeeper, numReplicas);
+                this.serverManager.clearDeadServersWithSameHostNameAndPortOfOnlineServer();
+                status.setStatus("Checking ZNode ACLs");
+                this.zooKeeper.checkAndSetZNodeAcls();
+                status.setStatus("Calling postStartMaster coprocessors");
+                if (this.cpHost != null) {
+                    try {
+                        this.cpHost.postStartMaster();
+                    } catch (IOException var9) {
+                        LOG.error("Coprocessor postStartMaster() hook failed", var9);
+                    }
+                }
+
+                zombieDetector.interrupt();
+            }
+        }
+    }
+
+    private void initQuotaManager() throws IOException {
+        this.quotaManager = new MasterQuotaManager(this);
+        this.assignmentManager.setRegionStateListener(this.quotaManager);
+        this.quotaManager.start();
+    }
+
+    ServerManager createServerManager(Server master, MasterServices services) throws IOException {
+        return new ServerManager(master, services);
+    }
+
+    private void unassignExcessMetaReplica(ZooKeeperWatcher zkw, int numMetaReplicasConfigured) {
+        try {
+            List<String> metaReplicaZnodes = this.zooKeeper.getMetaReplicaNodes();
+            Iterator i$ = metaReplicaZnodes.iterator();
+
+            while(i$.hasNext()) {
+                String metaReplicaZnode = (String)i$.next();
+                int replicaId = this.zooKeeper.getMetaReplicaIdFromZnode(metaReplicaZnode);
+                if (replicaId >= numMetaReplicasConfigured) {
+                    RegionState r = MetaTableLocator.getMetaRegionState(zkw, replicaId);
+                    LOG.info("Closing excess replica of meta region " + r.getRegion());
+                    ServerManager.closeRegionSilentlyAndWait(this.getConnection(), r.getServerName(), r.getRegion(), 30000L);
+                    ZKUtil.deleteNode(zkw, zkw.getZNodeForReplica(replicaId));
+                }
+            }
+        } catch (Exception var8) {
+            LOG.warn("Ignoring exception " + var8);
+        }
+
+    }
+
+    void assignMeta(MonitoredTask status, Set<ServerName> previouslyFailedMetaRSs, int replicaId) throws InterruptedException, IOException, KeeperException {
+        int assigned = 0;
+        long timeout = this.conf.getLong("hbase.catalog.verification.timeout", 1000L);
+        if (replicaId == 0) {
+            status.setStatus("Assigning hbase:meta region");
+        } else {
+            status.setStatus("Assigning hbase:meta region, replicaId " + replicaId);
+        }
+
+        RegionStates regionStates = this.assignmentManager.getRegionStates();
+        RegionState metaState = MetaTableLocator.getMetaRegionState(this.getZooKeeper(), replicaId);
+        HRegionInfo hri = RegionReplicaUtil.getRegionInfoForReplica(HRegionInfo.FIRST_META_REGIONINFO, replicaId);
+        ServerName currentMetaServer = metaState.getServerName();
+        if (!ConfigUtil.useZKForAssignment(this.conf)) {
+            regionStates.createRegionState(hri, metaState.getState(), currentMetaServer, (ServerName)null);
+        } else {
+            regionStates.createRegionState(hri);
+        }
+
+        boolean rit = this.assignmentManager.processRegionInTransitionAndBlockUntilAssigned(hri);
+        boolean metaRegionLocation = this.metaTableLocator.verifyMetaRegionLocation(this.getConnection(), this.getZooKeeper(), timeout, replicaId);
+        if (metaRegionLocation && metaState.isOpened()) {
+            regionStates.updateRegionState(hri, State.OPEN, currentMetaServer);
+            this.assignmentManager.regionOnline(hri, currentMetaServer);
+        } else {
+            ++assigned;
+            if (!ConfigUtil.useZKForAssignment(this.conf)) {
+                this.assignMetaZkLess(regionStates, metaState, timeout, previouslyFailedMetaRSs);
+            } else if (!rit) {
+                if (currentMetaServer != null) {
+                    if (this.serverManager.isServerOnline(currentMetaServer)) {
+                        LOG.info("Forcing expire of " + currentMetaServer);
+                        this.serverManager.expireServer(currentMetaServer);
+                    }
+
+                    if (replicaId == 0) {
+                        this.splitMetaLogBeforeAssignment(currentMetaServer);
+                        previouslyFailedMetaRSs.add(currentMetaServer);
+                    }
+                }
+
+                this.assignmentManager.assignMeta(hri);
+            }
+        }
+
+        if (replicaId == 0) {
+            this.enableMeta(TableName.META_TABLE_NAME);
+        }
+
+        if (RecoveryMode.LOG_REPLAY == this.getMasterFileSystem().getLogRecoveryMode() && !previouslyFailedMetaRSs.isEmpty()) {
+            status.setStatus("replaying log for Meta Region");
+            this.fileSystemManager.splitMetaLog(previouslyFailedMetaRSs);
+        }
+
+        if (replicaId == 0) {
+            this.enableCrashedServerProcessing(assigned != 0);
+        }
+
+        LOG.info("hbase:meta with replicaId " + replicaId + " assigned=" + assigned + ", rit=" + rit + ", location=" + this.metaTableLocator.getMetaRegionLocation(this.getZooKeeper(), replicaId));
+        status.setStatus("META assigned.");
+    }
+
+    private void assignMetaZkLess(RegionStates regionStates, RegionState regionState, long timeout, Set<ServerName> previouslyFailedRs) throws IOException, KeeperException {
+        ServerName currentServer = regionState.getServerName();
+        if (this.serverManager.isServerOnline(currentServer)) {
+            LOG.info("Meta was in transition on " + currentServer);
+            this.assignmentManager.processRegionInTransitionZkLess();
+        } else {
+            if (currentServer != null && regionState.getRegion().getReplicaId() == 0) {
+                this.splitMetaLogBeforeAssignment(currentServer);
+                regionStates.logSplit(HRegionInfo.FIRST_META_REGIONINFO);
+                previouslyFailedRs.add(currentServer);
+            }
+
+            LOG.info("Re-assigning hbase:meta, it was on " + currentServer);
+            regionStates.updateRegionState(regionState.getRegion(), State.OFFLINE);
+            this.assignmentManager.assignMeta(regionState.getRegion());
+        }
+
+    }
+
+    void initNamespace() throws IOException {
+        this.tableNamespaceManager = new TableNamespaceManager(this);
+        this.tableNamespaceManager.start();
+    }
+
+    boolean isCatalogJanitorEnabled() {
+        return this.catalogJanitorChore != null ? this.catalogJanitorChore.getEnabled() : false;
+    }
+
+    private void splitMetaLogBeforeAssignment(ServerName currentMetaServer) throws IOException {
+        if (RecoveryMode.LOG_REPLAY == this.getMasterFileSystem().getLogRecoveryMode()) {
+            Set<HRegionInfo> regions = new HashSet();
+            regions.add(HRegionInfo.FIRST_META_REGIONINFO);
+            this.fileSystemManager.prepareLogReplay(currentMetaServer, regions);
+        } else {
+            this.fileSystemManager.splitMetaLog(currentMetaServer);
+        }
+
+    }
+
+    private void enableCrashedServerProcessing(boolean waitForMeta) throws IOException, InterruptedException {
+        if (!this.isServerCrashProcessingEnabled()) {
+            this.setServerCrashProcessingEnabled(true);
+            this.serverManager.processQueuedDeadServers();
+        }
+
+        if (waitForMeta) {
+            this.metaTableLocator.waitMetaRegionLocation(this.getZooKeeper());
+            this.assignmentManager.waitForAssignment(HRegionInfo.FIRST_META_REGIONINFO);
+        }
+
+    }
+
+    private void enableMeta(TableName metaTableName) {
+        if (!this.assignmentManager.getTableStateManager().isTableState(metaTableName, new ZooKeeperProtos.Table.State[]{org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State.ENABLED})) {
+            this.assignmentManager.setEnabledTable(metaTableName);
+        }
+
+    }
+
+    private Set<ServerName> getPreviouselyFailedMetaServersFromZK() throws KeeperException {
+        Set<ServerName> result = new HashSet();
+        String metaRecoveringZNode = ZKUtil.joinZNode(this.zooKeeper.recoveringRegionsZNode, HRegionInfo.FIRST_META_REGIONINFO.getEncodedName());
+        List<String> regionFailedServers = ZKUtil.listChildrenNoWatch(this.zooKeeper, metaRecoveringZNode);
+        if (regionFailedServers == null) {
+            return result;
+        } else {
+            Iterator i$ = regionFailedServers.iterator();
+
+            while(i$.hasNext()) {
+                String failedServer = (String)i$.next();
+                ServerName server = ServerName.parseServerName(failedServer);
+                result.add(server);
+            }
+
+            return result;
+        }
+    }
+
+    public TableDescriptors getTableDescriptors() {
+        return this.tableDescriptors;
+    }
+
+    public ServerManager getServerManager() {
+        return this.serverManager;
+    }
+
+    public MasterFileSystem getMasterFileSystem() {
+        return this.fileSystemManager;
+    }
+
+    public TableNamespaceManager getTableNamespaceManager() {
+        return this.tableNamespaceManager;
+    }
+
+    private void startServiceThreads() throws IOException {
+        this.service.startExecutorService(ExecutorType.MASTER_OPEN_REGION, this.conf.getInt("hbase.master.executor.openregion.threads", 5));
+        this.service.startExecutorService(ExecutorType.MASTER_CLOSE_REGION, this.conf.getInt("hbase.master.executor.closeregion.threads", 5));
+        this.service.startExecutorService(ExecutorType.MASTER_SERVER_OPERATIONS, this.conf.getInt("hbase.master.executor.serverops.threads", 5));
+        this.service.startExecutorService(ExecutorType.MASTER_META_SERVER_OPERATIONS, this.conf.getInt("hbase.master.executor.serverops.threads", 5));
+        this.service.startExecutorService(ExecutorType.M_LOG_REPLAY_OPS, this.conf.getInt("hbase.master.executor.logreplayops.threads", 10));
+        this.service.startExecutorService(ExecutorType.MASTER_TABLE_OPERATIONS, 1);
+        this.startProcedureExecutor();
+        int cleanerInterval = this.conf.getInt("hbase.master.cleaner.interval", 60000);
+        this.logCleaner = new LogCleaner(cleanerInterval, this, this.conf, this.getMasterFileSystem().getFileSystem(), this.getMasterFileSystem().getOldLogDir());
+        this.getChoreService().scheduleChore(this.logCleaner);
+        Path archiveDir = HFileArchiveUtil.getArchivePath(this.conf);
+        this.hfileCleaner = new HFileCleaner(cleanerInterval, this, this.conf, this.getMasterFileSystem().getFileSystem(), archiveDir);
+        this.getChoreService().scheduleChore(this.hfileCleaner);
+        this.serviceStarted = true;
+        if (LOG.isTraceEnabled()) {
+            LOG.trace("Started service threads");
+        }
+
+        if (!this.conf.getBoolean("hbase.zookeeper.useMulti", true)) {
+            try {
+                this.replicationZKLockCleanerChore = new ReplicationZKLockCleanerChore(this, this, cleanerInterval, this.getZooKeeper(), this.conf);
+                this.getChoreService().scheduleChore(this.replicationZKLockCleanerChore);
+            } catch (Exception var4) {
+                LOG.error("start replicationZKLockCleanerChore failed", var4);
+            }
+        }
+
+    }
+
+    protected void sendShutdownInterrupt() {
+        super.sendShutdownInterrupt();
+        this.stopProcedureExecutor();
+    }
+
+    protected void stopServiceThreads() {
+        if (this.masterJettyServer != null) {
+            LOG.info("Stopping master jetty server");
+
+            try {
+                this.masterJettyServer.stop();
+            } catch (Exception var2) {
+                LOG.error("Failed to stop master jetty server", var2);
+            }
+        }
+
+        super.stopServiceThreads();
+        this.stopChores();
+        if (!this.isAborted() && this.serverManager != null && this.serverManager.isClusterShutdown()) {
+            this.serverManager.letRegionServersShutdown();
+        }
+
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Stopping service threads");
+        }
+
+        if (this.logCleaner != null) {
+            this.logCleaner.cancel(true);
+        }
+
+        if (this.hfileCleaner != null) {
+            this.hfileCleaner.cancel(true);
+        }
+
+        if (this.replicationZKLockCleanerChore != null) {
+            this.replicationZKLockCleanerChore.cancel(true);
+        }
+
+        if (this.quotaManager != null) {
+            this.quotaManager.stop();
+        }
+
+        if (this.activeMasterManager != null) {
+            this.activeMasterManager.stop();
+        }
+
+        if (this.serverManager != null) {
+            this.serverManager.stop();
+        }
+
+        if (this.assignmentManager != null) {
+            this.assignmentManager.stop();
+        }
+
+        if (this.fileSystemManager != null) {
+            this.fileSystemManager.stop();
+        }
+
+        if (this.mpmHost != null) {
+            this.mpmHost.stop("server shutting down.");
+        }
+
+    }
+
+    private void startProcedureExecutor() throws IOException {
+        MasterProcedureEnv procEnv = new MasterProcedureEnv(this);
+        Path logDir = new Path(this.fileSystemManager.getRootDir(), "MasterProcWALs");
+        this.procedureStore = new WALProcedureStore(this.conf, this.fileSystemManager.getFileSystem(), logDir, new MasterProcedureEnv.WALStoreLeaseRecovery(this));
+        this.procedureStore.registerListener(new MasterProcedureEnv.MasterProcedureStoreListener(this));
+        this.procedureExecutor = new ProcedureExecutor(this.conf, procEnv, this.procedureStore, procEnv.getProcedureQueue());
+        int numThreads = this.conf.getInt("hbase.master.procedure.threads", Math.max(Runtime.getRuntime().availableProcessors(), 4));
+        boolean abortOnCorruption = this.conf.getBoolean("hbase.procedure.abort.on.corruption", false);
+        this.procedureStore.start(numThreads);
+        this.procedureExecutor.start(numThreads, abortOnCorruption);
+    }
+
+    private void stopProcedureExecutor() {
+        if (this.procedureExecutor != null) {
+            this.procedureExecutor.stop();
+        }
+
+        if (this.procedureStore != null) {
+            this.procedureStore.stop(this.isAborted());
+        }
+
+    }
+
+    private void stopChores() {
+        if (this.balancerChore != null) {
+            this.balancerChore.cancel(true);
+        }
+
+        if (this.normalizerChore != null) {
+            this.normalizerChore.cancel(true);
+        }
+
+        if (this.clusterStatusChore != null) {
+            this.clusterStatusChore.cancel(true);
+        }
+
+        if (this.catalogJanitorChore != null) {
+            this.catalogJanitorChore.cancel(true);
+        }
+
+        if (this.clusterStatusPublisherChore != null) {
+            this.clusterStatusPublisherChore.cancel(true);
+        }
+
+        if (this.periodicDoMetricsChore != null) {
+            this.periodicDoMetricsChore.cancel();
+        }
+
+    }
+
+    InetAddress getRemoteInetAddress(int port, long serverStartCode) throws UnknownHostException {
+        InetAddress ia = RpcServer.getRemoteIp();
+        if (ia == null && serverStartCode == this.startcode) {
+            InetSocketAddress isa = this.rpcServices.getSocketAddress();
+            if (isa != null && isa.getPort() == port) {
+                ia = isa.getAddress();
+            }
+        }
+
+        return ia;
+    }
+
+    private int getBalancerCutoffTime() {
+        int balancerCutoffTime = this.getConfiguration().getInt("hbase.balancer.max.balancing", -1);
+        if (balancerCutoffTime == -1) {
+            int balancerPeriod = this.getConfiguration().getInt("hbase.balancer.period", 300000);
+            balancerCutoffTime = balancerPeriod;
+            if (balancerPeriod <= 0) {
+                balancerCutoffTime = balancerPeriod;
+            }
+        }
+
+        return balancerCutoffTime;
+    }
+
+    public boolean balance() throws IOException {
+        return this.balance(false);
+    }
+
+    public boolean balance(boolean force) throws IOException {
+        if (!this.isInitialized()) {
+            LOG.debug("Master has not been initialized, don't run balancer.");
+            return false;
+        } else {
+            int maximumBalanceTime = this.getBalancerCutoffTime();
+            synchronized(this.balancer) {
+                if (!this.loadBalancerTracker.isBalancerOn()) {
+                    return false;
+                } else {
+                    Map assignmentsByTable;
+                    if (this.assignmentManager.getRegionStates().isRegionsInTransition()) {
+                        assignmentsByTable = this.assignmentManager.getRegionStates().getRegionsInTransition();
+                        boolean metaInTransition = this.assignmentManager.getRegionStates().isMetaRegionInTransition();
+                        String prefix = force && !metaInTransition ? "R" : "Not r";
+                        LOG.debug(prefix + "unning balancer because " + assignmentsByTable.size() + " region(s) in transition: " + StringUtils.abbreviate(assignmentsByTable.toString(), 256));
+                        if (!force || metaInTransition) {
+                            return false;
+                        }
+                    }
+
+                    if (this.serverManager.areDeadServersInProgress()) {
+                        LOG.debug("Not running balancer because processing dead regionserver(s): " + this.serverManager.getDeadServers());
+                        return false;
+                    } else {
+                        if (this.cpHost != null) {
+                            try {
+                                if (this.cpHost.preBalance()) {
+                                    LOG.debug("Coprocessor bypassing balancer request");
+                                    boolean var10000 = false;
+                                    return var10000;
+                                }
+                            } catch (IOException var17) {
+                                LOG.error("Error invoking master coprocessor preBalance()", var17);
+                                return false;
+                            }
+                        }
+
+                        assignmentsByTable = this.assignmentManager.getRegionStates().getAssignmentsByTable();
+                        List<RegionPlan> plans = new ArrayList();
+                        this.balancer.setClusterStatus(this.getClusterStatus());
+                        Iterator i$ = assignmentsByTable.entrySet().iterator();
+
+                        while(i$.hasNext()) {
+                            Map.Entry<TableName, Map<ServerName, List<HRegionInfo>>> e = (Map.Entry)i$.next();
+                            List<RegionPlan> partialPlans = this.balancer.balanceCluster((TableName)e.getKey(), (Map)e.getValue());
+                            if (partialPlans != null) {
+                                plans.addAll(partialPlans);
+                            }
+                        }
+
+                        long cutoffTime = System.currentTimeMillis() + (long)maximumBalanceTime;
+                        int rpCount = 0;
+                        long totalRegPlanExecTime = 0L;
+                        if (plans != null && !plans.isEmpty()) {
+                            Iterator i$ = plans.iterator();
+
+                            while(i$.hasNext()) {
+                                RegionPlan plan = (RegionPlan)i$.next();
+                                LOG.info("balance " + plan);
+                                long balStartTime = System.currentTimeMillis();
+                                this.assignmentManager.balance(plan);
+                                totalRegPlanExecTime += System.currentTimeMillis() - balStartTime;
+                                ++rpCount;
+                                if (rpCount < plans.size() && System.currentTimeMillis() + totalRegPlanExecTime / (long)rpCount > cutoffTime) {
+                                    LOG.debug("No more balancing till next balance run; maximumBalanceTime=" + maximumBalanceTime);
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (this.cpHost != null) {
+                            try {
+                                this.cpHost.postBalance((List)(rpCount < plans.size() ? plans.subList(0, rpCount) : plans));
+                            } catch (IOException var16) {
+                                LOG.error("Error invoking master coprocessor postBalance()", var16);
+                            }
+                        }
+
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+
+    public boolean normalizeRegions() throws IOException, CoordinatedStateException {
+        if (!this.isInitialized()) {
+            LOG.debug("Master has not been initialized, don't run region normalizer.");
+            return false;
+        } else if (!this.regionNormalizerTracker.isNormalizerOn()) {
+            LOG.debug("Region normalization is disabled, don't run region normalizer.");
+            return false;
+        } else {
+            synchronized(this.normalizer) {
+                List<TableName> allEnabledTables = new ArrayList(this.assignmentManager.getTableStateManager().getTablesInStates(new ZooKeeperProtos.Table.State[]{org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State.ENABLED}));
+                Collections.shuffle(allEnabledTables);
+                Iterator i$ = allEnabledTables.iterator();
+
+                while(true) {
+                    while(i$.hasNext()) {
+                        TableName table = (TableName)i$.next();
+                        if (this.quotaManager.getNamespaceQuotaManager() != null && this.quotaManager.getNamespaceQuotaManager().getState(table.getNamespaceAsString()) != null) {
+                            LOG.debug("Skipping normalizing " + table + " since its namespace has quota");
+                        } else if (table.isSystemTable() || this.getTableDescriptors().get(table) != null && !this.getTableDescriptors().get(table).isNormalizationEnabled()) {
+                            LOG.debug("Skipping normalization for table: " + table + ", as it's either system" + " table or doesn't have auto normalization turned on");
+                        } else {
+                            List<NormalizationPlan> plans = this.normalizer.computePlanForTable(table);
+                            if (plans != null) {
+                                Iterator i$ = plans.iterator();
+
+                                while(i$.hasNext()) {
+                                    NormalizationPlan plan = (NormalizationPlan)i$.next();
+                                    plan.execute(this.clusterConnection.getAdmin());
+                                    if (plan.getType() == PlanType.SPLIT) {
+                                        ++this.splitPlanCount;
+                                    } else if (plan.getType() == PlanType.MERGE) {
+                                        ++this.mergePlanCount;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    return true;
+                }
+            }
+        }
+    }
+
+    String getClientIdAuditPrefix() {
+        return "Client=" + RpcServer.getRequestUserName() + "/" + RpcServer.getRemoteAddress();
+    }
+
+    public void setCatalogJanitorEnabled(boolean b) {
+        this.catalogJanitorChore.setEnabled(b);
+    }
+
+    public void dispatchMergingRegions(HRegionInfo region_a, HRegionInfo region_b, boolean forcible, User user) throws IOException {
+        this.checkInitialized();
+        this.service.submit(new DispatchMergingRegionHandler(this, this.catalogJanitorChore, region_a, region_b, forcible, user));
+    }
+
+    void move(byte[] encodedRegionName, byte[] destServerName) throws HBaseIOException {
+        RegionState regionState = this.assignmentManager.getRegionStates().getRegionState(Bytes.toString(encodedRegionName));
+        if (regionState == null) {
+            throw new UnknownRegionException(Bytes.toStringBinary(encodedRegionName));
+        } else {
+            HRegionInfo hri = regionState.getRegion();
+            ServerName dest;
+            if (destServerName != null && destServerName.length != 0) {
+                dest = ServerName.valueOf(Bytes.toString(destServerName));
+                if (dest.equals(this.serverName) && this.balancer instanceof BaseLoadBalancer && !((BaseLoadBalancer)this.balancer).shouldBeOnMaster(hri)) {
+                    LOG.debug("Skipping move of region " + hri.getRegionNameAsString() + " to avoid unnecessary region moving later by load balancer," + " because it should not be on master");
+                    return;
+                }
+            } else {
+                LOG.info("Passed destination servername is null/empty so choosing a server at random");
+                List<ServerName> destServers = this.serverManager.createDestinationServersList(regionState.getServerName());
+                dest = this.balancer.randomAssignment(hri, destServers);
+                if (dest == null) {
+                    LOG.debug("Unable to determine a plan to assign " + hri);
+                    return;
+                }
+            }
+
+            if (dest.equals(regionState.getServerName())) {
+                LOG.debug("Skipping move of region " + hri.getRegionNameAsString() + " because region already assigned to the same server " + dest + ".");
+            } else {
+                RegionPlan rp = new RegionPlan(hri, regionState.getServerName(), dest);
+
+                try {
+                    this.checkInitialized();
+                    if (this.cpHost == null || !this.cpHost.preMove(hri, rp.getSource(), rp.getDestination())) {
+                        this.serverManager.sendRegionWarmup(rp.getDestination(), hri);
+                        LOG.info(this.getClientIdAuditPrefix() + " move " + rp + ", running balancer");
+                        this.assignmentManager.balance(rp);
+                        if (this.cpHost != null) {
+                            this.cpHost.postMove(hri, rp.getSource(), rp.getDestination());
+                        }
+
+                    }
+                } catch (IOException var8) {
+                    if (var8 instanceof HBaseIOException) {
+                        throw (HBaseIOException)var8;
+                    } else {
+                        throw new HBaseIOException(var8);
+                    }
+                }
+            }
+        }
+    }
+
+    public long createTable(final HTableDescriptor hTableDescriptor, byte[][] splitKeys, long nonceGroup, long nonce) throws IOException {
+        if (this.isStopped()) {
+            throw new MasterNotRunningException();
+        } else {
+            String namespace = hTableDescriptor.getTableName().getNamespaceAsString();
+            this.ensureNamespaceExists(namespace);
+            final HRegionInfo[] newRegions = ModifyRegionUtils.createHRegionInfos(hTableDescriptor, splitKeys);
+            this.checkInitialized();
+            this.sanityCheckTableDescriptor(hTableDescriptor);
+            return MasterProcedureUtil.submitProcedure(new MasterProcedureUtil.NonceProcedureRunnable(this, nonceGroup, nonce) {
+                protected void run() throws IOException {
+                    this.getMaster().getMasterCoprocessorHost().preCreateTable(hTableDescriptor, newRegions);
+                    HMaster.LOG.info(HMaster.this.getClientIdAuditPrefix() + " create " + hTableDescriptor);
+                    ProcedurePrepareLatch latch = ProcedurePrepareLatch.createLatch();
+                    this.submitProcedure(new CreateTableProcedure((MasterProcedureEnv)HMaster.this.procedureExecutor.getEnvironment(), hTableDescriptor, newRegions, latch));
+                    latch.await();
+                    this.getMaster().getMasterCoprocessorHost().postCreateTable(hTableDescriptor, newRegions);
+                }
+
+                protected String getDescription() {
+                    return "CreateTableProcedure";
+                }
+            });
+        }
+    }
+
+    public long createSystemTable(HTableDescriptor hTableDescriptor) throws IOException {
+        if (this.isStopped()) {
+            throw new MasterNotRunningException();
+        } else {
+            TableName tableName = hTableDescriptor.getTableName();
+            if (!tableName.isSystemTable()) {
+                throw new IllegalArgumentException("Only system table creation can use this createSystemTable API");
+            } else {
+                HRegionInfo[] newRegions = ModifyRegionUtils.createHRegionInfos(hTableDescriptor, (byte[][])null);
+                LOG.info(this.getClientIdAuditPrefix() + " create " + hTableDescriptor);
+                long procId = this.procedureExecutor.submitProcedure(new CreateTableProcedure((MasterProcedureEnv)this.procedureExecutor.getEnvironment(), hTableDescriptor, newRegions));
+                return procId;
+            }
+        }
+    }
+
+    private void sanityCheckTableDescriptor(HTableDescriptor htd) throws IOException {
+        String CONF_KEY = "hbase.table.sanity.checks";
+        boolean logWarn = false;
+        if (!this.conf.getBoolean("hbase.table.sanity.checks", true)) {
+            logWarn = true;
+        }
+
+        String tableVal = htd.getConfigurationValue("hbase.table.sanity.checks");
+        if (tableVal != null && !Boolean.valueOf(tableVal)) {
+            logWarn = true;
+        }
+
+        long maxFileSizeLowerLimit = 2097152L;
+        long maxFileSize = htd.getMaxFileSize();
+        if (maxFileSize < 0L) {
+            maxFileSize = this.conf.getLong("hbase.hregion.max.filesize", maxFileSizeLowerLimit);
+        }
+
+        if (maxFileSize < this.conf.getLong("hbase.hregion.max.filesize.limit", maxFileSizeLowerLimit)) {
+            String message = "MAX_FILESIZE for table descriptor or \"hbase.hregion.max.filesize\" (" + maxFileSize + ") is too small, which might cause over splitting into unmanageable " + "number of regions.";
+            warnOrThrowExceptionForFailure(logWarn, "hbase.table.sanity.checks", message, (Exception)null);
+        }
+
+        long flushSizeLowerLimit = 1048576L;
+        long flushSize = htd.getMemStoreFlushSize();
+        if (flushSize < 0L) {
+            flushSize = this.conf.getLong("hbase.hregion.memstore.flush.size", flushSizeLowerLimit);
+        }
+
+        String message;
+        if (flushSize < this.conf.getLong("hbase.hregion.memstore.flush.size.limit", flushSizeLowerLimit)) {
+            message = "MEMSTORE_FLUSHSIZE for table descriptor or \"hbase.hregion.memstore.flush.size\" (" + flushSize + ") is too small, which might cause" + " very frequent flushing.";
+            warnOrThrowExceptionForFailure(logWarn, "hbase.table.sanity.checks", message, (Exception)null);
+        }
+
+        try {
+            this.checkClassLoading(this.conf, htd);
+        } catch (Exception var21) {
+            warnOrThrowExceptionForFailure(logWarn, "hbase.table.sanity.checks", var21.getMessage(), (Exception)null);
+        }
+
+        try {
+            this.checkCompression(htd);
+        } catch (IOException var20) {
+            warnOrThrowExceptionForFailure(logWarn, "hbase.table.sanity.checks", var20.getMessage(), var20);
+        }
+
+        try {
+            this.checkEncryption(this.conf, htd);
+        } catch (IOException var19) {
+            warnOrThrowExceptionForFailure(logWarn, "hbase.table.sanity.checks", var19.getMessage(), var19);
+        }
+
+        try {
+            this.checkCompactionPolicy(this.conf, htd);
+        } catch (IOException var18) {
+            warnOrThrowExceptionForFailure(false, "hbase.table.sanity.checks", var18.getMessage(), var18);
+        }
+
+        if (htd.getColumnFamilies().length == 0) {
+            message = "Table should have at least one column family.";
+            warnOrThrowExceptionForFailure(logWarn, "hbase.table.sanity.checks", message, (Exception)null);
+        }
+
+        HColumnDescriptor[] arr$ = htd.getColumnFamilies();
+        int len$ = arr$.length;
+
+        for(int i$ = 0; i$ < len$; ++i$) {
+            HColumnDescriptor hcd = arr$[i$];
+            String message;
+            if (hcd.getTimeToLive() <= 0) {
+                message = "TTL for column family " + hcd.getNameAsString() + " must be positive.";
+                warnOrThrowExceptionForFailure(logWarn, "hbase.table.sanity.checks", message, (Exception)null);
+            }
+
+            if (hcd.getBlocksize() < 1024 || hcd.getBlocksize() > 16777216) {
+                message = "Block size for column family " + hcd.getNameAsString() + "  must be between 1K and 16MB.";
+                warnOrThrowExceptionForFailure(logWarn, "hbase.table.sanity.checks", message, (Exception)null);
+            }
+
+            if (hcd.getMinVersions() < 0) {
+                message = "Min versions for column family " + hcd.getNameAsString() + "  must be positive.";
+                warnOrThrowExceptionForFailure(logWarn, "hbase.table.sanity.checks", message, (Exception)null);
+            }
+
+            if (hcd.getMinVersions() > hcd.getMaxVersions()) {
+                message = "Min versions for column family " + hcd.getNameAsString() + " must be less than the Max versions.";
+                warnOrThrowExceptionForFailure(logWarn, "hbase.table.sanity.checks", message, (Exception)null);
+            }
+
+            if (hcd.getScope() < 0) {
+                message = "Replication scope for column family " + hcd.getNameAsString() + "  must be positive.";
+                warnOrThrowExceptionForFailure(logWarn, "hbase.table.sanity.checks", message, (Exception)null);
+            }
+
+            if (hcd.getDFSReplication() < 0) {
+                message = "HFile Replication for column family " + hcd.getNameAsString() + "  must be greater than zero.";
+                warnOrThrowExceptionForFailure(logWarn, "hbase.table.sanity.checks", message, (Exception)null);
+            }
+        }
+
+    }
+
+    private void checkCompactionPolicy(Configuration conf, HTableDescriptor htd) throws IOException {
+        String className = htd.getConfigurationValue("hbase.hstore.defaultengine.compactionpolicy.class");
+        if (className == null) {
+            className = conf.get("hbase.hstore.defaultengine.compactionpolicy.class", ExploringCompactionPolicy.class.getName());
+        }
+
+        int blockingFileCount = 7;
+        String sv = htd.getConfigurationValue("hbase.hstore.blockingStoreFiles");
+        if (sv != null) {
+            blockingFileCount = Integer.parseInt(sv);
+        } else {
+            blockingFileCount = conf.getInt("hbase.hstore.blockingStoreFiles", blockingFileCount);
+        }
+
+        HColumnDescriptor[] arr$ = htd.getColumnFamilies();
+        int len$ = arr$.length;
+
+        for(int i$ = 0; i$ < len$; ++i$) {
+            HColumnDescriptor hcd = arr$[i$];
+            String compactionPolicy = hcd.getConfigurationValue("hbase.hstore.defaultengine.compactionpolicy.class");
+            if (compactionPolicy == null) {
+                compactionPolicy = className;
+            }
+
+            if (compactionPolicy.equals(FIFOCompactionPolicy.class.getName())) {
+                String message = null;
+                if (hcd.getTimeToLive() == Integer.MAX_VALUE) {
+                    message = "Default TTL is not supported for FIFO compaction";
+                    throw new IOException(message);
+                }
+
+                if (hcd.getMinVersions() > 0) {
+                    message = "MIN_VERSION > 0 is not supported for FIFO compaction";
+                    throw new IOException(message);
+                }
+
+                String sbfc = htd.getConfigurationValue("hbase.hstore.blockingStoreFiles");
+                if (sbfc != null) {
+                    blockingFileCount = Integer.parseInt(sbfc);
+                }
+
+                if (blockingFileCount < 1000) {
+                    message = "blocking file count 'hbase.hstore.blockingStoreFiles' " + blockingFileCount + " is below recommended minimum of 1000";
+                    throw new IOException(message);
+                }
+            }
+        }
+
+    }
+
+    private static void warnOrThrowExceptionForFailure(boolean logWarn, String confKey, String message, Exception cause) throws IOException {
+        if (!logWarn) {
+            throw new DoNotRetryIOException(message + " Set " + confKey + " to false at conf or table descriptor if you want to bypass sanity checks", cause);
+        } else {
+            LOG.warn(message);
+        }
+    }
+
+    private void startActiveMasterManager(int infoPort) throws KeeperException {
+        String backupZNode = ZKUtil.joinZNode(this.zooKeeper.backupMasterAddressesZNode, this.serverName.toString());
+        LOG.info("Adding backup master ZNode " + backupZNode);
+        if (!MasterAddressTracker.setMasterAddress(this.zooKeeper, backupZNode, this.serverName, infoPort)) {
+            LOG.warn("Failed create of " + backupZNode + " by " + this.serverName);
+        }
+
+        this.activeMasterManager.setInfoPort(infoPort);
+        Threads.setDaemonThreadRunning(new Thread(new Runnable() {
+            public void run() {
+                int timeout = HMaster.this.conf.getInt("zookeeper.session.timeout", 180000);
+                if (HMaster.this.conf.getBoolean("hbase.master.backup", false)) {
+                    HMaster.LOG.debug("HMaster started in backup mode. Stalling until master znode is written.");
+
+                    while(!HMaster.this.activeMasterManager.hasActiveMaster()) {
+                        HMaster.LOG.debug("Waiting for master address ZNode to be written (Also watching cluster state node)");
+                        Threads.sleep((long)timeout);
+                    }
+                }
+
+                MonitoredTask status = TaskMonitor.get().createStatus("Master startup");
+                status.setDescription("Master startup");
+
+                try {
+                    if (HMaster.this.activeMasterManager.blockUntilBecomingActiveMaster(timeout, status)) {
+                        HMaster.this.finishActiveMasterInitialization(status);
+                    }
+                } catch (Throwable var7) {
+                    status.setStatus("Failed to become active: " + var7.getMessage());
+                    HMaster.LOG.fatal("Failed to become active master", var7);
+                    if (var7 instanceof NoClassDefFoundError && var7.getMessage().contains("org/apache/hadoop/hdfs/protocol/HdfsConstants$SafeModeAction")) {
+                        HMaster.this.abort("HBase is having a problem with its Hadoop jars.  You may need to recompile HBase against Hadoop version " + VersionInfo.getVersion() + " or change your hadoop jars to start properly", var7);
+                    } else {
+                        HMaster.this.abort("Unhandled exception. Starting shutdown.", var7);
+                    }
+                } finally {
+                    status.cleanup();
+                }
+
+            }
+        }, this.getServerName().toShortString() + ".activeMasterManager"));
+    }
+
+    private void checkCompression(HTableDescriptor htd) throws IOException {
+        if (this.masterCheckCompression) {
+            HColumnDescriptor[] arr$ = htd.getColumnFamilies();
+            int len$ = arr$.length;
+
+            for(int i$ = 0; i$ < len$; ++i$) {
+                HColumnDescriptor hcd = arr$[i$];
+                this.checkCompression(hcd);
+            }
+
+        }
+    }
+
+    private void checkCompression(HColumnDescriptor hcd) throws IOException {
+        if (this.masterCheckCompression) {
+            CompressionTest.testCompression(hcd.getCompression());
+            CompressionTest.testCompression(hcd.getCompactionCompression());
+        }
+    }
+
+    private void checkEncryption(Configuration conf, HTableDescriptor htd) throws IOException {
+        if (this.masterCheckEncryption) {
+            HColumnDescriptor[] arr$ = htd.getColumnFamilies();
+            int len$ = arr$.length;
+
+            for(int i$ = 0; i$ < len$; ++i$) {
+                HColumnDescriptor hcd = arr$[i$];
+                this.checkEncryption(conf, hcd);
+            }
+
+        }
+    }
+
+    private void checkEncryption(Configuration conf, HColumnDescriptor hcd) throws IOException {
+        if (this.masterCheckEncryption) {
+            EncryptionTest.testEncryption(conf, hcd.getEncryptionType(), hcd.getEncryptionKey());
+        }
+    }
+
+    private void checkClassLoading(Configuration conf, HTableDescriptor htd) throws IOException {
+        RegionSplitPolicy.getSplitPolicyClass(htd, conf);
+        RegionCoprocessorHost.testTableCoprocessorAttrs(conf, htd);
+    }
+
+    private static boolean isCatalogTable(TableName tableName) {
+        return tableName.equals(TableName.META_TABLE_NAME);
+    }
+
+    public long deleteTable(final TableName tableName, long nonceGroup, long nonce) throws IOException {
+        this.checkInitialized();
+        return MasterProcedureUtil.submitProcedure(new MasterProcedureUtil.NonceProcedureRunnable(this, nonceGroup, nonce) {
+            protected void run() throws IOException {
+                this.getMaster().getMasterCoprocessorHost().preDeleteTable(tableName);
+                HMaster.LOG.info(HMaster.this.getClientIdAuditPrefix() + " delete " + tableName);
+                ProcedurePrepareLatch latch = ProcedurePrepareLatch.createLatch();
+                this.submitProcedure(new DeleteTableProcedure((MasterProcedureEnv)HMaster.this.procedureExecutor.getEnvironment(), tableName, latch));
+                latch.await();
+                this.getMaster().getMasterCoprocessorHost().postDeleteTable(tableName);
+            }
+
+            protected String getDescription() {
+                return "DeleteTableProcedure";
+            }
+        });
+    }
+
+    public void truncateTable(final TableName tableName, final boolean preserveSplits, long nonceGroup, long nonce) throws IOException {
+        this.checkInitialized();
+        MasterProcedureUtil.submitProcedure(new MasterProcedureUtil.NonceProcedureRunnable(this, nonceGroup, nonce) {
+            protected void run() throws IOException {
+                this.getMaster().getMasterCoprocessorHost().preTruncateTable(tableName);
+                HMaster.LOG.info(HMaster.this.getClientIdAuditPrefix() + " truncate " + tableName);
+                long procId = this.submitProcedure(new TruncateTableProcedure((MasterProcedureEnv)HMaster.this.procedureExecutor.getEnvironment(), tableName, preserveSplits));
+                ProcedureSyncWait.waitForProcedureToComplete(HMaster.this.procedureExecutor, procId);
+                this.getMaster().getMasterCoprocessorHost().postTruncateTable(tableName);
+            }
+
+            protected String getDescription() {
+                return "TruncateTableProcedure";
+            }
+        });
+    }
+
+    public void addColumn(final TableName tableName, final HColumnDescriptor columnDescriptor, long nonceGroup, long nonce) throws IOException {
+        this.checkInitialized();
+        this.checkCompression(columnDescriptor);
+        this.checkEncryption(this.conf, columnDescriptor);
+        MasterProcedureUtil.submitProcedure(new MasterProcedureUtil.NonceProcedureRunnable(this, nonceGroup, nonce) {
+            protected void run() throws IOException {
+                if (!this.getMaster().getMasterCoprocessorHost().preAddColumn(tableName, columnDescriptor)) {
+                    long procId = this.submitProcedure(new AddColumnFamilyProcedure((MasterProcedureEnv)HMaster.this.procedureExecutor.getEnvironment(), tableName, columnDescriptor));
+                    ProcedureSyncWait.waitForProcedureToComplete(HMaster.this.procedureExecutor, procId);
+                    this.getMaster().getMasterCoprocessorHost().postAddColumn(tableName, columnDescriptor);
+                }
+            }
+
+            protected String getDescription() {
+                return "AddColumnFamilyProcedure";
+            }
+        });
+    }
+
+    public void modifyColumn(final TableName tableName, final HColumnDescriptor descriptor, long nonceGroup, long nonce) throws IOException {
+        this.checkInitialized();
+        this.checkCompression(descriptor);
+        this.checkEncryption(this.conf, descriptor);
+        MasterProcedureUtil.submitProcedure(new MasterProcedureUtil.NonceProcedureRunnable(this, nonceGroup, nonce) {
+            protected void run() throws IOException {
+                if (!this.getMaster().getMasterCoprocessorHost().preModifyColumn(tableName, descriptor)) {
+                    HMaster.LOG.info(HMaster.this.getClientIdAuditPrefix() + " modify " + descriptor);
+                    long procId = this.submitProcedure(new ModifyColumnFamilyProcedure((MasterProcedureEnv)HMaster.this.procedureExecutor.getEnvironment(), tableName, descriptor));
+                    ProcedureSyncWait.waitForProcedureToComplete(HMaster.this.procedureExecutor, procId);
+                    this.getMaster().getMasterCoprocessorHost().postModifyColumn(tableName, descriptor);
+                }
+            }
+
+            protected String getDescription() {
+                return "ModifyColumnFamilyProcedure";
+            }
+        });
+    }
+
+    public void deleteColumn(final TableName tableName, final byte[] columnName, long nonceGroup, long nonce) throws IOException {
+        this.checkInitialized();
+        MasterProcedureUtil.submitProcedure(new MasterProcedureUtil.NonceProcedureRunnable(this, nonceGroup, nonce) {
+            protected void run() throws IOException {
+                if (!this.getMaster().getMasterCoprocessorHost().preDeleteColumn(tableName, columnName)) {
+                    HMaster.LOG.info(HMaster.this.getClientIdAuditPrefix() + " delete " + Bytes.toString(columnName));
+                    long procId = this.submitProcedure(new DeleteColumnFamilyProcedure((MasterProcedureEnv)HMaster.this.procedureExecutor.getEnvironment(), tableName, columnName));
+                    ProcedureSyncWait.waitForProcedureToComplete(HMaster.this.procedureExecutor, procId);
+                    this.getMaster().getMasterCoprocessorHost().postDeleteColumn(tableName, columnName);
+                }
+            }
+
+            protected String getDescription() {
+                return "DeleteColumnFamilyProcedure";
+            }
+        });
+    }
+
+    public long enableTable(final TableName tableName, long nonceGroup, long nonce) throws IOException {
+        this.checkInitialized();
+        return MasterProcedureUtil.submitProcedure(new MasterProcedureUtil.NonceProcedureRunnable(this, nonceGroup, nonce) {
+            protected void run() throws IOException {
+                this.getMaster().getMasterCoprocessorHost().preEnableTable(tableName);
+                HMaster.LOG.info(HMaster.this.getClientIdAuditPrefix() + " enable " + tableName);
+                ProcedurePrepareLatch prepareLatch = ProcedurePrepareLatch.createLatch();
+                this.submitProcedure(new EnableTableProcedure((MasterProcedureEnv)HMaster.this.procedureExecutor.getEnvironment(), tableName, false, prepareLatch));
+                prepareLatch.await();
+                this.getMaster().getMasterCoprocessorHost().postEnableTable(tableName);
+            }
+
+            protected String getDescription() {
+                return "EnableTableProcedure";
+            }
+        });
+    }
+
+    public long disableTable(final TableName tableName, long nonceGroup, long nonce) throws IOException {
+        this.checkInitialized();
+        return MasterProcedureUtil.submitProcedure(new MasterProcedureUtil.NonceProcedureRunnable(this, nonceGroup, nonce) {
+            protected void run() throws IOException {
+                this.getMaster().getMasterCoprocessorHost().preDisableTable(tableName);
+                HMaster.LOG.info(HMaster.this.getClientIdAuditPrefix() + " disable " + tableName);
+                ProcedurePrepareLatch prepareLatch = ProcedurePrepareLatch.createLatch();
+                this.submitProcedure(new DisableTableProcedure((MasterProcedureEnv)HMaster.this.procedureExecutor.getEnvironment(), tableName, false, prepareLatch));
+                prepareLatch.await();
+                this.getMaster().getMasterCoprocessorHost().postDisableTable(tableName);
+            }
+
+            protected String getDescription() {
+                return "DisableTableProcedure";
+            }
+        });
+    }
+
+    @VisibleForTesting
+    Pair<HRegionInfo, ServerName> getTableRegionForRow(final TableName tableName, byte[] rowKey) throws IOException {
+        final AtomicReference<Pair<HRegionInfo, ServerName>> result = new AtomicReference((Object)null);
+        MetaScanner.MetaScannerVisitor visitor = new MetaScanner.MetaScannerVisitorBase() {
+            public boolean processRow(Result data) throws IOException {
+                if (data != null && data.size() > 0) {
+                    Pair<HRegionInfo, ServerName> pair = HRegionInfo.getHRegionInfoAndServerName(data);
+                    if (pair == null) {
+                        return false;
+                    } else if (!((HRegionInfo)pair.getFirst()).getTable().equals(tableName)) {
+                        return false;
+                    } else {
+                        result.set(pair);
+                        return true;
+                    }
+                } else {
+                    return true;
+                }
+            }
+        };
+        MetaScanner.metaScan(this.clusterConnection, visitor, tableName, rowKey, 1);
+        return (Pair)result.get();
+    }
+
+    public void modifyTable(final TableName tableName, final HTableDescriptor descriptor, long nonceGroup, long nonce) throws IOException {
+        this.checkInitialized();
+        this.sanityCheckTableDescriptor(descriptor);
+        MasterProcedureUtil.submitProcedure(new MasterProcedureUtil.NonceProcedureRunnable(this, nonceGroup, nonce) {
+            protected void run() throws IOException {
+                this.getMaster().getMasterCoprocessorHost().preModifyTable(tableName, descriptor);
+                HMaster.LOG.info(HMaster.this.getClientIdAuditPrefix() + " modify " + tableName);
+                long procId = this.submitProcedure(new ModifyTableProcedure((MasterProcedureEnv)HMaster.this.procedureExecutor.getEnvironment(), descriptor));
+                ProcedureSyncWait.waitForProcedureToComplete(HMaster.this.procedureExecutor, procId);
+                this.getMaster().getMasterCoprocessorHost().postModifyTable(tableName, descriptor);
+            }
+
+            protected String getDescription() {
+                return "ModifyTableProcedure";
+            }
+        });
+    }
+
+    public void checkTableModifiable(TableName tableName) throws IOException, TableNotFoundException, TableNotDisabledException {
+        if (isCatalogTable(tableName)) {
+            throw new IOException("Can't modify catalog tables");
+        } else if (!MetaTableAccessor.tableExists(this.getConnection(), tableName)) {
+            throw new TableNotFoundException(tableName);
+        } else if (!this.getAssignmentManager().getTableStateManager().isTableState(tableName, new ZooKeeperProtos.Table.State[]{org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State.DISABLED})) {
+            throw new TableNotDisabledException(tableName);
+        }
+    }
+
+    public ClusterStatus getClusterStatus() throws InterruptedIOException {
+        List backupMasterStrings;
+        try {
+            backupMasterStrings = ZKUtil.listChildrenNoWatch(this.zooKeeper, this.zooKeeper.backupMasterAddressesZNode);
+        } catch (KeeperException var10) {
+            LOG.warn(this.zooKeeper.prefix("Unable to list backup servers"), var10);
+            backupMasterStrings = null;
+        }
+
+        List<ServerName> backupMasters = null;
+        if (backupMasterStrings != null && !backupMasterStrings.isEmpty()) {
+            backupMasters = new ArrayList(backupMasterStrings.size());
+            Iterator i$ = backupMasterStrings.iterator();
+
+            while(i$.hasNext()) {
+                String s = (String)i$.next();
+
+                try {
+                    byte[] bytes;
+                    try {
+                        bytes = ZKUtil.getData(this.zooKeeper, ZKUtil.joinZNode(this.zooKeeper.backupMasterAddressesZNode, s));
+                    } catch (InterruptedException var9) {
+                        throw new InterruptedIOException();
+                    }
+
+                    if (bytes != null) {
+                        ServerName sn;
+                        try {
+                            sn = ServerName.parseFrom(bytes);
+                        } catch (DeserializationException var11) {
+                            LOG.warn("Failed parse, skipping registering backup server", var11);
+                            continue;
+                        }
+
+                        backupMasters.add(sn);
+                    }
+                } catch (KeeperException var12) {
+                    LOG.warn(this.zooKeeper.prefix("Unable to get information about backup servers"), var12);
+                }
+            }
+
+            Collections.sort(backupMasters, new Comparator<ServerName>() {
+                public int compare(ServerName s1, ServerName s2) {
+                    return s1.getServerName().compareTo(s2.getServerName());
+                }
+            });
+        }
+
+        String clusterId = this.fileSystemManager != null ? this.fileSystemManager.getClusterId().toString() : null;
+        Map<String, RegionState> regionsInTransition = this.assignmentManager != null ? this.assignmentManager.getRegionStates().getRegionsInTransition() : null;
+        String[] coprocessors = this.cpHost != null ? this.getMasterCoprocessors() : null;
+        boolean balancerOn = this.loadBalancerTracker != null ? this.loadBalancerTracker.isBalancerOn() : false;
+        Map<ServerName, ServerLoad> onlineServers = null;
+        Set<ServerName> deadServers = null;
+        if (this.serverManager != null) {
+            deadServers = this.serverManager.getDeadServers().copyServerNames();
+            onlineServers = this.serverManager.getOnlineServers();
+        }
+
+        return new ClusterStatus(org.apache.hadoop.hbase.util.VersionInfo.getVersion(), clusterId, onlineServers, deadServers, this.serverName, backupMasters, regionsInTransition, coprocessors, balancerOn);
+    }
+
+    public static String getLoadedCoprocessors() {
+        return CoprocessorHost.getLoadedCoprocessors().toString();
+    }
+
+    public long getMasterStartTime() {
+        return this.startcode;
+    }
+
+    public long getMasterActiveTime() {
+        return this.masterActiveTime;
+    }
+
+    public int getNumWALFiles() {
+        return this.procedureStore != null ? this.procedureStore.getActiveLogs().size() : 0;
+    }
+
+    public WALProcedureStore getWalProcedureStore() {
+        return this.procedureStore;
+    }
+
+    public int getRegionServerInfoPort(ServerName sn) {
+        HBaseProtos.RegionServerInfo info = this.regionServerTracker.getRegionServerInfo(sn);
+        return info != null && info.getInfoPort() != 0 ? info.getInfoPort() : this.conf.getInt("hbase.regionserver.info.port", 16030);
+    }
+
+    public String getRegionServerVersion(ServerName sn) {
+        HBaseProtos.RegionServerInfo info = this.regionServerTracker.getRegionServerInfo(sn);
+        return info != null && info.hasVersionInfo() ? info.getVersionInfo().getVersion() : "Unknown";
+    }
+
+    public String[] getMasterCoprocessors() {
+        Set<String> masterCoprocessors = this.getMasterCoprocessorHost().getCoprocessors();
+        return (String[])masterCoprocessors.toArray(new String[masterCoprocessors.size()]);
+    }
+
+    public void abort(String msg, Throwable t) {
+        if (!this.isAborted() && !this.isStopped()) {
+            if (this.cpHost != null) {
+                LOG.fatal("Master server abort: loaded coprocessors are: " + getLoadedCoprocessors());
+            }
+
+            if (t != null) {
+                LOG.fatal(msg, t);
+            }
+
+            this.stop(msg);
+        }
+    }
+
+    public ZooKeeperWatcher getZooKeeper() {
+        return this.zooKeeper;
+    }
+
+    public MasterCoprocessorHost getMasterCoprocessorHost() {
+        return this.cpHost;
+    }
+
+    public MasterQuotaManager getMasterQuotaManager() {
+        return this.quotaManager;
+    }
+
+    public ProcedureExecutor<MasterProcedureEnv> getMasterProcedureExecutor() {
+        return this.procedureExecutor;
+    }
+
+    public ServerName getServerName() {
+        return this.serverName;
+    }
+
+    public AssignmentManager getAssignmentManager() {
+        return this.assignmentManager;
+    }
+
+    public MemoryBoundedLogMessageBuffer getRegionServerFatalLogBuffer() {
+        return this.rsFatals;
+    }
+
+    public void shutdown() throws IOException {
+        if (this.cpHost != null) {
+            this.cpHost.preShutdown();
+        }
+
+        if (this.serverManager != null) {
+            this.serverManager.shutdownCluster();
+        }
+
+        if (this.clusterStatusTracker != null) {
+            try {
+                this.clusterStatusTracker.setClusterDown();
+            } catch (KeeperException var2) {
+                LOG.error("ZooKeeper exception trying to set cluster as down in ZK", var2);
+            }
+        }
+
+    }
+
+    public void stopMaster() throws IOException {
+        if (this.cpHost != null) {
+            this.cpHost.preStopMaster();
+        }
+
+        this.stop("Stopped by " + Thread.currentThread().getName());
+    }
+
+    void checkServiceStarted() throws ServerNotRunningYetException {
+        if (!this.serviceStarted) {
+            throw new ServerNotRunningYetException("Server is not running yet");
+        }
+    }
+
+    void checkInitialized() throws PleaseHoldException, ServerNotRunningYetException {
+        this.checkServiceStarted();
+        if (!this.isInitialized()) {
+            throw new PleaseHoldException("Master is initializing");
+        }
+    }
+
+    void checkNamespaceManagerReady() throws IOException {
+        this.checkInitialized();
+        if (this.tableNamespaceManager == null || !this.tableNamespaceManager.isTableAvailableAndInitialized(true)) {
+            throw new IOException("Table Namespace Manager not ready yet, try again later");
+        }
+    }
+
+    public boolean isActiveMaster() {
+        return this.isActiveMaster;
+    }
+
+    public boolean isInitialized() {
+        return this.initialized.isReady();
+    }
+
+    @VisibleForTesting
+    public void setInitialized(boolean isInitialized) {
+        ((MasterProcedureEnv)this.procedureExecutor.getEnvironment()).setEventReady(this.initialized, isInitialized);
+    }
+
+    public MasterProcedureScheduler.ProcedureEvent getInitializedEvent() {
+        return this.initialized;
+    }
+
+    public boolean isServerCrashProcessingEnabled() {
+        return this.serverCrashProcessingEnabled.isReady();
+    }
+
+    @VisibleForTesting
+    public void setServerCrashProcessingEnabled(boolean b) {
+        ((MasterProcedureEnv)this.procedureExecutor.getEnvironment()).setEventReady(this.serverCrashProcessingEnabled, b);
+    }
+
+    public MasterProcedureScheduler.ProcedureEvent getServerCrashProcessingEnabledEvent() {
+        return this.serverCrashProcessingEnabled;
+    }
+
+    public boolean isInitializationStartsMetaRegionAssignment() {
+        return this.initializationBeforeMetaAssignment;
+    }
+
+    public void assignRegion(HRegionInfo hri) {
+        this.assignmentManager.assign(hri, true);
+    }
+
+    public double getAverageLoad() {
+        if (this.assignmentManager == null) {
+            return 0.0;
+        } else {
+            RegionStates regionStates = this.assignmentManager.getRegionStates();
+            return regionStates == null ? 0.0 : regionStates.getAverageLoad();
+        }
+    }
+
+    public long getSplitPlanCount() {
+        return this.splitPlanCount;
+    }
+
+    public long getMergePlanCount() {
+        return this.mergePlanCount;
+    }
+
+    public boolean registerService(Service instance) {
+        Descriptors.ServiceDescriptor serviceDesc = instance.getDescriptorForType();
+        String serviceName = CoprocessorRpcUtils.getServiceName(serviceDesc);
+        if (this.coprocessorServiceHandlers.containsKey(serviceName)) {
+            LOG.error("Coprocessor service " + serviceName + " already registered, rejecting request from " + instance);
+            return false;
+        } else {
+            this.coprocessorServiceHandlers.put(serviceName, instance);
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Registered master coprocessor service: service=" + serviceName);
+            }
+
+            return true;
+        }
+    }
+
+    public static HMaster constructMaster(Class<? extends HMaster> masterClass, Configuration conf, CoordinatedStateManager cp) {
+        try {
+            Constructor<? extends HMaster> c = masterClass.getConstructor(Configuration.class, CoordinatedStateManager.class);
+            return (HMaster)c.newInstance(conf, cp);
+        } catch (Exception var5) {
+            Throwable error = var5;
+            if (var5 instanceof InvocationTargetException && ((InvocationTargetException)var5).getTargetException() != null) {
+                error = ((InvocationTargetException)var5).getTargetException();
+            }
+
+            throw new RuntimeException("Failed construction of Master: " + masterClass.toString() + ". ", (Throwable)error);
+        }
+    }
+
+    public static void main(String[] args) {
+        org.apache.hadoop.hbase.util.VersionInfo.logVersion();
+        (new HMasterCommandLine(HMaster.class)).doMain(args);
+    }
+
+    public HFileCleaner getHFileCleaner() {
+        return this.hfileCleaner;
+    }
+
+    public SnapshotManager getSnapshotManager() {
+        return this.snapshotManager;
+    }
+
+    public void createNamespace(NamespaceDescriptor descriptor, long nonceGroup, long nonce) throws IOException {
+        TableName.isLegalNamespaceName(Bytes.toBytes(descriptor.getName()));
+        this.checkNamespaceManagerReady();
+        this.createNamespaceSync(descriptor, nonceGroup, nonce, true);
+    }
+
+    public void createNamespaceSync(final NamespaceDescriptor descriptor, long nonceGroup, long nonce, final boolean executeCoprocessor) throws IOException {
+        MasterProcedureUtil.submitProcedure(new MasterProcedureUtil.NonceProcedureRunnable(this, nonceGroup, nonce) {
+            protected void run() throws IOException {
+                if (!executeCoprocessor || !this.getMaster().getMasterCoprocessorHost().preCreateNamespace(descriptor)) {
+                    HMaster.LOG.info(HMaster.this.getClientIdAuditPrefix() + " creating " + descriptor);
+                    long procId = this.submitProcedure(new CreateNamespaceProcedure((MasterProcedureEnv)HMaster.this.procedureExecutor.getEnvironment(), descriptor));
+                    ProcedureSyncWait.waitForProcedureToComplete(HMaster.this.procedureExecutor, procId);
+                    if (executeCoprocessor) {
+                        this.getMaster().getMasterCoprocessorHost().postCreateNamespace(descriptor);
+                    }
+
+                }
+            }
+
+            protected String getDescription() {
+                return "CreateNamespaceProcedure";
+            }
+        });
+    }
+
+    public void modifyNamespace(final NamespaceDescriptor descriptor, long nonceGroup, long nonce) throws IOException {
+        TableName.isLegalNamespaceName(Bytes.toBytes(descriptor.getName()));
+        this.checkNamespaceManagerReady();
+        MasterProcedureUtil.submitProcedure(new MasterProcedureUtil.NonceProcedureRunnable(this, nonceGroup, nonce) {
+            protected void run() throws IOException {
+                if (!this.getMaster().getMasterCoprocessorHost().preModifyNamespace(descriptor)) {
+                    HMaster.LOG.info(HMaster.this.getClientIdAuditPrefix() + " modify " + descriptor);
+                    long procId = this.submitProcedure(new ModifyNamespaceProcedure((MasterProcedureEnv)HMaster.this.procedureExecutor.getEnvironment(), descriptor));
+                    ProcedureSyncWait.waitForProcedureToComplete(HMaster.this.procedureExecutor, procId);
+                    this.getMaster().getMasterCoprocessorHost().postModifyNamespace(descriptor);
+                }
+            }
+
+            protected String getDescription() {
+                return "ModifyNamespace";
+            }
+        });
+    }
+
+    public void deleteNamespace(final String name, long nonceGroup, long nonce) throws IOException {
+        this.checkNamespaceManagerReady();
+        MasterProcedureUtil.submitProcedure(new MasterProcedureUtil.NonceProcedureRunnable(this, nonceGroup, nonce) {
+            protected void run() throws IOException {
+                if (!this.getMaster().getMasterCoprocessorHost().preDeleteNamespace(name)) {
+                    HMaster.LOG.info(HMaster.this.getClientIdAuditPrefix() + " delete " + name);
+                    long procId = this.submitProcedure(new DeleteNamespaceProcedure((MasterProcedureEnv)HMaster.this.procedureExecutor.getEnvironment(), name));
+                    ProcedureSyncWait.waitForProcedureToComplete(HMaster.this.procedureExecutor, procId);
+                    this.getMaster().getMasterCoprocessorHost().postDeleteNamespace(name);
+                }
+            }
+
+            protected String getDescription() {
+                return "DeleteNamespaceProcedure";
+            }
+        });
+    }
+
+    protected void ensureNamespaceExists(String name) throws IOException, NamespaceNotFoundException {
+        this.checkNamespaceManagerReady();
+        NamespaceDescriptor nsd = this.tableNamespaceManager.get(name);
+        if (nsd == null) {
+            throw new NamespaceNotFoundException(name);
+        }
+    }
+
+    public NamespaceDescriptor getNamespaceDescriptor(String name) throws IOException {
+        this.checkNamespaceManagerReady();
+        if (this.cpHost != null) {
+            this.cpHost.preGetNamespaceDescriptor(name);
+        }
+
+        NamespaceDescriptor nsd = this.tableNamespaceManager.get(name);
+        if (nsd == null) {
+            throw new NamespaceNotFoundException(name);
+        } else {
+            if (this.cpHost != null) {
+                this.cpHost.postGetNamespaceDescriptor(nsd);
+            }
+
+            return nsd;
+        }
+    }
+
+    public List<NamespaceDescriptor> listNamespaceDescriptors() throws IOException {
+        this.checkNamespaceManagerReady();
+        List<NamespaceDescriptor> descriptors = new ArrayList();
+        boolean bypass = false;
+        if (this.cpHost != null) {
+            bypass = this.cpHost.preListNamespaceDescriptors(descriptors);
+        }
+
+        if (!bypass) {
+            descriptors.addAll(this.tableNamespaceManager.list());
+            if (this.cpHost != null) {
+                this.cpHost.postListNamespaceDescriptors(descriptors);
+            }
+        }
+
+        return descriptors;
+    }
+
+    public boolean abortProcedure(long procId, boolean mayInterruptIfRunning) throws IOException {
+        if (this.cpHost != null) {
+            this.cpHost.preAbortProcedure(this.procedureExecutor, procId);
+        }
+
+        boolean result = this.procedureExecutor.abort(procId, mayInterruptIfRunning);
+        if (this.cpHost != null) {
+            this.cpHost.postAbortProcedure();
+        }
+
+        return result;
+    }
+
+    public List<ProcedureInfo> listProcedures() throws IOException {
+        if (this.cpHost != null) {
+            this.cpHost.preListProcedures();
+        }
+
+        List<ProcedureInfo> procInfoList = this.procedureExecutor.listProcedures();
+        if (this.cpHost != null) {
+            this.cpHost.postListProcedures(procInfoList);
+        }
+
+        return procInfoList;
+    }
+
+    public List<HTableDescriptor> listTableDescriptorsByNamespace(String name) throws IOException {
+        this.ensureNamespaceExists(name);
+        return this.listTableDescriptors(name, (String)null, (List)null, true);
+    }
+
+    public List<TableName> listTableNamesByNamespace(String name) throws IOException {
+        this.ensureNamespaceExists(name);
+        return this.listTableNames(name, (String)null, true);
+    }
+
+    public List<HTableDescriptor> listTableDescriptors(String namespace, String regex, List<TableName> tableNameList, boolean includeSysTables) throws IOException {
+        List<HTableDescriptor> descriptors = new ArrayList();
+        boolean bypass = false;
+        if (this.cpHost != null) {
+            bypass = this.cpHost.preGetTableDescriptors(tableNameList, descriptors);
+            bypass |= this.cpHost.preGetTableDescriptors(tableNameList, descriptors, regex);
+        }
+
+        if (!bypass) {
+            HTableDescriptor desc;
+            if (tableNameList != null && tableNameList.size() != 0) {
+                Iterator i$ = tableNameList.iterator();
+
+                while(i$.hasNext()) {
+                    TableName s = (TableName)i$.next();
+                    desc = this.tableDescriptors.get(s);
+                    if (desc != null) {
+                        descriptors.add(desc);
+                    }
+                }
+            } else {
+                Collection htds;
+                if (namespace != null && namespace.length() > 0) {
+                    htds = this.tableDescriptors.getByNamespace(namespace).values();
+                } else {
+                    htds = this.tableDescriptors.getAll().values();
+                }
+
+                Iterator i$ = htds.iterator();
+
+                label50:
+                while(true) {
+                    do {
+                        if (!i$.hasNext()) {
+                            break label50;
+                        }
+
+                        desc = (HTableDescriptor)i$.next();
+                    } while(!includeSysTables && desc.getTableName().isSystemTable());
+
+                    descriptors.add(desc);
+                }
+            }
+
+            if (regex != null) {
+                filterTablesByRegex(descriptors, Pattern.compile(regex));
+            }
+
+            if (this.cpHost != null) {
+                this.cpHost.postGetTableDescriptors(descriptors);
+                this.cpHost.postGetTableDescriptors(tableNameList, descriptors, regex);
+            }
+        }
+
+        return descriptors;
+    }
+
+    public List<TableName> listTableNames(String namespace, String regex, boolean includeSysTables) throws IOException {
+        List<HTableDescriptor> descriptors = new ArrayList();
+        boolean bypass = false;
+        if (this.cpHost != null) {
+            bypass = this.cpHost.preGetTableNames(descriptors, regex);
+        }
+
+        Iterator i$;
+        HTableDescriptor htd;
+        if (!bypass) {
+            Collection htds;
+            if (namespace != null && namespace.length() > 0) {
+                htds = this.tableDescriptors.getByNamespace(namespace).values();
+            } else {
+                htds = this.tableDescriptors.getAll().values();
+            }
+
+            i$ = htds.iterator();
+
+            label44:
+            while(true) {
+                do {
+                    if (!i$.hasNext()) {
+                        if (regex != null) {
+                            filterTablesByRegex(descriptors, Pattern.compile(regex));
+                        }
+
+                        if (this.cpHost != null) {
+                            this.cpHost.postGetTableNames(descriptors, regex);
+                        }
+                        break label44;
+                    }
+
+                    htd = (HTableDescriptor)i$.next();
+                } while(!includeSysTables && htd.getTableName().isSystemTable());
+
+                descriptors.add(htd);
+            }
+        }
+
+        List<TableName> result = new ArrayList(descriptors.size());
+        i$ = descriptors.iterator();
+
+        while(i$.hasNext()) {
+            htd = (HTableDescriptor)i$.next();
+            result.add(htd.getTableName());
+        }
+
+        return result;
+    }
+
+    private static void filterTablesByRegex(Collection<HTableDescriptor> descriptors, Pattern pattern) {
+        String defaultNS = NamespaceDescriptor.DEFAULT_NAMESPACE_NAME_STR;
+        Iterator<HTableDescriptor> itr = descriptors.iterator();
+
+        while(itr.hasNext()) {
+            HTableDescriptor htd = (HTableDescriptor)itr.next();
+            String tableName = htd.getTableName().getNameAsString();
+            boolean matched = pattern.matcher(tableName).matches();
+            if (!matched && htd.getTableName().getNamespaceAsString().equals(defaultNS)) {
+                matched = pattern.matcher(defaultNS + ':' + tableName).matches();
+            }
+
+            if (!matched) {
+                itr.remove();
+            }
+        }
+
+    }
+
+    public long getLastMajorCompactionTimestamp(TableName table) throws IOException {
+        return this.getClusterStatus().getLastMajorCompactionTsForTable(table);
+    }
+
+    public long getLastMajorCompactionTimestampForRegion(byte[] regionName) throws IOException {
+        return this.getClusterStatus().getLastMajorCompactionTsForRegion(regionName);
+    }
+
+    public boolean isBalancerOn() {
+        return null == this.loadBalancerTracker ? false : this.loadBalancerTracker.isBalancerOn();
+    }
+
+    public boolean isNormalizerOn() {
+        return null == this.regionNormalizerTracker ? false : this.regionNormalizerTracker.isNormalizerOn();
+    }
+
+    public boolean isSplitOrMergeEnabled(Admin.MasterSwitchType switchType) {
+        return null == this.splitOrMergeTracker ? false : this.splitOrMergeTracker.isSplitOrMergeEnabled(switchType);
+    }
+
+    public String getLoadBalancerClassName() {
+        return this.conf.get("hbase.master.loadbalancer.class", LoadBalancerFactory.getDefaultLoadBalancerClass().getName());
+    }
+
+    public RegionNormalizerTracker getRegionNormalizerTracker() {
+        return this.regionNormalizerTracker;
+    }
+
+    public SplitOrMergeTracker getSplitOrMergeTracker() {
+        return this.splitOrMergeTracker;
+    }
+
+    private static class PeriodicDoMetrics extends ScheduledChore {
+        private final HMaster server;
+
+        public PeriodicDoMetrics(int doMetricsInterval, HMaster server) {
+            super(server.getServerName() + "-DoMetricsChore", server, doMetricsInterval);
+            this.server = server;
+        }
+
+        protected void chore() {
+            this.server.doMetrics();
+        }
+    }
+
+    public static class RedirectServlet extends HttpServlet {
+        private static final long serialVersionUID = 2894774810058302473L;
+        private final int regionServerInfoPort;
+        private final String regionServerHostname;
+
+        public RedirectServlet(InfoServer infoServer, String hostname) {
+            this.regionServerInfoPort = infoServer.getPort();
+            this.regionServerHostname = hostname;
+        }
+
+        public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            String redirectHost = this.regionServerHostname;
+            if (redirectHost == null) {
+                redirectHost = request.getServerName();
+                if (!Addressing.isLocalAddress(InetAddress.getByName(redirectHost))) {
+                    HMaster.LOG.warn("Couldn't resolve '" + redirectHost + "' as an address local to this node and '" + "hbase.master.hostname" + "' is not set; client will get a HTTP 400 response. If " + "your HBase deployment relies on client accessible names that the region server process " + "can't resolve locally, then you should set the previously mentioned configuration variable " + "to an appropriate hostname.");
+                    response.sendError(400, "Request was to a host that I can't resolve for any of the network interfaces on this node. If this is due to an intermediary such as an HTTP load balancer or other proxy, your HBase administrator can set 'hbase.master.hostname' to point to the correct hostname.");
+                    return;
+                }
+            }
+
+            String redirectUrl = request.getScheme() + "://" + redirectHost + ":" + this.regionServerInfoPort + request.getRequestURI();
+            response.sendRedirect(redirectUrl);
+        }
+    }
+
+    private static class InitializationMonitor extends HasThread {
+        public static final String TIMEOUT_KEY = "hbase.master.initializationmonitor.timeout";
+        public static final long TIMEOUT_DEFAULT;
+        public static final String HALT_KEY = "hbase.master.initializationmonitor.haltontimeout";
+        public static final boolean HALT_DEFAULT = false;
+        private final HMaster master;
+        private final long timeout;
+        private final boolean haltOnTimeout;
+
+        InitializationMonitor(HMaster master) {
+            super("MasterInitializationMonitor");
+            this.master = master;
+            this.timeout = master.getConfiguration().getLong("hbase.master.initializationmonitor.timeout", TIMEOUT_DEFAULT);
+            this.haltOnTimeout = master.getConfiguration().getBoolean("hbase.master.initializationmonitor.haltontimeout", false);
+            this.setDaemon(true);
+        }
+
+        public void run() {
+            while(true) {
+                try {
+                    if (!this.master.isStopped() && this.master.isActiveMaster()) {
+                        Thread.sleep(this.timeout);
+                        if (this.master.isInitialized()) {
+                            HMaster.LOG.debug("Initialization completed within allotted tolerance. Monitor exiting.");
+                            continue;
+                        }
+
+                        HMaster.LOG.error("Master failed to complete initialization after " + this.timeout + "ms. Please" + " consider submitting a bug report including a thread dump of this process.");
+                        if (this.haltOnTimeout) {
+                            HMaster.LOG.error("Zombie Master exiting. Thread dump to stdout");
+                            Threads.printThreadInfo(System.out, "Zombie HMaster");
+                            System.exit(-1);
+                        }
+                        continue;
+                    }
+                } catch (InterruptedException var2) {
+                    HMaster.LOG.trace("InitMonitor thread interrupted. Existing.");
+                }
+
+                return;
+            }
+        }
+
+        static {
+            TIMEOUT_DEFAULT = TimeUnit.MILLISECONDS.convert(15L, TimeUnit.MINUTES);
+        }
+    }
+}
