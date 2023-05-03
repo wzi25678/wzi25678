@@ -1,0 +1,31 @@
+class Solution:
+    def splitIntoFibonacci(self, S: str) -> List[int]:
+        def backtrack(start, path):
+            # 剪枝1
+            if len(path) > 2 and path[-1] != path[-2] + path[-3]:
+                return []
+            if start >= len(S):
+                if len(path) > 2:
+                    return path
+                return []
+
+            cur = 0
+            ans = []
+            # 枚举分割点
+            for i in range(start, len(S)):
+                # 剪枝2
+                if i > start and S[start] == '0':
+                    return []
+                cur = cur * 10 + int(S[i])
+                # 剪枝3
+                if cur > 2**31 - 1:
+                    return []
+                path.append(cur)
+                ans = backtrack(i + 1, path)
+                # 剪枝 4
+                if len(ans) > 2:
+                    return ans
+                path.pop()
+            return ans
+
+        return backtrack(0, [])
