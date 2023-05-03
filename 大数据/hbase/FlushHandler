@@ -1,0 +1,62 @@
+  private class FlushHandler extends Thread {
+
+    private FlushHandler(String name) {
+      super(name);
+    }
+
+    @Override
+    public void run() {
+      while (!server.isStopped()) {
+        FlushQueueEntry fqe = null;
+        try {
+          wakeupPending.set(false); // allow someone to wake us up again
+          fqe = flushQueue.poll(threadWakeFrequency, TimeUnit.MILLISECONDS);
+          if (fqe == null || fqe == WAKEUPFLUSH_INSTANCE) {
+            FlushType type = isAboveLowWaterMark();
+            if (type != FlushType.NORMAL) {
+              LOG.debug("Flush thread woke up because memory above low water="
+                  + TraditionalBinaryPrefix.long2String(
+                    server.getRegionServerAccounting().getGlobalMemStoreLimitLowMark(), "", 1));
+              // For offheap memstore, even if the lower water mark was breached due to heap overhead
+              // we still select the regions based on the region's memstore data size.
+              // TODO : If we want to decide based on heap over head it can be done without tracking
+              // it per region.
+              if (!flushOneForGlobalPressure(type)) {
+                // Wasn't able to flush any region, but we're above low water mark
+                // This is unlikely to happen, but might happen when closing the
+                // entire server - another thread is flushing regions. We'll just
+                // sleep a little bit to avoid spinning, and then pretend that
+                // we flushed one, so anyone blocked will check again
+                Thread.sleep(1000);
+                wakeUpIfBlocking();
+              }
+              // Enqueue another one of these tokens so we'll wake up again
+              wakeupFlushThread();
+            }
+            continue;
+          }
+          FlushRegionEntry fre = (FlushRegionEntry) fqe;
+          if (!flushRegion(fre)) {
+            break;
+          }
+        } catch (InterruptedException ex) {
+          continue;
+        } catch (ConcurrentModificationException ex) {
+          continue;
+        } catch (Exception ex) {
+          LOG.error("Cache flusher failed for entry " + fqe, ex);
+          if (!server.checkFileSystem()) {
+            break;
+          }
+        }
+      }
+      synchronized (regionsInQueue) {
+        regionsInQueue.clear();
+        flushQueue.clear();
+      }
+
+      // Signal anyone waiting, so they see the close flag
+      wakeUpIfBlocking();
+      LOG.info(getName() + " exiting");
+    }
+  }
