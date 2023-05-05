@@ -1,0 +1,1122 @@
+Xshell 7 (Build 0113)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Host 'hadoop102' resolved to 10.16.51.223.
+Connecting to 10.16.51.223:22...
+Connection established.
+To escape to local shell, press Ctrl+Alt+].
+
+Last login: Mon Apr 24 14:13:47 2023 from 10.16.51.1
+[atguigu@hadoop102 ~]$ cd /opt/module/hadoop-3.1.3/
+[atguigu@hadoop102 hadoop-3.1.3]$ sbin/start-dfs.sh 
+Starting namenodes on [hadoop102]
+Starting datanodes
+hadoop102: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.3" 的文件状态(stat): 没有那个文件或目录
+hadoop102: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.2" 的文件状态(stat): 没有那个文件或目录
+hadoop102: mv: 无法获取"/opt/module/hadoop-3.1.3/logs/hadoop-atguigu-datanode-hadoop102.out.1" 的文件状态(stat): 没有那个文件或目录
+Starting secondary namenodes [hadoop104]
+[atguigu@hadoop102 hadoop-3.1.3]$ mr
+mrd                      mren                     mr-jobhistory-daemon.sh  
+[atguigu@hadoop102 hadoop-3.1.3]$ mr
+mrd                      mren                     mr-jobhistory-daemon.sh  
+[atguigu@hadoop102 hadoop-3.1.3]$ mr-jobhistory-daemon.sh start historyserver
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement "mapred --daemon start" instead.
+[atguigu@hadoop102 hadoop-3.1.3]$ cd
+[atguigu@hadoop102 ~]$ cd /opt/module/hbase-2.4.11/
+[atguigu@hadoop102 hbase-2.4.11]$ bin/hbase-daemon.sh start master
+running master, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-master-hadoop102.out
+[atguigu@hadoop102 hbase-2.4.11]$  bin/hbase-daemon.sh start regionserver 
+running regionserver, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop102.out
+[atguigu@hadoop102 hbase-2.4.11]$  bin/start-hbase.sh 
+master running as process 4581. Stop it first.
+hadoop102: regionserver running as process 4785. Stop it first.
+localhost: regionserver running as process 4785. Stop it first.
+hadoop103: running regionserver, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-regionserver-hadoop103.out
+hadoop104: running regionserver, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop104.out
+hadoop103: running master, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-master-hadoop103.out
+[atguigu@hadoop102 hbase-2.4.11]$ cd /opt/module/zookeeper-3.5.7/
+[atguigu@hadoop102 zookeeper-3.5.7]$ bin/zkServer.sh start
+ZooKeeper JMX enabled by default
+Using config: /opt/module/zookeeper-3.5.7/bin/../conf/zoo.cfg
+Starting zookeeper ... STARTED
+[atguigu@hadoop102 zookeeper-3.5.7]$ bin/start-hbase.sh 
+-bash: bin/start-hbase.sh: 没有那个文件或目录
+[atguigu@hadoop102 zookeeper-3.5.7]$ cd ..
+[atguigu@hadoop102 module]$ cd hbase-2.4.11/
+[atguigu@hadoop102 hbase-2.4.11]$ bin/start-hbase.sh 
+running master, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-master-hadoop102.out
+hadoop104: running regionserver, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop104.out
+hadoop103: running regionserver, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-regionserver-hadoop103.out
+hadoop102: running regionserver, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop102.out
+localhost: regionserver running as process 6075. Stop it first.
+hadoop104: SLF4J: Class path contains multiple SLF4J bindings.
+hadoop104: SLF4J: Found binding in [jar:file:/opt/module/hbase-2.4.11/lib/client-facing-thirdparty/slf4j-reload4j-1.7.33.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+hadoop104: SLF4J: Found binding in [jar:file:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+hadoop104: SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+hadoop104: SLF4J: Actual binding is of type [org.slf4j.impl.Reload4jLoggerFactory]
+hadoop103: SLF4J: Class path contains multiple SLF4J bindings.
+hadoop103: SLF4J: Found binding in [jar:file:/opt/module/hbase-2.4.11/lib/client-facing-thirdparty/slf4j-reload4j-1.7.33.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+hadoop103: SLF4J: Found binding in [jar:file:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+hadoop103: SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+hadoop103: SLF4J: Actual binding is of type [org.slf4j.impl.Reload4jLoggerFactory]
+hadoop103: running master, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-master-hadoop103.out
+[atguigu@hadoop102 hbase-2.4.11]$ cd 
+[atguigu@hadoop102 ~]$ yum -y install gcc -c++
+CRITICAL:yum.cli:Config error: Error accessing file for config file:///home/atguigu/++
+[atguigu@hadoop102 ~]$ yum -y install gcc -c ++
+CRITICAL:yum.cli:Config error: Error accessing file for config file:///home/atguigu/++
+[atguigu@hadoop102 ~]$ yum install gcc
+已加载插件：fastestmirror, langpacks
+您需要 root 权限执行此命令。
+[atguigu@hadoop102 ~]$ sudo yum install gcc
+已加载插件：fastestmirror, langpacks
+Determining fastest mirrors
+epel/x86_64/metalink                                                                                                                                                                                                            | 5.3 kB  00:00:00     
+ * base: mirrors.aliyun.com
+ * epel: mirrors.bfsu.edu.cn
+ * extras: mirrors.aliyun.com
+ * updates: mirrors.aliyun.com
+base                                                                                                                                                                                                                            | 3.6 kB  00:00:00     
+epel                                                                                                                                                                                                                            | 4.7 kB  00:00:00     
+extras                                                                                                                                                                                                                          | 2.9 kB  00:00:00     
+updates                                                                                                                                                                                                                         | 2.9 kB  00:00:00     
+(1/3): epel/x86_64/updateinfo                                                                                                                                                                                                   | 1.0 MB  00:00:03     
+(2/3): updates/7/x86_64/primary_db                                                                                                                                                                                              |  21 MB  00:00:19     
+(3/3): epel/x86_64/primary_db                                                                                                                                                                                                   | 7.0 MB  00:00:47     
+正在解决依赖关系
+--> 正在检查事务
+---> 软件包 gcc.x86_64.0.4.8.5-44.el7 将被 安装
+--> 正在处理依赖关系 cpp = 4.8.5-44.el7，它被软件包 gcc-4.8.5-44.el7.x86_64 需要
+--> 正在处理依赖关系 glibc-devel >= 2.2.90-12，它被软件包 gcc-4.8.5-44.el7.x86_64 需要
+--> 正在检查事务
+---> 软件包 cpp.x86_64.0.4.8.5-44.el7 将被 安装
+---> 软件包 glibc-devel.x86_64.0.2.17-326.el7_9 将被 安装
+--> 正在处理依赖关系 glibc-headers = 2.17-326.el7_9，它被软件包 glibc-devel-2.17-326.el7_9.x86_64 需要
+--> 正在处理依赖关系 glibc = 2.17-326.el7_9，它被软件包 glibc-devel-2.17-326.el7_9.x86_64 需要
+--> 正在处理依赖关系 glibc-headers，它被软件包 glibc-devel-2.17-326.el7_9.x86_64 需要
+--> 正在检查事务
+---> 软件包 glibc.x86_64.0.2.17-317.el7 将被 升级
+--> 正在处理依赖关系 glibc = 2.17-317.el7，它被软件包 glibc-common-2.17-317.el7.x86_64 需要
+---> 软件包 glibc.x86_64.0.2.17-326.el7_9 将被 更新
+---> 软件包 glibc-headers.x86_64.0.2.17-326.el7_9 将被 安装
+--> 正在处理依赖关系 kernel-headers >= 2.2.1，它被软件包 glibc-headers-2.17-326.el7_9.x86_64 需要
+--> 正在处理依赖关系 kernel-headers，它被软件包 glibc-headers-2.17-326.el7_9.x86_64 需要
+--> 正在检查事务
+---> 软件包 glibc-common.x86_64.0.2.17-317.el7 将被 升级
+---> 软件包 glibc-common.x86_64.0.2.17-326.el7_9 将被 更新
+---> 软件包 kernel-headers.x86_64.0.3.10.0-1160.90.1.el7 将被 安装
+--> 解决依赖关系完成
+
+依赖关系解决
+
+=======================================================================================================================================================================================================================================================
+ Package                                                       架构                                                  版本                                                                 源                                                      大小
+=======================================================================================================================================================================================================================================================
+正在安装:
+ gcc                                                           x86_64                                                4.8.5-44.el7                                                         base                                                    16 M
+为依赖而安装:
+ cpp                                                           x86_64                                                4.8.5-44.el7                                                         base                                                   5.9 M
+ glibc-devel                                                   x86_64                                                2.17-326.el7_9                                                       updates                                                1.1 M
+ glibc-headers                                                 x86_64                                                2.17-326.el7_9                                                       updates                                                691 k
+ kernel-headers                                                x86_64                                                3.10.0-1160.90.1.el7                                                 updates                                                9.1 M
+为依赖而更新:
+ glibc                                                         x86_64                                                2.17-326.el7_9                                                       updates                                                3.6 M
+ glibc-common                                                  x86_64                                                2.17-326.el7_9                                                       updates                                                 12 M
+
+事务概要
+=======================================================================================================================================================================================================================================================
+安装  1 软件包 (+4 依赖软件包)
+升级           ( 2 依赖软件包)
+
+总计：48 M
+总下载量：33 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/5): glibc-devel-2.17-326.el7_9.x86_64.rpm                                                                                                                                                                                    | 1.1 MB  00:00:01     
+(2/5): glibc-headers-2.17-326.el7_9.x86_64.rpm                                                                                                                                                                                  | 691 kB  00:00:01     
+(3/5): cpp-4.8.5-44.el7.x86_64.rpm                                                                                                                                                                                              | 5.9 MB  00:00:02     
+(4/5): gcc-4.8.5-44.el7.x86_64.rpm                                                                                                                                                                                              |  16 MB  00:00:02     
+(5/5): kernel-headers-3.10.0-1160.90.1.el7.x86_64.rpm                                                                                                                                                                           | 9.1 MB  00:00:02     
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+总计                                                                                                                                                                                                                    11 MB/s |  33 MB  00:00:02     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  正在更新    : glibc-2.17-326.el7_9.x86_64                                                                                                                                                                                                        1/9 
+  正在更新    : glibc-common-2.17-326.el7_9.x86_64                                                                                                                                                                                                 2/9 
+  正在安装    : cpp-4.8.5-44.el7.x86_64                                                                                                                                                                                                            3/9 
+  正在安装    : kernel-headers-3.10.0-1160.90.1.el7.x86_64                                                                                                                                                                                         4/9 
+  正在安装    : glibc-headers-2.17-326.el7_9.x86_64                                                                                                                                                                                                5/9 
+  正在安装    : glibc-devel-2.17-326.el7_9.x86_64                                                                                                                                                                                                  6/9 
+  正在安装    : gcc-4.8.5-44.el7.x86_64                                                                                                                                                                                                            7/9 
+  清理        : glibc-2.17-317.el7.x86_64                                                                                                                                                                                                          8/9 
+  清理        : glibc-common-2.17-317.el7.x86_64                                                                                                                                                                                                   9/9 
+  验证中      : glibc-common-2.17-326.el7_9.x86_64                                                                                                                                                                                                 1/9 
+  验证中      : glibc-2.17-326.el7_9.x86_64                                                                                                                                                                                                        2/9 
+  验证中      : glibc-devel-2.17-326.el7_9.x86_64                                                                                                                                                                                                  3/9 
+  验证中      : cpp-4.8.5-44.el7.x86_64                                                                                                                                                                                                            4/9 
+  验证中      : glibc-headers-2.17-326.el7_9.x86_64                                                                                                                                                                                                5/9 
+  验证中      : gcc-4.8.5-44.el7.x86_64                                                                                                                                                                                                            6/9 
+  验证中      : kernel-headers-3.10.0-1160.90.1.el7.x86_64                                                                                                                                                                                         7/9 
+  验证中      : glibc-2.17-317.el7.x86_64                                                                                                                                                                                                          8/9 
+  验证中      : glibc-common-2.17-317.el7.x86_64                                                                                                                                                                                                   9/9 
+
+已安装:
+  gcc.x86_64 0:4.8.5-44.el7                                                                                                                                                                                                                            
+
+作为依赖被安装:
+  cpp.x86_64 0:4.8.5-44.el7                          glibc-devel.x86_64 0:2.17-326.el7_9                          glibc-headers.x86_64 0:2.17-326.el7_9                          kernel-headers.x86_64 0:3.10.0-1160.90.1.el7                         
+
+作为依赖被升级:
+  glibc.x86_64 0:2.17-326.el7_9                                                                                          glibc-common.x86_64 0:2.17-326.el7_9                                                                                         
+
+完毕！
+[atguigu@hadoop102 ~]$ sudo yum install gcc-c++
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.aliyun.com
+ * epel: mirrors.bfsu.edu.cn
+ * extras: mirrors.aliyun.com
+ * updates: mirrors.aliyun.com
+正在解决依赖关系
+--> 正在检查事务
+---> 软件包 gcc-c++.x86_64.0.4.8.5-44.el7 将被 安装
+--> 正在处理依赖关系 libstdc++-devel = 4.8.5-44.el7，它被软件包 gcc-c++-4.8.5-44.el7.x86_64 需要
+--> 正在检查事务
+---> 软件包 libstdc++-devel.x86_64.0.4.8.5-44.el7 将被 安装
+--> 解决依赖关系完成
+
+依赖关系解决
+
+=======================================================================================================================================================================================================================================================
+ Package                                                          架构                                                    版本                                                             源                                                     大小
+=======================================================================================================================================================================================================================================================
+正在安装:
+ gcc-c++                                                          x86_64                                                  4.8.5-44.el7                                                     base                                                  7.2 M
+为依赖而安装:
+ libstdc++-devel                                                  x86_64                                                  4.8.5-44.el7                                                     base                                                  1.5 M
+
+事务概要
+=======================================================================================================================================================================================================================================================
+安装  1 软件包 (+1 依赖软件包)
+
+总下载量：8.7 M
+安装大小：25 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/2): libstdc++-devel-4.8.5-44.el7.x86_64.rpm                                                                                                                                                                                  | 1.5 MB  00:00:00     
+(2/2): gcc-c++-4.8.5-44.el7.x86_64.rpm                                                                                                                                                                                          | 7.2 MB  00:00:01     
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+总计                                                                                                                                                                                                                   7.5 MB/s | 8.7 MB  00:00:01     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  正在安装    : libstdc++-devel-4.8.5-44.el7.x86_64                                                                                                                                                                                                1/2 
+  正在安装    : gcc-c++-4.8.5-44.el7.x86_64                                                                                                                                                                                                        2/2 
+  验证中      : gcc-c++-4.8.5-44.el7.x86_64                                                                                                                                                                                                        1/2 
+  验证中      : libstdc++-devel-4.8.5-44.el7.x86_64                                                                                                                                                                                                2/2 
+
+已安装:
+  gcc-c++.x86_64 0:4.8.5-44.el7                                                                                                                                                                                                                        
+
+作为依赖被安装:
+  libstdc++-devel.x86_64 0:4.8.5-44.el7                                                                                                                                                                                                                
+
+完毕！
+[atguigu@hadoop102 ~]$ y
+bash: y: 未找到命令...
+[atguigu@hadoop102 ~]$ sudo yum install gdb
+已加载插件：fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.aliyun.com
+ * epel: mirrors.bfsu.edu.cn
+ * extras: mirrors.aliyun.com
+ * updates: mirrors.aliyun.com
+软件包 gdb-7.6.1-120.el7.x86_64 已安装并且是最新版本
+无须任何处理
+[atguigu@hadoop102 ~]$ cd /opt/module/hbase-2.4.11/
+[atguigu@hadoop102 hbase-2.4.11]$ cd conf/
+[atguigu@hadoop102 conf]$ ll
+总用量 48
+-rw-rw-r--. 1 atguigu atguigu   10 4月  23 22:08 backup-masters
+-rw-r--r--. 1 atguigu atguigu 1811 1月  22 2020 hadoop-metrics2-hbase.properties
+-rw-r--r--. 1 atguigu atguigu 4284 1月  22 2020 hbase-env.cmd
+-rw-r--r--. 1 atguigu atguigu 7674 4月  23 21:58 hbase-env.sh
+-rw-r--r--. 1 atguigu atguigu 2257 1月  22 2020 hbase-policy.xml
+-rw-r--r--. 1 atguigu atguigu 3099 4月  29 19:11 hbase-site.xml
+-rw-r--r--. 1 atguigu atguigu 1169 1月  22 2020 log4j-hbtop.properties
+-rw-r--r--. 1 atguigu atguigu 5735 1月  22 2020 log4j.properties
+-rw-r--r--. 1 atguigu atguigu   40 4月  23 22:01 regionservers
+[atguigu@hadoop102 conf]$ cat hbase-site.xml 
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<configuration>
+  <!--
+    The following properties are set for running HBase as a single process on a
+    developer workstation. With this configuration, HBase is running in
+    "stand-alone" mode and without a distributed file system. In this mode, and
+    without further configuration, HBase and ZooKeeper data are stored on the
+    local filesystem, in a path under the value configured for `hbase.tmp.dir`.
+    This value is overridden from its default value of `/tmp` because many
+    systems clean `/tmp` on a regular basis. Instead, it points to a path within
+    this HBase installation directory.
+
+    Running against the `LocalFileSystem`, as opposed to a distributed
+    filesystem, runs the risk of data integrity issues and data loss. Normally
+    HBase will refuse to run in such an environment. Setting
+    `hbase.unsafe.stream.capability.enforce` to `false` overrides this behavior,
+    permitting operation. This configuration is for the developer workstation
+    only and __should not be used in production!__
+
+    See also https://hbase.apache.org/book.html#standalone_dist
+  -->
+  <property>
+    <name>hbase.cluster.distributed</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>hbase.tmp.dir</name>
+    <value>./tmp</value>
+  </property>
+  <property>
+    <name>hbase.unsafe.stream.capability.enforce</name>
+    <value>false</value>
+  </property>
+<property>
+ <name>hbase.zookeeper.quorum</name>
+ <value>hadoop102,hadoop103,hadoop104</value>
+ <description>The directory shared by RegionServers.
+ </description>
+ </property>
+<property>
+ <name>hbase.zookeeper.quorum</name>
+ <value>hadoop102,hadoop103,hadoop104</value>
+ </property>
+<!-- <property>-->
+<!-- <name>hbase.zookeeper.property.dataDir</name>-->
+<!-- <value>/export/zookeeper</value>-->
+<!-- <description> 记得修改 ZK 的配置文件 -->
+<!-- ZK 的信息不能保存到临时文件夹-->
+<!-- </description>-->
+<!-- </property>-->
+ <property>
+ <name>hbase.rootdir</name>
+ <value>hdfs://hadoop102:8020/hbase</value>
+ <description>The directory shared by RegionServers.
+ </description>
+ </property>
+ <property>
+ <name>hbase.cluster.distributed</name>
+ <value>true</value>
+ </property>
+</configuration>
+[atguigu@hadoop102 conf]$ cd /opt/software/
+[atguigu@hadoop102 software]$ ll
+总用量 723180
+-rw-rw-r--. 1 atguigu atguigu 338075860 2月  24 11:04 hadoop-3.1.3.tar.gz
+-rw-rw-r--. 1 atguigu atguigu 195013152 2月  24 11:04 jdk-8u212-linux-x64.tar.gz
+-rw-r--r--. 1 atguigu atguigu 207440936 6月  14 2022 phoenix-hbase-2.4-5.1.2-bin.tar.gz
+[atguigu@hadoop102 software]$ tar -zxvf phoenix-hbase-2.4-5.1.2-bin.tar.gz -C /opt/module/
+phoenix-hbase-2.4-5.1.2-bin/phoenix-client-hbase-2.4-5.1.2.jar
+phoenix-hbase-2.4-5.1.2-bin/phoenix-server-hbase-2.4-5.1.2.jar
+phoenix-hbase-2.4-5.1.2-bin/phoenix-pherf-5.1.2.jar
+phoenix-hbase-2.4-5.1.2-bin/
+phoenix-hbase-2.4-5.1.2-bin/LICENSE
+phoenix-hbase-2.4-5.1.2-bin/NOTICE
+phoenix-hbase-2.4-5.1.2-bin/bin/daemon.py
+phoenix-hbase-2.4-5.1.2-bin/bin/end2endTest.py
+phoenix-hbase-2.4-5.1.2-bin/bin/performance.py
+phoenix-hbase-2.4-5.1.2-bin/bin/pherf-standalone.py
+phoenix-hbase-2.4-5.1.2-bin/bin/phoenix_utils.py
+phoenix-hbase-2.4-5.1.2-bin/bin/psql.py
+phoenix-hbase-2.4-5.1.2-bin/bin/sqlline.py
+phoenix-hbase-2.4-5.1.2-bin/bin/traceserver.py
+phoenix-hbase-2.4-5.1.2-bin/bin/
+phoenix-hbase-2.4-5.1.2-bin/bin/argparse-1.4.0/
+phoenix-hbase-2.4-5.1.2-bin/bin/argparse-1.4.0/argparse.py
+phoenix-hbase-2.4-5.1.2-bin/bin/hadoop-metrics2-hbase.properties
+phoenix-hbase-2.4-5.1.2-bin/bin/hadoop-metrics2-phoenix.properties
+phoenix-hbase-2.4-5.1.2-bin/bin/hbase-omid-client-config.yml
+phoenix-hbase-2.4-5.1.2-bin/bin/hbase-site.xml
+phoenix-hbase-2.4-5.1.2-bin/bin/log4j.properties
+phoenix-hbase-2.4-5.1.2-bin/bin/readme.txt
+phoenix-hbase-2.4-5.1.2-bin/docs/
+phoenix-hbase-2.4-5.1.2-bin/docs/phoenix.csv
+phoenix-hbase-2.4-5.1.2-bin/examples/
+phoenix-hbase-2.4-5.1.2-bin/examples/STOCK_SYMBOL.csv
+phoenix-hbase-2.4-5.1.2-bin/examples/STOCK_SYMBOL.sql
+phoenix-hbase-2.4-5.1.2-bin/examples/WEB_STAT.csv
+phoenix-hbase-2.4-5.1.2-bin/examples/WEB_STAT.sql
+phoenix-hbase-2.4-5.1.2-bin/examples/WEB_STAT_QUERIES.sql
+[atguigu@hadoop102 software]$ cd /opt/module/
+[atguigu@hadoop102 module]$ ll
+总用量 1739736
+drwxrwxr-x.  9 atguigu atguigu       153 3月  17 21:15 apache-hive-3.1.2-bin
+-rw-rw-r--.  1 atguigu atguigu 312850286 3月  11 20:14 apache-hive-3.1.2-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu 228079891 3月  17 21:18 apache-mahout-distribution-0.13.0.tar.gz
+drwxrwxr-x.  3 atguigu atguigu        16 3月  20 21:17 apache-maven-3.8.8
+-rw-rw-r--.  1 atguigu atguigu   8296049 3月  20 17:06 apache-maven-3.8.8-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu   2792384 3月  20 16:52 apache-maven-3.8.8-src.tar.gz
+-rw-r--r--.  1 atguigu atguigu   9311744 5月  20 2021 apache-zookeeper-3.5.7-bin.tar.gz
+drwxr-xr-x.  2 atguigu atguigu       151 3月  17 21:15 bin
+drwxr-xr-x.  2 atguigu atguigu        30 3月  17 21:15 conf
+drwxrwxr-x.  2 atguigu atguigu        64 3月  29 19:57 datastore
+drwxr-xr-x.  3 atguigu atguigu        17 1月  22 2020 examples
+drwxr-xr-x. 15 atguigu atguigu      4096 4月   5 17:04 hadoop-3.1.3
+drwxrwxr-x.  9 atguigu atguigu       205 4月  23 22:07 hbase-2.4.11
+drwxrwxr-x.  3 atguigu atguigu        18 3月  23 11:45 hive
+drwxrwxr-x. 13 atguigu atguigu       250 3月  29 19:30 hive-3.1.2
+drwxr-xr-x.  7 atguigu atguigu       245 4月   2 2019 jdk1.8.0_212
+drwxrwxr-x.  2 atguigu atguigu       161 3月  17 21:15 lib
+-rw-r--r--.  1 atguigu atguigu     21210 1月  22 2020 LICENSE
+drwxrwxr-x. 13 atguigu atguigu      4096 4月   4 21:40 mahout-distribution-0.13.0
+drwxrwxr-x.  7 atguigu atguigu       109 3月  20 17:08 maven-3.8.8
+drwxrwxr-x.  2 atguigu atguigu        25 3月  17 21:31 myself_test
+drwxrwxr-x.  2 atguigu atguigu         6 3月  13 16:33 mysql-5.7.28
+-rw-rw-r--.  1 atguigu atguigu 609556480 3月  11 20:36 mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
+-rw-r--r--.  1 atguigu atguigu  45109364 9月  30 2019 mysql-community-client-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu    318768 9月  30 2019 mysql-community-common-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   7037096 9月  30 2019 mysql-community-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  49329100 9月  30 2019 mysql-community-embedded-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  23354908 9月  30 2019 mysql-community-embedded-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 136837816 9月  30 2019 mysql-community-embedded-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   4374364 9月  30 2019 mysql-community-libs-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   1353312 9月  30 2019 mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 208694824 9月  30 2019 mysql-community-server-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 133129992 9月  30 2019 mysql-community-test-5.7.28-1.el7.x86_64.rpm
+-rw-rw-r--.  1 atguigu atguigu    985600 3月  11 20:34 mysql-connector-java-5.1.37.jar
+-rw-r--r--.  1 atguigu atguigu      1498 1月  22 2020 NOTICE
+drwxr-xr-x.  5 atguigu atguigu       189 1月  22 2020 phoenix-hbase-2.4-5.1.2-bin
+drwxrwxr-x.  3 atguigu atguigu      4096 4月  14 11:30 tez
+drwxrwxr-x. 15 atguigu atguigu      4096 3月  21 14:47 trunk
+drwxrwxr-x.  8 atguigu atguigu       160 4月  15 19:46 zookeeper-3.5.7
+[atguigu@hadoop102 module]$ mv phoenix-hbase-2.4-5.1.2-bin /phoenix
+mv: 无法将"phoenix-hbase-2.4-5.1.2-bin" 移动至"/phoenix": 权限不够
+[atguigu@hadoop102 module]$ sudo mv phoenix-hbase-2.4-5.1.2-bin /phoenix
+[atguigu@hadoop102 module]$ ll
+总用量 1739736
+drwxrwxr-x.  9 atguigu atguigu       153 3月  17 21:15 apache-hive-3.1.2-bin
+-rw-rw-r--.  1 atguigu atguigu 312850286 3月  11 20:14 apache-hive-3.1.2-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu 228079891 3月  17 21:18 apache-mahout-distribution-0.13.0.tar.gz
+drwxrwxr-x.  3 atguigu atguigu        16 3月  20 21:17 apache-maven-3.8.8
+-rw-rw-r--.  1 atguigu atguigu   8296049 3月  20 17:06 apache-maven-3.8.8-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu   2792384 3月  20 16:52 apache-maven-3.8.8-src.tar.gz
+-rw-r--r--.  1 atguigu atguigu   9311744 5月  20 2021 apache-zookeeper-3.5.7-bin.tar.gz
+drwxr-xr-x.  2 atguigu atguigu       151 3月  17 21:15 bin
+drwxr-xr-x.  2 atguigu atguigu        30 3月  17 21:15 conf
+drwxrwxr-x.  2 atguigu atguigu        64 3月  29 19:57 datastore
+drwxr-xr-x.  3 atguigu atguigu        17 1月  22 2020 examples
+drwxr-xr-x. 15 atguigu atguigu      4096 4月   5 17:04 hadoop-3.1.3
+drwxrwxr-x.  9 atguigu atguigu       205 4月  23 22:07 hbase-2.4.11
+drwxrwxr-x.  3 atguigu atguigu        18 3月  23 11:45 hive
+drwxrwxr-x. 13 atguigu atguigu       250 3月  29 19:30 hive-3.1.2
+drwxr-xr-x.  7 atguigu atguigu       245 4月   2 2019 jdk1.8.0_212
+drwxrwxr-x.  2 atguigu atguigu       161 3月  17 21:15 lib
+-rw-r--r--.  1 atguigu atguigu     21210 1月  22 2020 LICENSE
+drwxrwxr-x. 13 atguigu atguigu      4096 4月   4 21:40 mahout-distribution-0.13.0
+drwxrwxr-x.  7 atguigu atguigu       109 3月  20 17:08 maven-3.8.8
+drwxrwxr-x.  2 atguigu atguigu        25 3月  17 21:31 myself_test
+drwxrwxr-x.  2 atguigu atguigu         6 3月  13 16:33 mysql-5.7.28
+-rw-rw-r--.  1 atguigu atguigu 609556480 3月  11 20:36 mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
+-rw-r--r--.  1 atguigu atguigu  45109364 9月  30 2019 mysql-community-client-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu    318768 9月  30 2019 mysql-community-common-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   7037096 9月  30 2019 mysql-community-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  49329100 9月  30 2019 mysql-community-embedded-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  23354908 9月  30 2019 mysql-community-embedded-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 136837816 9月  30 2019 mysql-community-embedded-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   4374364 9月  30 2019 mysql-community-libs-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   1353312 9月  30 2019 mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 208694824 9月  30 2019 mysql-community-server-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 133129992 9月  30 2019 mysql-community-test-5.7.28-1.el7.x86_64.rpm
+-rw-rw-r--.  1 atguigu atguigu    985600 3月  11 20:34 mysql-connector-java-5.1.37.jar
+-rw-r--r--.  1 atguigu atguigu      1498 1月  22 2020 NOTICE
+drwxrwxr-x.  3 atguigu atguigu      4096 4月  14 11:30 tez
+drwxrwxr-x. 15 atguigu atguigu      4096 3月  21 14:47 trunk
+drwxrwxr-x.  8 atguigu atguigu       160 4月  15 19:46 zookeeper-3.5.7
+[atguigu@hadoop102 module]$ cd
+[atguigu@hadoop102 ~]$ ll
+总用量 0
+drwxrwxr-x. 2 atguigu atguigu  65 4月  15 21:34 bin
+drwxrwxr-x. 3 atguigu atguigu  19 4月  29 16:33 tmp
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 公共
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 模板
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 视频
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 图片
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 文档
+drwxr-xr-x. 6 atguigu atguigu 120 3月  21 14:39 下载
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 音乐
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 桌面
+[atguigu@hadoop102 ~]$ cd
+[atguigu@hadoop102 ~]$ locate phpenix
+[atguigu@hadoop102 ~]$ whereis  phpenix
+phpenix:[atguigu@hadoop102 ~]$ whereis  phoenix
+phoenix:[atguigu@hadoop102 ~]$ whereis  phoenix
+phoenix:[atguigu@hadoop102 ~]$ locate phoenix
+/opt/software/phoenix-hbase-2.4-5.1.2-bin.tar.gz
+/usr/lib/modules/3.10.0-1160.el7.x86_64/kernel/drivers/usb/serial/iuu_phoenix.ko.xz
+[atguigu@hadoop102 ~]$ ll
+总用量 0
+drwxrwxr-x. 2 atguigu atguigu  65 4月  15 21:34 bin
+drwxrwxr-x. 3 atguigu atguigu  19 4月  29 16:33 tmp
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 公共
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 模板
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 视频
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 图片
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 文档
+drwxr-xr-x. 6 atguigu atguigu 120 3月  21 14:39 下载
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 音乐
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 桌面
+[atguigu@hadoop102 ~]$ cd /opt/module/
+[atguigu@hadoop102 module]$ ll
+总用量 1739736
+drwxrwxr-x.  9 atguigu atguigu       153 3月  17 21:15 apache-hive-3.1.2-bin
+-rw-rw-r--.  1 atguigu atguigu 312850286 3月  11 20:14 apache-hive-3.1.2-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu 228079891 3月  17 21:18 apache-mahout-distribution-0.13.0.tar.gz
+drwxrwxr-x.  3 atguigu atguigu        16 3月  20 21:17 apache-maven-3.8.8
+-rw-rw-r--.  1 atguigu atguigu   8296049 3月  20 17:06 apache-maven-3.8.8-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu   2792384 3月  20 16:52 apache-maven-3.8.8-src.tar.gz
+-rw-r--r--.  1 atguigu atguigu   9311744 5月  20 2021 apache-zookeeper-3.5.7-bin.tar.gz
+drwxr-xr-x.  2 atguigu atguigu       151 3月  17 21:15 bin
+drwxr-xr-x.  2 atguigu atguigu        30 3月  17 21:15 conf
+drwxrwxr-x.  2 atguigu atguigu        64 3月  29 19:57 datastore
+drwxr-xr-x.  3 atguigu atguigu        17 1月  22 2020 examples
+drwxr-xr-x. 15 atguigu atguigu      4096 4月   5 17:04 hadoop-3.1.3
+drwxrwxr-x.  9 atguigu atguigu       205 4月  23 22:07 hbase-2.4.11
+drwxrwxr-x.  3 atguigu atguigu        18 3月  23 11:45 hive
+drwxrwxr-x. 13 atguigu atguigu       250 3月  29 19:30 hive-3.1.2
+drwxr-xr-x.  7 atguigu atguigu       245 4月   2 2019 jdk1.8.0_212
+drwxrwxr-x.  2 atguigu atguigu       161 3月  17 21:15 lib
+-rw-r--r--.  1 atguigu atguigu     21210 1月  22 2020 LICENSE
+drwxrwxr-x. 13 atguigu atguigu      4096 4月   4 21:40 mahout-distribution-0.13.0
+drwxrwxr-x.  7 atguigu atguigu       109 3月  20 17:08 maven-3.8.8
+drwxrwxr-x.  2 atguigu atguigu        25 3月  17 21:31 myself_test
+drwxrwxr-x.  2 atguigu atguigu         6 3月  13 16:33 mysql-5.7.28
+-rw-rw-r--.  1 atguigu atguigu 609556480 3月  11 20:36 mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
+-rw-r--r--.  1 atguigu atguigu  45109364 9月  30 2019 mysql-community-client-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu    318768 9月  30 2019 mysql-community-common-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   7037096 9月  30 2019 mysql-community-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  49329100 9月  30 2019 mysql-community-embedded-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  23354908 9月  30 2019 mysql-community-embedded-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 136837816 9月  30 2019 mysql-community-embedded-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   4374364 9月  30 2019 mysql-community-libs-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   1353312 9月  30 2019 mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 208694824 9月  30 2019 mysql-community-server-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 133129992 9月  30 2019 mysql-community-test-5.7.28-1.el7.x86_64.rpm
+-rw-rw-r--.  1 atguigu atguigu    985600 3月  11 20:34 mysql-connector-java-5.1.37.jar
+-rw-r--r--.  1 atguigu atguigu      1498 1月  22 2020 NOTICE
+drwxrwxr-x.  3 atguigu atguigu      4096 4月  14 11:30 tez
+drwxrwxr-x. 15 atguigu atguigu      4096 3月  21 14:47 trunk
+drwxrwxr-x.  8 atguigu atguigu       160 4月  15 19:46 zookeeper-3.5.7
+[atguigu@hadoop102 module]$ cd /usr/
+bin/     etc/     games/   include/ lib/     lib64/   libexec/ local/   sbin/    share/   src/     tmp/     
+[atguigu@hadoop102 module]$ cd /home/atguigu/
+[atguigu@hadoop102 ~]$ ll
+总用量 0
+drwxrwxr-x. 2 atguigu atguigu  65 4月  15 21:34 bin
+drwxrwxr-x. 3 atguigu atguigu  19 4月  29 16:33 tmp
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 公共
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 模板
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 视频
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 图片
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 文档
+drwxr-xr-x. 6 atguigu atguigu 120 3月  21 14:39 下载
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 音乐
+drwxr-xr-x. 2 atguigu atguigu   6 2月  24 05:16 桌面
+[atguigu@hadoop102 ~]$ ls
+bin  tmp  公共  模板  视频  图片  文档  下载  音乐  桌面
+[atguigu@hadoop102 ~]$ cd /opt/module/
+[atguigu@hadoop102 module]$ ll
+总用量 1739736
+drwxrwxr-x.  9 atguigu atguigu       153 3月  17 21:15 apache-hive-3.1.2-bin
+-rw-rw-r--.  1 atguigu atguigu 312850286 3月  11 20:14 apache-hive-3.1.2-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu 228079891 3月  17 21:18 apache-mahout-distribution-0.13.0.tar.gz
+drwxrwxr-x.  3 atguigu atguigu        16 3月  20 21:17 apache-maven-3.8.8
+-rw-rw-r--.  1 atguigu atguigu   8296049 3月  20 17:06 apache-maven-3.8.8-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu   2792384 3月  20 16:52 apache-maven-3.8.8-src.tar.gz
+-rw-r--r--.  1 atguigu atguigu   9311744 5月  20 2021 apache-zookeeper-3.5.7-bin.tar.gz
+drwxr-xr-x.  2 atguigu atguigu       151 3月  17 21:15 bin
+drwxr-xr-x.  2 atguigu atguigu        30 3月  17 21:15 conf
+drwxrwxr-x.  2 atguigu atguigu        64 3月  29 19:57 datastore
+drwxr-xr-x.  3 atguigu atguigu        17 1月  22 2020 examples
+drwxr-xr-x. 15 atguigu atguigu      4096 4月   5 17:04 hadoop-3.1.3
+drwxrwxr-x.  9 atguigu atguigu       205 4月  23 22:07 hbase-2.4.11
+drwxrwxr-x.  3 atguigu atguigu        18 3月  23 11:45 hive
+drwxrwxr-x. 13 atguigu atguigu       250 3月  29 19:30 hive-3.1.2
+drwxr-xr-x.  7 atguigu atguigu       245 4月   2 2019 jdk1.8.0_212
+drwxrwxr-x.  2 atguigu atguigu       161 3月  17 21:15 lib
+-rw-r--r--.  1 atguigu atguigu     21210 1月  22 2020 LICENSE
+drwxrwxr-x. 13 atguigu atguigu      4096 4月   4 21:40 mahout-distribution-0.13.0
+drwxrwxr-x.  7 atguigu atguigu       109 3月  20 17:08 maven-3.8.8
+drwxrwxr-x.  2 atguigu atguigu        25 3月  17 21:31 myself_test
+drwxrwxr-x.  2 atguigu atguigu         6 3月  13 16:33 mysql-5.7.28
+-rw-rw-r--.  1 atguigu atguigu 609556480 3月  11 20:36 mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
+-rw-r--r--.  1 atguigu atguigu  45109364 9月  30 2019 mysql-community-client-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu    318768 9月  30 2019 mysql-community-common-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   7037096 9月  30 2019 mysql-community-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  49329100 9月  30 2019 mysql-community-embedded-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  23354908 9月  30 2019 mysql-community-embedded-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 136837816 9月  30 2019 mysql-community-embedded-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   4374364 9月  30 2019 mysql-community-libs-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   1353312 9月  30 2019 mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 208694824 9月  30 2019 mysql-community-server-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 133129992 9月  30 2019 mysql-community-test-5.7.28-1.el7.x86_64.rpm
+-rw-rw-r--.  1 atguigu atguigu    985600 3月  11 20:34 mysql-connector-java-5.1.37.jar
+-rw-r--r--.  1 atguigu atguigu      1498 1月  22 2020 NOTICE
+drwxrwxr-x.  3 atguigu atguigu      4096 4月  14 11:30 tez
+drwxrwxr-x. 15 atguigu atguigu      4096 3月  21 14:47 trunk
+drwxrwxr-x.  8 atguigu atguigu       160 4月  15 19:46 zookeeper-3.5.7
+[atguigu@hadoop102 module]$ cd ..
+[atguigu@hadoop102 opt]$ cd software/
+[atguigu@hadoop102 software]$ ll
+总用量 723180
+-rw-rw-r--. 1 atguigu atguigu 338075860 2月  24 11:04 hadoop-3.1.3.tar.gz
+-rw-rw-r--. 1 atguigu atguigu 195013152 2月  24 11:04 jdk-8u212-linux-x64.tar.gz
+-rw-r--r--. 1 atguigu atguigu 207440936 6月  14 2022 phoenix-hbase-2.4-5.1.2-bin.tar.gz
+[atguigu@hadoop102 software]$  tar -zxvf phoenix-hbase-2.4-5.1.2-bin.tar.gz -C /opt/module/
+phoenix-hbase-2.4-5.1.2-bin/phoenix-client-hbase-2.4-5.1.2.jar
+phoenix-hbase-2.4-5.1.2-bin/phoenix-server-hbase-2.4-5.1.2.jar
+phoenix-hbase-2.4-5.1.2-bin/phoenix-pherf-5.1.2.jar
+phoenix-hbase-2.4-5.1.2-bin/
+phoenix-hbase-2.4-5.1.2-bin/LICENSE
+phoenix-hbase-2.4-5.1.2-bin/NOTICE
+phoenix-hbase-2.4-5.1.2-bin/bin/daemon.py
+phoenix-hbase-2.4-5.1.2-bin/bin/end2endTest.py
+phoenix-hbase-2.4-5.1.2-bin/bin/performance.py
+phoenix-hbase-2.4-5.1.2-bin/bin/pherf-standalone.py
+phoenix-hbase-2.4-5.1.2-bin/bin/phoenix_utils.py
+phoenix-hbase-2.4-5.1.2-bin/bin/psql.py
+phoenix-hbase-2.4-5.1.2-bin/bin/sqlline.py
+phoenix-hbase-2.4-5.1.2-bin/bin/traceserver.py
+phoenix-hbase-2.4-5.1.2-bin/bin/
+phoenix-hbase-2.4-5.1.2-bin/bin/argparse-1.4.0/
+phoenix-hbase-2.4-5.1.2-bin/bin/argparse-1.4.0/argparse.py
+phoenix-hbase-2.4-5.1.2-bin/bin/hadoop-metrics2-hbase.properties
+phoenix-hbase-2.4-5.1.2-bin/bin/hadoop-metrics2-phoenix.properties
+phoenix-hbase-2.4-5.1.2-bin/bin/hbase-omid-client-config.yml
+phoenix-hbase-2.4-5.1.2-bin/bin/hbase-site.xml
+phoenix-hbase-2.4-5.1.2-bin/bin/log4j.properties
+phoenix-hbase-2.4-5.1.2-bin/bin/readme.txt
+phoenix-hbase-2.4-5.1.2-bin/docs/
+phoenix-hbase-2.4-5.1.2-bin/docs/phoenix.csv
+phoenix-hbase-2.4-5.1.2-bin/examples/
+phoenix-hbase-2.4-5.1.2-bin/examples/STOCK_SYMBOL.csv
+phoenix-hbase-2.4-5.1.2-bin/examples/STOCK_SYMBOL.sql
+phoenix-hbase-2.4-5.1.2-bin/examples/WEB_STAT.csv
+phoenix-hbase-2.4-5.1.2-bin/examples/WEB_STAT.sql
+phoenix-hbase-2.4-5.1.2-bin/examples/WEB_STAT_QUERIES.sql
+[atguigu@hadoop102 software]$ cd ..
+[atguigu@hadoop102 opt]$ cd module/
+[atguigu@hadoop102 module]$ mv phoenix-hbase-2.4-5.1.2-bin phoenix-hbase-2.4-5.1.2
+[atguigu@hadoop102 module]$ ll
+总用量 1739736
+drwxrwxr-x.  9 atguigu atguigu       153 3月  17 21:15 apache-hive-3.1.2-bin
+-rw-rw-r--.  1 atguigu atguigu 312850286 3月  11 20:14 apache-hive-3.1.2-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu 228079891 3月  17 21:18 apache-mahout-distribution-0.13.0.tar.gz
+drwxrwxr-x.  3 atguigu atguigu        16 3月  20 21:17 apache-maven-3.8.8
+-rw-rw-r--.  1 atguigu atguigu   8296049 3月  20 17:06 apache-maven-3.8.8-bin.tar.gz
+-rw-rw-r--.  1 atguigu atguigu   2792384 3月  20 16:52 apache-maven-3.8.8-src.tar.gz
+-rw-r--r--.  1 atguigu atguigu   9311744 5月  20 2021 apache-zookeeper-3.5.7-bin.tar.gz
+drwxr-xr-x.  2 atguigu atguigu       151 3月  17 21:15 bin
+drwxr-xr-x.  2 atguigu atguigu        30 3月  17 21:15 conf
+drwxrwxr-x.  2 atguigu atguigu        64 3月  29 19:57 datastore
+drwxr-xr-x.  3 atguigu atguigu        17 1月  22 2020 examples
+drwxr-xr-x. 15 atguigu atguigu      4096 4月   5 17:04 hadoop-3.1.3
+drwxrwxr-x.  9 atguigu atguigu       205 4月  23 22:07 hbase-2.4.11
+drwxrwxr-x.  3 atguigu atguigu        18 3月  23 11:45 hive
+drwxrwxr-x. 13 atguigu atguigu       250 3月  29 19:30 hive-3.1.2
+drwxr-xr-x.  7 atguigu atguigu       245 4月   2 2019 jdk1.8.0_212
+drwxrwxr-x.  2 atguigu atguigu       161 3月  17 21:15 lib
+-rw-r--r--.  1 atguigu atguigu     21210 1月  22 2020 LICENSE
+drwxrwxr-x. 13 atguigu atguigu      4096 4月   4 21:40 mahout-distribution-0.13.0
+drwxrwxr-x.  7 atguigu atguigu       109 3月  20 17:08 maven-3.8.8
+drwxrwxr-x.  2 atguigu atguigu        25 3月  17 21:31 myself_test
+drwxrwxr-x.  2 atguigu atguigu         6 3月  13 16:33 mysql-5.7.28
+-rw-rw-r--.  1 atguigu atguigu 609556480 3月  11 20:36 mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
+-rw-r--r--.  1 atguigu atguigu  45109364 9月  30 2019 mysql-community-client-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu    318768 9月  30 2019 mysql-community-common-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   7037096 9月  30 2019 mysql-community-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  49329100 9月  30 2019 mysql-community-embedded-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu  23354908 9月  30 2019 mysql-community-embedded-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 136837816 9月  30 2019 mysql-community-embedded-devel-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   4374364 9月  30 2019 mysql-community-libs-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu   1353312 9月  30 2019 mysql-community-libs-compat-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 208694824 9月  30 2019 mysql-community-server-5.7.28-1.el7.x86_64.rpm
+-rw-r--r--.  1 atguigu atguigu 133129992 9月  30 2019 mysql-community-test-5.7.28-1.el7.x86_64.rpm
+-rw-rw-r--.  1 atguigu atguigu    985600 3月  11 20:34 mysql-connector-java-5.1.37.jar
+-rw-r--r--.  1 atguigu atguigu      1498 1月  22 2020 NOTICE
+drwxr-xr-x.  5 atguigu atguigu       189 1月  22 2020 phoenix-hbase-2.4-5.1.2
+drwxrwxr-x.  3 atguigu atguigu      4096 4月  14 11:30 tez
+drwxrwxr-x. 15 atguigu atguigu      4096 3月  21 14:47 trunk
+drwxrwxr-x.  8 atguigu atguigu       160 4月  15 19:46 zookeeper-3.5.7
+[atguigu@hadoop102 module]$ cd /opt/module/phoenix/
+-bash: cd: /opt/module/phoenix/: 没有那个文件或目录
+[atguigu@hadoop102 module]$ cd phoenix-hbase-2.4-5.1.2/
+[atguigu@hadoop102 phoenix-hbase-2.4-5.1.2]$ ll
+总用量 228848
+drwxr-xr-x. 3 atguigu atguigu      4096 1月  22 2020 bin
+drwxr-xr-x. 2 atguigu atguigu        25 1月  22 2020 docs
+drwxr-xr-x. 2 atguigu atguigu       122 1月  22 2020 examples
+-rw-r--r--. 1 atguigu atguigu    144912 1月  22 2020 LICENSE
+-rw-r--r--. 1 atguigu atguigu     10564 1月  22 2020 NOTICE
+-rw-r--r--. 1 atguigu atguigu 155897768 1月  22 2020 phoenix-client-hbase-2.4-5.1.2.jar
+-rw-r--r--. 1 atguigu atguigu  11066542 1月  22 2020 phoenix-pherf-5.1.2.jar
+-rw-r--r--. 1 atguigu atguigu  67210090 1月  22 2020 phoenix-server-hbase-2.4-5.1.2.jar
+[atguigu@hadoop102 phoenix-hbase-2.4-5.1.2]$ cp phoenix-server-hbase-2.4-5.1.2.jar /opt/module/hbase/lib/
+cp: 无法创建普通文件"/opt/module/hbase/lib/": 没有那个文件或目录
+[atguigu@hadoop102 phoenix-hbase-2.4-5.1.2]$ cp phoenix-server-hbase-2.4-5.1.2.jar /opt/module/hbase-2.4.11/lib/
+[atguigu@hadoop102 phoenix-hbase-2.4-5.1.2]$  xsync /opt/module/hbase-2.4.11/lib/ phoenix-server-hbase-2.4-5.1.2.jar
+==================== hadoop102 ====================
+sending incremental file list
+
+sent 7,152 bytes  received 22 bytes  4,782.67 bytes/sec
+total size is 370,554,074  speedup is 51,652.37
+sending incremental file list
+
+sent 87 bytes  received 12 bytes  198.00 bytes/sec
+total size is 67,210,090  speedup is 678,889.80
+==================== hadoop103 ====================
+sending incremental file list
+lib/
+lib/phoenix-server-hbase-2.4-5.1.2.jar
+
+sent 67,233,692 bytes  received 44 bytes  3,634,256.00 bytes/sec
+total size is 370,554,074  speedup is 5.51
+sending incremental file list
+phoenix-server-hbase-2.4-5.1.2.jar
+
+sent 67,226,628 bytes  received 35 bytes  4,636,321.59 bytes/sec
+total size is 67,210,090  speedup is 1.00
+==================== hadoop104 ====================
+sending incremental file list
+lib/
+lib/phoenix-server-hbase-2.4-5.1.2.jar
+
+sent 67,233,692 bytes  received 44 bytes  3,447,883.90 bytes/sec
+total size is 370,554,074  speedup is 5.51
+sending incremental file list
+phoenix-server-hbase-2.4-5.1.2.jar
+
+sent 67,226,628 bytes  received 35 bytes  10,342,563.54 bytes/sec
+total size is 67,210,090  speedup is 1.00
+[atguigu@hadoop102 phoenix-hbase-2.4-5.1.2]$ cd
+[atguigu@hadoop102 ~]$ cd /etc/pr
+prelink.conf.d/ profile.d/      
+[atguigu@hadoop102 ~]$ cd /etc/pr
+prelink.conf.d/ profile.d/      
+[atguigu@hadoop102 ~]$ cd /etc/profile.d/
+[atguigu@hadoop102 profile.d]$ ll
+总用量 88
+-rw-r--r--. 1 root root  771 10月 13 2020 256term.csh
+-rw-r--r--. 1 root root  841 10月 13 2020 256term.sh
+-rw-r--r--. 1 root root 1348 10月  2 2020 abrt-console-notification.sh
+-rw-r--r--. 1 root root  660 4月   1 2020 bash_completion.sh
+-rw-r--r--. 1 root root  196 3月  25 2017 colorgrep.csh
+-rw-r--r--. 1 root root  201 3月  25 2017 colorgrep.sh
+-rw-r--r--. 1 root root 1741 8月   6 2019 colorls.csh
+-rw-r--r--. 1 root root 1606 8月   6 2019 colorls.sh
+-rw-r--r--. 1 root root   80 4月   1 2020 csh.local
+-rw-r--r--. 1 root root  294 3月  18 2020 flatpak.sh
+-rw-r--r--. 1 root root 1706 10月 13 2020 lang.csh
+-rw-r--r--. 1 root root 2703 10月 13 2020 lang.sh
+-rw-r--r--. 1 root root  123 7月  31 2015 less.csh
+-rw-r--r--. 1 root root  121 7月  31 2015 less.sh
+-rw-r--r--. 1 root root  551 3月  20 17:12 my_env.sh
+-rw-r--r--. 1 root root 1202 4月   2 2020 PackageKit.sh
+-rw-r--r--. 1 root root   81 4月   1 2020 sh.local
+-rw-r--r--. 1 root root  105 12月 16 2020 vim.csh
+-rw-r--r--. 1 root root  269 12月 16 2020 vim.sh
+-rw-r--r--. 1 root root 2092 10月  1 2020 vte.sh
+-rw-r--r--. 1 root root  164 1月  28 2014 which2.csh
+-rw-r--r--. 1 root root  169 1月  28 2014 which2.sh
+[atguigu@hadoop102 profile.d]$ vim my_env.sh 
+[atguigu@hadoop102 profile.d]$ sudo vim my_env.sh 
+[atguigu@hadoop102 profile.d]$ cat my_env.sh 
+#JAVA_HOME
+export JAVA_HOME=/opt/module/jdk1.8.0_212
+export PATH=$PATH:$JAVA_HOME/bin
+
+#HADOOP_HOME
+export HADOOP_HOME=/opt/module/hadoop-3.1.3
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
+
+#HIVE_HOME
+export HIVE_HOME=/opt/module/hive-3.1.2
+export PATH=$PATH:$HIVE_HOME/bin
+
+#MAHOUT_HOME
+export MAHOUT_HOME=/opt/module/mahout-distribution-0.13.0
+export MAHOUT_CONF_DIR=$MAHOUT_HOME/conf
+export PATH=$MAHOUT_HOME/conf:$MAHOUT_HOME/bin:$PATH
+
+#MAVEN_HOME
+export MAVEN_HOME=/opt/module/maven-3.8.8
+export PATH=$PATH:$MAVEN_HOME/bin
+
+#PHOENIX_HOME
+export PHOENIX_HOME=/opt/module/phoenix-hbase-2.4-5.1.2
+export PHOENIX_CLASSPATH=$PHOENIX_HOME
+export PATH=$PATH:$PHOENIX_HOME/bin
+[atguigu@hadoop102 profile.d]$ xs
+xset         xsetmode     xsetpointer  xsetroot     xsetwacom    xsltproc     xstdcmap     xsync        
+[atguigu@hadoop102 profile.d]$ xs
+xset         xsetmode     xsetpointer  xsetroot     xsetwacom    xsltproc     xstdcmap     xsync        
+[atguigu@hadoop102 profile.d]$ xsync my_env.sh 
+==================== hadoop102 ====================
+sending incremental file list
+
+sent 48 bytes  received 12 bytes  120.00 bytes/sec
+total size is 701  speedup is 11.68
+==================== hadoop103 ====================
+sending incremental file list
+my_env.sh
+rsync: mkstemp "/etc/profile.d/.my_env.sh.ZUmx0t" failed: Permission denied (13)
+
+sent 796 bytes  received 126 bytes  614.67 bytes/sec
+total size is 701  speedup is 0.76
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1179) [sender=3.1.2]
+==================== hadoop104 ====================
+sending incremental file list
+my_env.sh
+rsync: mkstemp "/etc/profile.d/.my_env.sh.LaQJro" failed: Permission denied (13)
+
+sent 796 bytes  received 126 bytes  614.67 bytes/sec
+total size is 701  speedup is 0.76
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1179) [sender=3.1.2]
+[atguigu@hadoop102 profile.d]$ stop-hbase.sh
+bash: stop-hbase.sh: 未找到命令...
+[atguigu@hadoop102 profile.d]$ cd
+[atguigu@hadoop102 ~]$ stop-hbase.sh
+bash: stop-hbase.sh: 未找到命令...
+[atguigu@hadoop102 ~]$  start-hbase.sh
+bash: start-hbase.sh: 未找到命令...
+[atguigu@hadoop102 ~]$ sudo vim  /etc/profile.d/my_env.sh 
+[atguigu@hadoop102 ~]$ cd ..
+[atguigu@hadoop102 home]$ cd /opt/module/
+[atguigu@hadoop102 module]$ xysnc phoenix-hbase-2.4-5.1.2/
+bash: xysnc: 未找到命令...
+相似命令是： 'xsync'
+[atguigu@hadoop102 module]$ sx phoenix-hbase-2.4-5.1.2/
+sx
+[atguigu@hadoop102 module]$ sx phoenix-hbase-2.4-5.1.2/
+sx
+[atguigu@hadoop102 module]$ xs phoenix-hbase-2.4-5.1.2/
+xset         xsetmode     xsetpointer  xsetroot     xsetwacom    xsltproc     xstdcmap     xsync        
+[atguigu@hadoop102 module]$ xs phoenix-hbase-2.4-5.1.2/
+xset         xsetmode     xsetpointer  xsetroot     xsetwacom    xsltproc     xstdcmap     xsync        
+[atguigu@hadoop102 module]$ xsync  phoenix-hbase-2.4-5.1.2/
+==================== hadoop102 ====================
+sending incremental file list
+
+sent 743 bytes  received 21 bytes  1,528.00 bytes/sec
+total size is 234,580,789  speedup is 307,042.92
+==================== hadoop103 ====================
+sending incremental file list
+phoenix-hbase-2.4-5.1.2/
+phoenix-hbase-2.4-5.1.2/LICENSE
+phoenix-hbase-2.4-5.1.2/NOTICE
+phoenix-hbase-2.4-5.1.2/phoenix-client-hbase-2.4-5.1.2.jar
+phoenix-hbase-2.4-5.1.2/phoenix-pherf-5.1.2.jar
+phoenix-hbase-2.4-5.1.2/bin/
+phoenix-hbase-2.4-5.1.2/bin/daemon.py
+phoenix-hbase-2.4-5.1.2/bin/end2endTest.py
+phoenix-hbase-2.4-5.1.2/bin/hadoop-metrics2-hbase.properties
+phoenix-hbase-2.4-5.1.2/bin/hadoop-metrics2-phoenix.properties
+phoenix-hbase-2.4-5.1.2/bin/hbase-omid-client-config.yml
+phoenix-hbase-2.4-5.1.2/bin/hbase-site.xml
+phoenix-hbase-2.4-5.1.2/bin/log4j.properties
+phoenix-hbase-2.4-5.1.2/bin/performance.py
+phoenix-hbase-2.4-5.1.2/bin/pherf-standalone.py
+phoenix-hbase-2.4-5.1.2/bin/phoenix_utils.py
+phoenix-hbase-2.4-5.1.2/bin/psql.py
+phoenix-hbase-2.4-5.1.2/bin/readme.txt
+phoenix-hbase-2.4-5.1.2/bin/sqlline.py
+phoenix-hbase-2.4-5.1.2/bin/traceserver.py
+phoenix-hbase-2.4-5.1.2/bin/argparse-1.4.0/
+phoenix-hbase-2.4-5.1.2/bin/argparse-1.4.0/argparse.py
+phoenix-hbase-2.4-5.1.2/docs/
+phoenix-hbase-2.4-5.1.2/docs/phoenix.csv
+phoenix-hbase-2.4-5.1.2/examples/
+phoenix-hbase-2.4-5.1.2/examples/STOCK_SYMBOL.csv
+phoenix-hbase-2.4-5.1.2/examples/STOCK_SYMBOL.sql
+phoenix-hbase-2.4-5.1.2/examples/WEB_STAT.csv
+phoenix-hbase-2.4-5.1.2/examples/WEB_STAT.sql
+phoenix-hbase-2.4-5.1.2/examples/WEB_STAT_QUERIES.sql
+
+sent 167,413,364 bytes  received 527 bytes  7,440,617.38 bytes/sec
+total size is 234,580,789  speedup is 1.40
+==================== hadoop104 ====================
+sending incremental file list
+phoenix-hbase-2.4-5.1.2/
+phoenix-hbase-2.4-5.1.2/LICENSE
+phoenix-hbase-2.4-5.1.2/NOTICE
+phoenix-hbase-2.4-5.1.2/phoenix-client-hbase-2.4-5.1.2.jar
+phoenix-hbase-2.4-5.1.2/phoenix-pherf-5.1.2.jar
+phoenix-hbase-2.4-5.1.2/bin/
+phoenix-hbase-2.4-5.1.2/bin/daemon.py
+phoenix-hbase-2.4-5.1.2/bin/end2endTest.py
+phoenix-hbase-2.4-5.1.2/bin/hadoop-metrics2-hbase.properties
+phoenix-hbase-2.4-5.1.2/bin/hadoop-metrics2-phoenix.properties
+phoenix-hbase-2.4-5.1.2/bin/hbase-omid-client-config.yml
+phoenix-hbase-2.4-5.1.2/bin/hbase-site.xml
+phoenix-hbase-2.4-5.1.2/bin/log4j.properties
+phoenix-hbase-2.4-5.1.2/bin/performance.py
+phoenix-hbase-2.4-5.1.2/bin/pherf-standalone.py
+phoenix-hbase-2.4-5.1.2/bin/phoenix_utils.py
+phoenix-hbase-2.4-5.1.2/bin/psql.py
+phoenix-hbase-2.4-5.1.2/bin/readme.txt
+phoenix-hbase-2.4-5.1.2/bin/sqlline.py
+phoenix-hbase-2.4-5.1.2/bin/traceserver.py
+phoenix-hbase-2.4-5.1.2/bin/argparse-1.4.0/
+phoenix-hbase-2.4-5.1.2/bin/argparse-1.4.0/argparse.py
+phoenix-hbase-2.4-5.1.2/docs/
+phoenix-hbase-2.4-5.1.2/docs/phoenix.csv
+phoenix-hbase-2.4-5.1.2/examples/
+phoenix-hbase-2.4-5.1.2/examples/STOCK_SYMBOL.csv
+phoenix-hbase-2.4-5.1.2/examples/STOCK_SYMBOL.sql
+phoenix-hbase-2.4-5.1.2/examples/WEB_STAT.csv
+phoenix-hbase-2.4-5.1.2/examples/WEB_STAT.sql
+phoenix-hbase-2.4-5.1.2/examples/WEB_STAT_QUERIES.sql
+
+sent 167,413,364 bytes  received 527 bytes  22,321,852.13 bytes/sec
+total size is 234,580,789  speedup is 1.40
+[atguigu@hadoop102 module]$ cd hbase-2.4.11/
+[atguigu@hadoop102 hbase-2.4.11]$ xsync 
+bin/             CHANGES.md       conf/            docs/            hbase-webapps/   LEGAL            lib/             LICENSE.txt      logs/            NOTICE.txt       README.txt       RELEASENOTES.md  tmp/             
+[atguigu@hadoop102 hbase-2.4.11]$ xsync 
+bin/             CHANGES.md       conf/            docs/            hbase-webapps/   LEGAL            lib/             LICENSE.txt      logs/            NOTICE.txt       README.txt       RELEASENOTES.md  tmp/             
+[atguigu@hadoop102 hbase-2.4.11]$ xsync bin
+==================== hadoop102 ====================
+sending incremental file list
+
+sent 720 bytes  received 19 bytes  1,478.00 bytes/sec
+total size is 136,691  speedup is 184.97
+==================== hadoop103 ====================
+sending incremental file list
+
+sent 720 bytes  received 19 bytes  492.67 bytes/sec
+total size is 136,691  speedup is 184.97
+==================== hadoop104 ====================
+sending incremental file list
+
+sent 716 bytes  received 19 bytes  1,470.00 bytes/sec
+total size is 136,691  speedup is 185.97
+[atguigu@hadoop102 hbase-2.4.11]$ cd ..
+[atguigu@hadoop102 module]$ cd /etc/profile.d/
+[atguigu@hadoop102 profile.d]$ xs
+xset         xsetmode     xsetpointer  xsetroot     xsetwacom    xsltproc     xstdcmap     xsync        
+[atguigu@hadoop102 profile.d]$ xs
+xset         xsetmode     xsetpointer  xsetroot     xsetwacom    xsltproc     xstdcmap     xsync        
+[atguigu@hadoop102 profile.d]$ xsync  my_env.sh 
+==================== hadoop102 ====================
+sending incremental file list
+
+sent 48 bytes  received 12 bytes  120.00 bytes/sec
+total size is 792  speedup is 13.20
+==================== hadoop103 ====================
+sending incremental file list
+my_env.sh
+rsync: mkstemp "/etc/profile.d/.my_env.sh.4hjUhJ" failed: Permission denied (13)
+
+sent 887 bytes  received 126 bytes  2,026.00 bytes/sec
+total size is 792  speedup is 0.78
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1179) [sender=3.1.2]
+==================== hadoop104 ====================
+sending incremental file list
+my_env.sh
+rsync: mkstemp "/etc/profile.d/.my_env.sh.P0Ys8h" failed: Permission denied (13)
+
+sent 887 bytes  received 126 bytes  675.33 bytes/sec
+total size is 792  speedup is 0.78
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1179) [sender=3.1.2]
+[atguigu@hadoop102 profile.d]$ cd
+[atguigu@hadoop102 ~]$ stop-hbase.sh
+bash: stop-hbase.sh: 未找到命令...
+[atguigu@hadoop102 ~]$ cd /opt/module/
+[atguigu@hadoop102 module]$ cd hbase-2.4.11/
+[atguigu@hadoop102 hbase-2.4.11]$ bin/s
+shutdown_regionserver.rb  start-hbase.sh            stop-hbase.sh             
+[atguigu@hadoop102 hbase-2.4.11]$ bin/s
+shutdown_regionserver.rb  start-hbase.sh            stop-hbase.sh             
+[atguigu@hadoop102 hbase-2.4.11]$ bin/stop-hbase.sh 
+no hbase master found
+^C
+[atguigu@hadoop102 hbase-2.4.11]$ bin/stop-hbase.sh 
+no hbase master found
+^[[A^C
+[atguigu@hadoop102 hbase-2.4.11]$ bin/start-hbase.sh-hbase.sh 
+-bash: bin/start-hbase.sh-hbase.sh: 没有那个文件或目录
+[atguigu@hadoop102 hbase-2.4.11]$ bin/start-hbase.sh
+running master, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-master-hadoop102.out
+hadoop104: running regionserver, logging to /opt/module/hbase-2.4.11/bin/../logs/hbase-atguigu-regionserver-hadoop104.out
+hadoop103: running regionserver, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-regionserver-hadoop103.out
+localhost: running regionserver, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-regionserver-hadoop102.out
+hadoop102: running regionserver, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-regionserver-hadoop102.out
+hadoop103: running master, logging to /opt/module/hbase-2.4.11/logs/hbase-atguigu-master-hadoop103.out
+[atguigu@hadoop102 hbase-2.4.11]$ /opt/module/phoenix-hbase-2.4-5.1.2/bin/sqlline.py hadoop102,hadoop103,hadoop104:2181
+Setting property: [incremental, false]
+Setting property: [isolation, TRANSACTION_READ_COMMITTED]
+issuing: !connect -p driver org.apache.phoenix.jdbc.PhoenixDriver -p user "none" -p password "none" "jdbc:phoenix:hadoop102,hadoop103,hadoop104:2181"
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/opt/module/phoenix-hbase-2.4-5.1.2/phoenix-client-hbase-2.4-5.1.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/module/hadoop-3.1.3/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Connecting to jdbc:phoenix:hadoop102,hadoop103,hadoop104:2181
+23/05/05 15:17:44 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+23/05/05 15:17:48 WARN zookeeper.ReadOnlyZKClient: 0x189aa67a to hadoop102:2181,hadoop103:2181,hadoop104:2181 failed for get of /hbase/hbaseid, code = CONNECTIONLOSS, retries = 1
+Error: ERROR 1108 (XCL08): Cache of region boundaries are out of date. (state=XCL08,code=1108)
+org.apache.phoenix.schema.StaleRegionBoundaryCacheException: ERROR 1108 (XCL08): Cache of region boundaries are out of date.
+	at org.apache.phoenix.exception.SQLExceptionCode$15.newException(SQLExceptionCode.java:406)
+	at org.apache.phoenix.exception.SQLExceptionInfo.buildException(SQLExceptionInfo.java:217)
+	at org.apache.phoenix.util.ServerUtil.parseRemoteException(ServerUtil.java:183)
+	at org.apache.phoenix.util.ServerUtil.parseServerExceptionOrNull(ServerUtil.java:163)
+	at org.apache.phoenix.util.ServerUtil.parseServerException(ServerUtil.java:134)
+	at org.apache.phoenix.query.ConnectionQueryServicesImpl.ensureTableCreated(ConnectionQueryServicesImpl.java:1519)
+	at org.apache.phoenix.query.ConnectionQueryServicesImpl.createTable(ConnectionQueryServicesImpl.java:1913)
+	at org.apache.phoenix.schema.MetaDataClient.createTableInternal(MetaDataClient.java:3074)
+	at org.apache.phoenix.schema.MetaDataClient.createTable(MetaDataClient.java:1105)
+	at org.apache.phoenix.compile.CreateTableCompiler$CreateTableMutationPlan.execute(CreateTableCompiler.java:420)
+	at org.apache.phoenix.jdbc.PhoenixStatement$2.call(PhoenixStatement.java:441)
+	at org.apache.phoenix.jdbc.PhoenixStatement$2.call(PhoenixStatement.java:423)
+	at org.apache.phoenix.call.CallRunner.run(CallRunner.java:53)
+	at org.apache.phoenix.jdbc.PhoenixStatement.executeMutation(PhoenixStatement.java:422)
+	at org.apache.phoenix.jdbc.PhoenixStatement.executeMutation(PhoenixStatement.java:410)
+	at org.apache.phoenix.jdbc.PhoenixStatement.executeUpdate(PhoenixStatement.java:1967)
+	at org.apache.phoenix.query.ConnectionQueryServicesImpl$12.call(ConnectionQueryServicesImpl.java:3267)
+	at org.apache.phoenix.query.ConnectionQueryServicesImpl$12.call(ConnectionQueryServicesImpl.java:3230)
+	at org.apache.phoenix.util.PhoenixContextExecutor.call(PhoenixContextExecutor.java:76)
+	at org.apache.phoenix.query.ConnectionQueryServicesImpl.init(ConnectionQueryServicesImpl.java:3230)
+	at org.apache.phoenix.jdbc.PhoenixDriver.getConnectionQueryServices(PhoenixDriver.java:255)
+	at org.apache.phoenix.jdbc.PhoenixEmbeddedDriver.createConnection(PhoenixEmbeddedDriver.java:144)
+	at org.apache.phoenix.jdbc.PhoenixDriver.connect(PhoenixDriver.java:221)
+	at sqlline.DatabaseConnection.connect(DatabaseConnection.java:135)
+	at sqlline.DatabaseConnection.getConnection(DatabaseConnection.java:192)
+	at sqlline.Commands.connect(Commands.java:1364)
+	at sqlline.Commands.connect(Commands.java:1244)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sqlline.ReflectiveCommandHandler.execute(ReflectiveCommandHandler.java:38)
+	at sqlline.SqlLine.dispatch(SqlLine.java:730)
+	at sqlline.SqlLine.initArgs(SqlLine.java:410)
+	at sqlline.SqlLine.begin(SqlLine.java:515)
+	at sqlline.SqlLine.start(SqlLine.java:267)
+	at sqlline.SqlLine.main(SqlLine.java:206)
+sqlline version 1.9.0
+sqlline> 
+Command canceled.
+sqlline> quit
+semicolon> quit;
+No current connection
+sqlline> exit;
+No current connection
+sqlline> exit;
+No current connection
+sqlline> quit;
+No current connection
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> exit;
+No current connection
+sqlline> exit
+semicolon> exit
+semicolon> quit
+semicolon> ;
+No current connection
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> help
+semicolon> !help
+semicolon> !quit
+semicolon> !quit
+semicolon> !exit;
+No current connection
+sqlline> !quit;
+Unknown command: quit;
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+Command canceled.
+sqlline> 
+
