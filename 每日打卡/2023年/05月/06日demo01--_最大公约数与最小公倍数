@@ -1,0 +1,33 @@
+package Dotcpp;
+
+import java.util.Scanner;
+
+public class 题目1011__最大公约数与最小公倍数 {
+	/*
+	 最小公倍数，不用管
+	 因为→
+	 m*n = 其（最小公倍数*最大公约数）
+	  */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in =new Scanner(System.in);
+		int m=in.nextInt();
+		int n=in.nextInt();
+		int Max_gys = gcd(m,n);
+		//然后另外就是要知道：
+		//          m*n=最大公约数*最小公倍数
+		int Min_gbs = m*n/Max_gys;
+		System.out.println(Max_gys+" "+Min_gbs);
+	}
+
+	//m和n不必要比较大小
+	//下面这段代码最好记下来
+	private static int gcd(int m,int n) {   //这里采用的是辗转相除法
+		if(n==0){
+			return m;
+		}
+		return gcd(n,m%n);
+	}
+
+}
+
