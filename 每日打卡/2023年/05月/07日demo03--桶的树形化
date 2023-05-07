@@ -1,0 +1,28 @@
+1 final void treeifyBin(Node<K,V>[] tab, int hash) {
+2 		int n, index; Node<K,V> e;
+3 		//如果当前哈希表为空，或者哈希表中元素的个数小于 进行树形化的阈值(默认为 64)，就去新建/扩容
+4 		if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY)
+5 				resize();
+6 		else if ((e = tab[index = (n - 1) & hash]) != null) {
+7 			//如果哈希表中的元素个数超过了 树形化阈值，进行树形化
+8 			// e 是哈希表中指定位置桶里的链表节点，从第一个开始
+9 			TreeNode<K,V> hd = null, tl = null; //红黑树的头、尾节点
+10 			do {
+11				 //新建一个树形节点，内容和当前链表节点 e 一致
+12 			TreeNode<K,V> p = replacementTreeNode(e, null);
+13 			if (tl == null) //确定树头节点
+14 				hd = p;
+15 		else {
+16 			p.prev = tl;
+17 			tl.next = p;
+18 		}
+19 		tl = p;
+20 } while ((e = e.next) != null);
+21 //让桶的第一个元素指向新建的红黑树头结点，以后这个桶里的元素就是红黑树而不是链表了
+22 if ((tab[index] = hd) != null)
+23 		hd.treeify(tab);
+24 }
+25 }
+26 TreeNode<K,V> replacementTreeNode(Node<K,V> p, Node<K,V> next) {
+27 		return new TreeNode<>(p.hash, p.key, p.value, next);
+28 }
