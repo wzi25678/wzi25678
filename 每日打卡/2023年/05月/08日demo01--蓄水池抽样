@@ -1,0 +1,5 @@
+Init : a reservoir with the size： k
+for i= k+1 to N
+    if(random(1, i) < k) {
+        SWAP the Mth value and ith value
+    }
