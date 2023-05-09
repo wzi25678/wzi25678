@@ -1,0 +1,36 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+	TreeNode head = new TreeNode(-1);   //为了返回单向链表的头节点而多设的节点
+	TreeNode prev = null;   //指向当前节点的前一个节点
+
+	public TreeNode convertBiNode(TreeNode root) {
+		InOrder(root);
+		return head.right;
+	}
+
+	private void InOrder(TreeNode root) {
+		//进行中序遍历，可以实现 一个有序查找
+		if(root == null){
+            return;
+        }
+        InOrder(root.left); //左
+        //接下来对根进行判断
+        if(prev == null){
+            prev = root;
+            head.right = root;
+        }else{
+            prev.right = root;
+            prev = root;
+        }
+        root.left = null;
+        InOrder(root.right);//右
+	}
+}
