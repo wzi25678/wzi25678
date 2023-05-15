@@ -1,0 +1,16 @@
+# 定义一个KNN实例
+knn = KNN(n_neighbors=3)
+
+#训练模型
+knn.fit(x_train,y_train)
+#传入测试数据，做预测
+y_pred = knn.predict(x_test)
+
+print(y_test.ravel())
+print("---------------------------------------\n")
+print(y_pred.ravel())
+
+#求出预测准确率
+accuracy = accuracy_score(y_test,y_pred)
+
+print("预测准确率： ",accuracy)
