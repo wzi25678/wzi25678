@@ -1,0 +1,10 @@
+iris = load_iris()   #传入数据
+
+df = pd.DataFrame(data = iris.data,columns = iris.feature_names)
+df['class'] = iris.target
+df['class'] = df['class'].map({0:iris.target_names[0],1:iris.target_names[1],2:iris.target_names[2]})
+
+df.head(10)
+#df是查看具体的数据信息
+df.describe()#describe()则是显示每种数据的各种特征情况
+#iris #展示一下
