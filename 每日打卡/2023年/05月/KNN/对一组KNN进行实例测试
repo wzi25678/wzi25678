@@ -1,0 +1,33 @@
+# 定义一个knn实例
+knn = KNN()
+
+#训练模型
+knn.fit(x_train,y_train)
+
+#保存结果list
+result_list = []
+
+
+#针对不同的参数选取，做预测
+for p in [1,2]:
+    if(p==1):
+        knn.dist_func = Manhattan__distance
+    else:
+        knn.dist_func = Euclidean__distance
+        
+    #上面选完用什么距离进行计算之后，现在开始
+    #考虑不同的k取值，（本次测试）步长为2
+    for k in range(1,10,2):
+        knn.n_neighbors = k
+        
+        #传入测试数据，做预测
+        y_pred = knn.predict(x_test)
+        
+        #求出预测精确度
+        accuracy = accuracy_score(y_test,y_pred)
+        result_list.append([k,'Manhattan__distance'if p==1 else 'Euclidean__distance',
+                            accuracy]) 
+        
+df = pd.DataFrame(result_list,columns=['K',"距离函数","预测准确率"])
+df
+
