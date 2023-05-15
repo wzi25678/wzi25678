@@ -1,0 +1,8 @@
+# 距离函数的定义
+## 曼哈顿距离：
+def Manhattan__distance(a,b):
+    return np.sum(np.abs(a-b),axis=1)
+
+## 欧几里得距离：
+def Euclidean__distance(a,b):
+    return np.sqrt(np.sum((a-b) ** 2,axis=1))
