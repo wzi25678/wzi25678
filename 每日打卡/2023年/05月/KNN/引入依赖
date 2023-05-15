@@ -1,0 +1,9 @@
+import numpy as np
+import pandas as pd
+
+#这里直接引入sklearn里面的数据集，iris鸢尾花
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split   #切分数据集为训练接和测试集
+from sklearn.metrics import accuracy_score   #计算分类预测的准确率
+
+
