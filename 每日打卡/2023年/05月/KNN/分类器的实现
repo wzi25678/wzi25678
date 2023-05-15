@@ -1,0 +1,31 @@
+class KNN(object):
+    # 定义一个初始化方法，__init__是类的构造方法
+    def __init__(self,n_neighbors = 1,dist_func = Manhattan__distance):
+        self.n_neighbors = n_neighbors
+        self.dist_func = dist_func
+    
+    #训练模型方法：
+    def fit(self,x,y):
+        self.x_train = x
+        self.y_train = y
+        
+    #模型预测方法
+    def predict(self,x):
+        # 初始化预测分类数组
+        y_pred = np.zeros( (x.shape[0],1),dtype = self.y_train.dtype)  #变换类型。
+        
+        #遍历输入的x数据点，驱除每一个数据点的序号i和数据x_test
+        for i,x_test in enumerate(x):
+           #x_test跟所有训练数据计算距离
+           distances = self.dist_func(self.x_train,x_test)
+            
+           #得到的距离按照由近到远排序，取出索引值。
+           nn_index = np.argsort(distances)
+            
+           #选取最近的k个点，保存它们对应的分类类别
+           nn_y = self.y_train[ nn_index[:self.n_neighbors]].ravel()
+            
+           #统计类别中出现频率最高的那个，赋值给y_pred[i]
+           y_pred[i] = np.argmax(np.bincount(nn_y))
+            
+        return y_pred
