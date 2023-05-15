@@ -1,0 +1,4 @@
+x = iris.data
+y = iris.target.reshape(-1,1)
+print(x.shape,y.shape)
+
