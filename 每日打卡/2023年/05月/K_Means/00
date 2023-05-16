@@ -1,0 +1,7 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import sklearn
+
+#从sklearn中直接生成聚类数据
+from sklearn.datasets import make_blobs
+print('------------------------------------------------------------')
