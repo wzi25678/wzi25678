@@ -1,0 +1,23 @@
+package 蓝桥__真题__专题;
+
+import java.util.Scanner;
+import java.util.Vector;
+
+public class 题目3170_2023年省赛真题__反异或01串_02 {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		Vector<Character> s;
+		String str = scanner.next();
+		char arr[] = str.toCharArray();
+		int arr_length = arr.length;
+		char w;
+		int i =0;
+		while ((arr_length--)>0){
+			w = arr[i];
+
+
+
+		}
+	}
+}
