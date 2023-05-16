@@ -1,0 +1,26 @@
+package 蓝桥__真题__专题;
+
+import java.util.Scanner;
+
+public class 题目3170_2023年省赛真题__反异或01串_01 {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String str = scanner.nextLine();
+		int ans_0 = 0;
+		int ans_1 = 0;
+		for (int i=0;i<str.length();i++){
+			if (str.charAt(i)=='0'){
+				ans_0++;
+			}else {
+				ans_1++;
+			}
+		}
+		if (ans_0>ans_1){
+			System.out.println(ans_1);
+		}
+		System.out.println(ans_0);
+	}
+
+
+}
