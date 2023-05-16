@@ -1,0 +1,5 @@
+x,y = make_blobs(n_samples=100,centers=6,random_state=1234,cluster_std=0.6)
+
+plt.figure(figsize=(6,6))
+plt.scatter(x[:,0], x[:,1], c=y)
+plt.show()
