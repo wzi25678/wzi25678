@@ -1,0 +1,2 @@
+# 引入scipy中的距离函数，其中默认是欧氏距离。
+from scipy.spatial.distance import cdist
