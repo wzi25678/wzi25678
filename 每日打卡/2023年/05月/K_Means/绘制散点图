@@ -1,0 +1,19 @@
+kmeans = K_Means(max_iter=300,centroids=np.array([[2,1],[2,2],[2,3],[2,4],[2,5]]))
+#print(kmeans)    <__main__.K_Means object at 0x0000025CCA444AF0>
+
+plt.figure(figsize=(16,6)) #分配子图，例如：121表示第1行2列的子图中的第1个。
+plotOfKmeans(x,y,kmeans.centroids,121,'Initial State')
+
+#开始聚类
+kmeans.fit(x)
+
+plotOfKmeans(x,y,kmeans.centroids,122,'Final State')
+
+#预测新数据点的类别
+x_new = np.array([[0,0],[10,7]])
+y_pred = kmeans.predictResult(x_new)
+
+print(kmeans.centroids)
+print(y_pred)
+
+plt.scatter(x_new[:,0],x_new[:,1],s=100,c='black')
