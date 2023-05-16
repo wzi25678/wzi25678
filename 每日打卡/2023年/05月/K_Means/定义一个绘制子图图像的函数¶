@@ -1,0 +1,10 @@
+
+def plotOfKmeans(x,y,centroids,subplot,title):
+    #分配子图，例如：121表示第1行2列的子图中的第1个。
+    plt.subplot(subplot)
+    plt.scatter(x[:,0],x[:,1],c='r')
+    
+    #画出质心点
+    plt.scatter(centroids[:,0],centroids[:,1],c=np.array(range(5)),s=100)
+    plt.title(title)
+
