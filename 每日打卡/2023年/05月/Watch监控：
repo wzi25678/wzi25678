@@ -1,0 +1,17 @@
+127.0.0.1:6379> MULTI
+OK
+127.0.0.1:6379(TX)> set k1 abc
+QUEUED
+127.0.0.1:6379(TX)> get k1 
+QUEUED
+127.0.0.1:6379(TX)> set email 123@126.com
+QUEUED
+127.0.0.1:6379(TX)> INCR
+(error) ERR wrong number of arguments for 'incr' command
+127.0.0.1:6379(TX)> INCR email
+QUEUED
+127.0.0.1:6379(TX)> get count
+QUEUED
+127.0.0.1:6379(TX)> EXEC
+(error) EXECABORT Transaction discarded because of previous errors.
+
