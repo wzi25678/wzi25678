@@ -1,0 +1,8 @@
+def computeTF(wordDict,bow):
+    #用一个字典对象记录tf
+    tfDict = {}
+    nbowCount = len(bow)
+    
+    for word,count in wordDict.items():
+        tfDict[word ] = count / nbowCount
+    return tfDict
