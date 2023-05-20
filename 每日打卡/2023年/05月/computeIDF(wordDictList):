@@ -1,0 +1,17 @@
+def computeIDF(wordDictList):
+    #用一个字典对象保存IDF结果，每个词都作为key,初始值为0
+    idfDict = dict.fromkeys(wordDictList[0],0)
+    N = len(wordDictList)
+    
+    for worDict in wordDictList:
+        #遍历字典中的每个词汇
+        for word,count in worDict.items():
+            if count>0:
+                #先把Ni增加1，存入到idfDict里面
+                idfDict[word]+=1
+                
+    #已经得到所有词汇i对应的Ni，现在根据公式把它替换成为idf的值
+    for word,Ni in  idfDict.items():
+        idfDict[word] = math.log10((N+1)/(Ni+1))
+        
+    return idfDict
