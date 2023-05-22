@@ -1,0 +1,153 @@
+package 蓝桥__真题__专题;
+
+import java.io.*;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class 蓝桥杯2023年第十四届省赛真题__小蓝的旅行计划 {
+	private static int maxn = 200005,n,m,inf = (int)1e9;
+	private static long INF = (long)2e18,ans = 0,mod = (int)1e9+7;
+	private static int rest[] = new int [maxn<<2];
+	private static int k[] = new int [maxn<<2];
+	private static int dis[] = new int [maxn];
+	private static int lim[] = new int [maxn];
+	private static int cost[] = new int [maxn];
+	private static int vol = 0;
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static StreamTokenizer st = new StreamTokenizer(br);
+	static int nextInt() throws Exception {st.nextToken();return (int) st.nval;}
+	static long nextLong() throws Exception {st.nextToken();return (long) st.nval;}
+	static PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out));
+
+	public static void main(String[] args) throws Exception {
+		Scanner scanner = new Scanner(System.in);
+		int T = 1;
+		while (T -- > 0){   //进入开始执行函数体
+			n = nextInt();
+			m = nextInt();
+			vol = m;
+			PriorityQueue<gas> queue = new PriorityQueue<gas>();
+			for (int i=1;i<=n;i++){
+				dis[i] = nextInt();
+				cost[i] = nextInt();
+				lim[i] = nextInt();
+			}
+			BuildGas(1,1,n);
+			for (int i=1;i<=n;i++){
+				vol -=dis[i];
+				while (vol < 0){
+					if (queue.isEmpty()){   //如果不能完成
+						pw.println(-1);
+						return;
+					}
+					gas cur_gas = queue.poll();
+					int cnt = Math.min(m-query(i,1,n,cur_gas.id_gas,i-1),lim[cur_gas.id_gas]);
+					if (cnt<=0){
+						continue;
+					}
+					if (cnt <= -vol){
+						ans+=cur_gas.cost_gas *cnt;
+						vol += cnt;
+						lim[cur_gas.id_gas] = 0;
+						AddGas(1,1,n,cur_gas.id_gas,i-1,cnt);
+					}
+					else {
+						ans += cur_gas.cost_gas * (-vol);
+						lim[cur_gas.id_gas] = cnt+vol;
+						AddGas(1,1,n,cur_gas.id_gas,i-1,-vol);
+						queue.add(new gas((long) cur_gas.id_gas, (int) cur_gas.cost_gas));
+						vol = 0;
+					}
+				}//while (vol < 0)
+				if (vol>0){
+					AddGas(1,1,n,i,i,vol);
+					lim[i] = Math.min(lim[i],m-vol);
+					queue.add(new gas(i,cost[i]));
+				}
+				pw.println(ans);
+			}//for (int i=1;i<=n;i++)
+		}//while (T -- > 0){   //进入开始执行函数体
+		pw.flush();
+	}//public static void main(String[] args)
+
+	private static void AddGas(int i, int left, int right, int id_left, int id_right, int volumn) {
+		if (id_left <=1 && right <= id_right){
+			rest[i]+=volumn;
+			k[i]+=volumn;
+			return;
+		}
+		rotate(i);
+		int mid = left + (right-left)/2;
+		if (mid >= id_left){
+			AddGas(i<<1,left,mid,id_left,id_right,volumn);
+			//res = Math.max(res,query(i<<1,left,mid,id_left,id_right));
+		}
+		if (mid < id_right){
+			AddGas(i<<1|1,mid+1,right,id_left,id_right,volumn);
+			//res = Math.max(res,query(i<<1|1,mid+1,right,id_left,id_right));
+
+		}
+		UpGas(i);
+	}//private static void AddGas(int i, int left, int right, int id_left, int id_right, int volumn)
+
+	private static int query(int i, int left, int right, int id_left, int id_right) {
+		if (id_left <= left && right <= id_right){  //保住了，则直接返回即可。
+			return rest[i];
+		}
+		rotate(i);
+		int res = 0;
+		int mid = left + (right-left)/2;
+		if (mid >= id_left){
+			res = Math.max(res,query(i<<1,left,mid,id_left,id_right));
+		}
+		if (mid < id_right){
+			res = Math.max(res,query(i<<1|1,mid+1,right,id_left,id_right));
+
+		}
+		UpGas(i);
+		return res;
+	}//private static int query(int i, int left, int right, int id_left, int id_right) {
+
+	private static void rotate(int i) {
+		if (k[i] != 0){
+			k[i<<1] += k[i];
+			k[i<<1 |1] +=k[i];
+			rest[i<<1] +=k[i];
+			rest[i<<1|1] +=k[i];
+			k[i] =0;
+		}
+	}//private static void rotate(int i)
+
+	private static void BuildGas(int i, int l, int r) {
+		if (l == r){
+			rest[i] = 0;    //到达时油量
+			return;
+		}
+		int mid = l+(r-l)/2;
+		BuildGas(i<<1,l,mid);
+		BuildGas(i<<1|1,mid+1,r);
+		UpGas(i);
+
+	}//private static void BuildGas(int i, int l, int r)
+
+	private static void UpGas(int i) {
+		rest[i] = Math.max(rest[i<<1],rest[i<<1|1] );
+	}//private static void UpGas(int i)
+
+	private static class gas implements Comparable<gas>{
+		//汽油要记录是哪家店加的油，然后加油花费
+		long cost_gas;
+		int id_gas;
+
+		public gas(long cost_gas, int id_gas) {
+			this.cost_gas = cost_gas;
+			this.id_gas = id_gas;
+		}
+
+		@Override
+		public int compareTo(gas o) {
+			return this.cost_gas - o.cost_gas >0 ?1:-1;
+		}
+	}//private static class gas implements Comparable<gas>
+
+}//public class 蓝桥杯2023年第十四届省赛真题__小蓝的旅行计划
