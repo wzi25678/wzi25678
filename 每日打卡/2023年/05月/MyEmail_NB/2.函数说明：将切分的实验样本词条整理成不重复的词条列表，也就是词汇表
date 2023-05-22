@@ -1,1 +1,15 @@
 
+'''
+Parameters:
+    dataSet -- 整理的样本数据集
+
+Returns:
+    vocabSet -- 返回不重复的词条列表，也就词汇表
+'''
+
+def  createVocabList(dataSet):
+    vocabSet = set([])     #创建一个空的不重复列表
+    for document in dataSet:
+        vocabSet = vocabSet | set(document)     #取并集
+        
+    return list(vocabSet)
