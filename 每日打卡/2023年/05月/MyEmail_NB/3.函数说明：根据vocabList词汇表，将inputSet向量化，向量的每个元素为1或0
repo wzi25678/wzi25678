@@ -1,0 +1,19 @@
+'''
+Parameters:
+    vocabSet -- createVocabList返回的列表
+    inputSet -- 切分的词条列表
+    
+Returns:
+    returnVec -- 文档向量，词集模型
+'''
+
+def setOfWords2Vec(vocabList,inputSet):
+    returnVec = [0] * len(vocabList) #创建一个其中所含元素都为0的向量
+    for word in inputSet:
+        #遍历每个词条
+        if word in vocabList:
+            #如果词条存在于词汇表中，则置1
+            returnVec[vocabList.index(word)] = 1
+        else:
+            print("the word: %s is not in my Vocabulary!" %word)
+    return returnVec
