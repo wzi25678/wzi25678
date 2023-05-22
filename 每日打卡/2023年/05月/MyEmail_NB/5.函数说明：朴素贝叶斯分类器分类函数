@@ -1,0 +1,20 @@
+'''
+Parameters:
+    vec2Classify - 待分类的词条数组
+    p0Vec -正常邮件类的条件概率数组
+    p1Vec - 垃圾邮件类的条件概率数组
+    pClass1 - 文档属于垃圾邮件的概率
+    
+Returns:
+    0 - 属于正常邮件类
+    1 - 属于垃圾邮件类
+'''
+def classifyNB(vec2Classify,p0Vec,p1Vec,pClass1):
+    #p1 = reduce(lambda x,y  : x * y,vec2Classify * p1Vec) * pClass1  # 对应元素相乘
+    #p0 = reduce(lambda x,y  : x * y,vec2Classify * p0Vec) * (1.0 - pClass1)
+    p1=sum(vec2Classify*p1Vec)+np.log(pClass1)
+    p0=sum(vec2Classify*p0Vec)+np.log(1.0-pClass1)
+    if p1 > p0:
+        return 1
+    else:
+        return 0
