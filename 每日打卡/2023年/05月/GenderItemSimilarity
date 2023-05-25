@@ -1,0 +1,62 @@
+package Mahout实战.第05章;
+
+import org.apache.mahout.cf.taste.common.Refreshable;
+import org.apache.mahout.cf.taste.common.TasteException;
+import org.apache.mahout.cf.taste.impl.common.FastIDSet;
+import org.apache.mahout.cf.taste.similarity.ItemSimilarity;
+
+import java.util.Collection;
+
+public class GenderItemSimilarity implements ItemSimilarity {
+	private final FastIDSet men;
+	private final FastIDSet women;
+
+	public GenderItemSimilarity(FastIDSet men, FastIDSet women) {
+		this.men = men;
+		this.women = women;
+	}
+
+
+	@Override
+	public double itemSimilarity(long profileID1, long profileID2) {
+		Boolean profile1IsMan = isMan(profileID1);
+		if (profile1IsMan == null) {
+			return 0.0;
+		}
+		Boolean profile2IsMan = isMan(profileID2);
+		if (profile1IsMan == null) {
+			return 0.0;
+		}
+		return profile1IsMan.equals(profile2IsMan) ? 1.0 : -1.0;
+	}
+
+	/**
+	 * @param profileID1
+	 * @return
+	 */
+	private Boolean isMan(long profileID1) {
+		if (1 == 1) {       //肯定这里需要一个判定条件
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public double[] itemSimilarities(long itemID1, long[] itemID2s) {
+		double[] result = new double[itemID2s.length];
+		for (int i = 0; i < itemID2s.length; i++) {
+			result[i] = itemSimilarity(itemID1, itemID2s[i]);
+		}
+		return result;
+	}
+
+	@Override
+	public long[] allSimilarItemIDs(long l) throws TasteException {
+		return new long[0];
+	}
+
+	@Override
+	public void refresh(Collection<Refreshable> collection) {
+
+	}
+}
