@@ -1,0 +1,21 @@
+class Solution {
+    public int rob(int[] nums) {
+        	//排除掉极端情况
+		if (nums == null || nums.length ==0){
+			return 0;
+		}
+		if (nums.length==1){
+			return nums[0];
+		}
+		//接下来就是有多家的情况
+		int dp [] = new int[nums.length+1];
+		dp[0] = 0;
+		dp[1] = nums[0];
+		for (int i=2;i<= nums.length;i++){
+			//dp[i]的影响因素则是它的前两个元素，因为：
+			//                   前一个是因为选了这个就不能选前一个，前第二个则是因为，选了前第二个就不能选前一个，从而会间接干预当前元素的选择
+			dp[i] = Math.max(dp[i-1],nums[i-1]+dp[i-2]);
+		}
+		return dp[nums.length];
+    }
+}
