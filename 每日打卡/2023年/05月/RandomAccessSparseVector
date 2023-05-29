@@ -1,0 +1,266 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package org.apache.mahout.math;
+
+import it.unimi.dsi.fastutil.doubles.DoubleIterator;
+import it.unimi.dsi.fastutil.ints.Int2DoubleMap;
+import it.unimi.dsi.fastutil.ints.Int2DoubleOpenHashMap;
+import it.unimi.dsi.fastutil.objects.ObjectIterator;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class RandomAccessSparseVector extends AbstractVector {
+    private static final int INITIAL_CAPACITY = 11;
+    private Int2DoubleOpenHashMap values;
+
+    public RandomAccessSparseVector() {
+        super(0);
+    }
+
+    public RandomAccessSparseVector(int cardinality) {
+        this(cardinality, Math.min(cardinality, 11));
+    }
+
+    public RandomAccessSparseVector(int cardinality, int initialCapacity) {
+        super(cardinality);
+        this.values = new Int2DoubleOpenHashMap(initialCapacity, 0.5F);
+    }
+
+    public RandomAccessSparseVector(Vector other) {
+        this(other.size(), other.getNumNondefaultElements());
+        Iterator var2 = other.nonZeroes().iterator();
+
+        while(var2.hasNext()) {
+            Vector.Element e = (Vector.Element)var2.next();
+            this.values.put(e.index(), e.get());
+        }
+
+    }
+
+    private RandomAccessSparseVector(int cardinality, Int2DoubleOpenHashMap values) {
+        super(cardinality);
+        this.values = values;
+    }
+
+    public RandomAccessSparseVector(RandomAccessSparseVector other, boolean shallowCopy) {
+        super(other.size());
+        this.values = shallowCopy ? other.values : other.values.clone();
+    }
+
+    protected Matrix matrixLike(int rows, int columns) {
+        return new SparseMatrix(rows, columns);
+    }
+
+    public RandomAccessSparseVector clone() {
+        return new RandomAccessSparseVector(this.size(), this.values.clone());
+    }
+
+    public String toString() {
+        return this.sparseVectorToString();
+    }
+
+    public Vector assign(Vector other) {
+        if (this.size() != other.size()) {
+            throw new CardinalityException(this.size(), other.size());
+        } else {
+            this.values.clear();
+            Iterator var2 = other.nonZeroes().iterator();
+
+            while(var2.hasNext()) {
+                Vector.Element e = (Vector.Element)var2.next();
+                this.setQuick(e.index(), e.get());
+            }
+
+            return this;
+        }
+    }
+
+    public void mergeUpdates(OrderedIntDoubleMapping updates) {
+        for(int i = 0; i < updates.getNumMappings(); ++i) {
+            this.values.put(updates.getIndices()[i], updates.getValues()[i]);
+        }
+
+    }
+
+    public boolean isDense() {
+        return false;
+    }
+
+    public boolean isSequentialAccess() {
+        return false;
+    }
+
+    public double getQuick(int index) {
+        return this.values.get(index);
+    }
+
+    public void setQuick(int index, double value) {
+        this.invalidateCachedLength();
+        if (value == 0.0) {
+            this.values.remove(index);
+        } else {
+            this.values.put(index, value);
+        }
+
+    }
+
+    public void incrementQuick(int index, double increment) {
+        this.invalidateCachedLength();
+        this.values.addTo(index, increment);
+    }
+
+    public RandomAccessSparseVector like() {
+        return new RandomAccessSparseVector(this.size(), this.values.size());
+    }
+
+    public Vector like(int cardinality) {
+        return new RandomAccessSparseVector(cardinality, this.values.size());
+    }
+
+    public int getNumNondefaultElements() {
+        return this.values.size();
+    }
+
+    public int getNumNonZeroElements() {
+        DoubleIterator iterator = this.values.values().iterator();
+        int numNonZeros = 0;
+        int i = this.values.size();
+
+        while(i-- != 0) {
+            if (iterator.nextDouble() != 0.0) {
+                ++numNonZeros;
+            }
+        }
+
+        return numNonZeros;
+    }
+
+    public double getLookupCost() {
+        return 1.0;
+    }
+
+    public double getIteratorAdvanceCost() {
+        return 1.35;
+    }
+
+    public boolean isAddConstantTime() {
+        return true;
+    }
+
+    public Iterator<Vector.Element> iterateNonZero() {
+        return new NonZeroIterator();
+    }
+
+    public Iterator<Vector.Element> iterator() {
+        return new AllIterator();
+    }
+
+    private final class AllIterator implements Iterator<Vector.Element> {
+        private final GeneralElement element;
+
+        private AllIterator() {
+            this.element = RandomAccessSparseVector.this.new GeneralElement();
+            this.element.index = -1;
+        }
+
+        public boolean hasNext() {
+            return this.element.index + 1 < RandomAccessSparseVector.this.size();
+        }
+
+        public Vector.Element next() {
+            if (!this.hasNext()) {
+                throw new NoSuchElementException();
+            } else {
+                this.element.value = RandomAccessSparseVector.this.values.get(++this.element.index);
+                return this.element;
+            }
+        }
+
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    final class GeneralElement implements Vector.Element {
+        int index;
+        double value;
+
+        GeneralElement() {
+        }
+
+        public double get() {
+            return this.value;
+        }
+
+        public int index() {
+            return this.index;
+        }
+
+        public void set(double value) {
+            RandomAccessSparseVector.this.invalidateCachedLength();
+            if (value == 0.0) {
+                RandomAccessSparseVector.this.values.remove(this.index);
+            } else {
+                RandomAccessSparseVector.this.values.put(this.index, value);
+            }
+
+        }
+    }
+
+    final class RandomAccessElement implements Vector.Element {
+        Int2DoubleMap.Entry entry;
+        final ObjectIterator<Int2DoubleMap.Entry> fastIterator;
+
+        public RandomAccessElement(ObjectIterator<Int2DoubleMap.Entry> fastIterator) {
+            this.fastIterator = fastIterator;
+        }
+
+        public double get() {
+            return this.entry.getDoubleValue();
+        }
+
+        public int index() {
+            return this.entry.getIntKey();
+        }
+
+        public void set(double value) {
+            RandomAccessSparseVector.this.invalidateCachedLength();
+            if (value == 0.0) {
+                this.fastIterator.remove();
+            } else {
+                this.entry.setValue(value);
+            }
+
+        }
+    }
+
+    private final class NonZeroIterator implements Iterator<Vector.Element> {
+        final ObjectIterator<Int2DoubleMap.Entry> fastIterator;
+        final RandomAccessElement element;
+
+        private NonZeroIterator() {
+            this.fastIterator = RandomAccessSparseVector.this.values.int2DoubleEntrySet().fastIterator();
+            this.element = RandomAccessSparseVector.this.new RandomAccessElement(this.fastIterator);
+        }
+
+        public boolean hasNext() {
+            return this.fastIterator.hasNext();
+        }
+
+        public Vector.Element next() {
+            if (!this.hasNext()) {
+                throw new NoSuchElementException();
+            } else {
+                this.element.entry = (Int2DoubleMap.Entry)this.fastIterator.next();
+                return this.element;
+            }
+        }
+
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+    }
+}
