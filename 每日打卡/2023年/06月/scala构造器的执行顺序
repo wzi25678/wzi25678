@@ -1,0 +1,62 @@
+package chapter06
+
+object Test05_Constructor {
+  def main(args: Array[String]): Unit = {
+    val student1 = new Student1
+    student1.Student1()
+    println("------------------------------------")
+    val student2 = new Student1("alice")
+
+    println("------------------------------------")
+    val student3 = new Student1("bob", 25)
+  }
+}
+
+// 定义一个类
+class Student1() {
+  // 定义属性
+  var name: String = _
+  var age: Int = _
+
+  println("1. 主构造方法被调用")
+
+  // 声明辅助构造方法
+  def this(name: String) {
+    this()    // 直接调用主构造器
+    println("2. 辅助构造方法一被调用")
+    this.name = name
+    println(s"name: $name   age: $age")
+  }
+
+  def this(name: String, age: Int){
+    this(name)
+    println("3. 辅助构造方法二被调用")
+    this.age = age
+    println(s"name: $name age: $age")
+  }
+
+  def Student1(): Unit = {
+    println("一般方法被调用")
+  }
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------------------
+对应结果：
+
+F:\wzideng\java\JDK\jdk1.8\bin\java.exe "-javaagent:C:\Java\IDEA\IntelliJ IDEA 2022.2.3\lib\idea_rt.jar=54850:C:\Java\IDEA\IntelliJ IDEA 2022.2.3\bin" -Dfile.encoding=UTF-8 -classpath F:\wzideng\java\JDK\jdk1.8\jre\lib\charsets.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\deploy.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\ext\access-bridge-64.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\ext\cldrdata.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\ext\dnsns.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\ext\jaccess.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\ext\jfxrt.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\ext\localedata.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\ext\nashorn.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\ext\sunec.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\ext\sunjce_provider.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\ext\sunmscapi.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\ext\sunpkcs11.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\ext\zipfs.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\javaws.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\jce.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\jfr.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\jfxswt.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\jsse.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\management-agent.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\plugin.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\resources.jar;F:\wzideng\java\JDK\jdk1.8\jre\lib\rt.jar;F:\wzideng\java\javaFile\Scala\target\classes;F:\wzideng\Scala\scala-2.12.11\lib\scala-library.jar;F:\wzideng\Scala\scala-2.12.11\lib\scala-parser-combinators_2.12-1.0.7.jar;F:\wzideng\Scala\scala-2.12.11\lib\scala-reflect.jar;F:\wzideng\Scala\scala-2.12.11\lib\scala-swing_2.12-2.0.3.jar;F:\wzideng\Scala\scala-2.12.11\lib\scala-xml_2.12-1.0.6.jar chapter06.Test05_Constructor
+1. 主构造方法被调用
+一般方法被调用
+------------------------------------
+1. 主构造方法被调用
+2. 辅助构造方法一被调用
+name: alice   age: 0
+------------------------------------
+1. 主构造方法被调用
+2. 辅助构造方法一被调用
+name: bob   age: 0
+3. 辅助构造方法二被调用
+name: bob age: 25
+
+Process finished with exit code 0
+
