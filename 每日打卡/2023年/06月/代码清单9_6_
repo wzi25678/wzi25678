@@ -1,0 +1,43 @@
+package Mahout实战_Book.第09章;
+
+import org.apache.lucene.benchmark.byTask.programmatic.Sample;
+import org.apache.mahout.clustering.fuzzykmeans.FuzzyKMeansClusterer;
+import org.apache.mahout.clustering.fuzzykmeans.SoftCluster;
+import org.apache.mahout.common.RandomUtils;
+import org.apache.mahout.common.distance.EuclideanDistanceMeasure;
+import org.apache.mahout.math.random.RandomProjector;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+public class 代码清单9_6_ {
+	public static void main(String[] args) {
+
+	}
+
+	public static void FuzzyKMeansExample(){
+		List<Vector> sampleData = new ArrayList<Vector>();
+		//new Sample(sampleData,400,1,1,3);
+		//generateSamples(sampleData,400,1,1,2);
+		//generateSamples(sampleData,300,1,0,0.5);
+		//generateSamples(sampleData,300,0,2,0.1);
+		int k = 3;
+		//List<Vector> randomPoints = RandomUtils
+		List<SoftCluster> clusters = new ArrayList<SoftCluster>();
+		int clusterId = 0;
+
+		for (Vector v : sampleData.toArray(new Vector[0])){
+			clusters.add(new SoftCluster((org.apache.mahout.math.Vector) v,clusterId++,new EuclideanDistanceMeasure()));
+		}
+		//List<List<SoftCluster>> finalClusters = FuzzyKMeansClusterer.clusterPoints(sampleData,clusters,new EuclideanDistanceMeasure(),0.01,3,10);
+		//运行FuzzyKMeansCluster
+//		for (SoftCluster cluster : finalCluster.get(finalCluster.size() -1 )){
+//			System.out.println(""+cluster.getId()+cluster.getCenter().asFormatString());
+//		}
+
+
+
+
+	}
+}
