@@ -1,0 +1,17 @@
+package Mahout实战_Book.第09章;
+
+import org.apache.lucene.benchmark.byTask.programmatic.Sample;
+import org.apache.lucene.search.similarities.LMDirichletSimilarity;
+import org.apache.mahout.math.DenseVector;
+import org.apache.mahout.math.VectorWritable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class 代码清单9_8_ {
+	//对服从正态分布的数据进行狄利克雷聚类
+	List<VectorWritable> sampleData = new ArrayList<VectorWritable>();
+	//Sample()
+
+	//LMDirichletSimilarity dirichletSimilarity = new LMDirichletSimilarity(new DenseVector(), sampleData.hashCode());
+}
