@@ -1,0 +1,24 @@
+package Mahout实战_Book.第10章;
+
+import org.apache.hadoop.io.SequenceFile;
+import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.analysis.standard.StandardTokenizer;
+import org.apache.lucene.util.Version;
+
+
+public class 代码清单10_4__MyAnaluzer  extends Analyzer {
+
+//	@Override
+//	protected TokenStreamComponents createComponents(String fieldName, SequenceFile.Reader reader) {
+//		TokenStream result = new StandardTokenizer(
+//				Version.LUCENE_CURRENT,reader
+//		);
+//		return result;
+//	}
+
+	@Override
+	protected TokenStreamComponents createComponents(String s) {
+		return null;
+	}
+}
