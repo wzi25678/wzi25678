@@ -1,0 +1,24 @@
+package chapter05
+
+object Test13_Lazy {
+  def main(args: Array[String]): Unit = {
+    lazy val result: Int = sum(13, 47)
+
+    println("1. 函数调用")
+    //真正用到时，才执行。
+    println("2. result = " + result)
+    println("4. result = " + result)
+  }
+
+  def sum(a: Int, b: Int): Int = {
+    println("3. sum调用")
+    a + b
+  }
+
+  /**
+   *  1. 函数调用
+   *  3. sum调用
+   *  2. result = 60
+   *  4. result = 60
+   */
+}
