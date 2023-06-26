@@ -1,0 +1,65 @@
+package Dotcpp;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class 题目3030全排列 {
+	/**
+	 *
+	 * @param args
+	 */
+	public static void main(String[] args) {
+//		Scanner scanner = new Scanner(System.in);
+//		String str = scanner.nextLine();
+		String str = "abc";
+		List<String> permutations = permute(str);
+		for (String permutation : permutations){
+			System.out.println(permutation);
+		}
+	}
+
+	/**
+	 *
+	 * @param str
+	 * @return
+	 */
+	public static List<String> permute(String str){
+		List<String> res = new ArrayList<>();
+		backTrack(str.toCharArray(),0,res);
+		return res;
+	}
+
+	/**
+	 *
+	 * @param chars
+	 * @param index
+	 * @param res
+	 */
+	private static void backTrack(char[] chars, int index, List<String> res) {
+		if (index == chars.length-1){
+			res.add(new String(chars));
+		}
+		//没达到规定长度，则说明还需要进行全排列
+		for (int i = index;i<chars.length;i++){    //每一次接收到的index都是不同的，它代表当前已经达到的长度
+			Myswap(chars,index,i); //当前的i与每一个index交换一下位置
+			backTrack(chars,index+1,res);
+			Myswap(chars,index,i); //再把位置交换回来
+		}
+	}
+
+	/**
+	 *
+	 * @param chars
+	 * @param i
+	 * @param j
+	 */
+	private static void Myswap(char[] chars, int i, int j) {
+		char temp = chars[i];
+		chars[i] = chars[j];
+		chars[j] = temp;
+	}
+
+
+}
