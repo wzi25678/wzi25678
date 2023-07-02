@@ -1,0 +1,13 @@
+package chapter08
+
+object TestMatchVal {
+  def main(args: Array[String]): Unit = {
+    println(describe(6))    //报错
+  }
+  def describe(x: Any) = x match {
+    case 5 => "Int five"
+    case "hello" => "String hello"
+    case true => "Boolean true"
+    case '+' => "Char +"
+  }
+}
