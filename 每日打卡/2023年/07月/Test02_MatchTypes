@@ -1,0 +1,139 @@
+package chapter08
+
+object Test02_MatchTypes {
+  def main(args: Array[String]): Unit = {
+    // 1. 匹配常量
+    def describeConst(x: Any): String = x match {
+      case 1 => "Int one"
+      case "hello" => "String hello"
+      case true => "Boolean true"
+      case '+' => "Char +"
+      case _ => ""
+    }
+
+    println(describeConst("hello"))
+    println(describeConst('+'))
+    println(describeConst(0.3))
+
+    println("==================================")
+
+    // 2. 匹配类型
+    def describeType(x: Any): String = x match {
+      case i: Int => "Int " + i
+      case s: String => "String " + s
+      case list: List[String] => "List " + list
+      case array: Array[Int] => "Array[Int] " + array.mkString(",")
+      case a => "Something else: " + a
+    }
+
+    println(describeType(35))
+    println(describeType("hello"))
+    println(describeType(List("hi", "hello")))
+    println(describeType(List(2, 23)))
+    println(describeType(Array("hi", "hello")))
+    println(describeType(Array(2, 23)))
+
+    // 3. 匹配数组
+    for (arr <- List(
+      Array(0),
+      Array(1, 0),
+      Array(0, 1, 0),
+      Array(1, 1, 0),
+      Array(2, 3, 7, 15),
+      Array("hello", 1, 30),
+    )) {
+      val result = arr match {
+        case Array(0) => "0"
+        case Array(1, 0) => "Array(1, 0)"
+        case Array(x, y) => "Array: " + x + ", " + y    // 匹配两元素数组
+        case Array(0, _*) => "以0开头的数组"
+        case Array(x, 1, z) => "中间为1的三元素数组"
+        case _ => "something else"
+      }
+
+      println(result)
+    }
+
+    println("=========================")
+
+    // 4. 匹配列表
+    // 方式一
+    for (list <- List(
+      List(0),
+      List(1, 0),
+      List(0, 0, 0),
+      List(1, 1, 0),
+      List(88),
+      List("hello")
+    ))
+    {
+      val result = list match {
+        case List(0) => "0"
+        case List(x, y) => "List(x, y): " + x + ", " + y
+        case List(0, _*) => "List(0, ...)"
+        case List(a) => "List(a): " + a
+        case _ => "something else"
+      }
+      println(result)
+    }
+
+    // 方式二
+    val list1 = List(1, 2, 5, 7, 24)
+    val list = List(24)
+
+    list match {
+      case first :: second :: rest => println(s"first: $first, second: $second, rest: $rest")
+      case _ => println("something else")
+      /*
+
+      在 Scala 中，`::` 是一个列表操作符，被称为 cons（构造）操作符。它用于将一个元素和另一个列表连接起来，生成一个新的列表。
+
+      在模式匹配中，`::` 操作符用于匹配非空列表的头部和尾部。它将列表分解为头部元素和尾部列表。
+
+      具体来说，模式匹配 `case first :: second :: rest => ...` 匹配一个至少包含两个元素的列表。它将列表的第一个元素绑定到变量 `first`，第二个元素绑定到变量 `second`，而剩余的元素绑定到变量 `rest`，作为一个列表。
+
+      在你提供的代码中，使用了这个模式匹配来提取列表中的元素，并使用字符串插值（string interpolation）来打印出这些元素的值。
+
+      例如，对于列表 `List(1, 2, 3)`，可以使用模式匹配来提取其中的元素，并打印出相应的值：
+
+      ```scala
+      val myList = List(1, 2, 3)
+      myList match {
+        case first :: second :: rest => println(s"first: $first, second: $second, rest: $rest")
+        case _ => println("列表不包含至少两个元素")
+      }
+      ```
+
+      输出结果将会是：
+
+      ```
+      first: 1, second: 2, rest: List(3)
+      ```
+
+      在这个例子中，`1` 被绑定到 `first`，`2` 被绑定到 `second`，而剩余的元素 `List(3)` 被绑定到 `rest`。通过字符串插值，我们将这些值以格式化的方式打印出来。
+
+       */
+    }
+
+
+    println("===========================")
+    // 5. 匹配元组
+    for (tuple <- List(
+      (0, 1),
+      (0, 0),
+      (0, 1, 0),
+      (0, 1, 1),
+      (1, 23, 56),
+      ("hello", true, 0.5)
+    )){
+      val result = tuple match {
+        case (a, b) => "" + a + ", " + b
+        case (0, _) => "(0, _)"
+        case (a, 1, _) => "(a, 1, _) " + a
+        case (x, y, z) => "(x, y, z) " + x + " " + y + " " + z
+        case _ => "something else"
+      }
+      println(result)
+    }
+  }
+}
