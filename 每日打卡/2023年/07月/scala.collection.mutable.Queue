@@ -1,0 +1,23 @@
+import scala.collection.mutable.Queue
+
+// 创建一个空队列
+val queue = Queue[Int]()
+
+// 添加元素到队列
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
+
+// 输出队列中的元素
+println(queue) // 输出: Queue(1, 2, 3)
+
+// 获取队列的第一个元素
+val firstElement = queue.front
+println(firstElement) // 输出: 1
+
+// 删除队列的第一个元素
+val removedElement = queue.dequeue()
+println(removedElement) // 输出: 1
+
+// 输出修改后的队列
+println(queue) // 输出: Queue(2, 3)
