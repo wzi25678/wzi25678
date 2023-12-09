@@ -1,0 +1,16 @@
+1411: 交换十位与个位上的数字
+https://12345code.com/problem.php?id=1411
+
+
+1432: 三个数的平均数和乘积
+https://12345code.com/problem.php?id=1432
+
+
+
+1103: 求月份的天数
+https://12345code.com/problem.php?id=1103
+
+
+
+1221: 分段函数
+https://12345code.com/problem.php?id=1221

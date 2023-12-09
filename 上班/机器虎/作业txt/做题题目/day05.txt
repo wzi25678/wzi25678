@@ -1,0 +1,24 @@
+1008: 求Sn=1!+2!+3!+4!+5!+…+n!
+https://12345code.com/problem.php?id=1008
+
+
+
+1113: 求整数n各个位上的数字之和
+https://12345code.com/problem.php?id=1113
+
+
+
+1120: 等差数列求和
+https://12345code.com/problem.php?id=1120
+
+
+
+
+1121: 等比数列求和
+https://12345code.com/problem.php?id=1121
+
+
+
+
+1418: 输出斐波拉契数列前50项
+https://12345code.com/problem.php?id=1418
